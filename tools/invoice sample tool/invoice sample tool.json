@@ -5,7 +5,7 @@
   "dataStoreSpec": {
     "dataStoreConnections": [ {
       "dataStoreType": "UNSTRUCTURED",
-      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/invoices-samples_1747233525103",
+      "dataStore": "projects/359370744377/locations/us/collections/default_collection/dataStores/invoices-samples_1747233525103",
       "documentProcessingMode": "DOCUMENTS",
       "engineType": "CHAT_ENGINE",
       "connectorConfig": {

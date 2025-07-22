@@ -4,7 +4,7 @@
   "dataStoreSpec": {
     "dataStoreConnections": [ {
       "dataStoreType": "PUBLIC_WEB",
-      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/brightspeed-portal-pages_1732048642444",
+      "dataStore": "projects/359370744377/locations/us/collections/default_collection/dataStores/brightspeed-portal-pages_1732048642444",
       "documentProcessingMode": "DOCUMENTS",
       "engineType": "CHAT_ENGINE",
       "connectorConfig": {
@@ -17,7 +17,7 @@
       "displayName": "Brightspeed-portal-pages"
     }, {
       "dataStoreType": "UNSTRUCTURED",
-      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/faq-4thbatch-1114_1731620976291",
+      "dataStore": "projects/359370744377/locations/us/collections/default_collection/dataStores/faq-4thbatch-1114_1731620976291",
       "documentProcessingMode": "DOCUMENTS",
       "engineType": "CHAT_ENGINE",
       "connectorConfig": {

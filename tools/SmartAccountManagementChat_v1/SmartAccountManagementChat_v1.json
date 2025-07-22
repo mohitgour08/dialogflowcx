@@ -5,7 +5,7 @@
   "dataStoreSpec": {
     "dataStoreConnections": [ {
       "dataStoreType": "UNSTRUCTURED",
-      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/account-management-chat-v2_1751544143233",
+      "dataStore": "projects/359370744377/locations/us/collections/default_collection/dataStores/account-management-chat-v2_1751544143233",
       "documentProcessingMode": "CHUNKS",
       "engineType": "CHAT_ENGINE",
       "connectorConfig": {

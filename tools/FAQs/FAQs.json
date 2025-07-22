@@ -5,7 +5,7 @@
   "dataStoreSpec": {
     "dataStoreConnections": [ {
       "dataStoreType": "PUBLIC_WEB",
-      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/brightspeedportalpages-multiregion-0227_1740681903563",
+      "dataStore": "projects/359370744377/locations/us/collections/default_collection/dataStores/brightspeedportalpages-multiregion-0227_1740681903563",
       "documentProcessingMode": "DOCUMENTS",
       "engineType": "CHAT_ENGINE",
       "connectorConfig": {
@@ -18,7 +18,7 @@
       "displayName": "Brightspeedportalpages_multiregion_0227"
     }, {
       "dataStoreType": "UNSTRUCTURED",
-      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/faq-4thbatch-04072025-account-management-test-vim_1747647346763",
+      "dataStore": "projects/359370744377/locations/us/collections/default_collection/dataStores/faq-4thbatch-04072025-account-management-test-vim_1747647346763",
       "documentProcessingMode": "DOCUMENTS",
       "engineType": "CHAT_ENGINE",
       "connectorConfig": {

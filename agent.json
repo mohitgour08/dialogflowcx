@@ -1,10 +1,10 @@
 {
-  "displayName": "test",
+  "displayName": "feature-2",
   "defaultLanguageCode": "en",
   "supportedLanguageCodes": [ "es", "en-us", "es-419", "es-us" ],
   "timeZone": "America/Los_Angeles",
   "enableLogging": true,
-  "projectNumber": 878868065760,
+  "projectNumber": 359370744377,
   "speechToTextSettings": {
     "enableSpeechAdaptation": true
   },
@@ -58,6 +58,7 @@
     
     }
   },
+  "dataResidencyOption": "DATA_RESIDENCY_IN_USE_COMPLIANT",
   "speakerIdSettings": {
   
   },
@@ -103,7 +104,7 @@
     } ]
   },
   "genAppBuilderSettings": {
-    "engine": "projects/878868065760/locations/us/collections/default_collection/engines/462ea01d-c9db-4e3a-bccc-df5969bb2865"
+    "engine": "projects/359370744377/locations/us/collections/default_collection/engines/8fc2f4c5-a04e-46a7-8e0f-d968b20764b6-chat-1753181142"
   },
   "duplexSettings": {
   
