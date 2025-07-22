@@ -5,20 +5,18 @@
   
   },
   "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "this is a test message" ]
+      },
+      "languageCode": "en"
+    } ],
     "webhook": "LineStatusAPI",
     "tag": "none",
     "setParameterActions": [ {
       "parameter": "Metrics_Troubleshooting_LineCheckAPI_none_wh_LineStatusAPI",
       "value": "$sys.func.TO_TEXT($sys.func.NOW())"
-    } ],
-    "advancedSettings": {
-      "playbackInterruptionSettings": {
-      
-      },
-      "dtmfSettings": {
-        "useSystemEntityRule": false
-      }
-    }
+    } ]
   },
   "transitionRoutes": [ {
     "condition": "$session.params.LineStatusResponse = \"Success\" OR $session.params.LineStatusResponse = \"SUCCESS\" OR $session.params.LineStatusResponse = \"success\"",
