@@ -33,7 +33,7 @@
         "value": "UserDisconnected"
       } ],
       "generators": [ {
-        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "generator": "projects/bs-prj-dev-ccai/locations/us/agents/8fc2f4c5-a04e-46a7-8e0f-d968b20764b6/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
         "outputParameter": "$request.generative.prompt"
       } ]
     },
@@ -79,7 +79,7 @@
         }
       },
       "generators": [ {
-        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "generator": "projects/bs-prj-dev-ccai/locations/us/agents/8fc2f4c5-a04e-46a7-8e0f-d968b20764b6/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
         "outputParameter": "$request.generative.prompt"
       } ]
     },
@@ -117,7 +117,7 @@
         "value": "UserDisconnected"
       } ],
       "generators": [ {
-        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "generator": "projects/bs-prj-dev-ccai/locations/us/agents/8fc2f4c5-a04e-46a7-8e0f-d968b20764b6/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
         "outputParameter": "$request.generative.prompt"
       } ]
     },
@@ -155,7 +155,7 @@
         "value": "UserDisconnected"
       } ],
       "generators": [ {
-        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "generator": "projects/bs-prj-dev-ccai/locations/us/agents/8fc2f4c5-a04e-46a7-8e0f-d968b20764b6/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
         "outputParameter": "$request.generative.prompt"
       } ]
     },
@@ -184,7 +184,7 @@
         "value": "$sys.func.TO_TEXT($sys.func.NOW())"
       } ],
       "generators": [ {
-        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "generator": "projects/bs-prj-dev-ccai/locations/us/agents/8fc2f4c5-a04e-46a7-8e0f-d968b20764b6/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
         "outputParameter": "$request.generative.prompt"
       } ]
     },
@@ -213,7 +213,7 @@
         "value": "ServiceManagement"
       } ],
       "generators": [ {
-        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "generator": "projects/bs-prj-dev-ccai/locations/us/agents/8fc2f4c5-a04e-46a7-8e0f-d968b20764b6/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
         "outputParameter": "$request.generative.prompt"
       } ]
     },
@@ -280,7 +280,7 @@
         "value": "SalesManagement"
       } ],
       "generators": [ {
-        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "generator": "projects/bs-prj-dev-ccai/locations/us/agents/8fc2f4c5-a04e-46a7-8e0f-d968b20764b6/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
         "outputParameter": "$request.generative.prompt"
       } ]
     },
@@ -309,7 +309,7 @@
         "value": "SalesManagement"
       } ],
       "generators": [ {
-        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "generator": "projects/bs-prj-dev-ccai/locations/us/agents/8fc2f4c5-a04e-46a7-8e0f-d968b20764b6/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
         "outputParameter": "$request.generative.prompt"
       } ]
     },
@@ -338,7 +338,7 @@
         "value": "SalesManagement"
       } ],
       "generators": [ {
-        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "generator": "projects/bs-prj-dev-ccai/locations/us/agents/8fc2f4c5-a04e-46a7-8e0f-d968b20764b6/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
         "outputParameter": "$request.generative.prompt"
       } ]
     },
@@ -370,7 +370,7 @@
         "value": "Sales"
       } ],
       "generators": [ {
-        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "generator": "projects/bs-prj-dev-ccai/locations/us/agents/8fc2f4c5-a04e-46a7-8e0f-d968b20764b6/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
         "outputParameter": "$request.generative.prompt"
       } ]
     },

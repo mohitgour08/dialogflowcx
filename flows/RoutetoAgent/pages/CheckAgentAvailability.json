@@ -6,7 +6,7 @@
   },
   "entryFulfillment": {
     "generators": [ {
-      "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/1d74047d-cf64-4fd4-97f6-0450ae0b3999",
+      "generator": "projects/bs-prj-dev-ccai/locations/us/agents/8fc2f4c5-a04e-46a7-8e0f-d968b20764b6/generators/1d74047d-cf64-4fd4-97f6-0450ae0b3999",
       "outputParameter": "$request.generative.text"
     } ]
   },

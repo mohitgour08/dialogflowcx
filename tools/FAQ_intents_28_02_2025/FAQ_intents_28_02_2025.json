@@ -5,7 +5,7 @@
   "dataStoreSpec": {
     "dataStoreConnections": [ {
       "dataStoreType": "STRUCTURED",
-      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/generalized-intents_1741705725577",
+      "dataStore": "projects/359370744377/locations/us/collections/default_collection/dataStores/generalized-intents_1741705725577",
       "documentProcessingMode": "DOCUMENTS",
       "engineType": "CHAT_ENGINE",
       "connectorConfig": {
