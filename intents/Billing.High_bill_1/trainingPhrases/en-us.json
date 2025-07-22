@@ -1,0 +1,288 @@
+{
+  "trainingPhrases": [ {
+    "id": "8e37bcc1-8cf2-4e92-81c9-a2780d62c9cf",
+    "parts": [ {
+      "text": "I have been billed extra for late cancellation",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e4cfb234-acc5-4079-922a-6a80680d8979",
+    "parts": [ {
+      "text": "I have a bill for "
+    }, {
+      "text": "$108",
+      "parameterId": "unit-currency"
+    }, {
+      "text": " but my plan with "
+    }, {
+      "text": "CenturyLink"
+    }, {
+      "text": " was "
+    }, {
+      "text": "$45",
+      "parameterId": "unit-currency"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d2d5cbab-a305-448e-9579-231eff384f7b",
+    "parts": [ {
+      "text": "I am still being the charged for the services that i cancelled",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b8125d3b-f96a-49b1-bcfc-bedcaa458b9d",
+    "parts": [ {
+      "text": " I haven't used the service in a few days, the "
+    }, {
+      "text": "$300",
+      "parameterId": "unit-currency"
+    }, {
+      "text": " charge I received this month seems incredibly high."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4f048b87-d6e0-40d2-91d7-69107021f900",
+    "parts": [ {
+      "text": "For ",
+      "auto": true
+    }, {
+      "text": "one"
+    }, {
+      "text": " of the services, I'm paying twice. ",
+      "auto": true
+    }, {
+      "text": "This month"
+    }, {
+      "text": ", I received a rather large bill.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "783097ad-633a-416c-8e60-e40d83b785a8",
+    "parts": [ {
+      "text": "One of the services has two charges applied to it. I received a bill that is exceedingly expensive."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "47101dc9-8a98-4bee-b3c4-1181b9e67830",
+    "parts": [ {
+      "text": "My bill is higher than usual ",
+      "auto": true
+    }, {
+      "text": "this month"
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2631f1f3-9fe9-4954-a70f-5cab26ae8b0e",
+    "parts": [ {
+      "text": "A larger than typical bill has been sent to me.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8e571115-7093-4b88-9ff7-64c091cf5295",
+    "parts": [ {
+      "text": "My bill is more than normal.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8b06eb49-d608-4554-90c0-6779d6ecfd6c",
+    "parts": [ {
+      "text": "I am receiving a higher bill than usual",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0059e2ba-abf2-45aa-8386-ed02da2e119b",
+    "parts": [ {
+      "text": "I paid my bill twice for my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ad249e0e-dbba-4d44-96bd-2d82b43344fd",
+    "parts": [ {
+      "text": "I want to make sure I am not getting double billed.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4be842c5-62ad-4d32-a551-02271d64d29b",
+    "parts": [ {
+      "text": "I've paid twice",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7bd67119-59e9-4fde-b37f-c1abb615965e",
+    "parts": [ {
+      "text": "I'm being charged twice",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9a069c5c-f043-4bcf-b68e-3e2463080d5c",
+    "parts": [ {
+      "text": "Why my bill is so high",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b053cf5f-eff5-454d-8b40-422b9104ecbf",
+    "parts": [ {
+      "text": "I feel Im overcharged",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "df0649d8-901a-4029-96ba-13545d5e5e1e",
+    "parts": [ {
+      "text": "Your service is now getting too expensive",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c7f65d10-6512-492e-a47d-c755170f9d0c",
+    "parts": [ {
+      "text": "I dont think my bill should be that much",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "18f91a9c-f793-4c12-b8f5-c13c6eded31a",
+    "parts": [ {
+      "text": "I think my bill is to high",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d00dc81d-1292-4467-a014-6eb2336da369",
+    "parts": [ {
+      "text": "Recently my bill doubled"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a85e24ed-cb52-4583-bd8d-8dc144c98e25",
+    "parts": [ {
+      "text": "my bill is wrong again. I can't be charged this much."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bea0d71d-a974-41b2-9d41-5a381167504a",
+    "parts": [ {
+      "text": "My bill has increased suddenly for "
+    }, {
+      "text": "this month",
+      "parameterId": "date-period"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "18e4e642-cbd1-4f3d-91a7-6edf89e6abd0",
+    "parts": [ {
+      "text": "I have received a high bill which i didn't expect"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d0e10c2e-1b37-4933-9dcf-809fbadf1af0",
+    "parts": [ {
+      "text": "my bill amout is huge",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fb0acfdd-ff58-4504-8d86-4ea43e6bcda8",
+    "parts": [ {
+      "text": "unexpcted bill amount",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "00d87e1a-6894-4635-94c1-66292d2994f6",
+    "parts": [ {
+      "text": "Just trying to figure out why my bill is so expensive",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e080dff5-8681-4251-a3c4-8e24f45944ab",
+    "parts": [ {
+      "text": "I noticed my bill ",
+      "auto": true
+    }, {
+      "text": "this month",
+      "auto": true
+    }, {
+      "text": " was higher that ",
+      "auto": true
+    }, {
+      "text": "previous month",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "82f33450-49ae-43de-a761-3c2085a58aaa",
+    "parts": [ {
+      "text": "I think u have charged too much",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ca9e565f-3f69-4274-99d9-96bd8a325a2d",
+    "parts": [ {
+      "text": "I think the bill is incorrect",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "957c1cef-4c04-46cb-96d9-933ef829ace8",
+    "parts": [ {
+      "text": "I think the bill is too high",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

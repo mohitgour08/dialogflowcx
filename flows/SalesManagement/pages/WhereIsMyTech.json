@@ -1,0 +1,96 @@
+{
+  "name": "318f4e0a-d05b-4cfb-b16b-276558fc44b6",
+  "displayName": "WhereIsMyTech",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Authentication = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_WhereIsMyTech_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": null
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": null
+      } ]
+    },
+    "targetPage": "OrderStatusAPI",
+    "name": "beadb3c5-6972-4649-bb0e-8c909b125ec4"
+  }, {
+    "condition": "$session.params.Authentication = \"ACCTFOUND\" OR $session.params.Authentication = \"NO\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "Metrics_SalesManagement_WhereIsMyTech_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      } ]
+    },
+    "targetFlow": "Authentication",
+    "name": "a3806cdd-c0bc-40a4-84aa-75d31913206d"
+  }, {
+    "condition": "$session.params.Authentication = \"FAILED\" OR $session.params.Authentication = \"MULTIACCTFOUND\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_WhereIsMyTech_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      } ]
+    },
+    "targetPage": "SpeakWithAgent",
+    "name": "2fa901b2-df07-4e60-a442-ce9c809fc06b"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_SalesManagement_WhereIsMyTech_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SalesManagement-WhereIsMyTech\u0026Promotions,AuthenticationStatusUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "fc407cbf-d68a-4b56-b0e4-d9dfe9339145"
+  } ],
+  "description": "Authentication Check"
+}

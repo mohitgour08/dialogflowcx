@@ -1,0 +1,394 @@
+{
+  "name": "4f017da6-bfdb-4244-9921-0e09c891a4a5",
+  "displayName": "PAEligCurrentNotFullyPaid",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Was there anything else I can assist you with today?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Make a payment"
+          }, {
+            "action": "quick_reply",
+            "title": "Payment mailing address and in-person payment locations"
+          }, {
+            "action": "quick_reply",
+            "title": "Sign up for autopay"
+          }, {
+            "action": "quick_reply",
+            "title": "Make a Payment Arrangement"
+          }, {
+            "action": "quick_reply",
+            "title": "I have an additional question"
+          }, {
+            "action": "quick_reply",
+            "title": "Thanks, that was all I needed"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "MakeAPayment",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_PAEligCurrentNotFullyPaid_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "55baf977-dc8f-45c5-bcb7-d29d06f3b079"
+  }, {
+    "intent": "MailingAddressOrPaymentLocations",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_PAEligCurrentNotFullyPaid_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "MailingAddressPaymentLocations",
+    "name": "ac3fb0ed-5f12-415c-95ec-fe28f37b35d5"
+  }, {
+    "intent": "Sign up for Auto pay",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "RecurringPaymentAutopay"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_PAEligCurrentNotFullyPaid_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "ad583534-eb8e-4824-901e-a0c74b390529"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "agentPromptRemoval",
+        "value": "Yes"
+      }, {
+        "parameter": "agentPromptRemoval_pagename",
+        "value": "CurrentNotFullyPaid"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_PAEligCurrentNotFullyPaid_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PAEligCurrentNotFullyPaid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "4829b798-3c57-46c1-906c-06bbd26b514a"
+  }, {
+    "intent": "Payment.PaymentArrangement",
+    "condition": "$session.params.networkType = \"Copper\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "ReadNotPastDue"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_PAEligCurrentNotFullyPaid_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PaymentArrangement",
+    "name": "ba7847a8-8b34-4fbf-9d18-c87388e849e4"
+  }, {
+    "intent": "Payment.PaymentArrangement",
+    "condition": "$session.params.networkType = \"Copper_L\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PayArrLumenURL"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentArrangement"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_PAEligCurrentNotFullyPaid_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "a5d23940-73e6-4e94-8e4b-95791d539562"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Was there anything else I can assist you with today?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Make a payment"
+            }, {
+              "action": "quick_reply",
+              "title": "Payment mailing address and in-person payment locations"
+            }, {
+              "action": "quick_reply",
+              "title": "Sign up for autopay"
+            }, {
+              "action": "quick_reply",
+              "title": "Make a Payment Arrangement"
+            }, {
+              "action": "quick_reply",
+              "title": "I have an additional question"
+            }, {
+              "action": "quick_reply",
+              "title": "Thanks, that was all I needed"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ " Would you like to make a payment today?" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_PAEligCurrentNotFullyPaid_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "5efb6fb9-4561-4786-9428-f611f7b71365"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_PAEligCurrentNotFullyPaid_NoMatch2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PAEligCurrentNotFullyPaid"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "bb277354-6ed2-4851-8ea1-91ba9093771b"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ " Would you like to make a payment today?" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_PAEligCurrentNotFullyPaid_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "2060c9ee-3acc-4233-a273-465be8ace28e"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That’s okay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_PAEligCurrentNotFullyPaid_NoInput2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PAEligCurrentNotFullyPaid"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "70a99433-d341-4d32-8f3d-67187d44ebf2"
+  } ],
+  "transitionRouteGroups": [ "AdditionalQuestion", "GoodToGo" ]
+}

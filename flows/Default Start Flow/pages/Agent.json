@@ -1,0 +1,123 @@
+{
+  "name": "633da5d0-0ef2-4dbb-8f23-3d41e4754220",
+  "displayName": "Agent",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "If you'd like, I can connect you with an agent now for more information. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Yes, connect me with an agent."
+          }, {
+            "action": "quick_reply",
+            "title": "No, thank you."
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.No",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_Agent_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AgentConnect",
+        "value": "No"
+      } ]
+    },
+    "targetPage": "Ecom_End",
+    "name": "6eaf7ee4-4b5f-4271-8f44-01cd4784a073"
+  }, {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_Agent_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AgentConnect",
+        "value": "Yes"
+      } ]
+    },
+    "targetPage": "AgentRoute",
+    "name": "b25fc4fd-3ff9-4053-a560-691868190dc0"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_Agent_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EXIT_POP"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "bce74ed8-2ec3-4fa9-8473-b729b6c5f99e"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Yes, connect me with an agent."
+            }, {
+              "action": "quick_reply",
+              "title": "No, thank you."
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_Agent_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "64230d21-df33-4e9f-b506-da197a17f70a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_Agent_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EXIT_POP"
+      } ]
+    },
+    "name": "11529288-001d-475a-a79d-4f665501d4d1"
+  } ]
+}

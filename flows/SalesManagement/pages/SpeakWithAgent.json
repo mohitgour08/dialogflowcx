@@ -1,0 +1,410 @@
+{
+  "name": "db035f3f-197d-4943-82ed-79dfac93152b",
+  "displayName": "SpeakWithAgent",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "What type of appointment are you inquiring about?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Installation or upgrade of new services"
+          }, {
+            "action": "quick_reply",
+            "title": "Repair of existing services"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "If you are calling about Installation or Upgading services - say Install\nFor Repair of existing Services - say Repair " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_FailureReason",
+      "value": "UserDisconnected"
+    }, {
+      "parameter": "SS_WhereIsMyTech",
+      "value": "Failure"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Sales.Installation",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_SalesManagement_SpeakWithAgent_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Installation"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "7694cb39-17fc-498f-b1e8-ef29cb86aa1c"
+  }, {
+    "intent": "Sales.RepairTicket",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_SalesManagement_SpeakWithAgent_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Repair Ticket"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "e4e3092a-a32a-4ce1-b414-60b513568ee4"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_SalesManagement_SpeakWithAgent_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "SalesManagement_SpeakWithAgent_1"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Installation"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "54fdf0c4-d9de-456b-9254-ec00f2029616"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_SalesManagement_SpeakWithAgent_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "SalesManagement_SpeakWithAgent_2"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Repair Ticket"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "67c5f067-538a-40a3-9308-e2e203146d2e"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_SpeakWithAgent_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SpeakWithAgent"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "0debe48a-6ed7-42c6-a8d2-5d8b82ffd4c2"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Installation or upgrade to services"
+            }, {
+              "action": "quick_reply",
+              "title": "Repair of existing Services"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eFor Installation or Upgrading services, press 1. For Repair of existing Services, press 2.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_SpeakWithAgent_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "46132862-46df-4976-88ad-030990884671"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm not able to find any open Repair ticket or Pending orders on your account. If you are calling about Installation or Upgading services - say Install\r\nFor Repair of existing Services - say Repair" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_SalesManagement_SpeakWithAgent_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "SalesManagement_SpeakWithAgent"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SpeakWithAgent"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "085a86e9-2cbc-45fe-a384-3c981a53127e"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_SpeakWithAgent_NoInputDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "SalesManagement_SpeakWithAgent"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SpeakWithAgent"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "fdb3456b-cf6f-4aff-ab87-a246f7dc733f"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I didn't hear your answer." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "For Installation or Upgrading services, press 1. For Repair of existing Services, press 2." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_SpeakWithAgent_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "dc6e61a1-b164-4203-9c96-b496b6889d96"
+  } ]
+}

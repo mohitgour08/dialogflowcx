@@ -1,0 +1,33 @@
+{
+  "name": "fc4d2cde-aadd-426a-bb88-186b5c402a3e",
+  "displayName": "BillInfoCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_ReturnStatus = \"SUCCESS\" OR $session.params.BillInfo_ReturnStatus = \"Success\" OR $session.params.BillInfo_ReturnStatus : \"Success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillInfoCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountTypeAndBillingMethod",
+    "name": "24288f74-c3dc-4487-be6d-13d13b79520c"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "BillInfoAPI",
+    "name": "397551c2-6185-4169-8ff9-0d28cfb76e1f"
+  } ]
+}

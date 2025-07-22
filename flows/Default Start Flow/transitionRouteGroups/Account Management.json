@@ -1,0 +1,61 @@
+{
+  "name": "f08cd7c4-a05e-4d8d-adda-b08f18f661ae",
+  "displayName": "Account Management",
+  "transitionRoutes": [ {
+    "intent": "AccountManagement.AccountStatus",
+    "triggerFulfillment": {
+    
+    },
+    "targetFlow": "AccountManagement",
+    "name": "2c72f9df-69b7-4e84-bc39-1deade08df15"
+  }, {
+    "condition": "$page.params.status = \"FINAL\" AND ($session.params.callerintent = \"Online password\" OR $session.params.callerintent = \"wifi password\" OR $session.params.callerintent = \"password\")",
+    "triggerFulfillment": {
+    
+    },
+    "name": "1ede1168-683e-469a-b8fd-8cdcc27fbfac"
+  }, {
+    "condition": "$session.params.callerintent = \"get account number\" AND $page.params.status = \"FINAL\"",
+    "triggerFulfillment": {
+    
+    },
+    "name": "f91cb86e-6ef2-4969-959a-9b914c4a573f"
+  }, {
+    "condition": "$page.params.status = FINAL AND $session.params.callerintent = \"setup online account\"",
+    "triggerFulfillment": {
+    
+    },
+    "name": "e9521ab9-3194-48eb-abb0-d34f2d69cecd"
+  }, {
+    "condition": "$page.params.status = \"FINAL\" AND ($session.params.callerintent = \"download BRSPD app\" OR $session.params.callerintent = \"Login issues with the app\")",
+    "triggerFulfillment": {
+    
+    },
+    "name": "c32a1eb4-da58-4254-9c43-cc2a14855a94"
+  }, {
+    "condition": "($session.params.callerintent = \"Online Account Access\" OR $session.params.callerintent = \"Account Locked\") AND ($session.params.callerintent != NULL OR $session.params.callerintent != \"\")",
+    "triggerFulfillment": {
+    
+    },
+    "name": "edbab114-c0b7-4918-b4f3-653a179300f6"
+  }, {
+    "condition": "$page.params.status = FINAL AND $session.params.callerintent = \"Remove Service\"",
+    "triggerFulfillment": {
+    
+    },
+    "name": "c9f3a049-dcd2-4d01-bb3b-1bdaaca842ac"
+  }, {
+    "condition": "$session.params.callerintent = \"CancelAccount\" AND ($session.params.callerintent != \"\" OR $session.params.callerintent != NULL)",
+    "triggerFulfillment": {
+    
+    },
+    "targetFlow": "AccountManagement",
+    "name": "6aab9dff-426c-4b4c-8470-06808267a07b"
+  }, {
+    "condition": "$session.params.callerintent = \"Vacation\" AND ($session.params.callerintent != \"\" OR $session.params.callerintent != NULL)",
+    "triggerFulfillment": {
+    
+    },
+    "name": "c6f8c1d7-08bb-46db-ab3d-86bd49fa2bd3"
+  } ]
+}

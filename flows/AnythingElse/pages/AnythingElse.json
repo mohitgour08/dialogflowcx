@@ -1,0 +1,219 @@
+{
+  "name": "3a52ecdf-e45c-4110-9d91-f48d2fb481e4",
+  "displayName": "AnythingElse",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Is there anything else I can help you with?" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AnythingElse_AnythingElse_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "c6be2841-0a2f-43bf-9944-e3d0e8eed5af"
+  }, {
+    "intent": "Confirmation.No",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AnythingElse_AnythingElse_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "6b1248c4-2397-4b67-9c49-7efb747536d6"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AnythingElse_AnythingElse_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AnythingElse"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "84f70c7e-337d-466b-a8ec-622af89be1f4"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again? " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Is there anything else I can help you with?" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AnythingElse_AnythingElse_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "f38f3cd6-997e-45c9-a350-1dc44fa539d2"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AnythingElse_AnythingElse_NoInput2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AnythingElse"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "460d7922-3564-48bd-b510-ff8400d42453"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Is there anything else I can help you with?" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AnythingElse_AnythingElse_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "71186887-aa3f-49ec-a438-5adfc7769423"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't understand your answer" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AnythingElse_AnythingElse_NoMatch2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AnythingElse"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "203b609c-93ba-40a0-b23b-3c8dc1886d4e"
+  } ]
+}

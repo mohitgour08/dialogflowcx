@@ -1,0 +1,237 @@
+{
+  "name": "f44e0630-22fe-400c-919f-f9392043edb0",
+  "displayName": "VoiceTAndC",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "You can view our terms and conditions, as well as all of Brightspeed's consumer policies in the about us section of our website at www.brightspeed.com. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Is there anything else I can help you with today?" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_TermsAndConditions",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_TermsAndConditions_VoiceTAndC_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_TermsAndConditions",
+        "value": "Success"
+      } ]
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "cb55a12a-8f85-47cf-8f0f-fd656dab50ba"
+  }, {
+    "intent": "Confirmation.No",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_TermsAndConditions_VoiceTAndC_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "978c7ff5-eba2-4ebd-a271-23733d80b5af"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_TermsAndConditions_VoiceTAndC_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_TermsAndConditions",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "VoiceTAndC"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "6f9ad4a5-63d4-45df-9a67-6ed08ced03f3"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_TermsAndConditions_VoiceTAndC_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "e48f6448-6762-49f5-b6a4-a45ff0c9aa9e"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_TermsAndConditions_VoiceTAndC_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_TermsAndConditions",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "VoiceTAndC"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "144382b5-48ec-41db-a9c2-1f32ab1d1799"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again? " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_TermsAndConditions_VoiceTAndC_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "04ada577-8cbd-4fdc-9cdd-e86597790111"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_TermsAndConditions_VoiceTAndC_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_TermsAndConditions",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "VoiceTAndC"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "67ed76cb-0872-4c31-b9b6-8937dfd6a038"
+  } ]
+}

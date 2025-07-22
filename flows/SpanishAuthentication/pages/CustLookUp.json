@@ -1,0 +1,276 @@
+{
+  "name": "b248e976-ff27-4c91-9e9a-451963cc6cfb",
+  "displayName": "CustLookUp",
+  "form": {
+    "parameters": [ {
+      "displayName": "Brightspeed",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metric_SpanishAuthentication_CustLookUp_Brightspeed",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+            
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\r\n  \u003caudio src=\"https://chatservices-dv.brightspeed.com/audio/HoldMusic.wav\"\u003e\u003c/audio\u003e\r\n\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e\r\n  \u003caudio src=\"https://chatservices-dv.brightspeed.com/audio/HoldMusic.wav\"\u003e\u003c/audio\u003e\r\n\u003c/speak\u003e" ]
+      },
+      "languageCode": "es",
+      "channel": "voice"
+    } ],
+    "webhook": "Customerinfo",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_CustLookUp_none_wh_GetAccountInfo",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowCancellation": true
+      }
+    },
+    "returnPartialResponses": true
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.IdentificationBasedOn = \"tn\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_IdentificationMethod",
+        "value": "BTN"
+      } ]
+    },
+    "name": "88776328-6963-4854-9775-48452a087a52"
+  }, {
+    "condition": "$session.params.IdentificationBasedOn = \"ban\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_IdentificationMethod",
+        "value": "BAN"
+      } ]
+    },
+    "name": "a471a53f-3ff5-4c9b-bf3c-49bbb86f3c15"
+  }, {
+    "condition": "($session.params.Brightspeed[0].billingAccountNumber = NULL OR $session.params.Brightspeed[0].billingAccountNumber = \"\") AND $session.params.Authattempts \u003c 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Lo lamento! No veo ninguna cuenta que coincida con esa información. Intentémoslo una vez más.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": null
+      }, {
+        "parameter": "Authattempts",
+        "value": "$sys.func.ADD($session.params.Authattempts, 1)"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_CustLookup_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN_temp",
+        "value": null
+      } ]
+    },
+    "targetPage": "checkChannel",
+    "name": "4e737cb2-3339-4355-a955-f3c9a181b285"
+  }, {
+    "condition": "$session.params.Brightspeed[0].billingAccountNumber != NULL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_CustLookup_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SpanishAuthentication_CustLookUp",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "targetPage": "Single/Multiple Check",
+    "name": "0567ca12-62e0-47a0-9d9a-e92dc49f63a4"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_CustLookup_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "AccountNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CustomerInfo- AccountNotFound"
+      }, {
+        "parameter": "API_SpanishAuthentication_CustLookUp",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "f5d0ba5f-a593-4814-8941-6894256a598c"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metric_SpanishAuthentication_CustLookUp_WBError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook Error"
+      }, {
+        "parameter": "API_SpanishAuthentication_CustLookUp",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "name": "50307980-8fc7-4912-a7e1-bd99512a0dd1"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metric_SpanishAuthentication_CustLookUp_WBInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook Invalid"
+      }, {
+        "parameter": "API_SpanishAuthentication_CustLookUp",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "name": "6aa909fc-9f23-4755-9e9e-a644b769d644"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metric_SpanishAuthentication_CustLookUp_WBNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook Not Found"
+      }, {
+        "parameter": "API_SpanishAuthentication_CustLookUp",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "name": "5828d46a-34e4-4470-a8e8-36fa4abb2d08"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metric_SpanishAuthentication_CustLookUp_WBRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook Rejected"
+      }, {
+        "parameter": "API_SpanishAuthentication_CustLookUp",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "name": "fd8d7d6c-af08-43ce-85c0-1d9f488d9f2b"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metric_SpanishAuthentication_CustLookUp_WBTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook Timeout"
+      }, {
+        "parameter": "API_SpanishAuthentication_CustLookUp",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "name": "d0ca2550-de9b-4ea5-8440-7ad08a61d0dc"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metric_SpanishAuthentication_CustLookUp_WBUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook Unavailable"
+      }, {
+        "parameter": "API_SpanishAuthentication_CustLookUp",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "name": "2c3ff76f-1dce-41e2-971b-ed66eee56da7"
+  } ]
+}

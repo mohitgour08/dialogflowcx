@@ -1,0 +1,47 @@
+{
+  "name": "4d5ade23-d58a-4b6a-a5fe-8a18d0561631",
+  "displayName": "FECheckNoOverdue",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "As one of our pre-paid customers, your payments are made automatically. Your account is currently up to date." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_PrepaidBalance",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToModule",
+        "value": "PrepaidPayment"
+      }, {
+        "parameter": "ToState",
+        "value": "NoOverdue"
+      }, {
+        "parameter": "Metrics_Payment_FECheckNoOverdue_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "4578e78c-ae65-4d57-bbda-bddb1e9abdf9"
+  } ]
+}

@@ -1,0 +1,391 @@
+{
+  "name": "6e30621e-09b4-445f-bba0-ebea93599dbe",
+  "displayName": "ONTCheckAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "ONTStatusAPI",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_SpeedTest_ONTCheckAPI_none_wh_ONTStatusAPI",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "returnPartialResponses": true
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ONTStatusResponce = \"Success\" OR $session.params.ONTStatusResponce = \"SUCCESS\" OR $session.params.ONTStatusResponce = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_ONTCheckAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SpeedTest_ONTCheckAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ONTStatusAPI"
+      } ]
+    },
+    "targetPage": "IsONTOnline",
+    "name": "d53fbc24-8b45-4883-8adf-eb596d67de17"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_ONTCheckAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "ONTCheckAPIFailure",
+        "value": "$session.params.ONTStatusResponce"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ONTStatusAPI"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpeedTest_ONTCheckAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ONTStatusAPI"
+      } ]
+    },
+    "targetPage": "UnableToConnectService",
+    "name": "2f13c341-81ef-4923-9e9f-865922b00575"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ " I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_ONTCheckAPI_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ONTStatusResponce",
+        "value": "FAILURE"
+      }, {
+        "parameter": "ONTCheckAPIFailure",
+        "value": "WebhookError"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ONTStatusAPI"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpeedTest_ONTCheckAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ONTStatusAPI"
+      } ]
+    },
+    "name": "6965134f-5469-43e8-a3f4-986ffa4bad77"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ " I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_ONTCheckAPI_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ONTStatusResponce",
+        "value": "FAILURE"
+      }, {
+        "parameter": "ONTCheckAPIFailure",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid "
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ONTStatusAPI"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpeedTest_ONTCheckAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ONTStatusAPI"
+      } ]
+    },
+    "name": "99241874-d6b7-4e35-844a-a8f6383c4f13"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ " I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_ONTCheckAPI_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ONTStatusResponce",
+        "value": "FAILURE"
+      }, {
+        "parameter": "ONTCheckAPIFailure",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ONTStatusAPI"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpeedTest_ONTCheckAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ONTStatusAPI"
+      } ]
+    },
+    "name": "21dad5a9-a0ae-4f2c-b6f4-69bad6b9d804"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_ONTCheckAPI_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ONTStatusResponce",
+        "value": "FAILURE"
+      }, {
+        "parameter": "ONTCheckAPIFailure",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ONTStatusAPI"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpeedTest_ONTCheckAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ONTStatusAPI"
+      } ]
+    },
+    "name": "67492290-ea19-4934-afff-53d82f2e6e84"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_ONTCheckAPI_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ONTStatusResponce",
+        "value": "FAILURE"
+      }, {
+        "parameter": "ONTCheckAPIFailure",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ONTStatusAPI"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpeedTest_ONTCheckAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ONTStatusAPI"
+      } ]
+    },
+    "name": "ba0226fb-8de7-4e78-a178-84ac8bc9a014"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ " I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_ONTCheckAPI_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ONTStatusResponce",
+        "value": "FAILURE"
+      }, {
+        "parameter": "ONTCheckAPIFailure",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReasonmuj",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ONTStatusAPI"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpeedTest_ONTCheckAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ONTStatusAPI"
+      } ]
+    },
+    "name": "ea5b2f34-45df-4fe4-9a99-2df3721358b3"
+  } ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "141dcc66-2a20-4bf1-9522-d3516d79e7b3",
+  "displayName": "FiberPrepaidCardOTPForm",
+  "form": {
+    "parameters": [ {
+      "displayName": "formresponsecard",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\"chatClientForm\":\"CardPayment\", \n\"latestInvoiceAmount\": \"$session.params.LatestInvoiceAmount\"}" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "formResponse",
+      "value": null
+    }, {
+      "parameter": "formresponsecard",
+      "value": null
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPaymentss_FiberPrepaidCardOTPForm_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "formResponse",
+        "value": "$session.params.formresponsecard"
+      } ]
+    },
+    "targetPage": "FiberPrepaidOTPFormChk",
+    "name": "12e9dba0-6da0-484a-9282-aaed9a998a5c"
+  } ]
+}

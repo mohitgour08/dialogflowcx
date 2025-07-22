@@ -1,0 +1,38 @@
+{
+  "name": "121baa28-6e43-40dc-803a-cc99798cb77c",
+  "displayName": "AntivirusProtection",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_ServiceManagement_AntivirusProtection_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer needs help with Anti-Virus Protection via chat"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "9319081c-724e-4ad9-9ad6-174a81241fce"
+  } ]
+}

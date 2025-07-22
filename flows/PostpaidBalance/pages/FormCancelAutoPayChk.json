@@ -1,0 +1,28 @@
+{
+  "name": "5ca886fd-b84a-489c-bd36-d9c8da16762a",
+  "displayName": "FormCancelAutoPayChk",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.formResponseCA = \"yesDPM\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_FormCancelAutoPayChk_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "EnrollDeEnrollAutoPay",
+    "name": "3beb0bf4-c3b7-4015-9410-a8a031616fc5"
+  }, {
+    "condition": "$session.params.formResponseCA = \"noDPM\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_FormCancelAutoPayChk_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "PostpaidBalance",
+    "name": "ee509b57-1629-4ba4-8d77-7e7ac51ff05a"
+  } ]
+}

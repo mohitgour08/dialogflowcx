@@ -1,0 +1,342 @@
+{
+  "name": "94dea1ba-e450-4192-b56f-edc34238df0e",
+  "displayName": "NewCustomerVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003eFor residential services or home office, say “residential”. For business services, say “business”.\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Residential",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_NewCustomerVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "sales_customer_type",
+        "value": "Residential"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "New Customer needs help with Residential services"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "573d023d-4790-4dd6-a5ca-331d17cba67b"
+  }, {
+    "intent": "Business",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_NewCustomerVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "sales_customer_type",
+        "value": "Business"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "New Customer needs help with Business services"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "a7308444-85ad-4148-8daf-0dc97df8cc79"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_NewCustomerVoice_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "ListenInitialIntent_NewCustomerVoice_1"
+      }, {
+        "parameter": "sales_customer_type",
+        "value": "Residential"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "New Customer needs help with Residential services"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "266a8426-eab5-4018-9ecd-020b9c3cf4f7"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_NewCustomerVoice_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "ListenInitialIntent_NewCustomerVoice_2"
+      }, {
+        "parameter": "sales_customer_type",
+        "value": "Business"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "New Customer needs help with Business services"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "21ccf2c1-b11c-43ac-ae08-a9fa02fb633f"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_NewCustomerVoice_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NewCustomerVoice"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "318f765b-05db-4733-9aaf-bc191032dbab"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eI’m sorry, your answer doesn’t match one of our options. For residential services or home office, press 1. For business services, press 2. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_NewCustomerVoice_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "6612c111-b375-414c-b24e-3a24a0dc9e1e"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eI didn’t understand your answer.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_NewCustomerVoice_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "ListenInitialIntent_NewCustomerVoice"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NewCustomerVoice"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "44e1554b-f7dc-46d9-a732-9cd9bdffe4f3"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eI’m sorry, I didn’t hear your answer. For residential services or home office, press 1. For business services, press 2. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_NewCustomerVoice_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "1bb0a564-4087-4e2a-8626-8e6797283548"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eThat’s okay.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_NewCustomerVoice_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "ListenInitialIntent_NewCustomerVoice"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NewCustomerVoice"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "a537785d-8cd8-4a24-8c42-34808f72dada"
+  } ]
+}

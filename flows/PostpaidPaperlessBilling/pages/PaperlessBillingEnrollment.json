@@ -1,0 +1,371 @@
+{
+  "name": "23034741-abed-411e-b448-168c62cfa124",
+  "displayName": "PaperlessBillingEnrollment",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "PaperlessBilling",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_PostpaidPaperlessBilling_PaperlessBillingEnrollment_wh",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaperlessBilling = \"Success\" AND $session.params.ExistingCustomer = \"False\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "You are now enrolled in paperless billing. Please note you will continue to receive a paper bill until your paperless billing request takes effect. This is usually within two months." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "If you don't receive emails from us, check your spam or junk folders, and add Brightspeed to your approved senders list." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "You are now enrolled in paperless billing. Please note you will continue to receive a paper bill until your paperless billing request takes effect. This is usually within two months." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "If you don't receive emails from us, check your spam or junk folders, and add Brightspeed to your approved senders list." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_PaperlessBillingEnrollment_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidPaperlessBilling",
+        "value": "Success"
+      }, {
+        "parameter": "KPI_PostpaidPaperlessBilling",
+        "value": "Enrolled"
+      }, {
+        "parameter": "API_PostpaidPaperlessBilling_PaperlessBillingEnrollment",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaperlessBilling"
+      } ]
+    },
+    "targetPage": "AssistRequest",
+    "name": "0ef06dc8-ae52-460e-be32-f451dd4a78eb"
+  }, {
+    "condition": "$session.params.PaperlessBilling = \"Success\" AND $session.params.ExistingCustomer = \"True\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Thank you! I've made the update." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_PaperlessBillingEnrollment_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaperlessEnroll_updateEmail",
+        "value": "Success"
+      }, {
+        "parameter": "KPI_PaperlessEnroll_updateEmail",
+        "value": "Updated"
+      }, {
+        "parameter": "API_PostpaidPaperlessBilling_PaperlessBillingEnrollment",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaperlessBilling"
+      } ]
+    },
+    "targetPage": "AssistRequest",
+    "name": "93978769-eba1-4b65-b4d2-cdba35734240"
+  }, {
+    "condition": "$session.params.ExistingCustomer = \"False\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm not able to process your request at this time. You can enroll in paperless billing any time on $session.params.link9 or in the Brightspeed app." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm not able to process your request at this time. You can enroll in paperless billing any time on brightspeed.com or in the Brightspeed app." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_PaperlessBillingEnrollment_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidPaperlessBilling",
+        "value": "Failure"
+      }, {
+        "parameter": "API_PostpaidPaperlessBilling_PaperlessBillingEnrollment",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaperlessBilling"
+      } ]
+    },
+    "targetPage": "AssistRequest",
+    "name": "567e68dc-0b3b-407b-8422-e8556ab66699"
+  }, {
+    "condition": "$session.params.ExistingCustomer = \"True\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm not able to process your request at this time. You can enroll in paperless billing any time on $session.params.link9 or in the Brightspeed app." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm not able to process your request at this time. You can enroll in paperless billing any time on brightspeed.com or in the Brightspeed app." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_PaperlessBillingEnrollment_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaperlessEnroll_updateEmail",
+        "value": "Failure"
+      }, {
+        "parameter": "API_PostpaidPaperlessBilling_PaperlessBillingEnrollment",
+        "value": "Failur"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaperlessBilling"
+      } ]
+    },
+    "targetPage": "AssistRequest",
+    "name": "f54b244b-6fef-4f6f-8260-ae83ffdc1ca8"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to process your Paperless Billing" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to process your Paperless Billing" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Let me get you to someone who can help." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_PaperlessBillingEnrollment_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaperlessBillingEnrollment"
+      }, {
+        "parameter": "SS_PostpaidPaperlessBilling",
+        "value": "Failure"
+      }, {
+        "parameter": "API_PostpaidPaperlessBilling_PaperlessBillingEnrollment",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaperlessBilling"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "4820962d-e2b7-44b7-ac17-355bbe92548f"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "PaperlessBillingAPIFailed",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_PaperlessBillingEnrollment_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaperlessBilling"
+      }, {
+        "parameter": "API_PostpaidPaperlessBilling_PaperlessBillingEnrollment",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaperlessBilling"
+      } ]
+    },
+    "name": "4c6bd310-3812-4777-9733-18cdfe8dfbef"
+  }, {
+    "targetPage": "PaperlessBillingAPIFailed",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_PaperlessBillingEnrollment_WebhhokInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhhokInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaperlessBilling"
+      }, {
+        "parameter": "API_PostpaidPaperlessBilling_PaperlessBillingEnrollment",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaperlessBilling"
+      } ]
+    },
+    "name": "fd230b86-4a97-4ade-9c63-835469b398db"
+  }, {
+    "targetPage": "PaperlessBillingAPIFailed",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_PaperlessBillingEnrollment_WebhhokNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaperlessBilling"
+      }, {
+        "parameter": "API_PostpaidPaperlessBilling_PaperlessBillingEnrollment",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaperlessBilling"
+      } ]
+    },
+    "name": "a77d26ad-ec14-4522-b4d2-0d09a89bb195"
+  }, {
+    "targetPage": "PaperlessBillingAPIFailed",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_PaperlessBillingEnrollment_WebhhokRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaperlessBilling"
+      }, {
+        "parameter": "API_PostpaidPaperlessBilling_PaperlessBillingEnrollment",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaperlessBilling"
+      } ]
+    },
+    "name": "236920e3-db03-44cd-baae-e02a7a2bc4a2"
+  }, {
+    "targetPage": "PaperlessBillingAPIFailed",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_PaperlessBillingEnrollment_WebhhokTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaperlessBilling"
+      }, {
+        "parameter": "API_PostpaidPaperlessBilling_PaperlessBillingEnrollment",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaperlessBilling"
+      } ]
+    },
+    "name": "156c195c-ab0f-4d12-843a-96d196125492"
+  }, {
+    "targetPage": "PaperlessBillingAPIFailed",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_PaperlessBillingEnrollment_WebhhokUnavaliable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaperlessBilling"
+      }, {
+        "parameter": "API_PostpaidPaperlessBilling_PaperlessBillingEnrollment",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaperlessBilling"
+      } ]
+    },
+    "name": "1dc7ab59-69c5-4f65-8751-ff0d544c33bf"
+  } ]
+}

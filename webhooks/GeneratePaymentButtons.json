@@ -1,0 +1,32 @@
+{
+  "name": "7fd4471d-0206-4f37-b7d1-e5f3545e2af7",
+  "displayName": "GeneratePaymentButtons",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/ccai-generate-payment-buttons",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"channel\": \"$session.params.channel\",\n  \"callId\": \"$session.params.APICallID\",\n  \"paymentMethods\": \"$session.params.SavedPaymentMethods\",\n  \"defaultPaymentMethodId\": \"$session.params.DefaultPaymentMethodID\"\n}",
+    "parameterMapping": [ {
+      "key": "Buttons",
+      "value": "sessionInfo"
+    }, {
+      "key": "PaymentOptionType",
+      "value": "sessionInfo.parameters.PaymentOptionType"
+    }, {
+      "key": "SavedPaymentCount",
+      "value": "sessionInfo.parameters.SavedPaymentCount"
+    }, {
+      "key": "ToalOtherSavedPM",
+      "value": "sessionInfo.parameters.TotalAvailablePaymentMethods"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth2/token",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 15
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "name": "cbf029c2-2c35-4cbf-a2b5-52d682fcb2f8",
+  "displayName": "PrepaidBalance",
+  "transitionRoutes": [ {
+    "condition": "$session.params.ToState = \"AnythingElse\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_StartPage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "AnythingElse",
+    "name": "d41ec4ec-50c9-4a6d-a13a-ad28f4643168"
+  }, {
+    "condition": "$session.params.ToState = \"ACHCurrentDue\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_StartPage_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ACHCurrentDue",
+    "name": "863e8895-1461-4845-aeff-6f69acc2c074"
+  }, {
+    "condition": "$session.params.ToState = \"ACHCurrentDueVoice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_StartPage_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ACHCurrentDueVoice",
+    "name": "cfe44e89-4a58-4c32-a511-1d9ee1e74a37"
+  }, {
+    "condition": "$session.params.ToState = \"CCExpGT30\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_StartPage_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CCExpGT30",
+    "name": "0c076708-c398-4d9b-bd16-518650e63cbb"
+  }, {
+    "condition": "$session.params.ToState = \"CCExpGT30Voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_StartPage_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CCExpGT30Voice",
+    "name": "09c45f1b-362e-49fd-873b-cb962f71d585"
+  }, {
+    "condition": "$session.params.ToState = \"NoResponse\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_StartPage_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NoResponse",
+    "name": "244c2da5-100d-453e-a9b4-5f060372a2c0"
+  }, {
+    "condition": "$session.params.ToState = \"SuspendedZeroBalanceVoice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_StartPage_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "SuspendedZeroBalanceVoice",
+    "name": "2d3ffa3e-34db-4985-80a6-ec8149520a06"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_StartPage_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      } ]
+    },
+    "targetPage": "PrepaidAccountStatusCheck",
+    "name": "5ed1560f-1088-4133-a6b2-4b1c450e51a0"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "f4bfd9b1-7da5-47fc-b342-7029e62cac01"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "d59d6735-4a2d-4131-879a-3931c1c42d5e"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    }
+  },
+  "advancedSettings": {
+    "enabled": true
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    },
+    "languageCode": "en"
+  } ]
+}

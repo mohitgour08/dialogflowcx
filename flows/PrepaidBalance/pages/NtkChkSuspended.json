@@ -1,0 +1,34 @@
+{
+  "name": "ddf6e674-8ce2-4e0a-afdf-6805722b97b6",
+  "displayName": "NtkChkSuspended",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"GPON\" OR $session.params.networkType = \"XGSPON\" OR $session.params.networkType = \"BPON\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TotalBalance",
+        "value": "$session.params.BillInfo_PastDueAmount"
+      }, {
+        "parameter": "BillInfo_LatestDueAmount",
+        "value": "$session.params.BillInfo_PastDueAmount"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_NtkChkSuspended_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CCSNPBalanceCheck ",
+    "name": "a423a81a-8136-4edd-b2ae-937808e6ce8d"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_NtkChkSuspended_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CCSNPBalanceCheck ",
+    "name": "4582ca1f-2583-4ded-9b8a-c1c30a384b80"
+  } ]
+}

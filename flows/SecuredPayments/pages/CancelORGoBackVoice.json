@@ -1,0 +1,342 @@
+{
+  "name": "8e584127-fba2-4cba-b5eb-9246909adee2",
+  "displayName": "CancelORGoBackVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay, you can say \"go back\" to start over, or say \"cancel\" to cancel the entire transaction. \n" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "BankAccountNo",
+      "value": null
+    }, {
+      "parameter": "RoutingNo",
+      "value": null
+    }, {
+      "parameter": "CreditCardNo",
+      "value": null
+    }, {
+      "parameter": "CVV",
+      "value": null
+    }, {
+      "parameter": "expiration_date",
+      "value": null
+    }, {
+      "parameter": "$flow.card_expiration_month",
+      "value": null
+    }, {
+      "parameter": "$flow.card_expiration_year",
+      "value": null
+    }, {
+      "parameter": "$flow.month",
+      "value": null
+    }, {
+      "parameter": "$flow.only_month",
+      "value": null
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Goback",
+    "condition": "$session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelORGoBackVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberPay",
+    "name": "4a96d9ef-dda3-42c6-9285-41d2b1229cd0"
+  }, {
+    "intent": "Goback",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelORGoBackVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CardOrAccount",
+    "name": "7335d0aa-9df5-4b0a-9102-348b6c5f2603"
+  }, {
+    "intent": "Cancel",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelORGoBackVoice_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CancelTransactionChat",
+    "name": "1600fbaa-6429-4099-a536-c7938b5d6580"
+  }, {
+    "intent": "DTMF_1",
+    "condition": "$session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelORGoBackVoice_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberPay",
+    "name": "dd433023-e512-4bd5-b5ba-01ad37f43d99"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelORGoBackVoice_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CardOrAccount",
+    "name": "9b187e7f-cf5d-49de-982b-1be66f631b04"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelORGoBackVoice_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CancelTransactionChat",
+    "name": "a87716d9-afdd-4170-8f94-3338425549a2"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelORGoBackVoice_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CancelORGoBackVoice"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "671c47cd-4856-4fcd-b528-2d2dc60358e6"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Press 1 to start over, or press 2 to cancel the transaction." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelORGoBackVoice_No_Input_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "15c76200-1b17-48b4-bb72-225becc6ee5c"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelORGoBackVoice_No_Input_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CancelORGoBackVoice"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "e26e359a-8f7f-4bd0-ad4f-050f443bfd9b"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "you can say \"go back\" to start over, or say \"cancel\" to cancel the entire transaction. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ " Press 1 to start over, or press 2 to cancel the transaction." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelORGoBackVoice_No_Match_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "393de513-13e0-40f6-bf6f-37568180f6cf"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelORGoBackVoice_No_Match_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CancelORGoBackVoice"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "0d50c827-47cd-40f6-91d6-72e19152f51c"
+  } ]
+}

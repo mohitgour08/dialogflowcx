@@ -1,0 +1,137 @@
+{
+  "name": "e4fcfb21-90d2-4764-b95e-b74d6165b5f9",
+  "displayName": "ReadPlans",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PayArrPlans[0].planId = \"2\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "planId",
+        "value": "$session.params.PayArrPlans[0].planId"
+      }, {
+        "parameter": "FullAmount",
+        "value": "$session.params.PayArrPlans[0].installment[0].amount"
+      }, {
+        "parameter": "SettleFullDate",
+        "value": "$session.params.PayArrPlans[0].installment[0].date"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_ReadPlans_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "5587baf9-dfb8-4992-9828-bdb3446a34c5"
+  }, {
+    "condition": "$session.params.PayArrPlans[1].planId = \"3\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "planId",
+        "value": "$session.params.PayArrPlans[1].planId"
+      }, {
+        "parameter": "PAPastDueAmount",
+        "value": "$session.params.PayArrPlans[1].installment[0].amount"
+      }, {
+        "parameter": "SetllePastDueDate",
+        "value": "$session.params.PayArrPlans[1].installment[0].date"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_ReadPlans_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "43c5631d-45e1-4cd3-90e8-1bee945e51e0",
+    "description": "Past Due Only\nPlan ID 2"
+  }, {
+    "condition": "$session.params.PayArrPlans[2].planId = \"1\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "planId",
+        "value": "$session.params.PayArrPlans[2].planId"
+      }, {
+        "parameter": "PayInstall1Amount",
+        "value": "$session.params.PayArrPlans[2].installment[0].amount"
+      }, {
+        "parameter": "PayInstall1Date",
+        "value": "$session.params.PayArrPlans[2].installment[0].date"
+      }, {
+        "parameter": "PayInstall2Amount",
+        "value": "$session.params.PayArrPlans[2].installment[1].amount"
+      }, {
+        "parameter": "PayInstall2Date",
+        "value": "$session.params.PayArrPlans[2].installment[1].date"
+      }, {
+        "parameter": "PayInstall3Amount",
+        "value": "$session.params.PayArrPlans[2].installment[2].amount"
+      }, {
+        "parameter": "PayInstall3Date",
+        "value": "$session.params.PayArrPlans[2].installment[2].date"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_ReadPlans_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PastDueExists",
+    "name": "050b74c3-7b85-4fba-878b-fd11e696c822"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_ReadPlans_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentArrangement-ReadPlans-PlanIDOthers"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "4a023c59-9d88-4842-8438-a5b349ae64ec"
+  } ]
+}

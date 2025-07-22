@@ -1,0 +1,15 @@
+{
+  "name": "0d912a5d-97b6-4a63-9868-4cbcd85df4a5",
+  "displayName": "No",
+  "transitionRoutes": [ {
+    "intent": "GoodToGo",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_HoursOfOperation_HoursOfOperationVoice_GoodToGo",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "4c1a175a-abb2-4053-bf37-68252d488958"
+  } ]
+}

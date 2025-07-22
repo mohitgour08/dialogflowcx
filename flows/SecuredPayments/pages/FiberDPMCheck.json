@@ -1,0 +1,108 @@
+{
+  "name": "92eb09cc-29f7-41fa-83f6-8895ef41deaf",
+  "displayName": "FiberDPMCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ReEnterCardInfo = \"true\" AND $session.params.channel = \"web\" AND ($session.params.BillInfo_AccountStatus = \"Active\" OR $session.params.BillInfo_AccountStatus = \"Open\" OR $session.params.BillInfo_AccountStatus = \"OPENED\" OR $session.params.BillInfo_AccountStatus = \"ACTIVE\" OR $session.params.BillInfo_AccountStatus = \"OPEN\" OR $session.params.BillInfo_AccountStatus = \"Opened\" OR $session.params.BillInfo_AccountStatus = \"CURRENT\" OR $session.params.BillInfo_AccountStatus = \"Current\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberDPMCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ReEnterCardInfo",
+        "value": "false"
+      } ]
+    },
+    "targetPage": "FiberPrepaidCardOTPForm",
+    "name": "d19a23a0-c83d-4160-8b0c-f873fdd55e63"
+  }, {
+    "condition": "$session.params.ReEnterCardInfo = \"true\" AND $session.params.channel = \"web\" AND ($session.params.BillInfo_AccountStatus = \"Payment Past Due\" OR $session.params.BillInfo_AccountStatus : \"Jeopardy\" OR $session.params.BillInfo_AccountStatus : \"jeopardy\" OR $session.params.BillInfo_AccountStatus : \"Past Due\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberDPMCheck_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ReEnterCardInfo",
+        "value": "false"
+      } ]
+    },
+    "targetPage": "FormPastDueOTP",
+    "name": "5aa5e411-7624-4b2a-a0e7-3c10ede696c5"
+  }, {
+    "condition": "$session.params.ReEnterCardInfo = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ReEnterCardInfo",
+        "value": "false"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FiberDPMCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FiberPay",
+    "name": "aad59418-f006-4aaf-8ee1-2d44bd3888c8"
+  }, {
+    "condition": "$session.params.BillInfo_paymentAuthId != null AND $session.params.BillInfo_paymentAuthId != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberDPMCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FiberDPMExpiryCheck",
+    "name": "907b1458-2358-402f-9ed2-de69f1d28ff5"
+  }, {
+    "condition": "$session.params.channel = \"web\" AND ($session.params.BillInfo_AccountStatus = \"Active\" OR $session.params.BillInfo_AccountStatus = \"Open\" OR $session.params.BillInfo_AccountStatus = \"OPENED\" OR $session.params.BillInfo_AccountStatus = \"ACTIVE\" OR $session.params.BillInfo_AccountStatus = \"OPEN\" OR $session.params.BillInfo_AccountStatus = \"Opened\" OR $session.params.BillInfo_AccountStatus = \"CURRENT\" OR $session.params.BillInfo_AccountStatus = \"Current\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FiberPrepaidCardOTPForm",
+    "name": "04bd6aba-cbf0-4fb4-8f44-c628259c8e88"
+  }, {
+    "condition": "$session.params.channel = \"web\" AND ($session.params.BillInfo_AccountStatus = \"Payment Past Due\" OR $session.params.BillInfo_AccountStatus : \"Jeopardy\" OR $session.params.BillInfo_AccountStatus : \"jeopardy\" OR $session.params.BillInfo_AccountStatus : \"Past Due\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberDPMCheck_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormPastDueOTP",
+    "name": "7d71447b-0ce2-4064-8a24-311a0f23629b"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberDPMCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DefaultPM_selected",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberPay",
+    "name": "967e098a-9a9f-4d8d-b3ac-2ee8cc827283"
+  } ]
+}

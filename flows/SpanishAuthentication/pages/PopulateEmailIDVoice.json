@@ -1,0 +1,70 @@
+{
+  "name": "748e80d0-98ec-4522-bb27-2602b591b98d",
+  "displayName": "PopulateEmailIDVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "EmailNameFirst5",
+      "value": "$sys.func.MID($session.params.EmailName, 1, 5)"
+    }, {
+      "parameter": "EmailName",
+      "value": "$sys.func.TO_TEXT($sys.func.GET($sys.func.SPLIT($session.params.Email, \"@\"),0))"
+    }, {
+      "parameter": "ContactNumberFirst4",
+      "value": "$sys.func.MID($session.params.PhoneNumber, 1, 4)"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.HasPhoneEmail = true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "EmailNameFirst5",
+        "value": "$sys.func.MID($session.params.EmailName, 1, 5)"
+      }, {
+        "parameter": "FormattedLetters",
+        "value": "$sys.func.TO_TEXT($sys.func.CONCATENATE($session.params.Letter1,\" \",$session.params.Letter2,\" \",$session.params.Letter3,\" \",$session.params.Letter4,\" \",$session.params.Letter5))"
+      }, {
+        "parameter": "ContactNumberFirst4",
+        "value": "$sys.func.MID($session.params.ContactNumber, 1, 4)"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PhoneEmailOnProfileVoice",
+    "name": "4d03d76a-4f41-4d4a-80e4-38a9f81b4621"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "EmailNameFirst5",
+        "value": "$sys.func.MID($session.params.EmailName, 1, 5)"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "EmailOnProfile",
+    "name": "56d6091f-7108-45a7-8e22-d252c5594d58"
+  } ]
+}

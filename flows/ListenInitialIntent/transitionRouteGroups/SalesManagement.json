@@ -1,0 +1,405 @@
+{
+  "name": "d7e06a5b-0c42-489e-883d-095cf3d31736",
+  "displayName": "SalesManagement",
+  "transitionRoutes": [ {
+    "intent": "Sales.ProductOrderStatus",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_ProductOrderStatus",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "OrderStatus"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "callerintent",
+        "value": "OrderStatus"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "4ee9f276-7eaf-4c7e-8e5c-a1435dd181ab"
+  }, {
+    "intent": "Sales.CancelProductOrder",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_CancelProductOrder",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "CancelOrder"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "callerintent",
+        "value": "CancelOrder"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "a6515483-ef12-4cc5-9ee4-1d5365ce5c62"
+  }, {
+    "intent": "Sales.HelpWithAnOrder",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_HelpWithAnOrder",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "HelpWithAnOrder"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "callerintent",
+        "value": "HelpWithAnOrder"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "617bac20-0659-4e25-9584-08279b7c8e7d"
+  }, {
+    "intent": "Sales.ModifyOrderAppointment",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_ModifyOrderAppointment",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "ToState",
+        "value": "ModifyOrderAppointment"
+      }, {
+        "parameter": "callerintent",
+        "value": "ModifyOrderAppointment"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "770e62a8-a535-49ed-8003-29d44985638f"
+  }, {
+    "intent": "Upgrade Service",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "UpgradeService"
+      }, {
+        "parameter": "ToModule",
+        "value": "ServiceManagement"
+      }, {
+        "parameter": "callerintent",
+        "value": "UpgradeService"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_UpgradeService",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "ServiceManagement",
+    "name": "a8c04ca1-e0c2-4fe7-a548-c18e5bab7cdb"
+  }, {
+    "intent": "Sales.AddServiceFeatures",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "AddServiceFeatures"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_AddServiceFeatures",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "AddServiceFeatures"
+      }, {
+        "parameter": "ToModule",
+        "value": "ServiceManagement"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "ServiceManagement",
+    "name": "b1e08ec9-4551-488f-844b-04751e97557d"
+  }, {
+    "intent": "Sales.ServiceAreaInquiry",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "ServiceAreaInquiry"
+      }, {
+        "parameter": "callerintent",
+        "value": "ServiceAreaInquiry"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_ServiceAreaInquiry",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "a5edc5d1-8e58-469f-aa60-e6a7af860211"
+  }, {
+    "intent": "Sales.PricePlanInquiry",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_PricePlanInquiry",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PricePlanInquiry"
+      }, {
+        "parameter": "callerintent",
+        "value": "PricePlanInquiry"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "14d5e63b-a17f-4e74-bc2c-210c77da3d25"
+  }, {
+    "intent": "Sales.DiscountsandPromotions",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "DiscountsandPromotions"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_DiscountsandPromotions",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "DiscountsandPromotions"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "2a8f897a-9c9a-4a55-baef-6d2791a85cac"
+  }, {
+    "intent": "Sales.InquireAboutProducts",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "InquireAboutProducts"
+      }, {
+        "parameter": "callerintent",
+        "value": "InquireAboutProducts"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_InquireAboutProducts",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "5fcdf5bb-208e-4085-8c44-f0e04b812696"
+  }, {
+    "intent": "Sales.PortInExistingNumber",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "Port"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_PortInExistingNumber",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "Port"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "11aabe70-4397-4093-9ed3-3654747c0bb1"
+  }, {
+    "intent": "Sales.OpenNewService",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "OpenNewService"
+      }, {
+        "parameter": "callerintent",
+        "value": "OpenNewService"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_OpenNewService",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "5704ef4f-8756-490d-9ef6-836c0343ec0c"
+  }, {
+    "intent": "Sales.CancelRepairTicket",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_CancelRepairTicket",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "CancelTickets"
+      }, {
+        "parameter": "callerintent",
+        "value": "CancelTickets"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "7cb22472-ab3f-49fd-810b-7bd3d4947a40"
+  } ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "2125cac7-649c-4dcc-a242-dfaef7a9c2dc",
+  "displayName": "POApptCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.OrderAppointmentDate != NULL AND $session.params.OrderAppointmentDate != \"\" AND $session.params.OrderAppointmentDate != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "OrderAppointmentDateBackup",
+        "value": "$session.params.OrderAppointmentDate"
+      }, {
+        "parameter": "OrderAppointmentDate",
+        "value": "$sys.func.MID($session.params.OrderAppointmentDate,1,10)"
+      }, {
+        "parameter": "OrderAppYear",
+        "value": "$sys.func.MID($session.params.OrderAppointmentDate,1,4)"
+      }, {
+        "parameter": "OrderAppMon",
+        "value": "$sys.func.MID($session.params.OrderAppointmentDate,6,2)"
+      }, {
+        "parameter": "OrderAppDay",
+        "value": "$sys.func.MID($session.params.OrderAppointmentDate,9,2)"
+      }, {
+        "parameter": "OrderAppointmentDate",
+        "value": "$sys.func.CONCATENATE($session.params.OrderAppMon,\"-\",$session.params.OrderAppDay,\"-\",$session.params.OrderAppYear)"
+      }, {
+        "parameter": "Metrics_SalesManagement_POApptCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POCheckDue",
+    "name": "82f71272-72b3-4809-8921-db650caefcfb"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "OrderAppointmentDate",
+        "value": "your appointment date"
+      }, {
+        "parameter": "Metrics_SalesManagement_POApptCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POCheckDue",
+    "name": "40004bd7-73e5-46c7-b2c0-3f9a3eba121b"
+  } ]
+}

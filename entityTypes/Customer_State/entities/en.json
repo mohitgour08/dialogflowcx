@@ -1,0 +1,23 @@
+{
+  "entities": [ {
+    "value": "NC NJ PA VA",
+    "synonyms": [ "NC", "NC NJ PA VA", "NJ", "PA", "VA" ],
+    "languageCode": "en"
+  }, {
+    "value": "TX AR AL GA LA SC TN MS OK",
+    "synonyms": [ "AL", "AR", "GA", "LA", "MS", "OK", "SC", "TN", "TX", "TX AR AL GA LA SC TN MS OK" ],
+    "languageCode": "en"
+  }, {
+    "value": "IL IN KS MI MO OH WI",
+    "synonyms": [ "IL", "IL IN KS MI MO OH WI", "IN", "KS", "MI", "MO", "OH", "WI" ],
+    "languageCode": "en"
+  }, {
+    "value": "Else",
+    "synonyms": [ "else", "Else", "ELSE" ],
+    "languageCode": "en"
+  }, {
+    "value": "Back",
+    "synonyms": [ "\u003c back", "\u003c Back", "\u003c-back", "\u003c-Back", "\u003cback", "\u003cBack", "back", "Back" ],
+    "languageCode": "en"
+  } ]
+}

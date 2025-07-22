@@ -1,0 +1,15 @@
+{
+  "name": "8f851f3a-5ff7-423a-b763-6c5028ce5c9e",
+  "displayName": "Yes",
+  "transitionRoutes": [ {
+    "intent": "AdditionalQuestion",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_HoursOfOperation_HoursOfOperationVoice_AdditionalQuestion",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "69940c74-f7a6-4b5f-823d-640bf77ec559"
+  } ]
+}

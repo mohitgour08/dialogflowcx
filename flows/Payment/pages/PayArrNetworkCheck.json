@@ -1,0 +1,69 @@
+{
+  "name": "ebf743c9-b733-49b0-be8d-7fbfb01fb269",
+  "displayName": "PayArrNetworkCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"Copper\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrNetworkCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PayArrAPIcall",
+    "name": "d20e3982-e486-46be-ad26-6bc389f6282e"
+  }, {
+    "condition": "$session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrNetworkCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PayArrEligGetBillInfo",
+    "name": "41c62da6-dba2-4702-bcb2-1d061c5c22f5"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_Payment_PayArrNetworkCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NetworkType Fiber"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "e98110f2-6a92-4b7e-8b62-cfe0470122c7"
+  } ]
+}

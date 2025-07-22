@@ -1,0 +1,39 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "1",
+      "auto": true
+    }, {
+      "text": "pm",
+      "auto": true
+    }, {
+      "text": "-3",
+      "auto": true
+    }, {
+      "text": "pm eastern",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "1-3",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "13:00-15:00",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "1pm-3pm"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

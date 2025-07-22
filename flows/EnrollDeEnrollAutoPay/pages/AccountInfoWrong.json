@@ -1,0 +1,64 @@
+{
+  "name": "fe3281ab-f20c-4db1-89f3-a5890e9a9ea2",
+  "displayName": "AccountInfoWrong",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "No problem! Let's try again. Enter your bank account number again now." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "No problem! Let's try again. Enter your bank account number again now." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "BankAccountNo",
+      "value": null
+    }, {
+      "parameter": "RoutingNo",
+      "value": null
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_AccountInfoWrong_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountInfoWrong"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "d6b31c62-c463-4794-879c-8997a64c4ec3"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_AccountInfoWrong_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnterAccountNumber",
+    "name": "474cd26d-a05c-456d-8088-8b68809b2201"
+  } ],
+  "transitionRouteGroups": [ "Representative" ]
+}

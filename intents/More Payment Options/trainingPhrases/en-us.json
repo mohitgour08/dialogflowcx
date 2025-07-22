@@ -1,0 +1,51 @@
+{
+  "trainingPhrases": [ {
+    "id": "db708e2c-b9fb-438c-844c-dfc608e0fe03",
+    "parts": [ {
+      "text": "what are my options",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "247d8920-542a-4206-afe4-b9512692c844",
+    "parts": [ {
+      "text": "give me more options",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "de137a2a-8971-4f2f-b858-dc44da1956ca",
+    "parts": [ {
+      "text": "Options",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "472cfd5c-dd45-4cb0-8bb0-5c0cbc738e3c",
+    "parts": [ {
+      "text": "more options",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "890807f9-1a24-47b8-bf3b-7222ff67766f",
+    "parts": [ {
+      "text": "Payment Options",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d8936f3f-d036-40ba-a277-dfce0eda36fb",
+    "parts": [ {
+      "text": "More Payment Options",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

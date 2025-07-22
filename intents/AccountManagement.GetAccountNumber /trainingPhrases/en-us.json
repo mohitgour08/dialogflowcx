@@ -1,0 +1,832 @@
+{
+  "trainingPhrases": [ {
+    "id": "062a19d3-33ee-4128-a0be-c70ed02077f6",
+    "parts": [ {
+      "text": "Requesting my",
+      "auto": true
+    }, {
+      "text": " business ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0e7ae9e2-04f7-4ebc-9924-c960c1135330",
+    "parts": [ {
+      "text": "Account number",
+      "auto": true
+    }, {
+      "text": " lookup please.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "07159467-29d9-4a75-8f22-4be4da78ffd8",
+    "parts": [ {
+      "text": "Help me locate my "
+    }, {
+      "text": "Quantum Fiber",
+      "parameterId": "account_type"
+    }, {
+      "text": " account number."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "56d3edab-03aa-4aa3-8ca6-37f943c6337d",
+    "parts": [ {
+      "text": "How can I access my "
+    }, {
+      "text": "CenturyLink",
+      "parameterId": "account_type"
+    }, {
+      "text": " account number?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3433a242-88c7-4579-a095-485e98180eae",
+    "parts": [ {
+      "text": "Provide my "
+    }, {
+      "text": "BrightSpeed",
+      "parameterId": "account_type"
+    }, {
+      "text": " account number."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "aea0f928-15eb-4992-bcbb-8ea9736b7bee",
+    "parts": [ {
+      "text": "Where to locate my account number",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8f3d2639-4ff3-4836-a80f-8776122bbc20",
+    "parts": [ {
+      "text": "Quantum Fiber",
+      "parameterId": "account_type"
+    }, {
+      "text": " account number assistance."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "89cf04f7-94f4-4e63-babe-6ece38d8891c",
+    "parts": [ {
+      "text": "CenturyLink",
+      "parameterId": "account_type"
+    }, {
+      "text": " account number query."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "35e32aa0-de4c-44fc-9fa2-a2ed66a8825b",
+    "parts": [ {
+      "text": "Get account number for "
+    }, {
+      "text": "BrightSpeed",
+      "parameterId": "account_type"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f9e4d386-f91e-4c3b-b1af-f5481c268e0e",
+    "parts": [ {
+      "text": "Account ",
+      "auto": true
+    }, {
+      "text": "number retrieval request.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b18c6708-4b60-40a0-a323-f66e1505d10d",
+    "parts": [ {
+      "text": "Help me find my "
+    }, {
+      "text": "Quantum Fiber",
+      "parameterId": "account_type"
+    }, {
+      "text": " account number."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bb6e8477-c970-40eb-8951-4e513dca6624",
+    "parts": [ {
+      "text": "How do I obtain my "
+    }, {
+      "text": "CenturyLink",
+      "parameterId": "account_type"
+    }, {
+      "text": " account number?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2afb5a07-cd7f-4c36-8968-4559985f0f28",
+    "parts": [ {
+      "text": "Retrieve my "
+    }, {
+      "text": "BrightSpeed",
+      "parameterId": "account_type"
+    }, {
+      "text": " account number."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "40074a97-c59a-4ee7-825c-a4d90783d933",
+    "parts": [ {
+      "text": "Where can I find my account number",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "9f12ee84-2e14-4789-9537-3d0ffecdf29e",
+    "parts": [ {
+      "text": "Account ",
+      "auto": true
+    }, {
+      "text": "number assistance",
+      "auto": true
+    }, {
+      "text": " needed.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5db91023-b92c-48f6-8a49-28e95b45f76a",
+    "parts": [ {
+      "text": "Quantum Fiber",
+      "parameterId": "account_type"
+    }, {
+      "text": " account number."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "38803ec1-0ada-4c79-8677-eeea14a95cd1",
+    "parts": [ {
+      "text": "CenturyLink",
+      "parameterId": "account_type"
+    }, {
+      "text": " account number inquiry."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "84b322b7-6499-4e24-8ebf-b3028475b3ec",
+    "parts": [ {
+      "text": "Get BrightSpeed account number.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2f937d68-9003-4fd4-bed6-10f9fef2ba1d",
+    "parts": [ {
+      "text": "Need my account number",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e666cf24-3066-48ab-8c71-a4bfbd510726",
+    "parts": [ {
+      "text": "Account number",
+      "auto": true
+    }, {
+      "text": " request.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4caa50bd-f949-4d95-b932-d0bf17250488",
+    "parts": [ {
+      "text": "Brightspeed",
+      "parameterId": "Jargons"
+    }, {
+      "text": " account number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ac58c550-7665-4747-a848-c158be96bf7c",
+    "parts": [ {
+      "text": "Can you tell me my account number for "
+    }, {
+      "text": "Brightspeed",
+      "parameterId": "Jargons"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c352063f-fe0e-490f-a9ad-371ce578eb4c",
+    "parts": [ {
+      "text": "How can I access my "
+    }, {
+      "text": "Brightspeed",
+      "parameterId": "Jargons"
+    }, {
+      "text": " account number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0ad70860-1c62-409b-a50e-d2615491ac0b",
+    "parts": [ {
+      "text": "Please provide my account number for "
+    }, {
+      "text": "Brightspeed",
+      "parameterId": "Jargons"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5a6bb646-0a70-4283-8eb3-7d641691bd03",
+    "parts": [ {
+      "text": "I forgot my "
+    }, {
+      "text": "Brightspeed",
+      "parameterId": "Jargons"
+    }, {
+      "text": " account number. Can you remind me"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "777b48ec-7dbf-4910-bd2e-1d70c499320f",
+    "parts": [ {
+      "text": "Where can I locate my "
+    }, {
+      "text": "Brightspeed",
+      "parameterId": "Jargons"
+    }, {
+      "text": " account number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f87ccf8e-1347-4a1e-9f48-5f744be3eefd",
+    "parts": [ {
+      "text": "Can you help me retrieve my "
+    }, {
+      "text": "Brightspeed",
+      "parameterId": "Jargons"
+    }, {
+      "text": " account number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "88b98ac3-6d4f-4b21-9e3b-3b7765242ea5",
+    "parts": [ {
+      "text": "How do I find my account number for "
+    }, {
+      "text": "Brightspeed",
+      "parameterId": "Jargons"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "788ebb1d-fbcd-4f97-9a2b-ef25297a7f99",
+    "parts": [ {
+      "text": "I need my "
+    }, {
+      "text": "Brightspeed",
+      "parameterId": "Jargons"
+    }, {
+      "text": " account number, please."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2e2d589a-66be-419d-b677-d5e9a9b58d73",
+    "parts": [ {
+      "text": "Can you give me my account number for "
+    }, {
+      "text": "Brightspeed",
+      "parameterId": "Jargons"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3faeb29f-bf38-4bbb-8421-dfd823e09728",
+    "parts": [ {
+      "text": "What's my "
+    }, {
+      "text": "Brightspeed",
+      "parameterId": "Jargons"
+    }, {
+      "text": " account number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a854e2bd-fbf0-4284-a6a3-2c9ce9cd6562",
+    "parts": [ {
+      "text": "I need my account number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e6d6ec8b-3a7f-4868-8102-faac4b7bef83",
+    "parts": [ {
+      "text": "Account Number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c07d9e4d-9e80-47bd-ab73-ebeab091d2c8",
+    "parts": [ {
+      "text": "Get account number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "836c89a0-fa37-49ea-9abf-67f51592fe96",
+    "parts": [ {
+      "text": "Get my account number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6fb0340f-98df-4002-a94f-aaf2da4fad94",
+    "parts": [ {
+      "text": "I'm ",
+      "auto": true
+    }, {
+      "text": "calling",
+      "auto": true
+    }, {
+      "text": " because I forgot to note ",
+      "auto": true
+    }, {
+      "text": "down",
+      "auto": true
+    }, {
+      "text": " my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": ". Can you give it to me ",
+      "auto": true
+    }, {
+      "text": "again",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b9b17c8d-2bd9-43ef-a674-845b2bb1ebed",
+    "parts": [ {
+      "text": "I've searched through my ",
+      "auto": true
+    }, {
+      "text": "emails",
+      "auto": true
+    }, {
+      "text": ", but I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " locate my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": ". What should ",
+      "auto": true
+    }, {
+      "text": "I do",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "347f654f-467f-4b81-bb0e-9207cb4575a0",
+    "parts": [ {
+      "text": "I'm a ",
+      "auto": true
+    }, {
+      "text": "new customer",
+      "auto": true
+    }, {
+      "text": ", and I'm ",
+      "auto": true
+    }, {
+      "text": "not",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "sure",
+      "auto": true
+    }, {
+      "text": " where to find my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": ". Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f94d91f2-f378-4bc3-bfb0-3314fb2a6a6c",
+    "parts": [ {
+      "text": "I need my account number",
+      "auto": true
+    }, {
+      "text": " for a transaction. Can you provide it to me?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b99cf26b-0dff-4f54-8d2c-7f341ddfbcad",
+    "parts": [ {
+      "text": "I haven't received my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": " yet. Can you ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7768c061-ebd6-43bc-af78-18dee34b0b40",
+    "parts": [ {
+      "text": "I'm trying to fill out a form, and it requires my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": ". Where can I find it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "22750fe6-dc9e-421b-8bb6-da70d477733e",
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " seem to find my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": " in my documents. Any suggestions?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8c9985f6-8fc6-4662-9733-f64787e06740",
+    "parts": [ {
+      "text": "Can you direct me to the page where I can ",
+      "auto": true
+    }, {
+      "text": "view",
+      "auto": true
+    }, {
+      "text": " my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "29d2e08c-c9b1-46f6-8a66-42348bc4a0ad",
+    "parts": [ {
+      "text": "I'm a bit lost. How ",
+      "auto": true
+    }, {
+      "text": "do",
+      "auto": true
+    }, {
+      "text": " I obtain my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f4b72528-1792-4fa9-8462-bf8d79b13471",
+    "parts": [ {
+      "text": "Is there ",
+      "auto": true
+    }, {
+      "text": "a way",
+      "auto": true
+    }, {
+      "text": " for me to retrieve my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "online",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "adb6ec4a-8e84-417a-b284-4ff9979c8deb",
+    "parts": [ {
+      "text": "I'd like to access my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": ". How can ",
+      "auto": true
+    }, {
+      "text": "I do",
+      "auto": true
+    }, {
+      "text": " that?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d82deb17-6aae-4cf6-8bdb-be37192f747f",
+    "parts": [ {
+      "text": "I'm having trouble finding my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": ". Can you guide me?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b3411c61-368e-4653-b7a0-eabf73e09ea7",
+    "parts": [ {
+      "text": "What information ",
+      "auto": true
+    }, {
+      "text": "do",
+      "auto": true
+    }, {
+      "text": " I need to provide to ",
+      "auto": true
+    }, {
+      "text": "get my account number",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2491ea0d-cb7b-4a90-940b-b29a3ff5485e",
+    "parts": [ {
+      "text": "I'm trying to locate my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": ". Any advice?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ec0f933a-0bc6-46b7-817e-6d349cf43071",
+    "parts": [ {
+      "text": "Can you tell me the ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": " linked to my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a88400f3-e3e2-4e3d-8bb1-d27045a086fa",
+    "parts": [ {
+      "text": "Please give me my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8e77de70-8d7c-42e3-9253-a8dccafa442d",
+    "parts": [ {
+      "text": "I forgot my account number",
+      "auto": true
+    }, {
+      "text": ". Can you remind me?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5b334e6a-5a5a-44f1-81f1-53187438e6a9",
+    "parts": [ {
+      "text": "I'm looking for my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": ". Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c2fba45b-cb1c-4695-8810-bdea8601b6bf",
+    "parts": [ {
+      "text": "Could you ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " me find my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "eb75d9b8-bcb7-4a20-a722-38961089dcdc",
+    "parts": [ {
+      "text": "What's the account number associated with my account",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c09a4e1f-5174-4449-8ac8-4684ae5c3a89",
+    "parts": [ {
+      "text": "How can I retrieve my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cdae1963-98ea-4501-9c9d-d113b613ab24",
+    "parts": [ {
+      "text": "I need to know my account number",
+      "auto": true
+    }, {
+      "text": ", please.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "01c8a49a-5a0f-4c72-be27-b5a84c8f3377",
+    "parts": [ {
+      "text": "Can you provide me with my account number",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ba9cf448-9c85-445d-8c48-17cfc5dfc297",
+    "parts": [ {
+      "text": "What is my account number",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

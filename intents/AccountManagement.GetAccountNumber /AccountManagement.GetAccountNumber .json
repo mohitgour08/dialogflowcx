@@ -1,0 +1,13 @@
+{
+  "name": "7f8f55f3-1d19-4649-88c3-fc64ecbd84ef",
+  "displayName": "AccountManagement.GetAccountNumber ",
+  "parameters": [ {
+    "id": "Jargons",
+    "entityType": "@Jargons"
+  }, {
+    "id": "account_type",
+    "entityType": "@account_type"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 118
+}

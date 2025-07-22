@@ -1,0 +1,148 @@
+{
+  "name": "7dd5a525-3a36-4d89-8ea6-6622efc3538d",
+  "displayName": "SelectPaymentMethod",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Would you like to use one of your other saved payment methods?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Other Saved Methods"
+          }, {
+            "action": "quick_reply",
+            "title": "New Payment Method"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_SecuredPayments_SelectPaymentMethod",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Payments.OtherSavedMethod",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Please choose from your saved methods below." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectPaymentMethod_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "OtherSavedPay",
+        "value": "true"
+      } ]
+    },
+    "targetPage": "GenerateButtonsAPI",
+    "name": "1a1aabb5-d2fa-4e72-ab2b-ca27c398e73c"
+  }, {
+    "intent": "DifferentPaymentMethod",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectPaymentMethod_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PMSelected",
+        "value": null
+      } ]
+    },
+    "targetPage": "CardOrAccount",
+    "name": "225495ff-c24a-4e5b-b70d-7cfc33bab2ab"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectPaymentMethod_Representative",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SelectPaymentMethod"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "e25f1cdb-1de5-4cec-ae84-02bd79a2d6a5"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? Would you like to use one of your other saved payment methods" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Other Saved Methods"
+            }, {
+              "action": "quick_reply",
+              "title": "New Payment Method"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectPaymentMethod_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "1d589613-6d5a-4c6a-9403-e59359d7ac1a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectPaymentMethod_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SelectPaymentMethod"
+      } ]
+    },
+    "name": "0ee4977b-280d-47d6-9224-e379f370d89b"
+  } ]
+}

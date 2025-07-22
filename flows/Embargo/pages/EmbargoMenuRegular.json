@@ -1,0 +1,43 @@
+{
+  "name": "8bba7426-3ecd-4465-80f8-e8cd7d0632fc",
+  "displayName": "EmbargoMenuRegular",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "We are currently upgrading our systems, and account management options are not available at this time. Please contact us next week to access your account or billing services - our agents are also unable to process payments and make changes. Your account will not incur late fees during this time period. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Customers who have upgraded to Brightspeed Fiber are not impacted. To check if Fiber is available in your area, please click the \"Fiber\" button below. If you are experiencing a connection issue with your service, such as low speeds or an outage, please choose \"Repair\". " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Please listen carefully for an important message regarding service in your area." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ " We are currently upgrading our systems, and account management options are not available at this time. Please contact us next week to access your account or billing services - our agents are also unable to process payments and make changes. Your account will not incur late fees during this time period. " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenuRegular_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EmbargoMenu",
+    "name": "208f28fd-a118-4473-afdb-3134f00ce560"
+  } ]
+}

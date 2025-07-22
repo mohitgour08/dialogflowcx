@@ -1,0 +1,530 @@
+{
+  "name": "0e9085d4-41df-46e7-99f7-d311e7eacbcc",
+  "displayName": "LateFeePostpay",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "If your payment is late, you'll be $session.params.link12. These range from a flat $5 fee to a percentage of the amount due, or possibly both-depending on what services you have and your location." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "You will typically find these charges listed on your bill in the sub sections labelled \"One-time Charges\" and \"Usage Charges\"." ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Understand my bill"
+          }, {
+            "action": "quick_reply",
+            "title": "Check my latest balance"
+          }, {
+            "action": "quick_reply",
+            "title": "View my bills"
+          }, {
+            "action": "quick_reply",
+            "title": "Make a payment"
+          }, {
+            "action": "quick_reply",
+            "title": "I have an additional question"
+          }, {
+            "action": "quick_reply",
+            "title": "Thanks, that is all I needed"
+          }, {
+            "action": "quick_reply",
+            "title": "Chat with an agent"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "If your payment is late, you'll be charged late fees. These range from a flat $5 fee to a percentage of the amount due, or possibly both  - depending on what services you have and your location. " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "You will typically find these charges listed on your bill in the sub sections labelled \"One-time Charges\" and \"Usage Charges\".\r\n\r\nIf you would like to speak to an agent simply say an \"Agent\"" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_ExplainLateFees",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Billing.UnderstandLastBill",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeesPostpay_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "BillingUnderstandLastBill"
+      } ]
+    },
+    "targetFlow": "Billing",
+    "name": "79a3e56a-33a6-4957-958b-3b6700b2d483"
+  }, {
+    "intent": "BalanceInquiryOrMakePayment.Billing",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeesPostpay_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "BalanceInquiry"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "36cafb52-01e7-4657-808d-53e5d41d9e34"
+  }, {
+    "intent": "Billing.RequestBillCopy",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeesPostpay_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "BillRequestBillCopy"
+      } ]
+    },
+    "targetFlow": "Billing",
+    "name": "07912fbc-4417-4020-9801-08f608169260"
+  }, {
+    "intent": "BalanceInquiryOrMakePayment.Payment",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeesPostpay_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "BalanceInquiry"
+      }, {
+        "parameter": "callerintent",
+        "value": "BalanceInquiryPayment"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "9e407ae7-f14c-4a33-8433-5e3d3732dc71"
+  }, {
+    "intent": "More help with this issue",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeesPostpay_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_ExplainLateFees",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Intent was More Help With This Issue"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "be7a8978-b1a5-4847-b0e7-bd61016314cf"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeesPostpay_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_ExplainLateFees",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "LateFeePostPay"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "7ec82c17-caf8-407b-94b2-9fcab83196a4"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeePostPay_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "SS_ExplainLateFees",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "LateFeePostPay"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "be02cc4e-8622-4c1b-80d1-426253b1cd4f"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Understand my bill"
+            }, {
+              "action": "quick_reply",
+              "title": "Check my latest balance"
+            }, {
+              "action": "quick_reply",
+              "title": "View my bills"
+            }, {
+              "action": "quick_reply",
+              "title": "Make a payment"
+            }, {
+              "action": "quick_reply",
+              "title": "I have an additional question"
+            }, {
+              "action": "quick_reply",
+              "title": "Thanks, that is all I needed"
+            }, {
+              "action": "quick_reply",
+              "title": "Chat with an agent"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "If you would like to speak to an agent simply say an \"Agent\"" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeePostPay_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "921ed4ae-f656-4708-9f32-1277853efa77"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeePostpay_NoInputDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteInetnt",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_ExplainLateFees",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "LateFeePostPay"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "31045ac0-6ff7-4ac2-87c7-cf765d200d54"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "If you would like to speak to an agent simply say an \"Agent\"" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "If you would like to speak to an agent simply say an \"Agent\"" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeePostpay_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "f6522c4d-fb3d-48a4-bb07-05d6853642a7"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeePostpay_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_ExplainLateFees",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "618f591a-e078-4037-9119-f075d7ad1b94"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeePostpay_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_ExplainLateFees",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      } ]
+    },
+    "name": "f50efa5c-1413-4f96-8fbe-9076b72351f6"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeePostpay_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_ExplainLateFees",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      } ]
+    },
+    "name": "bf23327f-6c4e-493f-ba49-ec3d8e10ff0a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeePostpay_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_ExplainLateFees",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      } ]
+    },
+    "name": "2da97baf-67b0-48ad-84db-3619086cf36f"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeePostpay_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_ExplainLateFees",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      } ]
+    },
+    "name": "a9ed02d4-7555-4b51-8345-fe88caf18d0a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeePostpay_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_ExplainLateFees",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      } ]
+    },
+    "name": "6d698389-c222-4a02-a9d1-5708b46c42d9"
+  } ],
+  "transitionRouteGroups": [ "AdditionalQuestion", "GoodToGo" ]
+}

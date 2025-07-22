@@ -1,0 +1,243 @@
+{
+  "name": "11ee1a9b-7b2f-4c8f-8090-cb7fc9f9f641",
+  "displayName": "CollectPhoneNumber",
+  "form": {
+    "parameters": [ {
+      "displayName": "ENTER_TN",
+      "required": true,
+      "entityType": "@ENTER_TN",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_Troubleshooting_CollectPhoneNumber_ENTER_TN",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+            
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again? " ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Using the keypad, please enter the phone number you would like to receive the text message at. Remember, data or messaging rates from your carrier may apply." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Troubleshooting_CollectPhoneNumber_NoInput_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "ENTER_TN",
+              "value": "NoInput_1"
+            }, {
+              "parameter": "NoInput1Triggered",
+              "value": "TRUE"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "1d84dab5-dbdf-4b3b-811f-ebbbf8deb45a"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "That’s okay" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Troubleshooting_CollectPhoneNumber_NoInput_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Repair"
+            }, {
+              "parameter": "SS_GeneralTroubleshooting",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_PhoneIssues",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "NoInput"
+            }, {
+              "parameter": "DTMF_Fail",
+              "value": "Troubleshooting_CollectPhoneNumber"
+            }, {
+              "parameter": "ENTER_TN",
+              "value": "NoInput_2"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoInputRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "CollectPhoneNumber"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "0a7bf3f3-b0c9-4b46-84ec-b1f542f179cc"
+        }, {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I am sorry I didn't catch that." ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Using the keypad, please enter the phone number you would like to receive the text message at. Remember, data or messaging rates from your carrier may apply." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Troubleshooting_CollectPhoneNumber_NoMatch_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "ENTER_TN",
+              "value": "NoMatch_1"
+            }, {
+              "parameter": "NoMatch1Triggered",
+              "value": "TRUE"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "b01cea64-eb3a-4e94-8fbd-b68d710acb6c"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ " I didn’t understand your answer. " ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Troubleshooting_CollectPhoneNumber_NoMatch_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Repair"
+            }, {
+              "parameter": "SS_GeneralTroubleshooting",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_PhoneIssues",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "DTMF_Fail",
+              "value": "Troubleshooting_CollectPhoneNumber"
+            }, {
+              "parameter": "ENTER_TN",
+              "value": "NoMatch_2"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoMatchRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "CollectPhoneNumber"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "e90e46a0-1277-4825-b923-d982d906320d"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Using the keypad, please enter the phone number you would like to receive the text message at. Remember, data or messaging rates from your carrier may apply." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_CollectPhoneNumber",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.ENTER_TN) = 10",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CollectPhoneNumber_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SMSNumber",
+        "value": "$session.params.ENTER_TN"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ConfirmPhoneNumber",
+    "name": "c47737ad-d50a-4d74-a614-5d6042efe8a9"
+  } ]
+}

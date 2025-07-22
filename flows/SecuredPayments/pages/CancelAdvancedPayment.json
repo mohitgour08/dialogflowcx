@@ -1,0 +1,282 @@
+{
+  "name": "2e1c9291-7af5-4f17-a7e4-2c35406b0453",
+  "displayName": "CancelAdvancedPayment",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay, I'll cancel for now. For more payment options, you can chat with us on brightspeed.com, visit your online My Brightspeed portal, or open the Brightspeed app." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "If you want to go back to your balance menu, say \"go back\". If you have a question about another topic, say \"something else\". " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Or, you can just tell me you're finished. " ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Goback",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelAdvancedPayment_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PostpaidBalance",
+    "name": "a357bbf8-1c51-42de-a41f-d4f4c31c10ae"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelAdvancedPayment_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PostpaidBalance",
+    "name": "cc7060f9-276d-4193-b8b5-3cc1791600c5"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelAdvancedPayment_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "fe9ffad4-e6b4-479f-80a3-d4254a274451"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelAdvancedPayment_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "c0630b39-141d-40a5-9cef-8b531791ac50"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelAdvancedPayment_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CancelAdvancedPayment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "0189d5f5-9eee-4c79-828c-26383b62931b"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Press 1 to go back to your balance. Press 2 to ask about another topic, or press 3 if you're finished. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelAdvancedPayment_NM1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "4d0e5dd6-09ee-421a-881e-8f626135be82"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelAdvancedPayment_NM2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CancelAdvancedPayment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "66cb479c-34f6-4075-b0ee-bb1a2c997867"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Press 1 to go back to your balance. Press 2 to ask about another topic, or press 3 if you're finished. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelAdvancedPayment_NI1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "7e2a055f-08a5-400d-a3d0-758bf8983df6"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CancelAdvancedPayment_NI2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CancelAdvancedPayment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "4dc68fe1-69d8-476a-a862-2e83f179f4ab"
+  } ],
+  "transitionRouteGroups": [ "AdditionalQuestion", " GoodToGo" ]
+}

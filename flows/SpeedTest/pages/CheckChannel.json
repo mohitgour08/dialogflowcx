@@ -1,0 +1,47 @@
+{
+  "name": "2fc2e68f-3bc0-4bc9-af4b-050235398b63",
+  "displayName": "CheckChannel",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckChannel_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "InternetSpeedCheck",
+    "name": "739b3e91-b885-4d84-a0d0-e84a8c2564b8"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckChannel_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "InternetSpeedCheck",
+    "name": "7ada506d-6229-42ce-b832-343b65e15c1e"
+  } ]
+}

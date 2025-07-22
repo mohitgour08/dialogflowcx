@@ -1,0 +1,59 @@
+{
+  "name": "456e987f-541d-43dd-a76d-803085be2b94",
+  "displayName": "DueAmountCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_LatestDueAmount != NULL AND $session.params.BillInfo_LatestDueAmount != \"\" AND $session.params.BillInfo_LatestDueAmount != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TotalBalance",
+        "value": "$session.params.BillInfo_LatestDueAmount"
+      }, {
+        "parameter": "CurrentBalance",
+        "value": "$sys.func.MINUS($sys.func.TO_NUMBER($session.params.BillInfo_LatestDueAmount),$sys.func.TO_NUMBER($session.params.BillInfo_PastDueAmount))"
+      }, {
+        "parameter": "LatestBill",
+        "value": "$session.params.BillInfo_LatestDueAmount"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_DueAmountCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "LastBillDateCheck",
+    "name": "074804a4-9214-415a-80f9-3ba0b2ab0e19"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TotalBalance",
+        "value": ""
+      }, {
+        "parameter": "CurrentBalance",
+        "value": ""
+      }, {
+        "parameter": "LatestBill",
+        "value": ""
+      }, {
+        "parameter": "BillInfo_LatestDueAmount",
+        "value": ""
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_DueAmountCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "LastBillDateCheck",
+    "name": "b6976409-1bc8-4fe2-a132-84928de53ae3"
+  } ]
+}

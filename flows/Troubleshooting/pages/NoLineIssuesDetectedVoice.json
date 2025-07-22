@@ -1,0 +1,319 @@
+{
+  "name": "bafe06ac-c3a4-4e0c-9f71-08be598c8e34",
+  "displayName": "NoLineIssuesDetectedVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003eIf you are experiencing static on your line,  say \"line static\"\nHaving no dial tone - say \"No dial tone\" Having trouble Making or Receiving Calls  - say \"Making or Receiving Calls\" or say \"Others\" for something else.\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_NoLineIssuesDetectedVoice",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Troubleshooting.LineStatic",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NoLineIssuesDetectedVoice_LineStatic",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PhoneLineIssue",
+        "value": "Line Static"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "StaticOnTheLineVoice",
+    "name": "f1003313-d490-4aff-8628-2fa103787fe3"
+  }, {
+    "intent": "Troubleshooting.NoDialTone",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NoLineIssuesDetectedVoice_NoDialTone",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PhoneLineIssue",
+        "value": "No Dial Tone"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoDialToneVoice",
+    "name": "a89d2258-bcfc-4d9f-9b5e-cf0f58f86292"
+  }, {
+    "intent": "Troubleshooting.MakingorReceivingCalls",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NoLineIssuesDetectedVoice_MakingorReceivingCalls",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PhoneLineIssue",
+        "value": "Making or Receiving Calls"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CallIssuesVoice",
+    "name": "1698d83a-8d68-4c88-af5e-a6fad8821efd"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NoLineIssuesDetectedVoice_Representative",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NoLineIssuesDetectedVoice"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "993a0f90-e4dd-4a2b-8623-bf8f938d0139"
+  }, {
+    "intent": "Troubleshooting.Other",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NoLineIssuesDetectedVoice_Other",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "PhoneLineIssue",
+        "value": "Other"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer needs help with unknown Repair Issue"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "0767f06b-4ab8-4dac-82e4-1817bee48e8c"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eIf you are experiencing static on your line,  say \"line static\"\nHaving no dial tone - say \"No dial tone\" Having trouble Making or Receiving Calls  - say \"Making or Receiving Calls\" or say \"Others\" for something else.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NoLineIssuesDetectedVoice_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "f36c7dae-5dca-4dab-ba12-ae45375a2631"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That’s okay. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NoLineIssuesDetectedVoice_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "Troubleshooting_NoLineIssuesDetectedVoice"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NoLineIssuesDetectedVoice"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "e7920c4d-db75-47ab-8aa3-1abf424a608b"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eIf you are experiencing static on your line,  say \"line static\"\r\nHaving no dial tone - say \"No dial tone\" Having trouble Making or Receiving Calls  - say \"Making or Receiving Calls\" or say \"Others\" for something else.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NoLineIssuesDetectedVoice_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "d6627f74-392e-491f-a35a-a2dcaeecf494"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ " I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NoLineIssuesDetectedVoice_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "Troubleshooting_NoLineIssuesDetectedVoice"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NoLineIssuesDetectedVoice"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "735d4372-abfb-4966-94ca-e75d1446617f"
+  } ]
+}

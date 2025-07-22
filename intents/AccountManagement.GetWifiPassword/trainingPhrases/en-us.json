@@ -1,0 +1,887 @@
+{
+  "trainingPhrases": [ {
+    "id": "d60067bc-8dd6-49a3-93c3-7f63ba48f900",
+    "parts": [ {
+      "text": "I need to change my passcode.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4613d907-6374-4688-959a-25e8ba1b356a",
+    "parts": [ {
+      "text": "wifi pwd",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e5f258ae-92ca-434f-89f4-e07a2b00813e",
+    "parts": [ {
+      "text": "wifi password",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f4fa1939-0b2b-4f09-9119-721fa1908144",
+    "parts": [ {
+      "text": "I need to recover ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": ". Can you provide me with the necessary forms?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "143bfd1a-b4b9-42b1-9480-78ba05cc193d",
+    "parts": [ {
+      "text": "What is the typical turnaround time for getting a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "WiFi password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7d5d4d06-f72f-4d07-adbd-6e3c8caef57b",
+    "parts": [ {
+      "text": "I'm unable to connect to my ",
+      "auto": true
+    }, {
+      "text": "WiFi",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "network",
+      "auto": true
+    }, {
+      "text": ". Can you ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " me ",
+      "auto": true
+    }, {
+      "text": "reset the password",
+      "auto": true
+    }, {
+      "text": " remotely?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "098f1f0a-ed7c-42bb-8524-2f96caf5f2dc",
+    "parts": [ {
+      "text": "I want to find ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": ". Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me over the ",
+      "auto": true
+    }, {
+      "text": "phone",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e48d2f81-c4a8-4c22-88a1-808d9a85cd48",
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " access my ",
+      "auto": true
+    }, {
+      "text": "WiFi",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "network",
+      "auto": true
+    }, {
+      "text": " due to a ",
+      "auto": true
+    }, {
+      "text": "password issue",
+      "auto": true
+    }, {
+      "text": ". How can I resolve it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "57684ef9-2ed6-4e2d-822f-c3df6ff43200",
+    "parts": [ {
+      "text": "What is the customer support process for retrieving a lost ",
+      "auto": true
+    }, {
+      "text": "WiFi password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8090cd45-695e-4759-8cf3-3072791e3df3",
+    "parts": [ {
+      "text": "I'm unable to connect to my ",
+      "auto": true
+    }, {
+      "text": "WiFi",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "network",
+      "auto": true
+    }, {
+      "text": " due to a forgotten ",
+      "auto": true
+    }, {
+      "text": "password",
+      "auto": true
+    }, {
+      "text": ". Can you ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " me recover it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fc55dd1a-aa17-4e8f-80a5-8d105314eaf5",
+    "parts": [ {
+      "text": "I want to ",
+      "auto": true
+    }, {
+      "text": "reset my WiFi password",
+      "auto": true
+    }, {
+      "text": ". Can you ",
+      "auto": true
+    }, {
+      "text": "confirm",
+      "auto": true
+    }, {
+      "text": " my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " information?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "628f047a-7bd7-42a7-988f-2394e620086c",
+    "parts": [ {
+      "text": "I need to recover ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": ". Can you verify my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " details?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "03345811-e522-48db-88e6-e21ad4e18d6a",
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " recall ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": ". Can you provide ",
+      "auto": true
+    }, {
+      "text": "assistance",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1785a8e0-7e6b-44c8-81d9-e5c893092f94",
+    "parts": [ {
+      "text": "What security measures are in place for ",
+      "auto": true
+    }, {
+      "text": "resetting a WiFi password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7b46c04c-e40d-49f3-b8d2-d767f40b1ae3",
+    "parts": [ {
+      "text": "I've forgotten ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": ". How can I retrieve it without any delays?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "995d4089-5fc0-42c2-bc2a-24471462ea45",
+    "parts": [ {
+      "text": "I want to obtain a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "password",
+      "auto": true
+    }, {
+      "text": " for my ",
+      "auto": true
+    }, {
+      "text": "WiFi",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "network",
+      "auto": true
+    }, {
+      "text": ". What is the process?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8b149cb9-62e4-44e6-b74f-bffd009a34ad",
+    "parts": [ {
+      "text": "Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me in ",
+      "auto": true
+    }, {
+      "text": "resetting my WiFi password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "55216738-7db1-45f4-9b39-3678ec52f01c",
+    "parts": [ {
+      "text": "What are the options for recovering a lost ",
+      "auto": true
+    }, {
+      "text": "WiFi password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "178d7f95-4a3a-4f82-896a-e6f244eef788",
+    "parts": [ {
+      "text": "I'm having trouble connecting to my ",
+      "auto": true
+    }, {
+      "text": "WiFi",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "network",
+      "auto": true
+    }, {
+      "text": " due to a forgotten ",
+      "auto": true
+    }, {
+      "text": "password",
+      "auto": true
+    }, {
+      "text": ". Can you guide me?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c81a669e-a1c6-4d1a-9e3d-50116a5c0462",
+    "parts": [ {
+      "text": "I want to retrieve the ",
+      "auto": true
+    }, {
+      "text": "password",
+      "auto": true
+    }, {
+      "text": " for my ",
+      "auto": true
+    }, {
+      "text": "WiFi",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "network",
+      "auto": true
+    }, {
+      "text": ". Can you ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d328d155-26fd-4f80-a237-d6c7992a86ad",
+    "parts": [ {
+      "text": "How can I get a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "password",
+      "auto": true
+    }, {
+      "text": " for my ",
+      "auto": true
+    }, {
+      "text": "WiFi",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "network",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9026ecd2-e41c-4a46-b34d-8cd3ac9c3ac5",
+    "parts": [ {
+      "text": "I'm unable to remember ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": ". Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8f5167be-4617-4e3a-9273-3c6055320686",
+    "parts": [ {
+      "text": "I need to ",
+      "auto": true
+    }, {
+      "text": "reset my WiFi password",
+      "auto": true
+    }, {
+      "text": ". Can you provide me with the necessary steps?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a54b3c2a-f722-437f-b669-3849555bee1f",
+    "parts": [ {
+      "text": "What is the process for recovering a lost ",
+      "auto": true
+    }, {
+      "text": "WiFi password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0a6ce530-3165-40a9-99b2-54dc5ee4f26b",
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "forgot the password",
+      "auto": true
+    }, {
+      "text": " for my ",
+      "auto": true
+    }, {
+      "text": "WiFi",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "network",
+      "auto": true
+    }, {
+      "text": ". How can I regain access?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "05256023-daa9-4350-9fc2-733d684c0593",
+    "parts": [ {
+      "text": "I want to find ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": ". What documents or information ",
+      "auto": true
+    }, {
+      "text": "do",
+      "auto": true
+    }, {
+      "text": " I need?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6c9f614f-f3e3-42a0-8ea7-71b3f23a4bfa",
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " connect to my ",
+      "auto": true
+    }, {
+      "text": "WiFi",
+      "auto": true
+    }, {
+      "text": ". Can you ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " me ",
+      "auto": true
+    }, {
+      "text": "reset the password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "69a2a8ec-4935-4fd0-9e6f-5df95c69fcf9",
+    "parts": [ {
+      "text": "Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me in obtaining a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "WiFi password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9d090612-c8d0-4ff1-8968-989b862a0351",
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " access my ",
+      "auto": true
+    }, {
+      "text": "WiFi",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "network",
+      "auto": true
+    }, {
+      "text": ". How can I retrieve the ",
+      "auto": true
+    }, {
+      "text": "password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2450eba3-9289-482c-9980-ab052defa617",
+    "parts": [ {
+      "text": "What information ",
+      "auto": true
+    }, {
+      "text": "do",
+      "auto": true
+    }, {
+      "text": " I need to provide to get ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9f38e376-c832-4d68-8573-3173d54bf3e2",
+    "parts": [ {
+      "text": "I want to retrieve my forgotten ",
+      "auto": true
+    }, {
+      "text": "WiFi password",
+      "auto": true
+    }, {
+      "text": ". What are my options?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "aebc5904-3811-4b17-a388-fd154cb86d83",
+    "parts": [ {
+      "text": "I'm having trouble connecting to my ",
+      "auto": true
+    }, {
+      "text": "WiFi",
+      "auto": true
+    }, {
+      "text": ". How can I recover the ",
+      "auto": true
+    }, {
+      "text": "password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "856e4b8e-c91e-40f7-b463-d8b2edde2ae4",
+    "parts": [ {
+      "text": "Can you provide instructions on how to retrieve ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b27b6a0f-b079-43e1-aa02-eb8eb597b1a2",
+    "parts": [ {
+      "text": "I need ",
+      "auto": true
+    }, {
+      "text": "assistance",
+      "auto": true
+    }, {
+      "text": " in recovering ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8fb08875-78ea-4b3e-9b26-6d82c5b56a3e",
+    "parts": [ {
+      "text": "I want to find ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": ". Can you guide me through the steps?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "abc8e90a-8a84-4e01-805e-50f4211dbe88",
+    "parts": [ {
+      "text": "What is the procedure for retrieving a lost ",
+      "auto": true
+    }, {
+      "text": "WiFi password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "54073e44-f82e-4cc9-8b49-e3fd3b666e87",
+    "parts": [ {
+      "text": "I misplaced ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": ". What is the process to obtain it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f0a5498a-5d8f-4b70-9a2b-6ed7be75faf7",
+    "parts": [ {
+      "text": "I'm unable to connect to my ",
+      "auto": true
+    }, {
+      "text": "WiFi",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "network",
+      "auto": true
+    }, {
+      "text": ". Can you ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " me retrieve the ",
+      "auto": true
+    }, {
+      "text": "password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d73ef30b-a173-43cf-a3ef-f26b35a90acc",
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " remember ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": ". How can I get it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6d4a0c70-33fa-409a-a784-dbac6024726c",
+    "parts": [ {
+      "text": "Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me in finding ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3a3caa4f-48e8-43d9-b60c-d072a1012f32",
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "need help",
+      "auto": true
+    }, {
+      "text": " with ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": ". What should ",
+      "auto": true
+    }, {
+      "text": "I do",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6d611bc8-5a27-4373-abe0-619d7f52cfd8",
+    "parts": [ {
+      "text": "I forgot ",
+      "auto": true
+    }, {
+      "text": "my WiFi password",
+      "auto": true
+    }, {
+      "text": ". How can I retrieve it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e88c75bd-be20-49b3-896e-080fec1cb8a3",
+    "parts": [ {
+      "text": "training_phrase",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

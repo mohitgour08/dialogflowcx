@@ -1,0 +1,238 @@
+{
+  "trainingPhrases": [ {
+    "id": "89e9f921-896f-432a-bb67-54fa985bfbd6",
+    "parts": [ {
+      "text": "I would like to close my "
+    }, {
+      "text": "Brightspeed",
+      "parameterId": "product"
+    }, {
+      "text": " "
+    }, {
+      "text": "account",
+      "parameterId": "service_name"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b3f7fe35-59b1-49b0-9822-bf58f91ec68e",
+    "parts": [ {
+      "text": "I want to terminate my "
+    }, {
+      "text": "account",
+      "parameterId": "service_name"
+    }, {
+      "text": " now!"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6d11ec11-dc31-4db0-b7db-71f45c29e3fe",
+    "parts": [ {
+      "text": "I'm trying to get my services disconnected.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "060dcac7-f44a-49ac-8d3e-160bffb96e2d",
+    "parts": [ {
+      "text": "I want to end my subscription",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a342ac5e-9098-4973-80c2-ea5c2c624962",
+    "parts": [ {
+      "text": "I am a former "
+    }, {
+      "text": "century link",
+      "parameterId": "product"
+    }, {
+      "text": " customer and I would like to cancel my internet service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9bf5bde6-7a52-4550-bc35-d88134d3f31c",
+    "parts": [ {
+      "text": "The services I'm now utilising need to be stopped.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "41ebb937-f869-4406-bc12-1299053abf3d",
+    "parts": [ {
+      "text": "I wish to discontinue using the services I'm using right now.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2a7dda9a-744d-491b-9d74-0ed532af154d",
+    "parts": [ {
+      "text": "I wish to cancel the services I'm currently utilising.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0f002d66-7e8d-4d88-bf9e-775b26388089",
+    "parts": [ {
+      "text": "I want to stop using your services.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a2913d05-d287-4c72-bda8-dc20f48d36ab",
+    "parts": [ {
+      "text": "I would prefer to stop using your services.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "073c5383-27d4-4c34-9de7-ecbb1c685818",
+    "parts": [ {
+      "text": "I would like to unsubscribe form your services",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e40dfb79-d9e7-4a93-b7fa-9e4e8046a220",
+    "parts": [ {
+      "text": "I'm trying to stop service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "98080bc9-a570-4156-b0fd-b9638cfb6e8c",
+    "parts": [ {
+      "text": "Hi ",
+      "auto": true
+    }, {
+      "text": "Cody",
+      "auto": true
+    }, {
+      "text": ", I need to disconnect my Brightspeed service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9219522e-aa2f-4770-b778-236254f80048",
+    "parts": [ {
+      "text": "I'm trying to cancel my mothers home phone.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "92d630e1-9519-47f1-8d6d-24a9e28a2bcf",
+    "parts": [ {
+      "text": "We did not order Brightspeed, we want it cancelled "
+    }, {
+      "text": "today",
+      "parameterId": "time-period"
+    }, {
+      "text": " itself!"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "66426da1-d091-4dd1-80bb-599b14fd3855",
+    "parts": [ {
+      "text": "Would like to terminate service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7b2fd9bd-2e93-41d8-bb43-991c72b0f03b",
+    "parts": [ {
+      "text": "I need my service turned off",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ebec87fc-d793-40bc-b402-173578275004",
+    "parts": [ {
+      "text": "I've canceled my service on "
+    }, {
+      "text": "February 14",
+      "parameterId": "date"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1e481a45-edab-4ede-a883-b68af91d6462",
+    "parts": [ {
+      "text": "Please cancel my service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6c953003-47c7-4187-a448-84e49952ce08",
+    "parts": [ {
+      "text": "How can I cancel my service?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "84be1dd7-046a-4a2e-95b4-9700dc6b6d4a",
+    "parts": [ {
+      "text": "I want to cancel the installation that is scheduled for "
+    }, {
+      "text": "today",
+      "parameterId": "time-period"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "47dab4b6-63fa-48bf-b000-8852fa99dad3",
+    "parts": [ {
+      "text": "cancel my wifi service for all accounts",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "39e2eae5-0424-472e-a2e9-2e85e4aa108c",
+    "parts": [ {
+      "text": "I want to discontinue with your service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7985d65e-93ef-4fa2-b34a-fc9c878798d1",
+    "parts": [ {
+      "text": "i dont want your service anymore",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c1162421-b679-4e65-b850-033f8fcd655e",
+    "parts": [ {
+      "text": "I would like to cancel account service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "28861e34-ce93-459d-b9e8-ef94b353835b",
+    "parts": [ {
+      "text": "i would like to call off my service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

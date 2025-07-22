@@ -1,0 +1,37 @@
+{
+  "name": "f428b6b8-1e03-4184-a1c1-6eee93551147",
+  "displayName": "CheckNetworkType",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_CheckNetworkType_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "APIStatusCheck",
+    "name": "fcdf8f17-15ee-430c-bb9c-e9763cb5cf83"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_CheckNetworkType_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "RepairTicketAPI",
+    "name": "b4f23557-2550-4107-9081-3953e7604c24"
+  } ]
+}

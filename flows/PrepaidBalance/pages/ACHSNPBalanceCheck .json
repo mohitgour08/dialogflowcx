@@ -1,0 +1,56 @@
+{
+  "name": "1005800c-7583-4026-9b9b-6012167514e4",
+  "displayName": "ACHSNPBalanceCheck ",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_LatestDueAmount = \"0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.00\" OR $session.params.BillInfo_LatestDueAmount = \"\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Right now, the balance on your account is $$session.params.BillInfo_LatestDueAmount. If you've recently made a payment to end suspension, please allow 48 hours for the payment to be reflected. Your service should be restored shortly. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToModule",
+        "value": "PrepaidBalance"
+      }, {
+        "parameter": "ToState",
+        "value": "ACHCurrentDue"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_ACHSNPBalanceCheck _1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "b2f8716e-2bd1-4279-9a59-1d80e264debe"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_ACHSNPBalanceCheck _2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ACHSNP",
+    "name": "850a0159-fdf8-4564-97a9-d06373f5d518"
+  } ]
+}

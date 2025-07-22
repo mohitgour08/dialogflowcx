@@ -1,0 +1,32 @@
+{
+  "name": "627d90be-2d85-4274-8ecf-2459c1dd9294",
+  "displayName": "AnythingElse3.0",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "What is my balance?"
+          }, {
+            "action": "quick_reply",
+            "title": "My services are not working"
+          }, {
+            "action": "quick_reply",
+            "title": "Yes, I have an additional question"
+          }, {
+            "action": "quick_reply",
+            "title": "No thank you, that was all I needed"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRouteGroups": [ "GoodTwoGo2.0", "AdditionalQuestion", "BalanceCheck", "TroubleShooting" ]
+}

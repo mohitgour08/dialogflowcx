@@ -1,0 +1,326 @@
+{
+  "name": "106da0a6-044a-4ba0-9e6d-6a03070c1858",
+  "displayName": "NoDueSignUp",
+  "form": {
+    "parameters": [ {
+      "displayName": "PaymentDate",
+      "required": true,
+      "entityType": "@dateCollection",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+              "allowPlaybackInterruption": true
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again? " ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Using the 4 digit MM/DD format, please enter the date you would like to make the second payment. This date must be before $session.params.NextDueDate\n\nAs an example, May 11th should be entered as 0511" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again? " ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            }, {
+              "text": {
+                "text": [ "Using the 4 digit month and day format, please use the keypad to enter the date you would like to make the second payment. This date must be before $session.params.NextDueDate \n\nAs an example, May 11th should be entered as 0511" ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSignup_NI1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "NoInput1Triggered",
+              "value": "TRUE"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+                "allowPlaybackInterruption": true
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "9be8d9cd-cee0-41ed-bc33-60dcab8cecda"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "That’s okay. " ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSignup_NI2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "SS_PaymentArrangement",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Payment"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "NoInput"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoInputRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "NoDueSignup"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "3e34e2ea-1043-43ea-853b-04ebaf3fdf1e"
+        }, {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Using the 4 digit MM/DD format, please enter the date you would like to make the second payment. This date must be before $session.params.NextDueDate\n\nExample: May 11th should be entered as 05/11" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            }, {
+              "text": {
+                "text": [ "Using the 4 digit month and day format, please use the keypad to enter the date you would like to make the second payment. This date must be before $session.params.NextDueDate\n\nAs an example, May 11th should be entered as 0511" ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSignup_NM1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "NoMatch1Triggered",
+              "value": "TRUE"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+                "allowPlaybackInterruption": true
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "cacf3d8b-d1f6-498e-ac9f-6547dcb9407c"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I didn’t understand your answer." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSignup_NM2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "SS_PaymentArrangement",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Payment"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoMatchRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "NoDueSignup"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "f9c6f80a-94b7-4030-a9d3-3f8afc8ad8f4"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Using the 4 digit MM/DD format, please enter the date you would like to make the second payment. This date must be before $session.params.NextDueDate\n\nExample: May 11th should be entered as 05/11" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Using the 4 digit month and day format, please use the keypad to enter the date you would like to make the second payment. This date must be before $session.params.NextDueDate \n\nAs an example, May 11th should be entered as 0511" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "UpcomingDueDate",
+      "value": "$session.params.UpcomingDueDate"
+    }, {
+      "parameter": "NextDueDate",
+      "value": "$sys.func.TO_TEXT($session.params.UpcomingDueDate)"
+    }, {
+      "parameter": "NextDueYear",
+      "value": "$sys.func.MID($session.params.NextDueDate, 1, 4)"
+    }, {
+      "parameter": "NextDueMonth",
+      "value": "$sys.func.MID($session.params.NextDueDate, 5, 2)"
+    }, {
+      "parameter": "NextDueDay",
+      "value": "$sys.func.MID($session.params.NextDueDate, 7, 2)"
+    }, {
+      "parameter": "NextDueDate",
+      "value": "$session.params.NextDueMonth/$session.params.NextDueDay/$session.params.NextDueYear"
+    }, {
+      "parameter": "PlayNextDueDate",
+      "value": "$sys.func.CONCATENATE($session.params.NextDueMonth,\"-\",$session.params.NextDueDay,\"-\",$session.params.NextDueYear)"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSignUp_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NoDueSignUp"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "8e6a0470-a8de-4785-9b74-db4a1a4b3767"
+  }, {
+    "condition": "$page.params.status = \"FINAL\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSignUp_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PAAPIDate",
+        "value": "$flow.current_year$session.params.PaymentDate"
+      }, {
+        "parameter": "PaymentDateNew",
+        "value": "$flow.current_year$session.params.PaymentDate"
+      }, {
+        "parameter": "PaymentDateNew",
+        "value": "$sys.func.SUBSTITUTE($session.params.PaymentDateNew, \"/\", \"\")"
+      }, {
+        "parameter": "PaymentDate",
+        "value": "$session.params.PaymentDate/$flow.current_year\""
+      }, {
+        "parameter": "CheckPaymentDate",
+        "value": "$sys.func.TO_TEXT($session.params.PaymentDateNew)"
+      }, {
+        "parameter": "CPaymentDateYear",
+        "value": "$sys.func.MID($session.params.PaymentDateNew, 1,4)"
+      }, {
+        "parameter": "CPaymentDateMonth",
+        "value": "$sys.func.MID($session.params.PaymentDateNew, 5, 2)"
+      }, {
+        "parameter": "CPaymentDateDay",
+        "value": "$sys.func.MID($session.params.PaymentDateNew, 7, 2)"
+      }, {
+        "parameter": "CheckPaymentDate",
+        "value": "$sys.func.CONCATENATE($session.params.CPaymentDateYear,\"-\",$session.params.CPaymentDateMonth,\"-\",$session.params.CPaymentDateDay)"
+      }, {
+        "parameter": "PlayCheckPaymentDate",
+        "value": "$sys.func.CONCATENATE($session.params.CPaymentDateMonth,\"-\",$session.params.CPaymentDateDay,\"-\",$session.params.CPaymentDateYear)"
+      }, {
+        "parameter": "NextDueDate",
+        "value": "$sys.func.CONCATENATE($session.params.NextDueYear,\"-\",$session.params.NextDueMonth,\"-\",$session.params.NextDueDay)"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoDueDateCheck",
+    "name": "6c0f03d0-d4a8-45a1-8109-f67935f2a5cf"
+  } ]
+}

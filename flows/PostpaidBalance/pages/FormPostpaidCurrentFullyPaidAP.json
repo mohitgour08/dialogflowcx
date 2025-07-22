@@ -1,0 +1,45 @@
+{
+  "name": "3fdefe08-a735-4647-9474-f098c3e1a68c",
+  "displayName": "FormPostpaidCurrentFullyPaidAP",
+  "form": {
+    "parameters": [ {
+      "displayName": "formResponseCFAP",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n\"chatClientForm\": \"$session.params.FormPostpaidCurrentFullypaidAP\",\n\"paymentMethod\": \"$session.params.PaymentMethod\",\n\"lastFourDigits\": \"$session.params.MethodLastFourDigits\",\n\"dueDate\": \"$session.params.BillInfo_BillDueDate\"\n}" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "formResponseCFAP",
+      "value": null
+    }, {
+      "parameter": "SS_PostpaidBalance",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_FormPostpaidCurrentFullypaidAP_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormResponseCFAPChk",
+    "name": "8cd6e277-a165-4c61-83d3-b743388ad75c"
+  } ]
+}

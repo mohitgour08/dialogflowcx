@@ -1,0 +1,74 @@
+{
+  "name": "2e617e13-c8d3-46a2-b5e8-9f65702e54b2",
+  "displayName": "CheckFiberEligibility",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.fiberEligibility = \"Eligible\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckFiberEligibility_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FiberEligibility",
+        "value": "$session.params.fiberEligibility"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "EligibleFiberServiceUpgrade",
+    "name": "ee50b4e9-668b-4764-93e0-e09352bd40de"
+  }, {
+    "condition": "$session.params.fiberEligibility = \"Ineligible\" OR $session.params.fiberEligibility = \"Service Unavailable\" OR $session.params.fiberEligibility = \"Fiber\" OR $session.params.fiberEligibility = \"unknown\" OR $session.params.fiberEligibility = \"EligibleWithExistingPendingOrder\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckFiberEligibility_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FiberEligibility",
+        "value": "$session.params.fiberEligibility"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberOrMigratedCopper",
+    "name": "0cb2ac75-24bf-4161-bed7-813fb793afe6"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckFiberEligibility_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FiberEligibility",
+        "value": "\"\"$session.params.fiberEligibility\"\""
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberOrMigratedCopper",
+    "name": "14f4b097-1292-4e27-a956-bfb9da30cf9a"
+  } ]
+}

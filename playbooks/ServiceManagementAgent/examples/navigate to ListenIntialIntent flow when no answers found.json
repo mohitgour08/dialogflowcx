@@ -1,0 +1,26 @@
+{
+  "name": "99e6efac-5937-4bb3-bf16-349dbe8b9869",
+  "actions": [ {
+    "flowInvocation": {
+      "flow": "ListenInitialIntent",
+      "inputActionParameters": {
+        "FAQSuccess": "HandoverToBA",
+        "comingfromstate": "playbook"
+      },
+      "outputActionParameters": {
+      
+      }
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "."
+  },
+  "playbookOutput": {
+    "executionSummary": "Thank you"
+  },
+  "displayName": "navigate to ListenIntialIntent flow when no answers found",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 105,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "undetected"
+}

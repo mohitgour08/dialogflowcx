@@ -1,0 +1,181 @@
+{
+  "name": "f6752063-ca44-416c-9bd2-c8401e823f18",
+  "displayName": "AuthOptionsChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Please select one of the authentication options below: " ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "disallowEntry"
+          }, {
+            "action": "quick_reply",
+            "title": "Send Me A Code"
+          }, {
+            "action": "quick_reply",
+            "title": "Validate Account Zipcode"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "SendMeCode",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "AuthMethod",
+        "value": "2Factor"
+      }, {
+        "parameter": "Metrics_Authentication_AuthOptions_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "2Factor"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "NO"
+      } ]
+    },
+    "targetPage": "AuthMethodSendCode",
+    "name": "bb4339e8-52f1-487d-8753-c688ace985fc"
+  }, {
+    "intent": "Zipcode",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "CustomerInfo",
+      "setParameterActions": [ {
+        "parameter": "AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "Metrics_Authentication_AuthOptions_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ZipCodeAuth",
+    "name": "4461a858-1ab8-4e4d-b1ab-a1e3c81ba4f4"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "disallowEntry"
+            }, {
+              "action": "quick_reply",
+              "title": "Send Me A Code"
+            }, {
+              "action": "quick_reply",
+              "title": "Validate Account Zipcode"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_AuthOptions_Nomatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "1ba8c86a-4407-4665-97ab-7c88d1ac9ed4"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "NoMatch"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Metrics_Authentication_AuthOptions_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AuthOptionsChat"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "8f440714-7395-4b2e-86b6-0a1444b2aaf7"
+  } ]
+}

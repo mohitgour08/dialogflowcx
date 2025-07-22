@@ -1,0 +1,41 @@
+{
+  "name": "34f7aa35-6c88-4315-aea4-9153c89bb20b",
+  "displayName": "CheckBotType",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Hints = \"uni-login\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Bottype",
+        "value": "Copper"
+      } ]
+    },
+    "targetPage": "CheckEnv",
+    "name": "d9738713-54e0-430b-9a46-97366673ca49"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Bottype",
+        "value": "CCAI"
+      } ]
+    },
+    "targetPage": "CheckEnv",
+    "name": "f3eb0c78-b15f-4c15-aaa1-8ff2b8dd5c22"
+  } ]
+}

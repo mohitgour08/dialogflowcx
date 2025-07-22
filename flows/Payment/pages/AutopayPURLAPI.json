@@ -1,0 +1,31 @@
+{
+  "name": "50cf45ae-b094-4b90-92be-98046d1da128",
+  "displayName": "AutopayPURLAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Send_PURLResponseStatus = \"Success\" OR $session.params.Send_PURLResponseStatus = \"success\" OR $session.params.Send_PURLResponseStatus = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AutopayPURLAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AutopayPostpaidAccountStatus",
+    "name": "86e0a53e-ccea-469c-b4cf-3ea316f694c8"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AutopayPURLAPI_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AutopayPURLFailure",
+    "name": "079c80dd-dabc-46d1-b075-d71a2f2a5fd4"
+  } ]
+}

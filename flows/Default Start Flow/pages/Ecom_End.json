@@ -1,0 +1,23 @@
+{
+  "name": "79cc6fe6-101c-4e11-bb33-26ec2e98f294",
+  "displayName": "Ecom_End",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "That's okay. If you change your mind, you can click the chat icon any time. I'm always here to help!" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "End Session",
+    "name": "0de31662-76bc-469e-bcb1-685e16c0cd79"
+  } ]
+}

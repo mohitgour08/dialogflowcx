@@ -1,0 +1,54 @@
+{
+  "name": "41696012-b36d-4677-a00d-57fdde02749e",
+  "displayName": "MigratedCopperServiceUpgrade",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay! All done. You're currently receiving a speed of (checked speed), which falls into the range of your current plan. \n" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e Okay! All done. You're currently receiving a speed of (checked speed), which falls into the range of your current plan. \u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_MigratedCopperServiceUpgraded_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Troubleshooting"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpeedTest"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Troubleshooting",
+    "name": "073650c7-db87-4ef3-87f6-3f55e4a54031"
+  } ]
+}

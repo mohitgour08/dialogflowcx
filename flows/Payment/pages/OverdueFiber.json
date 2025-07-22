@@ -1,0 +1,420 @@
+{
+  "name": "ed32c66b-e6bb-424e-aaa2-8a5888c77f4f",
+  "displayName": "OverdueFiber",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "You currently have an overdue balance on your account of $$session.params.BillInfo_PastDueAmount. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Brightspeed offers 3 ways to pay a past due balance:\n\n1. Visit your MyBrightspeed portal any time to make a payment or update your payment method,\n2. Make a payment or update your payment here. Please note, we can only accept card payments through chat. \n3. Find one of our physical partner locations to make a walk-in cash payment. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Visit MyBrightSpeed portal"
+          }, {
+            "action": "quick_reply",
+            "title": "Make a payment"
+          }, {
+            "action": "quick_reply",
+            "title": "Find walk-in locations"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003eYou currently have an overdue balance on your account of $$session.params.BillInfo_PastDueAmount. You can make that payment or change your payment method any time in your online MyBrightspeed portal.\n Or, I can help you do that here.\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "To make a payment now say \"Payment\", Please note, we are only able to accept card payments at this time.\nTo get more information about walk-in cash payments, say \"cash payment\". \nIf you have a question about another topic, say \"something else\", or you can just tell me you're finished. " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "PaymentAmount",
+      "value": "$session.params.BillInfo_PastDueAmount"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "My BrightSpeed Portal",
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OverdueFiber_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "PrepaidPayment"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "MyBrightSpeedPortal",
+    "name": "3c774a49-9d51-48a7-afff-68e0f2bbe2bf"
+  }, {
+    "intent": "CashPayment",
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OverdueFiber_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CashPayment",
+        "value": "true"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "WalkinLocations",
+    "name": "a2fd153c-74dc-43e4-94da-0ce3cee8100c"
+  }, {
+    "intent": "CashPayment",
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OverdueFiber_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CashPayment",
+        "value": "true"
+      } ]
+    },
+    "targetPage": "CashPayInstructions",
+    "name": "108f3290-56db-4a70-a722-44f4ffa2d345"
+  }, {
+    "intent": "BalanceInquiryOrMakePayment.Payment",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OverdueFiber_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "FiberPayment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "SecuredPayments",
+    "name": "022f1c62-a656-4637-a91d-ec77321499b9"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OverdueFiber_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "FiberPayment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "SecuredPayments",
+    "name": "b1f431df-882c-4f03-99fa-c829eaa2c864"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OverdueFiber_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CashPayment",
+        "value": "true"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CashPayInstructions",
+    "name": "142a155f-1723-443e-b852-7a1ff0857cf3"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OverdueFiber_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "b86a593e-c9f7-4bf8-be30-6f2a747186aa"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OverdueFiber_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "OverDueFiber"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "e0513b6f-5dcb-4a45-8f45-1c7ba958f97d"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Visit MyBrightSpeed portal"
+            }, {
+              "action": "quick_reply",
+              "title": "Make a payment"
+            }, {
+              "action": "quick_reply",
+              "title": "Find walk-in locations"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "To make a payment now, press 1, To learn more about walk-in cash payments, press 2. \nIf you have an additional question, press 3. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OverdueFiber_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "bacecaf7-8323-49c8-bc9b-7b498787e428"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OverdueFiber_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "OverDueFiber"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "e362b94e-56d5-4651-850f-a7152835ccb2"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "To make a payment now, press 1, To learn more about walk-in cash payments, press 2. \nIf you have an additional question, press 3. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OverdueFiber_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "cfffca7e-ba92-4b17-880d-05749f43bedd"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OverdueFiber_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "OverDueFiber"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "6cbc9f33-3844-4783-8b54-200d7a636ece"
+  } ],
+  "transitionRouteGroups": [ "AdditionalQuestion", "GoodToGo" ]
+}

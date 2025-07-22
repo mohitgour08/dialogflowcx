@@ -1,0 +1,31 @@
+{
+  "name": "584d7d21-3bbe-486b-a68d-5e773ebad743",
+  "displayName": "CopperOrFiber",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CopperOrFiber_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OutageAPILumenCopper",
+    "name": "cc80f133-a631-42a7-aaa6-016dcc6b0aea"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CopperOrFiber_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OutageAPIMigratedCopper",
+    "name": "38d13fd7-11f8-40ff-a55c-fed435065bb5"
+  } ]
+}

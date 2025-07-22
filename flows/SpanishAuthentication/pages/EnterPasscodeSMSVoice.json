@@ -1,0 +1,228 @@
+{
+  "name": "221230ef-a5ec-40fd-a545-634bc5ad2ceb",
+  "displayName": "EnterPasscodeSMSVoice",
+  "form": {
+    "parameters": [ {
+      "displayName": "ResendOTP",
+      "required": true,
+      "entityType": "@OTP_voice",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_SpanishAuthentication_EnterPasscodeSMSVoice",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+            
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        },
+        "repromptEventHandlers": [ {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\r\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e Sigo teniendo problemas con la verificación de tu cuenta.\u003c/voice\u003e\r\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_validatePasscode",
+              "value": "Failure"
+            }, {
+              "parameter": "PasscodeCount",
+              "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+            }, {
+              "parameter": "GetPasscode",
+              "value": null
+            }, {
+              "parameter": "Metrics_SpanishAuthentication_EnterPasscodeSMSVoice_NoMatchDefault",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "SMSResponseStatus",
+              "value": null
+            }, {
+              "parameter": "codeSent",
+              "value": "$sys.func.ADD($session.params.codeSent,1)"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "SpanishAuthentication"
+            }, {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoMatchRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "EnterPassSMSVoice"
+            } ]
+          },
+          "name": "483ca1e2-35f1-4876-b418-855db2320d87"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e Sigo teniendo problemas con la verificación de tu cuenta.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "comingfromstate",
+              "value": "SpanishAuthentication"
+            }, {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "AuthFailReason",
+              "value": "Passcode"
+            }, {
+              "parameter": "GetPasscode",
+              "value": null
+            }, {
+              "parameter": "Metrics_SpanishAuthentication_EnterPasscodeSMSVoice_NoInputDefault",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoInputRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "EnterPasscodeSMSVoice"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "NoInput"
+            } ]
+          },
+          "name": "2768f066-9c90-4610-b7f4-c1d303e8785f"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "GetPasscode",
+        "value": "$session.params.ResendOTP"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckSMSPasscode",
+    "name": "86b4f96d-8326-4165-a94c-6c56dcc64cd4"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/speak\u003e" ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EnterPasscodeSMSVoice_NoInputDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "GetPasscode",
+        "value": null
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "askAccountInfoVoice"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      } ]
+    },
+    "name": "b608eb67-30ce-4d86-8d5e-1e32dec46141"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e Sigo teniendo problemas con la verificación de tu cuenta.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/speak\u003e" ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EnterPasscodeSMSVoice_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "SpanishAuthentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "EnterPassSMSVoice"
+      } ]
+    },
+    "name": "c08e9f14-0e04-43c4-a32d-b3f14b557aa1"
+  } ]
+}

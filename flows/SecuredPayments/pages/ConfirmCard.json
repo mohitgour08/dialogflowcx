@@ -1,0 +1,529 @@
+{
+  "name": "452256a4-1221-47b6-88ca-36e18630a257",
+  "displayName": "ConfirmCard",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Thank you! You entered your card number as $session.params.CreditCardNo and the expiration date as $flow.expiration_month_spoken $flow.card_expiration_year . Is this correct?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Yes"
+          }, {
+            "action": "quick_reply",
+            "title": "No"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Thank you! You entered your card number as " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e\n  \u003csay-as interpret-as=\"verbatim\"\u003e$session.params.CreditCardNo \u003c/say-as\u003e\n\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ " and the expiration date as $flow.expiration_month_spoken $flow.card_expiration_year . Is this correct?" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "$session.params.UpdatePrompt1" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ConfirmCard_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnterCVV",
+    "name": "85f39c02-bc9d-4a76-a168-7791ab40eabe"
+  }, {
+    "intent": "Confirmation.No",
+    "condition": "$session.params.CardNoRetry = \"false\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "No problem! Let's try again. Enter your card number again now." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ConfirmCard_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CreditCardNo",
+        "value": null
+      }, {
+        "parameter": "expiration_date",
+        "value": null
+      }, {
+        "parameter": "CVV",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.month",
+        "value": null
+      }, {
+        "parameter": "$flow.only_month",
+        "value": null
+      }, {
+        "parameter": "CardNoRetry",
+        "value": "true"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "EnterCardDetails",
+    "name": "08ffb32a-2fb0-4d66-9ac2-65b8526f43c9"
+  }, {
+    "intent": "Confirmation.No",
+    "condition": "$session.params.CardNoRetry = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ConfirmCard_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "RetryorRepeatLimitExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "\"ExceededCardConfirmationRetry\"\""
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "52ceba15-5703-44fa-9650-8cdb1c7e9446"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ConfirmCard_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "EnterCVV",
+    "name": "6ae51a8e-e72b-4922-80e0-d7d7c8e0ad39"
+  }, {
+    "intent": "DTMF_2",
+    "condition": "$session.params.CardNoRetry = \"false\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "No problem! Let's try again. Enter your card number again now." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ConfirmCard_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CreditCardNo",
+        "value": null
+      }, {
+        "parameter": "expiration_date",
+        "value": null
+      }, {
+        "parameter": "CVV",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.month",
+        "value": null
+      }, {
+        "parameter": "$flow.only_month",
+        "value": null
+      }, {
+        "parameter": "CardNoRetry",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "EnterCardDetails",
+    "name": "1be62fe8-a4cd-4d29-83b8-dc25b994df3c"
+  }, {
+    "intent": "DTMF_2",
+    "condition": "$session.params.CardNoRetry = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ConfirmCard_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "RetryorRepeatLimitExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "\"ExceededCardConfirmationRetry\"\""
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "08228b30-623b-4832-a005-db840ec0d053"
+  }, {
+    "intent": "Cancel OR Go Back",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ConfirmCard_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CancelORGoBackVoice",
+    "name": "b0ffca59-a7d9-4e8f-8b3f-16e5a1f52360"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ConfirmCard_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ConfirmCard"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "834c5213-b5e3-4916-ac48-fddb62ff84ca"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ " Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "You entered your card number as $session.params.CreditCardNo and the expiration date as $flow.expiration_month_spoken $flow.card_expiration_year . Is this correct?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Yes"
+            }, {
+              "action": "quick_reply",
+              "title": "No"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ " Can you please repeat that?" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ " You entered your card number as " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\r\n  \u003csay-as interpret-as=\"verbatim\"\u003e$session.params.CreditCardNo \u003c/say-as\u003e\r\n\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ " and the expiration date as $flow.expiration_month_spoken $flow.card_expiration_year . Is this correct?" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ConfirmCard_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "dfe7b04b-dd9b-4dd6-bb04-517a06253aeb"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_ConfirmCard_NoMatch_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ConfirmCard"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "ce136346-3415-4c8e-b6a6-48ed376b9b75"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "You entered your card number as " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\r\n  \u003csay-as interpret-as=\"verbatim\"\u003e$session.params.CreditCardNo \u003c/say-as\u003e\r\n\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ " and the expiration date as $flow.expiration_month_spoken $flow.card_expiration_year . Is this correct?" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ConfirmCard_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "79352380-ccbc-4cf2-a945-b5868cdfa55d"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That’s okay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_ConfirmCard_NoInput_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ConfirmCard"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "91229d67-f361-46e5-a84a-0c345d1720bd"
+  } ]
+}

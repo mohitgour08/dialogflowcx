@@ -1,0 +1,590 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Turn ",
+      "auto": true
+    }, {
+      "text": "off vacation",
+      "auto": true
+    }, {
+      "text": " mode",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Turn ",
+      "auto": true
+    }, {
+      "text": "on vacation",
+      "auto": true
+    }, {
+      "text": " mode",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "vacation mode",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you guide me on using ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode to pause my services temporarily?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How can I temporarily disable my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " while I'm away using ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Help",
+      "auto": true
+    }, {
+      "text": " me ",
+      "auto": true
+    }, {
+      "text": "activate",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode and configure an out-of-office message.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there ",
+      "auto": true
+    }, {
+      "text": "a way",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "activate",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode without canceling my subscription?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you provide instructions on how to enable ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode for my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What are the benefits of using ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm going ",
+      "auto": true
+    }, {
+      "text": "on vacation",
+      "auto": true
+    }, {
+      "text": " and want to temporarily suspend my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": ". Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me with that?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How can I ",
+      "auto": true
+    }, {
+      "text": "activate",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode without losing any data?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Help",
+      "auto": true
+    }, {
+      "text": " me enable ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode and set an automatic return date.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there an option to ",
+      "auto": true
+    }, {
+      "text": "activate",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode without affecting my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " settings?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to temporarily disable my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " using ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you explain how ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode works?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How can I pause my services while ",
+      "auto": true
+    }, {
+      "text": "on vacation",
+      "auto": true
+    }, {
+      "text": " using ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need to ",
+      "auto": true
+    }, {
+      "text": "activate",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode for a specific time period.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you guide me through the steps to enable ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What happens when I enable ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Help",
+      "auto": true
+    }, {
+      "text": " me set my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there ",
+      "auto": true
+    }, {
+      "text": "a way",
+      "auto": true
+    }, {
+      "text": " to temporarily suspend my subscription using ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I would like to ",
+      "auto": true
+    }, {
+      "text": "activate",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode. Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How ",
+      "auto": true
+    }, {
+      "text": "do",
+      "auto": true
+    }, {
+      "text": " I put my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " in ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Turn off notifications during ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Help",
+      "auto": true
+    }, {
+      "text": " me enable ",
+      "auto": true
+    }, {
+      "text": "vacation mode on",
+      "auto": true
+    }, {
+      "text": " my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How can I temporarily pause my services using ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Activate",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode for my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": ", please.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What is the process to ",
+      "auto": true
+    }, {
+      "text": "activate",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to enable ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode for my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " me set up ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Turn ",
+      "auto": true
+    }, {
+      "text": "on vacation",
+      "auto": true
+    }, {
+      "text": " mode.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How ",
+      "auto": true
+    }, {
+      "text": "do",
+      "auto": true
+    }, {
+      "text": " I ",
+      "auto": true
+    }, {
+      "text": "activate",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "vacation",
+      "auto": true
+    }, {
+      "text": " mode?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "vacation mode."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

@@ -1,0 +1,254 @@
+{
+  "name": "3c375237-310f-4286-a267-fde0cc6c8ca6",
+  "displayName": "AccountApplePhone",
+  "form": {
+    "parameters": [ {
+      "displayName": "ENTER_TN",
+      "required": true,
+      "entityType": "@ENTER_TN",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_AccountManagement_AccountApplePhone_ENTER_TN",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+            
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I am sorry I didn't catch that." ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "\u003cspeak\u003ePlease say, or type, the phone number you would like the download link sent to.\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_AccountManagement_AccountApplePhone_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "91ba6b2f-fae1-4cb1-94a8-00736c6c575f"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I didn’t understand your answer. " ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "RouteIntent",
+              "value": "Care"
+            }, {
+              "parameter": "SS_InstallBrspdApp",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "Metrics_AccountManagement_AccountApplePhone_NoMatch2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "8338ea0b-bce5-4fe9-819e-547034e5c46a"
+        }, {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again? " ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "\u003cspeak\u003ePlease say, or type, the phone number you would like the download link sent to.\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_AccountManagement_AccountApplePhone_NoInput1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "40a8ea82-3e82-4566-a124-b70a03908162"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "That’s okay." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "RouteIntent",
+              "value": "Care"
+            }, {
+              "parameter": "SS_InstallBrspdApp",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "Metrics_AccountManagement_AccountApplePhone_NoInput2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "e6bc4e0f-50b3-4615-93fb-43675119ca13"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003ePlease say, or type, the phone number you would like the download link sent to.\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountApplePhone_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountApplePhone"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "1acc9723-5313-4306-88ca-2e9fbc5830da"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.ENTER_TN) = 10",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SMSNumber",
+        "value": "$session.params.ENTER_TN"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountApplePhone_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ENTER_TN",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AccountApplePhoneConfirmation",
+    "name": "1778ef3a-f976-4c4a-86a1-2dca3ef6fb99"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.ENTER_TN) = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ENTER_TN",
+        "value": "$sys.func.TO_TEXT($session.params.ENTER_TN)"
+      }, {
+        "parameter": "ENTER_TN",
+        "value": "$sys.func.MID($session.params.ENTER_TN, 2, 10)"
+      }, {
+        "parameter": "SMSNumber",
+        "value": "$session.params.ENTER_TN"
+      }, {
+        "parameter": "ENTER_TN",
+        "value": null
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountApplePhone_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AccountApplePhoneConfirmation",
+    "name": "94803f05-3a6b-4d2a-8374-08698394fa41"
+  } ]
+}

@@ -1,0 +1,44 @@
+{
+  "trainingPhrases": [ {
+    "id": "6408596c-2642-4c33-8a7d-18574ff3beaa",
+    "parts": [ {
+      "text": "auto ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0d9353e0-2c05-44b7-8c79-4288b28fe9db",
+    "parts": [ {
+      "text": "autopay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e86c364b-6ab6-4871-88d4-44c3c1c53560",
+    "parts": [ {
+      "text": "Manage Auto ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1519088b-3d5c-41a9-97b3-c21f9bdeb991",
+    "parts": [ {
+      "text": "Manage ",
+      "auto": true
+    }, {
+      "text": "Autopay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

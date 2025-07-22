@@ -1,0 +1,151 @@
+{
+  "name": "8f0129f3-b739-45cd-adc7-7042d5ebddae",
+  "displayName": "RerouteViaAuthentication",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ToModule = \"AccountManagement\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_RerouteviaAuthentication_AccountManagement",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "17d426bb-6afe-4b90-82b9-d6c76f213f0d"
+  }, {
+    "condition": "$session.params.ToModule = \"BalanceInquiryOrMakePayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_RerouteviaAuthentication_BalanceInquiryOrMakePayment",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "d1cd77c8-8443-4fb7-b438-6f7a889966e7"
+  }, {
+    "condition": "$session.params.ToModule = \"ServiceManagement\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_RerouteviaAuthentication_ServiceManagement",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "ServiceManagement",
+    "name": "eb904b23-e2b7-4561-aab8-b6c94a385392"
+  }, {
+    "condition": "$session.params.ToModule = \"RoutetoAgent\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_RerouteviaAuthentication_RoutetoAgent",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "5bd50353-a659-4c5c-9ac9-7c6ff0dba3ce"
+  }, {
+    "condition": "$session.params.ToModule = \"SalesManagement\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_RerouteviaAuthentication_SalesManagement",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "SalesManagement",
+    "name": "56783b95-a41d-4a11-9544-0125b6a64491"
+  }, {
+    "condition": "$session.params.ToModule = \"Troubleshooting\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_RerouteviaAuthentication_Troubleshooting",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Troubleshooting",
+    "name": "844ffdcf-4cfe-4eaf-a931-9ae2e73c308f"
+  }, {
+    "condition": "$session.params.ToModule = \"Payment\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetFlow": "Payment",
+    "name": "5e6b6d75-8aba-47ca-aff6-4de4b952e499"
+  }, {
+    "condition": "$session.params.ToModule = \"Payment\" AND $session.params.Authentication = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_RerouteviaAuthentication_Payment",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "9ad5e994-04e7-405c-a9fa-691927cdfca9"
+  }, {
+    "condition": "$session.params.ToModule = \"ExternalEquipmentDamage\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_RerouteviaAuthentication_ExternalEquipmentDamage",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "ExternalEquipmentDamage",
+    "name": "77a2d611-f2f6-479f-87c5-cbde45fa3841"
+  }, {
+    "condition": "$session.params.ToModule = \"SmartBillAuth\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_RerouteviaAuthentication_Metrics_ListenInitialIntent_RerouteviaAuthentication_SmartBillAuth",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "eca58327-f550-4314-8a44-be0d99388346",
+    "targetPlaybook": "SmartBillAgent"
+  }, {
+    "condition": "$session.params.ToModule = \"SmartAccountManagementChatAuth\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_RerouteviaAuthentication_Metrics_ListenInitialIntent_RerouteviaAuthentication_SmartAccountManagementChat",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "17e7a585-2e49-4f32-bbf9-3cc0fc1d4919",
+    "targetPlaybook": "SmartAccountManagementChat"
+  }, {
+    "condition": "$session.params.ToModule = \"SmartAccountManagementChatEmailAuth\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_RerouteviaAuthentication_Metrics_ListenInitialIntent_RerouteviaAuthentication_SmartAccountManagementChat",
+        "value": "\"\"$sys.func.TO_TEXT($sys.func.NOW())\"\""
+      } ]
+    },
+    "name": "62289ba4-efca-4203-8360-ddfc8d243354",
+    "targetPlaybook": "SmartAccountManagementChat"
+  } ]
+}

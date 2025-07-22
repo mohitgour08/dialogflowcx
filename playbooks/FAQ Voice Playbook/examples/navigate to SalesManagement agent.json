@@ -1,0 +1,38 @@
+{
+  "name": "2608ef7a-fbe3-4282-a1af-60f8afd76ccf",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "How can I help you today?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "I want to Upgrade My internet Service"
+    }
+  }, {
+    "playbookInvocation": {
+      "playbook": "SalesManagement",
+      "playbookInput": {
+        "precedingConversationSummary": "User wants to Upgrade Service",
+        "actionParameters": {
+          "FAQSuccess": "DirectTransferToBA"
+        }
+      },
+      "playbookOutput": {
+        "actionParameters": {
+        
+        }
+      },
+      "playbookState": "OUTPUT_STATE_OK"
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "User wants to  Upgrade Service"
+  },
+  "playbookOutput": {
+    "executionSummary": "."
+  },
+  "displayName": "navigate to SalesManagement agent",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 170,
+  "languageCode": "en"
+}

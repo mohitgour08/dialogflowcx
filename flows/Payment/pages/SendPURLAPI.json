@@ -1,0 +1,262 @@
+{
+  "name": "645052ed-279f-4a18-9ec8-85d48e056a81",
+  "displayName": "SendPURLAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "Send_PURL",
+    "tag": "PURL",
+    "setParameterActions": [ {
+      "parameter": "Metrics_SendPURLAPI_PURL_wh_SendPURL",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Send_PURLResponseStatus = \"Success\" OR $session.params.Send_PURLResponseStatus = \"success\" OR $session.params.PURLResponseStatus = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_SendPURLAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Payment_SendPURLAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Send_PURL"
+      } ]
+    },
+    "targetPage": "FECheckMsgConfirmation",
+    "name": "e6819fd4-ae8e-4718-8f7b-7e32083eec0a"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_SendPURLAPI",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendPURLAPI"
+      }, {
+        "parameter": "API_Payment_SendPURLAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Send_PURL"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "6454afd1-ee9f-473a-bb1b-c422cfcb97b8"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_SendPURLAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Send_PURLResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendPURLAPI"
+      }, {
+        "parameter": "API_Payment_SendPURLAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Send_PURL"
+      } ]
+    },
+    "name": "07f01ceb-ccc5-4523-a247-1984a4c61bc1"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_SendPURLAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Send_PURLResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendPURLAPI"
+      }, {
+        "parameter": "API_Payment_SendPURLAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Send_PURL"
+      } ]
+    },
+    "name": "f6d37bcc-4c75-488d-9d9e-06d29b75fed2"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_SendPURLAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Send_PURLResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendPURLAPI"
+      }, {
+        "parameter": "API_Payment_SendPURLAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Send_PURL"
+      } ]
+    },
+    "name": "b1ce4d55-f464-494e-8713-e8852bd53258"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_SendPURLAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Send_PURLResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendPURLAPI"
+      }, {
+        "parameter": "API_Payment_SendPURLAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Send_PURL"
+      } ]
+    },
+    "name": "c0a7259b-5874-4d38-a071-04938819c051"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_SendPURLAPI_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Send_PURLResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendPURLAPI"
+      }, {
+        "parameter": "API_Payment_SendPURLAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Send_PURL"
+      } ]
+    },
+    "name": "df5dc5c8-3997-4c24-a1c4-ee6457b8793f"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_SendPURLAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Send_PURLResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendPURLAPI"
+      }, {
+        "parameter": "API_Payment_SendPURLAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Send_PURL"
+      } ]
+    },
+    "name": "caf6f654-cfb8-409b-9fd4-aaa440f687db"
+  } ]
+}

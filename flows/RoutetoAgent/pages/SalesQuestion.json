@@ -1,0 +1,244 @@
+{
+  "name": "b63373f9-5be3-4626-b584-18128bedd530",
+  "displayName": "SalesQuestion",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Are you calling regarding residential services and home office or business services? If you're an Enterprise customer, please call the number on your invoice." ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Residential/Home Office"
+          }, {
+            "action": "quick_reply",
+            "title": "Business"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "For residential services or home office, say “residential”. For business services, say “business”. ” If you're an Enterprise customer, please call the number on your invoice." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Residential/Home Office",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SalesQuestion_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "IsCustomerName",
+    "name": "8ae8427b-3718-4f84-9d31-e184d084e05b"
+  }, {
+    "intent": "Business",
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Small Business accounts are handled by a specialized group that only provides phone support. Please call our Small Business Support team at 1-833-692-7773 Mon-Fri 8am to 8pm Sat-Sun 8am to 5pm est." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Thank you for contacting Brightspeed! Please let us know if we may be of further assistance." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SalesQuestion_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "85c81894-8b8e-4677-96d9-b3e3a1c58cc1"
+  }, {
+    "intent": "Business",
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SalesQuestion_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "IsCustomerName",
+    "name": "e0951891-a977-43e9-8fdb-cbd3d7021d21"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I didn't hear your answer. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "For residential services or home office, press 1. For business services, press 2." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SalesQuestion_NI1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "77d3a6aa-c000-4226-9ec5-2dfbeb534127"
+  }, {
+    "targetPage": "IsCustomerName",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SalesQuestion_NI2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "2a0826cb-b9cb-40e5-b4a9-00a1c036a1fc"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Are you calling regarding residential services and home office or business services? If you're an Enterprise customer, please call the number on your invoice." ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Residential/Home Office"
+            }, {
+              "action": "quick_reply",
+              "title": "Business"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "For residential services or home office, press 1. For business services, press 2." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SalesQuestion_NM1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "d18f0e0c-8b31-45fb-9bbf-a0be21957a33"
+  }, {
+    "targetPage": "IsCustomerName",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SalesQuestion_NM2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "4a33e7ef-190b-429f-bc43-166296702895"
+  } ]
+}

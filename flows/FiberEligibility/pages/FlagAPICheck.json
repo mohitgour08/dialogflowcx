@@ -1,0 +1,258 @@
+{
+  "name": "f6266fa7-0266-40b5-8bbf-1c54c8d24741",
+  "displayName": "FlagAPICheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "FiberEligibility_CCSP_Flag",
+    "tag": "read",
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Flag_Value = \"1\" AND $session.params.FiberEligibleKey = \"FiberEligibility_Troubleshooting\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_FlagAPICheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FlagValueTroubleshooting",
+        "value": "$session.params.Flag_Value"
+      } ]
+    },
+    "targetPage": "FiberEligibleTS",
+    "name": "ad34acbd-0988-4666-b001-027de72b882a"
+  }, {
+    "condition": "$session.params.Flag_Value = \"1\" AND $session.params.FiberEligibleKey = \"FiberEligibility_AccountManagement\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_FlagAPICheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FlagValueAccountManagement",
+        "value": "$session.params.Flag_Value"
+      } ]
+    },
+    "targetPage": "FiberEligibleAM",
+    "name": "d5546a86-1349-489e-adc3-4d5f4c9ca139"
+  }, {
+    "condition": "$session.params.Flag_Value = \"1\" AND $session.params.FiberEligibleKey = \"FiberEligibility_PrepaidBalance\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_FlagAPICheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FlagValuePrepaidBalance",
+        "value": "$session.params.Flag_Value"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberEligiblePB",
+    "name": "732df71b-0552-4689-aff8-8c9ff1931abd"
+  }, {
+    "condition": "$session.params.Flag_Value = \"1\" AND $session.params.FiberEligibleKey = \"FiberEligibility_PostpaidBalance\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_FlagAPICheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FlagValuePostpaidBalance",
+        "value": "$session.params.Flag_Value"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberEligiblePB",
+    "name": "43ca5cf2-e199-47f1-a097-ae67fa13ce53"
+  }, {
+    "condition": "$session.params.Flag_Value = \"1\" AND $session.params.FiberEligibleKey = \"FiberEligibility_SecuredPayments\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_FlagAPICheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FlagValueSecuredPayments",
+        "value": "$session.params.Flag_Value"
+      } ]
+    },
+    "targetPage": "FiberEligiblePB",
+    "name": "5eb2bcb8-5aa4-4660-8bf8-66710c96a67a"
+  }, {
+    "condition": "$session.params.Flag_Value = \"1\" AND $session.params.FiberEligibleKey = \"FiberEligibility_PrepaidPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_FlagAPICheck_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FlagValuePrepaidPayment",
+        "value": "$session.params.Flag_Value"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberEligiblePB",
+    "name": "90a1154a-4ba4-4e2d-b0fd-09e88838c84f"
+  }, {
+    "condition": "$session.params.Flag_Value = \"1\" AND $session.params.FiberEligibleKey = \"FiberEligibility_PostpaidPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_FlagAPICheck_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FlagValuePostpaidPayment",
+        "value": "$session.params.Flag_Value"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberEligiblePB",
+    "name": "8c395884-ed3b-48b9-bd26-6f32401e7294"
+  }, {
+    "condition": "$session.params.Flag_Value = \"0\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_FlagAPICheck_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ModuleCheck",
+    "name": "c77cf4b9-9b77-4f0f-9827-af75b91a15ae"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "ModuleCheck",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibility_FlagAPICheck_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FlagAPICheckResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "API_FiberEligibility_FlagAPICheck",
+        "value": "Fail_Error"
+      } ]
+    },
+    "name": "f46c4cab-3f99-4da5-b95d-ad845f930a41"
+  }, {
+    "targetPage": "ModuleCheck",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibility_FlagAPICheck_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FlagAPICheckResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "API_FiberEligibility_FlagAPICheck",
+        "value": "Fail_Invalid"
+      } ]
+    },
+    "name": "5ff91551-b083-4c89-af39-f1b197ebebfb"
+  }, {
+    "targetPage": "ModuleCheck",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibility_FlagAPICheck_Webhook_Not_Found",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FlagAPICheckResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "API_FiberEligibility_FlagAPICheck",
+        "value": "Fail_NotFound"
+      } ]
+    },
+    "name": "66629739-a583-4715-b98d-29d9d0bd517c"
+  }, {
+    "targetPage": "ModuleCheck",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibility_FlagAPICheck_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FlagAPICheckResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "API_FiberEligibility_FlagAPICheck",
+        "value": "Fail_Rejected"
+      } ]
+    },
+    "name": "1d8610f3-d862-4b8d-87c6-7c8358fd3e80"
+  }, {
+    "targetPage": "ModuleCheck",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibility_FlagAPICheck_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FlagAPICheckResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "API_FiberEligibility_FlagAPICheck",
+        "value": "Fail_Timeout"
+      } ]
+    },
+    "name": "c03b6443-bf63-4d25-b84a-c739d9fb6366"
+  }, {
+    "targetPage": "ModuleCheck",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibility_FlagAPICheck_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FlagAPICheckResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "API_FiberEligibility_FlagAPICheck",
+        "value": "Fail_Unavailable"
+      } ]
+    },
+    "name": "e66b2cfc-f7a1-450d-943b-f7b53bb0405a"
+  } ]
+}

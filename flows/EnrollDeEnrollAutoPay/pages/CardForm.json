@@ -1,0 +1,49 @@
+{
+  "name": "fc9f2b63-3882-4995-9e10-cd8592050fd6",
+  "displayName": "CardForm",
+  "form": {
+    "parameters": [ {
+      "displayName": "formResponse",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_EnrollDeEnrollAutoPay_CardForm_formResponse",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+            
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n\"chatClientForm\":\"EnrollAutopayForm\",\n\"paymentType\": \"CC\"\n}" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CardForm_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "Card"
+      } ]
+    },
+    "targetPage": "CardFormCheck",
+    "name": "d96b9386-dd03-4398-bfc5-329a1a279340"
+  } ]
+}

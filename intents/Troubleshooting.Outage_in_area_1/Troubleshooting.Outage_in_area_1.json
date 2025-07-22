@@ -1,0 +1,13 @@
+{
+  "name": "d94a702a-edbd-4e2c-b6da-247fc1232c96",
+  "displayName": "Troubleshooting.Outage_in_area_1",
+  "parameters": [ {
+    "id": "time-period",
+    "entityType": "@sys.time-period"
+  }, {
+    "id": "zip-code",
+    "entityType": "@sys.zip-code"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 74
+}

@@ -1,0 +1,83 @@
+{
+  "name": "168f1f1a-ad23-4386-8d19-a2ec69bc4cbf",
+  "displayName": "CheckOverdue",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "CustomAmt",
+      "value": null
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.BillInfo_AccountStatus = \"Active\" OR $session.params.BillInfo_AccountStatus = \"Open\" OR $session.params.BillInfo_AccountStatus = \"OPENED\" OR $session.params.BillInfo_AccountStatus = \"OPEN\" OR $session.params.BillInfo_AccountStatus = \"Opened\" OR $session.params.BillInfo_AccountStatus = \"ACTIVE\") AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckOverdue_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CopperCurrentDue",
+        "value": "true"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckDefaultPaymentMethod",
+    "name": "f26fd402-d8ff-4a9f-a669-bd4aadbd85a2"
+  }, {
+    "condition": "$session.params.BillInfo_AccountStatus = \"Payment Past Due\" OR $session.params.BillInfo_AccountStatus : \"Jeopardy\" OR $session.params.BillInfo_AccountStatus : \"jeopardy\" OR $session.params.BillInfo_AccountStatus : \"Past Due\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckOverdue_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "Overdue",
+    "name": "4962f0b4-b730-4cba-a21d-6677c3e56a8e"
+  }, {
+    "condition": "$session.params.BillInfo_AccountStatus = \"Suspended\" OR $session.params.BillInfo_AccountStatus = \"Paused\" OR $session.params.BillInfo_AccountStatus = \"SUSPENDED\" OR $session.params.BillInfo_AccountStatus = \"PAUSED\" OR $session.params.BillInfo_AccountStatus = \"SNP\" OR $session.params.BillInfo_AccountStatus : \"Suspend\" OR $session.params.BillInfo_AccountStatus : \"SUSPEND\" OR $session.params.BillInfo_AccountStatus = \"Suspended\" OR $session.params.BillInfo_AccountStatus = \"Suspend\" OR $session.params.BillInfo_AccountStatus = \"Non Pay Suspend\" OR $session.params.BillInfo_AccountStatus = \"Non Pay Disconnect\" OR $session.params.BillInfo_AccountStatus = \"SUSPEND-POSTPD NOPAY\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckOverdue_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "SuspendedAccount",
+    "name": "d6c7af53-1cad-4155-a7c7-d22b119dba17"
+  }, {
+    "condition": "($session.params.BillInfo_AccountStatus = \"Active\" OR $session.params.BillInfo_AccountStatus = \"Open\" OR $session.params.BillInfo_AccountStatus = \"OPENED\" OR $session.params.BillInfo_AccountStatus = \"OPEN\" OR $session.params.BillInfo_AccountStatus = \"Opened\" OR $session.params.BillInfo_AccountStatus = \"ACTIVE\") AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentAmount",
+        "value": "$session.params.BillInfo_LatestDueAmount"
+      }, {
+        "parameter": "Metrics_SecuredPayments_CheckOverdue_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "ZeroBalanceCheck",
+    "name": "430055bc-bca4-4968-8347-bc00bbd1aa1d"
+  } ]
+}

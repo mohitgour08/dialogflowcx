@@ -1,0 +1,264 @@
+{
+  "name": "0e68d53e-2bb0-42d3-a056-056a4b45f442",
+  "displayName": "MigCopperPACheck",
+  "form": {
+    "parameters": [ {
+      "displayName": "PayArrPlans",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "webhook": "PaymentArrangement",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_PayArrAPIcall_none_wh_PaymentArrangement",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "SS_PaymentArrangementAPI",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.eligible = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentArrangementEligibility",
+        "value": "Y"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_MigratedCopperPACheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_MigCopperPACheck",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaymentArrangement"
+      } ]
+    },
+    "targetPage": "FiberCheck",
+    "name": "0756b580-f57c-4d2f-ae3e-717ea32a5c39"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentArrangementEligibility",
+        "value": "N"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_MigratedCopperPACheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_MigCopperPACheck",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaymentArrangement"
+      } ]
+    },
+    "targetPage": "FiberCheck",
+    "name": "6f4cad8a-b22e-43a7-8e6d-fbec44d7e82d"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangementAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_MigratedCopperPACheck_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentArrangementAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_MigCopperPACheck",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaymentArrangement"
+      } ]
+    },
+    "name": "3d6f9ae5-9366-451e-8622-1eea1003b52a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangementAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": " Metrics_BalanceInquiryOrMakePayment_MigratedCopperPACheck_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentArrangementAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_MigCopperPACheck",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaymentArrangement"
+      } ]
+    },
+    "name": "3864d695-0c0a-4443-be98-e57eeae087f7"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangementAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_MigratedCopperPACheck_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentArrangementAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_MigCopperPACheck",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaymentArrangement"
+      } ]
+    },
+    "name": "0377ef06-0746-4440-82bd-b8d8c4f7980e"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangementAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_MigratedCopperPACheck_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentArrangementAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_MigCopperPACheck",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaymentArrangement"
+      } ]
+    },
+    "name": "ad7d39b3-f973-4bd9-aaff-8562ee8526df"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangementAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_MigratedCopperPACheck_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentArrangementAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_MigCopperPACheck",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaymentArrangement"
+      } ]
+    },
+    "name": "1c2b0229-0afc-42fe-b0b1-11e6943d3b94"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangementAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_MigratedCopperPACheck_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentArrangementAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_MigCopperPACheck",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaymentArrangement"
+      } ]
+    },
+    "name": "017a5f22-3afa-434d-9d83-2e80e24f2731"
+  } ]
+}

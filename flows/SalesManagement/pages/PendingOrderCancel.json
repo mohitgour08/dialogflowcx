@@ -1,0 +1,118 @@
+{
+  "name": "c601e6ef-60c2-45ed-88f8-bdba49e23f20",
+  "displayName": "PendingOrderCancel",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Authentication = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_PendingOrderCancel_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "GetOrderProductInfoAPI",
+    "name": "9a39da2e-1b7c-43e7-ac83-736d8360d416"
+  }, {
+    "condition": "$session.params.Authentication = \"NO\" OR $session.params.Authentication = \"ACCTFOUND\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_PendingOrderCancel_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PendingOrderCancel",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Authentication",
+    "name": "1b75cc53-9c9e-4ee2-90a1-96c713561c9e"
+  }, {
+    "condition": "$session.params.Authentication = \"FAILED\" OR $session.params.Authentication = \"MULTIACCTFOUND\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm going to connect you with an agent now for more help. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_PendingOrderCancel_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PendingOrderCancel",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self service Failure"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Authentication Failed/MultipleAccountFound"
+      }, {
+        "parameter": "ToState",
+        "value": "RouteToAgent"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "f2d25c6e-92b8-492e-b9b0-391d0104062d"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_PendingOrderCancel_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PendingOrderCancel",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "TransferReason",
+        "value": "SalesManagement-PendingOrderCancel,AuthenticationStatusUnknown"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PendingOrderCancel"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "1c88ad8e-03d6-40ed-8f71-1e2363bcba96"
+  } ],
+  "description": "Authentication Check"
+}

@@ -1,0 +1,27 @@
+{
+  "entities": [ {
+    "value": "^[A][0-9]{8}$",
+    "synonyms": [ "^[A][0-9]{8}$" ],
+    "languageCode": "es"
+  }, {
+    "value": "^[0-9]{10}$",
+    "synonyms": [ "^[0-9]{10}$" ],
+    "languageCode": "es"
+  }, {
+    "value": "^[0-9]{9}$",
+    "synonyms": [ "^[0-9]{9}$" ],
+    "languageCode": "es"
+  }, {
+    "value": "^[a-zA-Z][0-9]+$",
+    "synonyms": [ "^[a-zA-Z][0-9]+$" ],
+    "languageCode": "es"
+  }, {
+    "value": "^([\\s+]?\\d{1}\\s?)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$ ",
+    "synonyms": [ "^([\\s+]?\\d{1}\\s?)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$ " ],
+    "languageCode": "es"
+  }, {
+    "value": "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{4}$",
+    "synonyms": [ "^\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{4}$" ],
+    "languageCode": "es"
+  } ]
+}

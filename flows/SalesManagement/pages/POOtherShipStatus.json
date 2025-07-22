@@ -1,0 +1,107 @@
+{
+  "name": "0b17c94e-fad3-46c7-84d6-b92338f7a3e2",
+  "displayName": "POOtherShipStatus",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.JobStatus = \"EnRoute\" OR $session.params.JobStatus = \"ENROUTE\" OR $session.params.JobStatus = \"En-Route\" OR $session.params.JobStatus = \"enroute\" OR $session.params.DispatchStatus = \"EnRoute\" OR $session.params.DispatchStatus = \"ENROUTE\" OR $session.params.DispatchStatus = \"En-Route\" OR $session.params.DispatchStatus = \"enroute\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_POOtherShipStatus_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POPendingOtherShip",
+    "name": "9ef1d1f2-98c3-4d21-b1a9-5113b05a7759"
+  }, {
+    "condition": "$session.params.JobStatus = \"On-Site\" OR $session.params.JobStatus = \"OnSite\" OR $session.params.JobStatus = \"on-site\" OR $session.params.JobStatus = \"ON-SITE\" OR $session.params.JobStatus = \"ONSITE\" OR $session.params.JobStatus = \"onsite\" OR $session.params.DispatchStatus = \"On-Site\" OR $session.params.DispatchStatus = \"OnSite\" OR $session.params.DispatchStatus = \"on-site\" OR $session.params.DispatchStatus = \"ON-SITE\" OR $session.params.DispatchStatus = \"ONSITE\" OR $session.params.DispatchStatus = \"onsite\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_POOtherShipStatus_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POTechOnSite",
+    "name": "9521ed9b-adb4-4be5-b6b2-217ba98cb9c9"
+  }, {
+    "condition": "$session.params.OrderStatus = \"IN PROGRESS\" OR $session.params.OrderStatus = \"Fallout\" OR $session.params.OrderStatus = \"In Progress\" OR $session.params.OrderStatus = \"Jeopardy\" OR $session.params.OrderStatus = \"Wait for Tech install\" OR $session.params.OrderStatus = \"in progress\" OR $session.params.OrderStatus = \"INPROGRESS\" OR $session.params.OrderStatus = \"InProgress\" OR $session.params.OrderStatus = \"inprogress\" OR $session.params.OrderStatus = \"FALLOUT\" OR $session.params.OrderStatus = \"fallout\" OR $session.params.OrderStatus = \"JEOPARDY\" OR $session.params.OrderStatus = \"WAIT FOR TECH INSTALL\" OR $session.params.OrderStatus = \"Wait for Tech Install\" OR $session.params.OrderStatus = \"wait for tech install\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_POOtherShipStatus_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POPendingOtherShip",
+    "name": "2a3f027f-708b-4d12-b684-b14f48d5560b"
+  }, {
+    "condition": "$session.params.OrderStatus = \"On Hold\" OR $session.params.OrderStatus = \"ON HOLD\" OR $session.params.OrderStatus = \"on hold\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_SalesManagement_POOtherShipStatus_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PendingOrder",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Order Status On Hold"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "8afc7bee-fd9f-4e42-a2f9-a3b72e87a266"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_SalesManagement_POOtherShipStatus_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PendingOrder",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SalesManagement-POOtherShipStatus,OrderStatusUnknown"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "b00ce21d-5b71-4d84-9df6-b793e71e540f"
+  } ]
+}

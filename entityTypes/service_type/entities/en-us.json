@@ -1,0 +1,11 @@
+{
+  "entities": [ {
+    "value": "new/upgraded",
+    "synonyms": [ "new", "New", "new one", "new/upgraded", "Upgraded" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "existing",
+    "synonyms": [ "active", "Existing", "existing " ],
+    "languageCode": "en-us"
+  } ]
+}

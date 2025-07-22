@@ -1,0 +1,15 @@
+{
+  "entities": [ {
+    "value": "(?i)^PPB\\d{8}$",
+    "synonyms": [ "(?i)^PPB\\d{8}$" ],
+    "languageCode": "en"
+  }, {
+    "value": "^[0-9]{10}$",
+    "synonyms": [ "^[0-9]{10}$" ],
+    "languageCode": "en"
+  }, {
+    "value": "^[0-9]{9}$",
+    "synonyms": [ "^[0-9]{9}$" ],
+    "languageCode": "en"
+  } ]
+}

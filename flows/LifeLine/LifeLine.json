@@ -1,0 +1,227 @@
+{
+  "name": "a00caed3-9261-4ad9-8b95-f225eaa1c5a5",
+  "displayName": "LifeLine",
+  "transitionRoutes": [ {
+    "condition": "$session.params.ToState = \"LifeLine\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_LifeLine_StartPage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "LifeLineChat",
+    "name": "d8049cee-532a-4845-9fa8-1968f9337a36"
+  }, {
+    "condition": "$session.params.ToState = \"LifeLine\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_LifeLine_StartPage_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "LifeLineVoice",
+    "name": "8df05b97-019b-4b6e-966d-eea1ebe1617c"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_LifeLine_StartPage_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_LifeLine",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "660d0c0a-cb7b-4354-aaa9-bf3b96327f87"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es-419"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es"
+      }, {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en-us"
+      } ]
+    },
+    "name": "1338d053-25ef-484b-ba55-859905386b90"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es-419"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es"
+      }, {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en-us"
+      } ]
+    },
+    "name": "190b641e-7ede-4268-8749-3c258721eba3"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_ADVANCED",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    }
+  },
+  "advancedSettings": {
+    "enabled": true
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_ADVANCED",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "customConfigKey": "92d1e6d5-d8ab-4e8b-b75c-8de8acb90f3d",
+    "multiIntentSettings": {
+    
+    },
+    "languageCode": "en"
+  } ],
+  "inputParameterDefinitions": [ {
+    "name": "ToState",
+    "description": "parameter needs to be passed to flow",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToModule",
+    "description": "module value",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "user intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "FAQSuccess",
+    "description": "FAQ status",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "FAQSuccess",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "outputParameterDefinitions": [ {
+    "name": "ToState",
+    "description": "parameter needs to be passed to flow based on intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToModule",
+    "description": "module value",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "user intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ]
+}

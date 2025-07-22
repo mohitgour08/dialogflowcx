@@ -1,0 +1,40 @@
+{
+  "name": "d39b5c75-147b-430c-a397-40d920c9817c",
+  "displayName": "RemoveServiceFeatures",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_RemoveServiceFeatures_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "RemoveService",
+    "name": "135dbe9a-caa9-44df-8293-ad540fc57ffe"
+  }, {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_RemoveServiceFeatures_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Saves"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer needs help with Removing Service Features"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "dce2989e-30f8-4cf2-822d-896c7aa5c86f"
+  } ]
+}

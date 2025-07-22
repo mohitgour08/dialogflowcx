@@ -1,0 +1,455 @@
+{
+  "name": "dea74946-3ed9-41bb-bfe3-c0335046f5e2",
+  "displayName": "AccountManagement",
+  "transitionRoutes": [ {
+    "intent": "AccountManagement.AccountStatus",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding account status." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "AccountStatus"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_AccountStatus",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "Account Status"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "3026bc3e-ea8b-4887-8d24-e9df3590f67d"
+  }, {
+    "intent": "AccountManagement.GetAccountNumber ",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding your account number." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "GetAccountNumber"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_GetAccountNumber",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "get account number"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "b80a292e-7145-4ac6-9aee-e9d557c9459b"
+  }, {
+    "intent": "AccountManagement.AccountLocked",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding locked account." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_AccountLocked",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "AccountLocked"
+      }, {
+        "parameter": "callerintent",
+        "value": "Account Locked"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "4f30c5e5-b3ab-476e-abdd-6266d46a5ae2"
+  }, {
+    "intent": "AccountManagement.AddAuthorizedUser",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding adding an authorized user." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "authorizeduser"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_AddAuthorisedUSer",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "AddAuthorizedUser"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "47e52d7e-bdd4-4d51-9f66-961d1fb91a62"
+  }, {
+    "intent": "AccountManagement.GetWifiUsername",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding Wi-Fi username." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "GetUsername"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_GetWifiUsername",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "wifi username"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "c18134ca-89c0-4ae3-ad9e-692d92cc9d6f"
+  }, {
+    "intent": "AccountManagement.GetOnlineUsername",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding online username." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "GetUsername"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_GetOnlineUsername",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "online username"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "8884f5af-f708-4fca-bad4-40356b405ae8"
+  }, {
+    "intent": "AccountManagement.CloseAccount",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding closing your account." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "CancelAccount"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_CloseAccount",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "Cancel Account"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "2d8ee989-9ff2-458b-a351-72b3bb227a5f"
+  }, {
+    "intent": "AccountManagement.GetAccountUsername",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding your username." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "GetUsername"
+      }, {
+        "parameter": "callerintent",
+        "value": "username"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_GetAccountUsername",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "d5225133-fe22-4a5f-a63d-08a96a0c1670"
+  }, {
+    "intent": "AccountManagement.GetWifiPassword",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding Wi-Fi password." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "GetPassword"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_GetWifiPassword",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "wifi password"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "8aad7d49-b1b1-4a80-8c72-5ebe4ccd16cf"
+  }, {
+    "intent": "AccountManagement.GetOnlinePassword ",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding online password." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "GetPassword"
+      }, {
+        "parameter": "callerintent",
+        "value": "online password"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_GetOnlinePassword",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "0925a6ea-2956-44ba-b28e-d210c271622d"
+  }, {
+    "intent": "AccountManagement.GetAccountPassword ",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding your password." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "GetPassword"
+      }, {
+        "parameter": "callerintent",
+        "value": "password"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_GetAccountPassword",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "fbc50408-e319-4eba-aefa-16b7c232fd5b"
+  }, {
+    "intent": "AccountManagement.ManageApp",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding Brightspeed App." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "ManageApp"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_ManageApp",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "download BRSPD app"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "e615d402-405c-4a97-bd14-93277ca3456e"
+  }, {
+    "intent": "AccountManagement.OnlineAccountAccess",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding accessing your account online." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "OnlineAccountAccess"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_OnlineAccountAccess",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "Online Account Access"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "9e542b1e-6588-43b7-82fe-39b2096fcb19"
+  }, {
+    "intent": "AccountManagement.SetupOnlineAccount",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding setting up online account." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "SetupOnlineAccount"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_SetupOnlineAccount",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "setup online account"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "2816b13a-6787-4f08-827b-a8f6a6deedd7"
+  }, {
+    "intent": "AccountManagement.CustomerProfile",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding customer profile." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "CustomerProfile"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_CustomerProfile",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "CustomerProfile"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "5666020b-134f-4483-9106-a08f500caaab"
+  }, {
+    "intent": "AccountManagement.VacationMode",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding vacation mode." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "VacationService"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_VacationMode",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "Vacation"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "3f4208b6-7b71-4054-830d-77422c12e97d"
+  }, {
+    "intent": "AccountManagement.RemoveService",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding removing your services." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "RemoveService"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_RemoveService",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "Remove Service"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "2c7bc264-b153-48d5-ac9e-7a15ea37be31"
+  }, {
+    "intent": "AccountManagement",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding Account Management." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "AccountManagement"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_AccountManagement",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "Account Management"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "02909a71-4958-4f36-a3a5-897c8211adca"
+  } ]
+}

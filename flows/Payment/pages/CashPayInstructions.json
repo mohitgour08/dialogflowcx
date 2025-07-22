@@ -1,0 +1,243 @@
+{
+  "name": "c573721a-b7a4-4a22-8db7-6ae13740c4b6",
+  "displayName": "CashPayInstructions",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Instructions for cash payments can be found at brightspeed.com on our support page titled Pay Your Bill In Person. Navigate to the pre-paid accounts tab to learn more about our partnership with Check Free Pay and search locations near you. Or, I can text you the link now, if that's easier! " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "To receive a link, say \"text me\". You can also say \"something else\" or \"I'm finished\". " ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_CashPayment",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Textme",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayInstructions_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CashPaySendSMS",
+        "value": "true"
+      } ]
+    },
+    "targetPage": "CashPayIsNumber",
+    "name": "1008ad02-4467-404c-b266-e2258823e38d"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayInstructions_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Payment_CashPayInstructions_1"
+      }, {
+        "parameter": "CashPaySendSMS",
+        "value": "true"
+      } ]
+    },
+    "targetPage": "CashPayIsNumber",
+    "name": "49e62426-121c-4b7f-9a25-6b78c6b30665"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayInstructions_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Payment_CashPayInstructions_2"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "b39cee20-90c3-44a5-a9bc-595b61f7f0b6"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayInstructions_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Payment_CashPayInstructions_3"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "aad147ed-9bcf-433d-9c32-6a7368b07d28"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayInstructions_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "SS_CashPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CashPayInstructions"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "3988bfb2-1ab3-486a-9919-688feb0c4237"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I didn't hear your answer. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "To receive a text message, press 1. To ask about something else, press 2. If you're finished, press 3." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayInstructions_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "9410d125-3562-4ec3-b37f-92a80f472e06"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayInstructions_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "SS_CashPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CashPayInstructions"
+      } ]
+    },
+    "name": "5ed05378-1333-4c3b-be70-393abc7f4777"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "To receive a text message, press 1. To ask about something else, press 2. If you're finished, press 3." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayInstructions_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "22bbce4a-76fc-435c-818f-40eba9e2b7f3"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayInstructions_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_CashPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CashPayInstructions"
+      } ]
+    },
+    "name": "38f52d33-53fc-4f2b-8fcb-c293f9b6c0ac"
+  } ],
+  "transitionRouteGroups": [ "AdditionalQuestion", "GoodToGo" ]
+}

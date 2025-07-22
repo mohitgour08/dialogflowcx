@@ -1,0 +1,37 @@
+{
+  "name": "e1017e0e-2c83-41e0-b15f-4029e8774634",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "I understand you want to add new features"
+    }
+  }, {
+    "flowInvocation": {
+      "flow": "SalesManagement",
+      "inputActionParameters": {
+        "FAQSuccess": "DirectTransferToBA",
+        "ToModule": "SalesManagement",
+        "ToState": "AddServiceFeatures",
+        "callerintent": "AddServiceFeatures"
+      },
+      "outputActionParameters": {
+      
+      }
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "user wants to add new Service Features ",
+    "actionParameters": {
+      "callerintent": ""
+    }
+  },
+  "playbookOutput": {
+    "executionSummary": "Thank you",
+    "actionParameters": {
+      "callerintent": ""
+    }
+  },
+  "displayName": "transition to flow SalesManagement",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 163,
+  "languageCode": "en"
+}

@@ -1,0 +1,49 @@
+{
+  "name": "c3810dc0-cbe8-40f6-8d1b-2ce65bf89183",
+  "displayName": "CancelAppointmentMessage",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I'm sorry but I'm unable to cancel your appointment through our automated system. Please give me a moment to connect you with the next available agent." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "Metrics_SalesManagement_CancelAppointmentMessage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SalesManagement-,CancelAppointmentFailed"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "0d9d2817-f757-4852-b1de-a93537e945c6"
+  } ]
+}

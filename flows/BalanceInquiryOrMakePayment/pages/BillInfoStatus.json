@@ -1,0 +1,51 @@
+{
+  "name": "939424aa-00c0-4d58-9b3a-b907659e2640",
+  "displayName": "BillInfoStatus",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_ReturnStatus = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillInfoAPI_Webhook_Success",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CCExpMonCheck",
+    "name": "255f7455-ec69-477d-971a-7f3beecd3791"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillInfoAPI_Webhook_FailureOrNoData",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BillInfoAPI"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "33ec5b7d-3efa-4821-b868-1e0bd4faee5d"
+  } ]
+}

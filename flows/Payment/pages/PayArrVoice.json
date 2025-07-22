@@ -1,0 +1,39 @@
+{
+  "name": "40739f2f-0a0c-4f7c-9acb-3a985f3b7914",
+  "displayName": "PayArrVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I'm happy to help you set up a payment arrangement!" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "I can text you a link to select your plan and fill out your information. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Using the keypad, please type in the ten digit mobile number you would like me to send the link to. " ]
+      },
+      "languageCode": "en"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PayArrCollectTN",
+    "name": "79dc05cc-8f2f-4190-aed8-8b948266beef"
+  } ]
+}

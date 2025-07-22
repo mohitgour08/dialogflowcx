@@ -1,0 +1,43 @@
+{
+  "name": "9785c0f7-d30d-4aa5-a950-7b40e6f94ff2",
+  "displayName": "WallGardenSuspendAbuse",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "Logging_API",
+    "tag": "OutageAPI_MigratedCopper_Fiber_logging",
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.WallGardenStatus = \"AUP Abuse\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_WallGardenSuspendAbuse_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AUPViolation",
+    "name": "59f038c1-be86-4bbb-9617-f15a4a52710e"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_Troubleshooting_WallGardenSuspendAbuse_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckCustomerProd",
+    "name": "895ea804-f1aa-46be-9f43-653e8bcc119e"
+  } ]
+}

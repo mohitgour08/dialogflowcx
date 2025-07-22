@@ -1,0 +1,22 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Need a ",
+      "auto": true
+    }, {
+      "text": "Wifi",
+      "auto": true
+    }, {
+      "text": " Extender",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do I need a wifi extender ?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

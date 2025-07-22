@@ -1,0 +1,10 @@
+{
+  "name": "7d5daee5-c753-4808-a262-ef3fcece3b66",
+  "displayName": "AuthenticationAccountInfoPPB",
+  "parameters": [ {
+    "id": "ENTER_PPB",
+    "entityType": "@TN_BAN_PPB_voice"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 6
+}

@@ -1,0 +1,56 @@
+{
+  "name": "4f1413af-a268-4099-9b7c-31f4b8aeb0c1",
+  "displayName": "Authentication",
+  "goal": "- This is authentication playbook.\n - Respond in a helpful tone without mentioning the playbook name.",
+  "inputParameterDefinitions": [ {
+    "name": "customerQuery",
+    "description": "This is the customer query.",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "customerQuery",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "outputParameterDefinitions": [ {
+    "name": "customerQuery",
+    "description": "This is the customerQuery.",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "customerQuery",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "tokenCount": 410,
+  "referencedPlaybooks": [ "SmartAccountManagementChat" ],
+  "referencedFlows": [ "RoutetoAgent" ],
+  "referencedTools": [ "SendSMSMessage", "GetCustomerAPI_ut" ],
+  "instruction": {
+    "steps": [ {
+      "text": "Don't Greet the user"
+    }, {
+      "text": "Ask for the account number from the customer and wait"
+    }, {
+      "text": "Given them two choices for authentication 1. 'Zipcode' and 2. 'Send me a code'"
+    }, {
+      "text": "if they choose zipcode then validate the zipcode, Validation is Ask for the user input the zipcode and check if its match zipcode from ${TOOL:GetCustomerAPI_ut} by passing tnorban = account number and ucid = test123 to the tool. This tool provides all customer information."
+    }, {
+      "text": "if they choose send me a code get contactNumber from the ${TOOL:GetCustomerAPI_ut} by passing tnorban = account number to the tool. Then call ${TOOL:SendSMSMessage} by passing phone_number = ContactNumber and message =  which is the random 3 to 6 digit number to the tool."
+    }, {
+      "text": "Ask if OTP message is matching from what customer entered then user is authenticated successfully else give two chances still OTP message is not matched then ${FLOW:RoutetoAgent}"
+    }, {
+      "text": "if the user is authenticated succssfully route to ${PLAYBOOK:SmartAccountManagementChat} playbook and set chatReason=get_accountinfo and pass customerQuery."
+    } ]
+  }
+}

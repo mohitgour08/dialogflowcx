@@ -1,0 +1,88 @@
+{
+  "name": "fa13d5d3-40a3-4703-a231-72049561031e",
+  "displayName": "ANIAssociation",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Would you like me to associate the phone number you're calling from to this account? It will make this process faster in the future. You can just say yes or no. " ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "ANIAssociationAPI",
+    "name": "e33de726-2e76-4370-ac83-d0481595114a"
+  }, {
+    "intent": "Confirmation.No",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Check4GLTE",
+    "name": "c24be295-88d2-4b51-a9fe-17bcfc335a19"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "ANIAssociationAPI",
+    "name": "ec1213f2-4bfd-4b25-8583-f6334042412e"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Check4GLTE",
+    "name": "fb974a82-40bc-42dc-9188-da3107ffb679"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+    
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "d09d9c05-1202-4fa1-bc8f-c991c2e3e6a3"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "press 1 to save this phone number to the account, or press 2 for no. " ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "7ab1c52a-4f82-43e3-ae2c-ade3989e772d"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "press 1 to save this phone number to the account, or press 2 for no. " ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "acb1c796-5b18-441b-91de-f5a2dac96b5c"
+  }, {
+    "targetPage": "Check4GLTE",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "323a1274-9ad5-4540-a23e-92b38b78a339"
+  }, {
+    "targetPage": "Check4GLTE",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "3fbef596-c5f0-4709-be8a-863a5d8612e4"
+  } ]
+}

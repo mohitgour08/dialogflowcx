@@ -1,0 +1,49 @@
+{
+  "name": "f15863d7-a545-45c5-a0be-3cf88a377a70",
+  "displayName": "NoPhoneEmailVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "It appears there is no phone number or email currently associated with your account. \nLet's try another way.\n" ]
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "Metrics_Authentication_NoPhoneEmailVoice_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "NO"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "ZipCodeAuth",
+    "name": "38f0c96b-357a-4d6f-be12-f03e7d094bd8"
+  } ]
+}

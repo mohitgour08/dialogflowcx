@@ -1,0 +1,17 @@
+{
+  "name": "425f4b06-802e-4612-9bae-bdf905118643",
+  "displayName": "staticLink_Primary",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/CCAI-BrightspeedAssistantStaticLinks",
+    "webhookType": "STANDARD",
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth2/token",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

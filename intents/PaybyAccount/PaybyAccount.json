@@ -1,0 +1,11 @@
+{
+  "name": "46f04e81-43b5-43a8-b0c3-35e90d2d6542",
+  "displayName": "PaybyAccount",
+  "parameters": [ {
+    "id": "embargodtmf",
+    "entityType": "@EmbargoDTMF"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 24,
+  "dtmfPattern": "2"
+}

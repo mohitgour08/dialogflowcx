@@ -1,0 +1,194 @@
+{
+  "name": "185dfa0e-26f3-4c1d-957e-f29b82be88a9",
+  "displayName": "TicketAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "RepairTicket",
+    "tag": "Ticket",
+    "setParameterActions": [ {
+      "parameter": "Metrics_TicketAPI_Ticket_wh_RepairTicket",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketAPI_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RepairTicket_ReturnStatus",
+        "value": "SUCCESS"
+      }, {
+        "parameter": "SS_RepairAPI",
+        "value": "Success"
+      }, {
+        "parameter": "API_SalesManagement_TicketAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RepairTicket"
+      } ]
+    },
+    "name": "84d61514-269f-4deb-8d16-6ebd94124ed6"
+  } ],
+  "eventHandlers": [ {
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RepairTicket_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "API_SalesManagement_TicketAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RepairTicket"
+      } ]
+    },
+    "name": "2bf29248-d4cb-495e-b792-15db2c68b372"
+  }, {
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RepairTicket_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "SS_TicketAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "API_SalesManagement_TicketAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RepairTicket"
+      } ]
+    },
+    "name": "4d78104f-2fb5-4eb6-9278-8e81568a73b4"
+  }, {
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RepairTicket_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "SS_TicketAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "API_SalesManagement_TicketAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RepairTicket"
+      } ]
+    },
+    "name": "9adf9c87-46f6-4ab7-bedb-6e59a3873a9b"
+  }, {
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RepairTicket_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "SS_TicketAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "API_SalesManagement_TicketAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RepairTicket"
+      } ]
+    },
+    "name": "27bbcc00-f7fd-4143-863e-db6dad489f76"
+  }, {
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketAPI_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RepairTicket_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_TicketAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "API_SalesManagement_TicketAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RepairTicket"
+      } ]
+    },
+    "name": "4c856ec3-26b0-4547-a584-6ac33630a9a9"
+  }, {
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RepairTicket_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "SS_TicketAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "API_SalesManagement_TicketAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RepairTicket"
+      } ]
+    },
+    "name": "be491870-c524-49cb-aa4f-4af4d35d66be"
+  } ]
+}

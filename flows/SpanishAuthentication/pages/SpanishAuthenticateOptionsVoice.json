@@ -1,0 +1,226 @@
+{
+  "name": "2e5a9a26-736d-4097-a582-c8509f3281c0",
+  "displayName": "SpanishAuthenticateOptionsVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003ePodemos validar su cuenta con su código postal o enviando un código de un solo uso a un número de teléfono o correo electrónico registrado en su cuenta. Presione uno para usar su código postal o presione dos para recibir el código de un solo uso.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Podemos validar su cuenta con su código postal o enviando un código único a un número de teléfono o dirección de correo electrónico registrado en su cuenta. Ahora puedes decir \"código postal\" o \"código de un solo uso\"." ]
+      },
+      "languageCode": "es"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_AuthenticateOptionsVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "SpanishAuthentication_SpanishAuthenticationOptionsVoice_DTMF_1"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ZipCodeAuth",
+    "name": "d47c8295-6dc2-4f4e-af24-fd41923748b3"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "AuthMethod",
+        "value": "2Factor"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_SpanishAuthenticateOptionsVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "2Factor"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "SpanishAuthentication_SpanishAuthenticationOptionsVoice_DTMF_2"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "SingleAccountFound",
+    "name": "9eee9b09-6b2b-457c-af87-606b581b5051"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTu respuesta no coincide con ninguna de las opciones. Intentémoslo de nuevo.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003ePresione uno para usar su código postal o presione dos para recibir el código de un solo uso\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Lo siento, tu respuesta no coincide con una de nuestras opciones." ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_SpanishAuthenticateOptionsVoice_Nomatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "True"
+      } ]
+    },
+    "name": "9a8c2b48-5687-4018-a3a8-030ab836da5c"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eNo entendí tu respuesta\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "No entendí tu respuesta." ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "NoMatch-SpanishAuthenticateOptionsVoice"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_SpanishAuthenticateOptionsVoice_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "NoMatch-SpanishAuthenticateOptionsVoice"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SpanishAuthenticateOptionsVoice"
+      } ]
+    },
+    "name": "d750fa7e-bb52-4716-98c1-9f51fb7f3886"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Lo siento! No entendí tu respuesta. Intentémoslo de nuevo.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003ePresione uno para usar su código postal o presione dos para recibir el código de un solo uso.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Lo siento, no escuché tu respuesta. " ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_SpanishAuthenticateOptionsVoice_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "True"
+      } ]
+    },
+    "name": "f5fde820-2080-4529-8806-9f98237b456f"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eeso esta bien\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Está bien." ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "NoInput-SpanishAuthenticateOptionsVoice"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_SpanishAuthenticateOptionsVoice_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "NoInput-SpanishAuthenticateOptionsVoice"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SpanishAuthenticateOptionsVoice"
+      } ]
+    },
+    "name": "e82714dd-d458-4709-ad2c-a605369e96de"
+  } ]
+}

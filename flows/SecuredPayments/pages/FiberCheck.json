@@ -1,0 +1,119 @@
+{
+  "name": "9b5399d0-764a-4c77-a20d-ac1b5d6c103c",
+  "displayName": "FiberCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.NetworkType = \"GPON\" OR $session.params.NetworkType = \"XGSPON\" OR $session.params.NetworkType = \"BPON\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "First, Please enter your 16 digit card number followed by the pound sign." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "Card"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "CreditCard"
+      }, {
+        "parameter": "RoutingNo",
+        "value": ""
+      }, {
+        "parameter": "BankAccountNo",
+        "value": ""
+      }, {
+        "parameter": "CardNoRetry",
+        "value": "false"
+      }, {
+        "parameter": "encFields",
+        "value": "#field_creditCardNumber#field_cardSecurityCode#field_creditCardExpirationMonth#field_creditCardExpirationYear#field_creditCardType"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "UpdateFiber",
+    "name": "ccaa4aac-448b-4132-b8a2-0db8e44dc38d"
+  }, {
+    "condition": "$session.params.ToState = \"AutopaySignup\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "We can accept auto drafted payments through a bank account transaction, or by credit or debit card. Which payment method would you like to use?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Please note: we can not accept American Express cards at this time. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "We can accept auto drafted payments through a bank account transaction, or by credit or debit card. Please note: we can not accept American Express cards at this time. Say \"card\" to enter card information or \"bank account\" to enter bank account information.\n" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "UpdateMethodofPaymentResponse",
+    "name": "44d8a4eb-d76b-44fa-a267-b6f1b506e276"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm happy to help you! Will you be using a card number or bank account information as your payment method? Please note that we can not accept American Express cards at this time. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm happy to help you! Say \"card\" if you'll be using a card as your payment method, but please note that we can not accept American Express cards at this time. Or you can say \"bank account\" to enter bank account information." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "UpdateMethodofPaymentResponse",
+    "name": "e54646d2-332d-4cd4-a0e9-82d46dcac695"
+  } ]
+}

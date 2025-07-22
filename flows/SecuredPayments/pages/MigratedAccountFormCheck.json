@@ -1,0 +1,85 @@
+{
+  "name": "a8b2a42f-b51a-46ea-8918-c437d966e7c9",
+  "displayName": "MigratedAccountFormCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.formResponse = \"CancelForm\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\r\n\"chatClientForm\": \"BackToChat\"\r\n}" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Okay, I'll cancel this transaction for now. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_MigratedAccountFormCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "formResponse",
+        "value": null
+      }, {
+        "parameter": "ToState",
+        "value": "PostpaidBalance"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckBillingMethod",
+    "name": "0dce771f-257c-4c17-8c98-3df0c64db1e1"
+  }, {
+    "condition": "$session.params.formResponse = \"formBack\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_MigratedAccountFormCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "formResponse",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CancelTransaction",
+    "name": "d5f6df27-0e2b-42b7-9590-7944c16a70d0"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_MigratedAccountFormCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "JsonMigratedPayment",
+    "name": "aa67ec84-9117-43ea-bbfc-aef34fc0b2e3"
+  } ]
+}

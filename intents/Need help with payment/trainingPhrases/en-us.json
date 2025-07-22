@@ -1,0 +1,25 @@
+{
+  "trainingPhrases": [ {
+    "id": "f758dbd7-d04d-4fb6-bddc-731f8e5e2139",
+    "parts": [ {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " with ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d7f1b92a-9843-4f77-9cda-e0f183b38531",
+    "parts": [ {
+      "text": "Need help with payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

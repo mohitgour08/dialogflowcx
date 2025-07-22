@@ -1,0 +1,129 @@
+{
+  "name": "82765934-5d07-45fb-b028-3ad3e0793901",
+  "displayName": "EcomUpgradePlanNew",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "In most cases, you will be able to change or upgrade your plan after activation as needed. I can connect you with an agent now if you'd like to discuss plan options specific to you. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Yes, connect me with an agent."
+          }, {
+            "action": "quick_reply",
+            "title": "No, thank you."
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.No",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomUpgradePlanNew_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AgentConnect",
+        "value": "No"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "Ecom_End",
+    "name": "4e464ef2-f7ea-4fdf-a1a5-f67fb15c798f"
+  }, {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomUpgradePlanNew_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AgentConnect",
+        "value": "Yes"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "AgentRoute",
+    "name": "c4b8e220-edb2-4bd0-ab4f-1c58e037c2f2"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomUpgradePlanNew_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EXIT_POP"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "071c09ec-144d-4971-b260-41720b862ea6"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Yes, connect me with an agent."
+            }, {
+              "action": "quick_reply",
+              "title": "No, thank you."
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomUpgradePlanNew_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "d80c6d88-e322-4954-9e3e-c6393e45827c"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomUpgradePlanNew_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "87917173-d0b4-4fb5-9c6a-4fbf65b0efa6"
+  } ]
+}

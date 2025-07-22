@@ -1,0 +1,40 @@
+{
+  "name": "ca3db60d-5dc3-494b-9dec-1d9cd96e11bc",
+  "displayName": "SpeedPayTransfer",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "action": "escalation",
+          "escalation_reason": "by_virtual_agent",
+          "language": "en",
+          "menu_id": "$session.params.MenuID_SpeedPayTransfer",
+          "type": "action"
+        }
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "eventHandlers": [ {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "126b978b-c8e8-4b60-8b37-26b3c5c029f3"
+  }, {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "cab3a941-53d3-4a97-a5c3-43dbd2a39206"
+  } ]
+}

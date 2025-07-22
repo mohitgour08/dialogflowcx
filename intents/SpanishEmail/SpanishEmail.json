@@ -1,0 +1,10 @@
+{
+  "name": "6f6e4ea7-5724-41d3-8c76-7bff53304a30",
+  "displayName": "SpanishEmail",
+  "parameters": [ {
+    "id": "person",
+    "entityType": "@sys.person"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 2
+}

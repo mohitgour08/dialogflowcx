@@ -1,0 +1,47 @@
+{
+  "name": "a4d453f9-0a9a-4131-b290-903f4d73f0c3",
+  "displayName": "OutageCheckCopperL",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "SS_CheckOutage",
+      "value": "Success"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.NetworkOutage = 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_OutageCheckCopperL_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WallGardenSuspendAbuse",
+    "name": "8a51e808-ff1b-4941-8a35-696aacf9c89f"
+  }, {
+    "condition": "$session.params.NetworkOutage \u003e 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_OutageCheckCopperL_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ETRExists",
+    "name": "90923b69-7530-4368-9a97-e67970d98a72"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_OutageCheckCopperL_Default ",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WallGardenSuspendAbuse",
+    "name": "33b68af3-360a-4528-a085-b2999bbca03f"
+  } ]
+}

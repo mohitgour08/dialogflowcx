@@ -1,0 +1,225 @@
+{
+  "name": "301b6c43-6c98-4ffe-b16d-09568cbd6d73",
+  "displayName": "OnlineUsername",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "You can retrieve your username $session.params.link2. Please let me know if you are unsuccessful and need additional assistance." ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "I need help with my password"
+          }, {
+            "action": "quick_reply",
+            "title": "I am still not able to log in"
+          }, {
+            "action": "quick_reply",
+            "title": "I have an additional question"
+          }, {
+            "action": "quick_reply",
+            "title": "Thanks, that was all I needed"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_OnlineUsername",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "AccountManagement.CanNotLogin",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_OnlineUsername_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_OnlineUsername",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "Transfer Reason",
+        "value": "Self Service Failure"
+      }, {
+        "parameter": "Transfer Message",
+        "value": "User provided Wrong Information."
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "b47c301c-6abc-4bad-b592-06bc79b8939e"
+  }, {
+    "intent": "AccountManagement.GetAccountPassword ",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "callerintent",
+        "value": "OnlinePassword"
+      }, {
+        "parameter": "ToState",
+        "value": "GetPassword"
+      }, {
+        "parameter": "Metrics_AccountManagement_OnlineUsername_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GetAccountPassword",
+    "name": "00878a93-b141-47eb-af47-35733910800b"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_OnlineUsername_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "SS_OnlineUsername",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "OnlineUsername"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "76439457-fc78-4acc-9314-8aabdc3690f6"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_OnlineUsername_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "SS_OnlineUsername",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "OnlineUsername"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "c039b062-fd7e-4a0b-83c7-97bf47d174c9"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "I need help with my password"
+            }, {
+              "action": "quick_reply",
+              "title": "I am still not able to log in"
+            }, {
+              "action": "quick_reply",
+              "title": "I have an additional question"
+            }, {
+              "action": "quick_reply",
+              "title": "Thanks, that was all I needed"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_OnlineUsername_Nomatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "0266ba8d-bf5f-4d9c-b6f3-cbaf6510bcb4"
+  } ],
+  "transitionRouteGroups": [ " GoodToGo", "AdditionalQuestion" ]
+}

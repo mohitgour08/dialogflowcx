@@ -1,0 +1,508 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "I want to get my ",
+      "auto": true
+    }, {
+      "text": "bills",
+      "auto": true
+    }, {
+      "text": " by ",
+      "auto": true
+    }, {
+      "text": "email",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you make my ",
+      "auto": true
+    }, {
+      "text": "bills",
+      "auto": true
+    }, {
+      "text": " paperless?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to stop getting paper ",
+      "auto": true
+    }, {
+      "text": "bills",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Please switch ",
+      "auto": true
+    }, {
+      "text": "me",
+      "auto": true
+    }, {
+      "text": " to digital ",
+      "auto": true
+    }, {
+      "text": "bills",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How do I ",
+      "auto": true
+    }, {
+      "text": "sign up",
+      "auto": true
+    }, {
+      "text": " for paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to enroll ",
+      "auto": true
+    }, {
+      "text": "in",
+      "auto": true
+    }, {
+      "text": " paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Sign ",
+      "auto": true
+    }, {
+      "text": "me",
+      "auto": true
+    }, {
+      "text": " up for paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Switch ",
+      "auto": true
+    }, {
+      "text": "me",
+      "auto": true
+    }, {
+      "text": " to paperless ",
+      "auto": true
+    }, {
+      "text": "statements",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'd like to go paperless",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Enroll to paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Change my ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": " settings to paperless",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Change ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": " delivery method to ",
+      "auto": true
+    }, {
+      "text": "email",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'd rather receive ",
+      "auto": true
+    }, {
+      "text": "email",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "bills",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I prefer to get my ",
+      "auto": true
+    }, {
+      "text": "bills",
+      "auto": true
+    }, {
+      "text": " digitally",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you offer paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Enroll ",
+      "auto": true
+    }, {
+      "text": "me",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "in",
+      "auto": true
+    }, {
+      "text": " paperless ",
+      "auto": true
+    }, {
+      "text": "statements",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Move",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "me",
+      "auto": true
+    }, {
+      "text": " to online ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Yes",
+      "auto": true
+    }, {
+      "text": ", I want paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Enable paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Activate",
+      "auto": true
+    }, {
+      "text": " paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": " option",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Change my ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": " delivery to paperless",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Set my ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "email",
+      "auto": true
+    }, {
+      "text": " only",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Enroll ",
+      "auto": true
+    }, {
+      "text": "in",
+      "auto": true
+    }, {
+      "text": " paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "en",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "EnrollPaperlessBilling",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Phrase",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Language",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Intent Display Name",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there an option to opt for electronic ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What do I need to do to switch to paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "me",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "sign up",
+      "auto": true
+    }, {
+      "text": " for paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "can I eligible for e-",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to opt for paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I switch to paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How can I receive ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "statements",
+      "auto": true
+    }, {
+      "text": " electronically?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to know about paperless ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

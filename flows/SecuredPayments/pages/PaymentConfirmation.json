@@ -1,0 +1,689 @@
+{
+  "name": "8ff6e6b4-3a96-43e7-be7f-b382adc71f83",
+  "displayName": "PaymentConfirmation",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay, just to confirm - I'll be submitting a payment of $$session.params.PaymentAmount using this card. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Click yes to initiate the payment." ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Yes"
+          }, {
+            "action": "quick_reply",
+            "title": "$session.params.ConfirmationButton"
+          }, {
+            "action": "quick_reply",
+            "title": "Cancel Transaction"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e Okay, just to confirm, I'll be submitting a payment of $$session.params.PaymentAmount using this card. \u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "Say \"yes\" to submit the payment. You can also say \"change payment method\" or \"cancel transaction\". " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Payment.Yes",
+    "condition": "$session.params.OtherSavedPay = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_13",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PaymentAPI",
+    "name": "99c41ad6-bcf2-4d2b-a8af-7f9cf8225deb"
+  }, {
+    "intent": "Payment.Yes",
+    "condition": "$session.params.DefaultPM = \"true\" AND $session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "paymentAuthId",
+        "value": "$session.params.BillInfo_paymentAuthId"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.paymentAuthId"
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "$session.params.CreditCardType"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PaymentAPI",
+    "name": "72f0b7ae-4ce0-4215-83bb-a78b3f2daf1a"
+  }, {
+    "intent": "Payment.Yes",
+    "condition": "$session.params.DefaultPM = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.BillInfo_paymentAuthId"
+      }, {
+        "parameter": "paymentType",
+        "value": "Card"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PaymentAPI",
+    "name": "913e7520-950c-44e8-a54b-49683db1487c"
+  }, {
+    "intent": "Payment.Yes",
+    "condition": "$session.params.ToState = \"FiberPayment\" AND $session.params.BillingSystem = \"BRIM\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "GetTokenAPI",
+    "name": "519dec83-b0f4-4e82-b1a3-817b686657a4"
+  }, {
+    "intent": "Payment.Yes",
+    "condition": "$session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RoutingNo",
+        "value": ""
+      }, {
+        "parameter": "BankAccountNo",
+        "value": ""
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "CreditCard"
+      }, {
+        "parameter": "CardNoRetry",
+        "value": "false"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "UpdateCardWrapperVoice",
+    "name": "2504a6c6-a02b-436d-955d-40e9422d0ccd"
+  }, {
+    "intent": "Payment.Yes",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RoutingNo",
+        "value": ""
+      }, {
+        "parameter": "BankAccountNo",
+        "value": ""
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "GetTokenAPI",
+    "name": "6401ea50-3672-4127-aa28-5861d70ba090"
+  }, {
+    "intent": "Update payment method",
+    "condition": "$session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "FiberPayment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CreditCardNo",
+        "value": null
+      }, {
+        "parameter": "CVV",
+        "value": null
+      }, {
+        "parameter": "BankAccountNo",
+        "value": null
+      }, {
+        "parameter": "expiration_date",
+        "value": null
+      }, {
+        "parameter": "RoutingNo",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.month",
+        "value": null
+      }, {
+        "parameter": "$flow.only_month",
+        "value": null
+      }, {
+        "parameter": "CustomAmt",
+        "value": null
+      }, {
+        "parameter": "ReEnterCardInfo",
+        "value": "true"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "SecuredPayments",
+    "name": "847cce30-65b9-4387-89ed-1f9a64bfac2a"
+  }, {
+    "intent": "CancelTransaction",
+    "condition": "$session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay, I'll cancel this transaction for now. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "CancelTransaction"
+      }, {
+        "parameter": "CreditCardNo",
+        "value": null
+      }, {
+        "parameter": "CVV",
+        "value": null
+      }, {
+        "parameter": "BankAccountNo",
+        "value": null
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "SecuredPayments",
+    "name": "80229521-245e-4634-9b98-eedadc70afda"
+  }, {
+    "intent": "Representative",
+    "condition": "$session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentConfirmation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent was Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "e9485342-6e5e-4528-a9d7-49fe65307728"
+  }, {
+    "intent": "Update payment method",
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CreditCardNo",
+        "value": null
+      }, {
+        "parameter": "CVV",
+        "value": null
+      }, {
+        "parameter": "BankAccountNo",
+        "value": null
+      }, {
+        "parameter": "expiration_date",
+        "value": null
+      }, {
+        "parameter": "RoutingNo",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.month",
+        "value": null
+      }, {
+        "parameter": "$flow.only_month",
+        "value": null
+      }, {
+        "parameter": "CustomAmt",
+        "value": null
+      }, {
+        "parameter": "DefaultPM",
+        "value": "false"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "PrePaidOrPostpaid",
+    "name": "48d7a54d-c67d-4e48-a1fe-d15790268b37"
+  }, {
+    "intent": "CancelTransaction",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay, I'll cancel this transaction for now." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CreditCardNo",
+        "value": null
+      }, {
+        "parameter": "CVV",
+        "value": null
+      }, {
+        "parameter": "BankAccountNo",
+        "value": null
+      }, {
+        "parameter": "ToState",
+        "value": "CancelTransaction"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "c64b767d-329c-408a-bc63-8b2dc788045c"
+  }, {
+    "intent": "Update payment method",
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CreditCardNo",
+        "value": null
+      }, {
+        "parameter": "CVV",
+        "value": null
+      }, {
+        "parameter": "BankAccountNo",
+        "value": null
+      }, {
+        "parameter": "expiration_date",
+        "value": null
+      }, {
+        "parameter": "RoutingNo",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.month",
+        "value": null
+      }, {
+        "parameter": "$flow.only_month",
+        "value": null
+      }, {
+        "parameter": "DefaultPM",
+        "value": "false"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CardOrAccount",
+    "name": "7bd0b567-715e-413e-a3fc-9b79706aff5a"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentConfirmation"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "9adcc202-c5c5-4129-a027-24d8072a70a5"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "What would you like to do?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Visit MyBrightSpeed portal"
+            }, {
+              "action": "quick_reply",
+              "title": "Change my payment method"
+            }, {
+              "action": "quick_reply",
+              "title": "Make a payment"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Say \"yes\" to submit the payment. You can also say \"change payment method\" or \"cancel transaction\". " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "257c5eee-5739-408f-b76b-930c7ccd884a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentConfirmation"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "78d86922-13e5-4c38-9a36-9414068b6ed6"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Say \"yes\" to submit the payment. You can also say \"change payment method\" or \"cancel transaction\". " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "467ec7c2-17c2-42a7-9cb2-4e15c4408e0b"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentConfirmation_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentConfirmation"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "004f4fcb-e0de-4a2a-b2f7-9e451aa9e750"
+  } ]
+}

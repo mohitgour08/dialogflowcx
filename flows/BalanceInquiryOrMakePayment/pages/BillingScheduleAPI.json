@@ -1,0 +1,129 @@
+{
+  "name": "c130f944-460e-4e3e-ab15-cbeb3111080d",
+  "displayName": "BillingScheduleAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "BillingSchedule",
+    "tag": "none"
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillingScheduleStatus = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillingAcheduleAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "BillCycleImpactChk",
+    "name": "e7413bf2-cf9b-420c-a69e-981ddfe336bc"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillingAcheduleAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "BillInfoCheck",
+    "name": "672e1163-b95d-46f4-af02-abb1d66b1852"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "BillInfoCheck",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillingScheduleAPI_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BillingSchedule"
+      } ]
+    },
+    "name": "0be05454-a671-4641-a04a-e3a9b8a9697d"
+  }, {
+    "targetPage": "BillInfoCheck",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillingScheduleAPI_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BillingSchedule"
+      } ]
+    },
+    "name": "87311865-65a8-482b-b781-f4e84a780506"
+  }, {
+    "targetPage": "BillInfoCheck",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillingScheduleAPI_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BillingSchedule"
+      } ]
+    },
+    "name": "4ef4d9fb-71d2-406c-8c9b-1a2af2b06a89"
+  }, {
+    "targetPage": "BillInfoCheck",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillingScheduleAPI_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BillingSchedule"
+      } ]
+    },
+    "name": "e983cf6f-cd94-4fa7-8b6c-12093be44017"
+  }, {
+    "targetPage": "BillInfoCheck",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillingScheduleAPI_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BillingSchedule"
+      } ]
+    },
+    "name": "2623fcea-1387-4272-8467-15df78430df9"
+  }, {
+    "targetPage": "BillInfoCheck",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillingScheduleAPI_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BillingSchedule"
+      } ]
+    },
+    "name": "8946dd02-a740-4ca9-99ce-535495d340c6"
+  } ]
+}

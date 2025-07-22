@@ -1,0 +1,169 @@
+{
+  "name": "4bad679c-1091-4103-8eb5-5f385e448fb7",
+  "displayName": "checkForGlobalDynamicMsg",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "Dynamic Message",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_DefaultStartFlow_checkForGlobalDynamicMsg",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "location",
+      "value": "Global"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "DynamicMsg_Logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForGlobalDynamicMsg_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "fe33f96b-f80f-4966-9aba-d794bfbaf34e",
+    "description": "This route is for API logging"
+  }, {
+    "condition": "$session.params.message_text != \"\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$session.params.message_text" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForGlobalDynamicMsg_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_checkForGlobalDynamicMsg",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "cc43d35f-9f74-427e-8bde-f1e27b76ecd1"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForGlobalDynamicMsg_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_checkForGlobalDynamicMsg",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "bcc8cb2c-521c-4d65-9c8a-650150466994"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "ListenInitialIntent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForGlobalDynamicMsg_webhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_checkForGlobalDynamicMsg",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "name": "f8832f08-9040-409c-90d8-a5c08cb46779"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForGlobalDynamicMsg_webhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_checkForGlobalDynamicMsg",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "name": "24c606f6-9325-4442-ba59-7902895d2b2a"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForGlobalDynamicMsg_webhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_checkForGlobalDynamicMsg",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "name": "4a0677db-1e9d-498d-9348-7725b76b5feb"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForGlobalDynamicMsg_webhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_checkForGlobalDynamicMsg",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "name": "339ed794-4f76-499c-8efa-9814c2190e8c"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForGlobalDynamicMsg_webhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_checkForGlobalDynamicMsg",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "name": "e38d811e-f4ee-4b06-b25e-d152f184a525"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForGlobalDynamicMsg_webhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_checkForGlobalDynamicMsg",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "name": "bcdc7da1-2a17-4f1b-9444-6b5d66f9d5f3"
+  } ]
+}

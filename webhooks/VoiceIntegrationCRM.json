@@ -1,0 +1,19 @@
+{
+  "name": "329989c5-8dde-4caa-863a-29beb2cd8d4f",
+  "displayName": "VoiceIntegrationCRM",
+  "genericWebService": {
+    "uri": "https://api-ut.brightspeed.com/ccaisn/v1/record/update",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"billingAccountNumber\": \"$session.params.AccountNumber\",\n  \"callID\": \"$session.params.CallID\",\n  \"from\": \"VoiceIntegrationCRM\"\n}",
+    "oauthConfig": {
+      "clientId": "Wxq32hAc8gxpoxhatAxdU38UhD8kVmkK3C0MAPHlzCZBhhtZ",
+      "clientSecret": "dtA3CT9c77cVxpI0Aw1THWKfO0ix3kqwKjrY080rCg1PeHQYmCMpmM52xd1LwY21",
+      "tokenEndpoint": "https://api-ut.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

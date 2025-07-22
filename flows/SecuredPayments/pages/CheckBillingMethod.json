@@ -1,0 +1,53 @@
+{
+  "name": "0808c6a8-c6ea-4425-98b6-396d37790050",
+  "displayName": "CheckBillingMethod",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillingMethod = \"prepaid\" OR $session.params.BillingMethod = \"PR\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckBillingMethod_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PrepaidBalance"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PrepaidBalance",
+    "name": "d0d23614-60e8-447d-9f8e-bfbd83a4c50e"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckBillingMethod_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PostpaidBalance"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PostpaidBalance",
+    "name": "4cc257f8-ea67-4df1-81eb-dc8b63194e6d"
+  } ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "e0999f50-2b54-428b-8cb9-f1b716d7f2ad",
+  "displayName": "CheckForHints",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Hints != NULL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_CheckForHints_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ChatIsComingFromCart",
+    "name": "980dc60a-9ad1-4ce9-9792-720d8a2eb1df"
+  }, {
+    "condition": "$session.params.Hints = NULL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_CheckForHints_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "300c6073-2552-4ff0-9f83-0d8c6f7ba617"
+  } ]
+}

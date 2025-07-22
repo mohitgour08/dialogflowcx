@@ -1,0 +1,44 @@
+{
+  "name": "83b6a7bc-e889-44af-92cb-8be838d2dc9a",
+  "displayName": "DisputeCharge",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_DisputeCharge_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer has Billing Dispute"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "82485df6-b9b9-4588-a3a8-69522ba5b4ad"
+  } ],
+  "description": "BILLING DISPUTE CHARGE"
+}

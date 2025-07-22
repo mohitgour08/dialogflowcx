@@ -1,0 +1,68 @@
+{
+  "name": "bc0fde41-da69-4409-9c2f-4fcc343ab73c",
+  "displayName": "NAPSNPBalanceCheck",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_LatestDueAmount = \"0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.00\" OR $session.params.BillInfo_LatestDueAmount = \"\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Right now, the balance on your account is $$session.params.BillInfo_LatestDueAmount. If you've recently made a payment to end suspension, please allow 48 hours for the payment to be reflected. Your service should be restored shortly. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Right now, the balance on your account is $$session.params.BillInfo_LatestDueAmount. If you've recently made a payment to end suspension, please allow 48 hours for the payment to be reflected. Your service should be restored shortly. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_NAPSNPBalanceCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "SuspendedNotPAEligible",
+    "name": "6855b5e4-6eed-4daa-9290-42db816104ee"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your account is currently suspended with a total balance of $$session.params.TotalBalance.  You'll need to pay at least the past due amount of $$session.params.BillInfo_PastDueAmount to restore service. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Your account is currently suspended with a total balance of $$session.params.TotalBalance.  You'll need to pay at least the past due amount of $$session.params.BillInfo_PastDueAmount to restore service. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_NAPSNPBalanceCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ChkIntNAPSuspendNPA",
+    "name": "d8d31538-5b0f-4561-b6d4-6310fd14b178"
+  } ]
+}

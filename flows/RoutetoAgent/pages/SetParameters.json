@@ -1,0 +1,193 @@
+{
+  "name": "fc5c3e92-b81e-4727-a668-731a20cb9d6d",
+  "displayName": "SetParameters",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "SetParameters",
+    "tag": "test",
+    "setParameterActions": [ {
+      "parameter": "CallID",
+      "value": "$sys.func.IF(\"$session.params.CallID != null\", \"$session.params.CallID\", \"\")"
+    }, {
+      "parameter": "AccountNumber",
+      "value": "$sys.func.IF(\"$session.params.AccountNumber != null\", \"$session.params.AccountNumber\", \"\")"
+    }, {
+      "parameter": "AccountType",
+      "value": "$sys.func.IF(\"$session.params.AccountType != null\", \"$session.params.AccountType\", \"\")"
+    }, {
+      "parameter": "product",
+      "value": "$sys.func.IF(\"$session.params.Products!= null\", \"$session.params.Products\", \"\")"
+    }, {
+      "parameter": "networkType",
+      "value": "$sys.func.IF(\"$session.params.networkType != null\", \"$session.params.networkType\", \"\")"
+    }, {
+      "parameter": "language",
+      "value": "$sys.func.IF(\"$session.params.language != null\", \"$session.params.language\", \"\")"
+    }, {
+      "parameter": "callerintent",
+      "value": "$sys.func.IF(\"$session.params.callerintent != null\", \"$session.params.callerintent\", \"\")"
+    }, {
+      "parameter": "Authentication",
+      "value": "$sys.func.IF(\"$session.params.Authentication != null\", \"$session.params.Authentication\", \"\")"
+    }, {
+      "parameter": "AuthFailReason",
+      "value": "$sys.func.IF(\"$session.params.AuthFailReason != null\", \"$session.params.AuthFailReason\",\"\" )"
+    }, {
+      "parameter": "state",
+      "value": "$sys.func.IF(\"$session.params.state != null\", \"$session.params.state\", \"\")"
+    }, {
+      "parameter": "summary",
+      "value": "$sys.func.IF(\"$session.params.summary != null\", \"$session.params.summary\", \"\")"
+    }, {
+      "parameter": "summary",
+      "value": "$sys.func.SUBSTITUTE($session.params.summary, \"\\\"\", \"\")"
+    }, {
+      "parameter": "sales_customer_type",
+      "value": "$sys.func.IF(\"$session.params.sales_customer_type != null\", \"$session.params.sales_customer_type\",\"\" )"
+    }, {
+      "parameter": "FiberTransfer",
+      "value": "$sys.func.IF(\"$session.params.FiberTransfer != null\", \"$session.params.FiberTransfer\", \"\")"
+    }, {
+      "parameter": "FiberSelfServe",
+      "value": "$sys.func.IF(\"$session.params.FiberSelfServe != null\", \"$session.params.FiberSelfServe\",\"\" )"
+    }, {
+      "parameter": "KeyValuePairs",
+      "value": "$session.params.CallID,$session.params.AccountNumber,$session.params.AccountType,$session.params.product,$session.params.networkType,$session.params.language,$session.params.callerintent,$session.params.Authentication,$session.params.AuthFailReason,$session.params.state,$session.params.phone_number,$session.params.DNIS,$session.params.CurrentTime,$session.params.sales_customer_type,$session.params.FiberTransfer,$session.params.FiberSelfServe,$session.params.summary,"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SetParameters_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_SetParameters",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParameters"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "VoiceRecordSummary",
+    "name": "8b9e19ef-6f12-4300-b568-113e3e9c073d"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "c1f729e7-fd49-41fc-9811-d2c9da51d276"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "77161b91-c873-4d37-9c0e-6cfa80f4a43f"
+  }, {
+    "targetPage": "VoiceRecordSummary",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_SetParameters_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_SetParameters",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParameters"
+      } ]
+    },
+    "name": "2a6d989e-3e3c-44e5-9ad1-5db61ad9f1ae"
+  }, {
+    "targetPage": "VoiceRecordSummary",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_SetParameters_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_SetParameters",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParameters"
+      } ]
+    },
+    "name": "2c83d298-e3e4-442c-bb84-1bca432fb1db"
+  }, {
+    "targetPage": "VoiceRecordSummary",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_SetParameters_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_SetParameters",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParameters"
+      } ]
+    },
+    "name": "449ba661-28d7-408c-8b5d-bc0fa1c405ae"
+  }, {
+    "targetPage": "VoiceRecordSummary",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_SetParameters_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_SetParameters",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParameters"
+      } ]
+    },
+    "name": "876f0bb6-ecea-4cba-93d4-cf902325a394"
+  }, {
+    "targetPage": "VoiceRecordSummary",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_SetParameters_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_SetParameters",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParameters"
+      } ]
+    },
+    "name": "ef695a2e-a77c-4f48-9c42-b0cd589a7320"
+  }, {
+    "targetPage": "VoiceRecordSummary",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_SetParameters_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_SetParameters",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParameters"
+      } ]
+    },
+    "name": "dfef11d0-3f2d-4d40-95e8-eab1105a3fe9"
+  } ],
+  "description": "**NI and NM are intentionally excluded from having metrics to avoid the inclusion of extra prompts in the conversation history."
+}

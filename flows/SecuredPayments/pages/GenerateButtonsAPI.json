@@ -1,0 +1,695 @@
+{
+  "name": "0089a7f4-46ee-4ddc-828e-acc8d39c4f8d",
+  "displayName": "GenerateButtonsAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "GeneratePaymentButtons",
+    "tag": "generate_payment_buttons",
+    "setParameterActions": [ {
+      "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_generate_payment_buttons_wh_GetListOfPaymentMethods",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "SelectedPM",
+      "value": null
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.SavedPaymentCount = 10",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_10"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_9"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_8"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_7"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_6"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_5"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_4"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_3"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_2"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_1"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SavedPaymentOptions",
+        "value": 10
+      } ]
+    },
+    "targetPage": "SelectPaymentOption",
+    "name": "06696695-2609-477e-b45d-5f1c8b4f8c51"
+  }, {
+    "condition": "$session.params.SavedPaymentCount = 9",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_9"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_8"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_7"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_6"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_5"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_4"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_3"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_2"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_1"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SavedPaymentOptions",
+        "value": 9
+      } ]
+    },
+    "targetPage": "SelectPaymentOption",
+    "name": "515ee970-63ae-418f-8f4e-6d73771848b9"
+  }, {
+    "condition": "$session.params.SavedPaymentCount = 8",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_8"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_7"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_6"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_5"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_4"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_3"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_2"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_1"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SavedPaymentOptions",
+        "value": 8
+      } ]
+    },
+    "targetPage": "SelectPaymentOption",
+    "name": "087af711-baa0-48fd-9cf8-677eeed3bcee"
+  }, {
+    "condition": "$session.params.SavedPaymentCount = 7",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_7"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_6"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_5"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_4"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_3"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_2"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_1"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SavedPaymentOptions",
+        "value": 7
+      } ]
+    },
+    "targetPage": "SelectPaymentOption",
+    "name": "88c36d9d-5108-4ee2-b4e2-faf126fa50c0"
+  }, {
+    "condition": "$session.params.SavedPaymentCount = 6",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_6"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_5"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_4"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_3"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_2"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_1"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SavedPaymentOptions",
+        "value": 6
+      } ]
+    },
+    "targetPage": "SelectPaymentOption",
+    "name": "acfa56c2-67c3-4915-b6fd-f27b0e5914d5"
+  }, {
+    "condition": "$session.params.SavedPaymentCount = 5",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_5"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_4"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_3"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_2"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_1"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SavedPaymentOptions",
+        "value": 5
+      } ]
+    },
+    "targetPage": "SelectPaymentOption",
+    "name": "e4ddfc6c-e06a-4582-a58d-2f424731bc42"
+  }, {
+    "condition": "$session.params.SavedPaymentCount = 4",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_4"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_3"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_2"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_1"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e You can say \"1\" \u003cbreak time=\"200ms\"/\u003e to use $session.params.Buttons.parameters.PaymentOption_1  \u003cbreak time=\"200ms\"/\u003e or \"2\" \u003cbreak time=\"200ms\"/\u003e to use $session.params.Buttons.parameters.PaymentOption_2 or \"3\" \u003cbreak time=\"200ms\"/\u003e to use $session.params.Buttons.parameters.PaymentOption_3 or \"4\" \u003cbreak time=\"200ms\"/\u003e to use $session.params.Buttons.parameters.PaymentOption_4  \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SavedPaymentOptions",
+        "value": 4
+      }, {
+        "parameter": "PayOptionType_1",
+        "value": "$session.params.Buttons.parameters.PaymentOptionType_1"
+      }, {
+        "parameter": "PayOptionType_2",
+        "value": "$session.params.Buttons.parameters.PaymentOptionType_2"
+      }, {
+        "parameter": "PayOptionType_3",
+        "value": "$session.params.Buttons.parameters.PaymentOptionType_3"
+      }, {
+        "parameter": "PayOptionType_4",
+        "value": "$session.params.Buttons.parameters.PaymentOptionType_4"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        }
+      }
+    },
+    "targetPage": "SelectPaymentOption",
+    "name": "59edea0a-702b-439a-ba58-61069d628316"
+  }, {
+    "condition": "$session.params.SavedPaymentCount = 3",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_3"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_2"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_1"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e You can say \"1\" \u003cbreak time=\"200ms\"/\u003e to use $session.params.Buttons.parameters.PaymentOption_1  \u003cbreak time=\"200ms\"/\u003e or \"2\" \u003cbreak time=\"200ms\"/\u003e to use $session.params.Buttons.parameters.PaymentOption_2 or \"3\" \u003cbreak time=\"200ms\"/\u003e to use $session.params.Buttons.parameters.PaymentOption_3  \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SavedPaymentOptions",
+        "value": 3
+      }, {
+        "parameter": "PayOptionType_1",
+        "value": "$session.params.Buttons.parameters.PaymentOptionType_1"
+      }, {
+        "parameter": "PayOptionType_2",
+        "value": "$session.params.Buttons.parameters.PaymentOptionType_2"
+      }, {
+        "parameter": "PayOptionType_3",
+        "value": "$session.params.Buttons.parameters.PaymentOptionType_3"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        }
+      }
+    },
+    "targetPage": "SelectPaymentOption",
+    "name": "8a23f820-f845-4e97-959b-fbd856c25002"
+  }, {
+    "condition": "$session.params.SavedPaymentCount = 2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_2"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_1"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e You can say \"1\" \u003cbreak time=\"200ms\"/\u003e to use $session.params.Buttons.parameters.PaymentOption_1  \u003cbreak time=\"200ms\"/\u003e or \"2\" \u003cbreak time=\"200ms\"/\u003e to use $session.params.Buttons.parameters.PaymentOption_2  \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SavedPaymentOptions",
+        "value": 2
+      }, {
+        "parameter": "PayOptionType_1",
+        "value": "$session.params.Buttons.parameters.PaymentOptionType_1"
+      }, {
+        "parameter": "PayOptionType_2",
+        "value": "$session.params.Buttons.parameters.PaymentOptionType_2"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        }
+      }
+    },
+    "targetPage": "SelectPaymentOption",
+    "name": "51c77fd8-9412-42f2-b3d3-0eb6c670af3a"
+  }, {
+    "condition": "$session.params.SavedPaymentCount = 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Buttons.parameters.PaymentOption_1"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e You can say \"1\" \u003cbreak time=\"200ms\"/\u003e to use $session.params.Buttons.parameters.PaymentOption_1 \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SavedPaymentOptions",
+        "value": 1
+      }, {
+        "parameter": "PayOptionType_1",
+        "value": "$session.params.Buttons.parameters.PaymentOptionType_1"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        }
+      }
+    },
+    "targetPage": "SelectPaymentOption",
+    "name": "0992cf0b-73df-45d9-aa3a-5b1fc6051ee5"
+  }, {
+    "condition": "$session.params.SavedPaymentCount = 0 AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SavedPaymentOptions",
+        "value": 0
+      } ]
+    },
+    "targetPage": "GetPMFailureVoice",
+    "name": "3daa5a8f-eb7b-4a42-8b5b-debf14bede54"
+  }, {
+    "condition": "$session.params.SavedPaymentCount = 0 AND $session.params.channel = \"web\" AND $session.params.ListSavedPM = \"others\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SavedPaymentOptions",
+        "value": 0
+      } ]
+    },
+    "targetPage": "CardOrAccount",
+    "name": "e2e009ac-565d-407e-b44d-e413d12af509"
+  }, {
+    "condition": "$session.params.SavedPaymentCount = 0 AND $session.params.channel = \"web\" AND $session.params.ListSavedPM = \"active\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_13",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SavedPaymentOptions",
+        "value": 0
+      } ]
+    },
+    "targetPage": "FormCopper",
+    "name": "fd67851a-16b0-4815-aefa-41a034a349cb"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "028be595-7fc3-407e-97e7-54c568e8d1f3"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GenerateButtonsAPI"
+      } ]
+    },
+    "name": "d694ae68-0c8d-43e4-a35b-6d6adb180fa1"
+  }, {
+    "targetPage": "CardOrAccount",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "e26b60d1-9e36-45ea-a70c-3af3f19311d4"
+  }, {
+    "targetPage": "CardOrAccount",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "45acf0ad-683f-4f7e-8411-23fa71de913a"
+  }, {
+    "targetPage": "CardOrAccount",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "c6c68e6a-d441-474a-860d-e2d149c25a7e"
+  }, {
+    "targetPage": "CardOrAccount",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "2fe4a2ef-924a-4dd3-a4be-99bf72fe88ad"
+  }, {
+    "targetPage": "CardOrAccount",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "3c80694c-df14-4c82-b711-31402e7667d7"
+  }, {
+    "targetPage": "CardOrAccount",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "466de094-5e5f-402e-9e0a-a0ec4ccc502e"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_NoMatch",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "d2869023-781c-4741-bb73-0097f2aa1f3c"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GenerateButtonsAPI_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GenerateButtonsAPI"
+      } ]
+    },
+    "name": "8c8cd3aa-9b95-45d7-b2ab-3cc84b02bafc"
+  } ]
+}

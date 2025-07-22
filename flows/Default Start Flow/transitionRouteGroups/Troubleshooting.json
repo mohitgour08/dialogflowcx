@@ -1,0 +1,74 @@
+{
+  "name": "8c44170e-5908-465d-ab52-6d453662e188",
+  "displayName": "Troubleshooting",
+  "transitionRoutes": [ {
+    "intent": "Troubleshooting.GeneralTroubleshooting",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_path",
+        "value": "English/Repair/Repair"
+      }, {
+        "parameter": "queue_name",
+        "value": "Repair"
+      }, {
+        "parameter": "head_intent",
+        "value": "Troubleshooting"
+      } ]
+    },
+    "name": "296c9be0-69ed-4d15-bae2-510176d72036"
+  }, {
+    "intent": "Troubleshooting.PhoneIssues",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_path",
+        "value": "English/Repair/Repair"
+      }, {
+        "parameter": "queue_name",
+        "value": "Repair"
+      }, {
+        "parameter": "head_intent",
+        "value": "Troubleshooting"
+      } ]
+    },
+    "name": "abedfe1c-f251-4a47-a973-e63c83d918d9"
+  }, {
+    "intent": "Troubleshooting.CheckOutages",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_path",
+        "value": "English/Repair/Repair"
+      }, {
+        "parameter": "queue_name",
+        "value": "Repair"
+      }, {
+        "parameter": "head_intent",
+        "value": "Troubleshooting"
+      } ]
+    },
+    "name": "d7ef9e2a-eeb9-49ac-9168-00281638f770"
+  }, {
+    "intent": "Troubleshooting.ModemIssues",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_path",
+        "value": "English/Repair/Repair"
+      }, {
+        "parameter": "queue_name",
+        "value": "Repair"
+      }, {
+        "parameter": "head_intent",
+        "value": "Troubleshooting"
+      } ]
+    },
+    "name": "619e9267-cf11-4b38-99fc-ef514a4df4f8"
+  }, {
+    "intent": "Troubleshooting",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "head_intent",
+        "value": "Troubleshooting"
+      } ]
+    },
+    "name": "6d9ff187-7a16-4e9b-a8ad-c0f0406fcf5b"
+  } ]
+}

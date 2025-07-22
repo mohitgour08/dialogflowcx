@@ -1,0 +1,228 @@
+{
+  "name": "f2438948-aed2-4996-9226-3a4314755edf",
+  "displayName": "PlayDynamicMessage",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "$session.params.message_text" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Agent"
+          }, {
+            "action": "quick_reply",
+            "title": "Thanks, that was all I needed"
+          }, {
+            "action": "quick_reply",
+            "title": "I have a different question"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "$session.params.message_text" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "If you have an additional question, you can say \"something else\" now or say that's all I needed." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_DefaultStartFlow_playDynamicMessage",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "outageDynamicMsg_Played",
+      "value": "True"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "GoodToGo",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_playDynamicMessage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "70c5965d-2a3f-423d-8110-ccf347b523bc"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_playDynamicMessage_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "1a2efa6e-7813-44b9-89b7-d364858eaf3b"
+  }, {
+    "intent": "AdditionalQuestion",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": " Metrics_DefaultStartFlow_playDynamicMessage_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "41001f99-e1f7-45f6-bc36-fe7a63e9d065"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_PlayDynamicMessage_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "DefaultStartFlow_PlayDynamicMessage_1"
+      } ]
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "f9735544-4997-45d9-ae96-c025e603cee5"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_PlayDynamicMessage_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "DefaultStartFlow_PlayDynamicMessage_2"
+      } ]
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "4ab699f7-4420-4662-ba55-a70b223aba32"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, your answer doesn't match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Agent"
+            }, {
+              "action": "quick_reply",
+              "title": "Thanks, that is all I needed"
+            }, {
+              "action": "quick_reply",
+              "title": "I have a different question"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry, your answer doesn't match one of our options." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "If you have an additional question, press 1. If you are done, press 2." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_playDynamicMessage_NM1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "f8b3bb29-6224-4b88-bf59-da8538238af1"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I didn't hear your answer. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ " If you have an additional question, press 1. If you are done, press 2." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_PlayDynamicMessage_NI1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "2eefcd2b-e0e8-442c-9ef1-18a65390d9da"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_playDynamicMessage_NoInputDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "DefaultStartFlow_PlayDynamicMessage"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "3a02af80-bff8-4bba-b0da-234873c38461"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_playDynamicMessage_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "DefaultStartFlow_PlayDynamicMessage"
+      } ]
+    },
+    "name": "ff1e46de-5226-45df-93fc-bdb0bff5aba3"
+  } ]
+}

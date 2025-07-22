@@ -1,0 +1,42 @@
+{
+  "name": "4e4790cb-be32-4beb-82f4-f4c3d8b580a5",
+  "displayName": "CheckExistingDynMessage",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.outageDynamicMsg_Played = \"True\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_Troubleshooting_CheckExistingDynMessage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "358146d0-1cc2-4900-ac2f-a22bae5cd10b"
+  }, {
+    "condition": "$session.params.networkType = \"Copper_L\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckExistingDynMessage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "d13ac797-d26e-47f1-a0bc-ffc0f1843f77"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckExistingDynMessage_default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "setnpaDM",
+    "name": "a0f41ade-3885-434f-aa51-263f5ea93f9c"
+  } ]
+}

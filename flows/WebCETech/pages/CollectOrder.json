@@ -1,0 +1,83 @@
+{
+  "name": "672b4770-7523-4e6f-ae36-dccb896448f0",
+  "displayName": "CollectOrder",
+  "form": {
+    "parameters": [ {
+      "displayName": "Work_Order",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "Your response has exceeded the character limit. Please enter another version that is under 256 characters and resubmit." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_WebCETech_CollectOrder_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ]
+          },
+          "name": "20458226-daae-44c7-84af-ede7de47ff15"
+        }, {
+          "targetPage": "End Session",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I am sorry, I am unable to assist you at this time. Please restart the chat if you need further assistance. Goodbye." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_WebCETech_CollectOrder_NoMatch2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ]
+          },
+          "name": "01ba07f0-c755-49a8-8933-b8bdbe08cdf9"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "What Order Number are you working?" ]
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = \"FINAL\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_CollectOrder_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "IssueDetails",
+    "name": "d546733d-e425-4d4c-b548-f2754d9ed53f"
+  } ]
+}

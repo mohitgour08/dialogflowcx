@@ -1,0 +1,119 @@
+{
+  "name": "6f26cdc0-ef16-4b65-891b-3d1d537dc6d1",
+  "displayName": "UpdatePayNetworkChk",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"Copper\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_UpdatePayNetworkChk_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "SecuredPayments",
+    "name": "48c832f4-a336-4d13-9a95-c8024f9d9c3e"
+  }, {
+    "condition": "$session.params.networkType = \"Copper_L\" AND ($session.params.BillingMethod = \"prepaid\" OR $session.params.BillingMethod = \"PR\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_UpdatePayNetworkChk_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PrepaidPayment"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "606142bc-89e7-4bbf-b6f0-e3def18889e6"
+  }, {
+    "condition": "$session.params.NetworkType = \"GPON\" OR $session.params.NetworkType = \"XGSPON\" OR $session.params.NetworkType = \"BPON\" OR $session.params.networkType = \"GPON\" OR $session.params.networkType = \"XGSPON\" OR $session.params.networkType = \"BPON\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm happy to help you update your payment method! Right now, we can only accept card payments for our Fiber customers. We accept most major card types, except American Express. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_UpdatePayNetworkChk_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "SS_MethodOfPaymentUpdate",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "SecuredPayments",
+    "name": "520d72f6-9b57-4674-8632-dd46b43b7cf3"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_UpdatePayNetworkChk_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_MethodOfPaymentUpdate",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Payment-UpdatePayNetworkChk,NetworkTypeUnknown"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "69181e88-d177-48d5-83fb-e709dbad8b38"
+  } ]
+}

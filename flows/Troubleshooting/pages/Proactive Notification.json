@@ -1,0 +1,23 @@
+{
+  "name": "d00d59af-8abd-4ab4-8af3-565355eeedf3",
+  "displayName": "Proactive Notification",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.status = \"SUCCESS\"",
+    "triggerFulfillment": {
+    
+    },
+    "name": "080ce48f-ff6f-4ae9-a301-78fe2ea36093"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+    
+    },
+    "name": "2f81acd4-8936-4427-ac83-c9a6dd2e01df"
+  } ]
+}

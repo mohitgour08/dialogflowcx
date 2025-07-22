@@ -1,0 +1,244 @@
+{
+  "name": "6aef0afc-7cd1-4ffc-8853-8c2670bf2d9d",
+  "displayName": "EnterAcctNum",
+  "form": {
+    "parameters": [ {
+      "displayName": "TN_BAN_temp",
+      "required": true,
+      "entityType": "@TN_BAN_voice",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, I didn’t hear your answer. please enter the telephone number associated with the account you're calling about, or you can enter the 9 or 10 digit account number." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "NoInput1Triggered",
+              "value": "TRUE"
+            }, {
+              "parameter": "Metrics_Authentication_EnterAcctNum_NoInput1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "95f5cc4f-b873-4afa-baa2-6101ef8f4440"
+        }, {
+          "targetFlow": "ListenInitialIntent",
+          "event": "sys.no-input-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "That’s okay." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Authentication_EnterAcctNum_NoInput2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "AuthFailReason",
+              "value": "BANTN_NoInput"
+            }, {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "Authentication"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "NoInput"
+            }, {
+              "parameter": "SS_AuthANIMatch",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoInputRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "EnterAcctNum"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "a053e397-914e-45ab-b1f3-f854950c6f50"
+        }, {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I am sorry I didn't catch that. Please enter the telephone number associated with the account you're calling about, or you can enter the 9 or 10 digit account number." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "NoMatch1Triggered",
+              "value": "TRUE"
+            }, {
+              "parameter": "Metrics_Authentication_EnterAcctNum_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "ab51793d-f676-424c-9dbb-5ae6f5345408"
+        }, {
+          "targetFlow": "ListenInitialIntent",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I didn’t understand your answer." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "AuthFailReason",
+              "value": "BANTN_NoMatch"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "Authentication"
+            }, {
+              "parameter": "Metrics_Authentication_EnterAcctNum_NoMatch2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "SS_AuthANIMatch",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoMatchRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "EnterAcctNum"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "f54a51d6-db3d-458c-b4f5-6586f9593822"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay, If your account number begins with the letters P P B, say \"more help\" now. If there are no letters in your account number, you can enter it now or enter the telephone number associated with your account." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Temp_TNBAN",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_temp",
+        "value": "$session.params.Temp_1"
+      }, {
+        "parameter": "Metrics_Authentication_EnterAcctNum_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "d24e0897-3f1d-4a85-95da-04de9f5cc785"
+  }, {
+    "intent": "More info",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_EnterAcctNum_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PPBMoreInfo",
+    "name": "c3204d7f-75a2-4436-a548-be3c9f72090c"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.TN_BAN_temp) = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_temp",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.TN_BAN_temp),2, 10)"
+      }, {
+        "parameter": "Metrics_Authentication_EnterAcctNum_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "6db08f02-336c-4484-a6b0-1034a1160ea0"
+  }, {
+    "condition": "$page.params.status = \"FINAL\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_EnterAcctNum_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": "$session.params.TN_BAN_temp"
+      }, {
+        "parameter": "TN_BAN_temp",
+        "value": null
+      } ]
+    },
+    "targetPage": "validateAccountInfo",
+    "name": "b4524cf3-e329-4f7a-a860-b275293d9963"
+  } ]
+}

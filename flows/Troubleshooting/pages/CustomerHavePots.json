@@ -1,0 +1,83 @@
+{
+  "name": "0c8f5610-0260-49d6-b8eb-6a57335c5442",
+  "displayName": "CustomerHavePots",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "getOrderProductInfo",
+    "tag": "products",
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_CustomerHavePots_wh_getOrderProductInfo",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Products = \"Telephone\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CustomerHavePots_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "API_Troubleshooting_CustomerHavePots",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "targetPage": "PhoneIssuesNetworkType",
+    "name": "b0d44223-4843-4c75-8501-6b5e86817179"
+  }, {
+    "condition": "$session.params.Products = \"Internet\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CustomerHavePots_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_CustomerHavePots",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "targetPage": "InternetorSpeedCheck",
+    "name": "57d4dc41-4020-42c9-9cc5-7be050a217f8"
+  }, {
+    "condition": "($session.params.Products = \"Telephone\" AND $session.params.Products = \"Internet\") OR $session.params.Products = \"Telephone and Internet\" OR $session.params.Products = \"Internet and Telephone\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CustomerHavePots_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_CustomerHavePots",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "targetPage": "VoiceorInternetService",
+    "name": "0a60aea9-2a42-4bc5-b3b0-775fbd37197d"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CustomerHavePots_default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_CustomerHavePots",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "targetPage": "VoiceorInternetService",
+    "name": "9250ec7e-3ffb-4529-8a17-7e029c340b46"
+  } ]
+}

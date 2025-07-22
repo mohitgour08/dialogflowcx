@@ -1,0 +1,201 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "No"
+    }, {
+      "text": " tengo otras preocupaciones."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "No"
+    }, {
+      "text": " tengo más consultas."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Fin de",
+      "parameterId": "date-time",
+      "auto": true
+    }, {
+      "text": " la conversación."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Eso es todo."
+    } ],
+    "repeatCount": 2,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Estoy bien por "
+    }, {
+      "text": "ahora",
+      "parameterId": "date-time",
+      "auto": true
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "No"
+    }, {
+      "text": " más preguntas."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Nada",
+      "parameterId": "geo-city",
+      "auto": true
+    }, {
+      "text": " más."
+    } ],
+    "repeatCount": 2,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "No"
+    }, {
+      "text": " hay "
+    }, {
+      "text": "nada",
+      "parameterId": "geo-city",
+      "auto": true
+    }, {
+      "text": " más."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "He terminado",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 2,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "No"
+    }, {
+      "text": " tengo "
+    }, {
+      "text": "nada",
+      "parameterId": "geo-city",
+      "auto": true
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "No"
+    }, {
+      "text": " tengo "
+    }, {
+      "text": "nada",
+      "parameterId": "geo-city",
+      "auto": true
+    }, {
+      "text": " más."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Eso es todo lo que necesitaba."
+    } ],
+    "repeatCount": 2,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Eso era todo lo que necesitaba."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Nada",
+      "parameterId": "geo-city",
+      "auto": true
+    }, {
+      "text": " que agregar"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Todo listo."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Es suficiente."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "No"
+    }, {
+      "text": " hay información adicional."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "No"
+    }, {
+      "text": " tengo más comentarios."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "No"
+    }, {
+      "text": " necesito "
+    }, {
+      "text": "nada",
+      "parameterId": "geo-city",
+      "auto": true
+    }, {
+      "text": " más."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Gracias, eso era todo lo que necesitaba."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "No"
+    }, {
+      "text": ", "
+    }, {
+      "text": "he terminado",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  } ]
+}

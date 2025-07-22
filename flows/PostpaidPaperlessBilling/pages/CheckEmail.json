@@ -1,0 +1,62 @@
+{
+  "name": "06a1da24-2ed8-434d-8794-bea6339221ea",
+  "displayName": "CheckEmail",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.InvoiceDeliveryEmail != null AND $session.params.InvoiceDeliveryEmail != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_CheckEmail_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ConfirmEmail",
+    "name": "168391c6-874a-4eb5-9fa1-f5cfbe7dc4a5"
+  }, {
+    "condition": "($session.params.InvoiceDeliveryEmail = null OR $session.params.InvoiceDeliveryEmail = \"\") AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_CheckEmail_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoEmailVoice",
+    "name": "d85299fe-c21a-4e8e-a768-ddcd857594c1"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_CheckEmail_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoEmail",
+    "name": "668a22fd-2101-431f-8e20-12e33f325403"
+  } ]
+}

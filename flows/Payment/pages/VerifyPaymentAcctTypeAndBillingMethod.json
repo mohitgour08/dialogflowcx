@@ -1,0 +1,113 @@
+{
+  "name": "6f2f8751-4592-415b-b505-90bb39e8c325",
+  "displayName": "VerifyPaymentAcctTypeAndBillingMethod",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.AccountType = \"Residential\" OR $session.params.AccountType = \"residential\" OR $session.params.AccountType = \"Consumer\") AND ($session.params.BillingMethod = \"prepaid\" OR $session.params.BillingMethod = \"PR\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_VerifyPaymentAcctTypeAndBillingMethod_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "VerifyPayPrepaidLastPaymentCheck",
+    "name": "4abe431a-2be5-4394-a29f-c6663d2ac9dc"
+  }, {
+    "condition": "($session.params.AccountType = \"Residential\" OR $session.params.AccountType = \"residential\" OR $session.params.AccountType = \"Consumer\") AND ($session.params.BillingMethod = \"postpaid\" OR $session.params.BillingMethod = \"PO\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_VerifyPaymentAcctTypeAndBillingMethod_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CopperLumenCheck",
+    "name": "da262b4d-9a1e-431e-af42-dae4594f7d13"
+  }, {
+    "condition": "$session.params.AccountType = \"Small Business\" OR $session.params.AccountType = \"small business\" OR $session.params.AccountType : \"Small Business\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_Payment_VerifyPaymentAcctTypeAndBillingMethod_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Small Business Accounts"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "a13008bc-5648-4ef8-ada5-8be9fa7f7ebf"
+  }, {
+    "condition": "$session.params.AccountType = \"MDU\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_Payment_VerifyPaymentAcctTypeAndBillingMethod_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "MDU Accounts"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "942ce13b-6448-440b-a866-e275725b838c"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_Payment_VerifyPaymentAcctTypeAndBillingMethod_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountType-DefaultRoute"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "18722c98-08de-43ac-94a2-b9d7dc2217b3"
+  } ],
+  "description": "VERIFY PAYMENT ACCOUNT TYPE \u0026 BILLING METHOD CHECK"
+}

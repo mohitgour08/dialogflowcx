@@ -1,0 +1,135 @@
+{
+  "name": "deb9ff0a-8ab7-4b7a-978f-2c5a151c9da7",
+  "displayName": "PrepaidCurrentCCEFormChk",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.formresponsecce = \"Update\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_PrepaidCurrentCCFormChk_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "callerintent",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Success"
+      }, {
+        "parameter": "formresponsecce",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "b6ddc8ed-1183-4301-934c-3b37c53972cb"
+  }, {
+    "condition": "($session.params.formresponsecce = \"onePayment\" AND ($session.params.networkType = \"GPON\" OR $session.params.networkType = \"XGSPON\" OR $session.params.networkType = \"BPON\")) AND $session.params.onePaymentCounter = 2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_PrepaidCurrentCCFormChk_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PrepaidBalance_PrepaidCurrentCCFormChk"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Retry limit exceeded for cancel one time payment"
+      }, {
+        "parameter": "formresponsecce",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "8b692742-83d6-4f0d-a8fb-f29202d60b6b"
+  }, {
+    "condition": "$session.params.formresponsecce = \"onePayment\" AND ($session.params.networkType = \"GPON\" OR $session.params.networkType = \"XGSPON\" OR $session.params.networkType = \"BPON\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_PrepaidCurrentCCFormChk_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "FiberPayment"
+      }, {
+        "parameter": "formresponsecce",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "SecuredPayments",
+    "name": "5273e4b2-0c5c-4080-8351-ba6f5f1fc632"
+  }, {
+    "condition": "$session.params.formresponsecce = \"formBack\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_PrepaidCurrentCCFormChk_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "formresponsecce",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AnythingElse",
+    "name": "de65977a-da6f-4ec0-9f57-1205aac7302a"
+  }, {
+    "condition": "$session.params.formresponsecce = \"onePayment\" AND ($session.params.networkType = \"Copper\" OR $session.params.networkType = \"copper\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_PrepaidCurrentCCFormChk_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "formresponsecce",
+        "value": null
+      } ]
+    },
+    "targetFlow": "SecuredPayments",
+    "name": "492226ba-721e-4c01-b626-c5da1e4cf515"
+  } ]
+}

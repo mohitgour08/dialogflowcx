@@ -1,0 +1,46 @@
+{
+  "name": "3b1ace0f-8362-46bf-81e3-eeab5b5c5911",
+  "displayName": "welcomePrompt_chat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "You are communicating with an AI enabled virtual assistant. Your chat may be recorded, monitored, or retained by us and our vendors to help improve and personalize our services for you. By continuing with this chat, you consent to this. For more information check out our $session.params.link51." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_DefaultStartFlow_welcomePrompt_chat",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_welcomePrompt_chat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "EmailAddressFromECOM",
+    "name": "54a9e5ca-d20c-4f8c-a72d-b63a710d5d3b"
+  } ]
+}

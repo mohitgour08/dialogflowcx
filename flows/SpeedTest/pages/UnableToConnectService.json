@@ -1,0 +1,60 @@
+{
+  "name": "2a1ef2d1-b4eb-44ad-a9da-a92408cf6ea6",
+  "displayName": "UnableToConnectService",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. .\u003c/speak\u003e\n" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_UnableToConnectONT_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "257c7b5d-4ac3-4342-bdc2-9defd529848f"
+  } ]
+}

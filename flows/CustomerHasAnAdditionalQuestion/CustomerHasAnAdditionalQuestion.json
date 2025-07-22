@@ -1,0 +1,105 @@
+{
+  "name": "e86c5518-2633-4aa1-b331-d73ad4ff1d7d",
+  "displayName": "CustomerHasAnAdditionalQuestion",
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Sure, I will be happy to assist you with any additional questions you have regarding your Brightspeed account." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Sure, I will be happy to assist you with any additional questions you have regarding your Brightspeed account. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "FulfilledIntent",
+        "value": "session.params.callerintent"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "AdditionalQuestion"
+      }, {
+        "parameter": "callerintent",
+        "value": null
+      }, {
+        "parameter": "AnythingElse",
+        "value": null
+      }, {
+        "parameter": "Sales_Que",
+        "value": null
+      }, {
+        "parameter": "service_option",
+        "value": null
+      }, {
+        "parameter": "Missing_Payment",
+        "value": null
+      }, {
+        "parameter": "ToModule",
+        "value": null
+      }, {
+        "parameter": "Metrics_CustomerHasanAdditionalQuestion_Start",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "user_input",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "d0ddfe17-d698-4f70-b840-7978ab8e8226"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "88b360f3-af1c-4c4e-9ccc-18bee6661297"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "ae3fa155-050e-4bfb-b455-6184cc5ff807"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    }
+  },
+  "advancedSettings": {
+    "enabled": true
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    },
+    "languageCode": "en"
+  } ]
+}

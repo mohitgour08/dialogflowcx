@@ -1,0 +1,17 @@
+{
+  "name": "bb01c1df-a708-41bc-9a97-521524fe5623",
+  "displayName": "SendEmailAPI",
+  "description": "This tool use to send email to the customers.",
+  "openApiSpec": {
+    "authentication": {
+      "oauthConfig": {
+        "oauthGrantType": "CLIENT_CREDENTIAL",
+        "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+        "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+        "tokenEndpoint": "https://api-dv.brightspeed.com/oauth2/token"
+      }
+    },
+    "ignoreUnknownFields": true
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

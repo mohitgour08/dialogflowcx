@@ -1,0 +1,412 @@
+{
+  "name": "b566f440-4a3c-4b1a-8cee-c470fff2446c",
+  "displayName": "PayArrNotEligible",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I'm sorry, but your account is not eligible for a payment arrangement at this time. You can view your balance and make a payment, or if you are on autopay, you can change your payment method by selecting one of the choices below. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Make a Payment"
+          }, {
+            "action": "quick_reply",
+            "title": "View My Balance"
+          }, {
+            "action": "quick_reply",
+            "title": "Change Payment Method"
+          }, {
+            "action": "quick_reply",
+            "title": "I have an additional question"
+          }, {
+            "action": "quick_reply",
+            "title": "Thanks,I'm finished!"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "I'm sorry, but your account is not eligible for a payment arrangement at this time. " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "Is there anything else I can help you with? You can say \"Make A Payment\", \"Hear My Balance\", \"Something Else\", or just tell me that you're finished. " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "BalanceInquiryOrMakePayment.Payment",
+    "condition": "$session.params.BillingMethod = \"postpaid\" OR $session.params.BillingMethod = \"PO\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "Metrics_Payment_PayArrNotEligible_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "1093b60a-0c2e-442a-b794-6f13aba5a8ba"
+  }, {
+    "intent": "BalanceInquiryOrMakePayment.Payment",
+    "condition": "$session.params.BillingMethod = \"prepaid\" OR $session.params.BillingMethod = \"PR\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PrepaidPayment"
+      }, {
+        "parameter": "Metrics_Payment_PayArrNotEligible_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "02bdad51-6303-4018-a848-456fc95589da"
+  }, {
+    "intent": "BalanceInquiryOrMakePayment.Billing",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "BalanceInquiry"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      }, {
+        "parameter": "Metrics_Payment_PayArrNotEligible_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "e7f9fd5d-5b35-4063-92d1-8a42c28df7b2"
+  }, {
+    "intent": "DTMF_1",
+    "condition": "$session.params.BillingMethod = \"postpaid\" OR $session.params.BillingMethod = \"PO\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "Metrics_Payment_PayArrNotEligible_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "492d9f93-076d-463a-a7a4-d65d5c3563cc"
+  }, {
+    "intent": "DTMF_1",
+    "condition": "$session.params.BillingMethod = \"prepaid\" OR $session.params.BillingMethod = \"PR\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PrepaidPayment"
+      }, {
+        "parameter": "Metrics_Payment_PayArrNotEligible_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "f232fb47-f43f-445e-82b7-2999828cdeb3"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "BalanceInquiry"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      }, {
+        "parameter": "Metrics_Payment_PayArrNotEligible_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "ca7ad230-4a97-4037-a360-c4885bb60774"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrNotEligible_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "4ce556f3-7729-4f23-b740-0389edce4428"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_Payment_PayArrNotEligible_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayArrNotEligible"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "a158b638-27bb-460e-8795-ce4931ddee5e"
+  }, {
+    "intent": "Payment.MethodOfPaymentUpdate",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrNotEligible_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "MethodOfPaymentUpdate"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "c7fb129d-fb51-4e3e-8919-58875ac32558"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "To make a payment now, press 1, To hear your balance, press 2. If you have an additional question, press 3." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrNotEligible_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "2f5f4ceb-164e-4fe9-b6fb-b59f99173bee"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That’s okay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrNotEligible_NoInput2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayArrNotEligible"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "27e63364-6043-47b2-a49f-01c88bedbd49"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Is there anything else I can help you with?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Make a Payment"
+            }, {
+              "action": "quick_reply",
+              "title": "View My Balance"
+            }, {
+              "action": "quick_reply",
+              "title": "I have an additional question"
+            }, {
+              "action": "quick_reply",
+              "title": "Thanks,I'm finished!"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "To make a payment now, press 1, To hear your balance, press 2. If you have an additional question, press 3." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrNotEligible_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "5e751e26-dd52-4522-9fcf-7b04eec89efc"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrNotEligible_NoMatch2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayArrNotEligible"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "d47e5d77-e581-43aa-827f-e3001087b50b"
+  } ],
+  "transitionRouteGroups": [ "AdditionalQuestion", "GoodToGo" ]
+}

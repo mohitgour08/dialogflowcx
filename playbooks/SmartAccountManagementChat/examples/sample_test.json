@@ -1,0 +1,20 @@
+{
+  "name": "e0b679f3-56cf-460f-ba7d-5a105738683b",
+  "playbookInput": {
+    "precedingConversationSummary": "update email address",
+    "actionParameters": {
+    
+    }
+  },
+  "playbookOutput": {
+    "executionSummary": "You can update your customer profile online here https://myaccount.brightspeed.com/uni-login  ",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "sample_test",
+  "retrievalStrategy": "STATIC",
+  "tokenCount": 68,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "undetected"
+}

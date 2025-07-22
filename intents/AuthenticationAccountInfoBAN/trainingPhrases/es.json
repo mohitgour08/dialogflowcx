@@ -1,0 +1,37 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Mi número de cuenta es A"
+    }, {
+      "text": "00007879"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Mi número de cuenta es a"
+    }, {
+      "text": "00007879"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "a00011134"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "a00132208"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "a00007879"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  } ]
+}

@@ -1,0 +1,54 @@
+{
+  "name": "22ca1573-7bf0-4c5c-9001-021befeee3c0",
+  "displayName": "VerifyPayPrepaidLastPaymentCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.LastBillDate != \"\" AND $session.params.LastPayment != \"\" AND $session.params.LastBillDate != null AND $session.params.LastPayment != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_VerifyPayPrepaidLastPaymentCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "VerifyPaymentLastPayRecievedCheck",
+    "name": "6c125d07-b4aa-43f4-8b8c-1012ce0204c7"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_VerifyPayPrepaidLastPaymentCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Last Bill Date, Last Payment Is Null"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "c03c8498-e4b8-4ab7-9f40-581dff1c9608"
+  } ]
+}

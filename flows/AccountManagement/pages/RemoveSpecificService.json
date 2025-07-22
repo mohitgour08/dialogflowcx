@@ -1,0 +1,40 @@
+{
+  "name": "69ec742f-29f1-4786-8469-4d6f231ed26e",
+  "displayName": "RemoveSpecificService",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_RemoveSpecificService_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "DisconnectService",
+    "name": "294de56a-404f-448c-b180-1230a7c8889a"
+  }, {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_RemoveSpecificService_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Saves"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer needs help with Remove Specific Service"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "a93ba8cc-cd06-48eb-8e78-3b5ce56b413e"
+  } ]
+}

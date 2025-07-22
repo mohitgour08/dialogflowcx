@@ -1,0 +1,10 @@
+{
+  "name": "3adff04d-adfc-47b5-a74c-05c9cdd13cfe",
+  "displayName": "billing_1",
+  "parameters": [ {
+    "id": "date",
+    "entityType": "@sys.date"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 42
+}

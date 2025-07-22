@@ -1,0 +1,91 @@
+{
+  "name": "5da90ace-976a-49db-bbfa-6d5dd986a178",
+  "displayName": "IsAfterHours",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "UpdatedFetchQueueInfo",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_RouteToAgent_IsAfterHours",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "UpdatedFetchQueueInfo_logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_IsAfterHours_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "cf3910db-785c-4739-bc4c-6699af620fed"
+  }, {
+    "condition": "$session.params.isAfterHours = True",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$session.params.message" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_IsAfterHours_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_IsAfterHours",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatedFetchQueueInfo"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "End Session",
+    "name": "1c1904a4-bb3c-4261-8fe7-7c9a09f5f650"
+  }, {
+    "condition": "$session.params.sales_customer_type = \"Residential\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "FiberOrCopper",
+    "name": "9dc87c13-4bfc-4dee-be13-b84ea12f8e2e"
+  }, {
+    "condition": "$session.params.queue_name = \"EXIT_POP\" OR $session.params.queue_name = \"Sales\" OR $session.params.queue_name = \"BusinessSales\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CheckAgentAvailability",
+    "name": "c20d5921-1ac2-4c4c-8c24-9ea368206c11"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_IsAfterHours_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_IsAfterHours",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatedFetchQueueInfo"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CollectName",
+    "name": "bb08c03e-f40b-41fa-9848-ec5daf66ec36"
+  } ]
+}

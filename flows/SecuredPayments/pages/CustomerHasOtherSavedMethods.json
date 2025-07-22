@@ -1,0 +1,44 @@
+{
+  "name": "2954e7cf-96f3-4803-8189-ccd7f24496eb",
+  "displayName": "CustomerHasOtherSavedMethods",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "ButtonCount",
+      "value": 0
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.SavedPaymentMethods = \"\" OR $session.params.SavedPaymentMethods = null OR $session.params.SavedPaymentMethods = NULL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CustomerHasOtherSavedMethods_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormCopper",
+    "name": "f2384548-c9a6-438a-b5cc-cdcb24d26bca"
+  }, {
+    "condition": "$session.params.SavedPaymentMethods != \"\" OR $session.params.SavedPaymentMethods != NULL OR $session.params.SavedPaymentMethods != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CustomerHasOtherSavedMethods_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PaymentOption",
+    "name": "0161186a-d565-4534-929a-033202c9f4c3"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CustomerHasOtherSavedMethods_default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormCopper",
+    "name": "73b47922-9f02-4ff0-9e20-174e08e13e20"
+  } ]
+}

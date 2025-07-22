@@ -1,0 +1,68 @@
+{
+  "name": "581e4556-b9e3-4422-b9ab-a26b5b3f7faf",
+  "displayName": "MigratedCopperMRR",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "MonthlyRecurringCharge",
+      "value": "$session.params.MonthlyRecurringCharge"
+    }, {
+      "parameter": "MonthlyRecurringCharge1",
+      "value": ""
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.NetworkType = \"Copper\" OR $session.params.NetworkType = \"copper\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MonthlyRecurringCharge1",
+        "value": "of $ $session.params.MonthlyRecurringCharge"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_MigratedCopperMRR_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CurrentDuePaymentMethodCheck ",
+    "name": "a8f4fa7a-4d11-4349-b691-e1d19385dd05"
+  }, {
+    "condition": "$session.params.MonthlyRecurringCharge = null OR $session.params.MonthlyRecurringCharge = NULL OR $session.params.MonthlyRecurringCharge = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MonthlyRecurringCharge1",
+        "value": ""
+      }, {
+        "parameter": "Metrics_PrepaidBalance_MigratedCopperMRR_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CurrentDuePaymentMethodCheck ",
+    "name": "aa9f8266-264e-4c93-a967-260f52381c3d"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MonthlyRecurringCharge1",
+        "value": "of $ $session.params.MonthlyRecurringCharge"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_MigratedCopperMRR_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CurrentDuePaymentMethodCheck ",
+    "name": "2bd075b0-b9d5-4551-9d79-ce3c35c1d418"
+  } ]
+}

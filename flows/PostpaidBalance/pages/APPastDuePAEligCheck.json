@@ -1,0 +1,123 @@
+{
+  "name": "d5789503-a514-4db5-b10a-d06ee564eb4f",
+  "displayName": "APPastDuePAEligCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentArrangementEligibility = \"Y\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APPastDuePAEligCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APPastDuePaymentMethodCheckPAElig",
+    "name": "d4cd3117-e1f0-46f4-b84f-7a0b94c34c82"
+  }, {
+    "condition": "$session.params.channel = \"web\" AND ($session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"PAYPAL\" OR $session.params.PaymentMethod = \"PayPal\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.LastFourDigitsAcctNum"
+      }, {
+        "parameter": "FormAPPastDue",
+        "value": "pastDueACH"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_APPastDuePAEligCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormAPPastDue",
+    "name": "b69bce34-5235-41b3-813c-6ee4cc608e6b"
+  }, {
+    "condition": "$session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"PAYPAL\" OR $session.params.PaymentMethod = \"PayPal\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APPastDuePAEligCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APPastDuePaymentMethodCheck",
+    "name": "77877b52-d93d-4f66-aa81-6b9b55ac4873"
+  }, {
+    "condition": "$session.params.channel = \"web\" AND $session.params.CCExpDateDiff : \"True\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APPastDuePAEligCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APPastDuePaymentMethodCheck",
+    "name": "7ac12765-d644-40fc-b9fc-62f2b37fc256"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003e 30 AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      }, {
+        "parameter": "FormAPPastDue",
+        "value": "pastDueCC"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_APPastDuePAEligCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormAPPastDue",
+    "name": "3daa9202-36c8-40c4-a0f0-8d00346fb202"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 30 AND $session.params.CCExpDateDiff \u003e 0 AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APPastDuePAEligCheck_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      }, {
+        "parameter": "FormAPPastDue",
+        "value": "pastDueCCE30"
+      } ]
+    },
+    "targetPage": "FormAPPastDue",
+    "name": "5b996aab-21d7-4b2d-88ef-e05ba87bb6dd"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 0 AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APPastDuePAEligCheck_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      }, {
+        "parameter": "FormAPPastDue",
+        "value": "pastDueCCE"
+      } ]
+    },
+    "targetPage": "FormAPPastDue",
+    "name": "71797527-72c5-4b8a-9580-a537b4bea217"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APPastDuePAEligCheck_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APPastDuePaymentMethodCheck",
+    "name": "33d4c6d2-4071-4f55-81c4-22a291689a8e"
+  } ],
+  "description": "AUTOPAY PASTDUE PA ELIGIBILITY CHECK "
+}

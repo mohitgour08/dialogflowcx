@@ -1,0 +1,170 @@
+{
+  "name": "05bf8e39-2a6f-42a8-874c-019b50dfdd61",
+  "displayName": "ManualRebootType3_Voice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003eI'm sorry, I'm not able to reach your modem remotely. Let's try a manual reboot. Please unplug the power cord from the back of the modem.\u003cbreak time=\"1s\"/\u003e Make sure you have unplugged the correct cord by checking that all the lights on the modem go OFF. \u003cbreak time=\"1s\"/\u003e Wait 30 seconds and then plug the cord back in. Waiting the entire 30 seconds will give you the best result. Say \"yes\" when you have completed this step.\u003cbreak time=\"1s\"/\u003e Say \"No\" to repeat the steps.\u003caudio src=\"https://chatservices.brightspeed.com/audio/HoldMusic.wav\" clipEnd=\"30s\"/\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003eI'm sorry, I'm not able to reach your modem remotely. Let's try a manual reboot. Please unplug the power cord from the back of the modem.\u003cbreak time=\"1s\"/\u003e Make sure you have unplugged the correct cord by checking that all the lights on the modem go OFF. \u003cbreak time=\"1s\"/\u003e Wait 30 seconds and then plug the cord back in. Waiting the entire 30 seconds will give you the best result. Say \"yes\" when you have completed this step.\u003cbreak time=\"1s\"/\u003e Say \"No\" to repeat the steps\u003caudio src=\"https://storage.googleapis.com/awh-ccaip-public/HoldMusic.wav\"\u003e \u003c/audio\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_ManualRebootType3_Voice",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ManualRebootType3_Voice_Yes",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WaitForRebootType3",
+    "name": "9662a87a-8d51-4035-b0e2-c388af43db84"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ManualRebootType3_Voice_DTMF_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WaitForRebootType3",
+    "name": "25c035c0-68ca-4363-abcd-832b7d85d0d4"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ManualRebootType3_Voice_DTMF_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "RetryManualRebootType3",
+    "name": "d6a53a5b-1446-493f-b8b3-56909942612b"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ManualRebootType3_Voice_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_ModemReboot",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ManualRebootType3_Voice"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "f3edb15b-0a03-46bb-a8b3-1889ca8f0cf7"
+  }, {
+    "intent": "Confirmation.No",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ManualRebootType3_Voice_No",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "RetryManualRebootType3",
+    "name": "27a65276-6f7e-41a4-b60d-9b5dc108e02e"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "RetryManualRebootType3",
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ManualRebootType3_Voice_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "217fd0c9-ea5d-417f-b6a5-cbf3152d2224"
+  }, {
+    "targetPage": "RetryManualRebootType3",
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ManualRebootType3_Voice_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "246f67da-b35c-45fa-868a-7ae97e274aef"
+  } ],
+  "advancedSettings": {
+    "speechSettings": {
+      "endpointerSensitivity": 90,
+      "noSpeechTimeout": {
+        "seconds": 10
+      }
+    }
+  },
+  "speakerIdSettings": {
+  
+  }
+}

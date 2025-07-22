@@ -1,0 +1,25 @@
+{
+  "name": "dcce9e5d-e2cf-416d-9eaa-c53cd5b57828",
+  "displayName": "NoOtherOption",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "NoOtherOptionChat",
+    "name": "2ed78d0e-75c6-41a1-a383-2e149f232c28"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "NoOtherOptionVoice",
+    "name": "0e54fac1-1140-4073-8b5b-e18603241522"
+  } ]
+}

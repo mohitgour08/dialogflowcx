@@ -1,0 +1,16 @@
+{
+  "name": "bd57bf30-7367-43a0-b44e-4e7e7ee5a0b2",
+  "displayName": "Billing.High_bill",
+  "parameters": [ {
+    "id": "unit-currency",
+    "entityType": "@sys.unit-currency"
+  }, {
+    "id": "date-period",
+    "entityType": "@sys.date-period"
+  }, {
+    "id": "account_type",
+    "entityType": "@account_type"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 60
+}

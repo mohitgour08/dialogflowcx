@@ -1,0 +1,1004 @@
+{
+  "trainingPhrases": [ {
+    "id": "6ee36f56-236b-498a-8693-cf6491563de9",
+    "parts": [ {
+      "text": "Why did I receive a "
+    }, {
+      "text": "bill"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f305cbab-71f5-4449-9d99-408ceb180319",
+    "parts": [ {
+      "text": "Why was I Billed"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3b015e62-c61d-4f14-944a-01170558bbd0",
+    "parts": [ {
+      "text": "Explain Charges"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5402149a-6a41-4d32-829c-4a5df754e56b",
+    "parts": [ {
+      "text": "Explain the "
+    }, {
+      "text": "charges"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fb5081fc-9b10-444d-9afd-351a77a19fac",
+    "parts": [ {
+      "text": "How can I "
+    }, {
+      "text": "dispute a charge"
+    }, {
+      "text": " for a service error?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7415c4ba-43d3-41f3-8811-d4cd08ac3a5b",
+    "parts": [ {
+      "text": "I'm seeing a charge for a service I upgraded but was still billed."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6ba42eee-6444-496c-904f-6f641a744879",
+    "parts": [ {
+      "text": "How can I "
+    }, {
+      "text": "dispute a charge"
+    }, {
+      "text": " for a service disruption?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "07e35a85-f727-432a-9e3d-1d0327501466",
+    "parts": [ {
+      "text": "How can I "
+    }, {
+      "text": "dispute a charge"
+    }, {
+      "text": " for a service disruption on "
+    }, {
+      "text": "my final bill"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ecc26e8b-5363-4f85-8601-340a689056b1",
+    "parts": [ {
+      "text": "How can I "
+    }, {
+      "text": "dispute a charge"
+    }, {
+      "text": " for a service interruption"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "11293839-0f90-4290-87f6-209d28dd734c",
+    "parts": [ {
+      "text": "How can I "
+    }, {
+      "text": "dispute a charge"
+    }, {
+      "text": " for a service interruption on "
+    }, {
+      "text": "my final bill"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e0a5adcf-61dc-4a0c-ae03-4bede7306407",
+    "parts": [ {
+      "text": "charge"
+    }, {
+      "text": " for a service I didn't request"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ec3a539f-896e-4e29-bc5e-365961ea4e4b",
+    "parts": [ {
+      "text": "I'm seeing a "
+    }, {
+      "text": "charge"
+    }, {
+      "text": " for a service I didn't request"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "79d0c0ea-536b-4605-a201-821971509a71",
+    "parts": [ {
+      "text": "How can I "
+    }, {
+      "text": "dispute a charge"
+    }, {
+      "text": " for a service "
+    }, {
+      "text": "outage"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3d51fdc1-0a67-44c1-80d3-3471400434ac",
+    "parts": [ {
+      "text": "seeing a "
+    }, {
+      "text": "charge"
+    }, {
+      "text": " for a "
+    }, {
+      "text": "service I canceled"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3d48c40a-d6bf-4ef5-bf57-9680ff78876a",
+    "parts": [ {
+      "text": "I'm seeing a "
+    }, {
+      "text": "charge"
+    }, {
+      "text": " for a "
+    }, {
+      "text": "service I canceled"
+    }, {
+      "text": " but was still "
+    }, {
+      "text": "billed"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "150d31ea-2673-4991-b46f-e11687e5ada6",
+    "parts": [ {
+      "text": "unexpected "
+    }, {
+      "text": "charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "19b2999a-9abe-411e-bb35-da661978bc6a",
+    "parts": [ {
+      "text": "I'm seeing an unexpected charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "94730960-f5bf-4d8b-95c3-8808d9437da2",
+    "parts": [ {
+      "text": "I need to dispute a charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cf881217-7df9-4668-b2dd-c65c6fe866bf",
+    "parts": [ {
+      "text": "wrong bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d5caef6f-9f10-4216-869e-679cf9710ebd",
+    "parts": [ {
+      "text": "why was I billed"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d1572026-ce2c-49ef-af39-3c0e9c2ad0f3",
+    "parts": [ {
+      "text": "why was i billed"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d50ff0df-df22-4f11-8e79-5041db1f6c03",
+    "parts": [ {
+      "text": "why my bill is too high, can you check it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1c768ef8-0d42-46e7-ba51-b9da44484dbd",
+    "parts": [ {
+      "text": "why I was billed"
+    }, {
+      "text": " for this"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "36fd6b0f-2738-4ebe-a59b-633c8f82291e",
+    "parts": [ {
+      "text": "why I was billed"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8c90bcb6-3b35-44b3-ba0b-105efd67e867",
+    "parts": [ {
+      "text": "unauthorized transaction."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7b4e7895-0c97-4a5e-972a-18fa83d5a244",
+    "parts": [ {
+      "text": "unauthorized transaction issue"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9016121d-c796-4a73-8848-94a64def66b1",
+    "parts": [ {
+      "text": "unauthorized transaction"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6ea4dc7d-2b82-4cd4-8dbe-f62cf0b9eeef",
+    "parts": [ {
+      "text": "unauthorized charges"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0bb84126-e8d7-4873-9ef1-ef0d8e904485",
+    "parts": [ {
+      "text": "too high billing"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b04f1621-72d9-4d8d-aeaa-d4308e2dde00",
+    "parts": [ {
+      "text": "too high bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1ba164b0-5011-496d-969f-1b8e07400049",
+    "parts": [ {
+      "text": "There's an incorrect charge on my statement."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e2271eee-8ca0-4daa-990f-bd35f43d44d1",
+    "parts": [ {
+      "text": "There's an incorrect charge on my statement"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5717fd67-4c42-4925-8768-9b180c244018",
+    "parts": [ {
+      "text": "report a Dispute billing issue"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a2f659b3-fe11-4751-873e-30c6005cd8e1",
+    "parts": [ {
+      "text": "report a dispute billing"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e937ee65-20a9-4350-8a30-750bd21c76af",
+    "parts": [ {
+      "text": "report a dispute bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fabdbf98-68b8-47d5-a038-8cdbbfc5adb0",
+    "parts": [ {
+      "text": "report a bill issue"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "01af9fae-129f-4f54-bda1-9c02838fd2a0",
+    "parts": [ {
+      "text": "received bill though my services are disconnected"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7fe265fe-a87b-4446-8579-e458dce1fcaf",
+    "parts": [ {
+      "text": "received bill though my service is disconnected"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8e441647-fd97-4da7-892c-0c0f00a5b825",
+    "parts": [ {
+      "text": "question about statements"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "431569c2-ad8b-4bda-87c1-540ba458acdf",
+    "parts": [ {
+      "text": "question about charges"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fe5e984c-909a-4b51-a795-490fe7655f95",
+    "parts": [ {
+      "text": "question a charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "04bbbb3d-dd40-4e19-9266-2edeaf55f03a",
+    "parts": [ {
+      "text": "problem with my bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bcd7ba24-cfdc-438f-a8f1-785e9da21aaf",
+    "parts": [ {
+      "text": "problem with bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cd7eb85f-1a33-4bc1-98bf-28fe2c100513",
+    "parts": [ {
+      "text": "payment dispute"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "30c0a5e7-e5a4-474b-952a-b46002e1f8f7",
+    "parts": [ {
+      "text": "OverCharged"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cce4e1ee-2ede-4014-99e3-766965c05e34",
+    "parts": [ {
+      "text": "Overcharged"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "54ffe206-4a77-4534-96c0-e301bcdd7a52",
+    "parts": [ {
+      "text": "overcharged"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c8091b94-d9e3-48b8-803d-683de77013f2",
+    "parts": [ {
+      "text": "Over Charged"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7075e4c8-a7da-4cfd-bdae-7fc5c2938aae",
+    "parts": [ {
+      "text": "can you check it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "68d8c4d4-2234-4d1c-bc42-1cab92058d61",
+    "parts": [ {
+      "text": "not sure why I was billed for this"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "ab7f07c6-179f-4c43-b53c-a5164114afb0",
+    "parts": [ {
+      "text": "need help with disputing a billing error"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "57fb780d-c287-4be1-b20c-e826dca5e037",
+    "parts": [ {
+      "text": "need help with disputing a bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bc9e6a05-6f44-4567-97f4-9bc360ddd5df",
+    "parts": [ {
+      "text": "issue with billing charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6bd91cac-ed15-4c55-a1fc-a9bf3b758fba",
+    "parts": [ {
+      "text": "issue with bill charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4525019f-70c4-40b5-a1bf-08ce08640b9b",
+    "parts": [ {
+      "text": "incorrect charge on my statement,"
+    }, {
+      "text": " can you please check it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "12a5231b-f91e-4f74-8c8a-843c251762b9",
+    "parts": [ {
+      "text": "I'm not sure why I was billed for this, can you please check it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9c457e35-b725-48cd-95fb-e1db2426d89f",
+    "parts": [ {
+      "text": "i'm not sure why I was billed for this, can you check it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a4bcffb2-3c87-4347-a407-6362982d284b",
+    "parts": [ {
+      "text": "I'm not sure why I was billed for this, can you check it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1c2b2717-2229-44ed-813c-d9aad01d2c7a",
+    "parts": [ {
+      "text": "i'm not sure why I was billed for this, can you check"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a53ed9ed-3c66-43c4-b367-0a348ea656b0",
+    "parts": [ {
+      "text": "I'm not sure why I was billed for this"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "30611114-b8d7-4db6-9c56-2225c32e800e",
+    "parts": [ {
+      "text": "I'm not sure why I was billed"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "204849f2-7f24-45ff-8d13-dca630f11f32",
+    "parts": [ {
+      "text": "I'd like to talk about an unauthorized transaction."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4b0e4850-c35e-4201-92a8-13761d8c21b3",
+    "parts": [ {
+      "text": "I'd like to talk about an unauthorized transaction"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "60efc563-c9ca-40f5-a63f-5878c3ded101",
+    "parts": [ {
+      "text": "I would like to talk about an unauthorized transaction."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "84b8e89e-33a4-4e54-8f62-df1462102dc6",
+    "parts": [ {
+      "text": "I was billed for a service I didn't receive"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8972246a-629b-46ca-883f-f49ea50bf29e",
+    "parts": [ {
+      "text": "I need help with disputing a billing error"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0f0b451c-47b0-4fc1-8cc4-dbcba818a89c",
+    "parts": [ {
+      "text": "I need help with disputing a billing"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "45b51294-8932-42a7-8cd1-fb58cc4913df",
+    "parts": [ {
+      "text": "i am having a dispute with my bill charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a3992e45-efad-403a-b37b-d6518b3ff864",
+    "parts": [ {
+      "text": "huge bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6eb3f0b3-c895-4ff0-bb4c-7208812d925b",
+    "parts": [ {
+      "text": "how to report dispute billing"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bbf8fc48-3243-4073-86a3-2674c4954f75",
+    "parts": [ {
+      "text": "how to report bill issue"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b3f7285d-1d28-42f2-b3d8-7909367f6ae2",
+    "parts": [ {
+      "text": "How do i report a Dispute billing issue?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ef17d5b0-6548-4db2-8d74-a5b74d199fad",
+    "parts": [ {
+      "text": "How do i report a Dispute billing issue"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5b16bd48-952b-4798-a06d-377ec31b06c8",
+    "parts": [ {
+      "text": "How do i report a Dispute billing"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1e7b3669-e214-40ab-ad9b-ce84625a61bd",
+    "parts": [ {
+      "text": "high bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "95cf269c-d3f5-4956-8698-dd27be43b679",
+    "parts": [ {
+      "text": "help with disputing a billing error"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b299689d-b26e-4677-a03e-623bca4f2510",
+    "parts": [ {
+      "text": "help with disputing a billing"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "99cf046c-7800-4465-b505-1b9ab6ba55db",
+    "parts": [ {
+      "text": "help with disputing a bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fa25272d-76a3-4ef8-a679-d1aba8fa1a07",
+    "parts": [ {
+      "text": "having a dispute with my bill charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "233365f9-6d2a-401e-ae4c-e81d8694cba1",
+    "parts": [ {
+      "text": "got bill though my services are disconnected"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "890b2c2e-b23a-4cf3-ad72-8ce20ad168e2",
+    "parts": [ {
+      "text": "got bill though my service is disconnected"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "26867535-a966-45fc-bfe9-c72dd6abc2a2",
+    "parts": [ {
+      "text": "got a bill though my services are disconnected"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "31d96509-7217-462e-9091-f5642d6ddc96",
+    "parts": [ {
+      "text": "Extra Charged"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b63a93b2-44e6-47c8-8409-aa925b257c75",
+    "parts": [ {
+      "text": "extra charged"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dd7eeaf2-8ce8-47a1-af75-86a13572d53b",
+    "parts": [ {
+      "text": "disputing a charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "80acd62f-121a-4b56-bf84-39ee2d2a29cd",
+    "parts": [ {
+      "text": "disputed transaction"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9537d62a-de57-4fbe-9b98-917b72d2c4ca",
+    "parts": [ {
+      "text": "dispute with my billing charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1292b26f-ae4c-45ed-a667-40a2d2c65635",
+    "parts": [ {
+      "text": "dispute with my billing"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "92be8836-edd4-46d7-9f43-6d6b9d5b1ed5",
+    "parts": [ {
+      "text": "dispute with charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6c999ba7-3d79-4c46-b96b-7e661e3820df",
+    "parts": [ {
+      "text": "Dispute this charges"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "64a31c48-65ec-4d6d-ae4b-791f9080fc58",
+    "parts": [ {
+      "text": "dispute this charges"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "da334308-b45f-4e54-92b7-57744afeb9c2",
+    "parts": [ {
+      "text": "Dispute This Charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "009d5381-a92c-46e9-b72e-0d337305b776",
+    "parts": [ {
+      "text": "Dispute this Charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6e00af78-0ae3-4167-aeb9-8c9dd4d67a75",
+    "parts": [ {
+      "text": "dispute this charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "07088268-0b08-429a-bb01-20169eda34b1",
+    "parts": [ {
+      "text": "dispute payment"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cab94d86-d017-49fe-b171-2f6069c0867a",
+    "parts": [ {
+      "text": "dispute on charges"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "255dd0c8-edfc-4155-bff4-b1a82ea39a40",
+    "parts": [ {
+      "text": "Dispute Charges"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ca33897e-59b8-456b-bfd0-fdb73f74c3fe",
+    "parts": [ {
+      "text": "dispute charges"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e1170440-8146-4b41-8332-a17f6d93aeb9",
+    "parts": [ {
+      "text": "Dispute Charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1a693620-385f-40fa-93bc-0ad485e9f2f1",
+    "parts": [ {
+      "text": "dispute charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9d4c92bb-59ef-48fd-b72d-367d26e81cdd",
+    "parts": [ {
+      "text": "Dispute billing issue"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ab0e5801-1d1c-46f5-89a8-571ddc387c51",
+    "parts": [ {
+      "text": "Dispute Billing Charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "07885917-308c-4826-aabe-f76f2cd5dc02",
+    "parts": [ {
+      "text": "Dispute Billing"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3282432c-1302-4cbb-9816-5c868cf77183",
+    "parts": [ {
+      "text": "Dispute billing"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c45ae3de-8cb1-4eae-adf6-56dacf5402d9",
+    "parts": [ {
+      "text": "dispute bill issue"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f908b5f3-616d-4aa3-989f-c6778b3d2e4c",
+    "parts": [ {
+      "text": "Dispute Bill Charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6b4549e3-51f9-4e74-b65c-7a7c844d0625",
+    "parts": [ {
+      "text": "Dispute Bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6355dbac-1e52-4c06-9bf4-9f2a17383443",
+    "parts": [ {
+      "text": "Dispute bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b324bd92-c571-4f7c-a3ba-8b9f66310cfc",
+    "parts": [ {
+      "text": "dispute bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a677b83a-8302-4a09-8098-aeda0b758281",
+    "parts": [ {
+      "text": "dispute a charges on my bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "515042e2-b5c9-4232-a363-abf9359227a8",
+    "parts": [ {
+      "text": "dispute a charge on my bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f70f59ef-8bd6-4925-a7f2-402b2f445b6a",
+    "parts": [ {
+      "text": "dispute a charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2cbbcf15-c0ca-4bcd-bc9c-d02fbccdb3ba",
+    "parts": [ {
+      "text": "Dispute"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6f936131-981e-4762-a1bd-ce242ce0222d",
+    "parts": [ {
+      "text": "dispute"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8ede6ce8-9aae-43c0-9bcd-cf1808b2923d",
+    "parts": [ {
+      "text": "charges dispute"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3b4ca8fc-c7a2-476d-a627-d874525110a3",
+    "parts": [ {
+      "text": "charges"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8ab2585c-8954-455e-87a9-963a98ff97a5",
+    "parts": [ {
+      "text": "charged incorrectly"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e7a22975-43d4-424c-9aff-d317618cceeb",
+    "parts": [ {
+      "text": "charge dispute"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fdb8559a-1546-4cc0-908b-94a41b684eaa",
+    "parts": [ {
+      "text": "Billing Error"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d5933579-850d-4dac-9015-2feae550d87c",
+    "parts": [ {
+      "text": "billing error"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f1a9f0a7-8868-4300-a85e-a805543bc2ec",
+    "parts": [ {
+      "text": "Billing Dispute Charge"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9eb2915d-83cb-4502-83d1-44996ddd45ac",
+    "parts": [ {
+      "text": "billing dispute"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4d4ce5c0-4368-43b2-b9d2-662cf37dbaa5",
+    "parts": [ {
+      "text": "billing charge dispute"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "97eaa5e8-6b39-4d1e-b288-37925bc4d09d",
+    "parts": [ {
+      "text": "billed incorrectly"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "db91d683-f926-427c-83f5-056f3ac7a906",
+    "parts": [ {
+      "text": "billed for a service I didn't receive"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b8870ad7-1011-4a50-8862-45f879f2ce19",
+    "parts": [ {
+      "text": "bill though my services are disconnected"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bb01c49c-7937-444c-820b-759bac776a9a",
+    "parts": [ {
+      "text": "bill though my service is disconnected"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e2b2b554-593d-42d7-a9ee-77fe1dac4c8e",
+    "parts": [ {
+      "text": "bill problem"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3a6fca5a-490e-48f8-bb10-9ec96509c3b8",
+    "parts": [ {
+      "text": "bill issue"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b7a52ecd-e63b-404c-a16e-a72a5474aa5a",
+    "parts": [ {
+      "text": "bill is too high"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "129ca816-da60-4375-bfab-06bcfdd3d725",
+    "parts": [ {
+      "text": "bill error"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f757819b-0116-449d-ba0a-5d61cc3eb54d",
+    "parts": [ {
+      "text": "Bill Dispute"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8d27dcaa-8559-4807-8dad-67c2a4041ab5",
+    "parts": [ {
+      "text": "bill charge dispute"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

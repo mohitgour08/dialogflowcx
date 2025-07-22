@@ -1,0 +1,17 @@
+{
+  "name": "c7368fee-88a2-415b-9ca4-120f50544019",
+  "displayName": "multiacctfound",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/ccai-multiacctfound",
+    "webhookType": "STANDARD",
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth2/token",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

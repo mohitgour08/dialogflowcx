@@ -1,0 +1,99 @@
+{
+  "name": "30206cd6-682f-404f-874c-154f620d0460",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "How can I help you today?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "I need a phone contact number, I've got a complicated issue"
+    }
+  }, {
+    "toolUse": {
+      "tool": "FAQs",
+      "action": "FAQs",
+      "inputActionParameters": {
+        "requestBody": {
+          "fallback": "",
+          "filter": "",
+          "query": "I need a phone contact number, I've got a complicated issue",
+          "userMetadata": {
+          
+          }
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "answer": "The Brightspeed customer care number is 833-692-7773 (MYBRSPD).Hours of operation are Monday through Friday 8AM - 8PM Eastern, and 8AM - 5PM Eastern Saturday and Sunday. Repair and technical support is available 24/7. ",
+          "snippets": [ {
+            "text": "The Brightspeed customer care number is 833-692-7773 (MYBRSPD).Hours of operation are Monday through Friday 8AM - 8PM Eastern, and 8AM - 5PM Eastern Saturday and Sunday. Repair and technical support is available 24/7. ",
+            "title": "",
+            "uri": ""
+          } ]
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "The Brightspeed customer care number is 833-692-7773 (MYBRSPD).Hours of operation are Monday through Friday 8AM - 8PM Eastern, and 8AM - 5PM Eastern Saturday and Sunday. Repair and technical support is available 24/7.\n"
+    }
+  }, {
+    "userUtterance": {
+      "text": "okay thanks"
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Is there anything else I can help you with?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "no"
+    }
+  }, {
+    "toolUse": {
+      "tool": "FAQ_intents_28_02_2025",
+      "action": "FAQ_intents_28_02_2025",
+      "inputActionParameters": {
+        "requestBody": {
+          "fallback": "",
+          "filter": "",
+          "query": "I need a phone contact number, I've got a complicated issue",
+          "userMetadata": {
+          
+          }
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "answer": "Technical Support",
+          "snippets": [ {
+            "child_intent": "Internet Issue, Modem Issues, Confirm Appointment Status, Dispute Order Appointment, General Troubleshooting Inquiry, Get Modem Password, Get Modem Username, Get Wifi Password, Home Security, Report Website Failure, Schedule Technician Visit, Service Issues, Internet Outage, Speak to an Agent, Wi-Fi Issue, Phone Not Working, Service Repair, Phone Line Issue, Slow Internet, Service Restoration, Intermittent Internet Connection, Internet Drop",
+            "parent_intent": "Technical Support"
+          } ]
+        }
+      }
+    }
+  }, {
+    "flowInvocation": {
+      "flow": "FAQExit",
+      "inputActionParameters": {
+        "FAQSuccess": "Success",
+        "parent_intent": "Technical Support"
+      },
+      "outputActionParameters": {
+      
+      }
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "Customer asks for a support number"
+  },
+  "playbookOutput": {
+    "executionSummary": "to return the customer support number"
+  },
+  "displayName": "Ask for support number FAQ tool",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 779,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "en"
+}

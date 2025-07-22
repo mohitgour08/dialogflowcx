@@ -1,0 +1,38 @@
+{
+  "name": "dd5115d2-fbd5-468a-a935-88e5329b75ec",
+  "displayName": "FiberCardPaymentOverdue",
+  "form": {
+    "parameters": [ {
+      "displayName": "formResponse",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_SecuredPayments_FiberCardPaymentOverdue_formResponse",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ]
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\r\n  \"chatClientForm\": \"cardPayment\",\r\n  \"amountDue\": \"$session.params.PaymentAmount\"\r\n}" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberCardPaymentForm_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FiberCardFormCheck",
+    "name": "f40eda6b-bfac-483c-a4a2-39237e527668"
+  } ]
+}

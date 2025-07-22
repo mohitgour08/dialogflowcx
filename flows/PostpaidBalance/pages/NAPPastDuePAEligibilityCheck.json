@@ -1,0 +1,80 @@
+{
+  "name": "fbd7eef7-1a53-478c-8e9a-32e849e39f1c",
+  "displayName": "NAPPastDuePAEligibilityCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentArrangementEligibility = \"Y\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your current total balance is $$session.params.TotalBalance, You'll need to pay the past due balance of $$session.params.BillInfo_PastDueAmount to avoid service interruptions. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Your current total balance is $$session.params.TotalBalance, You'll need to pay the past due balance of $$session.params.BillInfo_PastDueAmount to avoid service interruptions. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_NAPPastDuePAEligibilityCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PastDuePAIntentCheck",
+    "name": "83c4fbf4-91aa-48e3-b8d5-a997a9536cfa"
+  }, {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_NAPPastDuePAEligibilityCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NAPPastDueChat",
+    "name": "81e18a9f-59c2-4983-9d18-e62a421e4577"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your current total balance is $$session.params.TotalBalance, You'll need to pay the past due balance of $$session.params.BillInfo_PastDueAmount to avoid service interruptions. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Your current total balance is $$session.params.TotalBalance, You'll need to pay the past due balance of $$session.params.BillInfo_PastDueAmount to avoid service interruptions. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_NAPPastDuePAEligibilityCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PastDueNPAIntentChk",
+    "name": "dc28c357-da89-40dd-b6a2-cfe33aa3fa3b"
+  } ]
+}

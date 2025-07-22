@@ -1,0 +1,120 @@
+{
+  "name": "7491f21a-5153-44b5-a14e-3e2d4e0f6f48",
+  "displayName": "BrightspeedTotalHome",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Brightspeed Total Home Tech Support is a new service offered by Brightspeed, brought to you in partnership with Asurion, that provides complete expert tech support for your home including setup, troubleshooting, and education on your in-home connected devices such as TVs, gaming systems, laptops, monitors, smart devices (watches, doorbells) and more. I can connect you with an agent now if you have more questions. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Yes, connect me with an agent."
+          }, {
+            "action": "quick_reply",
+            "title": "No, thank you."
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_BrightspeedTotalHome_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AgentConnect",
+        "value": "Yes"
+      } ]
+    },
+    "targetPage": "AgentRoute",
+    "name": "dbc74da9-f6c5-476c-8808-441c45d77bfe"
+  }, {
+    "intent": "Confirmation.No",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_BrightspeedTotalHome_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AgentConnect",
+        "value": "No"
+      } ]
+    },
+    "targetPage": "Ecom_End",
+    "name": "1f584e36-1046-4350-89f5-d38f0115236c"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "EXIT_POP"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_BrightspeedTotalHome_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "4a685ed6-ed68-46cd-8fca-ea2f7beb54dc"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Yes, connect me with an agent."
+            }, {
+              "action": "quick_reply",
+              "title": "No, thank you."
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_BrightspeedTotalHome_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "15e296e0-1e46-41a1-9433-cfe1af05f493"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_BrightspeedTotalHome_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EXIT_POP"
+      } ]
+    },
+    "name": "4e1bdb8a-e01a-4d98-bb7e-4a0c9ecbd74f"
+  } ]
+}

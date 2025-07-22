@@ -1,0 +1,99 @@
+{
+  "trainingPhrases": [ {
+    "id": "2a88af69-6a69-4c57-bb77-2fcc6718210e",
+    "parts": [ {
+      "text": "dtmf_digits_"
+    }, {
+      "text": "3534346356",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "75368665-8ad5-40f1-9b57-6f081adf2e1e",
+    "parts": [ {
+      "text": "1 (505) 555-1234",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "621015a8-a8bd-49de-903e-b2cf4071f57a",
+    "parts": [ {
+      "text": "Yeah, my mobile number is "
+    }, {
+      "text": "15055551234",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "15df5ce1-c6f8-4990-ad06-3e27b77940a1",
+    "parts": [ {
+      "text": "number is "
+    }, {
+      "text": "(641)667 5678",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ea0a3c56-365e-41dd-8179-14f00c6c617c",
+    "parts": [ {
+      "text": "my phone number is "
+    }, {
+      "text": "1234567890",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7155d708-4e72-4d4c-b781-729adf2a4514",
+    "parts": [ {
+      "text": "234-456-6789",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8d54323e-46da-4b4d-8247-c098407f0f0e",
+    "parts": [ {
+      "text": "123.456.7890",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3c90cebf-9c68-4211-92d0-92a1f6c85e8c",
+    "parts": [ {
+      "text": "(457)4578568",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fb8c0153-b247-4921-9ec4-fe9d486e2af1",
+    "parts": [ {
+      "text": "457 457 8454",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6cf04599-5433-4d24-9f06-46ff8ad9d258",
+    "parts": [ {
+      "text": "457-457-8568",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f0c4bb9f-36ad-4b8b-bfd6-1fb1b3c33383",
+    "parts": [ {
+      "text": "1234567890",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

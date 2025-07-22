@@ -1,0 +1,34 @@
+{
+  "name": "af9a9c45-37b7-43df-8de6-cec41193f93b",
+  "displayName": "IsPhoneAvailableOnProfile",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ContactNumber != null AND $session.params.ContactNumber != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_IsPhoneAvailableOnProfile_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PhoneOnProfile",
+        "value": "True"
+      } ]
+    },
+    "targetPage": "PhoneOnProfile",
+    "name": "fff7897d-ea13-4ab3-8e91-fe0ccdba74ba"
+  }, {
+    "condition": "$session.params.ContactNumber = null OR $session.params.ContactNumber = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_IsPhoneAvailableOnProfile_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PhoneOnProfile",
+        "value": "False"
+      } ]
+    },
+    "targetPage": "PhoneNotInProfile",
+    "name": "226fca10-4027-4055-9cf2-c94fbc0b5988"
+  } ]
+}

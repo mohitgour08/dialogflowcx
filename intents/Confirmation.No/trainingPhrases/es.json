@@ -1,0 +1,67 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Nooo",
+      "parameterId": "person",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "No",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": ", eso es incorrecto"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "No",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": ", está bien"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Noo",
+      "parameterId": "person",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "No",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": ", necesito más ayuda."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Por favor, "
+    }, {
+      "text": "no",
+      "parameterId": "number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "No",
+      "parameterId": "number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  } ]
+}

@@ -1,0 +1,19 @@
+{
+  "entities": [ {
+    "value": "How much do I owe",
+    "synonyms": [ "How much do I owe" ],
+    "languageCode": "en"
+  }, {
+    "value": "When will my services be disconnected",
+    "synonyms": [ "When will my services be disconnected" ],
+    "languageCode": "en"
+  }, {
+    "value": "Agent",
+    "synonyms": [ "agent", "Agent", "human agent", "representative", "Representative", "talk to an agent" ],
+    "languageCode": "en"
+  }, {
+    "value": "Make a payment",
+    "synonyms": [ "Make a payment", "Pay", "Pay my bill", "Payment", "send money", "settlement", "make payment" ],
+    "languageCode": "en"
+  } ]
+}

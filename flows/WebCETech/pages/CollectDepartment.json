@@ -1,0 +1,183 @@
+{
+  "name": "cd4fe70b-3ace-47a9-9444-c67f14c7b503",
+  "displayName": "CollectDepartment",
+  "form": {
+    "parameters": [ {
+      "displayName": "Department",
+      "required": true,
+      "entityType": "@Collect_Department",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "What Department would you like to chat with?" ]
+              },
+              "languageCode": "en"
+            }, {
+              "payload": {
+                "ujet": {
+                  "buttons": [ {
+                    "action": "quick_reply",
+                    "title": "TSC"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "DRC"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "\u003c-Back"
+                  } ],
+                  "title": "",
+                  "type": "inline_button"
+                }
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_WebCETech_CollectDepartment_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "2190a199-6d96-4e26-bf8f-bebda73a3a38"
+        }, {
+          "targetPage": "End Session",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I am sorry, I am unable to assist you at this time. Please restart the chat if you need further assistance. Goodbye." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_WebCETech_CollectDepartment_NoMatch2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "873a72e2-1e61-466e-80f1-f689d53e30df"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "What Department would you like to chat with?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "TSC"
+          }, {
+            "action": "quick_reply",
+            "title": "DRC"
+          }, {
+            "action": "quick_reply",
+            "title": "\u003c-Back"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "CollectDepartment",
+      "value": null
+    }, {
+      "parameter": "Department",
+      "value": null
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Department = \"TSC\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_CollectDepartment_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "TSCEntry",
+    "name": "caf24210-f74e-4f43-b6b8-78951228f784"
+  }, {
+    "condition": "$session.params.Department = \"DRC\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_CollectDepartment_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "DRCIntent",
+    "name": "0c1fe737-b67e-4728-b03a-61a5b3b2a7ee"
+  }, {
+    "condition": "$session.params.Department = \"Back\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_CollectDepartment_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "IssueDetails",
+    "name": "f1604293-dd70-45a3-ac33-2d64070136d6"
+  } ]
+}

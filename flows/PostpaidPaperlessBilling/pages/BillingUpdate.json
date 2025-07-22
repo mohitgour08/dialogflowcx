@@ -1,0 +1,51 @@
+{
+  "name": "3e96432b-63c0-4b84-91b8-225058015ee6",
+  "displayName": "BillingUpdate",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "That's okay! You can enroll in paperless billing anytime on $session.params.link9 or on the Brightspeed App." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "That's okay! You can enroll in paperless billing anytime on brightspeed.com or on the Brightspeed App." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_BillingUpdate_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidPaperlessBilling",
+        "value": "Success"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AssistRequest",
+    "name": "4de65dba-53f5-4f5d-ad1b-28517d296237"
+  } ]
+}

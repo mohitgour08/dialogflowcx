@@ -1,0 +1,919 @@
+{
+  "trainingPhrases": [ {
+    "id": "2d958d8e-05fb-46b2-9c6b-d69a33b0bdf4",
+    "parts": [ {
+      "text": "Payment methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cbd54e17-0830-44d1-9024-5af9c92c5c6e",
+    "parts": [ {
+      "text": "Payment"
+    }, {
+      "text": " method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1f301b5e-dd10-4b3c-aef3-44976df51aa9",
+    "parts": [ {
+      "text": "What all "
+    }, {
+      "text": "methods do you"
+    }, {
+      "text": " allow?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "574978d8-a892-4423-8a38-c63f3920e1c8",
+    "parts": [ {
+      "text": "What payment methods"
+    }, {
+      "text": " "
+    }, {
+      "text": "do you accept"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b86142a2-8d90-443d-a44b-ffa35e988edb",
+    "parts": [ {
+      "text": "What payment method do you"
+    }, {
+      "text": " accept?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "35976179-3ed0-4a7f-a59b-cdafcf1e6539",
+    "parts": [ {
+      "text": "I want to use another"
+    }, {
+      "text": " "
+    }, {
+      "text": "Payment"
+    }, {
+      "text": " method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "76ea2315-f65e-4822-b5b1-686332376d6b",
+    "parts": [ {
+      "text": "I want to use another"
+    }, {
+      "text": " method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "04fc75c8-762c-4a26-8a41-e19c555a89ee",
+    "parts": [ {
+      "text": "I want to use another"
+    }, {
+      "text": " Card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f3435086-b788-4275-bf16-5b0c8da06aca",
+    "parts": [ {
+      "text": "Pay"
+    }, {
+      "text": " with "
+    }, {
+      "text": "different method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b60ccf2c-3e63-43d9-a695-72370ab30d85",
+    "parts": [ {
+      "text": "Pay"
+    }, {
+      "text": " with "
+    }, {
+      "text": "different Card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3b1dcd4d-6718-47a6-a80d-9fc2ece5377a",
+    "parts": [ {
+      "text": "Change "
+    }, {
+      "text": "to a new payment"
+    }, {
+      "text": " method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "24727a37-5111-4d19-8d51-829f33210232",
+    "parts": [ {
+      "text": "Change to a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " Method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2df8bdb7-673b-41e8-842d-6a6de206c4f4",
+    "parts": [ {
+      "text": "Change "
+    }, {
+      "text": "to a new Card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d51a4fcf-af8f-417a-94c3-a208f7e39124",
+    "parts": [ {
+      "text": "Add another"
+    }, {
+      "text": " PayPal "
+    }, {
+      "text": "Account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4beac9ea-30b6-48bc-ae43-e5d16c4643f1",
+    "parts": [ {
+      "text": "Add new"
+    }, {
+      "text": " PayPal "
+    }, {
+      "text": "Account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5b1c3172-05c8-47ac-a758-234424588686",
+    "parts": [ {
+      "text": "Add new account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e63991bf-2465-4f6e-9deb-f5ee68654e3b",
+    "parts": [ {
+      "text": "Add another Account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cad436b3-4904-47ca-97cb-2bb48db4997f",
+    "parts": [ {
+      "text": "Add another"
+    }, {
+      "text": " Card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5f21afb7-1865-4c32-bdbf-168311cd90a6",
+    "parts": [ {
+      "text": "Add "
+    }, {
+      "text": "new Card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b22770bc-be6b-4dd8-8910-f3276aff182a",
+    "parts": [ {
+      "text": "Set up "
+    }, {
+      "text": "new"
+    }, {
+      "text": " method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c0ee1889-4d09-4842-a175-fd488436a55a",
+    "parts": [ {
+      "text": "Set up new Card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3c1b2c47-9798-4e5c-878f-24de1ef5ef63",
+    "parts": [ {
+      "text": "Set up another"
+    }, {
+      "text": " method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7b7cb120-72d2-4061-bb1f-cebbbc387b1f",
+    "parts": [ {
+      "text": "Can I use "
+    }, {
+      "text": "different method"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "986f1ed6-dd9b-42ef-9bb4-a847be224cef",
+    "parts": [ {
+      "text": "How should "
+    }, {
+      "text": "I Update?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2f22c888-2036-4697-9b15-f3a2266188c5",
+    "parts": [ {
+      "text": "How to Update?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d377ddea-777c-4320-8871-d367cfabba46",
+    "parts": [ {
+      "text": "Update it"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ce84ad07-763a-4bb8-8f14-582113218163",
+    "parts": [ {
+      "text": "Update it now"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "81307431-30a9-4d8c-b495-e2ba373f4cc3",
+    "parts": [ {
+      "text": "Update the method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fb81983b-c35c-4f58-99c4-9e496203b4e8",
+    "parts": [ {
+      "text": "Add a new"
+    }, {
+      "text": " method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3168a8e4-9cd1-4b5e-a4ef-e8025660a34f",
+    "parts": [ {
+      "text": "Update to a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9146b83b-6924-4db9-9954-f4278d525f99",
+    "parts": [ {
+      "text": "Update the details"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0f662f34-1de7-44cb-9711-745ca965435a",
+    "parts": [ {
+      "text": "Can I Update?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5d5d6661-35b7-4e53-b11c-0b481635fd1e",
+    "parts": [ {
+      "text": "Can I update now?"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "53a4539c-7d43-4511-9ab6-841bbfd9793b",
+    "parts": [ {
+      "text": "Sure Update"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6daf40a3-5d92-4862-9888-355b8cdb2a44",
+    "parts": [ {
+      "text": "Let'"
+    }, {
+      "text": "s"
+    }, {
+      "text": " Update"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "896ad386-2feb-4e02-8533-98b47fd40565",
+    "parts": [ {
+      "text": "Where can I update?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "52192891-bd7d-42b5-8b6d-3c1db2c36226",
+    "parts": [ {
+      "text": "How to update?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "86df53a8-08ad-4773-8d17-22df8c061cfb",
+    "parts": [ {
+      "text": "Please Update"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6d83b2ca-2a23-4cf2-9894-8e395c5c619f",
+    "parts": [ {
+      "text": "Assist me to "
+    }, {
+      "text": "Update"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "88d80a46-cef0-4d7e-9522-b31827836528",
+    "parts": [ {
+      "text": "Yes "
+    }, {
+      "text": "help"
+    }, {
+      "text": " me update"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f6fc4a03-ef07-464c-9eb4-7a143c70267a",
+    "parts": [ {
+      "text": "Change "
+    }, {
+      "text": "Payment"
+    }, {
+      "text": " Method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d488b55e-2211-4b0c-8d63-b2e6676d29c7",
+    "parts": [ {
+      "text": "Change "
+    }, {
+      "text": "PayPal"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "26cdf22f-bca6-45b7-b386-4418f7d5d8bf",
+    "parts": [ {
+      "text": "Change PayPAL"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "14be2e30-31a3-4ac0-88f0-cc72b2f45d3d",
+    "parts": [ {
+      "text": "Change "
+    }, {
+      "text": "Credit"
+    }, {
+      "text": " Card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9867dd99-8a8e-4080-94ca-80efa3074ef2",
+    "parts": [ {
+      "text": "Change Card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dd1b80d6-8d10-465e-875e-28badbdaa1d2",
+    "parts": [ {
+      "text": "Change card info"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c27a826d-31d6-40bc-a6ba-85865078b64b",
+    "parts": [ {
+      "text": "Change my PayPal"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2c666699-68df-4147-ab7e-7f17a72fa2b6",
+    "parts": [ {
+      "text": "Change "
+    }, {
+      "text": "my card details"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1502756c-2a66-4ae1-b211-03db711b9ec6",
+    "parts": [ {
+      "text": "Update prepaid"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9ba20787-9d70-41ca-b9ad-e4400d6fe331",
+    "parts": [ {
+      "text": "Update my prepaid "
+    }, {
+      "text": "account"
+    }, {
+      "text": " details"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e8b30ef0-c827-458c-b84c-900f85e78d89",
+    "parts": [ {
+      "text": "Update my PayPal"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "660d93b2-30a4-405c-84fa-cc1156091b96",
+    "parts": [ {
+      "text": "Update PayPal"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9e3bfde4-0377-40ab-b9b7-502cae1cdef0",
+    "parts": [ {
+      "text": "Update pay"
+    }, {
+      "text": " "
+    }, {
+      "text": "pal"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6e383bbb-4e71-45cc-bea1-d5deddab59f8",
+    "parts": [ {
+      "text": "Update my "
+    }, {
+      "text": "paypal"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "68ebc1ee-c689-4855-a7a0-6a646f3a2dcf",
+    "parts": [ {
+      "text": "Update my Pay"
+    }, {
+      "text": " "
+    }, {
+      "text": "pal"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5f474129-372f-4fa7-b32e-04c905c5f5e0",
+    "parts": [ {
+      "text": "update"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f45e343f-6e3e-4a18-b041-9d6a4c67158d",
+    "parts": [ {
+      "text": "update the details"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "aee3834a-ff3b-462a-9633-639d78d6802c",
+    "parts": [ {
+      "text": "update it"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d41f81aa-5f32-4b5f-aec5-4236e6254777",
+    "parts": [ {
+      "text": "update "
+    }, {
+      "text": "card details"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "887ea600-136e-4a50-a9e5-bc56d77019e4",
+    "parts": [ {
+      "text": "update "
+    }, {
+      "text": "credit"
+    }, {
+      "text": " card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "95eeb6b5-a97a-4063-aa27-d9b23109a70d",
+    "parts": [ {
+      "text": "update card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3636e0a2-5dc4-43ba-bf9a-0e4347fecf64",
+    "parts": [ {
+      "text": "update "
+    }, {
+      "text": "my credit card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b5a00a93-e872-4f44-aa21-5551d2bd3eb9",
+    "parts": [ {
+      "text": "update my card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2700763b-62dd-44a5-af03-2cec00f19186",
+    "parts": [ {
+      "text": "update method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2afa1945-4f4b-4416-8a52-2c082aca581c",
+    "parts": [ {
+      "text": "Update method of pay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dd2a67a9-9caa-4e82-a9cc-d43690c6b3a6",
+    "parts": [ {
+      "text": "What steps should I take to switch back "
+    }, {
+      "text": "to my old payment"
+    }, {
+      "text": " method?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2ccfc5ce-1849-467f-9a26-6edb35416fd8",
+    "parts": [ {
+      "text": "Tell me about the process for reverting "
+    }, {
+      "text": "to a previous payment"
+    }, {
+      "text": " method."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8d1406b6-ff9a-47a9-b1a0-847db350cc7c",
+    "parts": [ {
+      "text": "payment"
+    }, {
+      "text": " method "
+    }, {
+      "text": "updates"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "536cbc39-2260-4db0-9a9a-d938514174d5",
+    "parts": [ {
+      "text": "How can I update my payment method"
+    }, {
+      "text": " through the "
+    }, {
+      "text": "mobile"
+    }, {
+      "text": " "
+    }, {
+      "text": "app"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fc8b8e1f-171e-45d1-b7a3-7ed66a2f7eb2",
+    "parts": [ {
+      "text": "What are the requirements for updating "
+    }, {
+      "text": "my payment method on the"
+    }, {
+      "text": " website?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e087fee8-67f8-4ed1-8288-a5ca1d5fa621",
+    "parts": [ {
+      "text": "Can you guide me on setting up a default payment option?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9c59ad58-74f4-45c9-b3a2-9ba50a94a689",
+    "parts": [ {
+      "text": "How can I set "
+    }, {
+      "text": "a preferred"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment method for my account?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8cc136ac-6f36-4e8c-a69b-453457753819",
+    "parts": [ {
+      "text": "payment"
+    }, {
+      "text": " method "
+    }, {
+      "text": "updation"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ffe8ca91-8953-432b-bf8d-8af5ae85e799",
+    "parts": [ {
+      "text": "go for "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method "
+    }, {
+      "text": "updation"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "57b3ee9e-3bdb-42c6-89c8-03f1203e9b98",
+    "parts": [ {
+      "text": "update my method of "
+    }, {
+      "text": "payment"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1565ad38-84ae-42a5-8ba4-50428ab7f23e",
+    "parts": [ {
+      "text": "process for updated"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c4fd0578-e492-4bca-b204-d934c7a6fade",
+    "parts": [ {
+      "text": "payment"
+    }, {
+      "text": " method update"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a0ccfca5-dfaa-4b9b-870b-0cf6a582a414",
+    "parts": [ {
+      "text": "update "
+    }, {
+      "text": "my credit card information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8e1c49ce-46e0-4ff8-8fc4-d4c66d52614a",
+    "parts": [ {
+      "text": "use another"
+    }, {
+      "text": " card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a68ea0eb-22a9-496c-b8ac-1866a215610e",
+    "parts": [ {
+      "text": "use "
+    }, {
+      "text": "different card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d213edd3-b7c0-42e1-b653-01d46af8953d",
+    "parts": [ {
+      "text": "use another"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7b88333b-10b4-4232-a8a3-7927f519680d",
+    "parts": [ {
+      "text": "How can I make a payment with a"
+    }, {
+      "text": " different "
+    }, {
+      "text": "credit card?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "96b600ff-c9d4-479d-a194-fcd578299f80",
+    "parts": [ {
+      "text": "updating "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "61206ae6-b40b-44db-bf86-730bcbabc5e3",
+    "parts": [ {
+      "text": "updating my "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "0c007ce6-ee45-4dd0-8a91-dad897242be9",
+    "parts": [ {
+      "text": "What are the steps to remove "
+    }, {
+      "text": "a payment method from my account?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fd2182ac-10b9-4547-9821-648388506db2",
+    "parts": [ {
+      "text": "How can I remove an"
+    }, {
+      "text": " "
+    }, {
+      "text": "existing"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment method from my account?"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "4d3f4cef-a6dc-496d-8edb-0575e9e906cb",
+    "parts": [ {
+      "text": "manage payment method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d650d904-9c8b-4f50-b057-66353c368257",
+    "parts": [ {
+      "text": "add "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "da577352-d107-4a47-8f29-105ec1220b70",
+    "parts": [ {
+      "text": "remove "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "40132398-2a37-4196-8014-5c17c6ae1b99",
+    "parts": [ {
+      "text": "What are the available methods to add "
+    }, {
+      "text": "a new payment"
+    }, {
+      "text": " method?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "702f477a-83fb-4110-8606-d3dacfcae073",
+    "parts": [ {
+      "text": "How can I add a new"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment method to my account?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7e3b54c5-2ca3-4bc4-b9fa-fe6186996052",
+    "parts": [ {
+      "text": "Tell me about "
+    }, {
+      "text": "the procedure for modifying my"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1bf54866-c5f7-439a-9cae-ef067304731c",
+    "parts": [ {
+      "text": "modifying my payment method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5cb70aa2-8c69-4de2-9188-f61e139e1728",
+    "parts": [ {
+      "text": "What options are available for updating "
+    }, {
+      "text": "my payment method?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5548deb3-d257-48c0-ab33-ea681bc68575",
+    "parts": [ {
+      "text": "Guide "
+    }, {
+      "text": "me through the process of changing my payment method."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b0277786-666e-4d8c-9958-e5fb6b037359",
+    "parts": [ {
+      "text": "How can I update my payment method"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b1209063-2ead-429c-bf0a-6dad8951fb66",
+    "parts": [ {
+      "text": "Update method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "646bfdfd-1fb0-4ed2-b389-455a92f7afd0",
+    "parts": [ {
+      "text": "Update payment method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

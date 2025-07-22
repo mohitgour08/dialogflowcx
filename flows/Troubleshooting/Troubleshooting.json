@@ -1,0 +1,315 @@
+{
+  "name": "c67f864e-00d3-4f0d-a073-477fbc2fdf4c",
+  "displayName": "Troubleshooting",
+  "transitionRoutes": [ {
+    "condition": "$session.params.ToState = \"GetWifiModemUsernamePassword\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_StartPage_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WifiModemCredentials",
+    "name": "971b8714-9142-49d5-9b31-6e0be138f649"
+  }, {
+    "condition": "$session.params.ToState = \"GetWifiModemUsernamePassword\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_StartPage_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      } ]
+    },
+    "targetPage": "AuthCheck",
+    "name": "a31c704e-f60a-4bac-899c-d4bea685d70b"
+  }, {
+    "condition": "$session.params.ToState = \"CheckOutages\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_StartPage_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Troubleshooting"
+      }, {
+        "parameter": "SS_Checkoutage",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AuthCheck",
+    "name": "865c3f2b-d785-45a1-a939-953a2d92f43d"
+  }, {
+    "condition": "$session.params.ToState = \"GeneralTroubleshooting\" AND $session.params.ReturnToTroubleshooting = \"FiberEligibilityToTroubleshooting\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_StartPage_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "IssueResolvedConfirmation_1",
+    "name": "055b688d-3c43-4a71-9bfe-c0fc078756d8"
+  }, {
+    "condition": "$session.params.ToState = \"GeneralTroubleshooting\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_StartPage_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Troubleshooting"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AuthCheck",
+    "name": "ea1677a7-b0a9-460b-b419-1dcd1cc36fa3"
+  }, {
+    "condition": "$session.params.ToState = \"ConfirmAppointmentStatus\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "ConfirmAppointmentStatus"
+      }, {
+        "parameter": "Metrics_Troubleshooting_StartPage_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "6ffc1952-6133-4220-bb03-9d156385739c"
+  }, {
+    "condition": "$session.params.ToState = \"ScheduleTechnicianVisit\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_StartPage_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "ScheduleTechnicianVisit"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagment"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "0ecbe086-7573-46d3-9138-e7cecf1e2dea"
+  }, {
+    "condition": "$session.params.ToState = \"DisputeOrderAppointment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_StartPage_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "DisputeOrderAppointment"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "08b05cb2-4b34-441e-a13e-4aa929788731"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_Troubleshooting_StartPage_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Troubleshooting-StartPage_default"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "1909140c-3235-4d96-a456-afc721ffb23c"
+  }, {
+    "condition": "$session.params.ToState = \"GetWifiModemUsernamePassword\" AND $session.params.channel = \"web\" AND $session.params.comingfromstate = \"Authentication\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_StartPage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AuthCheck",
+    "name": "1f2030ba-1d72-4023-95de-2610ff7d031a"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NoInput",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "5264fd39-af46-47c8-99ba-0550b5b1eb57"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NoInput",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "b5881040-5fa2-418e-82d0-031a1fa87920"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    }
+  },
+  "advancedSettings": {
+    "enabled": true,
+    "playbackInterruptionSettings": {
+      "allowPlaybackInterruption": true
+    }
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    },
+    "languageCode": "en"
+  } ],
+  "inputParameterDefinitions": [ {
+    "name": "ToState",
+    "description": "parameter to pass from playbook to flow",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToModule",
+    "description": "Module name",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "user intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "RouteIntent",
+    "description": "intent to pass to agent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "RouteIntent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "FAQSuccess",
+    "description": "FAQ self serve status",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "FAQSuccess",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ]
+}

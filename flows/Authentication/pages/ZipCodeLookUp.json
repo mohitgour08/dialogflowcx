@@ -1,0 +1,112 @@
+{
+  "name": "0317509b-aa7c-4d42-9ad6-862c342e9549",
+  "displayName": "ZipCodeLookUp",
+  "form": {
+    "parameters": [ {
+      "displayName": "enteredZipCode",
+      "required": true,
+      "entityType": "@Zip",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        },
+        "repromptEventHandlers": [ {
+          "targetPage": "CheckZipMatch",
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "setParameterActions": [ {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "AuthFailReason",
+              "value": "Zipcode_NoMatch"
+            }, {
+              "parameter": "Metrics_Authentication_ZipCodeLookup_Nomatch",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+                "allowPlaybackInterruption": true
+              }
+            }
+          },
+          "name": "b420a95f-e3d3-413f-95ad-f09e051be5eb"
+        }, {
+          "targetPage": "CheckZipMatch",
+          "event": "sys.no-input-default",
+          "triggerFulfillment": {
+            "setParameterActions": [ {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "AuthFailReason",
+              "value": "Zipcode_NoInput"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "NoInput"
+            }, {
+              "parameter": "Metrics_Authentication_ZipCodeLookup_NoInput",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+                "allowPlaybackInterruption": true
+              }
+            }
+          },
+          "name": "b8a0d8de-0198-4748-b8c8-123a74febce7"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "AuthenticationZipcode",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "enteredZipCode",
+        "value": "$session.params.zipcode"
+      }, {
+        "parameter": "Metrics_Authentication_ZipCodeLookUp_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckZipMatch",
+    "name": "d5c6bd0f-b199-42ae-9aa7-95784898a11a"
+  }, {
+    "condition": "$page.params.status = \"FINAL\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_ZipCodeLookUp_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckZipMatch",
+    "name": "96c44026-713c-458d-bd65-24a19b128be7"
+  } ]
+}

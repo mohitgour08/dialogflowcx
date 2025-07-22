@@ -1,0 +1,57 @@
+{
+  "name": "0e29f22a-6a9c-43ed-b997-d6c2fd9a8b31",
+  "displayName": "PastDueNPAIntentChk",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.callerintent = \"BalanceInquiryPayment\" OR $session.params.callerintent = \"PostpaidPayment\" OR $session.params.callerintent = \"PrepaidPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_PastDueNPAIntentChk_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "bdd66e42-d277-4acf-a65f-1dc44ff40a15"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_PastDueNPAIntentChk_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PastdueNotPAEligible",
+    "name": "00fb5a51-da78-40b6-86f1-1652c663d747"
+  } ]
+}

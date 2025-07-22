@@ -1,0 +1,18 @@
+{
+  "name": "1a706780-31f0-4510-b97e-7775aa1a0870",
+  "displayName": "SendSMS_Account_number",
+  "goal": "This is the SMS playbook to send SMS to the customers phone number for the Get Account Number link.",
+  "tokenCount": 225,
+  "referencedTools": [ "SendSMSMessage" ],
+  "instruction": {
+    "steps": [ {
+      "text": "Don't Greet the user."
+    }, {
+      "text": "Provide this answer -  There are several places you can find your account number: On your bill, on your My Brightspeed account page, and in the welcome letter or order confirmation we sent you when you ordered service. Or, I can text you the link to receive your account number now!"
+    }, {
+      "text": "To receive a text with the link, press 1. To ask about something something else, press 2. If you're finished, press 3."
+    }, {
+      "text": "If the user press 1,Ask customer phone number, Then call ${TOOL:SendSMSMessage} by passing phone_number = customer phonenumber and message = \"https://www.brightspeed.com/help/account/need-your-brightspeed-account-number/?searchTerm=find+account+number\""
+    } ]
+  }
+}

@@ -1,0 +1,275 @@
+{
+  "name": "cbe5ad73-065d-4523-ab8f-064b8cf98600",
+  "displayName": "GetOrderProductInfoAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "getOrderProductInfo",
+    "tag": "Order",
+    "setParameterActions": [ {
+      "parameter": "Metrics_SalesManagement_GetOrderProductInfoAPI_wh_getOrderProductInfo",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "productOrder_logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetOrderProductInfoAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SalesManagement_GetOrderProductInfoAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "targetPage": "CheckNetworkType",
+    "name": "9ccedfbb-14d4-43e4-943c-daf5e3404be6"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "SalesManagement",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm not able to retrieve your order information automatically. Let me transfer you to an agent for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetOrderProductInfoAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "getOrderProductInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PendingOrderCancel",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GetOrderProductInfoAPI"
+      }, {
+        "parameter": "ToState",
+        "value": "RouteToAgent"
+      }, {
+        "parameter": "API_SalesManagement_GetOrderProductInfoAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "f3ae3b22-16c1-4037-9a74-926202e4cafd"
+  }, {
+    "targetFlow": "SalesManagement",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm not able to retrieve your order information automatically. Let me transfer you to an agent for more help. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetOrderProductInfoAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "getOrderProductInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PendingOrderCancel",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "Webhook_Invalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GetOrderProductInfoAPI"
+      }, {
+        "parameter": "ToState",
+        "value": "RouteToAgent"
+      }, {
+        "parameter": "API_SalesManagement_GetOrderProductInfoAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "9e74bbc7-63bf-4509-bc42-df856c7fe56d"
+  }, {
+    "targetFlow": "SalesManagement",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm not able to retrieve your order information automatically. Let me transfer you to an agent for more help. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetOrderProductInfoAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "getOrderProductInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PendingOrderCancel",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "Webhook_NotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GetOrderProductInfoAPI"
+      }, {
+        "parameter": "ToState",
+        "value": "RouteToAgent"
+      }, {
+        "parameter": "API_SalesManagement_GetOrderProductInfoAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "9f6010fd-4cb1-4df0-9283-5b15b0e9ef1c"
+  }, {
+    "targetFlow": "SalesManagement",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm not able to retrieve your order information automatically. Let me transfer you to an agent for more help. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetOrderProductInfoAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "getOrderProductInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PendingOrderCancel",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "Webhook_Rejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GetOrderProductInfoAPI"
+      }, {
+        "parameter": "ToState",
+        "value": "RouteToAgent"
+      }, {
+        "parameter": "API_SalesManagement_GetOrderProductInfoAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "9bbf3b16-b304-4bac-83f4-dcbfa17304cf"
+  }, {
+    "targetFlow": "SalesManagement",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm not able to retrieve your order information automatically. Let me transfer you to an agent for more help. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetOrderProductInfoAPI_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "getOrderProductInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PendingOrderCancel",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "Webhook _Timeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GetOrderProductInfoAPI"
+      }, {
+        "parameter": "ToState",
+        "value": "RouteToAgent"
+      }, {
+        "parameter": "API_SalesManagement_GetOrderProductInfoAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "85fcb032-a243-4ff6-aacd-66284497303d"
+  }, {
+    "targetFlow": "SalesManagement",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm not able to retrieve your order information automatically. Let me transfer you to an agent for more help. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetOrderProductInfoAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "getOrderProductInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PendingOrderCancel",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "Webhook_Unavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GetOrderProductInfoAPI"
+      }, {
+        "parameter": "ToState",
+        "value": "RouteToAgent"
+      }, {
+        "parameter": "API_SalesManagement_GetOrderProductInfoAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "d0080940-c460-4ab5-9b66-0265c168d6ab"
+  } ]
+}

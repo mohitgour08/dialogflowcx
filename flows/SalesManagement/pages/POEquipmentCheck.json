@@ -1,0 +1,42 @@
+{
+  "name": "f630a6f2-ce3e-4647-b801-9834aec32472",
+  "displayName": "POEquipmentCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.CpeShipmentsFound = \"true\" OR $session.params.CpeShipmentsFound = \"True\" OR $session.params.CpeShipmentsFound = \"TRUE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ModemShipment",
+        "value": "true"
+      }, {
+        "parameter": "Metrics_SalesManagement_POEquipmentCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POModemShipStatus",
+    "name": "561b0905-f64e-4ba0-b37e-0f7910091c3e"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_POEquipmentCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POOtherShipStatus",
+    "name": "91377c48-d3d9-4761-a269-4b5c567b5dad"
+  } ],
+  "description": "MODEM SHIPMENT?"
+}

@@ -1,0 +1,60 @@
+{
+  "name": "57866e1b-8bc2-49cf-a9fc-eb4169fc133e",
+  "displayName": "FormCopperOTP",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.formresponsecopper = \"CancelForm\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormCopperOTP_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CancelTransactionChat",
+    "name": "4f504a60-a501-4217-bbce-0ca98f5a58f6"
+  }, {
+    "condition": "$session.params.formresponsecopper = \"formBack\" AND ($session.params.BillingMethod = \"prepaid\" OR $session.params.BillingMethod = \"PR\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormCopperOTP_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "PrepaidBalance",
+    "name": "5721f7de-8bb4-4bee-b210-76a68434d6b4"
+  }, {
+    "condition": "$session.params.formresponsecopper = \"formBack\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormCopperOTP_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "PostpaidBalance",
+    "name": "6f823fda-6103-43ea-8a4f-3747f083c136"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormCopperOTP_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "formResponse",
+        "value": "$session.params.formresponsecopper"
+      } ]
+    },
+    "targetPage": "FormEncryptCopperOTP",
+    "name": "16847dd6-0746-49ca-babc-71d08d155b21"
+  } ]
+}

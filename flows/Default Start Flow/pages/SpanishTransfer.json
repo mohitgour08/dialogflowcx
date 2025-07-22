@@ -1,0 +1,44 @@
+{
+  "name": "6011f62f-8fab-40bf-b8c3-07b371399383",
+  "displayName": "SpanishTransfer",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "action": "escalation",
+          "escalation_reason": "by_virtual_agent",
+          "language": "es",
+          "menu_id": 739,
+          "type": "action"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "ec9e6d61-792e-4981-aa37-6ec6475d89c2"
+  } ]
+}

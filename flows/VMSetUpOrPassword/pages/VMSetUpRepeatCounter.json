@@ -1,0 +1,47 @@
+{
+  "name": "d7d8f0d0-c4e7-4b29-8d44-acbbb26e5098",
+  "displayName": "VMSetUpRepeatCounter",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.VMSetUp = 3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_VMSetUpRepeatCounter_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_VMSetUpOrPassword",
+        "value": "Success"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "49012064-7f8a-4d9a-941e-85ac6e95d01d"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_VMSetUpRepeatCounter_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "VMSetUp",
+    "name": "62fbd1ed-2044-42ee-941f-68a7e8ad6da6"
+  } ]
+}

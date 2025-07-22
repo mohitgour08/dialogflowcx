@@ -1,0 +1,71 @@
+{
+  "name": "4d1bd5b4-bcc1-4ae9-b72c-fde5b88df35e",
+  "displayName": "PastDuePaymentMethodCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\" AND $session.params.PaymentMethod = \"ACH\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_PastDuePaymentMethodCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ACHPastDue",
+    "name": "c24d515a-9216-4a09-ab15-4e23ee288e85"
+  }, {
+    "condition": "$session.params.channel = \"web\" AND ($session.params.PaymentMethod = \"CREDITCARD\" OR $session.params.PaymentMethod = \"CreditCard\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_PastDuePaymentMethodCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CCPastDue",
+    "name": "4d6428bc-5105-49f0-b553-6f6c5e4aa2cf"
+  }, {
+    "condition": "$session.params.PaymentMethod = \"ACH\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_PastDuePaymentMethodCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ACHPastDueVoice",
+    "name": "9366f2f0-1069-4d18-89bd-0704ad571161"
+  }, {
+    "condition": "$session.params.PaymentMethod = \"CREDITCARD\" OR $session.params.PaymentMethod = \"CreditCard\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_PastDuePaymentMethodCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CCPastDueVoice",
+    "name": "bb165b2b-b3ab-4971-ae1c-caeb98f17cac"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_PastDuePaymentMethodCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "PaymentMethodUnknown"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "318feb89-32ca-4b7b-89c7-5a0eb2ab1783"
+  } ],
+  "description": "PAYPAL OR CREDIT CARD ? FOR PAST DUE"
+}

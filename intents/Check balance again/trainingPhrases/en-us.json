@@ -1,0 +1,449 @@
+{
+  "trainingPhrases": [ {
+    "id": "e3b574b7-1db2-4311-b776-eab4b406f3dc",
+    "parts": [ {
+      "text": "What is my Balance?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1d8bc637-8199-42d5-ab3f-c40c7f495688",
+    "parts": [ {
+      "text": "See "
+    }, {
+      "text": "Balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "da9a9d0d-be0e-44dc-9e79-78cfaa02ebde",
+    "parts": [ {
+      "text": "Check Balance"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "063d1e42-8ab4-4ac6-9d9b-6f5bf7e93eff",
+    "parts": [ {
+      "text": "Check "
+    }, {
+      "text": "Total Balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fe7802eb-e100-4f9f-94ed-404f54187b22",
+    "parts": [ {
+      "text": "Balance"
+    }, {
+      "text": " Enquiry"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cb1015a4-836e-4f2a-9b43-8ed4fcce6a26",
+    "parts": [ {
+      "text": "Balance"
+    }, {
+      "text": " Inquiry"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "89efd66b-6df4-4345-80d5-bb35e32e0c04",
+    "parts": [ {
+      "text": "I have a question about my billing account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d4412e41-ce46-43b2-9604-a14374c0db1b",
+    "parts": [ {
+      "text": "what is my balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ed7b1eae-1d22-4650-9615-be3d1c12304d",
+    "parts": [ {
+      "text": "Can i ask "
+    }, {
+      "text": "u query"
+    }, {
+      "text": " "
+    }, {
+      "text": "regarding my balance"
+    }, {
+      "text": " ?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c0578e06-d341-4d74-a62b-65e4d59149f1",
+    "parts": [ {
+      "text": "how much do I have"
+    }, {
+      "text": " in my "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3827d51a-c5f2-446e-ad15-92ba70041ffd",
+    "parts": [ {
+      "text": "I want to know "
+    }, {
+      "text": "balance of all my accounts"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8a3ef5ae-8032-431a-93c0-39fcf2fc0b84",
+    "parts": [ {
+      "text": "Can u"
+    }, {
+      "text": " "
+    }, {
+      "text": "check my balance ?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a4bb817d-e22a-489c-a0c4-3ac3bef5c13a",
+    "parts": [ {
+      "text": "I want "
+    }, {
+      "text": "to check balance"
+    }, {
+      "text": " of "
+    }, {
+      "text": "my 2"
+    }, {
+      "text": " "
+    }, {
+      "text": "accounts"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "12b4eaef-aed9-41b2-a6b6-b6bab994380c",
+    "parts": [ {
+      "text": "How much "
+    }, {
+      "text": "balance do I have in my account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6d5a685b-3cd7-46fd-b237-e324e32fc105",
+    "parts": [ {
+      "text": "balance"
+    }, {
+      "text": " inquiry"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fd9297a1-bed2-4b9c-aa1c-0d1b845b3cac",
+    "parts": [ {
+      "text": "I am "
+    }, {
+      "text": "seeking"
+    }, {
+      "text": " "
+    }, {
+      "text": "balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cac0746b-43ca-468b-a291-72e75148c155",
+    "parts": [ {
+      "text": "I want to ask "
+    }, {
+      "text": "about my balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b92ac1da-0e3e-4608-8fea-0c20917882f5",
+    "parts": [ {
+      "text": "I want "
+    }, {
+      "text": "to investigate my balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0e29e296-273b-42c1-8f43-b127e6dd2a72",
+    "parts": [ {
+      "text": "do you know my balance ?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "30aca9b1-ad45-48e8-987a-079f25945055",
+    "parts": [ {
+      "text": "Cody"
+    }, {
+      "text": ", could you please give me the current"
+    }, {
+      "text": " "
+    }, {
+      "text": "balance"
+    }, {
+      "text": " of my "
+    }, {
+      "text": "account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cd6fb459-124a-4ceb-81a4-59a89f0bd935",
+    "parts": [ {
+      "text": "could you please inform "
+    }, {
+      "text": "me how much"
+    }, {
+      "text": " money "
+    }, {
+      "text": "I presently"
+    }, {
+      "text": " have in my "
+    }, {
+      "text": "account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "23d6d0f5-1189-42da-a863-5d2af9c815df",
+    "parts": [ {
+      "text": "i need to know my account balance"
+    }, {
+      "text": " "
+    }, {
+      "text": "real"
+    }, {
+      "text": " quick"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ef1f8501-51bc-4880-a399-a60744936308",
+    "parts": [ {
+      "text": "my account's balance, please"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "92131a4c-b5e5-4768-bd4c-940ceac8891e",
+    "parts": [ {
+      "text": "let "
+    }, {
+      "text": "me know how much"
+    }, {
+      "text": " "
+    }, {
+      "text": "money"
+    }, {
+      "text": " is still in my "
+    }, {
+      "text": "account"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "13dfc30d-784a-4da2-a4e4-809b1de16bdd",
+    "parts": [ {
+      "text": "what "
+    }, {
+      "text": "amount"
+    }, {
+      "text": " do I have in my "
+    }, {
+      "text": "account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f6df8fda-41dd-469b-a524-a3c334946495",
+    "parts": [ {
+      "text": "tell me the "
+    }, {
+      "text": "amount"
+    }, {
+      "text": " I have in my "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d2b4cb71-d7de-4979-8a9a-f7ab73c2fb50",
+    "parts": [ {
+      "text": "how much "
+    }, {
+      "text": "money"
+    }, {
+      "text": " is still in my "
+    }, {
+      "text": "account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cd22fabb-67c3-4ead-b1ec-c82f6a41a24d",
+    "parts": [ {
+      "text": "What is my balance?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ef961325-7d71-43c8-8f2d-3ac01d755d7e",
+    "parts": [ {
+      "text": "What is my balance"
+    } ],
+    "repeatCount": 4,
+    "languageCode": "en-us"
+  }, {
+    "id": "acc37cef-2d5e-41ab-b197-586cf5f21e07",
+    "parts": [ {
+      "text": "my balance please"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4dd166ff-1e33-481d-b61c-b8041b37b7f0",
+    "parts": [ {
+      "text": "wish to know "
+    }, {
+      "text": "about my balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "45269a4b-dd34-47e7-9c6a-c50a0203bf2e",
+    "parts": [ {
+      "text": "please "
+    }, {
+      "text": "tell me the balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "77c7f36c-55c8-457d-9611-c87ea5e968d4",
+    "parts": [ {
+      "text": "how much I need to pay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fc00b7fd-5203-46a4-a04d-e4280af64407",
+    "parts": [ {
+      "text": "remaining amount please"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d6f3898e-7548-4f01-bee5-53d5677e8dc6",
+    "parts": [ {
+      "text": "cash balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b1ac0647-1908-4abd-b8cb-e69ecb8e4cc2",
+    "parts": [ {
+      "text": "Show balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "122f9072-9a05-4e09-bc86-81c50a22a9ba",
+    "parts": [ {
+      "text": "What'"
+    }, {
+      "text": "s"
+    }, {
+      "text": " my "
+    }, {
+      "text": "balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d46e8e80-ee71-4db2-aae6-adabd0a8253b",
+    "parts": [ {
+      "text": "Check balance"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "04723259-1c96-4e63-ad80-930524c06faf",
+    "parts": [ {
+      "text": "Show my "
+    }, {
+      "text": "balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "70715f88-4528-4b67-b57d-9fc4bc01a833",
+    "parts": [ {
+      "text": "Check balance again"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6d2b4ba2-88c3-4cb8-8912-8078e8c8b345",
+    "parts": [ {
+      "text": "remaining "
+    }, {
+      "text": "amount"
+    }, {
+      "text": " please"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3fbefb45-ed27-48c7-9ec6-bf181a442501",
+    "parts": [ {
+      "text": "please tell me the "
+    }, {
+      "text": "balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "62ea2574-0042-406e-ad07-0be32e0de010",
+    "parts": [ {
+      "text": "wish to know about my "
+    }, {
+      "text": "balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b6abe2a1-4d85-4868-a45d-d977be586a6e",
+    "parts": [ {
+      "text": "my "
+    }, {
+      "text": "balance"
+    }, {
+      "text": " please"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

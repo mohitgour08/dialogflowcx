@@ -1,0 +1,57 @@
+{
+  "name": "6c5a93b2-6c6d-4599-abe0-091cf4b3d990",
+  "displayName": "FiberPrepaidDPMCForm",
+  "form": {
+    "parameters": [ {
+      "displayName": "formresponsedpmc",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_SecuredPayments_FiberPrepaidDPMCForm_formResponseDPMC",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+            
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n  \"chatClientForm\": \"FiberPrepaidDPMC\",\n  \"lastFourDigits\": \"$session.params.CreditCardNumberLast4\"\n}" ]
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberPrepaidDPMCForm_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentAmount",
+        "value": "$session.params.LatestInvoiceAmount"
+      } ]
+    },
+    "targetPage": "FiberPrepaidDPMCFormChk",
+    "name": "608379a3-2082-40ac-8a61-df6a6ccf81fa"
+  } ]
+}

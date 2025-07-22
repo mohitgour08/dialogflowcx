@@ -1,0 +1,19 @@
+{
+  "name": "d2f8f746-cd14-4f22-a4f8-e281d238b438",
+  "displayName": "CancelORGoBack",
+  "transitionRoutes": [ {
+    "intent": "CancelPayment",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CancelORGoBackVoice",
+    "name": "0a70f813-557f-4c99-8f3a-dcb9445a5065"
+  }, {
+    "intent": "Goback",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CancelORGoBackVoice",
+    "name": "cc062e47-b19a-425c-8919-a2f0c2bcfe23"
+  } ]
+}

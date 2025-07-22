@@ -1,0 +1,490 @@
+{
+  "name": "fe0b4439-92e4-4f5e-82f5-934041835c46",
+  "displayName": "GetSMSPasscodeVoice",
+  "form": {
+    "parameters": [ {
+      "displayName": "OTP_Code",
+      "required": true,
+      "entityType": "@OTP_voice",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_SpanishAuthentication_GetSMSPasscodeVoice_2",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          }, {
+            "parameter": "GetPasscode",
+            "value": "$session.params.OTP_Code"
+          } ]
+        },
+        "repromptEventHandlers": [ {
+          "targetPage": "Call2FactorSMSAPI",
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eEse código no parece coincidir; intentémoslo una vez más. Voy a enviar un nuevo código ahora. Utilice el teclado para escribir el código una vez que lo reciba.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Lo siento, tu respuesta no coincide con una de nuestras opciones." ]
+              },
+              "languageCode": "es"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_validatePasscode",
+              "value": "Failure"
+            }, {
+              "parameter": "PasscodeCount",
+              "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+            }, {
+              "parameter": "GetPasscode",
+              "value": null
+            }, {
+              "parameter": "Metrics_SpanishAuthentication_GetSMSPasscodeVoice_NoMatch_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "SMSResponseStatus",
+              "value": null
+            }, {
+              "parameter": "codeSent",
+              "value": "$sys.func.ADD($session.params.codeSent,1)"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "OTP_Code",
+              "value": null
+            }, {
+              "parameter": "comingfromstate",
+              "value": "SpanishAuthentication"
+            } ]
+          },
+          "name": "12472843-3cea-41fa-9e34-1dc9b20bf79c"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "No entendí tu respuesta." ]
+              },
+              "languageCode": "es"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_SpanishAuthentication_GetEmailPasscode_NoMatch_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "SpanishAuthentication"
+            }, {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "AuthFailReason",
+              "value": "DifferentPasscode"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "Metrics_AuthFailReason",
+              "value": "DifferentPasscode"
+            }, {
+              "parameter": "OTP_Code",
+              "value": null
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoMatchRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "GetSMSPasscodeVoice"
+            } ]
+          },
+          "name": "b8db66b4-07ae-49e7-b611-411f53b9239a"
+        }, {
+          "targetPage": "Call2FactorSMSAPI",
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eLo siento, no escuché tu respuesta. Intentémoslo una vez más. Voy a enviar un nuevo código ahora. Utilice el teclado para escribir el código una vez que lo reciba. \u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "codeSent",
+              "value": "$sys.func.ADD($session.params.codeSent,1)"
+            }, {
+              "parameter": "Metrics_SpanishAuthentication_GetSMSPasscodeVoice_Noinput_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "GetPasscode",
+              "value": null
+            }, {
+              "parameter": "OTP_Code",
+              "value": null
+            }, {
+              "parameter": "SMSResponseStatus",
+              "value": null
+            }, {
+              "parameter": "PasscodeCount",
+              "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "SpanishAuthentication"
+            } ]
+          },
+          "name": "b095c63f-6df7-46d4-bf0c-93fd3473082a"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Está bien." ]
+              },
+              "languageCode": "es"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_SpanishAuthentication_GetEmailPasscode_NoMatch_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "SpanishAuthentication"
+            }, {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "AuthFailReason",
+              "value": "DifferentPasscode"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "Metrics_AuthFailReason",
+              "value": "DifferentPasscode"
+            }, {
+              "parameter": "OTP_Code",
+              "value": null
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoInputRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "GetSMSPasscodeVoice"
+            } ]
+          },
+          "name": "150a89cc-c130-4eb0-be6f-78e9ddf8fdf3"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTe envié el código correctamente; el texto puede tardar un momento en aparecer. Usa el teclado para introducirlo una vez que lo recibas. Si han pasado más de sesenta segundos y aún no lo tienes, pulsa uno para volver a enviarlo. \u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003eTe envié el código correctamente; es posible que el texto tarde un momento en aparecer. Utilice el teclado para escribir el código una vez que lo reciba. Si han pasado más de 60 segundos y aún no lo tienes di \"enviar código nuevamente\". \u003c/speak\u003e" ]
+      },
+      "languageCode": "es"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_SpanishAuthentication_GetSMSPasscodeVoice",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eBien, intentaré enviarlo una vez más. Espere un momento para que llegue el correo electrónico. Utilice el teclado para escribir el código una vez que lo reciba.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eBien, intentaré enviarlo una vez más. Espere un momento para que llegue el correo electrónico. Utilice el teclado para escribir el código una vez que lo reciba.\u003c/speak\u003e" ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "codeSent",
+        "value": "$sys.func.ADD($session.params.codeSent,1)"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_GetSMSPasscodeVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "GetPasscode",
+        "value": null
+      }, {
+        "parameter": "OTP_Code",
+        "value": null
+      }, {
+        "parameter": "EmailResponseStatus",
+        "value": null
+      }, {
+        "parameter": "PasscodeCount",
+        "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "SpanishAuthentication_GetSMSPasscodeVoice_DTMF_1"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "Call2FactorSMSAPI",
+    "name": "fcf2a6a8-f379-495b-ad13-6ce1eb6b296a"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.OTP_Code) = 6",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_GetSMSPasscodeVoice",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PasscodeLength",
+        "value": "$sys.func.MINUS($sys.func.TO_NUMBER($sys.func.LEN($session.params.GetPasscode)),6)"
+      }, {
+        "parameter": "GetPasscode",
+        "value": "$session.params.OTP_Code"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckSMSPasscode",
+    "name": "36e4f2e5-09b9-445c-aed2-70e7363a05e9"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "Call2FactorSMSAPI",
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eEse código no parece coincidir; intentémoslo una vez más. Voy a enviar un nuevo código ahora. Utilice el teclado para escribir el código una vez que lo reciba.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eLo siento, no escuché tu respuesta. Intentémoslo una vez más. Voy a enviar un nuevo código ahora. Utilice el teclado para escribir el código una vez que lo reciba.\u003c/speak\u003e" ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_validatePasscode",
+        "value": "Failure"
+      }, {
+        "parameter": "PasscodeCount",
+        "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+      }, {
+        "parameter": "GetPasscode",
+        "value": null
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_GetSMSPasscodeVoice_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SMSResponseStatus",
+        "value": null
+      }, {
+        "parameter": "codeSent",
+        "value": "$sys.func.ADD($session.params.codeSent,1)"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "True"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "1dd93c71-73c3-427c-b303-c1df086e0d33"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/speak\u003e" ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_GetSMSPasscodeVoice_NoMatch2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "SpanishAuthentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GetSMSPasscodeVoice"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "6a77e70e-e636-44ec-8feb-722a24259f46"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eLo siento, no escuché tu respuesta. Intentémoslo una vez más. Voy a enviar un nuevo código ahora. Utilice el teclado para escribir el código una vez que lo reciba.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eLo siento, no escuché tu respuesta. \u003c/speak\u003e" ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_validatePasscode",
+        "value": "Failure"
+      }, {
+        "parameter": "PasscodeCount",
+        "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+      }, {
+        "parameter": "GetPasscode",
+        "value": null
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_GetSMSPasscodeVoice_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SMSResponseStatus",
+        "value": null
+      }, {
+        "parameter": "codeSent",
+        "value": "$sys.func.ADD($session.params.codeSent,1)"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "True"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "cddaa9f8-6234-4429-ae08-1f4c56817e70"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eEstá bien.\u003c/speak\u003e" ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_GetSMSPasscodeVoice_NoInput2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "SpanishAuthentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "Metrics_AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GetSMSPasscodeVoice"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "e53b7ca0-c9b8-4aa2-8854-ec65ebf885d1"
+  } ]
+}

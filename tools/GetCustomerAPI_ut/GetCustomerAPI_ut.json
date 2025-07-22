@@ -1,0 +1,16 @@
+{
+  "name": "82937d5d-8be5-466d-b939-36f15136ad47",
+  "displayName": "GetCustomerAPI_ut",
+  "description": "This tool verify the customer and provides customer information",
+  "openApiSpec": {
+    "authentication": {
+      "oauthConfig": {
+        "oauthGrantType": "CLIENT_CREDENTIAL",
+        "clientId": "Wxq32hAc8gxpoxhatAxdU38UhD8kVmkK3C0MAPHlzCZBhhtZ",
+        "clientSecret": "dtA3CT9c77cVxpI0Aw1THWKfO0ix3kqwKjrY080rCg1PeHQYmCMpmM52xd1LwY21",
+        "tokenEndpoint": "https://api-ut.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials"
+      }
+    }
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

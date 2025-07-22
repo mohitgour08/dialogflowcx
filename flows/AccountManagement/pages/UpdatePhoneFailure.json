@@ -1,0 +1,164 @@
+{
+  "name": "52e49934-4d04-4791-b9ed-f7b943357304",
+  "displayName": "UpdatePhoneFailure",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I'm sorry. You can always update your phone number on your MyBrightspeed portal or on the Brightspeed app. Is there anything else I can help you with today?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "I have an additional question."
+          }, {
+            "action": "quick_reply",
+            "title": "I'm finished!"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "I'm sorry. I'm not able to process your request! You can always update your phone number on your MyBrightspeed portal or on the Brightspeed app. Is there anything else I can help you with today? You can say you have additional question, or just tell me you're finished." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_AccountManagement_UpdatePhoneFailure",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "SS_UpdatePhoneNumber",
+      "value": "Failure"
+    } ]
+  },
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I didn't hear your answer.. If you have an additional question, Press 1. If you are finished, Press 2" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_UpdatePhoneFailure_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "d3c2d783-8a8e-4766-a156-c5357bb12815"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_UpdatePhoneFailure_NoInput2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_UpdatePhoneNumber",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "\"AccountManagement-UpdatePhoneFailure"
+      } ]
+    },
+    "name": "0b50910a-c869-4f09-a437-c82bc74e79e1"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "I have an additional question."
+            }, {
+              "action": "quick_reply",
+              "title": "I'm finished!"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry, your answer doesn't match one of our options. Can you please repeat that? If you have an additional question, Press 1. If you are finished, Press 2." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_UpdatePhoneFailure_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "c394c2ab-f7dd-4a27-ae13-5ff2e2d422c0"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_UpdatePhoneFailure_NoMatch2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_UpdatePhoneNumber",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountManagement-UpdatePhoneFailure"
+      } ]
+    },
+    "name": "1e1d1637-65d4-4593-9205-7db464be5842"
+  } ],
+  "transitionRouteGroups": [ "AdditionalQuestion", " GoodToGo" ]
+}

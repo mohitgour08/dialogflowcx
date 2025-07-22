@@ -1,0 +1,99 @@
+{
+  "name": "918cced8-5e3f-4ea7-92ee-6ab11de370ee",
+  "displayName": "CollectName",
+  "form": {
+    "parameters": [ {
+      "displayName": "CustName",
+      "required": true,
+      "entityType": "@sys.person",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_RoutetoIntent_CollectName_CustName",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ]
+        },
+        "repromptEventHandlers": [ {
+          "targetPage": "SetParametersChat",
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "setParameterActions": [ {
+              "parameter": "Metrics_RoutetoAgent_CollectName_NoMatch",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoMatchRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "RoutetoAgent_CollectName"
+            } ]
+          },
+          "name": "ed186398-4af8-4063-953a-a5d3f37cd8da"
+        }, {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I am sorry I didn't catch that. we can address your questions more quickly, please enter your name for the agent" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_RoutetoAgent_CollectName_NoMatch_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "NoMatch1Triggered",
+              "value": "TRUE"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "5294a500-1bba-47da-8bc2-88da966cd36b"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "So we may better serve you, please enter your name for the agent. " ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_RoutetoIntent_CollectName",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_CollectName_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "temp_CustName",
+        "value": "$session.params.CustName"
+      } ]
+    },
+    "targetPage": "validateCustNameLen",
+    "name": "22a2bbad-74ff-4662-8dad-9c3e63f9f352"
+  } ]
+}

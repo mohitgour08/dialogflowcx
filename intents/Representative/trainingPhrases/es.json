@@ -1,0 +1,299 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "¿Puedo hablar por teléfono con alguien?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Hablar con "
+    }, {
+      "text": "un",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": " "
+    }, {
+      "text": "agente",
+      "parameterId": "embargodtmf",
+      "auto": true
+    } ],
+    "repeatCount": 2,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Ninguna de estas"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Servicio al cliente"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Queja de cliente"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "¿Podría hablar con "
+    }, {
+      "text": "un",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": " representante?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Conéctame con "
+    }, {
+      "text": "un",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": " representante de servicio al cliente"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "¿Puedo conectarme con "
+    }, {
+      "text": "un",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": " representante?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Llámame"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Humano"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Quiero ayuda"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Persona en vivo"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Agente",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ", por favor"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Hablar con "
+    }, {
+      "text": "una",
+      "parameterId": "date-time",
+      "auto": true
+    }, {
+      "text": " persona"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Hablar con "
+    }, {
+      "text": "un",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": " humano"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Portavoz"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Especialista"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Agente",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": " en vivo"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Atención al cliente"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Representante"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Chat",
+      "parameterId": "person",
+      "auto": true
+    }, {
+      "text": " en vivo"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "¿Cómo hablo con "
+    }, {
+      "text": "una",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": " persona?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "¿Cómo puedo hablar con "
+    }, {
+      "text": "una",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": " persona?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "¿A qué "
+    }, {
+      "text": "hora",
+      "parameterId": "date-time",
+      "auto": true
+    }, {
+      "text": " estará disponible "
+    }, {
+      "text": "un",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": " especialista?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Chatear con "
+    }, {
+      "text": "un",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": " "
+    }, {
+      "text": "agente",
+      "parameterId": "embargodtmf",
+      "auto": true
+    } ],
+    "repeatCount": 2,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Me gustaría chatear con "
+    }, {
+      "text": "un",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": " "
+    }, {
+      "text": "agente",
+      "parameterId": "embargodtmf",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Hablar con "
+    }, {
+      "text": "un",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": " "
+    }, {
+      "text": "agente",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": " sobre otro problema"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Representante de "
+    }, {
+      "text": "reparaciones",
+      "parameterId": "embargodtmf",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Conectar con "
+    }, {
+      "text": "un",
+      "parameterId": "number",
+      "auto": true
+    }, {
+      "text": " "
+    }, {
+      "text": "agente",
+      "parameterId": "embargodtmf",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  } ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "179c2b00-bbfd-4501-a571-16da63f217fb",
+  "displayName": "POETACheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.OrderAppointmentEndTime != null AND $session.params.OrderAppointmentStartTime != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_POETACheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POStatusETAAvail",
+    "name": "d5697bad-81b0-4aa7-85be-284b4f68040b"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_POETACheck_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POOrderStatus",
+    "name": "25952292-713b-484e-8cbc-3fefe4a2306b"
+  } ]
+}

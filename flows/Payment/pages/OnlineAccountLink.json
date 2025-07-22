@@ -1,0 +1,26 @@
+{
+  "name": "ecb111ba-e9b5-49aa-9516-fbb0dc0bbfc5",
+  "displayName": "OnlineAccountLink",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Got it. You can do that by accessing your online account $session.params.link20" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OnlineAccountLink_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AnythingElseButtons",
+    "name": "e0cab188-ac01-4b87-8fe0-048cab1b0458"
+  } ]
+}

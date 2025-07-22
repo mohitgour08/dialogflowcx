@@ -1,0 +1,133 @@
+{
+  "name": "fb54b665-3875-43d4-a8ae-19e61e67416d",
+  "displayName": "BillCycleEmbargoSwitch",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "CCSPSwitch",
+    "tag": "BillCycleEmbargo",
+    "setParameterActions": [ {
+      "parameter": "CCSPToggle",
+      "value": "BillCycleEmbargo"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillCycleEmbargo = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillCycleEmbargoSwitch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "BillingScheduleAPI",
+    "name": "7808c011-89ea-43ac-b11c-ff1ce58b82b0"
+  }, {
+    "condition": "$session.params.BillCycleEmbargo = 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillCycleEmbargoSwitch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "BillInfoCheck",
+    "name": "75328236-874e-4140-bd4d-8d013ea544e3"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "BillInfoCheck",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillCycleEmbargoSwitch_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CCSPSwitch"
+      } ]
+    },
+    "name": "4c2c3bc6-99c7-4cb2-9456-1ea99723d9ab"
+  }, {
+    "targetPage": "BillInfoCheck",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillCycleEmbargoSwitch_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "CCSPSwitch"
+      } ]
+    },
+    "name": "2eef49b0-df4d-4894-8f39-0b019e8243d1"
+  }, {
+    "targetPage": "BillInfoCheck",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillCycleEmbargoSwitch_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CCSPSwtich"
+      } ]
+    },
+    "name": "36b6eb94-f6e1-49e0-bf33-60e8d7266c26"
+  }, {
+    "targetPage": "BillInfoCheck",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillCycleEmbargoSwitch_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CCSPSwtich"
+      } ]
+    },
+    "name": "d1232dd2-dd4d-44c6-8477-d3c436f464cb"
+  }, {
+    "targetPage": "BillInfoCheck",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillCycleEmbargoSwitch_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CCSPSwitch"
+      }, {
+        "parameter": "TransferReason",
+        "value": "WebhookTimeout"
+      } ]
+    },
+    "name": "aeab7cc4-a8ae-49f8-bc30-4007aa72dec7"
+  }, {
+    "targetPage": "BillInfoCheck",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillCycleEmbargoSwitch_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CCSPSwitch"
+      } ]
+    },
+    "name": "af8c7029-b12c-4a0e-9be6-d2697622ba25"
+  } ]
+}

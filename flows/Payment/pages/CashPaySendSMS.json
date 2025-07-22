@@ -1,0 +1,228 @@
+{
+  "name": "cc8e2bd9-975d-4839-81d9-ac36f49c2469",
+  "displayName": "CashPaySendSMS",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "SendSMSMessage",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "smsMessage",
+      "value": "To view cash payment locations near you, visit https://www.brightspeed.com/help/account/pay-bill/pay-in-person.html and follow the instructions for prepaid accounts"
+    }, {
+      "parameter": "smsMessage1",
+      "value": ""
+    }, {
+      "parameter": "Passcode",
+      "value": ""
+    }, {
+      "parameter": "Metrics_SendSMSMessage_sendSMS_wh_sendSMS",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_CashPaySendSMS_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Payment_CashPaySendSMS",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "targetPage": "CashPaySMSSent",
+    "name": "cedf22f7-a736-4b8a-a00e-cb76a2a889f1"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_CashPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "Metrics_Payment_CashPaySendSMS_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendSMSAPI"
+      }, {
+        "parameter": "API_Payment_CashPaySendSMS",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "67403fa0-3156-43f8-bebb-012af0a8fdfc"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_CashPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "Metrics_Payment_CashPaySendSMS_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendSMSAPI"
+      }, {
+        "parameter": "API_Payment_CashPaySendSMS",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "91519493-3f39-42d6-910b-1b3ef21324ff"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_CashPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "Metrics_Payment_CashPaySendSMS_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendSMSAPI"
+      }, {
+        "parameter": "API_Payment_CashPaySendSMS",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "efed25a0-45d9-4e4f-9bbb-9c4f8ca47a9b"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_CashPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "Metrics_Payment_CashPaySendSMS_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendSMSAPI"
+      }, {
+        "parameter": "API_Payment_CashPaySendSMS",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "9dea7794-b8eb-43e3-a833-d5b53347e040"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_CashPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "Metrics_Payment_CashPaySendSMS_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendSMSAPI"
+      }, {
+        "parameter": "API_Payment_CashPaySendSMS",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "73f6b0ca-2395-4e53-8db9-32d365c8bd50"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_CashPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "Metrics_Payment_CashPaySendSMS_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendSMSAPI"
+      }, {
+        "parameter": "API_Payment_CashPaySendSMS",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "3b69151a-a658-4e93-b3b6-2e08a829eafe"
+  } ]
+}

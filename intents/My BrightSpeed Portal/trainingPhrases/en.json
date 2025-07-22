@@ -1,0 +1,26 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Visit ",
+      "auto": true
+    }, {
+      "text": "MyBrightSpeed",
+      "auto": true
+    }, {
+      "text": " portal",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "visit my ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed Portal",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

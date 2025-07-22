@@ -1,0 +1,137 @@
+{
+  "name": "84075968-cb5a-4e43-88a1-d689c13b6b79",
+  "displayName": "BalanceInquiryOrMakePayment",
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_StartPage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PaymentHistoryVoiceOrChat",
+    "name": "dc0129c7-4bc5-4adf-9bc6-8975d5eb51ab"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "c2e0b4af-7c1b-4c5c-b90a-a510c65ea420"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "7990a098-8e8b-47f9-874a-362b4530c7f9"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    }
+  },
+  "advancedSettings": {
+    "enabled": true
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    },
+    "languageCode": "en"
+  } ],
+  "inputParameterDefinitions": [ {
+    "name": "ToState",
+    "description": "parameter to pass from playbook to flow",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToModule",
+    "description": "module name",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "user intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "RouteIntent",
+    "description": "This is required to pass to specific agent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "RouteIntent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "FAQSuccess",
+    "description": "FAQ self serve status",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "FAQSuccess",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ]
+}

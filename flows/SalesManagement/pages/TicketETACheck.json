@@ -1,0 +1,31 @@
+{
+  "name": "8fddb65d-2daa-4f0f-a263-e26ba12a9eda",
+  "displayName": "TicketETACheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.RepairETR != null AND $session.params.RepairETR != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketETACheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketETAPresent",
+    "name": "33bb8ac1-7cf6-4523-89aa-3ee36fe99876"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketETACheck_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketOrderStatus",
+    "name": "75181cbf-b4f6-4222-801f-9721a81618a7"
+  } ]
+}

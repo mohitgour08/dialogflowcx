@@ -1,0 +1,145 @@
+{
+  "name": "14988311-ad97-40e3-9988-9e3232eb2b15",
+  "displayName": "IntentCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ToModule = \"Troubleshooting\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FiberEligibleKey",
+        "value": "FiberEligibility_Troubleshooting"
+      }, {
+        "parameter": "Metrics_FiberEligibilty_IntentCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FlagAPICheck",
+    "name": "8202d336-2225-4e3a-9360-da8d9d80ef82"
+  }, {
+    "condition": "$session.params.ToModule = \"AccountManagement\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FiberEligibleKey",
+        "value": "FiberEligibility_AccountManagement"
+      }, {
+        "parameter": "Metrics_FiberEligibilty_IntentCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FlagAPICheck",
+    "name": "54b6432a-ed22-4d00-9ffc-b61683c74199"
+  }, {
+    "condition": "$session.params.ToModule = \"PrepaidBalance\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FiberEligibleKey",
+        "value": "FiberEligibility_PrepaidBalance"
+      }, {
+        "parameter": "Metrics_FiberEligibilty_IntentCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FlagAPICheck",
+    "name": "877c0c35-d86c-41e5-9539-be63aaa6317f"
+  }, {
+    "condition": "$session.params.ToModule = \"PostpaidBalance\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FiberEligibleKey",
+        "value": "FiberEligibility_PostpaidBalance"
+      }, {
+        "parameter": "Metrics_FiberEligibilty_IntentCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FlagAPICheck",
+    "name": "673129fa-b1ae-4a0e-980c-1b886d206239"
+  }, {
+    "condition": "$session.params.ToModule = \"SecuredPayments\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FiberEligibleKey",
+        "value": "FiberEligibility_SecuredPayments"
+      }, {
+        "parameter": "Metrics_FiberEligibilty_IntentCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FlagAPICheck",
+    "name": "ccd56cdc-d6b4-4f93-aa20-81b9ea31433e"
+  }, {
+    "condition": "$session.params.ToModule = \"PrepaidPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FiberEligibleKey",
+        "value": "FiberEligibility_PrepaidPayment"
+      }, {
+        "parameter": "Metrics_FiberEligibilty_IntentCheck_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FlagAPICheck",
+    "name": "e4c8769d-d332-46d5-ab15-540af343cdae"
+  }, {
+    "condition": "$session.params.ToModule = \"PostpaidPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FiberEligibleKey",
+        "value": "FiberEligibility_PostpaidPayment"
+      }, {
+        "parameter": "Metrics_FiberEligibilty_IntentCheck_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FlagAPICheck",
+    "name": "bd8b77bd-4d37-48e1-a366-c8da04d91e62"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_FiberEligibilty_IntentCheck_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "FiberEligibility-IntentCheck,ToModuleUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "ca3bacb3-7522-47bd-b07b-122a993a8e58"
+  } ]
+}

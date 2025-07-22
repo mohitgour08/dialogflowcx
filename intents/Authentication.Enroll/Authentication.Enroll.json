@@ -1,0 +1,13 @@
+{
+  "name": "a80af7fd-49dc-41b2-9aec-567ed78ea86f",
+  "displayName": "Authentication.Enroll",
+  "parameters": [ {
+    "id": "product",
+    "entityType": "@account_type"
+  }, {
+    "id": "service_type",
+    "entityType": "@service_type"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 64
+}

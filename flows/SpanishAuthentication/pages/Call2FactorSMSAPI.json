@@ -1,0 +1,364 @@
+{
+  "name": "eb17bd6f-1847-4e46-a03f-e2bcbb23231d",
+  "displayName": "Call2FactorSMSAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "SendSMSMessage",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Passcode",
+      "value": "$sys.func.MID($sys.func.TO_TEXT($sys.func.RAND()), 3, 6)"
+    }, {
+      "parameter": "smsMessage",
+      "value": "Here is your one time Brightspeed Authentication code:"
+    }, {
+      "parameter": "smsMessage1",
+      "value": "This code will expire 10 minutes after it was requested"
+    }, {
+      "parameter": "contactNumber",
+      "value": "$session.params.ContactNumber"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.codeSent \u003e 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/speak\u003e" ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorSMSAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "4ac571ab-c6a4-49e2-8e11-6c5eb8012da4"
+  }, {
+    "condition": "$session.params.codeSent = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorSMSAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "EnterSMS",
+    "name": "f27a08cf-4e9d-45c5-b655-efd30df2ca9d"
+  }, {
+    "condition": "$session.params.SMSResponseStatus = \"Success\" OR $session.params.SMSResponseStatus = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorSMSAPI_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_SMSAPI",
+        "value": "Success"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorSMSAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "targetPage": "GetSMSPasscode",
+    "name": "80e34e2b-c271-4854-95b4-822e47d1a3fd"
+  }, {
+    "condition": "$session.params.SMSResponseStatus != \"Success\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTuve un problema cuando intenté enviar el mensaje de texto.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Tuve un problema cuando intenté enviar el mensaje de texto." ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorSMSAPI_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "SMSAPIFailed"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_SMSAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorSMSAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "7fd875a9-6e69-45d3-b5b6-53b9fc95a55f"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTuve un problema cuando intenté enviar el mensaje de texto.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorSMSAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_SMSAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorSMSAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "da072a7a-0513-4534-b999-f3146e50ca48"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTuve un problema cuando intenté enviar el mensaje de texto.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorSMSAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_SMSAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorSMSAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "2f881f2f-cf67-43e3-b942-f2a3b6a17b0a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTuve un problema cuando intenté enviar el mensaje de texto.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorSMSAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_SMSAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorSMSAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "be008a68-0ba1-4e77-8837-4af2297fc4d7"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTuve un problema cuando intenté enviar el mensaje de texto.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorSMSAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_SMSAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorSMSAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "a8543ec6-9678-4dc5-9169-f3bc0ae72896"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTuve un problema cuando intenté enviar el mensaje de texto.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorSMSAPI_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookTimeOut"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_SMSAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorSMSAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "747a8125-2b86-47d1-ba9a-5038bf551ce2"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTuve un problema cuando intenté enviar el mensaje de texto.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorSMSAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "comingfromstate"
+      }, {
+        "parameter": "Metrics_SMSAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorSMSAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "7dea0a8d-eff1-4175-8eb2-c09b583eea1d"
+  } ]
+}

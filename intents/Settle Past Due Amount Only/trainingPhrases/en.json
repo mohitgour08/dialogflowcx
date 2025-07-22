@@ -1,0 +1,47 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Pastdue",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "14 Days Extension to Settle Pastdue Amount Only",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Settle",
+      "auto": true
+    }, {
+      "text": " PastDue Amount Only",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Settle Past ",
+      "auto": true
+    }, {
+      "text": "Due",
+      "auto": true
+    }, {
+      "text": " Amount Only",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "14 Days Extension to Settle Past Due Amount Only",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

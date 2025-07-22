@@ -1,0 +1,469 @@
+{
+  "name": "991e6e64-e470-4774-aa49-03dc32480ef2",
+  "displayName": "GetSMSPasscodeVoice",
+  "form": {
+    "parameters": [ {
+      "displayName": "OTP_Code",
+      "required": true,
+      "entityType": "@OTP_voice",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_Authentication_GetSMSPasscodeVoice",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          }, {
+            "parameter": "GetPasscode",
+            "value": "$session.params.OTP_Code"
+          } ],
+          "nextActionOverride": {
+          
+          }
+        },
+        "repromptEventHandlers": [ {
+          "targetPage": "Call2FactorSMSAPI",
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003eThat code doesn't seem to match - let's try one more time. I'm going to send a new code now, Use the keypad to type in the code once you recieve it. \u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_validatePasscode",
+              "value": "Failure"
+            }, {
+              "parameter": "PasscodeCount",
+              "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+            }, {
+              "parameter": "GetPasscode",
+              "value": null
+            }, {
+              "parameter": "Metrics_Authentication_GetSMSPasscodeVoice_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "SMSResponseStatus",
+              "value": null
+            }, {
+              "parameter": "codeSent",
+              "value": "$sys.func.ADD($session.params.codeSent,1)"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "OTP_Code",
+              "value": null
+            }, {
+              "parameter": "comingfromstate",
+              "value": "Authentication"
+            } ],
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "5a1053ff-1b28-486b-9308-13ec0daf5f66"
+        }, {
+          "targetFlow": "ListenInitialIntent",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003eI'm still experiencing issues with your account verification.\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Authentication_GetEmailPasscode_NoMatch2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "Authentication"
+            }, {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "AuthFailReason",
+              "value": "DifferentPasscode"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "Metrics_AuthFailReason",
+              "value": "DifferentPasscode"
+            }, {
+              "parameter": "OTP_Code",
+              "value": null
+            } ],
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "c3f6ee5a-e11b-454a-9b69-d419e8c56acb"
+        }, {
+          "targetPage": "Call2FactorSMSAPI",
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003eI am sorry, I didnt hear your answer. Let's try one more time. I'm going to send a new code now, Use the keypad to type in the code once you recieve it. \u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "codeSent",
+              "value": "$sys.func.ADD($session.params.codeSent,1)"
+            }, {
+              "parameter": "Metrics_Authentication_GetSMSPasscodeVoice_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "GetPasscode",
+              "value": null
+            }, {
+              "parameter": "OTP_Code",
+              "value": null
+            }, {
+              "parameter": "SMSResponseStatus",
+              "value": null
+            }, {
+              "parameter": "PasscodeCount",
+              "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "Authentication"
+            } ],
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "1f7cd151-912e-4b9d-8d76-029e3dcc052e"
+        }, {
+          "targetFlow": "ListenInitialIntent",
+          "event": "sys.no-input-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003eI'm still experiencing issues with your account verification.\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Authentication_GetEmailPasscode_NoMatch2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "Authentication"
+            }, {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "AuthFailReason",
+              "value": "DifferentPasscode"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "Metrics_AuthFailReason",
+              "value": "DifferentPasscode"
+            }, {
+              "parameter": "OTP_Code",
+              "value": null
+            } ],
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "4ebba847-bc0e-4b38-b178-8c854460839d"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003eI've successfully sent you the code - it may take a moment for the text to appear. Use the keypad to type in the code once you recieve it. If it has been more than 60 seconds, and you still don't have it, say \"send code again\". \u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_Authentication_GetSMSPasscodeVoice",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": " ResendCode",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eOkay, I will try to send it one more time. Please allow the text a moment to come through. Use the keypad to type in the code once you recieve it.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "codeSent",
+        "value": "$sys.func.ADD($session.params.codeSent,1)"
+      }, {
+        "parameter": "Metrics_Authentication_GetSMSPasscodeVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "GetPasscode",
+        "value": null
+      }, {
+        "parameter": "OTP_Code",
+        "value": null
+      }, {
+        "parameter": "EmailResponseStatus",
+        "value": null
+      }, {
+        "parameter": "PasscodeCount",
+        "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "Call2FactorSMSAPI",
+    "name": "42079220-4031-4aaa-bf96-c45799562c5b"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.OTP_Code) = 6",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_GetSMSPasscodeVoice",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PasscodeLength",
+        "value": "$sys.func.MINUS($sys.func.TO_NUMBER($sys.func.LEN($session.params.GetPasscode)),6)"
+      }, {
+        "parameter": "GetPasscode",
+        "value": "$session.params.OTP_Code"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckSMSPasscode",
+    "name": "ec8729e5-25bb-42b4-850d-2e76a5f4bad1"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "Call2FactorSMSAPI",
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eThat code doesn't seem to match. Let's try one more time. I'm going to send a new one now. please enter it below.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_validatePasscode",
+        "value": "Failure"
+      }, {
+        "parameter": "PasscodeCount",
+        "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+      }, {
+        "parameter": "GetPasscode",
+        "value": null
+      }, {
+        "parameter": "Metrics_Authentication_GetSMSPasscodeVoice_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SMSResponseStatus",
+        "value": null
+      }, {
+        "parameter": "codeSent",
+        "value": "$sys.func.ADD($session.params.codeSent,1)"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "89a076a7-6eaf-4bbe-ad0e-6c262458a227"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eI'm still experiencing issues with your account verification.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_GetSMSPasscodeVoice_NoMatch2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GetSMSPasscodeVoice"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "0c27d274-9896-4304-8228-e4b8e3154889"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eI’m sorry, I didn’t hear your answer. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_validatePasscode",
+        "value": "Failure"
+      }, {
+        "parameter": "PasscodeCount",
+        "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+      }, {
+        "parameter": "GetPasscode",
+        "value": null
+      }, {
+        "parameter": "Metrics_Authentication_GetSMSPasscodeVoice_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SMSResponseStatus",
+        "value": null
+      }, {
+        "parameter": "codeSent",
+        "value": "$sys.func.ADD($session.params.codeSent,1)"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "1b9d16d0-f02f-4f64-ae09-90555dd7ebb9"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_GetSMSPasscodeVoice_NoInput2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "Metrics_AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GetSMSPasscodeVoice"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "b02049df-ba5a-4801-947e-49ca057ac5d2"
+  } ],
+  "advancedSettings": {
+    "speechSettings": {
+      "endpointerSensitivity": 90,
+      "noSpeechTimeout": {
+        "seconds": 75
+      }
+    }
+  },
+  "speakerIdSettings": {
+  
+  }
+}

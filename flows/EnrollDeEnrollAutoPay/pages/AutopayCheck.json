@@ -1,0 +1,67 @@
+{
+  "name": "b69da637-a726-4fc2-ac31-e34a95a0d7cb",
+  "displayName": "AutopayCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "Metrics_AutopayCheck_none_wh_CCSZuoraService- SIT",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      }
+    },
+    "returnPartialResponses": true
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Autopay = \"Enrolled\" OR $session.params.Autopay = \"Y\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_AutopayCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PrePaidOrPostPaidCheck",
+    "name": "84c0660b-2cd0-44b7-91d9-2946dd75aae9"
+  }, {
+    "condition": "$session.params.Autopay = \"N\" OR $session.params.Autopay = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_AutopayCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdateMethodOfPaymentResponse",
+    "name": "21823762-0b1f-4d0a-b788-7de27323bd92"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_AutopayCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "EnrollDeEnrollAutoPay-AutopayCheck,AutopayStatusUnknown"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "6612d94f-3268-4365-b78c-084076d11a49"
+  } ]
+}

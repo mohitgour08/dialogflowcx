@@ -1,0 +1,57 @@
+{
+  "name": "f17418f4-c53b-4dad-bdcf-509c89bdd169",
+  "displayName": "FormatYear",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_year",
+        "value": "$sys.func.IDENTITY($flow.expiration_date.year)"
+      } ]
+    },
+    "name": "49d7dfd1-613d-4848-91b2-9da79ab3e372"
+  }, {
+    "condition": "$flow.card_expiration_year = null AND $sys.func.LEN($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \\\"\\\\s+\\\", \\\"\\\")) \u003e 4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_year",
+        "value": "$sys.func.MID($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \"\\s+\", \"\"), $sys.func.MINUS($sys.func.LEN($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \"\\s+\", \"\")), 3), 4)"
+      } ]
+    },
+    "name": "51837012-2477-4aa5-8872-6a317ebe184f"
+  }, {
+    "condition": "$flow.card_expiration_year = null AND $sys.func.LEN($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \\\"\\\\s+\\\", \\\"\\\")) \u003c= 4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_year",
+        "value": "$sys.func.MID($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \"\\s+\", \"\"), $sys.func.MINUS($sys.func.LEN($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \"\\s+\", \"\")), 1), 2)"
+      } ]
+    },
+    "name": "1985ce8c-15ca-4330-8ec5-69585391ba5e"
+  }, {
+    "condition": "$sys.func.LEN($flow.card_expiration_year) = 2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_year",
+        "value": "$sys.func.CONCATENATE(\"20\", $flow.card_expiration_year)"
+      } ]
+    },
+    "name": "22cb10c3-ba44-4099-a466-e76957c34670"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormatYear_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ValidateDate",
+    "name": "d9f97d32-f8a5-49fb-afb5-53d7222be65f"
+  } ]
+}

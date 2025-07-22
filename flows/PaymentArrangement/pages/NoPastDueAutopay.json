@@ -1,0 +1,73 @@
+{
+  "name": "1444fd62-8cb5-4e5f-ac1a-c7ebb61f65df",
+  "displayName": "NoPastDueAutopay",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "PASuccessPrompt",
+      "value": "Great You're now enrolled in this payment arrangement."
+    }, {
+      "parameter": "PASuccessPromptVoice",
+      "value": "Great You're now enrolled in this payment arrangement."
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Autopay = \"Y\" OR $session.params.Autopay = \"Enrolled\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoPastDueAutopay_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoDueAutopayEnrolled",
+    "name": "ba3fc073-f9d5-485a-a931-96168cb89e79"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm happy to help you get enrolled! First, I will need to sign you up for our autopay system, so that your installments draft automatically from a card or bank account. You will be dropped from autopay when the payment arrangement concludes. \n\nYou can always view our $session.params.link46 . " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm happy to help you get enrolled! First, I will need to sign you up for our autopay system, so that your installments will draft automatically from a card or bank account. You will be dropped from autopay when the payment arrangement concludes. \n\nYou can always view our payment agreement at brightspeed.com." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoPastDueAutopay_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoDueSignUp",
+    "name": "dd253069-33cf-4170-b3e7-47a8d976da36"
+  } ]
+}

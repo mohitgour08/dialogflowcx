@@ -1,0 +1,392 @@
+{
+  "name": "bb3b5748-0404-4127-8e79-bb3ae730278c",
+  "displayName": "SplitIntoTwoPayments",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "If you'd like to choose this option, you'll pay part of your balance today, and choose another date before your next due date of $session.params.NextDueDate to settle the remaining amount." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ " Would you like to choose this arrangement?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Yes"
+          }, {
+            "action": "quick_reply",
+            "title": "Go Back"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "If you'd like to choose this arrangement, you'll pay part of your balance today, and choose another date before your next due date of $session.params.NextDueDate to settle the remaining amount. Would you like to choose this arrangement? You can say \"yes\", or \"no\" to hear other options\". Or, you can tell me you're finished for now." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "firstInstallmentAmount",
+      "value": "$session.params.PayInstall1Amount"
+    }, {
+      "parameter": "firstInstallmentDate",
+      "value": "$session.params.PayInstall1Date"
+    }, {
+      "parameter": "secondInstallmentAmount",
+      "value": "$session.params.PayInstall2Amount"
+    }, {
+      "parameter": "secondInstallmentDate",
+      "value": "$session.params.PayInstall2Date"
+    }, {
+      "parameter": "thirdInstallmentAmount",
+      "value": "$session.params.PayInstall3Amount"
+    }, {
+      "parameter": "thirdInstallmentDate",
+      "value": "$session.params.PayInstall3Date"
+    }, {
+      "parameter": "PlanID",
+      "value": "4"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_SplitIntoTwoPayments_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentAmount",
+        "value": "$session.params.PayInstall1Amount"
+      }, {
+        "parameter": "firstInstallmentAmount",
+        "value": ""
+      }, {
+        "parameter": "firstInstallmentDate",
+        "value": ""
+      }, {
+        "parameter": "secondInstallmentAmount",
+        "value": "$session.params.PayInstall2Amount"
+      }, {
+        "parameter": "secondInstallmentDate",
+        "value": "$session.params.PayInstall2Date"
+      }, {
+        "parameter": "thirdInstallmentAmount",
+        "value": ""
+      }, {
+        "parameter": "thirdInstallmentDate",
+        "value": ""
+      }, {
+        "parameter": "PlanID",
+        "value": "4"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoPastDueAutopay",
+    "name": "cb40e4a7-2710-4355-9a66-b893c1f4c1e8"
+  }, {
+    "intent": "Confirmation.No",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_SplitIntoTwoPayments_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NotPastDue",
+    "name": "5f061a4d-f7bf-4743-a10f-2e4aa594fee1"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_SplitIntoTwoPayments_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SpitIntoTwoPayments"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "eaec1ad8-62ad-4043-a526-23ebc7fdb63e"
+  }, {
+    "intent": "Goback",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_SplitIntoTwoPayments_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NotPastDue",
+    "name": "16803729-ec64-4d2f-943f-e86a5e9245ca"
+  }, {
+    "intent": "GoodToGo",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_SplitIntoTwoPayments_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AnythingElse",
+    "name": "5a22562e-9b73-43c2-9409-e67133a0fd14"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Would you like to choose this arrangement? You can say \"yes\", or \"no\" to hear other options\". Or, you can tell me you're finished for now." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_SplitIntoTwoPayments_NI1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "3aa48250-d5c6-43cf-86fe-25c05bcd2c76"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_SplitIntoTwoPayments_NI2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SpitIntoTwoPayments"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "54a247b8-5972-41e0-8304-76ac024b3528"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ " Would you like to choose this arrangement?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Yes"
+            }, {
+              "action": "quick_reply",
+              "title": "Go Back"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Would you like to choose this arrangement? You can say \"yes\", or \"no\" to hear other options\". Or, you can tell me you're finished for now." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_SplitIntoTwoPayments_NM1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "ea8b1ee3-354a-4f9c-b27d-e95770589acd"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_SplitIntoTwoPayments_NM2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SpitIntoTwoPayments"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "759bfae1-a262-449d-8d06-01c2d26749ca"
+  } ]
+}

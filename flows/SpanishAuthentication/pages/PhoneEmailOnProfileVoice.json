@@ -1,0 +1,229 @@
+{
+  "name": "965c6ff9-6c88-4566-b72e-462e3bda9c2f",
+  "displayName": "PhoneEmailOnProfileVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Gracias! Veo que un número de teléfono que termina en \n$sys.func.MID($session.params.ContactNumberFirst4,1,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.ContactNumberFirst4,2,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.ContactNumberFirst4,3,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.ContactNumberFirst4,4,1) \u003cbreak time=\"300ms\"/\u003e ya está registrado en su cuenta, así como esta dirección de correo electrónico que comienza con $sys.func.MID($session.params.EmailNameFirst5,1,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,2,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,3,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,4,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,5,1) \u003cbreak  time=\"300ms\"/\u003e si desea que le envíe el código a su correo electrónico, presione uno. Para enviar el código a su número de teléfono, presione dos. Para otra forma de autenticarse, presione tres. \u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e¡Gracias! Veo que un número de teléfono que termina en \n $sys.func.MID($session.params.ContactNumberFirst4,1,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.ContactNumberFirst4,2,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.ContactNumberFirst4,3,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.ContactNumberFirst4,4,1) \u003cbreak time=\"300ms\"/\u003e ya está registrado en su cuenta, así como esta dirección de correo electrónico que comienza con $sys.func.MID($session.params.EmailNameFirst5,1,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,2,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,3,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,4,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,5,1) \u003cbreak  time=\"300ms\"/\u003e\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "es"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e¿Le gustaría que le envíe el código al correo electrónico o al número de teléfono o que elija otra forma de autenticarse?\u003c/speak\u003e" ]
+      },
+      "languageCode": "es"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_PhoneEmailOnProfileVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Auth2FactorChannel",
+        "value": "Email"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "SpanishAuthentication_PhoneEmailOnProfileVoice_DTMF_1"
+      } ]
+    },
+    "targetPage": "EmailSend",
+    "name": "6dbe1b99-e562-4cd5-8139-140216626a65"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_PhoneEmailOnProfileVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Auth2FactorChannel",
+        "value": "SMS"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "SpanishAuthentication_PhoneEmailOnProfileVoice_DTMF_2"
+      } ]
+    },
+    "targetPage": "TextSend",
+    "name": "b523579d-ee6e-4f59-8db1-2aa3c4e1b402"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_PhoneEmailOnProfileVoice_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "SpanishAuthentication_PhoneEmailOnProfileVoice_DTMF_3"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "SpanishAuthenticateOptionsVoice",
+    "name": "5e67105e-7f05-4024-a657-fde2f63fa9a7"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTu respuesta no coincide con ninguna de las opciones. Intentémoslo de nuevo.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003esi desea que le envíe el código a su correo electrónico, presione 1. Para enviar el código a su número de teléfono, presione 2. Para otra forma de autenticarse, presione 3. \u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Lo siento, tu respuesta no coincide con una de nuestras opciones." ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_PhoneEmailOnProfileVoice_Nomatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "True"
+      } ]
+    },
+    "name": "bfc30d19-f95e-4b56-ba65-e4fa88247f50"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eNo entendí tu respuesta\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "No entendí tu respuesta." ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "NoMatch"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_PhoneEmailOnProfileVoice_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PhoneEmailOnProfileVoice"
+      } ]
+    },
+    "name": "ceb204ea-f967-48fc-80c4-f610c867f947"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Lo siento! No entendí tu respuesta. Intentémoslo de nuevo.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003esi desea que le envíe el código a su correo electrónico, presione 1. Para enviar el código a su número de teléfono, presione 2. Para otra forma de autenticarse, presione 3.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Lo siento, no escuché tu respuesta." ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_PhoneEmailOnProfileVoice_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "True"
+      } ]
+    },
+    "name": "61dcfb60-0f83-4878-ac10-82fbe58ffade"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eeso esta bien\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Está bien." ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_PhoneEmailOnProfileVoice_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "NoInput"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PhoneEmailOnProfileVoice"
+      } ]
+    },
+    "name": "024e6a92-cdeb-4359-8614-861bb6bec791"
+  } ]
+}

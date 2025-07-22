@@ -1,0 +1,53 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "need help",
+      "auto": true
+    }, {
+      "text": " with small business",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "small business",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "option ",
+      "auto": true
+    }, {
+      "text": "one",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "number",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "one",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "1",
+      "parameterId": "DTMF1"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

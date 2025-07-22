@@ -1,0 +1,84 @@
+{
+  "fallbackSettings": {
+    "selectedPrompt": "Default"
+  },
+  "generativeSafetySettings": {
+    "raiSettings": {
+      "categoryFilters": [ {
+        "category": "DANGEROUS_CONTENT",
+        "filterLevel": "BLOCK_FEW"
+      }, {
+        "category": "SEXUALLY_EXPLICIT_CONTENT",
+        "filterLevel": "BLOCK_SOME"
+      }, {
+        "category": "HARASSMENT",
+        "filterLevel": "BLOCK_SOME"
+      }, {
+        "category": "HATE_SPEECH",
+        "filterLevel": "BLOCK_SOME"
+      } ]
+    },
+    "defaultRaiSettings": {
+      "categoryFilters": [ {
+        "category": "DANGEROUS_CONTENT",
+        "filterLevel": "BLOCK_FEW"
+      }, {
+        "category": "SEXUALLY_EXPLICIT_CONTENT",
+        "filterLevel": "BLOCK_SOME"
+      }, {
+        "category": "HARASSMENT",
+        "filterLevel": "BLOCK_SOME"
+      }, {
+        "category": "HATE_SPEECH",
+        "filterLevel": "BLOCK_SOME"
+      } ]
+    },
+    "defaultBannedPhraseMatchStrategy": "PARTIAL_MATCH",
+    "responsibleAiFilters": [ {
+      "category": "DANGEROUS_CONTENT",
+      "filterLevel": "MINIMAL_BLOCKING"
+    }, {
+      "category": "SEXUALLY_EXPLICIT_CONTENT",
+      "filterLevel": "MODERATE_BLOCKING"
+    }, {
+      "category": "HARASSMENT",
+      "filterLevel": "MODERATE_BLOCKING"
+    }, {
+      "category": "HATE_SPEECH",
+      "filterLevel": "MODERATE_BLOCKING"
+    } ],
+    "defaultResponsibleAiFilters": [ {
+      "category": "DANGEROUS_CONTENT",
+      "filterLevel": "MINIMAL_BLOCKING"
+    }, {
+      "category": "SEXUALLY_EXPLICIT_CONTENT",
+      "filterLevel": "MODERATE_BLOCKING"
+    }, {
+      "category": "HARASSMENT",
+      "filterLevel": "MODERATE_BLOCKING"
+    }, {
+      "category": "HATE_SPEECH",
+      "filterLevel": "MODERATE_BLOCKING"
+    } ],
+    "promptSecuritySettings": {
+    
+    }
+  },
+  "languageCode": "es-419",
+  "knowledgeConnectorSettings": {
+    "groundingSettings": {
+      "groundingConfidence": "LOW"
+    },
+    "mainLlmConfig": {
+    
+    }
+  },
+  "llmModelSettings": {
+  
+  },
+  "playbookSettings": {
+    "memoryRetentionSettings": {
+      "contextWindow": "CONTEXT_WINDOW_INDEFINITE"
+    }
+  }
+}

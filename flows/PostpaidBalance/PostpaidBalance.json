@@ -1,0 +1,242 @@
+{
+  "name": "5ffad0f2-d9bf-42af-96d4-eedb5ccaa0f1",
+  "displayName": "PostpaidBalance",
+  "transitionRoutes": [ {
+    "condition": "$session.params.ToState = \"AnythingElse\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_StartPage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "AnythingElse",
+    "name": "11d2dc5d-c142-4d45-bf3f-b5f35e85cc89"
+  }, {
+    "condition": "$session.params.ToState = \"APCreditBalanceCardUpdateDeclined\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_StartPage_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCreditBalanceCardUpdateDeclined",
+    "name": "c5f6e0a2-efb4-4032-ad3b-8b849b723756"
+  }, {
+    "condition": "$session.params.ToState = \"APCreditBalance\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_StartPage_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCreditBalance",
+    "name": "0b2e5b03-dc99-40b5-bc9a-60558f3b4a05"
+  }, {
+    "condition": "$session.params.ToState = \"APCurrentBalanceCardUpdateDeclinedExpBelow30Days\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_StartPage_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCurrentBalanceCardUpdateDeclinedExpBelow30Days",
+    "name": "a94e578d-4fda-42d6-97ca-1f4634746ea0"
+  }, {
+    "condition": "$session.params.ToState = \"APCurrentBalanceCardUpdateDeclinedBillPaid\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_StartPage_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCurrentBalanceCardUpdateDeclinedBillPaid",
+    "name": "03c0ef35-ecc9-4455-b7ba-b0833d8a6213"
+  }, {
+    "condition": "$session.params.ToState = \"APCurrentBalanceCardUpdateDeclinedExpBelow30DaysBillPaid\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_StartPage_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCurrentBalanceCardUpdateDeclinedExpBelow30DaysBillPaid",
+    "name": "3ba7d349-77b0-4451-8945-99adf4ba2176"
+  }, {
+    "condition": "$session.params.ToState = \"APCurrentBalanceBillPaid\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_StartPage_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCurrentBalanceBillPaid",
+    "name": "538fc0b7-dea2-43e5-ac21-746b3eaa8032"
+  }, {
+    "condition": "$session.params.ToState = \"CreditBalance\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_StartPage_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CreditBalanceNoMatch",
+        "value": 0
+      } ]
+    },
+    "targetPage": "CreditBalance",
+    "name": "763cb3e0-ce83-49bd-8d3a-1b5d4448770d"
+  }, {
+    "condition": "$session.params.ToState = \"CurrentBillBalance\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_StartPage_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CurrentBillBalanceNoMatch",
+        "value": 0
+      } ]
+    },
+    "targetPage": "CurrentBillBalance",
+    "name": "796b97f0-4e21-4b6e-9687-fd2c2c4bb946"
+  }, {
+    "condition": "$session.params.ToState = \"CurrentNotFullyPaid\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_StartPage_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PAChkCurrentNotFullyPaidweb",
+    "name": "f8f28b98-4ac8-4449-a213-1cee39ddefa6"
+  }, {
+    "condition": "$session.params.ToState = \"AdditionalQuestion\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_StartPage_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "69d37943-08a2-496b-8ffb-cef6b7b5ccc0"
+  }, {
+    "condition": "$session.params.ToState = \"GoodtoGo\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_StartPage_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "97d83735-5641-4b3f-9e1e-295a2611b636"
+  }, {
+    "condition": "$session.params.ToState = \"AnythingElsehere\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_StartPage_13",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "Anythingelse",
+    "name": "9c7b24f5-b91c-453d-83df-49b8629fb672"
+  }, {
+    "condition": "$session.params.ToState = \"FormAnythingElseAP\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "FormAnythingElseAP",
+    "name": "543f1c3b-e216-4532-ae3c-8961679ecedd"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_StartPage_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "PACheck",
+    "name": "39eca9a3-6124-403c-a594-ecae5b7591a2"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "206b1f92-5d4d-4b42-b4e4-8a72214185d5"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "6a596baf-172b-4efb-82c1-44ecd59257d4"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    }
+  },
+  "advancedSettings": {
+    "enabled": true
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    },
+    "languageCode": "en"
+  } ]
+}

@@ -1,0 +1,91 @@
+{
+  "name": "0419b828-3da3-4acd-857a-9cf01d986a93",
+  "displayName": "AccountStatusPostpaid",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.SubscriptionStatus : \"suspend\" OR $session.params.SubscriptionStatus : \"Suspend\" OR $session.params.BillInfo_AccountStatus : \"Voluntary Suspend\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AccountStatusPostpaid_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "VoluntarySuspendPostpaid",
+    "name": "1ed40e4c-b0db-48fe-b38f-94d075fdf0ee"
+  }, {
+    "condition": "$session.params.BillInfo_AccountStatus : \"Active\" OR $session.params.BillInfo_AccountStatus : \"OPENED\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AccountStatusPostpaid_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ActiveCurrent",
+    "name": "87e1b9e8-1549-462f-9fb8-634b69cdf8ee"
+  }, {
+    "condition": "$session.params.BillInfo_AccountStatus : \"Payment Past Due\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AccountStatusPostpaid_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PastDuePostpaid",
+    "name": "281ae619-9698-42c8-acca-34494bc414f1"
+  }, {
+    "condition": "$session.params.BillInfo_AccountStatus = \"Suspended\" OR $session.params.BillInfo_AccountStatus = \"Paused\" OR $session.params.BillInfo_AccountStatus = \"SUSPENDED\" OR $session.params.BillInfo_AccountStatus = \"PAUSED\" OR $session.params.BillInfo_AccountStatus = \"SNP\" OR $session.params.BillInfo_AccountStatus : \"Suspend\" OR $session.params.BillInfo_AccountStatus : \"SUSPEND\" OR $session.params.BillInfo_AccountStatus = \"Suspended\" OR $session.params.BillInfo_AccountStatus = \"Suspend\" OR $session.params.BillInfo_AccountStatus = \"Non Pay Suspend\" OR $session.params.BillInfo_AccountStatus = \"Non Pay Disconnect\" OR $session.params.BillInfo_AccountStatus = \"SUSPEND-POSTPD NOPAY\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "BalanceInquiry"
+      }, {
+        "parameter": "Metrics_Payment_AccountStatusPostpaid_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "5fe94c86-2a59-4023-bcc5-51669a158750"
+  }, {
+    "condition": "$session.params.BillInfo_AccountStatus : \"Inactive\" OR $session.params.BillInfo_AccountStatus : \"CANCELED\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AccountStatusPostpaid_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "DisconnectedAccount",
+    "name": "f9b33c82-8506-4c12-a49d-1c83cb4306e0"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_Payment_AccountStatusPostpaid_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountStatus-DefaultRoute"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "b36e476d-afbc-4bdb-ba59-354d8565ef19"
+  } ]
+}

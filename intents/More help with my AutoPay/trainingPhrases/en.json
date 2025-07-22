@@ -1,0 +1,62 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " with auto ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "More help",
+      "auto": true
+    }, {
+      "text": " with Auto ",
+      "auto": true
+    }, {
+      "text": "Pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "More help",
+      "auto": true
+    }, {
+      "text": " with my Auto ",
+      "auto": true
+    }, {
+      "text": "Pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "More help",
+      "auto": true
+    }, {
+      "text": " with AutoPay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "More help",
+      "auto": true
+    }, {
+      "text": " with my AutoPay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

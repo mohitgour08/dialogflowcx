@@ -1,0 +1,108 @@
+{
+  "name": "76aa09f0-c6f9-4332-878b-73b58a4b4c36",
+  "displayName": "CopperDays",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Tuesday"
+          }, {
+            "action": "quick_reply",
+            "title": "Wednesday"
+          }, {
+            "action": "quick_reply",
+            "title": "Thursday"
+          }, {
+            "action": "quick_reply",
+            "title": "Friday"
+          }, {
+            "action": "quick_reply",
+            "title": "Repeat"
+          }, {
+            "action": "quick_reply",
+            "title": "I don't want to reschedule."
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Tuesday",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CopperTimeFrame",
+    "name": "32da4709-2904-4c23-bb19-2fe21149e4b4"
+  }, {
+    "intent": "Wednesday",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CopperTimeFrame",
+    "name": "b4875faa-a1f9-40ec-9a1f-657a9562a121"
+  }, {
+    "intent": "Thursday",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CopperTimeFrame",
+    "name": "caf72d13-3413-4d9f-a9bb-fb4735575c5d"
+  }, {
+    "intent": "Friday",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CopperTimeFrame",
+    "name": "95997b23-955f-433a-ac7c-e50bcacb05a7"
+  }, {
+    "intent": "Nevermind",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Noreschedule",
+    "name": "30b45a45-10c1-4189-9a5b-0a983296ef69"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CopperTimeFrame",
+    "name": "10a9a75e-6c8e-4e0e-a1df-9e554692cf57"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CopperTimeFrame",
+    "name": "cc85f549-755e-4acc-bd12-08b8f54e45c7"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CopperTimeFrame",
+    "name": "9031f806-4a43-4856-8ea1-461396e323f7"
+  }, {
+    "intent": "DTMF_4",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CopperTimeFrame",
+    "name": "22cf4ba4-25be-4802-bd36-09ba16e49823"
+  }, {
+    "intent": "DTMF_6",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Noreschedule",
+    "name": "4e53257f-63d3-45ca-965f-dee0b0ed960f"
+  } ]
+}

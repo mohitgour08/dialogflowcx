@@ -1,0 +1,23 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " with ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Need help with payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

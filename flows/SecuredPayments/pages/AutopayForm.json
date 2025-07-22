@@ -1,0 +1,86 @@
+{
+  "name": "bc4bdcc8-aa30-4a35-87d0-412928ebcb02",
+  "displayName": "AutopayForm",
+  "form": {
+    "parameters": [ {
+      "displayName": "EnrollAutopayResp",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_SecuredPayments_AutopayForm_EnrollAutopayResp",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ]
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\r\n  \"chatClientForm\": \"EnrollAutopayModal\"\r\n}" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL AND $session.params.EnrollAutopayResp = \"yesDPM\" AND $session.params.PaymentType = \"ACH\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "EnrollAutopay",
+        "value": "True"
+      }, {
+        "parameter": "Metrics_SecuredPayments_AutopayForm_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EnrollAutopayResp",
+        "value": null
+      } ]
+    },
+    "targetPage": "UpdateAccount2",
+    "name": "b1f6e4ba-303c-44c4-bd62-da4dfcfb7c63"
+  }, {
+    "condition": "$page.params.status = FINAL AND $session.params.EnrollAutopayResp = \"yesDPM\" AND $session.params.PaymentType = \"Card\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "EnrollAutopay",
+        "value": "True"
+      }, {
+        "parameter": "Metrics_SecuredPayments_AutopayForm_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EnrollAutopayResp",
+        "value": null
+      } ]
+    },
+    "targetPage": "UpdateCard2",
+    "name": "3836e806-145a-4520-acbd-3cca472e421c"
+  }, {
+    "condition": "$page.params.status = FINAL AND $session.params.EnrollAutopayResp = \"noDPM\" AND $session.params.PaymentType = \"ACH\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AutopayForm_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EnrollAutopayResp",
+        "value": null
+      } ]
+    },
+    "targetPage": "UpdateAccount2",
+    "name": "db2d01a2-517c-4ecf-a4c0-1da05ca75339"
+  }, {
+    "condition": "$page.params.status = FINAL AND $session.params.EnrollAutopayResp = \"noDPM\" AND $session.params.PaymentType = \"Card\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "EnrollAutopayResp",
+        "value": null
+      }, {
+        "parameter": "Metrics_SecuredPayments_AutopayForm_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdateCard2",
+    "name": "b65c3031-49a6-4f31-8640-1b1d367001df"
+  } ]
+}

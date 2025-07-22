@@ -1,0 +1,17 @@
+{
+  "name": "52b18ef4-c5c1-4c2a-b304-3f2880e3b45a",
+  "displayName": "GetAccountInfoByANI",
+  "description": "This tool provides customer information.",
+  "openApiSpec": {
+    "authentication": {
+      "oauthConfig": {
+        "oauthGrantType": "CLIENT_CREDENTIAL",
+        "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+        "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+        "tokenEndpoint": "https://api-qa.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials"
+      }
+    },
+    "ignoreUnknownFields": true
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

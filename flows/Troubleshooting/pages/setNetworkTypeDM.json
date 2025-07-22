@@ -1,0 +1,50 @@
+{
+  "name": "8a899fac-005c-4bf6-bc4b-1048b827bbdf",
+  "displayName": "setNetworkTypeDM",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"XGSPON\" OR $session.params.networkType = \"GPON\" OR $session.params.networkType = \"BPON\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "networkType_DM",
+        "value": "Fiber"
+      }, {
+        "parameter": "Metrics_Troubleshooting_setNetworkTypeDM_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckOutageDynamicMessage",
+    "name": "1fdf5886-9993-4089-8f71-cc60e6dc0980"
+  }, {
+    "condition": "$session.params.networkType = \"Copper\" OR $session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "networkType_DM",
+        "value": "Copper"
+      }, {
+        "parameter": "Metrics_Troubleshooting_setNetworkTypeDM_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckOutageDynamicMessage",
+    "name": "cfa94d73-8560-4c96-8b4c-b62bb81b945c"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "networkType_DM",
+        "value": ""
+      }, {
+        "parameter": "Metrics_Troubleshooting_setNetworkTypeDM_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckOutageDynamicMessage",
+    "name": "89159987-9b11-4f77-a3df-456648b77474"
+  } ]
+}

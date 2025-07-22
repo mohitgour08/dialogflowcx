@@ -1,0 +1,17 @@
+{
+  "name": "7ba34172-ac86-4d13-98fe-ea0e350f4b1b",
+  "displayName": "Dynamic Message",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/jwt/ccs-data-api/checkDynamicMessage",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"business_unit\": \"$session.params.business_unit\",\n  \"language\": \"$session.params.language\",\n  \"channel\": \"$session.params.channel_DM\",\n  \"location\": \"$session.params.location\",\n  \"sublocation\": \"$session.params.sublocation\",\n  \"state\": \"$session.params.ServiceAddress_state\",\n  \"npa\": \"$session.params.npa\",\n  \"network_type\": \"$session.params.networkType_DM\",\n  \"product\": \"$session.params.product\"\n}",
+    "parameterMapping": [ {
+      "key": "message_text",
+      "value": "message_text[0]"
+    } ]
+  },
+  "timeout": {
+    "seconds": 20
+  }
+}

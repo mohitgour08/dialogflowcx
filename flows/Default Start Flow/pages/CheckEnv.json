@@ -1,0 +1,80 @@
+{
+  "name": "e7780051-011c-40ba-bfed-17cd2c850643",
+  "displayName": "CheckEnv",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.env = \"dev\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "APGXurl",
+        "value": "apgx-dev.brightspeed.com"
+      }, {
+        "parameter": "RecordSummary",
+        "value": "api-ut.brightspeed.com"
+      }, {
+        "parameter": "APIurl",
+        "value": "api-dv.brightspeed.com"
+      }, {
+        "parameter": "CCAIurl",
+        "value": "webhook-dev-irefuzinuq-uc.a.run.app"
+      }, {
+        "parameter": "QuickBillPayurl",
+        "value": "ccsbrimservice-irefuzinuq-uc.a.run.app"
+      }, {
+        "parameter": "Embargourl",
+        "value": "app-ccs-ccsmigservice-irefuzinuq-uc.a.run.app"
+      }, {
+        "parameter": "CCAINewurl",
+        "value": "codyhelper-irefuzinuq-uc.a.run.app"
+      }, {
+        "parameter": "EmbargoSwitchurl",
+        "value": "api-qa.brightspeed.com"
+      }, {
+        "parameter": "RepairTicketurl",
+        "value": "ccsrepairservice-irefuzinuq-uc.a.run.app"
+      }, {
+        "parameter": "staticLink_Secondaryurl",
+        "value": "us-east4-bs-prj-dev-ccai.cloudfunctions.net"
+      }, {
+        "parameter": "sendSMS",
+        "value": "api-ut.brightspeed.com"
+      }, {
+        "parameter": "SetParameters",
+        "value": "apgx-dev.brightspeed.com/jwt/ccsdataservice"
+      }, {
+        "parameter": "SendPURL",
+        "value": "ccsbrimservice-irefuzinuq-uc.a.run.app"
+      }, {
+        "parameter": "CCSZuoraService",
+        "value": "apgx-dev.brightspeed.com/jwt/ccszuoraservice"
+      }, {
+        "parameter": "cloudfunction",
+        "value": "us-central1-bs-prj-dev-ccai.cloudfunctions.net"
+      }, {
+        "parameter": "StaticLinkurl",
+        "value": "api-dv.brightspeed.com"
+      }, {
+        "parameter": "DynamicMessage",
+        "value": "api-dv.brightspeed.com/jwt/ccs-data-api"
+      }, {
+        "parameter": "OrderProductInfo",
+        "value": "apgx-dev.brightspeed.com/jwt/ccsc360service"
+      } ]
+    },
+    "name": "27bebc04-aa39-405c-859b-44a75d902575"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CheckChannel",
+    "name": "a58c95b0-ab71-4541-8127-4526e84998b3"
+  } ]
+}

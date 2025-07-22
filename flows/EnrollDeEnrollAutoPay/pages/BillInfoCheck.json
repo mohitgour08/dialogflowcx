@@ -1,0 +1,50 @@
+{
+  "name": "6bd8cbd3-ee7c-4593-a3c8-a61be02003a1",
+  "displayName": "BillInfoCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_ReturnStatus = \"SUCCESS\" OR $session.params.BillInfo_ReturnStatus = \"Success\" OR $session.params.BillInfo_ReturnStatus = \"Success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_BillInfoCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckNetworkType",
+    "name": "c853ec0b-3ffb-4852-85d6-979e9f833da0"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_BillInfoCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "AutopayNetworkCheck"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "721df9d9-01e0-4283-a844-042c506aef98"
+  } ]
+}

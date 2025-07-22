@@ -1,0 +1,21 @@
+{
+  "name": "08dc0288-0eb7-4bd5-b120-995c9057bdbc",
+  "displayName": "ZeroBalOrCredit",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.TotalBalance = \"0\" OR $session.params.TotalBalance = \"0\\.0\" OR $session.params.TotalBalance = \"0\\.00\" OR $session.params.AvailCreditBal = \"Y\"",
+    "triggerFulfillment": {
+    
+    },
+    "name": "ad4f19c2-8318-4bb7-9e80-1936247dc956"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Overdue",
+    "name": "818b72f7-d1d5-42c0-9e74-864cf2a1e031"
+  } ]
+}

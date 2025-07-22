@@ -1,0 +1,99 @@
+{
+  "name": "76761094-9582-4c88-b6e9-c0b557c56569",
+  "displayName": "NonAutopayPostpaidAccountStatus",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_AccountStatus = \"Suspended\" OR $session.params.BillInfo_AccountStatus = \"Paused\" OR $session.params.BillInfo_AccountStatus = \"SUSPENDED\" OR $session.params.BillInfo_AccountStatus = \"PAUSED\" OR $session.params.BillInfo_AccountStatus = \"SNP\" OR $session.params.BillInfo_AccountStatus = \"Non Pay Disconnect\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "NonAutopayPostpaidAccountStatus",
+        "value": "SUSPENDED"
+      }, {
+        "parameter": "Metrics_Payment_NonAutoPayPostpaidAccountStatus_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NonAutopayCTLPURLPastDue",
+    "name": "9ef64502-8632-4aa1-8c26-b6c7513afb1e"
+  }, {
+    "condition": "$session.params.BillInfo_AccountStatus = \"Payment Past Due\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "NonAutopayPostpaidAccountStatus",
+        "value": "PastDue"
+      }, {
+        "parameter": "Metrics_Payment_NonAutoPayPostpaidAccountStatus_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NonAutopayCTLPURLPastDue",
+    "name": "882f522f-f5bb-4022-9b8b-c26a6e2645f9"
+  }, {
+    "condition": "$session.params.AvailCreditBalance = \"Y\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "NonAutopayPostpaidAccountStatus",
+        "value": "CreditBalance"
+      }, {
+        "parameter": "Metrics_Payment_NonAutoPayPostpaidAccountStatus_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CreditBalance",
+        "value": "$sys.func.SUBSTITUTE($session.params.BillInfo_LatestDueAmount,\"-\",\"\")"
+      } ]
+    },
+    "targetPage": "NonAutopayCTLPURLPastDue",
+    "name": "56790af4-4560-4a13-8383-6203fe3407a5"
+  }, {
+    "condition": "$session.params.BillInfo_AccountStatus = \"Active\" OR $session.params.BillInfo_AccountStatus = \"Open\" OR $session.params.BillInfo_AccountStatus = \"OPENED\" OR $session.params.BillInfo_AccountStatus = \"OPEN\" OR $session.params.BillInfo_AccountStatus = \"Opened\" OR $session.params.BillInfo_AccountStatus = \"ACTIVE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "NonAutopayPostpaidAccountStatus",
+        "value": "CurrentDue"
+      }, {
+        "parameter": "Metrics_Payment_NonAutoPayPostpaidAccountStatus_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NonAutopayCTLPURLPastDue",
+    "name": "e999b9ce-6de6-405b-8e57-7cf85e65f90b"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_Payment_NonAutoPayPostpaidAccountStatus_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Payment-NonAutopayPostpaidAccountStatus,DefaultAccountStatus"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "5239377e-ea0a-4f08-8c37-fbce1d228eb0"
+  } ]
+}

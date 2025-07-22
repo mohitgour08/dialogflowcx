@@ -1,0 +1,742 @@
+{
+  "name": "0525481e-71db-4622-870b-2f79a1e1652b",
+  "displayName": "SecuredPayments",
+  "transitionRoutes": [ {
+    "condition": "$session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_StartPage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "Card"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "CreditCard"
+      }, {
+        "parameter": "RoutingNo",
+        "value": ""
+      }, {
+        "parameter": "BankAccountNo",
+        "value": ""
+      }, {
+        "parameter": "CardNoRetry",
+        "value": "false"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "$flow.current_year",
+        "value": "$sys.func.GET_FIELD($sys.func.NOW(), year)"
+      }, {
+        "parameter": "$flow.current_month",
+        "value": "$sys.func.GET_FIELD($sys.func.NOW(), month)"
+      }, {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.month",
+        "value": null
+      }, {
+        "parameter": "$flow.only_month",
+        "value": null
+      }, {
+        "parameter": "$flow.month_match",
+        "value": {
+          "1": "January",
+          "10": "October",
+          "11": "November",
+          "12": "December",
+          "2": "February",
+          "3": "March",
+          "4": "April",
+          "5": "May",
+          "6": "June",
+          "7": "July",
+          "8": "August",
+          "9": "September",
+          "April": "April",
+          "August": "August",
+          "December": "December",
+          "February": "February",
+          "January": "January",
+          "July": "July",
+          "June": "June",
+          "March": "March",
+          "May": "May",
+          "November": "November",
+          "October": "October",
+          "September": "September"
+        }
+      }, {
+        "parameter": "FirstUpdateFailure",
+        "value": "true"
+      }, {
+        "parameter": "banType",
+        "value": "\"$sys.func.IF(\"$session.params.AccountType = 'Residential'\", \"R\",$session.params.AccountType)\""
+      }, {
+        "parameter": "banType",
+        "value": "\"$sys.func.IF(\"$session.params.AccountType = 'residential'\", \"R\",$session.params.AccountType)\""
+      }, {
+        "parameter": "expiration_date",
+        "value": null
+      }, {
+        "parameter": "CreditCardNo",
+        "value": null
+      }, {
+        "parameter": "CVV",
+        "value": null
+      }, {
+        "parameter": "BankAccountNo",
+        "value": null
+      }, {
+        "parameter": "RoutingNo",
+        "value": null
+      }, {
+        "parameter": "ConfirmationButton",
+        "value": "Change Payment Method"
+      }, {
+        "parameter": "UpdatePrompt1",
+        "value": ""
+      }, {
+        "parameter": "encFields",
+        "value": "#field_creditCardNumber#field_cardSecurityCode#field_creditCardExpirationMonth#field_creditCardExpirationYear"
+      }, {
+        "parameter": "callerintent",
+        "value": "PrepaidPayment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberDPMCheck",
+    "name": "e4e72872-51fe-44b0-b1ea-bdb15249166a"
+  }, {
+    "condition": "$session.params.ToState = \"UpdateSuccessful\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_StartPage_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "UpdateSuccesful",
+    "name": "407cae63-05c6-483b-b87f-a5e9f4952870"
+  }, {
+    "condition": "$session.params.ToState = \"MyBrightSpeedPortal\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_StartPage_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "MyBrightSpeedPortal",
+    "name": "772e858c-4d79-4665-9271-dc3573e8082a"
+  }, {
+    "condition": "$session.params.ToState = \"PaymentSucessful\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_StartPage_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RepeatCounter",
+        "value": "0"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PaymentSuccessful",
+    "name": "01a5769e-1996-40af-86c5-d9c03d84b818"
+  }, {
+    "condition": "$session.params.ToState = \"CancelTransaction\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_StartPage_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CancelTransaction",
+    "name": "41a89b17-b432-492b-9c40-6378538a1592"
+  }, {
+    "condition": "$session.params.ToState = \"MethodOfPaymentUpdate\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_StartPage_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "$flow.current_year",
+        "value": "$sys.func.GET_FIELD($sys.func.NOW(), year)"
+      }, {
+        "parameter": "$flow.current_month",
+        "value": "$sys.func.GET_FIELD($sys.func.NOW(), month)"
+      }, {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.month",
+        "value": null
+      }, {
+        "parameter": "$flow.only_month",
+        "value": null
+      }, {
+        "parameter": "$flow.month_match",
+        "value": {
+          "1": "January",
+          "10": "October",
+          "11": "November",
+          "12": "December",
+          "2": "February",
+          "3": "March",
+          "4": "April",
+          "5": "May",
+          "6": "June",
+          "7": "July",
+          "8": "August",
+          "9": "September",
+          "April": "April",
+          "August": "August",
+          "December": "December",
+          "February": "February",
+          "January": "January",
+          "July": "July",
+          "June": "June",
+          "March": "March",
+          "May": "May",
+          "November": "November",
+          "October": "October",
+          "September": "September"
+        }
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "FirstUpdateFailure",
+        "value": "true"
+      }, {
+        "parameter": "banType",
+        "value": "\"$sys.func.IF(\"$session.params.AccountType = 'Residential'\", \"R\",$session.params.AccountType)\""
+      }, {
+        "parameter": "banType",
+        "value": "\"$sys.func.IF(\"$session.params.AccountType = 'residential'\", \"R\",$session.params.AccountType)\""
+      }, {
+        "parameter": "expiration_date",
+        "value": null
+      }, {
+        "parameter": "CreditCardNo",
+        "value": null
+      }, {
+        "parameter": "CVV",
+        "value": null
+      }, {
+        "parameter": "expiration_date",
+        "value": null
+      }, {
+        "parameter": "BankAccountNo",
+        "value": null
+      }, {
+        "parameter": "RoutingNo",
+        "value": null
+      }, {
+        "parameter": "UpdatePrompt1",
+        "value": "Just say yes or no"
+      }, {
+        "parameter": "updateCardForm",
+        "value": "false"
+      }, {
+        "parameter": "callerintent",
+        "value": "MethodOfPaymentUpdate"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "FiberCheck",
+    "name": "95516e31-831f-40db-b0c9-652d0afe8bc1"
+  }, {
+    "condition": "$session.params.ToState = \"AutopaySignup\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.current_year",
+        "value": "$sys.func.GET_FIELD($sys.func.NOW(), year)"
+      }, {
+        "parameter": "$flow.current_month",
+        "value": "$sys.func.GET_FIELD($sys.func.NOW(), month)"
+      }, {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.month",
+        "value": null
+      }, {
+        "parameter": "$flow.only_month",
+        "value": null
+      }, {
+        "parameter": "$flow.month_match",
+        "value": {
+          "1": "January",
+          "10": "October",
+          "11": "November",
+          "12": "December",
+          "2": "February",
+          "3": "March",
+          "4": "April",
+          "5": "May",
+          "6": "June",
+          "7": "July",
+          "8": "August",
+          "9": "September",
+          "April": "April",
+          "August": "August",
+          "December": "December",
+          "February": "February",
+          "January": "January",
+          "July": "July",
+          "June": "June",
+          "March": "March",
+          "May": "May",
+          "November": "November",
+          "October": "October",
+          "September": "September"
+        }
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "FirstUpdateFailure",
+        "value": "true"
+      }, {
+        "parameter": "banType",
+        "value": "\"$sys.func.IF(\"$session.params.AccountType = 'Residential'\", \"R\",$session.params.AccountType)\""
+      }, {
+        "parameter": "banType",
+        "value": "\"$sys.func.IF(\"$session.params.AccountType = 'residential'\", \"R\",$session.params.AccountType)\""
+      }, {
+        "parameter": "expiration_date",
+        "value": null
+      }, {
+        "parameter": "CreditCardNo",
+        "value": null
+      }, {
+        "parameter": "CVV",
+        "value": null
+      }, {
+        "parameter": "BankAccountNo",
+        "value": null
+      }, {
+        "parameter": "RoutingNo",
+        "value": null
+      }, {
+        "parameter": "UpdatePrompt1",
+        "value": "Just say yes or no"
+      }, {
+        "parameter": "updateCardForm",
+        "value": "false"
+      }, {
+        "parameter": "Metrics_SecuredPayments_StartPage_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberCheck",
+    "name": "df1957aa-8b30-4ad9-94db-e5f153343e90"
+  }, {
+    "condition": "$session.params.BillingMethod = \"postpaid\" OR $session.params.BillingMethod = \"PO\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.current_year",
+        "value": "$sys.func.GET_FIELD($sys.func.NOW(), year)"
+      }, {
+        "parameter": "$flow.current_month",
+        "value": "$sys.func.GET_FIELD($sys.func.NOW(), month)"
+      }, {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.month",
+        "value": null
+      }, {
+        "parameter": "$flow.only_month",
+        "value": null
+      }, {
+        "parameter": "$flow.month_match",
+        "value": {
+          "1": "January",
+          "10": "October",
+          "11": "November",
+          "12": "December",
+          "2": "February",
+          "3": "March",
+          "4": "April",
+          "5": "May",
+          "6": "June",
+          "7": "July",
+          "8": "August",
+          "9": "September",
+          "April": "April",
+          "August": "August",
+          "December": "December",
+          "February": "February",
+          "January": "January",
+          "July": "July",
+          "June": "June",
+          "March": "March",
+          "May": "May",
+          "November": "November",
+          "October": "October",
+          "September": "September"
+        }
+      }, {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "FirstUpdateFailure",
+        "value": "true"
+      }, {
+        "parameter": "banType",
+        "value": "\"$sys.func.IF(\"$session.params.AccountType = 'Residential'\", \"R\",$session.params.AccountType)\""
+      }, {
+        "parameter": "banType",
+        "value": "\"$sys.func.IF(\"$session.params.AccountType = 'residential'\", \"R\",$session.params.AccountType)\""
+      }, {
+        "parameter": "Metrics_SecuredPayments_StartPage_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "expiration_date",
+        "value": null
+      }, {
+        "parameter": "CreditCardNo",
+        "value": null
+      }, {
+        "parameter": "CVV",
+        "value": null
+      }, {
+        "parameter": "BankAccountNo",
+        "value": null
+      }, {
+        "parameter": "RoutingNo",
+        "value": null
+      }, {
+        "parameter": "ConfirmationButton",
+        "value": "Change Payment Method or Amount"
+      }, {
+        "parameter": "UpdatePrompt1",
+        "value": ""
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "callerintent",
+        "value": "PostpaidPayment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "AutopayCheck",
+    "name": "f4f1079c-4a3a-4e9f-84fc-047a1294d0b8"
+  }, {
+    "condition": "$session.params.BillingMethod = \"prepaid\" OR $session.params.BillingMethod = \"PR\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.current_year",
+        "value": "$sys.func.GET_FIELD($sys.func.NOW(), year)"
+      }, {
+        "parameter": "$flow.current_month",
+        "value": "$sys.func.GET_FIELD($sys.func.NOW(), month)"
+      }, {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.month",
+        "value": null
+      }, {
+        "parameter": "$flow.only_month",
+        "value": null
+      }, {
+        "parameter": "$flow.month_match",
+        "value": {
+          "1": "January",
+          "10": "October",
+          "11": "November",
+          "12": "December",
+          "2": "February",
+          "3": "March",
+          "4": "April",
+          "5": "May",
+          "6": "June",
+          "7": "July",
+          "8": "August",
+          "9": "September",
+          "April": "April",
+          "August": "August",
+          "December": "December",
+          "February": "February",
+          "January": "January",
+          "July": "July",
+          "June": "June",
+          "March": "March",
+          "May": "May",
+          "November": "November",
+          "October": "October",
+          "September": "September"
+        }
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "FirstUpdateFailure",
+        "value": "true"
+      }, {
+        "parameter": "banType",
+        "value": "\"$sys.func.IF(\"$session.params.AccountType = 'Residential'\", \"R\",$session.params.AccountType)\""
+      }, {
+        "parameter": "banType",
+        "value": "\"$sys.func.IF(\"$session.params.AccountType = 'residential'\", \"R\",$session.params.AccountType)\""
+      }, {
+        "parameter": "Metrics_SecuredPayments_StartPage_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "expiration_date",
+        "value": null
+      }, {
+        "parameter": "CreditCardNo",
+        "value": null
+      }, {
+        "parameter": "CVV",
+        "value": null
+      }, {
+        "parameter": "BankAccountNo",
+        "value": null
+      }, {
+        "parameter": "RoutingNo",
+        "value": null
+      }, {
+        "parameter": "ConfirmationButton",
+        "value": "Change Payment Method"
+      }, {
+        "parameter": "UpdatePrompt1",
+        "value": ""
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "callerintent",
+        "value": "PrepaidPayment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "AutopayCheck",
+    "name": "2f15f498-e1a2-44f8-ba9b-63052573c4e8"
+  }, {
+    "condition": "$session.params.ReturnToSecuredPayments = \"FiberEligibilityToSecuredPayments\" AND $session.params.ToState = \"OtherSavedPM\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_StartPage_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PaymentSuccessful",
+    "name": "5e9c1b72-e133-4593-8d83-bab4c626058c"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "Metrics_SecuredPayments_StartPage_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "db04e584-988c-413c-ba02-dfbf324aefe8"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es-419"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es"
+      }, {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en-us"
+      } ]
+    },
+    "name": "d88fabe9-de2a-4a82-ad98-93299936c4fb"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es-419"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es"
+      }, {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en-us"
+      } ]
+    },
+    "name": "81a1796a-bc03-4d64-9c4c-21baaa4bc1dc"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_ADVANCED",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    }
+  },
+  "advancedSettings": {
+    "enabled": true
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_ADVANCED",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "customConfigKey": "074c4d15-f701-4783-9b03-96b124c6a19c",
+    "multiIntentSettings": {
+    
+    },
+    "languageCode": "en"
+  } ]
+}

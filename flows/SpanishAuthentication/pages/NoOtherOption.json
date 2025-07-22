@@ -1,0 +1,21 @@
+{
+  "name": "e2c5be0c-7352-4915-885a-50dc0c3dc48a",
+  "displayName": "NoOtherOption",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_NoOtherOption_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NoOtherOptionVoice",
+    "name": "04caadad-32bf-41c4-a773-bc60809717d9"
+  } ]
+}

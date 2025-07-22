@@ -1,0 +1,51 @@
+{
+  "name": "119fd8a4-0b03-4692-8be5-86f0a2e0fffa",
+  "displayName": "PaymentArrangement",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"Copper_L\" OR $session.params.networkType = \"Copper\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": " Metrics_Payment_PaymentArrangement_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      } ]
+    },
+    "targetFlow": "PaymentTransfer",
+    "name": "f612f03d-6db0-419e-8230-7256e34c694c"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": " Metrics_Payment_PaymentArrangement_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Routeintent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NetworkType Fiber "
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "e5965c00-d759-4e77-abe9-74542353eafd"
+  } ]
+}

@@ -1,0 +1,168 @@
+{
+  "name": "3d734387-9e11-4acb-aa56-5c5ca4db1e7a",
+  "displayName": "NoAutopay",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "You can make a payment any time through your online MyBrightspeed portal, or I can help you make the payment here. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "What would you like to do?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Visit MyBrightSpeed portal"
+          }, {
+            "action": "quick_reply",
+            "title": "Make a payment"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "My BrightSpeed Portal",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Click $session.params.link8 to be redirected to your MyBrightspeed portal log in. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_NoAutopay_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "MyBrightSpeedPortal"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "2c3f5a27-5119-480a-b138-51881aa15e79"
+  }, {
+    "intent": "BalanceInquiryOrMakePayment.Payment",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_NoAutopay_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckOverdue",
+    "name": "529d09b9-7aca-4352-8dc0-bd0da8bb68de"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_NoAutopay_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NoAutoPay"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "5ee64b9d-dc29-4e12-82d0-e5107634c9d2"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "What would you like to do?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Visit MyBrightSpeed portal"
+            }, {
+              "action": "quick_reply",
+              "title": "Make a payment"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_NoAutopay_NM1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "f2a2f334-51ae-4c8d-bebc-82a80ab67457"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_NoAutopay_NM2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "dd8996e6-66fa-42ce-9ff4-963cd194a2b5"
+  } ]
+}

@@ -1,0 +1,35 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Can I switch between plans after I ",
+      "auto": true
+    }, {
+      "text": "activate",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Are there any ",
+      "auto": true
+    }, {
+      "text": "one",
+      "auto": true
+    }, {
+      "text": "-time setup or ",
+      "auto": true
+    }, {
+      "text": "activation",
+      "auto": true
+    }, {
+      "text": " fees ?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

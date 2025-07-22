@@ -1,0 +1,13 @@
+{
+  "name": "c434adc2-55c0-426f-9f28-76f35c10d43d",
+  "displayName": "Authentication.Street number",
+  "parameters": [ {
+    "id": "street_number",
+    "entityType": "@street_number_custom"
+  }, {
+    "id": "zip-code",
+    "entityType": "@sys.zip-code"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 30
+}

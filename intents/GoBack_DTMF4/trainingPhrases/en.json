@@ -1,0 +1,77 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "back",
+      "auto": true
+    }, {
+      "text": " menu",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "return ",
+      "auto": true
+    }, {
+      "text": "back",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "back",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "go ",
+      "auto": true
+    }, {
+      "text": "back",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "option ",
+      "auto": true
+    }, {
+      "text": "4",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "four",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "number",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "4",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "4",
+      "parameterId": "DTMF4"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

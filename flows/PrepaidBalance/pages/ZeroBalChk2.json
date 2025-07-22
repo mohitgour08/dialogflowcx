@@ -1,0 +1,28 @@
+{
+  "name": "e6467cd7-a9b9-4a53-b5bb-d9b949369741",
+  "displayName": "ZeroBalChk2",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_PastDueAmount \u003c= 0 AND ($session.params.networkType = \"GPON\" OR $session.params.networkType = \"XGSPON\" OR $session.params.networkType = \"BPON\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_ZeroBalChk2_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CCExpLT30",
+    "name": "27e04f5d-0cfa-4cf8-8d75-277a58bf827a"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_ZeroBalChk2_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PrepaidCurrentCCE30Form",
+    "name": "4f76df15-f239-444d-ad55-899edb988102"
+  } ]
+}

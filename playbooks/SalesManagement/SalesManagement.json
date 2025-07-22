@@ -1,0 +1,162 @@
+{
+  "name": "005ead0c-6eb3-4953-a50b-2e87e516970a",
+  "displayName": "SalesManagement",
+  "goal": "- Map parameters according to the instructions\n- Capture the user intent related to product order status, cancel order, modify order appointment, help with an order, price plan inquiry, service area inquiry, discounts and promotions, port in existing number, based on instructions below.\n- Transfer to the corresponding flow as described in the instructions without asking account number , order number or any other questions.\n- Before responding make your not hallucinating ",
+  "inputParameterDefinitions": [ {
+    "name": "ToState",
+    "description": "value based on customer intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToModule",
+    "description": "module value",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "customer intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "outputParameterDefinitions": [ {
+    "name": "ToState",
+    "description": "value based on customer intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToModule",
+    "description": "module value",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "customer intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "comingfromstate",
+    "description": "this value is \"playbook\"",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "comingfromstate",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "FAQSuccess",
+    "description": "Conversation contained within the FAQ playbook",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "FAQSuccess",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "tokenCount": 1663,
+  "referencedFlows": [ "SalesManagement", "LifeLine", "Billing", "RoutetoAgent", "ListenInitialIntent" ],
+  "instruction": {
+    "steps": [ {
+      "text": "Do not greet the user."
+    }, {
+      "text": "If the customer wants to know or has question about order status,requested status, new service order, modem shipping status,confirm order,track order,track internet installation, then map parameters ToState=\"OrderStatus\", callerintent= \"OrderStatus\",ToModule=\"SalesManagement\", FAQSuccess=\"DirectTransferToBA\" and route to ${FLOW:SalesManagement}"
+    }, {
+      "text": "If the customer wants cancel product,cancel repair ticket,cancel pending order,check cancel status then map parameters ToState=\"CancelTickets\", callerintent= \"CancelTickets\",ToModule=\"SalesManagement\", FAQSuccess=\"DirectTransferToBA\" and route to ${FLOW:SalesManagement}"
+    }, {
+      "text": "If the customer wants to cancel an appointment,Terminate appointment,Revoke appointment,drop appointment, or end appointment, then map the parameters ToState=\"CancelAppointment\", callerintent=\"CancelAppointment\", ToModule=\"SalesManagement\", FAQSuccess=\"DirectTransferToBA\" and route to ${FLOW:SalesManagement}."
+    }, {
+      "text": "If the customer wants to cancel order then map parameters ToState=\"CancelOrder\", callerintent= \"CancelOrder\",ToModule=\"SalesManagement\", FAQSuccess=\"DirectTransferToBA\" and route to ${FLOW:SalesManagement}"
+    }, {
+      "text": "If the customer wants to track technician, help with order, has trouble or issue with order then map parameters ToState=\"HelpWithAnOrder\", callerintent= \"HelpWithAnOrder\",ToModule=\"SalesManagement\", FAQSuccess=\"DirectTransferToBA\" and route to ${FLOW:SalesManagement}"
+    }, {
+      "text": "If the customer wants to modify order appointment, reschedule appointment,reschedule installation then map parameters ToState=\"ModifyOrderAppointment\", callerintent= \"ModifyOrderAppointment\",ToModule=\"SalesManagement\", FAQSuccess=\"DirectTransferToBA\" and route to ${FLOW:SalesManagement}"
+    }, {
+      "text": "If the customer wants to or has question about add service features, upgrade service, add service, upgrade plan then map parameters ToState=\"AddServiceFeatures\", callerintent= \"AddServiceFeatures\",ToModule=\"SalesManagement\", FAQSuccess=\"DirectTransferToBA\" and route to ${FLOW:SalesManagement}"
+    }, {
+      "text": "If the customer has question about quotation/quote or price or cost and plans, subscription scheme, rate model system, service package, add-ons (Extra lines, family members) then map parameters ToState=\"PricePlanInquiry\", callerintent= \"PricePlanInquiry\",ToModule=\"SalesManagement\", FAQSuccess=\"DirectTransferToBA\" and route to ${FLOW:SalesManagement}"
+    }, {
+      "text": "If customer has any question about discounts and promotions, loyalty programs, loyalty discounts, rewards then map parameters ToState=\"DiscountsandPromotions\", callerintent= \"DiscountsandPromotions\",ToModule=\"SalesManagement\", FAQSuccess=\"DirectTransferToBA\" and route to ${FLOW:SalesManagement}"
+    }, {
+      "text": "If customer wants to know if they get any discount for signing up multiple service or getting bundle service then map parameters ToState=\"DiscountsandPromotions\", callerintent= \"DiscountsandPromotions\",ToModule=\"SalesManagement\", FAQSuccess=\"DirectTransferToBA\"  and route to ${FLOW:SalesManagement}"
+    }, {
+      "text": "If the customer wants to know or has question about discount and promotions, affordable services, customer loyalty discount,offers, referral, referral bonus, then map parameters ToState=\"DiscountsandPromotions\", callerintent= \"DiscountsandPromotions\",ToModule=\"SalesManagement\", FAQSuccess=\"DirectTransferToBA\" and route to ${FLOW:SalesManagement}"
+    }, {
+      "text": "If the customer has question about products like availability, coverage and speed, data usage,compatibility,requesting new equipment, buying a modem or device or mesh extender, restrictions and limitations with plan, new service information then map parameters ToState=\"InquireAboutProducts\", callerintent= \"InquireAboutProducts\",ToModule=\"SalesManagement\", FAQSuccess=\"DirectTransferToBA\" and route to ${FLOW:SalesManagement}"
+    }, {
+      "text": "If the customer has question about service port, switch carrier, porting number, guidelines and information on porting then map parameters ToState=\"Port\", callerintent= \"Port\",ToModule=\"SalesManagement\", FAQSuccess=\"DirectTransferToBA\" and route to ${FLOW:SalesManagement}"
+    }, {
+      "text": "If customer has question about FCC program, lifeline, lifeline discount, lifeline account,acp then route to ${FLOW:LifeLine} with parameters ToState = \"LifeLine\", ToModule = \"LifeLine\", FAQSuccess=\"DirectTransferToBA\", callerintent=\"LifeLine\""
+    }, {
+      "text": "If the customer needs assistance or has question about dispute order, then map ToState =\"DisputeOrderAppointment\", ToModule=\"SalesManagement\", callerintent=\"DisputeOrderAppointment\",FAQSuccess=\"DirectTransferToBA\" and route to ${FLOW:SalesManagement}"
+    }, {
+      "text": "If customer has question about Gift Card,Gift voucher,electronic  or physical gift cards,activate or register my gift card,electronic gift cards  then map ToState=\"GiftCard\", callerintent= \"GiftCard\",ToModule=\"Billing\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Billing}."
+    }, {
+      "text": "If the customer asks to speak with an agent/representative/supervisor/human, route to `${FLOW:RoutetoAgent}` and pass `callerintent=\"SpeakwithAgent\"` and FAQSuccess=\"HandoverToAgent\"."
+    }, {
+      "text": "If none of the above provides an answer, route to `${FLOW:ListenInitialIntent}` and pass the parameters comingfromstate=\"playbook\" and FAQSuccess =\"HandoverToBA\"."
+    } ]
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "name": "f42f0158-e20c-4def-a75a-e637c61bfe6a",
+  "displayName": "SendSMSAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "sendSMS",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "URL",
+      "value": "https://www.brightspeed.com/help/internet/modems-and-routers/how-to-pack-and-return-the-modem/"
+    }, {
+      "parameter": "SMS_API_Call",
+      "value": null
+    }, {
+      "parameter": "SMS_Prompt",
+      "value": "To return your Modem/ Router to Brightspeed, please click on this"
+    }, {
+      "parameter": "Metrics_ServiceManagement_SendSMSAPI_none_wh_sendSMS",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_SendSMSAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SMS_API_Call",
+        "value": "Success"
+      }, {
+        "parameter": "API_ServiceManagement_SendSMSAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "sendSMS"
+      } ]
+    },
+    "targetPage": "ConfirmSMSSend",
+    "name": "61fda0f4-50a5-4667-a6d2-5761d0cefdbe"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_SendSMSAPI_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_ReturnDevice",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "SMS_API_Call",
+        "value": "Failure"
+      }, {
+        "parameter": "API_ServiceManagement_SendSMSAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "sendSMS"
+      } ]
+    },
+    "name": "a468239a-f893-478f-8331-cbd6ad1f8612"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_SendSMSAPI_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_ReturnDevice",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "SMS_API_Call",
+        "value": "Failure"
+      }, {
+        "parameter": "API_ServiceManagement_SendSMSAPI",
+        "value": "Fail_Invaild"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "sendSMS"
+      } ]
+    },
+    "name": "15798d0d-ba37-437f-a389-2ea5e930cdfb"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_SendSMSAPI_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_ReturnDevice",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "SMS_API_Call",
+        "value": "Failure"
+      }, {
+        "parameter": "API_ServiceManagement_SendSMSAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "sendSMS"
+      } ]
+    },
+    "name": "d13d1d44-0bf2-43b7-8146-051d5d38ca8b"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_SendSMSAPI_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_ReturnDevice",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "SMS_API_Call",
+        "value": "Failure"
+      }, {
+        "parameter": "API_ServiceManagement_SendSMSAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "sendSMS"
+      } ]
+    },
+    "name": "476a4b69-37d2-4dee-9520-2683c3ec679b"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_SendSMSAPI_WebhookTimeOut",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": " SS_ReturnDevice",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeOut"
+      }, {
+        "parameter": "SMS_API_Call",
+        "value": "Failure"
+      }, {
+        "parameter": "API_ServiceManagement_SendSMSAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "sendSMS"
+      } ]
+    },
+    "name": "823d9aa9-4beb-4794-8a79-fbdbb1f3ccf9"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_SendSMSAPI_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_ReturnDevice",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "SMS_API_Call",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "sendSMS"
+      } ]
+    },
+    "name": "c754724d-6226-4223-b144-aacc80705b65"
+  } ]
+}

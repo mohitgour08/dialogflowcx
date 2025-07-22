@@ -1,0 +1,374 @@
+{
+  "name": "fd5dc7da-53c9-4491-984e-a477eca36b17",
+  "displayName": "PaymentFailedCard",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I'm sorry, I'm having issues processing this payment. Would you like to re-enter your card information, or try a different payment method?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Try a different payment method"
+          }, {
+            "action": "quick_reply",
+            "title": "Re-Enter Card information"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "I'm sorry, I'm having issues processing this payment. Say \"re-enter card information\" to try again or say \"try a different payment method." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Paymentfailedonce",
+      "value": "true"
+    }, {
+      "parameter": "CreditCardNo",
+      "value": null
+    }, {
+      "parameter": "BankAccountNo",
+      "value": null
+    }, {
+      "parameter": "CVV",
+      "value": null
+    }, {
+      "parameter": "RoutingNo",
+      "value": null
+    }, {
+      "parameter": "expiration_date",
+      "value": null
+    }, {
+      "parameter": "$flow.card_expiration_month",
+      "value": null
+    }, {
+      "parameter": "$flow.card_expiration_year",
+      "value": null
+    }, {
+      "parameter": "$flow.month",
+      "value": null
+    }, {
+      "parameter": "$flow.only_month",
+      "value": null
+    }, {
+      "parameter": "formResponse",
+      "value": null
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "DifferentPaymentMethod",
+    "condition": "$session.params.CopperCurrentDue = \"true\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentFailedCard_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormCheck",
+    "name": "546a9266-fdcc-42d1-a839-77f02bd135a4"
+  }, {
+    "intent": "Re-Enter Card information",
+    "condition": "$session.params.CopperCurrentDue = \"true\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentFailedCard_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormCheck",
+    "name": "e5f484c9-9f39-481c-8121-8f930a19ec1e"
+  }, {
+    "intent": "DifferentPaymentMethod",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentFailedCard_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CardOrAccount",
+    "name": "ba453047-2a28-45ca-a782-2e9d0704e3e7"
+  }, {
+    "intent": "Re-Enter Card information",
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "First, please enter your card number followed by the pound sign. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentFailedCard_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnterCardDetails",
+    "name": "222afd15-b760-41fc-9534-60067ab19024"
+  }, {
+    "intent": "Re-Enter Card information",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentFailedCard_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CardPaymentForm",
+    "name": "9108ede4-c554-4e6b-8814-b01b2e1cb080"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentFailedCard_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentFailedCard"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "131232ba-fcfb-43ea-9ea3-5b260f3ee63c"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "No problem! Let's try again. Enter your Card number again now." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentFailedCard_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnterCardDetails",
+    "name": "54dd08ae-ff94-4b5d-9f1d-dc090a5d743c"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentFailedCard_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CardOrAccount",
+    "name": "0982111a-2145-402a-a4cd-4cd26f8efc12"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Would you like to re-enter your card information, or try a different payment method?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Try a different payment method"
+            }, {
+              "action": "quick_reply",
+              "title": "Re-Enter Card information"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Press 1 to re-enter card information. Press 2 to try another payment method." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentFailedCard_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "f762609d-50f3-4810-98da-9dfcc156c1ca"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentFailedAccount_NoMatchDefaullt",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentFailedAccount"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "6618b500-54c2-49a9-8f34-36bbe9bb433c"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentFailedCard_No_input_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentFailedAccount"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "93500f97-c74a-4cb8-9fb3-b42b4b24b0cc"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Press 1 to re-enter card information. Press 2 to try another payment method." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentFailedCard_No_Input_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "43923fe2-d2e9-470b-9496-57794201f6a8"
+  } ]
+}

@@ -1,0 +1,96 @@
+{
+  "name": "80f68227-3068-483f-b8e3-251c65e84e9b",
+  "displayName": "CheckFiberEligibility",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.fiberEligibility = \"Eligible\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm going to connect you with our customer service team now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_CheckFiberEligiblity_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FiberEligibility",
+        "value": "$session.params.fiberEligibility"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Fiber eligible before self serve"
+      }, {
+        "parameter": "FiberTransfer",
+        "value": "TRUE"
+      }, {
+        "parameter": "FiberSelfServe",
+        "value": "BeforeSelfServe"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "138a2f8f-b755-47f1-92ae-5c59d34fabf6"
+  }, {
+    "condition": "($session.params.fiberEligibility = \"Ineligible\" OR $session.params.fiberEligibility = \"Service Unavailable\" OR $session.params.fiberEligibility = \"Fiber\" OR $session.params.fiberEligibility = \"unknown\" OR $session.params.fiberEligibility = \"EligibleWithExistingPendingOrder\") AND $session.params.ToModule = \"BalanceInquiryOrMakePayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_CheckFiberEligibility_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "84df3986-b73f-4dfc-8195-143f7fbcc728"
+  }, {
+    "condition": "$session.params.fiberEligibility = \"Ineligible\" OR $session.params.fiberEligibility = \"Service Unavailable\" OR $session.params.fiberEligibility = \"Fiber\" OR $session.params.fiberEligibility = \"unknown\" OR $session.params.fiberEligibility = \"EligibleWithExistingPendingOrder\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_CheckFiberEligibility_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "e6eaa4d5-1210-48ce-8add-65efdcd8b454"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_CheckFiberEligibility_default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "d1a2b9d5-5096-44b4-8b4b-35962425910a"
+  } ]
+}

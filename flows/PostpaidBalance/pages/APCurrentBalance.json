@@ -1,0 +1,705 @@
+{
+  "name": "11092a68-de0b-4a20-b0f1-a62c20ad043a",
+  "displayName": "APCurrentBalance",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Your current balance is $$session.params.TotalBalance. Your next payment of $$session.params.BillInfo_LatestDueAmount will be automatically processed on $session.params.BillInfo_BillDueDate using your default payment method.\n" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Can I help you with something else?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Update Payment method"
+          }, {
+            "action": "quick_reply",
+            "title": "Make a Payment"
+          }, {
+            "action": "quick_reply",
+            "title": "Make a Payment Arrangement"
+          }, {
+            "action": "quick_reply",
+            "title": "Enroll in paperless billing"
+          }, {
+            "action": "quick_reply",
+            "title": "I have an additional question"
+          }, {
+            "action": "quick_reply",
+            "title": "Thanks, that was all I needed"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Your current balance is $$session.params.TotalBalance.  Your next payment of $$session.params.BillInfo_LatestDueAmount will be automatically processed on $session.params.BillInfo_BillDueDate using your default payment method. " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "If you'd like to update your payment method, say \"update\" now. To make a payment now, say \"make a payment.\" To set up a payment arrangement say \"payment arrangement.\" To enroll in paperless billing, say \"Paperless Billing\". If you have a question about another topic, say \"something else\", or you can just tell me you're finished." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Update payment method",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "5ee3c500-4539-4a2e-9b06-9cf82ba07dec"
+  }, {
+    "intent": "MakeAPayment",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "782ca4ff-67d5-40a2-8e19-1a3f9f1a2523"
+  }, {
+    "intent": "EnrollPaperlessBilling",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      }, {
+        "parameter": "ToState",
+        "value": "PaperlessBilling"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PostpaidPaperlessBilling",
+    "name": "92130dff-ca2b-46cf-9763-8ad4adda5e6d"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "agentPromptRemoval",
+        "value": "Yes"
+      }, {
+        "parameter": "agentPromptRemoval_pagename",
+        "value": "APCurrentBalance"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "APCurrentBalance"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "dc4ee14c-2e35-4108-b5ed-b21e401bf18b"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "PostpaidBalance_APCurrentBalance_1"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "bc1e98ce-2bc2-414e-8141-3b146af7ed50"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "PostpaidBalance_APCurrentBalance_2"
+      }, {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "4795e88f-d366-4ca9-ac22-bef22734e8ec"
+  }, {
+    "intent": "Payment.PaymentArrangement",
+    "condition": "$session.params.networkType = \"Copper\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "ReadNotPastDue"
+      }, {
+        "parameter": "ToModule",
+        "value": "PaymentArrangement"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PaymentArrangement",
+    "name": "5c5cd1b9-e6bc-488a-89e4-63a7896e696e"
+  }, {
+    "intent": "DTMF_3",
+    "condition": "$session.params.networkType = \"Copper\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "DTMF_Option",
+        "value": "PostpaidBalance_APCurrentBalance_3"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "ReadNotPastDue"
+      }, {
+        "parameter": "ToModule",
+        "value": "PaymentArrangement"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PaymentArrangement",
+    "name": "66adcd41-f290-4a7a-af21-d80644db9218"
+  }, {
+    "intent": "DTMF_4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "DTMF_Option",
+        "value": "PostpaidBalance_APCurrentBalance_4"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      }, {
+        "parameter": "ToState",
+        "value": "PaperlessBilling"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PostpaidPaperlessBilling",
+    "name": "809983ef-204a-46b3-bd4a-f78d066fdca6"
+  }, {
+    "intent": "AdditionalQuestion",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "AdditionalQuestion"
+      }, {
+        "parameter": "ToModule",
+        "value": "PostpaidBalance"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "80704c70-4687-40a0-b76f-281389b90c87"
+  }, {
+    "intent": "GoodToGo",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "GoodtoGo"
+      }, {
+        "parameter": "ToModule",
+        "value": "PostpaidBalance"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "7775a278-5c4e-4040-9b03-dcb697c3f522"
+  }, {
+    "intent": "DTMF_5",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "AdditionalQuestion"
+      }, {
+        "parameter": "ToModule",
+        "value": "PostpaidBalance"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "PostpaidBalance_APCurrentBalance_5"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "88472347-dde6-416c-891d-1596e640ac05"
+  }, {
+    "intent": "DTMF_6",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "GoodtoGo"
+      }, {
+        "parameter": "ToModule",
+        "value": "PostpaidBalance"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "PostpaidBalance_AP_CurrentBalance_6"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "430fe9d2-a6b9-492e-9eef-77b416968831"
+  }, {
+    "intent": "Payment.PaymentArrangement",
+    "condition": "$session.params.networkType = \"Copper_L\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PayArrLumenURL"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentArrangement"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "67f23175-ca7d-4f6a-a627-b1de685abc0b"
+  }, {
+    "intent": "Payment.PaymentArrangement",
+    "condition": "$session.params.networkType = \"Copper_L\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PayArrVoice"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentArrangement"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_13",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "efa9517f-6f13-4d26-95c9-549ce6c72759"
+  }, {
+    "intent": "DTMF_3",
+    "condition": "$session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PayArrVoice"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentArrangement"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalance_14",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "PostpaidBalance_APCurrentBalance_3"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "84dd9832-1671-45df-bd97-cbac11f94887"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Can I help you with something else?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Update Payment method"
+            }, {
+              "action": "quick_reply",
+              "title": "Make a Payment"
+            }, {
+              "action": "quick_reply",
+              "title": "Make a Payment Arrangement"
+            }, {
+              "action": "quick_reply",
+              "title": "Enroll in paperless billing"
+            }, {
+              "action": "quick_reply",
+              "title": "I have an additional question"
+            }, {
+              "action": "quick_reply",
+              "title": "Thanks, that was all I needed"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "To update your payment method, press 1. To make a payment, press 2. If you need to make a payment arrangement, press 3. To enroll in paperless billing, press 4. If you have an additional question, Press 5. Or, press 6 if you're finished. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCurrentBalance_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "909154fa-2ab6-43da-b19a-3e5bd368a7a2"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCurrentBalance_NoMatch",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "PostpaidBalance_APCurrentBalance"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "APCurrentBalance"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "07516f82-4747-47df-a253-7eadb3204c2a"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "To update your payment method, press 1. To make a payment, press 2. If you need to make a payment arrangement, press 3. To enroll in paperless billing, press 4. If you have an additional question, Press 5. Or, press 6 if you're finished.  " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCurrentBalance_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "5896406f-d956-4282-8cfa-40d26e6cf5e0"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That’s okay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_APCurrentBalance_NoInput2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "PostpaidBalance_APCurrentBalance"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "APCurrentBalance"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "58f7f4e1-9da2-45a1-96c3-1c50c5469b48"
+  } ],
+  "description": "AUTOPAY CURRENT BALANCE"
+}

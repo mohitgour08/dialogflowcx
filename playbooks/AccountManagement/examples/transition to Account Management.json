@@ -1,0 +1,32 @@
+{
+  "name": "aa07a747-53fb-46ad-9efd-e512d2039ec6",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "I understand that you want to check your account status"
+    }
+  }, {
+    "flowInvocation": {
+      "flow": "AccountManagement",
+      "inputActionParameters": {
+        "FAQSuccess": "DirectTransferToBA",
+        "ToModule": "AccountManagement",
+        "ToState": "AccountStatus",
+        "callerintent": "AccountStatus"
+      },
+      "outputActionParameters": {
+      
+      }
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "customer wants to know the account status"
+  },
+  "playbookOutput": {
+    "executionSummary": "Thank You"
+  },
+  "displayName": "transition to Account Management",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 144,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "en"
+}

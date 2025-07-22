@@ -1,0 +1,16 @@
+{
+  "name": "45469da5-0edb-4e10-9c60-dcc65f5d0292",
+  "displayName": "Head Intent",
+  "transitionRoutes": [ {
+    "intent": "BalanceInquiryOrMakePayment.Billing",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "how can I help you with billing today?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "b4d42421-2c5e-4db0-8894-69087f73ca17"
+  } ]
+}

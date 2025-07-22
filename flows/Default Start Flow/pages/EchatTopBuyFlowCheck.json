@@ -1,0 +1,29 @@
+{
+  "name": "34a59b55-b1f3-4d02-890e-e11c68abcd31",
+  "displayName": "EchatTopBuyFlowCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BuyFlowStep = \"1\" AND $session.params.ChatReason = \"TopLeftCorner\" AND $session.params.ChatReason = \"TopRightCorner\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EchatTopBuyFlowCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "1d0215a9-ea1e-41d4-8096-97dcafec8caf"
+  }, {
+    "condition": "$session.params.BuyFlowStep = \"2\" AND $session.params.ChatReason = \"TopLeftCorner\" AND $session.params.ChatReason = \"TopRightCorner\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EchatTopBuyFlowCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "4045710d-7bb4-4ed6-8957-4ee24f1448e9"
+  } ]
+}

@@ -1,0 +1,11 @@
+{
+  "entities": [ {
+    "value": "@sys.address:address",
+    "synonyms": [ "@sys.address:address" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "@sys.number:address",
+    "synonyms": [ "@sys.number:address" ],
+    "languageCode": "en-us"
+  } ]
+}

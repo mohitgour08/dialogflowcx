@@ -1,0 +1,37 @@
+{
+  "name": "021c8028-1d9e-45dc-b069-429ce19d060a",
+  "displayName": "GetSMSPasscode",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_GetSMSPasscode",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "GetSMSPasscodeChat",
+    "name": "ad165868-d953-45e9-adf4-0d09ccbe685e"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_GetSMSPasscode",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "GetSMSPasscodeVoice",
+    "name": "4a5244d5-3589-4c81-b6ed-058e782fdb1d"
+  } ]
+}

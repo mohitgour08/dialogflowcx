@@ -1,0 +1,30 @@
+{
+  "name": "fac91875-e948-4bc4-8b3e-d79fdc13c049",
+  "displayName": "OrderStatus",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_SalesManagement_OrderStatus_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "OrderStatus"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "6efb7368-96fd-4da4-bce0-4c0b7b40a664"
+  } ]
+}

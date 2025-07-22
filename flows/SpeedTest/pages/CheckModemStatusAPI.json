@@ -1,0 +1,389 @@
+{
+  "name": "2cc930f1-68d3-48a1-909d-0b43df4706ef",
+  "displayName": "CheckModemStatusAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003caudio src=\"https://chatservices.brightspeed.com/audio/HoldMusic.wav\" clipEnd=\"59s\"/\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "webhook": "ModemStatusbyBan",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_SpeedTest_CheckModemStatusAPI_none_wh_CheckModemStatusAPI",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "returnPartialResponses": true
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.GetModemResponseStatus = \"SUCCESS\" OR $session.params.GetModemResponseStatus = \"Success\" OR $session.params.GetModemResponseStatus = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckModemStatusAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SpeedTest_CheckModemStatusAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ]
+    },
+    "targetPage": "IsModemOnline",
+    "name": "c7ad0e2e-bc4a-4850-be5f-b05dcc398cf0"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckModemStatusAPI_default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CheckModemStatusAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "ModemStatusAPI",
+        "value": "$session.params.GetModemResponseStatus"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ModemStatusbyBan"
+      }, {
+        "parameter": "API_SpeedTest_CheckModemStatusAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ]
+    },
+    "targetPage": "UnableToConnectService",
+    "name": "1d3754b5-f0b4-457b-88b6-6f7e8fd681c7"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ " I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckModemStatusAPI_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemStatusAPI",
+        "value": "WebhookError"
+      }, {
+        "parameter": "GetModemResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ModemStatusbyBan"
+      }, {
+        "parameter": "API_SpeedTest_CheckModemStatusAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ]
+    },
+    "name": "fd40e12c-eabf-453a-a7c6-8635d9e0ad48"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ " I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckModemStatusAPI_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemStatusAPI",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "GetModemResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ModemStatusbyBan"
+      }, {
+        "parameter": "API_SpeedTest_CheckModemStatusAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ]
+    },
+    "name": "8d715bb6-0ff6-430b-b7ce-552ddc89d382"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckModemStatusAPI_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemStatusAPI",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "GetModemResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ModemStatusbyBan"
+      }, {
+        "parameter": "API_SpeedTest_CheckModemStatusAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ]
+    },
+    "name": "d0b27fe2-7f6c-4126-8dd9-f8811b8e1137"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ " I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckModemStatusAPI_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemStatusAPI",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "GetModemResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ModemStatusbyBan"
+      }, {
+        "parameter": "API_SpeedTest_CheckModemStatusAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ]
+    },
+    "name": "4a6a3790-cdc4-4157-9ffd-ecdace3fdfec"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ " I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckModemStatusAPI_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemStatusAPI",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "GetModemResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ModemStatusbyBan"
+      }, {
+        "parameter": "API_SpeedTest_CheckModemStatusAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ]
+    },
+    "name": "c3e18cc7-e652-48ee-b875-dffe1aa43bd1"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckModemStatusAPI_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemStatusAPI",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "GetModemResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ModemStatusbyBan"
+      }, {
+        "parameter": "API_SpeedTest_CheckModemStatusAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ]
+    },
+    "name": "3ed91b21-9d52-479d-b1f8-217ec3320c52"
+  } ]
+}

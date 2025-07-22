@@ -1,0 +1,20 @@
+{
+  "name": "61c88177-eb5e-475d-9e83-c54b64cfbaf5",
+  "displayName": "Representative",
+  "parameters": [ {
+    "id": "number",
+    "entityType": "@sys.number"
+  }, {
+    "id": "embargodtmf",
+    "entityType": "@EmbargoDTMF"
+  }, {
+    "id": "date-time",
+    "entityType": "@sys.date-time"
+  }, {
+    "id": "person",
+    "entityType": "@sys.person"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 264,
+  "dtmfPattern": "0"
+}

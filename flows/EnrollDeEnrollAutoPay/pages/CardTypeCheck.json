@@ -1,0 +1,108 @@
+{
+  "name": "861c120a-a43c-4393-b528-786ca7aaddb8",
+  "displayName": "CardTypeCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "AskDateCounter",
+      "value": 0
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$sys.func.MID($session.params.CreditCardNo, 1, 1) = 4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CardType",
+        "value": "Visa"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CardTypeCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "1b953938-fc58-4391-a437-85b8cb3fb114"
+  }, {
+    "condition": "$sys.func.MID($session.params.CreditCardNo, 1, 1) = 5",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CardType",
+        "value": "Mastercard"
+      }, {
+        "parameter": "MetricsEnrollDeEnrollAutoPay_CardTypeCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "b548f189-b2a9-4e1d-8c8e-321927c71249"
+  }, {
+    "condition": "$sys.func.MID($session.params.CreditCardNo, 1, 2) = 3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CardType",
+        "value": "JCB"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CardTypeCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "fa4e74f7-49fe-4686-895f-61ea671a45c0"
+  }, {
+    "condition": "$sys.func.MID($session.params.CreditCardNo, 1, 2) = 34 OR $sys.func.MID($session.params.CreditCardNo, 1, 2) = 37",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CardType",
+        "value": "American Express"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CardTypeCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "aed99b86-0c2c-45d7-96e2-b89284e605cf"
+  }, {
+    "condition": "$sys.func.MID($session.params.CreditCardNo, 1, 1) = 6",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CardType",
+        "value": "Discover"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CardTypeCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "5b61656c-8639-4f12-843f-f881b6ef519b"
+  }, {
+    "condition": "$sys.func.MID($session.params.CreditCardNo, 1, 2) = 30 OR $sys.func.MID($session.params.CreditCardNo, 1, 2) = 36 OR $sys.func.MID($session.params.CreditCardNo, 1, 2) = 38",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CardType",
+        "value": "Diners Club"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CardTypeCheck_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "0696fc76-44ee-4c21-9780-04416049243e"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Great! Next, " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Great! Next, " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CardTypeCheck_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnterExpiryDate",
+    "name": "7f070d3f-478b-4e87-852a-1e2c51f0a51d"
+  } ]
+}

@@ -1,0 +1,67 @@
+{
+  "trainingPhrases": [ {
+    "id": "59567ba3-7920-467f-9352-919ff0b68e0a",
+    "parts": [ {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " with auto ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ece3dd67-3261-4596-9be2-8c6ee6d0bc21",
+    "parts": [ {
+      "text": "More help",
+      "auto": true
+    }, {
+      "text": " with Auto ",
+      "auto": true
+    }, {
+      "text": "Pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "86e44bd5-23c2-4ea5-90f7-14a0d52674d5",
+    "parts": [ {
+      "text": "More help",
+      "auto": true
+    }, {
+      "text": " with my Auto ",
+      "auto": true
+    }, {
+      "text": "Pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "592c221c-831c-4d54-892f-2dd0e69a66b7",
+    "parts": [ {
+      "text": "More help",
+      "auto": true
+    }, {
+      "text": " with AutoPay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6d3227f2-2e5c-4689-98ca-299e5622f3a7",
+    "parts": [ {
+      "text": "More help",
+      "auto": true
+    }, {
+      "text": " with my AutoPay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

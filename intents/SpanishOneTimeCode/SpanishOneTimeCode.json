@@ -1,0 +1,10 @@
+{
+  "name": "515e33ee-4a22-43cb-a04a-11737f705555",
+  "displayName": "SpanishOneTimeCode",
+  "parameters": [ {
+    "id": "prebuilt_components_credit_card_expiration_date",
+    "entityType": "@prebuilt_components_credit_card_expiration_date"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 7
+}

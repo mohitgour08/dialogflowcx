@@ -1,0 +1,37 @@
+{
+  "name": "e517b548-2b4f-4bab-abe1-ea5ceadad7a2",
+  "displayName": "CardExpiredVoiceChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_CardExpiredVoiceChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FormPostpaidCurrentFullypaidAP",
+        "value": "hasNoBalanceCCE"
+      }, {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      } ]
+    },
+    "targetPage": "FormPostpaidCurrentFullyPaidAP",
+    "name": "fea4a696-a9f3-4660-b3dc-ef0f224a98e8"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_CardExpiredVoiceChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APBalanceCCExpiredFullpaidVoice",
+    "name": "028110d1-d967-4507-a972-1fabc1b92355"
+  } ]
+}

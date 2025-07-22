@@ -1,0 +1,216 @@
+{
+  "name": "ffdb4771-1946-4055-a101-e926c9fc5c2e",
+  "displayName": "NewPhoneNumber",
+  "form": {
+    "parameters": [ {
+      "displayName": "ENTER_TN",
+      "required": true,
+      "entityType": "@ENTER_TN",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I am sorry I didn't catch that." ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Starting with the area code, please enter the 10 digit phone number you would like me to send the payment link." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Payment_NewPhoneNumber_Nomatch_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ]
+          },
+          "name": "40bdd279-39ac-4b1e-882e-f01dae7bc607"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I didn’t understand your answer. " ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Payment_NewPhoneNumber_Nomatch_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Payment"
+            }, {
+              "parameter": "SS_PrepaidPayment",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoMatchRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "NewPhoneNumber"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "db083b98-5e9f-4a1f-a40f-a713625a075a"
+        }, {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again? " ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Starting with the area code, please enter the 10 digit phone number you would like me to send the payment link." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Payment_NewPhoneNumber_NoInput_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ]
+          },
+          "name": "c5f3e4e1-841f-491e-9569-1ec79c2f3a7f"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "That’s okay." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Payment_NewPhoneNumber_NoInput_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Payment"
+            }, {
+              "parameter": "SS_PrepaidPayment",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "NoInput"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoInputRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "NewPhoneNumber"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            },
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "7ca41edb-8622-4071-976b-d5ccf322e6df"
+        } ]
+      },
+      "advancedSettings": {
+        "dtmfSettings": {
+          "enabled": true,
+          "useSystemEntityRule": false,
+          "interdigitTimeoutDuration": {
+            "seconds": 5
+          },
+          "endpointingTimeoutDuration": {
+            "seconds": 5
+          }
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Starting with the area code, please enter the 10 digit phone number you would like me to send the payment link." ]
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_NewPhoneNumber_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NewPhoneNumber"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "f592714d-2772-44f7-92e9-d6714a55ee9a"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.ENTER_TN) = 10",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SMSNumber",
+        "value": "$session.params.ENTER_TN"
+      }, {
+        "parameter": "Metrics_Payment_NewPhoneNumber_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnterNewPhoneNumber",
+    "name": "86141a49-3fb6-446f-85b9-c22328bf3c5e"
+  } ]
+}

@@ -1,0 +1,117 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "I want to know about home ",
+      "auto": true
+    }, {
+      "text": "office",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to know about residential ",
+      "auto": true
+    }, {
+      "text": "services",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "residential and home services",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "May",
+      "auto": true
+    }, {
+      "text": " i know about the residential ",
+      "auto": true
+    }, {
+      "text": "and",
+      "auto": true
+    }, {
+      "text": " home ",
+      "auto": true
+    }, {
+      "text": "services",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "tell ",
+      "auto": true
+    }, {
+      "text": "me",
+      "auto": true
+    }, {
+      "text": " the residential and home ",
+      "auto": true
+    }, {
+      "text": "services",
+      "auto": true
+    }, {
+      "text": " that are available",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to know about ",
+      "auto": true
+    }, {
+      "text": "residential and home services",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you tell ",
+      "auto": true
+    }, {
+      "text": "me",
+      "auto": true
+    }, {
+      "text": " about the residential ",
+      "auto": true
+    }, {
+      "text": "service",
+      "auto": true
+    }, {
+      "text": " options available",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Home Office",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "homeoffice",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Residential"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

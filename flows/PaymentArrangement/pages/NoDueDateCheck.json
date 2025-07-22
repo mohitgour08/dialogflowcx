@@ -1,0 +1,343 @@
+{
+  "name": "f1f710c7-20d4-48ad-bd56-3d5374c51e1a",
+  "displayName": "NoDueDateCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "GetDateDiff",
+    "tag": "DateDifference",
+    "setParameterActions": [ {
+      "parameter": "Current",
+      "value": "$sys.func.NOW()"
+    }, {
+      "parameter": "CurrentDate",
+      "value": "$sys.func.FORMAT_DATE($sys.func.NOW(),\"yyyy-MM-dd\")"
+    }, {
+      "parameter": "OrderDueDate",
+      "value": "$session.params.OrderDueDate"
+    }, {
+      "parameter": "OrderCompletionDate",
+      "value": "$session.params.OrderCompletionDate"
+    }, {
+      "parameter": "PaymentDate",
+      "value": "\"$session.params.CurrentYear-$session.params.PaymentDate\"$session.params.PaymentDate"
+    }, {
+      "parameter": "CheckPaymentDate",
+      "value": "$session.params.CheckPaymentDate"
+    }, {
+      "parameter": "NextDueDate",
+      "value": "$session.params.NextDueDate"
+    }, {
+      "parameter": "CCExpirationDate",
+      "value": "$session.params.CCExpirationDate"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentDateDiff : \"True\" OR $session.params.DueDateDiff : \"True\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueDateCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service Failure"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateNotInRange"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "33caa0b2-201b-46ba-a81e-4e16761c9c27"
+  }, {
+    "condition": "$session.params.PaymentDateDiff \u003e 0 AND $session.params.DueDateDiff \u003e 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueDateCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoDueConfirmDate",
+    "name": "f4462c55-934d-43eb-a769-e26a1149f3dc"
+  }, {
+    "condition": "$session.params.firstDatefailure = \"false\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "The date you entered is not within the correct date range. Let's try again." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "The date you entered is not within the correct date range. Let's try again." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "firstDatefailure",
+        "value": "true"
+      }, {
+        "parameter": "PaymentDate",
+        "value": null
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueDateCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PlayCheckPaymentDate",
+        "value": null
+      }, {
+        "parameter": "CheckPaymentDate",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoDueSignUp",
+    "name": "cd5bb878-2bc4-449c-94e6-94a926776291"
+  }, {
+    "condition": "$session.params.firstDatefailure = \"true\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue getting you enrolled. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue getting you enrolled. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueDateCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service Failure"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "RetryFailedDateDifference"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "9563e394-97a3-4080-992a-91a32eaccbe8"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueDateCheck_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_NoDueDateCheck",
+        "value": "Success"
+      } ]
+    },
+    "name": "25fa74fc-b9b7-4cfc-916d-70028554d873"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueDateCheck_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_NoDueDateCheck",
+        "value": "Fail_Invalid"
+      } ]
+    },
+    "name": "73766381-c445-44ec-9cea-ed744ef88f94"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueDateCheck_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_NoDueDateCheck",
+        "value": "Fail_NotFound"
+      } ]
+    },
+    "name": "0fd780f7-0b94-4154-b753-524f6607bbf8"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueDateCheck_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_NoDueDateCheck",
+        "value": "Fail_Rejected"
+      } ]
+    },
+    "name": "fc9658b9-40f0-42cf-b2ec-0db27f9db1dc"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueDateCheck_WebhookTimeOut",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_NoDueDateCheck",
+        "value": "Fail_Timeout"
+      } ]
+    },
+    "name": "d6ca3651-4f5b-4679-b380-ac49c760df0d"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueDateCheck_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_NoDueDateCheck",
+        "value": "Fail_Unavailable"
+      } ]
+    },
+    "name": "63f8903d-7200-41d8-aa20-56174a53b8c9"
+  } ]
+}

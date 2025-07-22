@@ -1,0 +1,22 @@
+{
+  "name": "91b82f26-073a-40e3-8799-99bdea3a8c83",
+  "displayName": "Authentication.Capture Account Identifier",
+  "parameters": [ {
+    "id": "detail_type",
+    "entityType": "@detail_type"
+  }, {
+    "id": "account_number",
+    "entityType": "@account_number"
+  }, {
+    "id": "phone_number",
+    "entityType": "@sys.phone-number"
+  }, {
+    "id": "customer_email",
+    "entityType": "@sys.email"
+  }, {
+    "id": "account_type",
+    "entityType": "@account_type"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 68
+}

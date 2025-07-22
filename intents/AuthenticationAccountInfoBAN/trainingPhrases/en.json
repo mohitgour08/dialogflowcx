@@ -1,0 +1,106 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "my account number is "
+    }, {
+      "text": "A00007879",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my account number is "
+    }, {
+      "text": "a00007879",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "a00011134",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "a00132208",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "a00007879",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "A00132208",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "dtmf_digit_"
+    }, {
+      "text": "A0007879",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "A00153359",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "dtmf_digit_"
+    }, {
+      "text": "200009138",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "A00007879",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my account number is "
+    }, {
+      "text": "200009140",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my BAN is "
+    }, {
+      "text": "200009140",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "200009140",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

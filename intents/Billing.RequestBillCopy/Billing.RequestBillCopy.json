@@ -1,0 +1,16 @@
+{
+  "name": "0afb6f0d-7c75-4b27-8cf5-127e40d8eb5f",
+  "displayName": "Billing.RequestBillCopy",
+  "parameters": [ {
+    "id": "jargons",
+    "entityType": "@Jargons"
+  }, {
+    "id": "callerintent_routetoagent",
+    "entityType": "@callerintent_routetoagent"
+  }, {
+    "id": "date-period",
+    "entityType": "@sys.date-period"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 56
+}

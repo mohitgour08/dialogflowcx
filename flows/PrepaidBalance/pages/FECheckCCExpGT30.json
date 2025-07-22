@@ -1,0 +1,39 @@
+{
+  "name": "e4d94e96-4e25-41e9-a211-cdd8dfa8c7b8",
+  "displayName": "FECheckCCExpGT30",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Thank you! Your account is up to date. Your next payment $session.params.MonthlyRecurringCharge1 will process on $session.params.BillInfo_BillDueDate using the $session.params.CreditCardType  ending in $session.params.CreditCardNumberLast4." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_PrepaidBalance",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_FECheckCCExpGT30_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "PrepaidBalance"
+      }, {
+        "parameter": "ToState",
+        "value": "CCExpGT30"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "9b17f9ba-ae1c-4ebc-afa7-310ca24954b2"
+  } ]
+}

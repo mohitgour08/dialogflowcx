@@ -1,0 +1,189 @@
+{
+  "name": "324f067d-ba12-4db6-b34a-eb3864765c1f",
+  "displayName": "AccountOrServiceManagementMenu",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "If you'd like to upgrade your service, press 1. To add a new service, press 2. To remove existing services, press 3. To check your account status. press 4. For any other inquiries, press 5 or press 6 to repeat this message, You can also press 7 to go back." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Upgrade_DTMF1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "UpgradeService"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_AccountOrServiceManagementMenu_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "ServiceManagement",
+    "name": "6402ce08-3b78-4c4a-a61d-9f20b0dbbcc7"
+  }, {
+    "intent": "AddService_DTMF2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_AccountOrServiceManagementMenu_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "AddServiceFeatures"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "92774b20-5cd5-4989-ab2d-7296fb20a27f"
+  }, {
+    "intent": "RemoveService_DTMF3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_AccountOrServiceManagementMenu_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "RemoveServiceFeatures"
+      } ]
+    },
+    "targetFlow": "ServiceManagement",
+    "name": "44d7cb43-061f-4ce3-a4f9-7ac0d3562831"
+  }, {
+    "intent": "AcctStatus_DTMF4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_AccountOrServiceManagementMenu_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "AccountStatus"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "c460be3b-2edc-4297-8b71-e492da0e0a7f"
+  }, {
+    "intent": "OtherInquiries_DTMF5",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_AccountOrServiceManagementMenu_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "4d7674c0-2374-479a-9271-9b5dd5a711cd"
+  }, {
+    "intent": "Repeat_DTMF6",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_AccountOrServiceManagementMenu_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "AccountOrServiceManagementMenu"
+      } ]
+    },
+    "targetPage": "AccountOrServiceManagementMenu",
+    "name": "e55d7b37-6c4f-4d65-86b3-1c940a2ebb56"
+  }, {
+    "intent": "GoBack_DTMF7",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_AccountOrService ManagementMenu_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "DTMFFallbackMenu",
+    "name": "f0f3edf8-db9b-48b2-aa03-9d6dbcda1192"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "If you'd like to upgrade your service, press 1. To add a new service, press 2. To remove existing services, press 3. To check your account status. press 4. For any other inquiries, press 5 or press 6 to repeat this message, You can also press 7 to go back." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_AccountOrServiceManagementMenu_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "3bdabab5-6a34-4b53-981a-6b3fd702d0d9"
+  }, {
+    "targetPage": "End Session",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Thank you for calling Brightspeed! Please contact us again any time for further assistance." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_AccountOrServiceManagementMenu_NoInput_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CallerStatus",
+        "value": "Abandoned"
+      } ]
+    },
+    "name": "588d9003-499d-47a6-8048-d6bf4ef7c2f8"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "If you'd like to upgrade your service, press 1. To add a new service, press 2. To remove existing services, press 3. To check your account status. press 4. For any other inquiries, press 5 or press 6 to repeat this message, You can also press 7 to go back." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_AccountOrServiceManagementMenu_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "28c39abc-e44f-49a3-b968-cb86e817320d"
+  }, {
+    "targetPage": "End Session",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Thank you for calling Brightspeed! Please contact us again any time for further assistance." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_AccountOrServiceManagementMenu_NoMatch_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CallerStatus",
+        "value": "Abandoned"
+      } ]
+    },
+    "name": "f0346e04-e4e3-45c4-a69c-7fd145557f4a"
+  } ]
+}

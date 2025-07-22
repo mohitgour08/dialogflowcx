@@ -1,0 +1,540 @@
+{
+  "name": "c65c8a6f-8961-4b67-842d-ac79a2a9d508",
+  "displayName": "SuspendedPAEligible",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "What would you like to do?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Make a payment"
+          }, {
+            "action": "quick_reply",
+            "title": "Make a payment arrangement"
+          }, {
+            "action": "quick_reply",
+            "title": "Payment mailing address and in-person payment locations"
+          }, {
+            "action": "quick_reply",
+            "title": "Enroll in paperless billing"
+          }, {
+            "action": "quick_reply",
+            "title": "I have an additional question"
+          }, {
+            "action": "quick_reply",
+            "title": "Thanks, that was all I needed."
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "To make a payment now, say \"make a payment.\" To set up a payment arrangement say \"payment arrangement.\" To enroll in paperless billing, say \"Paperless Billing" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "MakeAPayment",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PostpaidPayment"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "1775df6d-9f09-4c8a-9e10-ef58580d8859"
+  }, {
+    "intent": "Payment.PaymentArrangement",
+    "condition": "$session.params.networkType = \"Copper\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "ReadPlans"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentArrangement"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PaymentArrangement",
+    "name": "332ca050-ab27-4ccf-9846-e2f34d7d3110"
+  }, {
+    "intent": "MailingAddressOrPaymentLocations",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "MailingAddressPaymentLocations",
+    "name": "4c7ed656-a223-4b8f-8a45-32f78d834249"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "agentPromptRemoval",
+        "value": "Yes"
+      }, {
+        "parameter": "agentPromptRemoval_pagename",
+        "value": "SuspendedPAEligible"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SuspendedPAEligible"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "a2354e64-cee2-4aa9-af20-a21b5beb26e1"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "PostpaidBalance_SuspendedPAEligible_1"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "0564b7b0-a192-44a5-a196-c7aeb13b2e9b"
+  }, {
+    "intent": "DTMF_2",
+    "condition": "$session.params.networkType = \"Copper\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "ReadPlans"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentArrangement"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "PostpaidBalance_SuspendedPAEligible_2"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PaymentArrangement",
+    "name": "39e16fb3-c87d-4da4-a4b5-c09e2c807b31"
+  }, {
+    "intent": "EnrollPaperlessBilling",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      }, {
+        "parameter": "ToState",
+        "value": "PaperlessBilling"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PostpaidPaperlessBilling",
+    "name": "550832ed-896b-4e4e-92b1-dc8a9a032213"
+  }, {
+    "intent": "Payment.PaymentArrangement",
+    "condition": "$session.params.networkType = \"Copper_L\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PayArrLumenURL"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentArrangement"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "f2576451-02a7-4f68-b33a-0df6e641c385"
+  }, {
+    "intent": "Payment.PaymentArrangement",
+    "condition": "$session.params.networkType = \"Copper_L\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PayArrVoice"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentArrangement"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "5f6a9898-376c-48a6-b98a-efa0c7b06a90"
+  }, {
+    "intent": "DTMF_2",
+    "condition": "$session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PayArrVoice"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentArrangement"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "PostpaidBalance_SuspendedPAEligible_2"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "4e798d75-b45f-4d86-9e9a-3dd4a1e65fdc"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "PostpaidBalance_SuspendedPAEligible_3"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      }, {
+        "parameter": "ToState",
+        "value": "PaperlessBilling"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PostpaidPaperlessBilling",
+    "name": "917afbc9-2d76-44fc-b2ac-aa6ecd1bf478"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "What would you like to do?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Make a payment"
+            }, {
+              "action": "quick_reply",
+              "title": "Make a payment arrangement"
+            }, {
+              "action": "quick_reply",
+              "title": "Payment mailing address and in-person payment locations"
+            }, {
+              "action": "quick_reply",
+              "title": "Enroll in paperless billing"
+            }, {
+              "action": "quick_reply",
+              "title": "I have an additional question"
+            }, {
+              "action": "quick_reply",
+              "title": "Thanks, that was all I needed."
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "To make a payment, press 1. To setup a payment arrangement, press 2. To enroll in paperless billing, press 3." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "7827596b-421c-48b5-ae0e-9672f38b0ac7"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_NoMatch",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "PostpaidBalance_SuspendedPAEligible"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SuspendedPAEligible"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "9696fc4b-cd0b-48ad-836a-a463efb593dd"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "To make a payment, press 1. To setup a payment arrangement, press 2. To enroll in paperless billing, press 3." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "70d97a0d-b165-4ccf-8908-f265eb7ce6ca"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That’s okay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_SuspendedPAEligible_NoInput",
+        "value": "\"$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "PostpaidBalance_SuspendedPAEligible"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SuspendedPAEligible"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "0cb1495f-1ceb-4f90-83dd-f7805df81217"
+  } ],
+  "transitionRouteGroups": [ "GoodToGo", "AdditionalQuestion" ]
+}

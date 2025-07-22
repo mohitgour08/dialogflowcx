@@ -1,0 +1,317 @@
+{
+  "name": "52da924a-3582-4b6d-837f-4e239950dae6",
+  "displayName": "DefaultRoute",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "DefaultRoute_Env",
+      "value": "$session.params.env"
+    }, {
+      "parameter": "DefaultRoute_RouteIntent",
+      "value": "$session.params.RouteIntent"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.env = \"DEV\" AND ($session.params.RouteIntent = \"Bill\" OR $session.params.RouteIntent = \"Care\" OR $session.params.RouteIntent = \"Payment\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_DefaultRoute_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queueID",
+        "value": "42"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "51181241-2d76-4039-aa02-399b1dbe61ca"
+  }, {
+    "condition": "$session.params.env = \"DEV\" AND $session.params.RouteIntent = \"Sales\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_DefaultRoute_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queueID",
+        "value": "33"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "f70743d4-9973-4ccc-9b47-0f41720ed2dc"
+  }, {
+    "condition": "$session.params.env = \"DEV\" AND $session.params.RouteIntent = \"Repair\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_DefaultRoute_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queueID",
+        "value": "32"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "e2bf8c76-fd11-492a-ab43-ec8c13ee4102"
+  }, {
+    "condition": "$session.params.env = \"DEV\" AND ($session.params.RouteIntent = \"Saves\" OR $session.params.RouteIntent = \"Cancel\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_DefaultRoute_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queueID",
+        "value": "38"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "b292ba6f-035c-4a3a-8777-2d25b213710f"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND ($session.params.RouteIntent = \"Bill\" OR $session.params.RouteIntent = \"Care\" OR $session.params.RouteIntent = \"Payment\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_DefaultRoute_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queueID",
+        "value": "46"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "2ce93ced-4dca-42a0-9f13-7fb6ddcb1085"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND $session.params.RouteIntent = \"Sales\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_DefaultRoute_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queueID",
+        "value": "34"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "d92e667d-db0e-4100-af9b-65625e32a9a0"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND $session.params.RouteIntent = \"Repair\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_DefaultRoute_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queueID",
+        "value": "38"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "42208b67-08af-4472-8541-5ecfc5f36497"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND ($session.params.RouteIntent = \"Saves\" OR $session.params.RouteIntent = \"Cancel\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_DefaultRoute_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queueID",
+        "value": "42"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "9c446774-41cf-4ee6-bee0-b85ef9f9d722"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND ($session.params.RouteIntent = \"Bill\" OR $session.params.RouteIntent = \"Care\" OR $session.params.RouteIntent = \"Payment\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_DefaultRoute_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queueID",
+        "value": "24"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "270e77cd-f645-4c85-b3a4-b6df7ca850e2"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND $session.params.RouteIntent = \"Sales\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_DefaultRoute_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queueID",
+        "value": "12"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "e1793e02-f801-4d3e-9678-02d73a5ed9ad"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND $session.params.RouteIntent = \"Repair\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_DefaultRoute_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queueID",
+        "value": "16"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "3799c192-1d5e-432b-97f2-8833f0a834f5"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND ($session.params.RouteIntent = \"Saves\" OR $session.params.RouteIntent = \"Cancel\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_DefaultRoute_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queueID",
+        "value": "20"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "4811bd3f-2754-40a3-be85-43a292927b06"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_DefaultRoute_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queueID",
+        "value": "24"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "5296153d-c607-4812-8a4e-8c561bbcc697"
+  } ]
+}

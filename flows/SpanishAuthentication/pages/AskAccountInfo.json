@@ -1,0 +1,83 @@
+{
+  "name": "7fcba484-70cf-4249-85d7-a9cf14eba20b",
+  "displayName": "AskAccountInfo",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eAntes de que podamos ayudar, necesito encontrar su cuenta. Comenzando con el código de área, ingrese un número de teléfono asociado con su cuenta o su número de cuenta de facturación de 9 o 10 dígitos.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_SpanishAuthentication_AskAccountInfo",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "AuthenticationAccountInfoBAN",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$session.params.ENTER_BAN"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_AskAccountInfo_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "validateAccountInfo",
+    "name": "1d98738e-92cb-46a4-91de-8b84bd0c3a80"
+  }, {
+    "intent": "AuthenticationAccountInfoTN",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$session.params.phone-number"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_AskAccountInfo_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "validateAccountInfo",
+    "name": "aae27c3a-a895-4acc-82a5-6a572fd1621e"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "validateAccountInfo",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_AskAccountInfo_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        }
+      }
+    },
+    "name": "ca48ef73-6fec-4d41-a7ef-34dace9b6590"
+  } ]
+}

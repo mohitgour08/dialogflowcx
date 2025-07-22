@@ -1,0 +1,534 @@
+{
+  "trainingPhrases": [ {
+    "id": "1e108139-16b7-48f6-ae8d-8705ace95485",
+    "parts": [ {
+      "text": "Help"
+    }, {
+      "text": " me with "
+    }, {
+      "text": "App"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "63a045bf-65cb-4b9b-87d0-f604f50e1026",
+    "parts": [ {
+      "text": "Login App"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "63684b45-c2a0-489d-91b2-e6af12e973f8",
+    "parts": [ {
+      "text": "App Login"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d4229b4b-ad21-4a23-82d4-0ae002312681",
+    "parts": [ {
+      "text": "App Logon"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c2db9921-86d4-450d-8b6b-42f245bba083",
+    "parts": [ {
+      "text": "My "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " App"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0dcbeae2-8a96-45e4-9d4f-11fe9d5213aa",
+    "parts": [ {
+      "text": "Requesting help for the"
+    }, {
+      "text": " "
+    }, {
+      "text": "app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c0bee3dd-8895-4363-bff5-9a704c869929",
+    "parts": [ {
+      "text": "Seeking"
+    }, {
+      "text": " "
+    }, {
+      "text": "app"
+    }, {
+      "text": " guidance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "68c48760-b9a6-4bcf-9197-aeb1409d547e",
+    "parts": [ {
+      "text": "Help"
+    }, {
+      "text": " required for the "
+    }, {
+      "text": "app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0e232652-c5b4-4780-a8de-110b068ce936",
+    "parts": [ {
+      "text": "App"
+    }, {
+      "text": " "
+    }, {
+      "text": "support"
+    }, {
+      "text": " needed"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f3915212-24d5-4d0c-a9e5-ebc6bd05f5d7",
+    "parts": [ {
+      "text": "Assistance with the "
+    }, {
+      "text": "app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ef1e5433-7f03-4f75-8127-cfaa092f34de",
+    "parts": [ {
+      "text": "app"
+    }, {
+      "text": " "
+    }, {
+      "text": "help"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6cbeb5d1-1fab-4316-b66b-2f46827015bf",
+    "parts": [ {
+      "text": "App"
+    }, {
+      "text": " Queries"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9120a2d5-2162-4586-b105-376919339a24",
+    "parts": [ {
+      "text": "app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c6abe13b-8f5c-4789-b9f2-8ebaea6c3321",
+    "parts": [ {
+      "text": "Help"
+    }, {
+      "text": " with "
+    }, {
+      "text": "app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1367b146-ad6d-4724-b446-440407ea478e",
+    "parts": [ {
+      "text": "Help logging into the app"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "fa6101dd-819a-444a-b24a-a74c14e405e6",
+    "parts": [ {
+      "text": "My Brightspeed app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "05a923d4-a909-480f-bf02-dd4573b7c9cd",
+    "parts": [ {
+      "text": "Manage App"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6b32a73e-84dd-4e5f-8360-6898919c396c",
+    "parts": [ {
+      "text": "Manage "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " App"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8a31a430-6ec5-4dc2-8cb2-1004684fd774",
+    "parts": [ {
+      "text": "I can't access my "
+    }, {
+      "text": "brspd"
+    }, {
+      "text": " app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0d498f00-88a8-4e6f-9843-55f6658bbcb2",
+    "parts": [ {
+      "text": "I "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " access my "
+    }, {
+      "text": "app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fa593399-bc13-460e-9515-0345e743b646",
+    "parts": [ {
+      "text": "The "
+    }, {
+      "text": "app"
+    }, {
+      "text": " won't let me verify my "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bbaf007b-a678-4aef-a2f9-5a9bf4ea2d3a",
+    "parts": [ {
+      "text": "I keep getting an error message when I try to "
+    }, {
+      "text": "login"
+    }, {
+      "text": " in "
+    }, {
+      "text": "app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e84f5e7d-eaaa-4f2b-808a-7e69e4a7ecf9",
+    "parts": [ {
+      "text": "I keep getting an error message in the "
+    }, {
+      "text": "app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "926334ad-f225-4a7f-a1fc-e768ad545c66",
+    "parts": [ {
+      "text": "My password and username isn't working in app "
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2a1d5190-c713-4bcc-ab52-80657f8d28a3",
+    "parts": [ {
+      "text": "I keep getting an error message in "
+    }, {
+      "text": "app"
+    }, {
+      "text": " when I try to log in"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b88080b3-03a6-4172-9f53-f20e0fb0b54b",
+    "parts": [ {
+      "text": "I'm having trouble logging in to the "
+    }, {
+      "text": "app"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "379b1ed2-9fcb-4083-b905-024861b6e9a8",
+    "parts": [ {
+      "text": "I "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " log in to the "
+    }, {
+      "text": "app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "45f0cddd-6de0-4ed5-8fa1-06a7481ec8a3",
+    "parts": [ {
+      "text": "Where can I find more information about the "
+    }, {
+      "text": "BRSPD"
+    }, {
+      "text": " app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a2735a44-02e4-4146-9773-9ff19737ce24",
+    "parts": [ {
+      "text": "Is the "
+    }, {
+      "text": "BRSPD"
+    }, {
+      "text": " app compatible with my device"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b7739758-4582-4f57-89db-b671e02a458a",
+    "parts": [ {
+      "text": "Is the "
+    }, {
+      "text": "BRSPD"
+    }, {
+      "text": " app available"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0e1d120d-cdc6-4f6f-9491-55e12202fc13",
+    "parts": [ {
+      "text": "I'm not sure how to use the "
+    }, {
+      "text": "BRSPD"
+    }, {
+      "text": " app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "07fd1a4c-4bcf-43b7-a26e-eea5e9f9ecda",
+    "parts": [ {
+      "text": "I'm having a problem with the "
+    }, {
+      "text": "BRSPD"
+    }, {
+      "text": " app"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "c7a94916-72bd-42cc-972f-206bb6c878cf",
+    "parts": [ {
+      "text": "I can't find the "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " app in the Google Play Store"
+    } ],
+    "repeatCount": 3,
+    "languageCode": "en-us"
+  }, {
+    "id": "53d203dc-6b2d-464d-bc5d-15c14239cece",
+    "parts": [ {
+      "text": "Is the "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " app available for my device"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "b3b0a743-262f-416e-8f1e-daacac19be2f",
+    "parts": [ {
+      "text": "I "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " find the "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " app in the "
+    }, {
+      "text": "App"
+    }, {
+      "text": " Store"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "54f38703-1fed-4e73-b3d4-1f58cd4c8253",
+    "parts": [ {
+      "text": "Where can I download the "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f16e1016-b454-4dfa-9e0d-e3e4686229fb",
+    "parts": [ {
+      "text": "How do I download the "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "59070bcc-dd96-4bfc-9f01-be8c3484f64a",
+    "parts": [ {
+      "text": "I "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " find the "
+    }, {
+      "text": "Brightspeed app"
+    }, {
+      "text": " in the "
+    }, {
+      "text": "App"
+    }, {
+      "text": " Store"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "454e2d47-fc50-4a6b-be63-131140c2641c",
+    "parts": [ {
+      "text": "Where can I "
+    }, {
+      "text": "download the Brightspeed app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e40553ce-8481-4bf4-ac7a-c3cb80f4a7d9",
+    "parts": [ {
+      "text": "I have a question about the "
+    }, {
+      "text": "BRSPD"
+    }, {
+      "text": " app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "aad1ff57-f489-40c9-96a4-142add6e98b8",
+    "parts": [ {
+      "text": "I'm having trouble "
+    }, {
+      "text": "downloading the BRSPD app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9b6e86e8-a133-4a2a-8f87-c79fc25102c4",
+    "parts": [ {
+      "text": "How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I "
+    }, {
+      "text": "update"
+    }, {
+      "text": " the "
+    }, {
+      "text": "BRSPD app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "eb3901de-fcde-4716-af97-729d1443f65d",
+    "parts": [ {
+      "text": "How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I install the "
+    }, {
+      "text": "BRSPD app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b790af78-f144-4c0c-b81b-9df8d3fd8b6b",
+    "parts": [ {
+      "text": "What are the system requirements for the "
+    }, {
+      "text": "BRSPD app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7832e682-9e6a-425e-b515-53b77fa81d77",
+    "parts": [ {
+      "text": "Is the "
+    }, {
+      "text": "BRSPD app"
+    }, {
+      "text": " available for my "
+    }, {
+      "text": "device"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "05a24521-b27f-4e83-8212-91c342e2b407",
+    "parts": [ {
+      "text": "I "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " find the "
+    }, {
+      "text": "BRSPD app"
+    }, {
+      "text": " in the "
+    }, {
+      "text": "App"
+    }, {
+      "text": " Store."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bef2c970-63fb-44db-aab9-65ba8f50d48f",
+    "parts": [ {
+      "text": "Where can I "
+    }, {
+      "text": "download the BRSPD app"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "42c67735-7645-4552-9443-cd13999f5ebe",
+    "parts": [ {
+      "text": "Download Brightspeed App"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b978d05a-7662-4047-b090-bea93489f0cf",
+    "parts": [ {
+      "text": "Download BRSPD App"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

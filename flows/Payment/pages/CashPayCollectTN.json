@@ -1,0 +1,250 @@
+{
+  "name": "24af54c7-5d1f-4a88-a65c-79d62dc0eae4",
+  "displayName": "CashPayCollectTN",
+  "form": {
+    "parameters": [ {
+      "displayName": "CashPayTN",
+      "required": true,
+      "entityType": "@ENTER_TN",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_Payment_CashPayCollectTN_CashPayTN",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+              "allowPlaybackInterruption": true
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Using the keypad, please enter the 10 digit phone number that you would like me to send the text message to. Remember, data charges from your carrier may apply. " ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Payment_CashPayCollectTN_NI1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+                "allowPlaybackInterruption": true
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "0e9e1252-c006-47fd-b80a-58c099b74928"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "That's okay." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Payment_CashPayCollectTN_NI2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Payment"
+            }, {
+              "parameter": "SS_CashPayment",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "NoInput"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoInputRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "CashPayCollectTN"
+            } ]
+          },
+          "name": "d42c3818-ba25-402a-b910-f81e0d69b8df"
+        }, {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Using the keypad, please enter the 10 digit phone number that you would like me to send the text message to. Remember, data charges from your carrier may apply. " ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Payment_CashPayCollectTN_NM1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+                "allowPlaybackInterruption": true
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "310c7db9-951d-44f5-9215-0bf1a5aa485a"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I didn’t understand your answer. " ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Payment_CashPayCollectTN_NM2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "SS_CashPayment",
+              "value": "Failure"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Payment"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoMatchRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "CashPayCollectTN"
+            } ]
+          },
+          "name": "860ec105-df1a-4c89-bcd2-987dd1a86d7b"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Using the keypad, please enter the 10 digit phone number that you would like me to send the text message to. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Remember, data charges from your carrier may apply. " ]
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_Payment_CashPayCollectTN_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "SS_CashPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CashPayCollectTN"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "68854c87-63d0-4679-aa44-acfc72d17174"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.CashPayTN) = 10",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_CashPayCollectTN_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "contactNumber",
+        "value": "$session.params.CashPayTN"
+      }, {
+        "parameter": "CashPayTN",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CashPayConfirmTN",
+    "name": "796fce16-b17d-4e10-95c0-5cf6d74169f3"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.CashPayTN) = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CashPayTN",
+        "value": "$sys.func.TO_TEXT($session.params.CashPayTN)"
+      }, {
+        "parameter": "CashPayTN",
+        "value": "$sys.func.MID($session.params.CashPayTN, 2, 10)"
+      }, {
+        "parameter": "Metrics_Payment_CashPayCollectTN_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "contactNumber",
+        "value": "$session.params.CashPayTN"
+      }, {
+        "parameter": "CashPayTN",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CashPayConfirmTN",
+    "name": "4721f84d-49d3-4f71-83a8-d83f8132ad33"
+  } ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "5ac76eb1-9fee-41cf-8393-405efb466400",
+  "displayName": " ResendCode",
+  "parameters": [ {
+    "id": "press9",
+    "entityType": "@Press9"
+  }, {
+    "id": "location",
+    "entityType": "@sys.location"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 16
+}

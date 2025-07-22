@@ -1,0 +1,26 @@
+{
+  "name": "2f3fca41-c36c-4f95-8ea0-aec41ba4bf6f",
+  "displayName": "SmallBusiness",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Small Business accounts are handled by a specialized group that only provides phone support. Please call our Small Business Support team at 1-833-692-7773 Mon-Fri 8am to 8pm Sat-Sun 8am to 5pm est." ]
+      },
+      "languageCode": "en"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Disconnect",
+    "name": "9651c59f-013a-47ed-954b-4ead87630205"
+  } ]
+}

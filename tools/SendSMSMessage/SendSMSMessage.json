@@ -1,0 +1,17 @@
+{
+  "name": "0eaaa6bd-bfa0-4132-b695-605d00b08e6e",
+  "displayName": "SendSMSMessage",
+  "description": "This tool use to send SMS to the customers.",
+  "openApiSpec": {
+    "authentication": {
+      "oauthConfig": {
+        "oauthGrantType": "CLIENT_CREDENTIAL",
+        "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+        "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+        "tokenEndpoint": "https://api-dv.brightspeed.com/oauth2/token"
+      }
+    },
+    "ignoreUnknownFields": true
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

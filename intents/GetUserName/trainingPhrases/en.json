@@ -1,0 +1,28 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "My name is "
+    }, {
+      "text": "robert",
+      "parameterId": "name"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "robert",
+      "parameterId": "name"
+    }, {
+      "text": " here"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Robert",
+      "parameterId": "name"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

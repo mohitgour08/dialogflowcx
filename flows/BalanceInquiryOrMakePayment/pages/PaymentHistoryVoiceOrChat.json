@@ -1,0 +1,31 @@
+{
+  "name": "6e61b40e-2dfd-4332-954f-745b070eec2f",
+  "displayName": "PaymentHistoryVoiceOrChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\" AND $session.params.ToState = \"PaymentHistory\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_PaymentHistoryVoiceOrChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "e9809b30-00b7-4082-b008-d538f86c505e"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_PaymentHistoryVoiceOrChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "4bce76ce-b825-4ff7-beaf-39ccd79fbe23"
+  } ]
+}

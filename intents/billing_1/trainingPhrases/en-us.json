@@ -1,0 +1,189 @@
+{
+  "trainingPhrases": [ {
+    "id": "9dbf5c34-cadf-41ba-85d6-f997a95463fd",
+    "parts": [ {
+      "text": "I would like to see my bill that i paid on "
+    }, {
+      "text": "10th march",
+      "parameterId": "date"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a63dcd04-034f-490c-848d-3372216b710f",
+    "parts": [ {
+      "text": "I want the late fee to be removed from my bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ec26c52c-7912-470f-be4c-f1adc664f2fc",
+    "parts": [ {
+      "text": "I have a question about my bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "747da7a7-2da1-45db-9ba8-4ff560129c90",
+    "parts": [ {
+      "text": "how do i get a copy of my monthly statement",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ca30e5e0-c879-4c86-8573-9d73d9bc372a",
+    "parts": [ {
+      "text": "How can I check my online bill now"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "89beb4e2-e33b-452e-9f5e-1817737ad994",
+    "parts": [ {
+      "text": "My account was recently transferred from "
+    }, {
+      "text": "century Link"
+    }, {
+      "text": " how do I check my bill online"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6e391fc4-34b1-4b3a-bc27-9771cf03ef7f",
+    "parts": [ {
+      "text": "I need to update my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " billing information",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "96ad5f76-77f4-47e3-b263-7be2b73f9c69",
+    "parts": [ {
+      "text": "how can i get my previous bills ?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1aa66474-8464-4be3-b58c-3f488355139a",
+    "parts": [ {
+      "text": "Need my bill ",
+      "auto": true
+    }, {
+      "text": "mailed",
+      "auto": true
+    }, {
+      "text": " to me",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "50f7fc8e-abf2-4aa0-9229-0163b18cce8b",
+    "parts": [ {
+      "text": "bill query",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "39b8acab-6009-460e-85e0-3652c0304b43",
+    "parts": [ {
+      "text": "Where to see my bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a1a8b088-af3c-4343-8e7c-2e91309e14b8",
+    "parts": [ {
+      "text": "it regarding my bill statement",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b50e7f36-7eab-4183-a769-743adaf67634",
+    "parts": [ {
+      "text": "Account",
+      "auto": true
+    }, {
+      "text": " statement",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "52857013-90c8-49b0-b817-9a46e94f806b",
+    "parts": [ {
+      "text": "yes i need help with my Invoice",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e2611d83-9e8c-4bb4-bdf3-e1f05f7f503a",
+    "parts": [ {
+      "text": "billing related issues",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e2ed197f-acf7-43a6-96b9-a30fd4310678",
+    "parts": [ {
+      "text": "Just need to check something on my bill.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cfab6712-6a07-4ee9-bc93-024965835ee5",
+    "parts": [ {
+      "text": "issue with my bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "16f3b40c-5adc-49d6-8209-99f4d6c4559a",
+    "parts": [ {
+      "text": "assist me with billing",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a0677e63-e610-43a5-8694-15400957225f",
+    "parts": [ {
+      "text": "I need help with billing",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3a2504e4-9b0a-4214-bf60-960ef3cb5dbb",
+    "parts": [ {
+      "text": "Bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "174b498d-832a-48d6-a971-5facd113184b",
+    "parts": [ {
+      "text": "Billing",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

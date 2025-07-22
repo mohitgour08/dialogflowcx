@@ -1,0 +1,56 @@
+{
+  "name": "a4058bb7-c945-43ec-ac7d-64ac680e521a",
+  "displayName": "PastDuePayMethodCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentMethod = \"CreditCard\" OR $session.params.PaymentMethod = \"CC\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentMethod",
+        "value": "CARD"
+      }, {
+        "parameter": "PaymentType",
+        "value": "$session.params.PaymentMethod"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PastDuePayMethodCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PastDuePayArrAPI",
+    "name": "7c60861b-5417-424a-b8ab-ef6d04dea7d6"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PastDuePayMethodCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "$session.params.PaymentMethod"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PastDuePayArrAPI",
+    "name": "da6f584c-d681-4c1d-889d-8b91a40993e3"
+  } ]
+}

@@ -1,0 +1,312 @@
+{
+  "name": "565a3e36-a471-4ff3-990e-f2c2a8fa99b6",
+  "displayName": "EnterCVV",
+  "form": {
+    "parameters": [ {
+      "displayName": "CVV",
+      "required": true,
+      "entityType": "@Cvv",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_SecuredPayments_EnterCVV_CVV",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+              "allowPlaybackInterruption": true
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003eI’m sorry, I didn’t hear your answer. Can you please say that again?\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Please enter the CVV number on your card. This is usually the 3 digit number located on the back of the card." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_SecuredPayments_EnterCVV_NoInput_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "NoInput1Triggered",
+              "value": "TRUE"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+                "allowPlaybackInterruption": true
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "5f380d6e-4a1d-4602-9b30-a16b9348da06"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "That's okay" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_SecuredPayments_EnterCVV_NoInput_Default",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Payment"
+            }, {
+              "parameter": "SS_SecuredPayments",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "NoInput"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoInputRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "EnterCVV"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            },
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "22ccfff9-ad1d-4c27-9f50-a98e307ef958"
+        }, {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Please enter the CVV number on your card. This is usually the 3 digit number located on the back of the card." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_SecuredPayments_EnterCVV_NoMatch_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "NoMatch1Triggered",
+              "value": "TRUE"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+                "allowPlaybackInterruption": true
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "e9ad7f91-c321-486e-bc37-c486e078bb98"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I didn’t understand your answer." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_SecuredPayments_EnterCVV_NoMatch_Default",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Payment"
+            }, {
+              "parameter": "SS_SecuredPayments",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoMatchRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "EnterCVV"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "264ce488-aca5-443f-9dcb-5f088656c3c4"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Now, please enter the CVV number on your card. This is usually the 3 digit number located on the back of the card." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Cancel OR Go Back",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_EnterCVV_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CancelORGoBackVoice",
+    "name": "50ddaaf2-7593-44bf-857e-92195501eebe"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_EnterCVV_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "EnterCVV"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "1991aa50-0333-4e95-8bb5-22d3841421b9"
+  }, {
+    "condition": "($session.params.ToState = \"MethodOfPaymentUpdate\" OR $session.params.ToState = \"AutopaySignup\") AND $page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_EnterCVV_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CVV",
+        "value": "$sys.func.TO_TEXT($session.params.CVV)",
+        "redact": true
+      }, {
+        "parameter": "CVV",
+        "value": "$sys.func.SUBSTITUTE($session.params.CVV, \"\\s+\", \"\")",
+        "redact": true
+      }, {
+        "parameter": "CVV",
+        "value": "$sys.func.SUBSTITUTE($session.params.CVV,\"#\",\"\")",
+        "redact": true
+      }, {
+        "parameter": "ToState",
+        "value": "$session.params.ToState"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "UpdatePaymentMethod",
+    "name": "fd763d34-1e00-4f0b-b1ba-a3d24a237930"
+  }, {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_EnterCVV_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CVV",
+        "value": "$sys.func.TO_TEXT($session.params.CVV)",
+        "redact": true
+      }, {
+        "parameter": "CVV",
+        "value": "$sys.func.SUBSTITUTE($session.params.CVV, \"\\s+\", \"\")",
+        "redact": true
+      }, {
+        "parameter": "CVV",
+        "value": "$sys.func.SUBSTITUTE($session.params.CVV,\"#\",\"\")",
+        "redact": true
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "PaymentConfirmation",
+    "name": "af864b20-42f5-47a7-a12a-4bbf8d919b71"
+  } ]
+}

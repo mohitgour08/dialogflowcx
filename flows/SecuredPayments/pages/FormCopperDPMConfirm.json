@@ -1,0 +1,134 @@
+{
+  "name": "a10025c5-5e2b-4fcb-984d-d5f0af4a55d4",
+  "displayName": "FormCopperDPMConfirm",
+  "form": {
+    "parameters": [ {
+      "displayName": "FormResponseCopperDPM",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n  \"chatClientForm\": \"FiberPrepaidDPMC\",\n  \"lastFourDigits\": \"$session.params.MethodLastFourDigits\"\n}" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "FormResponseCopperDPM",
+      "value": null
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL AND $session.params.FormResponseCopperDPM = \"yesDPM\" AND ($session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"PayPal\" OR $session.params.PaymentMethod = \"PAYPAL\")",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormCopperDPMConfirm_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.BillInfo_paymentAuthId"
+      }, {
+        "parameter": "paymentType",
+        "value": "$session.params.PaymentMethod"
+      }, {
+        "parameter": "DefaultPM",
+        "value": "true"
+      }, {
+        "parameter": "DefaultPM_selected",
+        "value": "Yes"
+      } ]
+    },
+    "targetPage": "CheckZeroBalWeb",
+    "name": "d46e8023-97ee-4878-8938-0ebd2055152c"
+  }, {
+    "condition": "$page.params.status = FINAL AND $session.params.FormResponseCopperDPM = \"yesDPM\" AND ($session.params.PaymentMethod = \"CC\" OR $session.params.PaymentMethod = \"CreditCard\" OR $session.params.PaymentMethod = \"Creditcard\")",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormCopperDPMConfirm_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DefaultPM",
+        "value": "true"
+      }, {
+        "parameter": "DefaultPM_selected",
+        "value": "Yes"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.BillInfo_paymentAuthId"
+      }, {
+        "parameter": "paymentType",
+        "value": "Card"
+      } ]
+    },
+    "targetPage": "CheckZeroBalWeb",
+    "name": "6a24ec12-ca2c-4819-9cf9-8559cf09aab8"
+  }, {
+    "condition": "$page.params.status = FINAL AND $session.params.FormResponseCopperDPM = \"noDPM\" AND ($session.params.BillingMethod = \"PO\" OR $session.params.BillingMethod = \"postpaid\")",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormCopperDPMConfirm_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DefaultPM",
+        "value": "false"
+      }, {
+        "parameter": "DefaultPM_selected",
+        "value": "No"
+      }, {
+        "parameter": "CopperForm",
+        "value": "CopperOTP"
+      }, {
+        "parameter": "OtherSavedPM",
+        "value": "Postpaid"
+      } ]
+    },
+    "targetPage": "GetSavedPaymentMethod",
+    "name": "f6104f86-605e-4ad0-b488-cbfacbe44309"
+  }, {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormCopperDPMConfirm_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormCheck",
+    "name": "047cfc59-66cf-4aff-a1ef-b8234d29473a"
+  } ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "e1d17499-7ef9-41d7-afda-1e330e2633ff",
+  "displayName": "AuthOptions",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "AuthOptionsChat",
+    "name": "b48bb758-c81b-4fce-89fd-a2d90ebdc12d"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "AuthOptionsVoice",
+    "name": "9a74fcb4-80da-4d81-86fe-524cedb15afe"
+  } ]
+}

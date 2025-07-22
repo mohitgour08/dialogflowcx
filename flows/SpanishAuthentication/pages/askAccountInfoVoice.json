@@ -1,0 +1,221 @@
+{
+  "name": "ae6e80cd-dd46-4adb-8354-76dc7f210dae",
+  "displayName": "askAccountInfoVoice",
+  "form": {
+    "parameters": [ {
+      "displayName": "TN_BAN_temp",
+      "required": true,
+      "entityType": "@TN_BAN_voice",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_SpanishAuthentication_askAccountInfoVoice_BAN",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+              "allowPlaybackInterruption": true
+            }
+          }
+        },
+        "repromptEventHandlers": [ {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eNo entendí tu respuesta\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "No entendí tu respuesta." ]
+              },
+              "languageCode": "es"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "Metrics_SpanishAuthentication_askAccountInfoVoice_NoMatch_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "AuthFailReason",
+              "value": "BANTN_NoMatch"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "SpanishAuthentication"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoMatchRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "askAccountInfoVoice"
+            } ]
+          },
+          "name": "e9f9ce39-8b82-4da9-b916-249f002229dd"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eEstá bien\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Está bien." ]
+              },
+              "languageCode": "es"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "AuthFailReason",
+              "value": "BANTN_NoInput"
+            }, {
+              "parameter": "Metrics_SpanishAuthentication_askAccountInfoVoice_NoInput_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "SpanishAuthentication"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "NoInput"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoInputRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "askAccountInfoVoice"
+            } ]
+          },
+          "name": "93d944f8-508d-4266-a2bb-d79a777621d2"
+        }, {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Lo lamento! No entendí eso. Comenzando con el código de área, ingrese un número de teléfono asociado con su cuenta, o ingrese su número de cuenta de facturación de 9 o 10 dígitos.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"90%\"\u003e¡Lo lamento! No veo ninguna cuenta que coincida con esa información. Intentémoslo una vez más.\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "es"
+            }, {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"90%\"\u003eComenzando con el código de área, diga o ingrese un número de 10 dígitos asociado con su cuenta, o su número de cuenta de facturación de 9 dígitos.\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "es"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_SpanishAuthentication_askAccountInfoVoice_NoMatch_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "NoMatch1Triggered",
+              "value": "True"
+            } ]
+          },
+          "name": "02874754-3033-4f9d-8c32-e2b7f778a48b"
+        }, {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Lo lamento! No entendí eso. Comenzando con el código de área, ingrese un número de teléfono asociado con su cuenta, o ingrese su número de cuenta de facturación de 9 o 10 dígitos.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"90%\"\u003e¡Lo lamento! No entendí eso. Comenzando con el código de área, diga o ingrese un número de teléfono asociado con su cuenta, o ingrese su número de cuenta de facturación de 9 o 10 dígitos.\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "es"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_SpanishAuthentication_askAccountInfoVoice_NoInput_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "NoInput1Triggered",
+              "value": "True"
+            } ]
+          },
+          "name": "3919aa2c-9ee7-4680-ac58-9da36c5589ca"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eAntes de que podamos ayudar, necesito encontrar su cuenta. Puede ingresar un número de teléfono asociado con su cuenta ahora, o puede usar su número de cuenta de 9 o 10 dígitos.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003eAntes de que podamos ayudar, necesito encontrar su cuenta. Puede ingresar un número de teléfono asociado con su cuenta ahora, o puede usar su número de cuenta de 9 o 10 dígitos.\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "es"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_SpanishAuthentication_askAccountInfoVoice",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.TN_BAN_temp) = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_temp",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.TN_BAN_temp),2, 10)"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_askAccountInfoVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "e46a67e1-d941-4d96-9f26-20c433c920d7"
+  }, {
+    "condition": "$page.params.status = FINAL AND ($sys.func.LEN($session.params.TN_BAN_temp) = 9 OR $sys.func.LEN($session.params.TN_BAN_temp) = 10)",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_askAccountInfoVoice_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": "$session.params.TN_BAN_temp"
+      } ]
+    },
+    "targetPage": "EmbargoSwitch",
+    "name": "8bc5e470-f7d2-42a9-8b55-7b70815351a2"
+  }, {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_askAccountInfoVoice_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": "$session.params.TN_BAN_temp"
+      }, {
+        "parameter": "TN_BAN_temp",
+        "value": null
+      } ]
+    },
+    "targetPage": "End Session",
+    "name": "43d9de1f-48ee-442e-b510-7bed17d143bf"
+  } ]
+}

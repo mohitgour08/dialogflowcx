@@ -1,0 +1,567 @@
+{
+  "trainingPhrases": [ {
+    "id": "1f5b0dd3-44d7-4dd8-b518-43d2f01cd962",
+    "parts": [ {
+      "text": "Understand my bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bd3d0db7-bf57-4597-8f9e-31df3bfb5c29",
+    "parts": [ {
+      "text": "Explain my Bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "26c16fa9-8e2e-4286-8147-3208b4963e6a",
+    "parts": [ {
+      "text": "Why did my price go up?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cf502e52-84af-4e80-9528-938ceaf61ea1",
+    "parts": [ {
+      "text": "Payment",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "issue",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "77e4a787-112f-4ba4-812d-3867f91bb4cc",
+    "parts": [ {
+      "text": "Payment",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "issues",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "86d0d12b-5aa7-4709-ab13-4d0e0e2babac",
+    "parts": [ {
+      "text": "My monthly cost",
+      "auto": true
+    }, {
+      "text": " went up",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "52cf6ce0-f0cb-47bc-ba0f-7c47167adfe5",
+    "parts": [ {
+      "text": "My monthly cost",
+      "auto": true
+    }, {
+      "text": " went up, but I'm ",
+      "auto": true
+    }, {
+      "text": "not",
+      "auto": true
+    }, {
+      "text": " sure why",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1f02e67c-88d6-44d9-a99d-17989fb46d42",
+    "parts": [ {
+      "text": "I have an email that says I",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "owe",
+      "auto": true
+    }, {
+      "text": " $",
+      "auto": true
+    }, {
+      "text": "376",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e51bbd14-98b5-4317-a0e6-cac846784385",
+    "parts": [ {
+      "text": "my last bill",
+      "auto": true
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "f938944b-02d8-4df3-a7cf-f022321ac181",
+    "parts": [ {
+      "text": "my last bill statement",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3a681622-366b-47bf-80d1-be30fc2c53d4",
+    "parts": [ {
+      "text": "my last bill",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "invoice",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b0b82a4d-6b2f-42b3-a67c-3318399b03d6",
+    "parts": [ {
+      "text": "my most recent bill.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f1335396-906a-42c8-a84e-bdc03431a92e",
+    "parts": [ {
+      "text": "I need to access my ",
+      "auto": true
+    }, {
+      "text": "cell phone",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "last bill to review my data",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "usage",
+      "auto": true
+    }, {
+      "text": ", ",
+      "auto": true
+    }, {
+      "text": "messaging",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "charges",
+      "auto": true
+    }, {
+      "text": ", and international calls",
+      "auto": true
+    }, {
+      "text": ". Can you guide me through the process of obtaining this information",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d022908c-88c0-451d-be66-88440ff55751",
+    "parts": [ {
+      "text": "I made several transactions ",
+      "auto": true
+    }, {
+      "text": "last month, and I want to",
+      "auto": true
+    }, {
+      "text": " cross-check ",
+      "auto": true
+    }, {
+      "text": "them with the",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "charges",
+      "auto": true
+    }, {
+      "text": " on ",
+      "auto": true
+    }, {
+      "text": "my last bill statement",
+      "auto": true
+    }, {
+      "text": ". Can you provide me with a comprehensive overview of that ",
+      "auto": true
+    }, {
+      "text": "statement",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "254b4d42-05fd-41ab-bf33-181e03aef52c",
+    "parts": [ {
+      "text": "I've been using a subscription streaming service, and ",
+      "auto": true
+    }, {
+      "text": "I want to review my last bill invoice",
+      "auto": true
+    }, {
+      "text": ", which should ",
+      "auto": true
+    }, {
+      "text": "include the monthly subscription cost,",
+      "auto": true
+    }, {
+      "text": " any add",
+      "auto": true
+    }, {
+      "text": "-ons, and any",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "taxes",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "associated with it. Can you assist me with that",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a6e148d4-a71e-419b-94f5-e5fa14e17a8d",
+    "parts": [ {
+      "text": "understand my last bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ab4f1bfd-9203-42bc-8d78-faed2478d0d5",
+    "parts": [ {
+      "text": "understand last bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "85141f01-e9d0-4dd0-b394-d380f97506e9",
+    "parts": [ {
+      "text": "last bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "06071e05-ee95-4d0e-8d6b-d6605c4633e6",
+    "parts": [ {
+      "text": "I didn't got the "
+    }, {
+      "text": "$30"
+    }, {
+      "text": " discount that I was supposed to"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "10500786-5994-4cba-b60b-17d919c08e3d",
+    "parts": [ {
+      "text": "why the charge for my dish service was not included on my most recent bill.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ad2b7823-c3a3-406a-acdb-c3644a6da60d",
+    "parts": [ {
+      "text": "Trying to find out how much my bill is.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a824d68a-0d4e-4723-b19d-a6a3b958af41",
+    "parts": [ {
+      "text": "for what services I have been charged and how much?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b95a10d0-0149-446e-8ec7-6bc9667f01da",
+    "parts": [ {
+      "text": "I have received a bill for services for which I am not enrolled.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fd3ac61f-a016-4480-9d3a-370d141076d3",
+    "parts": [ {
+      "text": "I have acp government  assistance  not showing up on my  bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ae33042d-947d-4adc-b2d2-a00ca90e519d",
+    "parts": [ {
+      "text": "why was i charged "
+    }, {
+      "text": "$324"
+    }, {
+      "text": " for my internet service with "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7f1ad2ff-e3b2-47f4-a714-819d12175429",
+    "parts": [ {
+      "text": "Can you answer questions on my bill?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0f386ae1-5121-4ee1-a464-e5e162d293dc",
+    "parts": [ {
+      "text": "I haven't even used it for "
+    }, {
+      "text": "30 days"
+    }, {
+      "text": " and i already have a bill due!"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "641e38a6-f2ba-448b-9986-0a27acede57e",
+    "parts": [ {
+      "text": "i need some clarification on my monthly bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b09247b1-41d3-4c2e-8974-371ec56cb0c2",
+    "parts": [ {
+      "text": "explain the bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d601392e-66bd-4431-ac1f-358c0a01ca45",
+    "parts": [ {
+      "text": "Help me understanding my bill."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7fc27fc5-48e5-4377-aa8f-a6bff9469d80",
+    "parts": [ {
+      "text": "Can you explain my monthly bill to me?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "54738644-f757-4b9d-ae68-adde54552def",
+    "parts": [ {
+      "text": "Describe my monthly bill for me, please.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "10361f09-ec95-403d-95bb-d49f09647db1",
+    "parts": [ {
+      "text": "can you give me an explanation of my monthly bill?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4d3b3cc9-8c3b-461e-a258-b5e04ef6bf60",
+    "parts": [ {
+      "text": "please clarify the bill that "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " delivered to me for this month?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b933da80-b8b4-440e-a09f-9dcdfc7f4218",
+    "parts": [ {
+      "text": " explain to me the charge that "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " issued me for this month?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a8b50c2e-9565-496c-81f9-d3ec6023e7e0",
+    "parts": [ {
+      "text": "Cody, could you please clarify the bill that I received from "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " this month?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7ddecd7e-cc37-4c85-a731-3f81ce5fde51",
+    "parts": [ {
+      "text": "why I've already been charged for a service when my installation isn't until "
+    }, {
+      "text": "March 10th"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4d40e873-02ad-47db-aefc-c3b7c1fab7e3",
+    "parts": [ {
+      "text": "Not sure what my bill is saying"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d6415f10-1796-4abf-87df-4ee367501a0a",
+    "parts": [ {
+      "text": "explain me this bill.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "860215bc-5266-4639-b594-a1cf34d57c59",
+    "parts": [ {
+      "text": "I am facing troubles trying to understand this bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "530ef2f5-fc79-4a95-9380-bfc4e4edf9e2",
+    "parts": [ {
+      "text": "i do not understand the bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "06ae16b1-d7c5-4436-8215-5cc70868d1ff",
+    "parts": [ {
+      "text": "explain me the bill structure ?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0b698d4d-75bf-4017-acc3-72610ac6141e",
+    "parts": [ {
+      "text": "I do not get this bill . Can u please explain ?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "73bcc38a-dc3b-491d-992e-7def900380b8",
+    "parts": [ {
+      "text": "I am not aware how you calculate the bill ?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0ccafb9d-c0d4-4513-82db-f6867510c080",
+    "parts": [ {
+      "text": "can u please explain me this bill ?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "56e12068-a25d-4dea-b480-54a407c9e852",
+    "parts": [ {
+      "text": "can someone explain the bill to me",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fe76273d-39b0-45f2-bc9c-6d1ff3336429",
+    "parts": [ {
+      "text": "the bill is too complicated to understand",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6dfe980a-f321-4b49-ba05-2e0d32fc5355",
+    "parts": [ {
+      "text": "can u explain me the bill ?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1fe97167-c87c-4653-9cb6-f76b3bfeaf38",
+    "parts": [ {
+      "text": "what's this bill structure",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "428ddbc6-2550-43af-a8e4-8417bf4afe58",
+    "parts": [ {
+      "text": "what is this bill format",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "792e0f15-565a-4d39-97a1-22c3d7f0bcf5",
+    "parts": [ {
+      "text": "how to understand this bill components"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

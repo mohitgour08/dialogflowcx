@@ -1,0 +1,74 @@
+{
+  "name": "08e3fef5-b726-4ebd-8056-2f154c519bc5",
+  "displayName": "AuthenticationCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "generators": [ {
+      "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/1d74047d-cf64-4fd4-97f6-0450ae0b3999",
+      "outputParameter": "$request.generative.text"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.skipAuth = True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_AuthenticationCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FiberOrCopper",
+    "name": "1256aaf5-5b88-42da-92fe-fd637ccfb53a"
+  }, {
+    "condition": "($session.params.RouteIntent = \"Sales\" AND $session.params.channel = \"voice\") AND ($session.params.Products = \"Telephone and Internet\" OR $session.params.Products = \"Internet\") AND ($session.params.Authentication = \"SUCCESS\" OR $session.params.Authentication = \"FAILED\" OR $session.params.Authentication = \"MULTIACCTFOUND\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_name",
+        "value": "csc_cc_sales_vxi_phi"
+      } ]
+    },
+    "targetPage": "CheckAgentAvailability",
+    "name": "cc2e28ae-c76d-49bd-9873-ff3588382e99"
+  }, {
+    "condition": "($session.params.fiberEligibility = \"Eligible\" AND $session.params.channel = \"voice\") AND ($session.params.Products = \"Telephone and Internet\" OR $session.params.Products = \"Internet\") AND ($session.params.Authentication = \"SUCCESS\" OR $session.params.Authentication = \"FAILED\" OR $session.params.Authentication = \"MULTIACCTFOUND\")",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "FiberOrCopper",
+    "name": "ca548ce6-f89a-4fea-8813-5b41853cba60"
+  }, {
+    "condition": "$session.params.Authentication = \"SUCCESS\" OR $session.params.Authentication = \"FAILED\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_AuthenticationCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FiberOrCopper",
+    "name": "b5deb9b8-8e64-407e-bab2-2d3f0fc5849a"
+  }, {
+    "condition": "$session.params.Authentication = \"MULTIACCTFOUND\" OR $session.params.queue_name = \"Sales\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_AuthenticationCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckAgentAvailability",
+    "name": "eb05677a-7a1f-44b7-8dc1-13ab2fb9f3f0"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ComingFromState",
+        "value": "RouteToAgent"
+      }, {
+        "parameter": "Metrics_RouteToAgent_AuthenticationCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AuthenticationRequest",
+    "name": "8e5803b5-a95a-4972-ab04-89f8d9c6d378"
+  } ]
+}

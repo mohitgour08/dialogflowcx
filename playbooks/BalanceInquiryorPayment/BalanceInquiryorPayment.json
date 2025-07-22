@@ -1,0 +1,164 @@
+{
+  "name": "d91ee8ab-2a00-40e0-b670-18cd3215e5a5",
+  "displayName": "BalanceInquiryorPayment",
+  "goal": "Your goal is to \n- Capture the customer intent related to balance inquiry, payment, verify payment restore service, postpaid and prepaid service.\n- Map parameters according to the instructions. \n- Acknowledge the customer and transfer the customer to the corresponding flow as described in the instructions.\n- Do not ask follow up question or account number, match the intent to one of the flow described in the instructions",
+  "inputParameterDefinitions": [ {
+    "name": "ToModule",
+    "description": "To module value to be passed to the flow",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToState",
+    "description": "User intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "user intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "outputParameterDefinitions": [ {
+    "name": "ToModule",
+    "description": "To module value ",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToState",
+    "description": "User intent ",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "user intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "comingfromstate",
+    "description": "\"playbook\"",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "comingfromstate",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "FAQSuccess",
+    "description": "Faq current status",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "FAQSuccess",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "tokenCount": 2019,
+  "referencedFlows": [ "BalanceInquiryOrMakePayment", "Payment", "RoutetoAgent", "ListenInitialIntent" ],
+  "instruction": {
+    "steps": [ {
+      "text": "Do not greet the user."
+    }, {
+      "text": "Do not ask follow up question or account number,just match the intent to one of the following options."
+    }, {
+      "text": "If customer has question about paperless 'billing' or 'payment' then map ToState = \"PaperlessBilling\", callerintent = \"PaperlessBilling\",ToModule=\"BalanceInquiryOrMakePayment\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer wants to know their current balance, bill or invoice amount, due amount,total charges, current charges, breakdown charges, past due, previous balance amaount then map ToState = \"BalanceInquiry\", callerintent = \"BalanceInquiryBilling\",ToModule=\"BalanceInquiryOrMakePayment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer wants to make a payment, pay bill or having issues with paying bill then map ToState = \"BalanceInquiry\", callerintent = \"BalanceInquiryBilling\",ToModule=\"BalanceInquiryOrMakePayment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer needs to make a payment and doesn't have account number then map ToState = \"BalanceInquiry\", callerintent = \"BalanceInquiryBilling\",ToModule=\"BalanceInquiryOrMakePayment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer needs assistance with payment then map ToState = \"BalanceInquiry\", callerintent = \"BalanceInquiryBilling\",ToModule=\"BalanceInquiryOrMakePayment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer wants to confirm if their bill is paid or wants to know max amount they can pay then map ToState = \"BalanceInquiry\", callerintent = \"BalanceInquiryBilling\",ToModule=\"BalanceInquiryOrMakePayment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer has question about bill cycle date, billing period, check length of bill cycle, switch bill cycle date,current bill cycle date,bill generated date, then map ToState=\"BillCycleDate\", callerintent= \"BillCycleDate\",ToModule=\"BalanceInquiryOrMakePayment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer has question or wants to know about billing, balance, current balance, track account balance, invoice,accurate balance, balance information,account balance,account statement then use ToState = \"BalanceInquiry\", callerintent = \"BalanceInquiryBilling\",ToModule=\"BalanceInquiryOrMakePayment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer  wants to enroll in autopay or cancel autopay  then map ToState=\"RecurringPaymentAutopay\", callerintent = \"RecurringPaymentAutopay\",ToModule=\"Payment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Payment}."
+    }, {
+      "text": "If customer wants to change payment method,Update payment details,Modify payment method,mode of payment update,my Visa card details saved for my postpaid plan balances,any online options for updating my payment method,Update method of pay, set up bank bill pay,pay using back account vs paying fee using card,new payment method,new credit card with same name but different information,add  a  new expiration date to debit card,add a Canadian debit card,change to paying online with checking account, submit a different debit card to draft account, update new expiration date to my debit card,add a Canadian credit card,Revise mode of payment,correct my mode of payment, change payment method then map ToState=\"MethodOfPaymentUpdate\", callerintent = \"MethodOfPaymentUpdate\",ToModule=\"BalanceInquiryOrMakePayment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer wants to make payment (e.g. pay family member's bill, anyone's bill, their own bill ), quick pay, pay bill, having issue making payment then use ToState =\"BalanceInquiry\", callerintent = \"BalanceInquiryPayment\",ToModule=\"BalanceInquiryOrMakePayment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer wants verify payment, check if payment is reflected, check latest payment then use ToState =\"VerifyPayment\", callerintent = \"VerifyPayment\",ToModule=\"BalanceInquiryOrMakePayment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer wants to restore service, needs service turned on from vacation pause then use ToState =\"PaymentRestoreService\", callerintent = \"PaymentRestoreService\", ToModule = \"Payment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer has question about prepaid service, prepaid payment method then use ToState =\"PrepaidPayment\", callerintent = \"PrepaidPayment\",ToModule=\"BalanceInquiryOrMakePayment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer has question about postpaid service, postpaid payment method then use ToState =\"PostpaidPayment\", callerintent = \"PostpaidPayment\",ToModule=\"BalanceInquiryOrMakePayment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer needs assistance with missing payment, payment missed,payment miss,cancel upcoming payment,balance not reflecting payment,forgot to pay my bill,forgot to make payment,What to do if I miss a payment?,consequences of missing a payment more than once,understand the options for resolving a missed payment,available methods to make a payment for the missed amount,rectify the missed payment and avoid any service disruption,pay the missed amount in installments,happens if I miss a payment more than once, ensure my account is up to date after missing a payment, repercussions of missing a payment,will missing a payment affect my credit score,prevent my services from being interrupted due to missed payments, payment missed then map ToState=\"PaymentMissingOrMisappliedPayment\", callerintent = \"PaymentMissingOrMisappliedPayment\",ToModule=\"Payment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Payment}."
+    }, {
+      "text": "If customer says call back then say \"Sorry, I can't make that call for you. Can I connect you with an agent who can help you?\" then route to ${FLOW:RoutetoAgent} and set FAQSuccess=\"HandoverToAgent\"."
+    }, {
+      "text": "If you don't have answer for customer question then route to ${FLOW:ListenInitialIntent} with parameter comingfromstate=\"playbook\", FAQSuccess=\"HandoverToBA\"."
+    } ]
+  }
+}

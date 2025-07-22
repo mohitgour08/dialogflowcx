@@ -1,0 +1,638 @@
+{
+  "name": "ad355169-cc95-4562-b43c-bf661c21d1bb",
+  "displayName": "PaymentAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Thank you! Please allow me a moment to submit your payment." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Thank you! I will submit your payment now. It may take a few minutes so please stay on the line." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "webhook": "QuickBillPay",
+    "tag": "QuickBillPay",
+    "setParameterActions": [ {
+      "parameter": "Metrics_PaymentAPI_none_wh_QuickBillPay",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.QuickBillPayErrorMessage != null AND $session.params.QuickBillPayErrorMessage != \"\" AND $session.params.QuickBillPay != \"Success\" AND $session.params.QuickBillPay != \"success\" AND $session.params.QuickBillPay != \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_Message",
+        "value": "$session.params.QuickBillPayErrorMessage"
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "2e40febc-8064-4950-9175-4df3b0ab6051"
+  }, {
+    "condition": "$session.params.FiberPaymentStatus = \"Processed\" AND $session.params.ToState = \"FiberPayment\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Success"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "ConfirmationCode",
+        "value": "$session.params.FiberConfirmationCode"
+      }, {
+        "parameter": "API_SecuredPayments_PaymentAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "targetPage": "PaymentSuccessVoice",
+    "name": "0f75d195-3b50-421d-9c5d-12c03e1a2498"
+  }, {
+    "condition": "$session.params.FiberPaymentStatus = \"Processed\" AND $session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your payment was successfully submitted. Here is your confirmation number: $session.params.ConfirmationCode." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Payments may take up to 48 hours to reflect on your account.  And remember, you can set up an online My Brightspeed account to manage your balance and payments more easily in the future. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Success"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "ConfirmationCode",
+        "value": "$session.params.FiberConfirmationCode"
+      }, {
+        "parameter": "API_SecuredPayments_PaymentAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "targetPage": "FiberSuccessDPMCheck",
+    "name": "8427d3e1-3109-4941-a2e6-cc8f6d0fb44b"
+  }, {
+    "condition": "$session.params.FailureCount = \"2\" AND $session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to process your payment." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service Failure"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPINotProcessedSuccessfully"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "330377d0-617c-4d81-b0e7-4b4fb988bed5"
+  }, {
+    "condition": "$session.params.ToState = \"FiberPayment\" AND $session.params.FirstUpdateFailure = \"true\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "FailureCount",
+        "value": "2"
+      }, {
+        "parameter": "updatepayment",
+        "value": "$session.params.UpdatePayment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FiberPaymentFailed",
+    "name": "8796f287-79d7-4948-9986-a9296f530621"
+  }, {
+    "condition": "($session.params.QuickBillPay = \"Success\" OR $session.params.QuickBillPay = \"success\" OR $session.params.QuickBillPay = \"SUCCESS\") AND ($session.params.BillingMethod = \"postpaid\" OR $session.params.BillingMethod = \"PO\") AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Success"
+      }, {
+        "parameter": "API_SecuredPayments_PaymentAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "targetPage": "PaymentSuccessVoice",
+    "name": "3927273e-4894-41db-a6c1-6e61623b3044"
+  }, {
+    "condition": "($session.params.QuickBillPay = \"Success\" OR $session.params.QuickBillPay = \"success\" OR $session.params.QuickBillPay = \"SUCCESS\") AND ($session.params.BillingMethod = \"postpaid\" OR $session.params.BillingMethod = \"PO\")",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your payment was successfully submitted. Here is your confirmation number: $session.params.ConfirmationCode .  Payments may take up to 48 hours to reflect on your account. And remember, you can set up an online My Brightspeed account to manage your balance and payments more easily in the future. \n" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Success"
+      }, {
+        "parameter": "API_SecuredPayments_PaymentAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "targetPage": "CheckDefaultMethodUsed",
+    "name": "c0d5b05e-e077-48f7-9523-370c3497f019"
+  }, {
+    "condition": "($session.params.QuickBillPay = \"Success\" OR $session.params.QuickBillPay = \"success\" OR $session.params.QuickBillPay = \"SUCCESS\") AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your payment was successfully submitted. Here is your confirmation number: $session.params.ConfirmationCode." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Payments may take up to 48 hours to reflect on your account. And remember, you can set up an online My Brightspeed account to manage your balance and payments more easily in the future." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "formResponse",
+        "value": null
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Success"
+      }, {
+        "parameter": "API_SecuredPayments_PaymentAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckDefaultMethodUsed",
+    "name": "cafa4905-464f-43d3-8cef-a95252018979"
+  }, {
+    "condition": "$session.params.QuickBillPay = \"Success\" OR $session.params.QuickBillPay = \"success\" OR $session.params.QuickBillPay = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your payment is successfully submitted. Here is your confirmation number." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\r\n  \u003csay-as interpret-as=\"verbatim\"\u003e$session.params.ConfirmationCode\u003c/say-as\u003e\r\n\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Payments may take up to 48 hours to reflect on your account. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Success"
+      }, {
+        "parameter": "API_SecuredPayments_PaymentAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "targetPage": "PaymentSuccessVoice",
+    "name": "8f35a395-715a-44e2-b977-0584f7192928"
+  }, {
+    "condition": "$session.params.Paymentfailedonce = \"true\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to process your payment. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service Failure"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPINotProcessedSuccessfully"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "47a23c4b-2eb1-45d5-be52-8c9a5aaf574b"
+  }, {
+    "condition": "$session.params.Paymentfailedonce != \"true\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AutopayCheck_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CardOrAccountSelected",
+    "name": "abdc446d-57f0-4273-9da7-cdff604897a9"
+  }, {
+    "condition": "$session.params.Paymentfailedonce != \"true\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PaymentFailedVoice",
+    "name": "01d0d43c-c4a5-4d6e-8207-a3f508207d49"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to process your payment. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPI"
+      }, {
+        "parameter": "API_SecuredPayments_PaymentAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "8ae8003e-ffee-437a-bd41-be7343df24a8"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "FiberCheckPayFail",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I am having issues processing this payment. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "Metrics_SecuredPayments_QuickBillPay_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPI"
+      }, {
+        "parameter": "API_SecuredPayments_PaymentAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "name": "b7f272a1-28ec-42ae-9237-3135b38de208"
+  }, {
+    "targetPage": "FiberCheckPayFail",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I am having issues processing this payment. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "Metrics_SecuredPayments_QuickBillPay_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPI"
+      }, {
+        "parameter": "API_SecuredPayments_PaymentAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "name": "56f70b47-598c-42ec-be5d-995c9e596568"
+  }, {
+    "targetPage": "FiberCheckPayFail",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I am having issues processing this payment. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "Metrics_SecuredPayments_QuickBillPay_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPI"
+      }, {
+        "parameter": "API_SecuredPayments_PaymentAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "name": "f58b6f3d-d298-4145-809b-44200a87ff1e"
+  }, {
+    "targetPage": "FiberCheckPayFail",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I am having issues processing this payment. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "Metrics_SecuredPayments_QuickBillPay_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPI"
+      }, {
+        "parameter": "API_SecuredPayments_PaymentAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "name": "7138c85a-7e28-4fec-a0af-0489e064fac0"
+  }, {
+    "targetPage": "FiberCheckPayFail",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I am having issues processing this payment. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "Metrics_SecuredPayments_QuickBillPay_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPI"
+      }, {
+        "parameter": "API_SecuredPayments_PaymentAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "name": "4acb20a6-5143-4fc7-b87f-5edc821abd37"
+  }, {
+    "targetPage": "FiberCheckPayFail",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I am having issues processing this payment. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "Metrics_SecuredPayments_QuickBillPay_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPI"
+      }, {
+        "parameter": "API_SecuredPayments_PaymentAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "name": "04d144e7-fd58-4d65-afff-e5c06f67ebb5"
+  } ],
+  "description": "\n\n"
+}

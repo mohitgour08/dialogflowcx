@@ -1,0 +1,98 @@
+{
+  "name": "be109840-5327-4567-86c8-ca3f970ae039",
+  "displayName": "SpanishQuestion",
+  "form": {
+    "parameters": [ {
+      "displayName": "Press9",
+      "required": true,
+      "entityType": "@Press9",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_DefaultStartFlow_Lang_offer_Lang_Selected",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ]
+        },
+        "repromptEventHandlers": [ {
+          "targetPage": "InvokeC360",
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "setParameterActions": [ {
+              "parameter": "Metrics_DefaultStartFlow_Lang_English",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ]
+          },
+          "name": "2b24f205-5592-4c0d-b911-1560d414c6c9"
+        }, {
+          "targetPage": "InvokeC360",
+          "event": "sys.no-input-default",
+          "triggerFulfillment": {
+            "setParameterActions": [ {
+              "parameter": "Metrics_DefaultStartFlow_Lang_English",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ]
+          },
+          "name": "403f44ef-4474-45ed-84cc-2e2ba30ccc2d"
+        } ]
+      },
+      "advancedSettings": {
+        "dtmfSettings": {
+          "enabled": true,
+          "maxDigits": 1,
+          "finishDigit": "#",
+          "useSystemEntityRule": false,
+          "interdigitTimeoutDuration": {
+            "seconds": 5
+          },
+          "endpointingTimeoutDuration": {
+            "seconds": 7
+          }
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003ePara continuar en español, presione el nueve\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Para continuar en español, presione el nueve. " ]
+      },
+      "languageCode": "es"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Press9 = \"9\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "language",
+        "value": "Spanish"
+      }, {
+        "parameter": "skipAuth",
+        "value": "True"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_Lang_Spanish",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SpanishMenu",
+    "name": "d3d07094-699f-4b09-b924-c4f38a3085f9"
+  } ],
+  "advancedSettings": {
+    "speechSettings": {
+      "endpointerSensitivity": 90,
+      "noSpeechTimeout": {
+        "seconds": 3
+      }
+    }
+  },
+  "speakerIdSettings": {
+  
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "4ce560fe-b90c-48ae-84e0-e5689a6a2248",
+  "displayName": "AccountCheckChannel",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = voice",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AccountCheckChannel_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AccountAppVoice",
+    "name": "6f21fb05-e097-4155-9031-f142a3d39f5a"
+  }, {
+    "condition": "$session.params.channel = web",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AccountCheckChannel_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AccountAppChat",
+    "name": "2f0523da-c607-4a25-b9b1-88691bdbcc1a"
+  } ]
+}

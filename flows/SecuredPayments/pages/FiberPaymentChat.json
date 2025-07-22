@@ -1,0 +1,72 @@
+{
+  "name": "afbcd470-ba0b-456c-9305-f858f8d5e250",
+  "displayName": "FiberPaymentChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Yes"
+          }, {
+            "action": "quick_reply",
+            "title": "Back"
+          }, {
+            "action": "quick_reply",
+            "title": "Cancel Transaction"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "FiberCardPaymentForm",
+    "name": "3e96a986-571e-4966-b669-f3c1ce14cb77"
+  }, {
+    "intent": "Goback",
+    "condition": "$session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "FiberPay",
+    "name": "e47b0da4-312f-4bf7-8a2e-3ddd52dfb97e"
+  }, {
+    "intent": "CancelTransaction",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay, I'll cancel this transaction for now. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "SecuredPayments",
+    "name": "f2131409-e027-45fc-a242-7521fe3e7d4d"
+  } ]
+}

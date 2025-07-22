@@ -1,0 +1,51 @@
+{
+  "name": "23c9bcf7-1baf-4583-ad92-0b8d9c246baf",
+  "displayName": "TicketPendingCheckIntent",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.callerintent : \"ModifyOrderAppointment\" AND $session.params.channel = voice",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketPendingCheckIntent_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketMessageForCustomer",
+    "name": "788b5e66-7558-4b8d-aa20-04750d550220"
+  }, {
+    "condition": "$session.params.callerintent : \"CancelOrder\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketPendingCheckIntent_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketReasonForCancellation",
+    "name": "752ff548-7a4e-4a1f-b3e2-7163f3d446f4"
+  }, {
+    "condition": "$session.params.callerintent : \"ModifyOrderAppointment\" AND $session.params.channel = web",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketPendingCheckIntent_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GetNextAppointmentAPI",
+    "name": "7fdb851d-f49e-42d6-9c74-3dac7669110c"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketPendingCheckIntent_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketPending",
+    "name": "0ffc6c09-e1cd-40a5-a51b-b63ffe19a5ef"
+  } ]
+}

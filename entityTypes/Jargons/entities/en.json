@@ -1,0 +1,19 @@
+{
+  "entities": [ {
+    "value": "Brightspeed",
+    "synonyms": [ "bright speed", "Brightspeed", "brspd" ],
+    "languageCode": "en"
+  }, {
+    "value": "Bill",
+    "synonyms": [ "Balance due", "Bill", "Dues", "invoice", "Payment invoice", "Payment receipt", "Payment statement", "Statement" ],
+    "languageCode": "en"
+  }, {
+    "value": "Late fees",
+    "synonyms": [ "delayed payment", "Delinquency fee", "late charge", "Late charges", "late fee", "Late fees", "Late payment fee", "Late payment penalty", "Late payment surcharge", "Overdue charge", "Penalty charge" ],
+    "languageCode": "en"
+  }, {
+    "value": "Active",
+    "synonyms": [ "Active", "Current", "Final", "open", "Payment Past Due", "Pending", "Pending Disconnect", "Suspended" ],
+    "languageCode": "en"
+  } ]
+}

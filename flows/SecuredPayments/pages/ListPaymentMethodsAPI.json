@@ -1,0 +1,103 @@
+{
+  "name": "85135e1b-f296-410b-aef1-daa5278be875",
+  "displayName": "ListPaymentMethodsAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "GetListOfPaymentMethods",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_SecuredPayments_ListPaymentMethodsAPI_none_wh_GetListOfPaymentMethods",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "ListSavedPM",
+      "value": "others"
+    }, {
+      "parameter": "SecondPaymentMethod",
+      "value": null
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ResponseStatus = \"Success\" OR $session.params.ResponseStatus = \"SUCCESS\" OR $session.params.ResponseStatus = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ListPaymentMethodsAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckOtherSavedPM",
+    "name": "276ab355-27a1-449d-8542-b7a2c07959be"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ListPaymentMethodsAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SavedPMChatOrVoice",
+    "name": "10b44196-c730-44e1-91f6-1a48e48d269c"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "SavedPMChatOrVoice",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ListPaymentMethodsAPI_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "1dfbd070-b55d-4250-ae2c-d8381cd76f05"
+  }, {
+    "targetPage": "SavedPMChatOrVoice",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ListPaymentMethodsAPI_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "89af0628-f89c-4131-848d-916cbe058ac9"
+  }, {
+    "targetPage": "SavedPMChatOrVoice",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ListPaymentMethodsAPI_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "54811597-282d-43b8-bf57-95b39c9ca36a"
+  }, {
+    "targetPage": "SavedPMChatOrVoice",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ListPaymentMethodsAPI_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "dd5fed16-6c06-4680-96fb-931cfb147cb0"
+  }, {
+    "targetPage": "SavedPMChatOrVoice",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ListPaymentMethodsAPI_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "0a547929-6ae6-45d7-b739-78e7d2b0ca1c"
+  }, {
+    "targetPage": "SavedPMChatOrVoice",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ListPaymentMethodsAPI_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "f8f0540e-f9c1-473e-88a2-b4a9eb88b897"
+  } ]
+}

@@ -1,0 +1,213 @@
+{
+  "name": "e3418b87-8bc2-49ae-8d54-1ffcc8cd3bdf",
+  "displayName": "RepairTicketApiNew",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "OutageAPI_MigratedCopper_Fiber",
+    "tag": "Repair",
+    "setParameterActions": [ {
+      "parameter": "SS_WhereIsMyTech",
+      "value": "Failure"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": "HumanEscalation"
+    }, {
+      "parameter": "Metrics_SalesManagement_RepairTicketAPI",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.OutageResponseStatus = \"Success\" OR $session.params.OutageResponseStatus = \"SUCCESS\" OR $session.params.OutageResponseStatus = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_RepairTicketAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "OutageReturnStatus",
+        "value": "success"
+      }, {
+        "parameter": "API_SalesManagement_RepairTicketAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "targetPage": "OutageCheckFiberOrMigratedCopper",
+    "name": "984276ee-50cb-4f92-8f04-5f0aadc76235"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "OutageAPI_MigratedCopper_Fiber_logging",
+      "setParameterActions": [ {
+        "parameter": "SS_WhereIsMyTech",
+        "value": null
+      }, {
+        "parameter": "Metrics_SalesManagement_RepairTicketAPI_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SalesManagement_RepairTicketAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "targetPage": "APIStatusCheck",
+    "name": "724be200-b171-45aa-a419-bcf4b8e35b31"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "APIStatusCheck",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_RepairTicketAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "RepairTicket_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "API_SalesManagement_RepairTicketAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "name": "bc0a753b-3d6f-4221-bdb3-ba7897cf7761"
+  }, {
+    "targetPage": "APIStatusCheck",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_RepairTicketAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "RepairTicket_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "API_SalesManagement_RepairTicketAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "name": "9f922349-724d-4643-925c-6f068eb3e979"
+  }, {
+    "targetPage": "APIStatusCheck",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_RepairTicketAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "RepairTicket_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "API_SalesManagement_RepairTicketAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "name": "9a5aea74-8c0d-4c54-a80f-9c6140f18ff1"
+  }, {
+    "targetPage": "APIStatusCheck",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_RepairTicketAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "RepairTicket_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "API_SalesManagement_RepairTicketAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "name": "fddaf18f-4c80-4ae0-9a93-faa649bc1b8e"
+  }, {
+    "targetPage": "APIStatusCheck",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_RepairTicketAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "RepairTicket_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "API_SalesManagement_RepairTicketAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "name": "6fa2d27d-5448-435f-9b62-ddde937f1525"
+  }, {
+    "targetPage": "APIStatusCheck",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_RepairTicketAPI_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "RepairTicket_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "API_SalesManagement_RepairTicketAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "name": "456a6af5-e6b1-49ae-9ae6-b9505dcb0732"
+  } ]
+}

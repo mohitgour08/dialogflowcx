@@ -1,0 +1,31 @@
+{
+  "name": "c60d2175-15bb-4077-bfa3-ce395a1643a9",
+  "displayName": "FinalAccountVoiceOrChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_FinalAccountVoiceOrChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FinalAccount",
+    "name": "8de9e6a5-bbf1-4005-9f02-00df4c0eefd5"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_FinalAccountVoiceOrChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FinalAccountVoice",
+    "name": "b25a387d-a455-4cec-8a9e-d947e9fb92d7"
+  } ]
+}

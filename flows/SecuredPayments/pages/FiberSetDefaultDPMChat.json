@@ -1,0 +1,262 @@
+{
+  "name": "83515268-c4b8-4e5b-aaf8-0d1647507ed7",
+  "displayName": "FiberSetDefaultDPMChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "UpdatePaymentMethodChat",
+    "tag": "FiberChatSetDefaultMethod",
+    "setParameterActions": [ {
+      "parameter": "NewDefaultPaymentMethodSaved",
+      "value": "Failure"
+    }, {
+      "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMChat_wh",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.UpdatePayment = \"Success\" OR $session.params.UpdatePayment = \"SUCCESS\" OR $session.params.UpdatePayment = \"success\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay! I've saved that information." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "SS_MethodOfPaymentUpdate",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NewDefaultPaymentMethodSaved",
+        "value": "Success"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMChat",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodChat"
+      } ]
+    },
+    "targetPage": "PaymentSuccessful",
+    "name": "b36b0351-e602-4990-82cd-ad7fdb27905e"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this information. You can update your payment methods any time in your $session.params.Link33." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMChat",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodChat"
+      } ]
+    },
+    "targetPage": "PaymentSuccessful",
+    "name": "1d7d852c-4fb0-4167-9df7-af94da2fc87a"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "PaymentSuccessful",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this information. You can update your payment methods any time in your $session.params.Link33." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMChat_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable "
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodChat"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMChat",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodChat"
+      } ]
+    },
+    "name": "81ae6a1e-5480-4ec4-b9be-bcdf4169497b"
+  }, {
+    "targetPage": "PaymentSuccessful",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this information. You can update your payment methods any time in your $session.params.Link33." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMChat_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodChat"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMChat",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodChat"
+      } ]
+    },
+    "name": "a6cff8a2-5009-4bc7-bb13-5c64bc35b538"
+  }, {
+    "targetPage": "PaymentSuccessful",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this information. You can update your payment methods any time in your $session.params.Link33." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMChat_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected "
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodChat"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMChat",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodChat"
+      } ]
+    },
+    "name": "7dba222a-fa97-48a8-9dd9-20319579b74b"
+  }, {
+    "targetPage": "PaymentSuccessful",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this information. You can update your payment methods any time in your $session.params.Link33." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMChat_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodChat"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMChat",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodChat"
+      } ]
+    },
+    "name": "d4a11766-8b25-4db3-9409-62b09ff98e1a"
+  }, {
+    "targetPage": "PaymentSuccessful",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this information. You can update your payment methods any time in your $session.params.Link33." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMChat_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid "
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodChat"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMChat",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodChat"
+      } ]
+    },
+    "name": "bd2bc13d-df68-4282-9ea3-f99097c62178"
+  }, {
+    "targetPage": "PaymentSuccessful",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this information. You can update your payment methods any time in your $session.params.Link33." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMChat_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodChat"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMChat",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodChat"
+      } ]
+    },
+    "name": "bf593f15-096f-4480-952e-3c7c23ac7537"
+  } ]
+}

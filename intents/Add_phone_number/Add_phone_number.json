@@ -1,0 +1,10 @@
+{
+  "name": "0941aae3-e0c4-4ce2-b24c-023b167d270e",
+  "displayName": "Add_phone_number",
+  "parameters": [ {
+    "id": "phone-number",
+    "entityType": "@sys.phone-number"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 1
+}

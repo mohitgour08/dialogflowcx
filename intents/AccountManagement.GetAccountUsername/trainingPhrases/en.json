@@ -1,0 +1,934 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "username",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "It won't recognize my ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need ",
+      "auto": true
+    }, {
+      "text": "my username",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need to retrieve ",
+      "auto": true
+    }, {
+      "text": "my Username",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can't",
+      "auto": true
+    }, {
+      "text": " recall ",
+      "auto": true
+    }, {
+      "text": "my username",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Username",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've switched ",
+      "auto": true
+    }, {
+      "text": "devices",
+      "auto": true
+    }, {
+      "text": " and ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " find my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": " in the ",
+      "auto": true
+    }, {
+      "text": "password",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "manager",
+      "auto": true
+    }, {
+      "text": ". How can I retrieve it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've recently changed my ",
+      "auto": true
+    }, {
+      "text": "email address",
+      "auto": true
+    }, {
+      "text": " and ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " receive any ",
+      "auto": true
+    }, {
+      "text": "emails",
+      "auto": true
+    }, {
+      "text": " with my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". What should ",
+      "auto": true
+    }, {
+      "text": "I do",
+      "auto": true
+    }, {
+      "text": " now?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've tried using my full name as the ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ", but it didn't work. How can I find my ",
+      "auto": true
+    }, {
+      "text": "correct",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've searched through my old documents, but I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " find any reference to my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". How can I retrieve it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " recall ",
+      "auto": true
+    }, {
+      "text": "my username",
+      "auto": true
+    }, {
+      "text": " to regain access. What steps should I take",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": " urgently. Is there ",
+      "auto": true
+    }, {
+      "text": "a way",
+      "auto": true
+    }, {
+      "text": " to expedite the process of retrieving it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've recently changed my ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " and ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " receive any SMS with my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". What other options ",
+      "auto": true
+    }, {
+      "text": "do",
+      "auto": true
+    }, {
+      "text": " I have?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've tried using my ",
+      "auto": true
+    }, {
+      "text": "email address",
+      "auto": true
+    }, {
+      "text": " as the ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ", but it didn't work. How can I find my actual ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've accidentally cleared my browser ",
+      "auto": true
+    }, {
+      "text": "history",
+      "auto": true
+    }, {
+      "text": ", and now I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " remember my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". How can I recover it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've ",
+      "auto": true
+    }, {
+      "text": "checked",
+      "auto": true
+    }, {
+      "text": " my ",
+      "auto": true
+    }, {
+      "text": "email",
+      "auto": true
+    }, {
+      "text": " inbox, but I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " find any ",
+      "auto": true
+    }, {
+      "text": "email",
+      "auto": true
+    }, {
+      "text": " containing my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". What should ",
+      "auto": true
+    }, {
+      "text": "I do",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "next",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm unable to proceed without my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". Can you provide any guidance on how to retrieve it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've recently changed ",
+      "auto": true
+    }, {
+      "text": "my username",
+      "auto": true
+    }, {
+      "text": ", but now I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " remember the ",
+      "auto": true
+    }, {
+      "text": "new one",
+      "auto": true
+    }, {
+      "text": ". How can I retrieve it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm trying to log in from a different ",
+      "auto": true
+    }, {
+      "text": "device",
+      "auto": true
+    }, {
+      "text": ", but I'm unsure of my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". How can I retrieve it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've encountered an error while logging in, and it's stating an invalid ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". How can I verify my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've mistakenly deleted the ",
+      "auto": true
+    }, {
+      "text": "email",
+      "auto": true
+    }, {
+      "text": " containing my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". What can ",
+      "auto": true
+    }, {
+      "text": "I do",
+      "auto": true
+    }, {
+      "text": " to retrieve it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've recently ",
+      "auto": true
+    }, {
+      "text": "signed up",
+      "auto": true
+    }, {
+      "text": ", but I haven't received my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". How can I obtain it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": " to proceed further. Can you provide any ",
+      "auto": true
+    }, {
+      "text": "assistance",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've searched through my records, but I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " find my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". What's the ",
+      "auto": true
+    }, {
+      "text": "next",
+      "auto": true
+    }, {
+      "text": " course of action?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm struggling to recall my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". Is there ",
+      "auto": true
+    }, {
+      "text": "any way",
+      "auto": true
+    }, {
+      "text": " you can ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " me retrieve it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " seem to find my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": " anywhere. Can you ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " me locate it",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've tried multiple ",
+      "auto": true
+    }, {
+      "text": "usernames",
+      "auto": true
+    }, {
+      "text": ", but none of them allowed me to log in. How can I get the ",
+      "auto": true
+    }, {
+      "text": "correct",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "one",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you please guide me through the necessary steps to retrieve my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need to access my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": ", but I ",
+      "auto": true
+    }, {
+      "text": "don't",
+      "auto": true
+    }, {
+      "text": " recall ",
+      "auto": true
+    }, {
+      "text": "my username",
+      "auto": true
+    }, {
+      "text": ". What should ",
+      "auto": true
+    }, {
+      "text": "I do",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm unable to log in without my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". How ",
+      "auto": true
+    }, {
+      "text": "do",
+      "auto": true
+    }, {
+      "text": " I retrieve it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a specific process to follow in ",
+      "auto": true
+    }, {
+      "text": "order",
+      "auto": true
+    }, {
+      "text": " to obtain my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've misplaced my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". How can I go about recovering it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me in finding my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": "? I ",
+      "auto": true
+    }, {
+      "text": "can't",
+      "auto": true
+    }, {
+      "text": " seem to remember it.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm having trouble accessing my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": ". Is there ",
+      "auto": true
+    }, {
+      "text": "a way",
+      "auto": true
+    }, {
+      "text": " to retrieve ",
+      "auto": true
+    }, {
+      "text": "my username",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What steps ",
+      "auto": true
+    }, {
+      "text": "do",
+      "auto": true
+    }, {
+      "text": " I need to take to get my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I forgot my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": ". Can you ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " me find it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How can I retrieve my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "username",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

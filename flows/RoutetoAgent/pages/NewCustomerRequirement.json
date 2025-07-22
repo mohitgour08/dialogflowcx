@@ -1,0 +1,192 @@
+{
+  "name": "83cdeec9-47e5-4a24-8ede-bc39aaa0af49",
+  "displayName": "NewCustomerRequirement",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Are you calling regarding residential services and home office or business services? If you're an Enterprise customer, please call the number on your invoice.\n" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Residental/Home Office"
+          }, {
+            "action": "quick_reply",
+            "title": "Business"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Residential",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_NewCustomerRequirement_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "sales_customer_type",
+        "value": "Residential"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "IsCustomerName",
+    "name": "67df72c3-f898-4533-abc3-48f44e476328"
+  }, {
+    "intent": "Business",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Small Business accounts are handled by a specialized group that only provides phone support. Please call our Small Business Support team at 1-833-692-7773 Mon-Fri 8am to 8pm Sat-Sun 8am to 5pm est." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Thank you for contacting Brightspeed! Please let us know if we may be of further assistance." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_NewCustomerRequirement_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "End Session",
+    "name": "bb467034-a33f-464c-be6e-e6994a206971"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_NewCustomerRequirement_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NewCustomerRequirement"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "7db941ed-669b-4f23-bc98-ce64d36b431e"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Residental/Home Office"
+            }, {
+              "action": "quick_reply",
+              "title": "Business"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_NewCustomerRequirement_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "c81e0032-5cab-463f-88e2-1238764d9c45"
+  }, {
+    "targetPage": "IsAfterHours",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_NewCustomerRequirement_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "sales_customer_type",
+        "value": "Residential"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "8305e23c-9891-4449-a683-7cc85d966f86"
+  } ]
+}

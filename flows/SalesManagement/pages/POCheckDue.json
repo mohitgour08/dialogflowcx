@@ -1,0 +1,191 @@
+{
+  "name": "9bcbb50a-0e45-466d-aa83-caa81d58b9d2",
+  "displayName": "POCheckDue",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "OrderPastDue",
+      "value": "$sys.func.IF($session.params.OrderDueDiff\u003c\"0\", \"Y\",\"N\")"
+    }, {
+      "parameter": "OrderDueDifference",
+      "value": "$session.params.OrderDueDiff"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.MultiplePendingOrders = \"true\" OR $session.params.MultiplePendingOrders = \"True\" OR $session.params.MultiplePendingOrders = \"TRUE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_POCheckDue_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "MultiplePendingOrdersFound",
+        "value": "True"
+      }, {
+        "parameter": "SS_PendingOrder",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Multiple Pending Orders"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "4efe03ac-d065-4ca1-9618-b0e98afbe183"
+  }, {
+    "condition": "$session.params.OrderPastDue = \"N\" AND $session.params.OrderDueDifference != \"True\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_POCheckDue_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POCustAtHome",
+    "name": "01798f1d-fd65-485a-9a30-8a56b7720f64"
+  }, {
+    "condition": "$session.params.OrderPastDue = \"Y\" AND $session.params.OrderDueDifference != \"True\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_SalesManagement_POCheckDue_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PendingOrder",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Order Past Due And No  Order Due Difference"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "21ee126f-df5f-4950-bf9f-d9f6b6e5b7a6"
+  }, {
+    "condition": "($session.params.OrdersRecentlyCompleted = \"true\" OR $session.params.OrdersRecentlyCompleted = \"True\" OR $session.params.OrdersRecentlyCompleted = \"TRUE\") AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_POCheckDue_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POOrderCompleted",
+    "name": "60293a66-924d-4172-af2b-911e21e39861"
+  }, {
+    "condition": "$session.params.OrdersRecentlyCompleted = \"TRUE\" OR $session.params.OrdersRecentlyCompleted = \"True\" OR $session.params.OrdersRecentlyCompleted = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_POCheckDue_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POOrderCompletedVoice",
+    "name": "f015f542-f357-41a5-9e0c-d4c700adb8c0"
+  }, {
+    "condition": "$session.params.OrderDueDiff = \"True\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_SalesManagement_POCheckDue_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PendingOrder",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self service Not Available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "No  Order Due Difference"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "d490ec33-8e5e-4895-853a-9abf574a00b2"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_POCheckDue_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_PendingOrder",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "POCheckDue"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "5a97c85b-b6eb-407f-8f74-a6458cf528c9"
+  } ],
+  "description": "PENDING ORDER DUE?"
+}

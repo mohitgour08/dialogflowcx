@@ -1,0 +1,205 @@
+{
+  "name": "42c6dd74-77c8-47f2-83e9-c86c22f243cf",
+  "displayName": "AccountGoogleSendText",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "SendSMSMessage",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "contactNumber",
+      "value": "$session.params.SMSNumber"
+    }, {
+      "parameter": "smsMessage",
+      "value": "Click here to download the Brightspeed App in the Google Play Store."
+    }, {
+      "parameter": "smsMessage1",
+      "value": "https://play.google.com/store/apps/details?id=com.brightspeed.dsl\u0026pli=1"
+    }, {
+      "parameter": "Passcode",
+      "value": ""
+    }, {
+      "parameter": "Metrics_AccountManagement_AccountGoogleSendText_wh_SendSMSMessage",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.SMSResponseStatus = \"Success\" OR $session.params.SMSResponseStatus = \"success\" OR $session.params.SMSResponseStatus = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AccountGoogleSendText_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_BrspdApp",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "API_AccountManagement_AccountGoogleSendText",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "targetPage": "AccountGoogleTextConfirm",
+    "name": "7fc6f28b-d2c1-4055-9a4b-9c489503989e"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AccountGoogleSendText_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "APIError"
+      }, {
+        "parameter": "API_AccountManagement_AccountGoogleSendText",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "targetPage": "AccountGoogleTextFail",
+    "name": "2b6e5213-f08b-4e47-a90b-7cb7d9ffa166"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "AccountAppleTextFail",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountGoogleSendText_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_AccountManagement_AccountGoogleSendText",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "92dc1dd9-72d4-43ee-bf13-0b0b348e887a"
+  }, {
+    "targetPage": "AccountAppleTextFail",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountGoogleSendText_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_AccountManagement_AccountGoogleSendText",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "fd54b25c-a25d-4458-827b-d67bb8cdfd56"
+  }, {
+    "targetPage": "AccountAppleTextFail",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountGoogleSendText_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_AccountManagement_AccountGoogleSendText",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "add41ba0-e86c-468e-9f45-7b8ddffdc436"
+  }, {
+    "targetPage": "AccountAppleTextFail",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountGoogleSendText_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_AccountManagement_AccountGoogleSendText",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "190a1248-dc66-4241-8016-f80387fc4a2a"
+  }, {
+    "targetPage": "AccountAppleTextFail",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountGoogleSendText_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_AccountManagement_AccountGoogleSendText",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "3f3365cc-ebca-4e41-994a-b552118a2a66"
+  }, {
+    "targetPage": "AccountAppleTextFail",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountGoogleSendText_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_AccountManagement_AccountGoogleSendText",
+        "value": "Fail_Unavaliable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "4644307d-abd5-462e-a777-6269c8f7bfba"
+  } ]
+}

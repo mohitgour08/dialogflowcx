@@ -1,0 +1,47 @@
+{
+  "name": "40fcce63-2415-4f79-8371-42b0556e1e84",
+  "displayName": "FiberCheckFirstUpdateFail",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.NetworkType = \"GPON\" OR $session.params.NetworkType = \"XGSPON\" OR $session.params.NetworkType = \"BPON\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberCheckFirstUpdateFail_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberUpdateFailCard",
+    "name": "64580245-94a3-4455-abc4-1853545b259f"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberCheckFirstUpdateFail_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "UpdateFailCard",
+    "name": "aca5fd46-44c0-4497-85d4-55a1d63e115f"
+  } ]
+}

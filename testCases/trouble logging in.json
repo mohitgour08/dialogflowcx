@@ -1,0 +1,72 @@
+{
+  "name": "5b0e61a9-34a6-452d-b953-c869c16c23c6",
+  "tags": [ "#faq" ],
+  "displayName": "trouble logging in",
+  "testCaseConversationTurns": [ {
+    "userInput": {
+      "injectedParameters": {
+        "channel": "web"
+      },
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "hi"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "sessionParameters": {
+        "channel": "web"
+      },
+      "textResponses": [ {
+        "text": [ "You are communicating with an AI enabled virtual assistant. Your chat may be recorded, monitored, or retained by us and our vendors to help improve and personalize our services for you. By continuing with this chat, you consent to this. For more information check out our {{ https://www.brightspeed.com/privacy-notice.html | Privacy Notice}}." ],
+        "allowPlaybackInterruption": true
+      }, {
+        "text": [ "How can I help you today?" ],
+        "allowPlaybackInterruption": true
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "im having trouble logging in"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "To reset your password, visit https://dh.brightspeed.com/login/forgotPassword. If you change your password, unauthorized users will need to log in again using the new password.\n" ],
+        "allowPlaybackInterruption": true
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "i need to change my password"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "You can reset your password online at https://dh.brightspeed.com/login/forgotPassword. After resetting it, unauthorized users will be required to log in again using the new password. Would you like me to send you an email guide on how to reset your password on the website for future reference?\n" ],
+        "allowPlaybackInterruption": true
+      } ]
+    }
+  } ],
+  "creationTime": {
+    "seconds": 1750947713,
+    "nanos": 976431000
+  },
+  "testConfig": {
+    "flow": "Default Start Flow",
+    "page": "Start Page"
+  },
+  "languageCode": "en"
+}

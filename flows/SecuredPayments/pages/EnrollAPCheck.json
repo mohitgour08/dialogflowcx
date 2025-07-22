@@ -1,0 +1,37 @@
+{
+  "name": "77ca3e57-d4a6-44a9-b6f9-0aebcaf5a626",
+  "displayName": "EnrollAPCheck",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.EnrollAutopayNow = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_EnrollAPCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "paymentAuthId",
+        "value": "$session.params.PaymentToken"
+      } ]
+    },
+    "targetPage": "EnrollAutopayAPI",
+    "name": "3989b808-097b-4044-b3b1-ed9f4c2d76a9"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_EnrollAPCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "84f2c831-1ddd-433a-be18-c65c8db1f0c5"
+  } ]
+}

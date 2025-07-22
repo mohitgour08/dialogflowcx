@@ -1,0 +1,279 @@
+{
+  "name": "4bf03996-9f2e-49f2-adb8-6741ef82695e",
+  "displayName": "CCExpMonCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "ExpDay",
+      "value": "30"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ExpMon = \"01\" OR $session.params.ExpMon = \"1\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ExpDay",
+        "value": "31"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_CCExpMonCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ExpMon",
+        "value": "01"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "b02e6dea-904f-4844-9bca-3e58bafad4a6"
+  }, {
+    "condition": "$session.params.ExpMon = \"02\" OR $session.params.ExpMon = \"2\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "LeapYearCheck",
+        "value": "$sys.func.DIVIDE($sys.func.TO_NUMBER($session.params.ExpYear), 4,4)"
+      }, {
+        "parameter": "LeapYearDecimal",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.LeapYearCheck), 5, 1)"
+      }, {
+        "parameter": "LeapYear",
+        "value": "$sys.func.IF($session.params.LeapYearDecimal\u003c=\"0\", \"Y\",\"N\")"
+      }, {
+        "parameter": "ExpDay",
+        "value": "$sys.func.IF(\"$session.params.LeapYear= N\", \"28\", \"29\")"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_CCExpMonCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ExpMon",
+        "value": "02"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "465397e2-7abf-476f-8165-91b79124e3ef"
+  }, {
+    "condition": "$session.params.ExpMon = \"03\" OR $session.params.ExpMon = \"3\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ExpDay",
+        "value": "31"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_CCExpMonCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ExpMon",
+        "value": "03"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "8a348bfc-aed9-413b-8380-f52244b7598b"
+  }, {
+    "condition": "$session.params.ExpMon = \"04\" OR $session.params.ExpMon = \"4\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ExpDay",
+        "value": "30"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_CCExpMonCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ExpMon",
+        "value": "04"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "312990c1-c114-41e8-afe3-e76d40a458ad"
+  }, {
+    "condition": "$session.params.ExpMon = \"05\" OR $session.params.ExpMon = \"5\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ExpDay",
+        "value": "31"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_CCExpMonCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ExpMon",
+        "value": "05"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "97b6e03b-9827-4e7a-b9ea-d0e905777556"
+  }, {
+    "condition": "$session.params.ExpMon = \"06\" OR $session.params.ExpMon = \"6\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ExpDay",
+        "value": "30"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_CCExpMonCheck_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ExpMon",
+        "value": "06"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "477af4a2-4a10-4a7d-ada8-9f69e959b4d3"
+  }, {
+    "condition": "$session.params.ExpMon = \"07\" OR $session.params.ExpMon = \"7\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ExpDay",
+        "value": "31"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_CCExpMonCheck_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ExpMon",
+        "value": "07"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "b7386e87-cb2f-44c9-87bd-94ef21914955"
+  }, {
+    "condition": "$session.params.ExpMon = \"08\" OR $session.params.ExpMon = \"8\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ExpDay",
+        "value": "31"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_CCExpMonCheck_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ExpMon",
+        "value": "08"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "4d3a3fc9-5504-4af6-a375-6087d573966c"
+  }, {
+    "condition": "$session.params.ExpMon = \"09\" OR $session.params.ExpMon = \"9\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ExpDay",
+        "value": "30"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_CCExpMonCheck_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ExpMon",
+        "value": "09"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "f0b84e8b-93d2-4886-aa06-68a5abb778b2"
+  }, {
+    "condition": "$session.params.ExpMon = \"10\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ExpDay",
+        "value": "31"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_CCExpMonCheck_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "9c9b46dd-a1f5-458e-a345-6d694b648d59"
+  }, {
+    "condition": "$session.params.ExpMon = \"11\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ExpDay",
+        "value": "30"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_CCExpMonCheck_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "bb514af8-2f00-45eb-b81a-566d7f9151b6"
+  }, {
+    "condition": "$session.params.ExpMon = \"12\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ExpDay",
+        "value": "31"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_CCExpMonCheck_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "4123afa7-ba20-4fc8-bb89-c9d5c4344045"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CCExpirationDate",
+        "value": "$sys.func.CONCATENATE($session.params.ExpYear,\"/\",$session.params.ExpMon,\"/\",$session.params.ExpDay)"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_CCExpMonCheck_13",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "MigratedCopperCheck",
+    "name": "77362f72-5613-4133-8c76-aee458c7d6ea"
+  } ]
+}

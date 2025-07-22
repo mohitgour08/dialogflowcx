@@ -1,0 +1,30 @@
+{
+  "name": "19e43d87-95d5-4662-9f84-1861f88ffb08",
+  "displayName": "Phone",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "ContactNumberFirst4",
+      "value": "$sys.func.MID($session.params.ContactNumber, 7, 4)"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ContactNumberFirst4",
+        "value": "$sys.func.MID($session.params.ContactNumber, 7, 4)"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "PhoneOnProfile",
+    "name": "c99b5be1-4e20-4b2f-9b5b-0788c081d8a8"
+  } ]
+}

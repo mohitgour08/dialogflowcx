@@ -1,0 +1,111 @@
+{
+  "name": "ee71d1fd-7b62-48a7-b878-0f0a062c491f",
+  "displayName": "AskAccountInfo",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Before we can help, I need to find your account. Starting with the area code please enter a telephone number associated with your account, or your 9 or 10 digit billing account number. If your account number begins with the letters \"PPB\", make sure to include that too." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_Authentication_AskAccountInfo",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "AuthenticationAccountInfoBAN",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$session.params.ENTER_BAN"
+      }, {
+        "parameter": "Metrics_Authentication_AskAccountInfo_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "validateAccountInfo",
+    "name": "b021e980-ea5f-4c81-93bf-860b36bf40fb"
+  }, {
+    "intent": "AuthenticationAccountInfoTN",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$session.params.phone-number"
+      }, {
+        "parameter": "Metrics_Authentication_AskAccountInfo_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "validateAccountInfo",
+    "name": "1a7e6583-2c23-40a3-9621-dc9bd58db872"
+  }, {
+    "intent": "AuthenticationAccountInfoPPB",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_temp",
+        "value": "$session.params.ENTER_PPB"
+      }, {
+        "parameter": "Metrics_Authentication_AskAccountInfo_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PPBValidateChat",
+    "name": "ab96b2e1-c5ec-4c88-a583-5e876736a428"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_AskAccountInfo_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AskAccountInfo"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "850a95f3-9418-402e-9d31-d6c43c89e753"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "validateAccountInfo",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_AskAccountInfo_NoMatch",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "4d67dd0f-408c-4110-9824-1beacecc16b8"
+  } ],
+  "speakerIdSettings": {
+  
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "name": "0e232988-61f1-4d1d-a0e1-253a01154c7a",
+  "displayName": "MigratedCardPaymentForm",
+  "form": {
+    "parameters": [ {
+      "displayName": "formResponse",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_SecuredPayments_MigratedCardPaymentForm_formResponse",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+            
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n  \"chatClientForm\": \"UpdatePayment\"\n}" ]
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_MigratedCardPaymentForm_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "MigratedCardFormCheck",
+    "name": "041b00ff-19bf-4fbf-80bf-a58e5f793802"
+  } ],
+  "description": "COPPER METHOD OF PAYMENT UPDATE"
+}

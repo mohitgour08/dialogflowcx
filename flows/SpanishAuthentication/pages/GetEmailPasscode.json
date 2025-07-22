@@ -1,0 +1,21 @@
+{
+  "name": "8f557045-8da4-413d-8413-1745e50f6a07",
+  "displayName": "GetEmailPasscode",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_GetEmailPasscode",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GetEmailPasscodeVoice",
+    "name": "241de3f8-598e-40d9-84b5-9e04b43e5c34"
+  } ]
+}

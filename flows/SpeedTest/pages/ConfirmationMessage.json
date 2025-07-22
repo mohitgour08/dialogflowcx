@@ -1,0 +1,64 @@
+{
+  "name": "24acc5ad-6a4e-4043-a4f4-fd02627d0719",
+  "displayName": "ConfirmationMessage",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay, I'm going to connect you with a repair agent now for more help. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e Okay, I'm going to connect you with a repair agent now for more help. \u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "RouteIntent",
+      "value": "Repair"
+    }, {
+      "parameter": "Metrics_BalanceInquiryOrMakePayment_AccountTypeAndBillingMethod_1",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_SpeedTest_ConfirmationMessage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "Self Service not available"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "0314837c-1a1d-4478-8559-18f4db461776"
+  } ]
+}

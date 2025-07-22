@@ -1,0 +1,452 @@
+{
+  "name": "8343184a-37e9-4f7c-bfe9-d4f934d89630",
+  "displayName": "GetEmailPasscodeVoice",
+  "form": {
+    "parameters": [ {
+      "displayName": "OTP_Code",
+      "required": true,
+      "entityType": "@OTP_voice",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_SpanishAuthentication_GetEmailPasscodeVoice_2",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          }, {
+            "parameter": "GetPasscode",
+            "value": "$session.params.OTP_Code"
+          } ]
+        },
+        "repromptEventHandlers": [ {
+          "targetPage": "Call2FactorEmailAPI",
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eLo siento, no escuché tu respuesta. Intentémoslo una vez más. Voy a enviar un nuevo código ahora. Utilice el teclado para escribir el código una vez que lo reciba. \u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "\u003cspeak\u003eLo siento, no escuché tu respuesta. Intentémoslo una vez más. Voy a enviar un nuevo código ahora. Utilice el teclado para escribir el código una vez que lo reciba.  \u003c/speak\u003e" ]
+              },
+              "languageCode": "es"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "codeSent",
+              "value": "$sys.func.ADD($session.params.codeSent,1)"
+            }, {
+              "parameter": "Metrics_SpanishAuthentication_GetEmailPasscodeVoice_NoInput_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "GetPasscode",
+              "value": null
+            }, {
+              "parameter": "OTP_Code",
+              "value": null
+            }, {
+              "parameter": "EmailResponseStatus",
+              "value": null
+            }, {
+              "parameter": "PasscodeCount",
+              "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "SpanishAuthentication"
+            } ]
+          },
+          "name": "ff216ee0-9f33-4887-bd9c-ba80ae400aee"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Sigo teniendo problemas con la verificación de tu cuenta." ]
+              },
+              "languageCode": "es"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "comingfromstate",
+              "value": "SpanishAuthentication"
+            }, {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "AuthFailReason",
+              "value": "Passcode"
+            }, {
+              "parameter": "GetPasscode",
+              "value": null
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoInputRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "GetEmailPasscodeVoice"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "Noinput"
+            }, {
+              "parameter": "Metrics_SpanishAuthentication_GetEmailPasscodeVoice_NoInput_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ]
+          },
+          "name": "2d69883c-4f92-4782-a107-83f4c1023262"
+        }, {
+          "targetPage": "Call2FactorEmailAPI",
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003eEse código no parece coincidir; intentémoslo una vez más. Voy a enviar un nuevo código ahora. Utilice el teclado para escribir el código una vez que lo reciba.\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "\u003cspeak\u003eEse código no parece coincidir. Intentémoslo una vez más. Voy a enviar un nuevo código ahora. Usa el teclado para escribir el código una vez que lo recibas.\u003c/speak\u003e" ]
+              },
+              "languageCode": "es"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_validatePasscode",
+              "value": "Failure"
+            }, {
+              "parameter": "PasscodeCount",
+              "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+            }, {
+              "parameter": "GetPasscode",
+              "value": null
+            }, {
+              "parameter": "Metrics_SpansihAuthentication_GetEmailPasscodeVoice_NoMatch_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "EmailResponseStatus",
+              "value": null
+            }, {
+              "parameter": "codeSent",
+              "value": "$sys.func.ADD($session.params.codeSent,1)"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "OTP_Code",
+              "value": null
+            }, {
+              "parameter": "comingfromstate",
+              "value": "SpanishAuthentication"
+            } ]
+          },
+          "name": "0b645a6c-f162-4c96-938e-3e38dc335c73"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "\u003cspeak\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/speak\u003e" ]
+              },
+              "languageCode": "es"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_SpanishAuthentication_GetEmailPasscode_NoMatch_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "SpanishAuthentication"
+            }, {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "AuthFailReason",
+              "value": "DifferentPasscode"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "Metrics_AuthFailReason",
+              "value": "DifferentPasscode"
+            }, {
+              "parameter": "OTP_Code",
+              "value": null
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoMatchRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "GetEmailPasscodeVoice"
+            } ]
+          },
+          "name": "71bac1be-99bf-4abe-a6f3-682d4e19d77e"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTe envié el código correctamente; el correo electrónico puede tardar un momento en aparecer. Usa el teclado para introducir el código una vez que lo recibas. Si han pasado más de sesenta segundos y aún no lo tienes, pulsa uno para volver a enviarlo.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Te envié el código correctamente; es posible que el texto tarde un momento en aparecer. Utilice el teclado para escribir el código una vez que lo reciba. Si han pasado más de 60 segundos y aún no lo tienes di \"enviar código nuevamente\"." ]
+      },
+      "languageCode": "es"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_SpanishAuthentication_GetEmailPasscodeVoice_1",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eBien, intentaré enviarlo una vez más. Espere un momento para que llegue el correo electrónico. Utilice el teclado para escribir el código una vez que lo reciba. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eBien, intentaré enviarlo una vez más. Espere un momento para que llegue el correo electrónico. Utilice el teclado para escribir el código una vez que lo reciba. \u003c/speak\u003e" ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "codeSent",
+        "value": "$sys.func.ADD($session.params.codeSent,1)"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_GetEmailPasscodeVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "GetPasscode",
+        "value": null
+      }, {
+        "parameter": "OTP_Code",
+        "value": null
+      }, {
+        "parameter": "EmailResponseStatus",
+        "value": null
+      }, {
+        "parameter": "PasscodeCount",
+        "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "SpanishAuthentication_GetEmailPasscodeVoice_DTMF_1"
+      } ]
+    },
+    "targetPage": "Call2FactorEmailAPI",
+    "name": "241cd394-c86d-479b-9302-fcb0a6614309"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.OTP_Code) = 6",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_GetEmailPasscodeVoice",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PasscodeLength",
+        "value": "$sys.func.MINUS($sys.func.TO_NUMBER($sys.func.LEN($session.params.GetPasscode)),6)"
+      }, {
+        "parameter": "GetPasscode",
+        "value": "$session.params.OTP_Code"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckEmailPasscode",
+    "name": "bf476cb7-a8ec-473a-8bc2-d197a2fcac24"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Lo siento! No entendí tu respuesta. Intentémoslo de nuevo. \u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003epulsa uno para volver a enviarlo.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eLo siento, no escuché tu respuesta. \u003c/speak\u003e" ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_validatePasscode",
+        "value": "Failure"
+      }, {
+        "parameter": "PasscodeCount",
+        "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+      }, {
+        "parameter": "GetPasscode",
+        "value": null
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_GetEmailPasscodeVoice_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmailResponseStatus",
+        "value": null
+      }, {
+        "parameter": "codeSent",
+        "value": "$sys.func.ADD($session.params.codeSent,1)"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "True"
+      } ]
+    },
+    "name": "7c161dc8-689e-4f6b-aee5-cc28532e5955"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eeso esta bien \u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eEstá bien.\u003c/speak\u003e" ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_GetEmailPasscodeVoice_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GetEmailPasscodeVoice"
+      } ]
+    },
+    "name": "34e0722a-b99b-4f03-8794-8e1f8b1405ca"
+  }, {
+    "targetPage": "Call2FactorEmailAPI",
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eEse código no parece coincidir; intentémoslo una vez más. Voy a enviar uno nuevo ahora. Utilice el teclado para escribir el código una vez que lo reciba. \u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "PasscodeCount",
+        "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+      }, {
+        "parameter": "GetPasscode",
+        "value": null
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_GetEmailPasscodeVoice_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmailResponseStatus",
+        "value": null
+      }, {
+        "parameter": "codeSent",
+        "value": "$sys.func.ADD($session.params.codeSent,1)"
+      }, {
+        "parameter": "Metrics_validatePasscode",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "e015ebc9-45e3-4d8a-978e-e291c46c3966"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e Sigo teniendo problemas con la verificación de tu cuenta.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/speak\u003e" ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_GetEmailPasscodeVoice_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GetEmailPasscodeVoice"
+      } ]
+    },
+    "name": "d9636914-dce8-49bb-a843-2def9f0fece0"
+  } ]
+}

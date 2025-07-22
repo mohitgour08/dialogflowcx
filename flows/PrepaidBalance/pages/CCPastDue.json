@@ -1,0 +1,236 @@
+{
+  "name": "531a7419-a2f4-49a7-8ae2-3120002aad7c",
+  "displayName": "CCPastDue",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Right now, the balance on your account is  $$session.params.BillInfo_LatestDueAmount . This amount is past due. You need to complete payment of the past due amount  to avoid interruptions to your service." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "What would you like to do?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Make a payment"
+          }, {
+            "action": "quick_reply",
+            "title": "View or print statements"
+          }, {
+            "action": "quick_reply",
+            "title": "See my payment history"
+          }, {
+            "action": "quick_reply",
+            "title": "I have an additional question"
+          }, {
+            "action": "quick_reply",
+            "title": "Thanks, that was all I needed"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_PrepaidBalance",
+      "value": "Success"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "MakeAPayment",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_CCPastDue_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PrepaidPayment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PrepaidPayment"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "01b3ee54-0150-4160-acf6-e8af45458169"
+  }, {
+    "intent": "ViewOrPrintStatements",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "BillRequestBillCopy"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_CCPastDue_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Billing"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Success"
+      } ]
+    },
+    "targetFlow": "Billing",
+    "name": "c62741bd-593b-4e08-85fc-600d494431a5"
+  }, {
+    "intent": "Payment.PaymentHistory",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentHistory"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_CCPastDue_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Success"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "ffaedabf-9e05-4ff5-bb64-4a58d54a9485"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_CCPastDue_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "agentPromptRemoval_pagename",
+        "value": "CCPastDue"
+      }, {
+        "parameter": "agentPromptRemoval",
+        "value": "Yes"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "05cd63cd-578a-4fb1-84b3-9d0bd5e3ef27"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_CCPastDue_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CCPastDue"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "628b8ae8-46f4-4584-9881-ab9cccb6fffd"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "What would you like to do?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Make a payment"
+            }, {
+              "action": "quick_reply",
+              "title": "View or print statements"
+            }, {
+              "action": "quick_reply",
+              "title": "See my payment history"
+            }, {
+              "action": "quick_reply",
+              "title": "I have an additional question"
+            }, {
+              "action": "quick_reply",
+              "title": "Thanks, that was all I needed"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_CCPastDue_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "ea065be5-012d-4370-96f0-32e7ae17c2d8"
+  } ],
+  "transitionRouteGroups": [ "AdditionalQuestion", "GoodToGo" ],
+  "description": "PAST DUE CREDIT CARD"
+}

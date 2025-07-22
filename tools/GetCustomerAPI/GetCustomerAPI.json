@@ -1,0 +1,16 @@
+{
+  "name": "e794d3b2-2485-4df5-b40d-afb2d894fbc2",
+  "displayName": "GetCustomerAPI",
+  "description": "This tool verify the customer and provides customer information",
+  "openApiSpec": {
+    "authentication": {
+      "oauthConfig": {
+        "oauthGrantType": "CLIENT_CREDENTIAL",
+        "clientId": "byJQMxAg9HvOlxQ9IYsGRqSvvSxDycLfy3GiYOyAd5cLMaL4",
+        "clientSecret": "i1rTFXl017jxep391Y8Yt0fJVvJM4aLh5TbDAGhn5qAhNxpWL8xKn7EleriCXyqT",
+        "tokenEndpoint": "https://apgx-dev.brightspeed.com/oauth2/token"
+      }
+    }
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

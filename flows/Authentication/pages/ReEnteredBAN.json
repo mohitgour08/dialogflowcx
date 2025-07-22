@@ -1,0 +1,51 @@
+{
+  "name": "e6308ee6-e8fc-4db3-b052-f9a59d6f937b",
+  "displayName": "ReEnteredBAN",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "intent": "AuthenticationAccountInfoBAN",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_ReEnteredBAN_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "MultiSelectedBan",
+        "value": "$session.params.ENTER_BAN"
+      } ]
+    },
+    "targetPage": "CheckNoMatchBAN",
+    "name": "6db25929-f76a-4638-b4aa-f666e01a0521"
+  }, {
+    "intent": "AuthenticationAccountInfoPPB",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MultiSelectedBan_temp",
+        "value": "$session.params.ENTER_PPB"
+      }, {
+        "parameter": "Metrics_Authentication_ReEnteredBAN_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "MultiSelectedBan",
+        "value": null
+      } ]
+    },
+    "targetPage": "PPBCaptureChat",
+    "name": "eef97999-deca-4101-a711-3654982713f3"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "CheckNoMatchBAN",
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_ReEnteredBAN_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "752ad19a-29b7-440b-9d12-7b8d90fc4af2"
+  } ]
+}

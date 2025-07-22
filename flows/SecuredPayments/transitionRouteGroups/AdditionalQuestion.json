@@ -1,0 +1,15 @@
+{
+  "name": "e2a22c4f-e549-4114-ad6d-1b200a9f4871",
+  "displayName": "AdditionalQuestion",
+  "transitionRoutes": [ {
+    "intent": "AdditionalQuestion",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AdditionalQuestion",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "0c66ea28-6637-47d1-8543-f0736d454c6b"
+  } ]
+}

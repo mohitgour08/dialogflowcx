@@ -1,0 +1,65 @@
+{
+  "name": "f199c99b-93d9-4863-aa71-bb204bddef62",
+  "displayName": "FormResponseCFAPChk",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.formResponseCFAP = \"Update\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\":\"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_FormResponseCFAPChk_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "65a547b0-ad8a-456c-ac45-3f4728bea2c9"
+  }, {
+    "condition": "$session.params.formResponseCFAP = \"formBack\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\":\"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "FormAnythingElseAP"
+      }, {
+        "parameter": "ToModule",
+        "value": "PostpaidBalance"
+      }, {
+        "parameter": "Metrics_FormResponseCFAPChk_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "ee072e6c-4b76-4d66-b883-27d32381372e"
+  }, {
+    "condition": "$session.params.formResponseCFAP = \"CancelA\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_FormResponseCFAPChk_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "ConfirmCancelAutopay"
+      } ]
+    },
+    "targetPage": "FormCancelAutoPay",
+    "name": "b5397380-1224-4dca-bc89-915f72d23dc8"
+  } ]
+}

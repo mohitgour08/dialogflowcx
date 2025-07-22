@@ -1,0 +1,99 @@
+{
+  "name": "7365edc1-daf0-40c1-8557-528bc4751327",
+  "displayName": "BankFormCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.formResponse = \"Form Back\" AND $session.params.BillingMethod = \"postpaid\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_BankFormCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "formResponse",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckOverdue",
+    "name": "09f4f692-11e9-451a-bac8-b7570e285b51"
+  }, {
+    "condition": "$session.params.formResponse = \"Form Back\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "formResponse",
+        "value": null
+      }, {
+        "parameter": "Metrics_SecuredPayments_BankFormCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CardOrAccount",
+    "name": "32b6f309-6285-4376-88ec-703d629243e6"
+  }, {
+    "condition": "$session.params.formResponse = \"Form Cancel\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "formResponse",
+        "value": null
+      }, {
+        "parameter": "Metrics_SecuredPayments_BankFormCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CancelTransactionChat",
+    "name": "69e27c54-e53f-4b39-a9e0-7a8c064a4e20"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_BankFormCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "JsonPayloadAPI",
+    "name": "10c5e6ae-7a17-4226-bbd4-8b26e973aae4"
+  } ]
+}

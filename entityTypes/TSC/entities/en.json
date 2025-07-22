@@ -1,0 +1,19 @@
+{
+  "entities": [ {
+    "value": "Fiber Customer",
+    "synonyms": [ "Fiber", "fiber customer", "fiber Customer", "Fiber customer", "Fiber Customer" ],
+    "languageCode": "en"
+  }, {
+    "value": "Copper Customer",
+    "synonyms": [ "Copper", "copper customer", "copper Customer", "Copper customer", "Copper Customer" ],
+    "languageCode": "en"
+  }, {
+    "value": "Legacy GPON Customer",
+    "synonyms": [ "gpon", "GPON", "Legacy", "Legacy Customer", "legacy gpon customer", "Legacy gpon Customer", "Legacy GPON Customer" ],
+    "languageCode": "en"
+  }, {
+    "value": "Back",
+    "synonyms": [ "\u003c back", "\u003c Back", "\u003c-back", "\u003c-Back", "\u003cback", "\u003cBack", "back", "Back" ],
+    "languageCode": "en"
+  } ]
+}

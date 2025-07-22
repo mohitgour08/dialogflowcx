@@ -1,0 +1,55 @@
+{
+  "name": "27a4327a-b634-451b-874e-1d11c008d6d9",
+  "displayName": "FormEnrollAutopay",
+  "form": {
+    "parameters": [ {
+      "displayName": "FormEnrollAP",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n  \"chatClientForm\": \"EnrollAutopayModal\"\n}" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "FormEnrollAP",
+      "value": null
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL AND $session.params.FormEnrollAP = \"yesDPM\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "EnrollAutopayNow",
+        "value": "true"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FormEnrollAutopay_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OTPBankorCard",
+    "name": "b3e5ce02-5557-42fd-a909-e2b94088dff3"
+  }, {
+    "condition": "$page.params.status = FINAL AND $session.params.FormEnrollAP = \"noDPM\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "EnrollAutopayNow",
+        "value": "false"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FormEnrollAutopay_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OTPBankorCard",
+    "name": "ae2eacec-cae4-4394-8445-ad3682698702"
+  } ]
+}

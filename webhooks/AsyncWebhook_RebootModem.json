@@ -1,0 +1,29 @@
+{
+  "name": "403a0f60-653e-4d6c-b63d-5c91cbc847d1",
+  "displayName": "AsyncWebhook_RebootModem",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/asyncwebhookmodemreboot",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"ucid\": \"$session.params.APICallID\",\n  \"ban\": \"$session.params.AccountNumber\"\n}",
+    "parameterMapping": [ {
+      "key": "ModemCount",
+      "value": "filteredMessages[0].servicIdCount"
+    }, {
+      "key": "ModemRebootStatus",
+      "value": "filteredMessages[0].responseStatus"
+    }, {
+      "key": "ModemResponseMessage",
+      "value": "filteredMessages[0].responseMsg"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 30
+  }
+}

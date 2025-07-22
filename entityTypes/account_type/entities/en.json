@@ -1,0 +1,15 @@
+{
+  "entities": [ {
+    "value": "BF",
+    "synonyms": [ "BF", "brightspeed", "brtspeed", "BS", "fiber" ],
+    "languageCode": "en"
+  }, {
+    "value": "QF",
+    "synonyms": [ "q fiber", "QF", "quantum", "quantum fiber" ],
+    "languageCode": "en"
+  }, {
+    "value": "CTL",
+    "synonyms": [ "cent link", "central link", "centrum", "centrum link", "century", "century link", "CLink ", "copper", "CTL" ],
+    "languageCode": "en"
+  } ]
+}

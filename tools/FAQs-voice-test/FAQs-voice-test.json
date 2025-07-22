@@ -1,0 +1,55 @@
+{
+  "name": "434caaba-9307-49aa-af8b-e7859feda10e",
+  "displayName": "FAQs-voice-test",
+  "dataStoreSpec": {
+    "dataStoreConnections": [ {
+      "dataStoreType": "PUBLIC_WEB",
+      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/brightspeed-portal-pages_1732048642444",
+      "documentProcessingMode": "DOCUMENTS",
+      "engineType": "CHAT_ENGINE",
+      "connectorConfig": {
+      
+      },
+      "createTime": {
+        "seconds": 1732048655,
+        "nanos": 990711000
+      },
+      "displayName": "Brightspeed-portal-pages"
+    }, {
+      "dataStoreType": "UNSTRUCTURED",
+      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/faq-4thbatch-1114_1731620976291",
+      "documentProcessingMode": "DOCUMENTS",
+      "engineType": "CHAT_ENGINE",
+      "connectorConfig": {
+      
+      },
+      "createTime": {
+        "seconds": 1731620980,
+        "nanos": 966010000
+      },
+      "displayName": "FAQ-4thbatch-1114"
+    } ],
+    "models": {
+      "summarizationModel": {
+        "model": "gemini_15_flash_001"
+      },
+      "rewriterModel": {
+      
+      }
+    },
+    "fallbackPrompt": {
+      "company": "brightspeed"
+    },
+    "groundingSettings": {
+    
+    },
+    "payloadSettings": {
+      "enableSnippetsPayload": true,
+      "maxSnippetsCount": 2
+    },
+    "voiceModeSettings": {
+    
+    }
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

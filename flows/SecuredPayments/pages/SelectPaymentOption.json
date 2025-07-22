@@ -1,0 +1,93 @@
+{
+  "name": "af9cb6db-d7e2-4f6e-a762-5e99b1c5afd1",
+  "displayName": "SelectPaymentOption",
+  "form": {
+    "parameters": [ {
+      "displayName": "SelectedPM",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_SecuredPayments_SelectPaymentOption_NoInput_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "NoInput1Triggered ",
+              "value": "TRUE"
+            } ]
+          },
+          "name": "c544257c-9701-49fd-b03e-8eff57be2f1a"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "That's okay" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_SecuredPayments_SelectPaymentOption_NoInput_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Payment"
+            }, {
+              "parameter": "SS_SecuredPayments",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoInputRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "SelectPaymentOption"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "NoInput"
+            } ]
+          },
+          "name": "3515ae38-adb1-4e91-979a-af847dd8e337"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "Metrics_SecuredPayments_SelectPaymentOption",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoInput1Triggered ",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectPaymentOption_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SelectedPaymentType",
+        "value": "$sys.func.MID($session.params.SelectedPM,1,4)"
+      } ],
+      "sendCallCompanionSms": true
+    },
+    "targetPage": "AssignTokenID",
+    "name": "9a9d280f-50db-48f7-b50a-ac66a559c3ec"
+  } ]
+}

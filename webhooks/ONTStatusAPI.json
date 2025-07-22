@@ -1,0 +1,29 @@
+{
+  "name": "cb2d101b-8723-423c-9646-b3eefcec6677",
+  "displayName": "ONTStatusAPI",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/ccsautomateservice/api/v1/ontStatus",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"ucid\": \"$session.params.APICallID\",\n  \"ban\": \"$session.params.AccountNumber\"\n}",
+    "parameterMapping": [ {
+      "key": "IsONTOnline",
+      "value": "hasIssue"
+    }, {
+      "key": "ONTErrorMessage",
+      "value": "errorMessage"
+    }, {
+      "key": "ONTStatusResponce",
+      "value": "responseStatus"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 30
+  }
+}

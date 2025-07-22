@@ -1,0 +1,60 @@
+{
+  "name": "23b14ac2-eb5e-447a-9b13-ddb19f68a784",
+  "displayName": "MigratedCopperCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.NetworkType = \"Copper\" OR $session.params.NetworkType = \"copper\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "BillInfo_LatestDueAmount",
+        "value": "$session.params.BillInfo_PastDueAmount"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_MigratedCopperCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AvailCreditBalance",
+        "value": "$sys.func.IF($session.params.BillInfo_LatestDueAmount\u003c0 AND $session.params.BillInfo_LatestDueAmount!=\"\",\"Y\",\"N\")"
+      }, {
+        "parameter": "Credit",
+        "value": "$sys.func.IF(\"$session.params.AvailCreditBalance:Y\",$sys.func.SUBSTITUTE($session.params.BillInfo_LatestDueAmount,\"-\",\"\"),\"0\")"
+      }, {
+        "parameter": "BillInfo_PastDueAmount",
+        "value": "$session.params.MigCopperPastDueAmount"
+      }, {
+        "parameter": "CurrentBalance",
+        "value": "$sys.func.MINUS($sys.func.TO_NUMBER($session.params.BillInfo_LatestDueAmount),$sys.func.TO_NUMBER($session.params.BillInfo_PastDueAmount))"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "MigCopperPACheck",
+    "name": "2f3a14cd-2ded-4d72-8150-627e88e75cf6"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_MigratedCopperCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "FiberCheck",
+    "name": "b4b817cf-720d-4400-a661-5784a1a722a6"
+  } ]
+}

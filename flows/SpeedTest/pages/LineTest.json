@@ -1,0 +1,50 @@
+{
+  "name": "65d5016e-c755-4edd-a42b-1c66ed6685b2",
+  "displayName": "LineTest",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.LineIssueDetected = \"false\" OR $session.params.LineIssueDetected = \"False\" OR $session.params.LineIssueDetected = \"FALSE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_LineTest_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ONTCheckAPI",
+    "name": "a5a42280-6ecd-42db-adeb-e80432b3f8c0"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_LineTest_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer has line issue"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "UnableToConnectService",
+    "name": "7954ceea-ec16-493a-a408-2ee2fb816b27"
+  } ]
+}

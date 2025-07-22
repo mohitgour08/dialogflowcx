@@ -1,0 +1,56 @@
+{
+  "name": "109d1f52-0fe9-4b2f-b305-70c009713628",
+  "displayName": "Payment",
+  "transitionRoutes": [ {
+    "intent": "Payment.PaymentArrangement",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_path",
+        "value": "English/Care/Care"
+      }, {
+        "parameter": "queue_name",
+        "value": "Care"
+      }, {
+        "parameter": "head_intent",
+        "value": "Payment"
+      } ]
+    },
+    "name": "ed96d8c1-65d0-46b9-a722-3ca77e6309e2"
+  }, {
+    "intent": "Payment.Payment_issues",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_path",
+        "value": "English/Care/Care"
+      }, {
+        "parameter": "queue_name",
+        "value": "Care"
+      }, {
+        "parameter": "head_intent",
+        "value": "Payment"
+      } ]
+    },
+    "name": "538195e0-adbc-4212-9a1c-65783f7672c2"
+  }, {
+    "intent": "Payment.Pay_bill",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_path",
+        "value": "English/Care/Care"
+      }, {
+        "parameter": "queue_name",
+        "value": "Care"
+      }, {
+        "parameter": "head_intent",
+        "value": "Payment"
+      } ]
+    },
+    "name": "008bb7bb-275a-4ff2-8a18-8357a406a921"
+  }, {
+    "intent": "MakeAPayment",
+    "triggerFulfillment": {
+    
+    },
+    "name": "ef5be912-6e63-4ff2-96ba-90031b86aba2"
+  } ]
+}

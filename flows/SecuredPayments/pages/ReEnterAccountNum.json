@@ -1,0 +1,53 @@
+{
+  "name": "5b17bc83-2f24-4813-b2b8-e25945460de6",
+  "displayName": "ReEnterAccountNum",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "No problem! Let's try again. Enter your bank account number again now." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "No problem! Let's try again. Enter your bank account number again now." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "BankAccountNo",
+      "value": null
+    }, {
+      "parameter": "RoutingNo",
+      "value": null
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ReEnterAccountNum_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "EnterAccountNumber",
+    "name": "4582e4c9-4cac-45e1-909e-fc988aa79c72"
+  } ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "bcce42f1-3cf2-4867-91d9-31426eaa23a3",
+  "displayName": "DateRangeCalculator",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/daterangecalculator",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"sessionInfo\": {\n    \"parameters\": {\n      \"dateInput\": \"$session.params.PaymentDate\"\n    }\n  }\n}",
+    "parameterMapping": [ {
+      "key": "DateWithinRange",
+      "value": "tags"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth2/token",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

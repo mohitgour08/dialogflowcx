@@ -1,0 +1,27 @@
+{
+  "entities": [ {
+    "value": "Assignment",
+    "synonyms": [ "Assignment" ],
+    "languageCode": "en"
+  }, {
+    "value": "Programming",
+    "synonyms": [ "Programming" ],
+    "languageCode": "en"
+  }, {
+    "value": "Order Support",
+    "synonyms": [ "Order Support" ],
+    "languageCode": "en"
+  }, {
+    "value": "GPON facility support",
+    "synonyms": [ "GPON facility support" ],
+    "languageCode": "en"
+  }, {
+    "value": "Structure Load",
+    "synonyms": [ "Structure Load" ],
+    "languageCode": "en"
+  }, {
+    "value": "Back",
+    "synonyms": [ "\u003c back", "\u003c Back", "\u003c-back", "\u003c-Back", "\u003cback", "\u003cBack", "back", "Back" ],
+    "languageCode": "en"
+  } ]
+}

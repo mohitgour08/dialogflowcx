@@ -1,0 +1,487 @@
+{
+  "name": "d83204b0-9aa0-4f7f-98a5-4afbcdfb69f3",
+  "displayName": "Payment",
+  "transitionRoutes": [ {
+    "condition": "$session.params.ToState = \"CTLUpdateSuccess\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CTLUpdateSuccess",
+    "name": "25981895-32d0-4453-b149-71772b02c2e6"
+  }, {
+    "condition": "$session.params.ToState = \"MailingAddress/Location\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "MailingAddress/Location",
+    "name": "4bb5308d-6152-4ba9-8ff5-2cbcabb9d742"
+  }, {
+    "condition": "$session.params.ToState = \"PaymentMissingOrMisappliedPayment\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PaymentMissingChat",
+    "name": "a6e45233-4418-4e1d-946f-73774459fb98"
+  }, {
+    "condition": "$session.params.ToState = \"ExplainLateFees\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "4f8f8157-485d-467f-980f-4ed799e16a8a"
+  }, {
+    "condition": "$session.params.ToState = \"MethodsofPaymentInquiry\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OtherPaymentMethod",
+    "name": "fa1d5fed-3c48-43f6-ac25-0165ce0aa797"
+  }, {
+    "condition": "$session.params.ToState = \"PaymentArrangement\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "PayArrCheckBilling",
+    "name": "62f46e1a-a7f7-4038-80c3-c2888ca6f64e"
+  }, {
+    "condition": "$session.params.ToState = \"PaymentHistory\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PaymentHistoryChatOrVoice",
+    "name": "4061e2d5-a036-4dd3-bb13-b28cc769d74a"
+  }, {
+    "condition": "$session.params.ToState = \"RecurringPaymentAutopay\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "RecurPaymentAutopay",
+    "name": "ec275f4e-754f-433f-8a67-c85562289086"
+  }, {
+    "condition": "$session.params.ToState = \"PaymentRestoreService\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "RSAuthenticationCheck",
+    "name": "ef4f2290-2b35-4310-83ec-fcf0c902da21"
+  }, {
+    "condition": "$session.params.ToState = \"MethodOfPaymentUpdate\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_MethodOfPaymentUpdate",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "callerintent",
+        "value": "MethodOfPaymentUpdate"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "UpdatePayNetworkChk",
+    "name": "ed48f7ff-cd69-4660-acb9-69fb2e0d9f9d"
+  }, {
+    "condition": "$session.params.ToState = \"VerifyPayment\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_13",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "VerifyPaymentAcctTypeAndBillingMethod",
+    "name": "a24c7a19-2f63-45a8-9091-776eb9561d30"
+  }, {
+    "condition": "$session.params.ToState = \"BankInformation\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_14",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "BankInfoChatOrVoice",
+    "name": "b4abc2b8-60db-46d7-9c76-5d65ae9989c4"
+  }, {
+    "condition": "$session.params.ToState = \"PaymentDueDate\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_15",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PaymentDueDate",
+    "name": "6d74bcdd-ce9d-4b8f-a3dd-d949b4166a8a"
+  }, {
+    "condition": "$session.params.ToState = \"PostpaidPayment\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_18",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "callerintent",
+        "value": "PostpaidPayment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CopperFiberCheck",
+    "name": "b899e799-b9b6-4859-b852-9e285ff9e64c"
+  }, {
+    "condition": "$session.params.ToState = \"PrepaidPayment\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_16",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckNetworkType",
+    "name": "36dd1f4a-c9c3-4bc0-ad2b-dc4cd05623b3"
+  }, {
+    "condition": "$session.params.ToState = \"VerifyPayment\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_Payment_VerifyPaymentChatOrVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "VerifyPaymentAcctTypeAndBillingMethod",
+    "name": "9b8686ab-d23a-4649-8ab0-9eb3337e7e06"
+  }, {
+    "condition": "$session.params.ToState = \"PaymentMissingOrMisappliedPayment\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "PaymentMissingVoice",
+    "name": "1293a862-1893-4cdd-9f52-ac80cf66b882"
+  }, {
+    "condition": "$session.params.ToState = \"MethodsofPaymentInquiry\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "otherPaymentMethodsVoice",
+    "name": "c795b7df-0212-4e20-a2f0-e6ae47e33901"
+  }, {
+    "condition": "$session.params.ToState = \"PaymentDueDateChange\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_21",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PaymentDueDateChange",
+    "name": "87706ab9-7fb6-4137-95e6-3b944c3ac450"
+  }, {
+    "condition": "$session.params.ToState = \"PrepaidPayment\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_22",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "PrepaidPayVoiceNetworkType",
+    "name": "39ec4920-b0a4-44a2-9ec4-d38a4a3259a4"
+  }, {
+    "condition": "$session.params.ToState = \"PostpaidPayment\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "Metrics_Payment_StartPage_23",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "PostpaidPayment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckLumenCopper",
+    "name": "8a24a814-fc6f-4f74-813b-5c98b4a0b985"
+  }, {
+    "condition": "$session.params.ToState = \"MsgConfirmation\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_24",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "MsgConfirmation",
+    "name": "d1b2fe93-8a07-4a4d-acc3-6bf9f3b5b43a"
+  }, {
+    "condition": "$session.params.ToState = \"PrepaidPay\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_25",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "PrepaidPayment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PrepaidPayment",
+    "name": "bd90be5f-f758-40dc-be58-07893b2ffcc3"
+  }, {
+    "condition": "$session.params.ToState = \"NoOverdue\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_26",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NoOverdue",
+    "name": "275d196b-28e7-40ef-a3fa-23e40350847f"
+  }, {
+    "condition": "$session.params.ToState = \"PayArrLumenURL\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_27",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PayArrLumenURL",
+    "name": "5c6b2eb1-45a0-4081-bf23-df2d48af05e7"
+  }, {
+    "condition": "$session.params.ToState = \"PayArrVoice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_28",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PayArrVoice",
+    "name": "338fdb69-6079-450a-be9c-9b4cf36486cb"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_StartPage_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Payment-StartPage,ToStateAllOthers"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "78362853-d4d3-4977-bb07-327ef83f2099"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "85e49baa-63b3-40c7-a788-636d1886b728"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "5413d9d5-dd2f-4186-b5bf-afb6213049c5"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    }
+  },
+  "advancedSettings": {
+    "enabled": true
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    },
+    "languageCode": "en"
+  } ],
+  "inputParameterDefinitions": [ {
+    "name": "ToState",
+    "description": "Pass intent from playbook to flow",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToModule",
+    "description": "module name",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "user intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "FAQSuccess",
+    "description": "FAQ self serve status",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "FAQSuccess",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ]
+}

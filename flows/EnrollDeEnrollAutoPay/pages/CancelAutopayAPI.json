@@ -1,0 +1,345 @@
+{
+  "name": "24684776-29b8-4320-8145-d8ad55b59bcf",
+  "displayName": "CancelAutopayAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "cancelRecurringSchedule",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_CancelAutopayAPI_none_wh_cancelRecurringSchedule",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.CancelAutopayStatus != null AND $session.params.CancelAutopayStatus != \"\" AND $session.params.cancelRecurringSchedule != \"Success\" AND $session.params.cancelRecurringSchedule != \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CancelAutopayAPI_Message",
+        "value": "$session.params.CancelAutopayStatus"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CancelAutopayAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "cef9e511-b61f-4d70-ab76-34bf2c8088ed"
+  }, {
+    "condition": "$session.params.cancelRecurringSchedule = \"Success\" OR $session.params.cancelRecurringSchedule = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CancelAutopayAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_CancelAutopayAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelRecurringSchedule"
+      } ]
+    },
+    "targetPage": "CancelAutopaySuccess",
+    "name": "42757c7e-53ce-4840-9719-bf3bd03f2b85"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue processing your cancellation. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue processing your cancellation. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CancelAutopayAPI_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CancelAutoPay"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_CancelAutopayAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelRecurringSchedule"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "18a1e54b-043d-44bb-88b5-53558b8da45f"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue processing your cancellation. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue processing your cancellation. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CancelAutopayAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_DeEnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CancelAutoPay"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_CancelAutopayAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelRecurringSchedule"
+      } ]
+    },
+    "name": "fbb407e5-a8fd-482e-9bc4-6c5a27424486"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue processing your cancellation. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue processing your cancellation. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CancelAutopayAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_DeEnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CancelAutoPay"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_CancelAutopayAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelRecurringSchedule"
+      } ]
+    },
+    "name": "14d2c973-f456-4b83-8f5a-63be1bd95330"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue processing your cancellation. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue processing your cancellation. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CancelAutopayAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_DeEnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CancelAutoPay"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_CancelAutopayAPI",
+        "value": "Fail_NotFound"
+      } ]
+    },
+    "name": "9b4b361f-3557-4adf-aa52-fa6a643d5ad3"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue processing your cancellation. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue processing your cancellation. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CancelAutopayAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_DeEnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CancelAutoPay"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_CancelAutopayAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelRecurringSchedule"
+      } ]
+    },
+    "name": "7ce58aaf-5970-4dec-9775-0f4b014b3020"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue processing your cancellation. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue processing your cancellation. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CancelAutopayAPI_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_DeEnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CancelAutoPay"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_CancelAutopayAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelRecurringSchedule"
+      } ]
+    },
+    "name": "04e74d0e-d72d-4ff7-afd2-a67f1b578936"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue processing your cancellation. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue processing your cancellation. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_CancelAutopayAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_DeEnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CancelAutoPay"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_CancelAutopayAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelRecurringSchedule"
+      } ]
+    },
+    "name": "4df13cf2-3ecf-44b7-bf2b-36cf67ea8458"
+  } ]
+}

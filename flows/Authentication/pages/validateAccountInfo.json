@@ -1,0 +1,92 @@
+{
+  "name": "7f7d1eb8-cd6c-4ce4-a0de-8762f149b725",
+  "displayName": "validateAccountInfo",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$sys.func.LEN($session.params.TN_BAN) = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$session.params.TN_BAN",
+        "value": "$sys.func.MID($session.params.TN_BAN, 2, 10)"
+      }, {
+        "parameter": "$session.params.phone-number",
+        "value": "$session.params.TN_BAN"
+      }, {
+        "parameter": "Metrics_Authentication_validateAccountInfo_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "8747500e-8c95-4aa7-b6b3-ea591be5eb46"
+  }, {
+    "condition": "($sys.func.LEN($session.params.TN_BAN) != 9 AND $session.params.TN_BAN_attempt = 1) AND ($sys.func.LEN($session.params.TN_BAN) != 10 AND $session.params.TN_BAN_attempt = 1)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "BANTN_NoMatch"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "Metrics_Authentication_validateAccountInfo_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "c4c093d1-aff3-4e42-a9fc-2ae7f34affed"
+  }, {
+    "condition": "($sys.func.LEN($session.params.TN_BAN) != 9 AND $session.params.TN_BAN_attempt = 0) AND ($sys.func.LEN($session.params.TN_BAN) != 10 AND $session.params.TN_BAN_attempt = 0)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I am sorry I didn't catch that." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_attempt",
+        "value": "$sys.func.ADD($session.params.TN_BAN_attempt,1)"
+      }, {
+        "parameter": "TN_BAN",
+        "value": null
+      }, {
+        "parameter": "Metrics_Authentication_validateAccountInfo_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "checkChannel",
+    "name": "778c73b0-8a8d-4ff1-a31d-3cbc482ff6f8"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_validateAccountInfo_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EmbargoSwitch",
+    "name": "ea44891c-bf5f-4a07-b61d-b7fcc4e76a10"
+  } ]
+}

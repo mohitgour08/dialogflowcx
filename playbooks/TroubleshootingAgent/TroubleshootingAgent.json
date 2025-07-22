@@ -1,0 +1,170 @@
+{
+  "name": "0b86b25a-67b4-4556-96e3-88bc513fac5f",
+  "displayName": "TroubleshootingAgent",
+  "goal": "Ensure the chatbot accurately captures user intent related to service issues, such as outages, no internet, WiFi password requests, modem reboots, and service reactivation, while mapping relevant parameters as per predefined guidelines. The chatbot must acknowledge the user's request and seamlessly transfer them to the appropriate resolution flow without asking for unnecessary details like account number, order number, address, or date. For service reactivation requests, the chatbot should not attempt to resolve the issue or ask for account details but should instead directly escalate or transfer the user to the correct support flow without friction.",
+  "inputParameterDefinitions": [ {
+    "name": "ToModule",
+    "description": "To module value to be passed to the flow",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToState",
+    "description": "User Intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "User intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "outputParameterDefinitions": [ {
+    "name": "ToModule",
+    "description": "To module value ",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToState",
+    "description": "User Intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "User Intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "comingfromstate",
+    "description": "\"playbook\"",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "comingfromstate",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "FAQSuccess",
+    "description": "FAQ current status",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "FAQSuccess",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "tokenCount": 2428,
+  "referencedFlows": [ "Troubleshooting", "ExternalEquipmentDamage", "BalanceInquiryOrMakePayment", "ServiceManagement", "RoutetoAgent", "ListenInitialIntent" ],
+  "instruction": {
+    "steps": [ {
+      "text": "Do not greet the customer."
+    }, {
+      "text": "match the intent to one of the following options without asking any follow up question or more information:"
+    }, {
+      "text": "If customer has question about modem username, activate or deactivate services, modem password,password for wireless network,new password for modem, change the modem password,change wireless network or passphrase,modem pwd,reset wi fi,change wi-fi password, reset the wi-fi login code, wi-fi pwd,DSL login username,ISP username,dsl login information,router login information,modem login information,router login info,modem login info,reset modem credentials,can't access modem's settings,protect modem from unauthorized access,secure modem, but I forgot my username,Modem Password,Wifi Issues, Router not working, Wifi Username, Wifi Password then map ToState=\"GetWifiModemUsernamePassword\",callerintent= \"GetWifiModemUsernamePassword\",ToModule=\"Troubleshooting\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}."
+    }, {
+      "text": "If customer has question about outage or signup for outage,network outage,system down in area,status of internet, service keeps going out,internet status update,outage status ,no service,service outage,internet service outage,internet blackout,fiber line was cut,when will service be back on,service has been interrupted,service isn't working,facing constant service blackout,hours of service outage, outage in the area, wifi outages, network issues then map ToState=\"GeneralTroubleshooting\", callerintent= \"CheckOutages\",ToModule=\"Troubleshooting\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}."
+    }, {
+      "text": "If customer wants to report damage or accident, blocking, broken such as cable, wire, line ,etc. then map ToState=\"EquipmentDamage\", callerintent=\"EquipmentDamage\",ToModule=\"ExternalEquipmentDamage\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:ExternalEquipmentDamage}."
+    }, {
+      "text": "If customer wants to restore service, needs service turned on from vacation pause then use ToState =\"PaymentRestoreService\", callerintent = \"PaymentRestoreService\", ToModule = \"Payment\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:BalanceInquiryOrMakePayment}."
+    }, {
+      "text": "If customer has any issues or trouble with their internet such as internet is not working, internet is slow, not able to connect to internet, then map ToState=\"GeneralTroubleshooting\", callerintent= \"InternetIssues\",ToModule=\"Troubleshooting\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}"
+    }, {
+      "text": "If customer has question about general issues services are down,Tech support,Repair,Help Troubleshooting Service,internet is not working, needs to troubleshoot,service troubleshooting,Issues connecting laptop to the network,tried rebooting the router and other troubleshooting steps,My internet cable is disconnected, internet not working, internet issues, No internet connection,technical issue, Internet Repair, troubleshooting then map ToState=\"GeneralTroubleshooting\", callerintent= \"InternetIssues\",ToModule=\"Troubleshooting\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}."
+    }, {
+      "text": "If customer has issue with their internet, internet speed, then map ToState=\"GeneralTroubleshooting\", callerintent= \"InternetIssues\",ToModule=\"Troubleshooting\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}"
+    }, {
+      "text": "If customer needs help with DNS settings, DNS issues then map ToState=\"GeneralTroubleshooting\", callerintent= \"ModemIssues\",ToModule=\"Troubleshooting\",RouteIntent=\"Repair\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}."
+    }, {
+      "text": "If customer needs assistance with modem issues, modem types,modem reboot, modem setup, modem name,needs help with enabling router,link router to account,unable to connect wifi,router issues,PPPOE transparent bridging,wifi internet slow,blue light flashing, blue light not working blinking,modem router malfunctioning,DSL issue,reboot modem,DNS failure, issues with device then map ToState=\"GeneralTroubleshooting\", callerintent= \"ModemIssues\",ToModule=\"Troubleshooting\",RouteIntent=\"Repair\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}."
+    }, {
+      "text": "If customer has question about phone issues,dial tone,telephone repair,phone line dead,noises on my phone line,telephone not working,Phone assistance,calling issue then map ToState=\"GeneralTroubleshooting\", callerintent= \"PhoneIssues\",ToModule=\"Troubleshooting\",RouteIntent=\"Repair\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}."
+    }, {
+      "text": "If customer wants to schedule an appointment, appointment for technician visit, tech appointment then map ToState=\"ScheduleTechnicianVisit\", callerintent= \"ScheduleTechnicianVisit\",ToModule=\"Troubleshooting\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}."
+    }, {
+      "text": "If customer had already scheduled an appointment and wants to make sure or confirm the appointment or need an confirmation code or reschedule the appointment, reschedule maintainance appointment, then map ToState=\"ConfirmAppointmentStatus\", callerintent= \"ConfirmAppointmentStatus\",ToModule=\"Troubleshooting\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}."
+    }, {
+      "text": "If customer has question about appointment, appointment status, Confirm Appointment Status,status of upcoming appointment, appointment confirmation,confirmation code or reference number for my appointment,pre-appointment preparations, status of my scheduled appointment, confirm appointment status, service request,service appt,installation to be done, specific contact person or department I should reach out to for confirmation of my appointment then map ToState=\"ConfirmAppointmentStatus\", callerintent= \"ConfirmAppointmentStatus\",ToModule=\"Troubleshooting\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}."
+    }, {
+      "text": "If customer wants to know or report about the technician visit,tech didn't show up on scheduled time, technician didnot came on time then map ToState=\"ConfirmAppointmentStatus\", callerintent= \"ConfirmAppointmentStatus\",ToModule=\"Troubleshooting\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}."
+    }, {
+      "text": "If customer wants to check where the technician or tech is then map ToState=\"ConfirmAppointmentStatus\", callerintent= \"ConfirmAppointmentStatus\",ToModule=\"Troubleshooting\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}."
+    }, {
+      "text": "If customer needs to schedule technician visit, tech appointment then map ToState=\"ScheduleTechnicianVisit\", callerintent= \"ScheduleTechnicianVisit\",ToModule=\"Troubleshooting\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}."
+    }, {
+      "text": "If customer is looking for Technician visit, technician,tech support,technician support, WiFi installation, serviceman visit, repair man, service visit then map ToState=\"ScheduleTechnicianVisit\", callerintent= \"ScheduleTechnicianVisit\",ToModule=\"Troubleshooting\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}."
+    }, {
+      "text": "If customer has question about Order dispute,Dispute order,difficulty with order, like to challenge the charges on my order,process for disputing an order,mistake with my order, errors in my order appointment,misunderstanding in my order appointment, and I'm reaching out to dispute specific details,encountered discrepancies, guidance on disputing specific details,filing dispute order,inaccuracies in my order appointment,then map ToState=\"DisputeOrderAppointment\", callerintent= \"DisputeOrderAppointment\",ToModule=\"Troubleshooting\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:Troubleshooting}."
+    }, {
+      "text": "If customer has question about returning device, return router,reinstall device,replace device, replace modem,check return eligibility, return policy, return options then use ToState =\"ReturnDevice\", callerintent = \"ReturnDevice\",ToModule=\"ServiceManagement\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:ServiceManagement}."
+    }, {
+      "text": "If the customer asks to speak with an agent, representative, supervisor, human or customer service route to `${FLOW:RoutetoAgent}` and pass `callerintent=\"SpeakwithAgent\"` and FAQSuccess=\"HandoverToAgent\"."
+    }, {
+      "text": "If none of the above provides an answer, route to `${FLOW:ListenInitialIntent}` and pass the parameters comingfromstate=\"playbook\" and FAQSuccess =\"HandoverToBA\"."
+    } ]
+  }
+}

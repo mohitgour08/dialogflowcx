@@ -1,0 +1,75 @@
+{
+  "trainingPhrases": [ {
+    "id": "1e8163a0-b24a-404f-ba72-c2ce44bb4682",
+    "parts": [ {
+      "text": "dtmf_digit_"
+    }, {
+      "text": "A0007879",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "82e82280-eeca-4167-b96f-810da1e22a06",
+    "parts": [ {
+      "text": "A00153359",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ce1958fa-906e-496d-ac4e-3072631d8455",
+    "parts": [ {
+      "text": "dtmf_digit_200009138",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3747c76a-2c90-491f-8702-feaa4505fc87",
+    "parts": [ {
+      "text": "my account number is "
+    }, {
+      "text": "467 999 899",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8fc89781-7f7f-4cf1-95c0-71f4b2b263eb",
+    "parts": [ {
+      "text": "A00007879",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "12b54479-3e3b-4338-a938-71285114a270",
+    "parts": [ {
+      "text": "my account number is "
+    }, {
+      "text": "200009140",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f4aff0cd-2ff4-4c95-ad2c-e41dd6d0aba6",
+    "parts": [ {
+      "text": "my BAN is "
+    }, {
+      "text": "200009140",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "321041f5-8f94-4c36-a0d0-527f38950be4",
+    "parts": [ {
+      "text": "200009140",
+      "parameterId": "ENTER_BAN"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

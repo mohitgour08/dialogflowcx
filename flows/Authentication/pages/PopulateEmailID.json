@@ -1,0 +1,25 @@
+{
+  "name": "fe4281a5-57c6-4b6c-8192-3b3cfa55dc61",
+  "displayName": "PopulateEmailID",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "PopulateEmailIdChat",
+    "name": "3fbc4056-59af-4000-935e-002353a5635e"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "PopulateEmailIDVoice",
+    "name": "ec8fa07a-b4df-44f8-a3fb-deba8df9e376"
+  } ]
+}

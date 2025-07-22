@@ -1,0 +1,260 @@
+{
+  "name": "97438d8d-f02a-4d37-a639-18957d0f063e",
+  "displayName": "CheckZipMatch",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.enteredZipCode = $session.params.BillingAddress_zip OR $session.params.enteredZipCode = $session.params.ServiceAddress_zip) AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Thank you! I've authenicated your account." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "SUCCESS"
+      }, {
+        "parameter": "Metrics_Authentication_CheckZipMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": null
+      }, {
+        "parameter": "Metrics_NetworkType",
+        "value": "$session.params.NetworkType"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      } ]
+    },
+    "targetPage": "SkipRepeatCaller",
+    "name": "9daf9d6f-b20b-4186-bb08-ca534091b2ad"
+  }, {
+    "condition": "$session.params.enteredZipCode = $session.params.BillingAddress_zip OR $session.params.enteredZipCode = $session.params.ServiceAddress_zip",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Thank you! I've authenticated your account." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Thank you! I've authenicated your account." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "SUCCESS"
+      }, {
+        "parameter": "Metrics_Authentication_CheckZipMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": null
+      }, {
+        "parameter": "Metrics_NetworkType",
+        "value": "$session.params.NetworkType"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "Check4GLTE",
+    "name": "2227dd07-5ec4-4376-a2e9-5a070a8f98b9"
+  }, {
+    "condition": "($session.params.enteredZipCode != $session.params.BillingAddress_zip OR $session.params.enteredZipCode != $session.params.ServiceAddress_zip) AND $session.params.ZipAttempt = 0 AND ($session.params.networkType = \"GPON\" OR $session.params.networkType = \"XGSPON\" OR $session.params.networkType = \"BPON\")",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, the zipcode you entered isn't a match to your service address." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Let's try one more time. Please enter your zipcode again." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry, the zipcode you entered isn't a match to your service address." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Let's try one more time. Please enter your zipcode again." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ZipAttempt",
+        "value": "$sys.func.ADD($session.params.ZipAttempt,1)"
+      }, {
+        "parameter": "enteredZipCode",
+        "value": null
+      }, {
+        "parameter": "Metrics_Authentication_CheckZipMatch_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "ZipCodeLookUp",
+    "name": "1de08508-5275-449d-9778-a1881812eed6"
+  }, {
+    "condition": "($session.params.enteredZipCode != $session.params.BillingAddress_zip OR $session.params.enteredZipCode != $session.params.ServiceAddress_zip) AND $session.params.ZipAttempt = 0 AND ($session.params.networkType = \"Copper\" OR $session.params.networkType = \"Copper_L\")",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, the zipcode you entered isn't a match to your billing address." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Let's try one more time. Please enter your zipcode again." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! The zipcode you entered isn't a match to your billing address." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Let's try one more time. Please enter your zipcode again." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ZipAttempt",
+        "value": "$sys.func.ADD($session.params.ZipAttempt,1)"
+      }, {
+        "parameter": "enteredZipCode",
+        "value": null
+      }, {
+        "parameter": "Metrics_Authentication_CheckZipMatch_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        }
+      }
+    },
+    "targetPage": "ZipCodeLookUp",
+    "name": "c6fd8a6f-1e90-4f86-a69f-e940d520c4f8"
+  }, {
+    "condition": "($session.params.enteredZipCode != $session.params.BillingAddress_zip OR $session.params.enteredZipCode != $session.params.ServiceAddress_zip) AND $session.params.ZipAttempt = 0",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, the zipcode you entered isn't a match to your billing address." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Let's try one more time. Please enter your zipcode again." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! The zipcode you entered isn't a match to your billing address." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Let's try one more time. Please enter your zipcode again." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_CheckZipMatch_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ZipAttempt",
+        "value": "$sys.func.ADD($session.params.ZipAttempt,1)"
+      }, {
+        "parameter": "enteredZipCode",
+        "value": null
+      } ]
+    },
+    "targetPage": "ZipCodeLookUp",
+    "name": "9fa46069-f18c-4b62-8796-d4c9391d7a0e"
+  }, {
+    "condition": "($session.params.enteredZipCode != $session.params.BillingAddress_zip OR $session.params.enteredZipCode != $session.params.ServiceAddress_zip) AND $session.params.ZipAttempt = 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm still unable to find a match." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "Metrics_Authentication_CheckZipMatch_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentZipcode"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "fd9ed2bd-727a-4332-96e6-91ea9e0219fe"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "Metrics_Authentication_CheckZipMatch_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DefaultCondition"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Authentication-CheckZipMatch,ZipMatchFailed"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "036fd9fb-9179-4731-9982-c122c33bf54b"
+  } ]
+}

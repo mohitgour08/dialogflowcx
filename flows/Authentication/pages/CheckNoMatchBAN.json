@@ -1,0 +1,124 @@
+{
+  "name": "e1fc74db-f7be-401b-8d50-8bae9b31e51a",
+  "displayName": "CheckNoMatchBAN",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$sys.func.LEN($session.params.MultiSelectedBan) = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$session.params.MultiSelectedBan",
+        "value": "$sys.func.MID($session.params.MultiSelectedBan, 2, 10)"
+      }, {
+        "parameter": "$session.params.phone-number",
+        "value": "$session.params.MultiSelectedBan"
+      }, {
+        "parameter": "Metrics_Authentication_CheckNoMatchBAN_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "3e795f8f-d2f2-4c3f-8561-eb83c5674418"
+  }, {
+    "condition": "($sys.func.LEN($session.params.MultiSelectedBan) != 9 AND $session.params.TN_BAN_attempt = 1) AND ($sys.func.LEN($session.params.MultiSelectedBan) != 10 AND $session.params.TN_BAN_attempt = 1)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "BANTN_NoMatch"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_Authentication_CheckNoMatchBAN_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "b652f838-cc47-47ac-8a5f-cec94c2e77f4"
+  }, {
+    "condition": "($sys.func.LEN($session.params.MultiSelectedBan) != 9 AND $session.params.TN_BAN_attempt = 0) AND ($sys.func.LEN($session.params.MultiSelectedBan) != 10 AND $session.params.TN_BAN_attempt = 0 AND $session.params.channel = \"voice\" AND $session.params.PPBCapture = true)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I didn't catch that! Let's try again." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_attempt",
+        "value": "$sys.func.ADD($session.params.TN_BAN_attempt,1)"
+      }, {
+        "parameter": "MultiSelectedBanPPB",
+        "value": null
+      }, {
+        "parameter": "Metrics_Authentication_CheckNoMatchBAN_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PPBCapture",
+    "name": "b183fa62-1e0c-49fe-a5aa-3dccaea99701"
+  }, {
+    "condition": "($sys.func.LEN($session.params.MultiSelectedBan) != 9 AND $session.params.TN_BAN_attempt = 0) AND ($sys.func.LEN($session.params.MultiSelectedBan) != 10 AND $session.params.TN_BAN_attempt = 0 AND $session.params.channel = \"voice\")",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I didn't catch that! Let's try again. If your account number begins with the letters PPB, please replace the letters with a singular number 1. For example, PPB45 would be 145. If there are no letters in your account number, you can enter it now." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_attempt",
+        "value": "$sys.func.ADD($session.params.TN_BAN_attempt,1)"
+      }, {
+        "parameter": "MultiSelectedBan",
+        "value": null
+      }, {
+        "parameter": "Metrics_Authentication_CheckNoMatchBAN_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "BANNumberEntryVoice",
+    "name": "5069c79c-b2d4-4d18-aac2-8802730bcc8f"
+  }, {
+    "condition": "($sys.func.LEN($session.params.MultiSelectedBan) != 9 AND $session.params.TN_BAN_attempt = 0) AND ($sys.func.LEN($session.params.MultiSelectedBan) != 10 AND $session.params.TN_BAN_attempt = 0)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I didn't catch that! Let's try again. If your account number begins with the letters PPB, please replace the letters with a singular number 1. For example, PPB45 would be 145. If there are no letters in your account number, you can enter it now." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_attempt",
+        "value": "$sys.func.ADD($session.params.TN_BAN_attempt,1)"
+      }, {
+        "parameter": "Metrics_Authentication_CheckNoMatchBAN_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ReEnteredBAN",
+    "name": "7f8ab650-2135-4b05-8a7a-df18ab026c10"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_CheckNoMatchBAN_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CompareBAN",
+    "name": "2f6d8d77-7294-4f36-8545-6329cebd810a"
+  } ]
+}

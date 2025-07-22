@@ -1,0 +1,28 @@
+{
+  "name": "2b82ec59-b884-4f68-a317-abce5879b080",
+  "displayName": "ZeroBalChk4",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_PastDueAmount \u003c= 0 AND ($session.params.networkType = \"GPON\" OR $session.params.networkType = \"XGSPON\" OR $session.params.networkType = \"BPON\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_ZeroBalChk4_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FECheckACHCurrentDue",
+    "name": "d7260f3b-3596-4c7c-9b90-c8b79e296a1f"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_ZeroBalChk4_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PrepaidCurrentACHForm",
+    "name": "6e820d60-9e7a-4c21-864d-c047bdd83bdc"
+  } ]
+}

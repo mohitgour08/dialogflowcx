@@ -1,0 +1,410 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "New",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Payment",
+      "auto": true
+    }, {
+      "text": " Method",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I pick another ",
+      "auto": true
+    }, {
+      "text": "payment"
+    }, {
+      "text": " option",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I use another ",
+      "auto": true
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'd like to use a different option to ",
+      "auto": true
+    }, {
+      "text": "pay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Change ",
+      "auto": true
+    }, {
+      "text": "the way"
+    }, {
+      "text": " I settle the ",
+      "auto": true
+    }, {
+      "text": "bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Let ",
+      "auto": true
+    }, {
+      "text": "me"
+    }, {
+      "text": " try ",
+      "auto": true
+    }, {
+      "text": "another way"
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "pay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to switch my ",
+      "auto": true
+    }, {
+      "text": "payment"
+    }, {
+      "text": " option",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Replace my ",
+      "auto": true
+    }, {
+      "text": "current"
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment"
+    }, {
+      "text": " option",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I set up another ",
+      "auto": true
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'll ",
+      "auto": true
+    }, {
+      "text": "pay"
+    }, {
+      "text": " with a different card",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need to choose ",
+      "auto": true
+    }, {
+      "text": "another way"
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "pay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Add another ",
+      "auto": true
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method for ",
+      "auto": true
+    }, {
+      "text": "me"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'd like to update my ",
+      "auto": true
+    }, {
+      "text": "billing"
+    }, {
+      "text": " details",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay"
+    }, {
+      "text": " using a different method",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Switch my ",
+      "auto": true
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method to ",
+      "auto": true
+    }, {
+      "text": "something else"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How can I add ",
+      "auto": true
+    }, {
+      "text": "a new way"
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "pay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to ",
+      "auto": true
+    }, {
+      "text": "pay"
+    }, {
+      "text": " with my ",
+      "auto": true
+    }, {
+      "text": "account"
+    }, {
+      "text": " instead",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Change to a different ",
+      "auto": true
+    }, {
+      "text": "payment"
+    }, {
+      "text": " option",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there another ",
+      "auto": true
+    }, {
+      "text": "payment"
+    }, {
+      "text": " option available?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to ",
+      "auto": true
+    }, {
+      "text": "pay"
+    }, {
+      "text": " with a card",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Use a ",
+      "auto": true
+    }, {
+      "text": "new"
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment"
+    }, {
+      "text": " option",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'd like to change how I ",
+      "auto": true
+    }, {
+      "text": "pay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Add a different"
+    }, {
+      "text": " "
+    }, {
+      "text": "way to pay."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I switch to a ",
+      "auto": true
+    }, {
+      "text": "new"
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to update my "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "change my payment method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " method",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Different ",
+      "auto": true
+    }, {
+      "text": "Payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Different Method",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "i would pay with account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I would pay with card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "some other payment option"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Try a different payment method"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en"
+  } ]
+}

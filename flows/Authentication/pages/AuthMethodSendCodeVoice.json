@@ -1,0 +1,32 @@
+{
+  "name": "071a590f-efc3-4337-bffd-e3f59fae8476",
+  "displayName": "AuthMethodSendCodeVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Sure - I can do that. Please keep in mind that we need to send this code to a phone number or email that is already registered to your account.." ]
+      },
+      "languageCode": "en"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_AuthMethodSendCodeVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "SingleAccountFound",
+    "name": "df9a50bb-db61-4c47-887a-4f1e031672d7"
+  } ]
+}

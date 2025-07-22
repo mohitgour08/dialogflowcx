@@ -1,0 +1,130 @@
+{
+  "name": "207f6b76-a2c6-4994-9008-3cce565e4781",
+  "displayName": "ReturnDeviceAuthCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Authentication = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_ReturnDeviceAuthCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ReturnDeviceVoiceOrChat",
+    "name": "e87a37d6-3681-4dcf-9706-cfee2fe5a2a1"
+  }, {
+    "condition": "$session.params.Authentication = \"ACCTFOUND\" OR $session.params.Authentication = \"NO\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_ReturnDeviceAuthCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Authentication",
+    "name": "0a5455e5-0c71-4aa0-98dd-79f61882c2eb"
+  }, {
+    "condition": "$session.params.Authentication = \"FAILED\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_ReturnDeviceAuthCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_ReturnDevice",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self service Failure"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Authentication Failed"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "cb36bcae-ad06-4438-af52-68f4795d33fc"
+  }, {
+    "condition": "$session.params.Authentication = \"MULTIACCTFOUND\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_ServiceManagement_ReturnDeviceAuthCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_ReturnDevice",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Multi Account Customer needs help with Returning Device"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "f98f9d50-bca3-481d-a27b-b1a3b36b0605"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_ReturnDeviceAuthCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_ReturnDevice",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ServiceManagement-ReturnDeviceAuthCheck,AuthenticationStatusUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "f958c5ec-8182-4349-911d-6945694ebd60"
+  } ]
+}

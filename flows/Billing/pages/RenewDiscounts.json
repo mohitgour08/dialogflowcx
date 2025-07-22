@@ -1,0 +1,38 @@
+{
+  "name": "a3c133fa-fb3c-4ef4-b413-9977dbf6759e",
+  "displayName": "RenewDiscounts",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "Metrics_Billing_RenewDiscounts_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer wants to Renew Discounts"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "0c637770-d707-4448-b77d-9cdb9a4c9c73"
+  } ]
+}

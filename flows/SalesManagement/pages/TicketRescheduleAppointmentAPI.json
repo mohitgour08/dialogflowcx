@@ -1,0 +1,181 @@
+{
+  "name": "c393ce52-adf0-4361-8cc0-8d04b5e64b84",
+  "displayName": "TicketRescheduleAppointmentAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "rescheduleAppointment",
+    "tag": "Reschedule",
+    "setParameterActions": [ {
+      "parameter": "Metrics_SalesManagement_TicketRescheduleAppointmentAPI_wh",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.rescheduleAppointmentStatus = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketRescheduleAppointmentAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SalesManagement_TicketRescheduleAppointmentAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "rescheduleAppointment"
+      } ]
+    },
+    "targetPage": "TicketRescheduleDate",
+    "name": "46053623-ee48-4a9a-b3d9-f06c23433499"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketRescheduleAppointmentAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SalesManagement_TicketRescheduleAppointmentAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "rescheduleAppointment"
+      } ]
+    },
+    "targetPage": "TicketChatMessageForCustomer",
+    "name": "a9b86be9-2c69-4405-b184-0dc338573a0a"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "TicketChatMessageForCustomer",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketRescheduleAppointmentAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "API_SalesManagement_TicketRescheduleAppointmentAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "rescheduleAppointment"
+      } ]
+    },
+    "name": "c6ad2f65-e4ec-477c-979a-7c60d32d8bd6"
+  }, {
+    "targetPage": "TicketChatMessageForCustomer",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketRescheduleAppointmentAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "API_SalesManagement_TicketRescheduleAppointmentAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "rescheduleAppointment"
+      } ]
+    },
+    "name": "eb0dfba1-eaf4-447e-a2c7-cbeaa80180b2"
+  }, {
+    "targetPage": "TicketChatMessageForCustomer",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketRescheduleAppointmentAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "API_SalesManagement_TicketRescheduleAppointmentAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "rescheduleAppointment"
+      } ]
+    },
+    "name": "7b4df2ab-216f-4de7-a3f6-66bc6133e001"
+  }, {
+    "targetPage": "TicketChatMessageForCustomer",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketRescheduleAppointmentAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "API_SalesManagement_TicketRescheduleAppointmentAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "rescheduleAppointment"
+      } ]
+    },
+    "name": "401c37d0-a827-4dfb-92fa-b9003bfc009a"
+  }, {
+    "targetPage": "TicketChatMessageForCustomer",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketRescheduleAppointmentAPI_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "API_SalesManagement_TicketRescheduleAppointmentAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "rescheduleAppointment"
+      } ]
+    },
+    "name": "13ac51a6-bf56-43e3-8046-1e354e4d0e36"
+  }, {
+    "targetPage": "TicketChatMessageForCustomer",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketRescheduleAppointmentAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "API_SalesManagement_TicketRescheduleAppointmentAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "rescheduleAppointment"
+      } ]
+    },
+    "name": "b5ed03cb-694c-479c-8e44-dbe0022ef9ad"
+  } ]
+}

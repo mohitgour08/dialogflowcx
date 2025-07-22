@@ -1,0 +1,50 @@
+{
+  "name": "ac9fe6a3-4ce5-4428-a827-c1c77cacd4e0",
+  "displayName": "OutageAPI_MigratedCopper_Fiber",
+  "genericWebService": {
+    "uri": "https://apgx-dev.brightspeed.com/ccsrepairservice/api/v1/checkoutage/fiberAndMigratedCopper",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"ucid\": \"$session.params.APICallID\",\n  \"ban\": \"$session.params.AccountNumber\",\n  \"sid\": \"\"\n}",
+    "parameterMapping": [ {
+      "key": "ETR",
+      "value": "responseBody.result.outages.ETR"
+    }, {
+      "key": "NetworkOutage",
+      "value": "responseBody.result.outages.isOutage"
+    }, {
+      "key": "OutageResponseStatus",
+      "value": "responseStatus"
+    }, {
+      "key": "RepairAppointmentEndDate",
+      "value": "responseBody.result.tickets.open[0].appointment_end"
+    }, {
+      "key": "RepairAppointmentStartDate",
+      "value": "responseBody.result.tickets.open[0].appointment_start"
+    }, {
+      "key": "RepairDispatchStatus",
+      "value": "responseBody.result.tickets.open[0].dispatch_status"
+    }, {
+      "key": "RepairDispatchTarn",
+      "value": "responseBody.result.tickets.open[0].dispatch_tarn"
+    }, {
+      "key": "RepairETR",
+      "value": "responseBody.result.tickets.open[0].etr"
+    }, {
+      "key": "RepairTest",
+      "value": "responseBody.result.tickets.open[0]"
+    }, {
+      "key": "TicketCount",
+      "value": "responseBody.result.tickets.openTicketCount"
+    } ],
+    "oauthConfig": {
+      "clientId": "byJQMxAg9HvOlxQ9IYsGRqSvvSxDycLfy3GiYOyAd5cLMaL4",
+      "clientSecret": "i1rTFXl017jxep391Y8Yt0fJVvJM4aLh5TbDAGhn5qAhNxpWL8xKn7EleriCXyqT",
+      "tokenEndpoint": "https://apgx-dev.brightspeed.com/oauth2/token",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 25
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "name": "cfd004aa-9498-4f41-8c5e-10ccdc1d9c38",
+  "displayName": "ManualRebootType1_HoldMusic",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003eI'm sorry, I'm not able to reach your modem remotely. Let's try a manual reboot. Please unplug the power cord from the back of the modem. \u003cbreak time=\"1s\"/\u003e Make sure you have unplugged the correct cord by checking that all the lights on the modem go OFF.\u003cbreak time=\"1s\"/\u003e Wait one full minute and then plug the cord back in. Waiting the entire 60 seconds will give you the best result.\u003cbreak time=\"1s\"/\u003eSay \"yes\" when you have completed this step. Say \"No\" to repeat the steps. \u003caudio src=\"https://chatservices.brightspeed.com/audio/HoldMusic.wav\" clipEnd=\"30s\"/\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ManualRebootType1_HoldMusic_Yes",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WaitForRebootType1_HoldMusic",
+    "name": "fb4e1632-bb38-4f52-873e-c032e19351c6"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ManualRebootType1_HoldMusic_DTMF_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WaitForRebootType1_HoldMusic",
+    "name": "43d183b8-f0d1-428f-81f9-78efdc983742"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ManualRebootType1_HoldMusic_DTMF_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "RetrymanualRebootType1_HoldMusic",
+    "name": "bfc0acfd-c761-416e-9c06-e63b1cfc8d4b"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ManualRebootType1_HoldMusic_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_ModemReboot",
+        "value": "Failure"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "94155e8e-0535-4fa5-992c-3d94b459d291"
+  }, {
+    "intent": "Confirmation.No",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ManualRebootType1_HoldMusic_No",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "RetrymanualRebootType1_HoldMusic",
+    "name": "fa8ca091-b021-4fda-b443-6c1879d07e16"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "ManualRebootType1_Voice",
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ManualRebootType1_HoldMusic_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "a128315b-b459-466c-bc08-d3a04cd8bff0"
+  }, {
+    "targetPage": "RetrymanualRebootType1_HoldMusic",
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ManualRebootType1_HoldMusic_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "bf4fa611-7103-45e7-a2f2-0006fa43911f"
+  } ]
+}

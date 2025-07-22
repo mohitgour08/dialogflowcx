@@ -1,0 +1,216 @@
+{
+  "name": "7bdc278d-0464-4180-b315-0939d9b3b9e8",
+  "displayName": "CheckZipMatch",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.enteredZipCode = $session.params.BillingAddress_zip OR $session.params.enteredZipCode = $session.params.ServiceAddress_zip",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Gracias! He autenticado tu cuenta.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "¡Gracias! He autenticado tu cuenta." ]
+        },
+        "languageCode": "es"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"90%\"\u003e¡Gracias! He autenticado tu cuenta.\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "SUCCESS"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_CheckZipMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": null
+      }, {
+        "parameter": "Metrics_NetworkType",
+        "value": "$session.params.NetworkType"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      } ]
+    },
+    "targetPage": "Check4GLTE",
+    "name": "a6ca0ddf-ad7e-4eb0-a4f5-7e3f254b9ebb"
+  }, {
+    "condition": "($session.params.enteredZipCode != $session.params.BillingAddress_zip OR $session.params.enteredZipCode != $session.params.ServiceAddress_zip) AND $session.params.ZipAttempt = 0 AND ($session.params.networkType = \"GPON\" OR $session.params.networkType = \"XGSPON\" OR $session.params.networkType = \"BPON\")",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Lo lamento! El código postal que ingresaste no coincide.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eIntentémoslo una vez más. Por favor ingrese su código postal nuevamente.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"90%\"\u003e¡Lo lamento! El código postal que ingresaste no coincide.\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"90%\"\u003eIntentémoslo una vez más. Por favor ingrese su código postal nuevamente.\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ZipAttempt",
+        "value": "$sys.func.ADD($session.params.ZipAttempt,1)"
+      }, {
+        "parameter": "enteredZipCode",
+        "value": null
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_CheckZipMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ZipCodeLookUp",
+    "name": "937a2a38-06aa-4d90-bfe7-b3f74e5be968"
+  }, {
+    "condition": "($session.params.enteredZipCode != $session.params.BillingAddress_zip OR $session.params.enteredZipCode != $session.params.ServiceAddress_zip) AND $session.params.ZipAttempt = 0 AND ($session.params.networkType = \"Copper\" OR $session.params.networkType = \"Copper_L\")",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Lo lamento! El código postal que ingresaste no coincide.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eIntentémoslo una vez más. Por favor ingrese su código postal nuevamente.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"90%\"\u003e¡Lo lamento! El código postal que ingresaste no coincide.\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"90%\"\u003eIntentémoslo una vez más. Por favor ingrese su código postal nuevamente.\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ZipAttempt",
+        "value": "$sys.func.ADD($session.params.ZipAttempt,1)"
+      }, {
+        "parameter": "enteredZipCode",
+        "value": null
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_CheckZipMatch_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ZipCodeLookUp",
+    "name": "4d2b2a88-3fa7-4c51-b6bb-340e165203cd"
+  }, {
+    "condition": "($session.params.enteredZipCode != $session.params.BillingAddress_zip OR $session.params.enteredZipCode != $session.params.ServiceAddress_zip) AND $session.params.ZipAttempt = 0",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Lo lamento! El código postal que ingresaste no coincide.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eIntentémoslo una vez más. Por favor ingrese su código postal nuevamente.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_CheckZipMatch_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ZipAttempt",
+        "value": "$sys.func.ADD($session.params.ZipAttempt,1)"
+      }, {
+        "parameter": "enteredZipCode",
+        "value": null
+      } ]
+    },
+    "targetPage": "ZipCodeLookUp",
+    "name": "263811c1-79b6-4dfc-987e-ec8f6fa36625"
+  }, {
+    "condition": "($session.params.enteredZipCode != $session.params.BillingAddress_zip OR $session.params.enteredZipCode != $session.params.ServiceAddress_zip) AND $session.params.ZipAttempt = 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTodavía no puedo encontrar una coincidencia.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"90%\"\u003eTodavía no puedo encontrar una coincidencia.\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_CheckZipMatch_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentZipcode"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "22afc1d1-a957-4d05-8154-b911f3b7dbf1"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_CheckZipMatch_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DefaultCondition"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SpanishAuthentication-CheckZipMatch,ZipMatchFailed"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "926df903-cfbd-4342-8634-7b9d51c5c944"
+  } ]
+}

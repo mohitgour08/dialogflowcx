@@ -1,0 +1,371 @@
+{
+  "name": "b301badb-bf8a-47bd-b495-e2c910435bf6",
+  "displayName": "EmbargoSpanishMenu",
+  "form": {
+    "parameters": [ {
+      "displayName": "EmbargoOption",
+      "required": true,
+      "entityType": "@EmbargoDTMF",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Lo siento! No entendí tu respuesta. Intentémoslo de nuevo.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            }, {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003ePara hablar con un agente, presione 1. Para ver si cumple los requisitos para Brightspeed Fiber, presione 2. Si tiene un problema de conexión con su servicio, como baja velocidad o una interrupción, presione 3. Para repetir, presione 4. Si ya terminó, presione 5.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Embargo_EmbargoSpanishMenu_NoInput_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "NoInput1Triggered",
+              "value": "TRUE"
+            } ]
+          },
+          "name": "de32eee6-0269-48bb-abe7-898fe40554cf"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eeso esta bien\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "RouteIntent",
+              "value": "EMBRGCARE"
+            }, {
+              "parameter": "Metrics_Embargo_EmbargoSpanishMenu_NoInput_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoInputRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "EmbargoSpanishMenu"
+            } ]
+          },
+          "name": "064b2318-7dac-4aa7-a179-c7161af8ff3a"
+        }, {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTu respuesta no coincide con ninguna de las opciones. Intentémoslo de nuevo.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            }, {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003ePara hablar con un agente, presione 1. Para ver si cumple los requisitos para Brightspeed Fiber, presione 2. Si tiene un problema de conexión con su servicio, como baja velocidad o una interrupción, presione 3. Para repetir, presione 4. Si ya terminó, presione 5.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Embargo_EmbargoSpanishMenu_Nomatch_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "NoMatch1Triggered",
+              "value": "TRUE"
+            } ]
+          },
+          "name": "e2d89bb9-8866-43cf-a3c8-9a9266523018"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eNo entendí tu respuesta\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "RouteIntent",
+              "value": "EMBRGCARE"
+            }, {
+              "parameter": "Metrics_Embargo_EmbargoSpanishMenu_NoMatch_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoMatchRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "EmbargoSpanishMenu"
+            } ]
+          },
+          "name": "8b1701a4-1d70-4d03-86c9-778b8a1c9bf8"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003ePor favor, escuche atentamente un mensaje importante sobre el servicio en su área.\n\nActualmente estamos realizando actualizaciones del sistema y las opciones de administración de cuentas no están disponibles en este momento. Inicie sesión o vuelva a llamar la próxima semana para realizar cambios en su cuenta, pagar su factura o actualizar sus servicios. No se aplicarán cargos por mora durante esta actualización y los pagos automáticos se procesarán con normalidad. Nuestros agentes tampoco pueden procesar pagos ni realizar cambios en su cuenta en este momento, pero puede presionar el botón uno ahora si desea hablar con un agente de todos modos. Los clientes de Brightspeed Fiber no se verán afectados por estos cambios. Para saber si cumple con los requisitos para Brightspeed Fiber, puede presionar el botón dos ahora.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eSi tiene algún problema de conexión con su servicio, como baja velocidad o una interrupción, estamos aquí para ayudarle. Presione tres ahora para hablar con nuestro equipo de reparación.\n\nTambién puede presionar cuatro para repetir este mensaje o cinco para finalizar la llamada.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoSpanishMenu_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SpanishEmbargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EMBRGCARE"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Embargo_EmbargoSpanishMenu_1"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "1ac3be7b-9b5e-41c4-b181-3bd784279593"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoSpanishMenu_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SpanishEmbargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EMBRGCARE"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Embargo_EmbargoMenu_2"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "86d097a0-4120-4f46-b082-c1f5795904ad"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoSpanishMenu_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EMBRGRPR"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Embargo_EmbargoSpanishMenu_3"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "08ac1f4a-9444-4b10-9e6d-84412221ff92"
+  }, {
+    "intent": "DTMF_4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoSpanishMenu_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Embargo_EmbargoSpanishMenu_4"
+      }, {
+        "parameter": "EmbargoCounter",
+        "value": "$sys.func.ADD($session.params.EmbargoCounter,1)"
+      }, {
+        "parameter": "EmbargoOption",
+        "value": null
+      } ]
+    },
+    "targetPage": "RepeatCounter",
+    "name": "d7d5ca66-aa5d-4a80-851f-2c4c00724531"
+  }, {
+    "intent": "DTMF_5",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Gracias por charlar con nosotros! Esperamos poder servirle mejor después de la actualización.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoSpanishMenu_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Embargo_EmbargoSpanishMenu_5"
+      } ]
+    },
+    "targetPage": "End Session",
+    "name": "b06cd4a0-bc75-4fa6-847f-36909b228e4c"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Lo siento! No entendí tu respuesta. Intentémoslo de nuevo.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003ePara hablar con un agente, presione 1. Para ver si cumple los requisitos para Brightspeed Fiber, presione 2. Si tiene un problema de conexión con su servicio, como baja velocidad o una interrupción, presione 3. Para repetir, presione 4. Si ya terminó, presione 5.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoSpanishMenu_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "30bcdebb-011c-45d1-83af-62473ec34d80"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eeso esta bien\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoSpanishMenu_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EMBRGCARE"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "Embargo_EmbargoSpanishMenu"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "EmbargoSpanishMenu"
+      } ]
+    },
+    "name": "6e9a2ee6-522d-4cfb-88b5-db79aa101823"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTu respuesta no coincide con ninguna de las opciones. Intentémoslo de nuevo.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003ePara hablar con un agente, presione 1. Para ver si cumple los requisitos para Brightspeed Fiber, presione 2. Si tiene un problema de conexión con su servicio, como baja velocidad o una interrupción, presione 3. Para repetir, presione 4. Si ya terminó, presione 5.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoSpanishMenu_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "b138ffbe-95e6-4f81-a66c-c279cee068a9"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eNo entendí tu respuesta\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoSpanishMenu_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EMBRGCARE"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "Embargo_EmbargoSpanishMenu"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "EmbargoMenu"
+      } ]
+    },
+    "name": "dc43d96c-229a-48a9-902f-e992815a9c81"
+  } ]
+}

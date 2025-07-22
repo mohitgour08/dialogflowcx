@@ -1,0 +1,23 @@
+{
+  "name": "f6df46b0-e19f-4428-bcd9-08af0042687f",
+  "displayName": "AdditionalQuestion",
+  "transitionRoutes": [ {
+    "intent": "AdditionalQuestion",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AdditionalQuestion",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "0c66ea28-6637-47d1-8543-f0736d454c6b"
+  } ]
+}

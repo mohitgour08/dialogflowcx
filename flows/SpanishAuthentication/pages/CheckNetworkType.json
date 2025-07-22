@@ -1,0 +1,95 @@
+{
+  "name": "7f5683e6-dcdc-4ff7-baac-d3f9455ff319",
+  "displayName": "CheckNetworkType",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"Copper\" OR $session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Bueno! Puede ingresar su código postal ahora.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "¡Bueno! Puede ingresar su código postal ahora." ]
+        },
+        "languageCode": "es"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e¡Bueno! Puede ingresar su código postal ahora.\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_CheckNetworkType_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ZipCodeLookUp",
+    "name": "14f639f7-6e05-43bc-9bd4-044d6df8babe"
+  }, {
+    "condition": "$session.params.networkType = \"GPON\" OR $session.params.networkType = \"XGSPON\" OR $session.params.networkType = \"BPON\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Bueno! Puede ingresar su código postal ahora.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "¡Bueno! Puede ingresar su código postal ahora." ]
+        },
+        "languageCode": "es"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e¡Bueno! Puede ingresar su código postal ahora.\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_CheckNetworkType_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ZipCodeLookUp",
+    "name": "e71e497d-0c77-4e43-8674-9fd31006dd2f"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Bueno! Puede ingresar su código postal ahora.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "¡Bueno! Puede ingresar su código postal ahora." ]
+        },
+        "languageCode": "es"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e¡Bueno! Puede ingresar su código postal ahora.\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_CheckNetworkType_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ZipCodeLookUp",
+    "name": "f7a77910-df76-4dea-897e-abd16836d0d5"
+  } ]
+}

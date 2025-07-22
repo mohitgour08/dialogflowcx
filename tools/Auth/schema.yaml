@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: Authentication API
+  version: 1.0.0
+servers:
+  - url: https://api-qa.brightspeed.com/ccsc360service/api/v1
+paths:
+  /getAccountLookUpByAni?:
+    get:
+      summary: get all customer invoice history
+      operationId: get-customer invoice
+      parameters:
+        - name: ucid
+          in: query
+          description: Fill the default value b123
+          required: true
+          schema:
+            type: string
+            default: b123
+        - name: tn
+          in: query
+          description: Filter customer account number
+          required: true
+          schema:
+            type: number
+
+      responses:
+        '200':
+          description: customer details
+          content:
+            application/json:
+                schema:
+                  type: object
+                example:  
+                  textresponse:
+                     $ref: '#/components/schemas/TextResponse'
+
+components:
+    schemas:
+      TextResponse:
+        type: object
+        properties:
+            text:
+              type: string 
+            

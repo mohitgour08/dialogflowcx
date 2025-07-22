@@ -1,0 +1,31 @@
+{
+  "name": "f8a83033-c834-4d39-b34d-6fc0cce008d5",
+  "displayName": "LateFeesPostpaidVoiceOrChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_LateFeesPostpaidVoiceOrChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "LateFeePostpay",
+    "name": "312ee2d8-8f92-44b3-8e19-7a17154d7cd9"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_LateFeesPostpaidVoiceOrChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "LateFeesPostpaidVoice",
+    "name": "57f60ebd-5560-4d7d-9a99-660fc8328029"
+  } ]
+}

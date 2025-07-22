@@ -1,0 +1,161 @@
+{
+  "name": "6e10953a-4a42-403c-ada9-eae0986c3b05",
+  "displayName": "EmailAddressFromECOM",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.EmailECOM != \"\"",
+    "triggerFulfillment": {
+      "webhook": "getAccountLookUpByAni",
+      "tag": "none",
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EmailAddressFromECOM_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": "$session.params.EmailECOM"
+      } ]
+    },
+    "targetPage": "Call360",
+    "name": "6afaa557-542f-4763-bb67-00ea034bc84b"
+  }, {
+    "condition": "$session.params.EmailECOM = \"\" OR $session.params.EmailECOM = \"null\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EmailAddressFromECOM_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ChatIsComingFromCart",
+    "name": "5d830d7f-068b-41b8-978c-3d8b5756ed84"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "ChatIsComingFromCart",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_EmailAddressFromECOM_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "API_Default Start Flow_EmailAddressFromECOM",
+        "value": "Fail_Error"
+      } ]
+    },
+    "name": "40d7008d-8f80-4c21-bfd0-b194aa5dc441"
+  }, {
+    "targetPage": "ChatIsComingFromCart",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_EmailAddressFromECOM_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "API_Default Start Flow_EmailAddressFromECOM",
+        "value": "Fail_Invalid"
+      } ]
+    },
+    "name": "89e979c5-5da5-4ad8-9679-77038a9c459d"
+  }, {
+    "targetPage": "ChatIsComingFromCart",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_EmailAddressFromECOM_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "API_Default Start Flow_EmailAddressFromECOM",
+        "value": "Fail_NotFound"
+      } ]
+    },
+    "name": "a50013cf-b3c0-4cc5-955d-46b3f8351ce5"
+  }, {
+    "targetPage": "ChatIsComingFromCart",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_EmailAddressFromECOM_WebhookRejeted",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "API_Default Start Flow_EmailAddressFromECOM",
+        "value": "Fail_Rejected"
+      } ]
+    },
+    "name": "38860286-1e7f-4e9e-84a4-6c9cc7e80cf1"
+  }, {
+    "targetPage": "ChatIsComingFromCart",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_EmailAddressFromECOM_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "API_Default Start Flow_EmailAddressFromECOM",
+        "value": "Fail_Timeout"
+      } ]
+    },
+    "name": "27cab777-6275-46ee-adc1-3e8e544ec074"
+  }, {
+    "targetPage": "ChatIsComingFromCart",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_EmailAddressFromECOM_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "API_Default Start Flow_EmailAddressFromECOM",
+        "value": "Fail_Unavailable"
+      } ]
+    },
+    "name": "2224854c-ab79-4f38-b0a2-ac5964b3bd79"
+  } ]
+}

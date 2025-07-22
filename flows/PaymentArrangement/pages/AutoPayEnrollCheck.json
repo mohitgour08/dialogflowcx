@@ -1,0 +1,76 @@
+{
+  "name": "fbe948f7-67e0-462e-a271-10647c78ec32",
+  "displayName": "AutoPayEnrollCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "PASuccessPrompt",
+      "value": "Great! I've confirmed your enrollment. The first payment will be reflected on your account shortly."
+    }, {
+      "parameter": "PASuccessPromptVoice",
+      "value": "The first payment will be reflected on your account shortly. "
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Autopay = \"Y\" OR $session.params.Autopay = \"Enrolled\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_AutoPayEnrollCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AutoPayEnrolled",
+    "name": "96a656cf-b910-47c2-91d7-c21a3037b331"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm happy to help you get enrolled! First, I will need to sign you up for our autopay system, so that your installments draft automatically from a card or bank account. You will be dropped from autopay when the payment arrangement concludes. \n\nYou can always view our $session.params.link46 . " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm happy to help you get enrolled! First, I will need to sign you up for our autopay system, so that your installments draft automatically from a card or bank account. You will be dropped from autopay when the payment arrangement concludes. \r\n\r\nYou can always view our payment agreement on brightspeed.com." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "AutopaySignup"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_AutoPayEnrollCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PastDuePayMethodCheck",
+    "name": "e3f0fe83-82c3-4a56-bdc9-9253896bbc6a"
+  } ]
+}

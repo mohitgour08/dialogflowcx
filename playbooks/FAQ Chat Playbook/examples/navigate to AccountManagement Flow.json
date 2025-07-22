@@ -1,0 +1,39 @@
+{
+  "name": "a93e74a3-fa13-4d11-9198-6eb37651534c",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "How can I help you today?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "I want to know my account status"
+    }
+  }, {
+    "playbookInvocation": {
+      "playbook": "AccountManagement",
+      "playbookInput": {
+        "precedingConversationSummary": "Customer want to know the account status",
+        "actionParameters": {
+          "FAQSuccess": "DirectTransferToBA"
+        }
+      },
+      "playbookOutput": {
+        "actionParameters": {
+        
+        }
+      },
+      "playbookState": "OUTPUT_STATE_OK"
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "Customer want to know about the account status"
+  },
+  "playbookOutput": {
+    "executionSummary": "."
+  },
+  "displayName": "navigate to AccountManagement Flow",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 174,
+  "conversationState": "OUTPUT_STATE_ESCALATED",
+  "languageCode": "en"
+}

@@ -1,0 +1,249 @@
+{
+  "name": "7de678e2-a2b2-4f1f-b49d-2f4521ac67c4",
+  "displayName": "GetEmailPasscodeChat",
+  "form": {
+    "parameters": [ {
+      "displayName": "OTP_Code",
+      "required": true,
+      "entityType": "@OTP_voice",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_Authentication_GetEmailPasscodeChat",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          }, {
+            "parameter": "GetPasscode",
+            "value": "$session.params.OTP_Code"
+          } ],
+          "nextActionOverride": {
+          
+          }
+        },
+        "repromptEventHandlers": [ {
+          "targetPage": "Call2FactorEmailAPI",
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "That code doesn't seem to match - let's try one more time. I'm going to send a new code now, Use the keypad to type in the code once you recieve it." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_validatePasscode",
+              "value": "Failure"
+            }, {
+              "parameter": "PasscodeCount",
+              "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+            }, {
+              "parameter": "GetPasscode",
+              "value": null
+            }, {
+              "parameter": "Metrics_Authentication_GetEmailPasscodeChat_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "EmailResponseStatus",
+              "value": null
+            }, {
+              "parameter": "codeSent",
+              "value": "$sys.func.ADD($session.params.codeSent,1)"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "OTP_Code",
+              "value": null
+            }, {
+              "parameter": "comingfromstate",
+              "value": "Authentication"
+            } ],
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "6396ff88-34eb-4d1e-9315-72be25a77513"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I've successfully sent you the code - it may take a moment for the email to appear. Use the keypad to type in the code once you recieve it." ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Resend my code"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": " ResendCode",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay. I will try to send it one more time. Please allow the email a moment to come through and enter the code below once you receive it." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "codeSent",
+        "value": "$sys.func.ADD($session.params.codeSent,1)"
+      }, {
+        "parameter": "Metrics_Authentication_GetEmailPasscode_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "GetPasscode",
+        "value": null
+      }, {
+        "parameter": "PasscodeCount",
+        "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "Call2FactorEmailAPI",
+    "name": "301345d6-967f-4bbb-b216-778da3bcefaa"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.OTP_Code) = 6",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_GetEmailPasscode_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PasscodeLength",
+        "value": "$sys.func.MINUS($sys.func.TO_NUMBER($sys.func.LEN($session.params.GetPasscode)),6)"
+      }, {
+        "parameter": "GetPasscode",
+        "value": "$session.params.OTP_Code"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckEmailPasscode",
+    "name": "7eb3c031-1f27-4a45-bce0-12ea3f4252cf"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "Call2FactorEmailAPI",
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That code doesn't seem to match. Let's try one more time. I'm going to send a new one now. please enter it below." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_validatePasscode",
+        "value": "Failure"
+      }, {
+        "parameter": "PasscodeCount",
+        "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+      }, {
+        "parameter": "GetPasscode",
+        "value": null
+      }, {
+        "parameter": "Metrics_Authentication_GetEmailPasscode_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmailResponseStatus",
+        "value": null
+      }, {
+        "parameter": "codeSent",
+        "value": "$sys.func.ADD($session.params.codeSent,1)"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "f9a4e9f2-3304-454e-a104-2ff06fc8cc29"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm still experiencing issues with your account verification." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_GetEmailPasscode_NoMatch2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "GetEmailPasscodeChat"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "00b45fc1-e4d2-4c83-94cd-afa19acad5be"
+  } ]
+}

@@ -1,0 +1,124 @@
+{
+  "name": "c49650cc-afab-40fe-a5b0-309b68f6c9f6",
+  "displayName": "SingleAccountFound",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "ACCTFOUND"
+      }, {
+        "parameter": "AccountNumber",
+        "value": "$session.params.Brightspeed[0].billingAccountNumber"
+      }, {
+        "parameter": "AccountType",
+        "value": "$session.params.Brightspeed[0].accountType"
+      }, {
+        "parameter": "AccountStatus",
+        "value": "$session.params.Brightspeed[0].currentStatus"
+      }, {
+        "parameter": "NetworkType",
+        "value": "$session.params.Brightspeed[0].networkType"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_SingleAccountFound_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CurrentStatus",
+        "value": "$session.params.Brightspeed[0].currentStatus"
+      }, {
+        "parameter": "Email",
+        "value": "$session.params.Brightspeed[0].email"
+      }, {
+        "parameter": "CustomerSince",
+        "value": "$session.params.Brightspeed[0].customerSince"
+      }, {
+        "parameter": "Address",
+        "value": "$session.params.Brightspeed[0].addresses"
+      }, {
+        "parameter": "BillingAddress_zip",
+        "value": "$session.params.Brightspeed[0].addresses[0].billingAddress_zip"
+      }, {
+        "parameter": "BillingMethod",
+        "value": "$session.params.Brightspeed[0].billingType"
+      }, {
+        "parameter": "Company",
+        "value": "$session.params.Brightspeed[0].company"
+      }, {
+        "parameter": "ContactNumber",
+        "value": "$session.params.Brightspeed[0].contactNumber"
+      }, {
+        "parameter": "MarketUnit",
+        "value": "$session.params.Brightspeed[0].marketUnit"
+      }, {
+        "parameter": "BillingSource",
+        "value": "$session.params.Brightspeed[0].billingSource_C"
+      }, {
+        "parameter": "CustCode",
+        "value": "$session.params.Brightspeed[0].customerCode"
+      }, {
+        "parameter": "WallGardenStatus",
+        "value": "$session.params.Brightspeed[0].wallGardenStatus"
+      }, {
+        "parameter": "ServiceAddress_zip",
+        "value": "$session.params.Brightspeed[0].addresses[0].serviceAddress_zip"
+      }, {
+        "parameter": "ServiceAddress_city",
+        "value": "$session.params.Brightspeed[0].addresses[0].serviceAddress_city"
+      }, {
+        "parameter": "ServiceAddress_state",
+        "value": "$session.params.Brightspeed[0].addresses[0].serviceAddress_state"
+      }, {
+        "parameter": "ServiceAddress_street",
+        "value": "$session.params.Brightspeed[0].addresses[0].serviceAddress_street"
+      }, {
+        "parameter": "BillingAddress_city",
+        "value": "$session.params.Brightspeed[0].addresses[0].billingAddress_city"
+      }, {
+        "parameter": "BillingAddress_state",
+        "value": "$session.params.Brightspeed[0].addresses[0].billingAddress_state"
+      }, {
+        "parameter": "BillingAddress_street",
+        "value": "$session.params.Brightspeed[0].addresses[0].billingAddress_street"
+      }, {
+        "parameter": "FirstName",
+        "value": "$session.params.Brightspeed[0].firstName"
+      }, {
+        "parameter": "LastName",
+        "value": "$session.params.Brightspeed[0].lastName"
+      }, {
+        "parameter": "CustFullName",
+        "value": "$session.params.FirstName $session.params.LastName"
+      }, {
+        "parameter": "fiberEligibility",
+        "value": "$session.params.Brightspeed[0].fiberEligibility"
+      }, {
+        "parameter": "CTLName",
+        "value": "$session.params.Brightspeed[0].billingName"
+      }, {
+        "parameter": "BillingSystem",
+        "value": "$session.params.Brightspeed[0].billingSystem"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckNetworkType",
+    "name": "c1a2a67c-a9cd-47ed-9c4c-37a2bdec8c6e"
+  } ]
+}

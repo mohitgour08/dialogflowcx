@@ -1,0 +1,23 @@
+{
+  "name": "e35ea6b8-259b-4295-b578-697219b56739",
+  "actions": [ {
+    "flowInvocation": {
+      "flow": "ListenInitialIntent",
+      "inputActionParameters": {
+        "comingfromstate": "playbook"
+      },
+      "outputActionParameters": {
+      
+      }
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "playbook couldn't find the answer for customer's question"
+  },
+  "playbookOutput": {
+    "executionSummary": "Thank you"
+  },
+  "displayName": "navigate to ListenIntialIntent flow when no answers found",
+  "retrievalStrategy": "DEFAULT",
+  "languageCode": "undetected"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "8f466201-e579-44d6-beba-58bea9e917ae",
+  "displayName": "AddService_DTMF2",
+  "priority": 500000,
+  "numTrainingPhrases": 6,
+  "dtmfPattern": "^2$"
+}

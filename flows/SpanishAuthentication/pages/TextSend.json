@@ -1,0 +1,51 @@
+{
+  "name": "cbe607a6-a1ad-4c8d-9ee6-9595cf478ceb",
+  "displayName": "TextSend",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eBien, estoy enviando el código ahora.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "Bien, estoy enviando el código ahora." ]
+      },
+      "languageCode": "es",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Auth2FactorChannel",
+      "value": "SMS"
+    }, {
+      "parameter": "PasscodeCount",
+      "value": 0
+    }, {
+      "parameter": "codeSent",
+      "value": 0
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_TextSend_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "Call2FactorSMSAPI",
+    "name": "3009045f-9960-4e35-a0a1-6f91cd87a119"
+  } ]
+}

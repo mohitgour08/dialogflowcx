@@ -1,0 +1,48 @@
+{
+  "name": "d8299fee-d842-4df8-aae7-d2106c9ae834",
+  "displayName": "InternetSpeedCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay, I'm going to check your services and speed now. This may take up to 2 minutes to complete. I will let you know when it's finished. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ " \u003cspeak\u003eOkay, I'm going to check your services and speed now. This could take up to 2 minutes so please stay on the line.  \u003c/speak\u003e\n" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_InternalSpeedCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "LineCheckAPI",
+    "name": "76c30fc3-8e2d-4396-8333-801fa29a1d26"
+  } ]
+}

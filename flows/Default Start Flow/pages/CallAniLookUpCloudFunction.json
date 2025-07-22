@@ -1,0 +1,30 @@
+{
+  "name": "376bbf29-389d-47da-8561-31ce3ffde96f",
+  "displayName": "CallAniLookUpCloudFunction",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.AccountNumber != null",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e Account Number  \u003cbreak time=\"300ms\"/\u003e $sys.func.MID($session.params.AccountNumber,1,1)\u003cbreak time=\"300ms\"/\u003e\n$sys.func.MID($session.params.AccountNumber,2,1)\u003cbreak time=\"300ms\"/\u003e\n$sys.func.MID($session.params.AccountNumber,3,1)\u003cbreak time=\"300ms\"/\u003e\n$sys.func.MID($session.params.AccountNumber,4,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.AccountNumber,5,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.AccountNumber,6,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.AccountNumber,7,1)  \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.AccountNumber,8,1)  \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.AccountNumber,9,1) \u003cbreak time=\"300ms\"/\u003eis associated with this phone number \u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetPage": "Call360",
+    "name": "a4fca168-545c-4cc2-a145-d15cce4997fc"
+  }, {
+    "condition": "$session.params.AccountNumber = null",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "AddPhoneToProfile",
+    "name": "c2514c4f-da0b-4827-a2e8-3099d6cf43a2"
+  } ]
+}

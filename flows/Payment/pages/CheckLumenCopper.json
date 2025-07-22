@@ -1,0 +1,41 @@
+{
+  "name": "cb429306-4655-4f44-b14b-6355869a004b",
+  "displayName": "CheckLumenCopper",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"voice\" AND $session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_CheckLumenCopper_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "PaymentTransfer",
+    "name": "46c0ca4a-f378-48ad-8119-7411ecece009"
+  }, {
+    "condition": "$session.params.channel = \"voice\" AND $session.params.networkType = \"Copper\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_CheckLumenCopper_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "SecuredPayments",
+    "name": "e2e42bf1-3b8d-45b4-9ed7-d0b4eb03f788"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_CheckLumenCopper_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AutoPayNonAutoPayVoice",
+    "name": "d0d3150d-5275-41cd-aace-dc527ace1e5a"
+  } ]
+}

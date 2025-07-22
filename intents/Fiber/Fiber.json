@@ -1,0 +1,10 @@
+{
+  "name": "b1010b7b-5253-4806-957d-4498254883c9",
+  "displayName": "Fiber",
+  "parameters": [ {
+    "id": "embargodtmf",
+    "entityType": "@EmbargoDTMF"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 14
+}

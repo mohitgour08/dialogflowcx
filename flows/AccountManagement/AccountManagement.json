@@ -1,0 +1,401 @@
+{
+  "name": "9a13d1b6-92e4-47ac-a668-62ece96e061a",
+  "displayName": "AccountManagement",
+  "transitionRoutes": [ {
+    "condition": "$session.params.ToState = \"OnlineAccountAccess\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OnlineAccountAccess",
+    "name": "13d91e87-0e84-4160-aa6f-749c1cf58aaf",
+    "description": "Account Management Online Account Access"
+  }, {
+    "condition": "$session.params.ToState = \"GetUsername\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GetAccountUsername",
+    "name": "e899e4b3-2705-49f6-a00c-8a6824332d63",
+    "description": "Account Management Get Account Username"
+  }, {
+    "condition": "$session.params.ToState = \"SetupOnlineAccount\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "webhook": "staticLink_Primary",
+      "tag": "devtest6",
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Link_Key",
+        "value": "SetUpOnlineAcct"
+      } ]
+    },
+    "targetPage": "SetupOnlineAccount",
+    "name": "529fffb7-777a-4b0d-bff6-467171ba1707",
+    "description": "Account Management Setup Online Account"
+  }, {
+    "condition": "$session.params.ReturnToAccountManagement = \"FiberEligibilityToAccountManagement\" AND $session.params.ToState = \"AccountStatusNext\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_17",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountStatusHelp",
+    "name": "04f99925-eda5-401f-adaa-179f40f0dd50"
+  }, {
+    "condition": "$session.params.ToState = \"GetPassword\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GetAccountPassword",
+    "name": "e7083321-27d3-4303-b8e7-00d56fc5136e",
+    "description": "Account Management Get Account Password"
+  }, {
+    "condition": "$session.params.ToState = \"AccountStatus\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetPage": "AccountStatus",
+    "name": "eec8a0f7-0a07-4943-95fa-1fe580ba3c47",
+    "description": "Account Management Account Status"
+  }, {
+    "condition": "$session.params.ToState = \"ManageApp\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountManagementApp",
+    "name": "00178bf3-7f72-42f1-a9fe-10cafb2b0a7d",
+    "description": "Account Management Manage App"
+  }, {
+    "condition": "$session.params.ToState = \"CancelAccount\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CancelAccount",
+    "name": "5c820b11-72ea-4f6d-b944-a109e0824044",
+    "description": "Account Management Close Cancel Account"
+  }, {
+    "condition": "$session.params.ToState = \"RemoveService\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "RemoveSpecificService",
+    "name": "e3bb839b-cfaf-453e-9d4c-a892ce18fdb2",
+    "description": "Account Management Remove Specific Service"
+  }, {
+    "condition": "$session.params.ToState = \"VacationService\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "VacationService",
+    "name": "c99b6b20-eaaf-4d4f-9795-18ba81647934",
+    "description": "Account Management Vacation Service"
+  }, {
+    "condition": "$session.params.ToState = \"GetAccountNumber\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GetAccountNumber",
+    "name": "15a974e9-e032-47da-b659-105e9dfbfe46"
+  }, {
+    "condition": "$session.params.ToState = \"GetAccountNumber\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountManagement-GetAccountNumber"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "b5e2057c-509d-4bc6-8c2f-bd05e43f58cb",
+    "description": "Account Management Get Account Number"
+  }, {
+    "condition": "$session.params.ToState = AccountLocked AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OnlineAccountAccess",
+    "name": "988de9d5-b82b-48f9-8f9f-573c815e39b9",
+    "description": "Account Management Locked Out"
+  }, {
+    "condition": "$session.params.ToState = \"authorizeduser\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_13",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AddAuthorizedUser",
+    "name": "bb8cb121-86b0-4921-97ba-cc54cc035608"
+  }, {
+    "condition": "$session.params.ToState = \"AccountManagement\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_14",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "DisambiguityQuery",
+    "name": "8c8b5528-3dff-4a08-a9a6-ec1342e446be"
+  }, {
+    "condition": "$session.params.ToState = \"UpdateEmailAddr\" OR $session.params.ToState = \"UpdatePhoneNumber\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_20",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckAuthStatus",
+    "name": "a2d7fabd-51f4-46b5-a231-71829b0c46ff"
+  }, {
+    "condition": "$session.params.ToState = \"CustomerProfile\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_15",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CustomerProfile",
+    "name": "10e235cb-af82-4b12-be1c-40445d407fd2"
+  }, {
+    "condition": "$session.params.ToState = \"CustomerProfile\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_AccountManagement_StartPage_16",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountManagement-CustomerProfile"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "4376b66c-20ff-418d-b23a-4940ed7cf28c"
+  }, {
+    "condition": "$session.params.ToState = \"AppLoginIssues\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_19",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AccountAppLogin",
+    "name": "8b69d2d0-0527-4550-b6ee-15db77c2280f"
+  }, {
+    "condition": "$session.params.ToState = \"AccountStatusConsumerCheck\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_17",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ConsumerCheck",
+    "name": "72d5814f-6153-4956-a013-a02c4c911108"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_AccountManagement_StartPage_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountManagement-NoConditionMatch"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "57ecfa11-9dba-4c7e-b543-208de6d79797"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_NoMatch",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "a5561650-e59d-4bd6-bd5c-0315806bc71a"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_StartPage_NoInput",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "bd5cb00c-ca34-4e3b-9fab-1cfd0f0cfe6a"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    }
+  },
+  "advancedSettings": {
+    "enabled": true
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    },
+    "languageCode": "en"
+  } ],
+  "inputParameterDefinitions": [ {
+    "name": "ToState",
+    "description": "Type of intent captured from playbook to pass to the flow",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToModule",
+    "description": "model name",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "user intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "FAQSuccess",
+    "description": "Status of Faq self serve",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "FAQSuccess",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ]
+}

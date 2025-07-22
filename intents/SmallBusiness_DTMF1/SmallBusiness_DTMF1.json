@@ -1,0 +1,11 @@
+{
+  "name": "1eadcf40-bcbc-41ae-927d-f8a9aa9980f3",
+  "displayName": "SmallBusiness_DTMF1",
+  "parameters": [ {
+    "id": "DTMF1",
+    "entityType": "@DTMF1"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 5,
+  "dtmfPattern": "^1$"
+}

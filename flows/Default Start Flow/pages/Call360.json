@@ -1,0 +1,152 @@
+{
+  "name": "ccdbef00-5436-4777-9d82-4ae6033042e7",
+  "displayName": "Call360",
+  "form": {
+    "parameters": [ {
+      "displayName": "Brightspeed",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_DefaultStartFlow_Call360_Brightspeed",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ]
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "Metrics_Call360_none_wh_CallC360",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Brightspeed[0].legacyBAN != null OR $session.params.Brightspeed[0].legacyBAN != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "legacyBAN",
+        "value": "$session.params.Brightspeed[0].legacyBAN"
+      }, {
+        "parameter": "PPBTemp",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.legacyBAN),1, 3)"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_Call360_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "970f53c5-c2ea-43f3-a05f-ba67c0c7c9dc"
+  }, {
+    "condition": "$session.params.PPBTemp = \"PPB\" OR $session.params.PPBTemp = \"ppb\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_IsPPBAccount",
+        "value": true
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_Call360_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "46611806-b3e1-4101-a7e8-87a5f408e191"
+  }, {
+    "condition": "$session.params.Brightspeed[0] = null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "AccountNumber",
+        "value": ""
+      }, {
+        "parameter": "AccountStatus",
+        "value": ""
+      }, {
+        "parameter": "AccountType",
+        "value": ""
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_Call360_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      } ]
+    },
+    "targetPage": "CheckChannel1",
+    "name": "d7c68779-b556-4949-9a73-9c51c6ba4946"
+  }, {
+    "condition": "$session.params.Brightspeed[1] = null OR $session.params.Brightspeed[1] = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_Call360_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AccountIdentification",
+        "value": "SingleAccount"
+      } ]
+    },
+    "targetPage": "SingleAccountFound",
+    "name": "a08d1e0f-761f-4e26-990b-cb15ac21614a"
+  }, {
+    "condition": "$session.params.channel = \"web\" AND ($session.params.Brightspeed[1] != null OR $session.params.Brightspeed[1] != \"\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_Call360_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AccountIdentification",
+        "value": "MultipleAccount"
+      } ]
+    },
+    "targetPage": "MultipleAccountFound",
+    "name": "7db4d420-a3f6-4123-944c-90ed6956c874"
+  }, {
+    "condition": "$session.params.channel = \"voice\" AND ($session.params.Brightspeed[1] != NULL OR $session.params.Brightspeed[1] != \"\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "MULTIACCTFOUND"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_Call360_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "fiberEligibility",
+        "value": "$session.params.Brightspeed[0].fiberEligibility"
+      } ]
+    },
+    "targetPage": "CheckFiberEligibility",
+    "name": "6a386a64-35e6-40f5-b2c0-5ab182c6678a",
+    "description": "Multiple account voice"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "AccountNumber",
+        "value": ""
+      }, {
+        "parameter": "AccountStatus",
+        "value": ""
+      }, {
+        "parameter": "AccountType",
+        "value": ""
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_Call360_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckChannel1",
+    "name": "316c2b30-041b-4132-aa9f-4e1588916c26"
+  } ]
+}

@@ -1,0 +1,256 @@
+{
+  "name": "7af0f534-d655-4a4c-8acb-939548f4128d",
+  "displayName": "NewCustomerVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003eFor residential services or home office, say “residential”. For business services, say “business”.\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ " If you're an Enterprise customer, please call the number on your invoice." ]
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Residential",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_RoutetoAgent_NewCustomerVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "sales_customer_type",
+        "value": "Residential"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "535dc0d6-9d7a-4697-a8e1-248e9756ad0e"
+  }, {
+    "intent": "Business",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_NewCustomerVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "sales_customer_type",
+        "value": "Business"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "372a0e57-91ea-438e-ba6c-6267f8a39571"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_NewCustomerVoice_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "RoutetoAgent_NewCustomerVoice_1"
+      }, {
+        "parameter": "sales_customer_type",
+        "value": "Residential"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "d6e33d78-f73d-4e5a-8ead-7e2aab407b07"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_NewCustomerVoice_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "RoutetoAgent_NewCustomerVoice_2"
+      }, {
+        "parameter": "sales_customer_type",
+        "value": "Business"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "671d6e2b-461d-4cfe-bc2e-5cf0350f9844"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_NewCustomerVoice_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NewCustomerVoice"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "7814dd14-4ee0-4321-ab05-455c83826dd4"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eI’m sorry, your answer doesn’t match one of our options. For residential services or home office, press 1. For business services, press 2. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_NewCustomerVoice_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "5f316b3c-9c67-4e0f-a514-1de09cd1a38c"
+  }, {
+    "targetPage": "AuthenticationCheck",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eI didn’t understand your answer.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_RoutetoAgent_NewCustomerVoice_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "RoutetoAgent_NewCustomerVoice"
+      }, {
+        "parameter": "sales_customer_type",
+        "value": "Residential"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "d28ec34e-3dbe-48f2-993b-f6f0be8c1aba"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\r\n\u003cspeak\u003eI’m sorry, I didn’t hear your answer. For residential services or home office, press 1. For business services, press 2. \u003c/speak\u003e\r\n" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_NewCustomerVoice_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "6f581877-5cbb-4f31-b63d-cc57ccdf94f9"
+  }, {
+    "targetPage": "AuthenticationCheck",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eThat’s okay.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_NewCustomerVoice_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "RoutetoAgent_NewCustomerVoice"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "sales_customer_type",
+        "value": "Residential"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "2aea7fce-3137-4324-9d4f-da4c9a624c99"
+  } ]
+}

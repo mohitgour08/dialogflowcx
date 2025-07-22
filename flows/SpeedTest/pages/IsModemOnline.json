@@ -1,0 +1,47 @@
+{
+  "name": "3c70abd3-e579-47e1-8788-5a4243a697e3",
+  "displayName": "IsModemOnline",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.GetModem != \"\" OR $session.params.GetModem != \"null\" OR $session.params.GetModem != null OR $session.params.GetModem != \"NULL\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_IsModemOnline_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "OrderStatusAPI",
+    "name": "12b9196c-a58d-440a-a72c-14a80c3cdcf9"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_IsModemOnline_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "UnableToConnectService",
+    "name": "7de1377b-854a-4d31-b319-ecc7917fe475"
+  } ]
+}

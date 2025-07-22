@@ -1,0 +1,511 @@
+{
+  "trainingPhrases": [ {
+    "id": "d6c1d276-ec18-4786-80c2-0f5bb132be0c",
+    "parts": [ {
+      "text": "It says"
+    }, {
+      "text": " "
+    }, {
+      "text": "fiber"
+    }, {
+      "text": " "
+    }, {
+      "text": "is available but I haven't"
+    }, {
+      "text": " seen any crews on "
+    }, {
+      "text": "my street"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9079a8ba-8380-4a5b-b399-9fead19fa8a0",
+    "parts": [ {
+      "text": "Is there anyone "
+    }, {
+      "text": "I can talk to about"
+    }, {
+      "text": " "
+    }, {
+      "text": "fiber"
+    }, {
+      "text": " "
+    }, {
+      "text": "in my neighborhood"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3aa65b51-d2ae-4491-bdec-68fed25ac7e6",
+    "parts": [ {
+      "text": "is there a problem in "
+    }, {
+      "text": "Springfield Missouri"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a23e5390-4c60-4a70-bb90-96614964c939",
+    "parts": [ {
+      "text": "Is DSL available at "
+    }, {
+      "text": "715 W. 3rd St. Mountain Grove, MO 65711"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1fae6bca-3658-4440-95f7-54cfa1c0d5f0",
+    "parts": [ {
+      "text": "Is DSL available"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "11ebc367-0762-4032-966e-910e4cb15959",
+    "parts": [ {
+      "text": "do you serve in "
+    }, {
+      "text": "California"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7c9f1c95-ffb6-4428-83e1-1810d595e535",
+    "parts": [ {
+      "text": "service area inquiry"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d3a04e6e-bc43-4f8b-bb6f-abcb20f04a0e",
+    "parts": [ {
+      "text": "service area enquiry"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4381739d-ba99-4a37-8d77-2de0386c327a",
+    "parts": [ {
+      "text": "i want to know the areas where brightspeed provide services"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9700998b-b50c-40bc-b5f8-e2ab87469496",
+    "parts": [ {
+      "text": "can u please help me with service area enquiry"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1bee6817-1788-49d7-8cd5-71bf03f9d05d",
+    "parts": [ {
+      "text": "I want to know if brightspeed provide services in my area"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "20b28c6f-c778-4bf0-95c7-fd3c3528e7f5",
+    "parts": [ {
+      "text": "Coverage Area Inquiry"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "da3ac014-17a2-4e8b-8e67-49e0e3669049",
+    "parts": [ {
+      "text": "any service available for my area"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fa0f8af5-322c-4c4c-8988-154c99e53012",
+    "parts": [ {
+      "text": "any service available for my address"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "285ac304-51d7-4db3-a734-84a4b81434f6",
+    "parts": [ {
+      "text": "I live in a historic building with specific architectural considerations. Can you provide information on the feasibility of installing your services in such structures?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b37aafe6-589c-4fa0-8899-b9e90e6268cd",
+    "parts": [ {
+      "text": "I have unique requirements for my telecom services due to a medical condition. Can you accommodate those needs in my area?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a74ef0e2-0ff6-411c-adcf-1eb70a0941ab",
+    "parts": [ {
+      "text": "I'm located near the border of "
+    }, {
+      "text": "two states"
+    }, {
+      "text": ". Can you confirm if your services are available on both sides of the border?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "515661b3-d1f9-4ea0-b209-09f63d216ef0",
+    "parts": [ {
+      "text": "I'm interested in your services for my rural farm. Can you provide customized solutions for a remote agricultural location?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f956a675-2d6b-41c7-a6f3-ea148394b5fb",
+    "parts": [ {
+      "text": "I have heard about service "
+    }, {
+      "text": "outages"
+    }, {
+      "text": " in nearby areas. Can you provide information on the stability and resilience of your "
+    }, {
+      "text": "network"
+    }, {
+      "text": " in my location?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cfd5d15f-e1ef-47f7-961f-35ba44e49eb1",
+    "parts": [ {
+      "text": "I'm located in a coastal area prone to severe weather conditions. Can you provide information on the reliability of your services during such events?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b6c60a10-c5ce-455f-be2f-d295e121e945",
+    "parts": [ {
+      "text": "I'm considering your services for my home office, and I need reassurance that your "
+    }, {
+      "text": "network"
+    }, {
+      "text": " can handle the demands of a business-grade connection."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f1363155-f8f6-4486-82f3-899f4658d75e",
+    "parts": [ {
+      "text": "I'm inquiring about the coverage in a specific industrial area. Can you provide information on the availability of your services for businesses in that area?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "883c200a-7356-472b-8c65-28dd1c87d9a1",
+    "parts": [ {
+      "text": "I live in a gated community with specific regulations regarding service providers. Can you confirm if you are authorized to provide services in this community?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ea0530b7-4bd7-419f-8cd6-4328bc8a404e",
+    "parts": [ {
+      "text": "I'm interested in your "
+    }, {
+      "text": "fiber"
+    }, {
+      "text": " optic internet service. Can you confirm if it'"
+    }, {
+      "text": "s"
+    }, {
+      "text": " available in my area?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "65f4ef0b-afd3-4679-b72c-c8502c4d9db1",
+    "parts": [ {
+      "text": "I'm located near the outskirts of the city, and I'm concerned about the signal strength for your internet services. Can you provide any insights?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "03801a77-c788-48b5-a0dd-b08cf2d48bb2",
+    "parts": [ {
+      "text": "I live in an apartment complex, and I would like to know if you have "
+    }, {
+      "text": "existing"
+    }, {
+      "text": " agreements with the property "
+    }, {
+      "text": "management"
+    }, {
+      "text": " for providing services to residents."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c31627f2-4d79-4791-b68a-24b61a76fcab",
+    "parts": [ {
+      "text": "I'm interested in subscribing to your services, but I want to know if there are any upcoming plans for expanding your coverage in my area."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "af6c1a01-b82c-46d9-b26c-e7af95181e3b",
+    "parts": [ {
+      "text": "I have a "
+    }, {
+      "text": "vacation"
+    }, {
+      "text": " home in a different state. Can you confirm if your services are available at that location as well?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "711191fa-76a5-4ef5-91a4-5e3df48095a4",
+    "parts": [ {
+      "text": "I'm in a remote area, and I want to know if your services are capable of providing adequate coverage and bandwidth here."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3f2e3b99-2512-49c4-83da-4b4134d31606",
+    "parts": [ {
+      "text": "I'm interested in your services, but I need to know the maximum internet speed available at my "
+    }, {
+      "text": "address"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "485e134b-d091-4161-a050-ac626a22ae6a",
+    "parts": [ {
+      "text": "I have unique requirements for my internet services due to the nature of my business. Can you accommodate those needs in my area?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "14872713-f603-4b83-914f-935fc94f05b9",
+    "parts": [ {
+      "text": "I'm located in an area that has experienced connectivity "
+    }, {
+      "text": "issues"
+    }, {
+      "text": " with other providers. Can you assure reliable service in my location?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d89b7429-6db0-4e24-a13b-1488d7840c76",
+    "parts": [ {
+      "text": "I'm inquiring about the coverage in a specific neighborhood within the city. Can you provide detailed information?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "17d046c5-19e8-47a0-ae95-7bf9655aacae",
+    "parts": [ {
+      "text": "I live in a building with multiple units. Can you verify if your services are available for each unit?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "262b963b-4434-41ed-8b6e-b39a3ea2f760",
+    "parts": [ {
+      "text": "I'm located in a commercial building. Do you provide telecom services for businesses in this area?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c02ce384-c412-4330-a7dd-db5448e09d22",
+    "parts": [ {
+      "text": "I'm interested in your internet service. Can you check if it'"
+    }, {
+      "text": "s"
+    }, {
+      "text": " available in my area?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4957c4df-46ef-4269-862e-0caa3c41b9ac",
+    "parts": [ {
+      "text": "Is there "
+    }, {
+      "text": "a way"
+    }, {
+      "text": " for me to check if your services are offered in my specific neighborhood?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "06027d68-665d-4419-9fef-29e0ae4c5ac6",
+    "parts": [ {
+      "text": "I want to know if your services are accessible in remote areas."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4d3682a4-9d67-4306-8723-1b7c4d940ee5",
+    "parts": [ {
+      "text": "I'm considering switching to your company for my telecom needs. Can you confirm service availability at my "
+    }, {
+      "text": "address"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d2e24c26-2bc9-4f13-83f9-00e0ae479e2c",
+    "parts": [ {
+      "text": "I live in a rural area, and I'd like to inquire about the availability of your services here."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7e0a1d48-f614-4c07-b610-71dd5a07b66c",
+    "parts": [ {
+      "text": "I'm planning to relocate, and it'"
+    }, {
+      "text": "s"
+    }, {
+      "text": " crucial for me to know if I can get your services in the "
+    }, {
+      "text": "new"
+    }, {
+      "text": " area."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b83c7154-f049-44aa-8bc0-639b09cb5103",
+    "parts": [ {
+      "text": "I'm interested in subscribing to your services. How can I check if you serve my area?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "468fcc63-6152-4ced-aabd-5aa427ad926c",
+    "parts": [ {
+      "text": "I want to switch my telecom provider and need to find out if you offer services in my vicinity."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4f9fcc53-1ae4-4bae-b0bc-8698e339da6a",
+    "parts": [ {
+      "text": "I'm looking for telecom providers in my area. Can you let me know if you "
+    }, {
+      "text": "operate"
+    }, {
+      "text": " here?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1d06305d-2592-46b8-a1b6-cea203bf2c66",
+    "parts": [ {
+      "text": "I'm "
+    }, {
+      "text": "moving"
+    }, {
+      "text": " to a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " area and want to know if I can continue using your services there."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c652f74d-7fc3-4527-9325-7baf4c2fb402",
+    "parts": [ {
+      "text": "Can you tell me if I can get your internet/"
+    }, {
+      "text": "phone"
+    }, {
+      "text": "/TV services at my current location?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c9123df8-75e3-40e2-951b-dcccdfc004e6",
+    "parts": [ {
+      "text": "I want to check if your services are available at my "
+    }, {
+      "text": "new"
+    }, {
+      "text": " "
+    }, {
+      "text": "address"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5a03526d-e7c1-46db-98db-5f81355c1c80",
+    "parts": [ {
+      "text": "I'm considering "
+    }, {
+      "text": "signing up"
+    }, {
+      "text": " for your services. Can you confirm if you have coverage in my neighborhood?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "95b2cbaa-6cc5-42de-b054-9c05e7de9a58",
+    "parts": [ {
+      "text": "Is my "
+    }, {
+      "text": "address"
+    }, {
+      "text": " within your service coverage?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "daf87962-4e48-4b04-88d9-5cc2201c31a3",
+    "parts": [ {
+      "text": "Do you offer telecom services in ["
+    }, {
+      "text": "City/Region"
+    }, {
+      "text": "]?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "25f1065a-88ad-4634-a8f9-74411eb69a38",
+    "parts": [ {
+      "text": "I'm interested in your services. Is there coverage in my area?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3da123d5-9333-4e2e-aa06-161de004c44d",
+    "parts": [ {
+      "text": "Can you provide information about the service availability in my location?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "93b79a4c-526a-4e42-b607-fd6f379dbeac",
+    "parts": [ {
+      "text": "What areas do you cover with your telecom services?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e17d0d18-1255-4b94-a56a-c43a2c368d48",
+    "parts": [ {
+      "text": "I would like to know if your services are available in my area."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

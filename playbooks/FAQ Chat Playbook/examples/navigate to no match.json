@@ -1,0 +1,33 @@
+{
+  "name": "d42bb421-6ec2-4c0d-9ca4-6cd055f0851f",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "How can I help you today?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "My mom passed away and im taking over the account need"
+    }
+  }, {
+    "flowInvocation": {
+      "flow": "ListenInitialIntent",
+      "inputActionParameters": {
+        "FAQSuccess": "HandoverToBA",
+        "comingfromstate": "playbook"
+      },
+      "outputActionParameters": {
+      
+      }
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "customer says his mom passed away and i m taking over the account need"
+  },
+  "playbookOutput": {
+    "executionSummary": "."
+  },
+  "displayName": "navigate to no match",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 157,
+  "languageCode": "en"
+}

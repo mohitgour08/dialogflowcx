@@ -1,0 +1,68 @@
+{
+  "name": "4ca83d0f-4134-4581-9191-84d06dbfdefa",
+  "displayName": "PreChecks",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": " CustomerInfo"
+    },
+    "name": "13acc505-56fc-40af-a2db-3ef790a61176"
+  }, {
+    "condition": "$session.params.BillInfo_AccountStatus = \"Suspended\" OR $session.params.BillInfo_AccountStatus = \"Paused\" OR $session.params.BillInfo_AccountStatus = \"SUSPENDED\" OR $session.params.BillInfo_AccountStatus = \"PAUSED\" OR $session.params.BillInfo_AccountStatus = \"SNP\" OR $session.params.BillInfo_AccountStatus : \"Suspend\" OR $session.params.BillInfo_AccountStatus : \"SUSPEND\" OR $session.params.BillInfo_AccountStatus = \"Suspended\" OR $session.params.BillInfo_AccountStatus = \"Suspend\" OR $session.params.BillInfo_AccountStatus = \"Non Pay Suspend\" OR $session.params.BillInfo_AccountStatus = \"Non Pay Disconnect\" OR $session.params.BillInfo_AccountStatus = \"SUSPEND-POSTPD NOPAY\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_PreChecks_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "7d6b7cfd-865a-4f0f-a61e-80fc38d0f6b6"
+  }, {
+    "condition": "$session.params.channel = \"voice\" AND ($session.params.AccountStatus != \"Suspended\" OR $session.params.AccountStatus != \"Pending\" OR $session.params.AccountStatus != \"Repaire Ticket\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_PreChecks_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SetNetworkTypeDM",
+    "name": "77105d20-c9ae-426d-bd6e-fba7ad182800"
+  }, {
+    "condition": "$session.params.AccountStatus = \"Pending\" OR $session.params.AccountStatus = \"Repaire Ticket\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_PreChecks_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "b0687ab9-f5bc-4aab-b512-5cf190cad911"
+  }, {
+    "condition": "$session.params.channel = \"web\" AND ($session.params.AccountStatus != \"Suspended\" OR $session.params.AccountStatus != \"Pending\" OR $session.params.AccountStatus != \"Repaire Ticket\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_PreChecks_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckForHints",
+    "name": "9960d414-6ef4-46da-97d7-16a54bedefcd"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "SetNetworkTypeDM",
+    "name": "1ab0d02d-2768-49af-a713-c8ebf7a657af"
+  } ]
+}

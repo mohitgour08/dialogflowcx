@@ -1,0 +1,30 @@
+{
+  "name": "a560019a-3ca0-4d90-b626-44f144e4790a",
+  "displayName": "APSNPPaymentMethodCheckPAElig",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APSNPPaymentMethodCheckPAElig_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "APSNPCCPAElig",
+    "name": "5553554c-b21d-4dbf-9d0c-3978f0af6e73"
+  } ],
+  "description": "AP - SNP PAYMENT METHOD CHECK (PA ELIG.)"
+}

@@ -1,0 +1,3376 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "I want to ",
+      "auto": true
+    }, {
+      "text": "pay my bill",
+      "auto": true
+    }, {
+      "text": ". What are my options",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What are the accepted forms ",
+      "auto": true
+    }, {
+      "text": "of",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " for my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm ready to settle my ",
+      "auto": true
+    }, {
+      "text": "bill",
+      "auto": true
+    }, {
+      "text": ". What are my ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " options?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Figure out how to ",
+      "auto": true
+    }, {
+      "text": "pay my bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "As a subscriber ",
+      "auto": true
+    }, {
+      "text": "of",
+      "auto": true
+    }, {
+      "text": " your monthly postpaid ",
+      "auto": true
+    }, {
+      "text": "service",
+      "auto": true
+    }, {
+      "text": ", do I have an automated ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " set up via my bank ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " or do I need to manually add credit",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "different ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " options available for my postpaid ",
+      "auto": true
+    }, {
+      "text": "CTL",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Payment",
+      "auto": true
+    }, {
+      "text": " methods accepted",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Why is it telling ",
+      "auto": true
+    }, {
+      "text": "me",
+      "auto": true
+    }, {
+      "text": " invalid name on card when it is correct",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I went ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " at the store I usally ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " at and they said I can ",
+      "auto": true
+    }, {
+      "text": "no",
+      "auto": true
+    }, {
+      "text": " longer do that, so where can I go",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I prefer",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "paying my bill through",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "electronic",
+      "auto": true
+    }, {
+      "text": " transfers",
+      "auto": true
+    }, {
+      "text": ". Can you confirm if that's an",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "accepted method",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with a prepaid card?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Prepaid ",
+      "auto": true
+    }, {
+      "text": "card payment option",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a ",
+      "auto": true
+    }, {
+      "text": "phone",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment option for",
+      "auto": true
+    }, {
+      "text": " those ",
+      "auto": true
+    }, {
+      "text": "who",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "prefer",
+      "auto": true
+    }, {
+      "text": " it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is it possible to pay with a",
+      "auto": true
+    }, {
+      "text": " prepaid card?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Bank ",
+      "auto": true
+    }, {
+      "text": "information Inquiry",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I use a virtual ",
+      "auto": true
+    }, {
+      "text": "credit",
+      "auto": true
+    }, {
+      "text": " card number for ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " purposes?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you accept ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": " through ",
+      "auto": true
+    }, {
+      "text": "money",
+      "auto": true
+    }, {
+      "text": " transfer ",
+      "auto": true
+    }, {
+      "text": "apps",
+      "auto": true
+    }, {
+      "text": " like ",
+      "auto": true
+    }, {
+      "text": "Western Union",
+      "auto": true
+    }, {
+      "text": " or Cash ",
+      "auto": true
+    }, {
+      "text": "App",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "make payments",
+      "auto": true
+    }, {
+      "text": " through a specific ",
+      "auto": true
+    }, {
+      "text": "mobile",
+      "auto": true
+    }, {
+      "text": " carrier ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": " system?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there an option to ",
+      "auto": true
+    }, {
+      "text": "make payments",
+      "auto": true
+    }, {
+      "text": " through an ",
+      "auto": true
+    }, {
+      "text": "Interactive",
+      "auto": true
+    }, {
+      "text": " Voice Response system?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Are there any ",
+      "auto": true
+    }, {
+      "text": "payment options",
+      "auto": true
+    }, {
+      "text": " specific to certain plans or services?",
+      "auto": true
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " in ",
+      "auto": true
+    }, {
+      "text": "digital currencies",
+      "auto": true
+    }, {
+      "text": " like Bitcoin accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you accept ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": " through ",
+      "auto": true
+    }, {
+      "text": "online",
+      "auto": true
+    }, {
+      "text": " wallets like ",
+      "auto": true
+    }, {
+      "text": "Venmo",
+      "auto": true
+    }, {
+      "text": " or PayPal?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I set up autopay using my bank ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " information?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Are there any fees associated with specific ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " through a ",
+      "auto": true
+    }, {
+      "text": "mobile",
+      "auto": true
+    }, {
+      "text": " wallet ",
+      "auto": true
+    }, {
+      "text": "app",
+      "auto": true
+    }, {
+      "text": " like Samsung ",
+      "auto": true
+    }, {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": "-by-text service available for convenience?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": " using a ",
+      "auto": true
+    }, {
+      "text": "gift card",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you offer automatic ",
+      "auto": true
+    }, {
+      "text": "bill",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " for recurring ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is it possible to use a virtual card number for ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Are international ",
+      "auto": true
+    }, {
+      "text": "credit",
+      "auto": true
+    }, {
+      "text": " cards accepted for ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I initiate a wire transfer for ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " purposes?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there an option for direct deposit ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with a cashier'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " check if needed?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Are electronic wallets such as Google ",
+      "auto": true
+    }, {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": " or Apple ",
+      "auto": true
+    }, {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": " accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you accept ",
+      "auto": true
+    }, {
+      "text": "money",
+      "auto": true
+    }, {
+      "text": " transfer services like ",
+      "auto": true
+    }, {
+      "text": "Western Union",
+      "auto": true
+    }, {
+      "text": " or MoneyGram?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a specific deadline to submit my ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": " using my ",
+      "auto": true
+    }, {
+      "text": "online",
+      "auto": true
+    }, {
+      "text": " banking service?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Could you guide me through the steps to ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you accept ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": " through ",
+      "auto": true
+    }, {
+      "text": "third",
+      "auto": true
+    }, {
+      "text": "-party providers like ",
+      "auto": true
+    }, {
+      "text": "Venmo",
+      "auto": true
+    }, {
+      "text": " or ",
+      "auto": true
+    }, {
+      "text": "Zelle",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Are there any restrictions when it comes to international ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a location where I can ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": " in person?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you have any ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "assistance",
+      "auto": true
+    }, {
+      "text": " programs available?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "split the payment",
+      "auto": true
+    }, {
+      "text": " between multiple cards?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a limit on the ",
+      "auto": true
+    }, {
+      "text": "amount",
+      "auto": true
+    }, {
+      "text": " I can ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with a ",
+      "auto": true
+    }, {
+      "text": "credit",
+      "auto": true
+    }, {
+      "text": " card?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Could you clarify if there are any fees associated with specific ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Are ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " plans or installment options offered?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you have a ",
+      "auto": true
+    }, {
+      "text": "mobile",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "app",
+      "auto": true
+    }, {
+      "text": " that allows ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": " through a ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " portal on your website?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What about checks or ",
+      "auto": true
+    }, {
+      "text": "money",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "orders",
+      "auto": true
+    }, {
+      "text": "? Are they accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Am I able to ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " in cash or is it limited to certain ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I set up recurring ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": " for convenience?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there an automatic ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " feature available?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you support ",
+      "auto": true
+    }, {
+      "text": "mobile",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": " like Apple ",
+      "auto": true
+    }, {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": " or Google ",
+      "auto": true
+    }, {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I use PayPal to ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Are ",
+      "auto": true
+    }, {
+      "text": "online",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payments an option",
+      "auto": true
+    }, {
+      "text": " for ",
+      "auto": true
+    }, {
+      "text": "bill",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'd like to know what types of ",
+      "auto": true
+    }, {
+      "text": "payment options",
+      "auto": true
+    }, {
+      "text": " are available.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there an ",
+      "auto": true
+    }, {
+      "text": "option to pay",
+      "auto": true
+    }, {
+      "text": " through a bank transfer?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you also accept debit cards as a form of ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": " using my ",
+      "auto": true
+    }, {
+      "text": "credit",
+      "auto": true
+    }, {
+      "text": " card?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm curious about the different ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": " you accept. Could you please provide more details?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Virtual ",
+      "auto": true
+    }, {
+      "text": "credit",
+      "auto": true
+    }, {
+      "text": " card number ",
+      "auto": true
+    }, {
+      "text": "payment option",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Money",
+      "auto": true
+    }, {
+      "text": " transfer ",
+      "auto": true
+    }, {
+      "text": "app",
+      "auto": true
+    }, {
+      "text": " like Western ",
+      "auto": true
+    }, {
+      "text": "Union",
+      "auto": true
+    }, {
+      "text": " accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Payment",
+      "auto": true
+    }, {
+      "text": " through specific ",
+      "auto": true
+    }, {
+      "text": "mobile",
+      "auto": true
+    }, {
+      "text": " carrier?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Payment",
+      "auto": true
+    }, {
+      "text": " through Interactive Voice Response system?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Payment options",
+      "auto": true
+    }, {
+      "text": " for specific plans/services?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Digital",
+      "auto": true
+    }, {
+      "text": " currency like ",
+      "auto": true
+    }, {
+      "text": "Bitcoin",
+      "auto": true
+    }, {
+      "text": " accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Online",
+      "auto": true
+    }, {
+      "text": " wallet like Venmo accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Autopay",
+      "auto": true
+    }, {
+      "text": " setup with bank ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Fee for specific ",
+      "auto": true
+    }, {
+      "text": "payment method",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Mobile",
+      "auto": true
+    }, {
+      "text": " wallet ",
+      "auto": true
+    }, {
+      "text": "app",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment option",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": "-by-text service offered?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Gift card",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment option",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Automatic ",
+      "auto": true
+    }, {
+      "text": "bill",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " available?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Virtual card number ",
+      "auto": true
+    }, {
+      "text": "payment option",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "International ",
+      "auto": true
+    }, {
+      "text": "credit",
+      "auto": true
+    }, {
+      "text": " card ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Wire transfer accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Direct deposit ",
+      "auto": true
+    }, {
+      "text": "payment option",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Cashier'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " check ",
+      "auto": true
+    }, {
+      "text": "payment option",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Electronic wallet like Google ",
+      "auto": true
+    }, {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": " accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Money",
+      "auto": true
+    }, {
+      "text": " transfer service accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Payment",
+      "auto": true
+    }, {
+      "text": " deadline?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Online",
+      "auto": true
+    }, {
+      "text": " banking ",
+      "auto": true
+    }, {
+      "text": "payment option",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Steps to ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Third",
+      "auto": true
+    }, {
+      "text": "-party ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " provider accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "International ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " restrictions?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "In-person ",
+      "auto": true
+    }, {
+      "text": "payment option",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Payment",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "assistance",
+      "auto": true
+    }, {
+      "text": " programs?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Split payment",
+      "auto": true
+    }, {
+      "text": " with multiple cards?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Credit",
+      "auto": true
+    }, {
+      "text": " card ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " limit?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Fees for specific ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Payment",
+      "auto": true
+    }, {
+      "text": " plans offered?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Mobile",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "app",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Payment",
+      "auto": true
+    }, {
+      "text": " portal on website?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Phone",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment option",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Check or ",
+      "auto": true
+    }, {
+      "text": "money",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "order",
+      "auto": true
+    }, {
+      "text": " accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Cash ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Recurring ",
+      "auto": true
+    }, {
+      "text": "payment options",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Automatic ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " setup?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Apple ",
+      "auto": true
+    }, {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": " accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Mobile",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment options",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "PayPal",
+      "auto": true
+    }, {
+      "text": " accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Online",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Payment options",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Bank transfer",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment option",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Debit card ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Credit",
+      "auto": true
+    }, {
+      "text": " card ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " available?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Accepted payment methods",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there an ",
+      "auto": true
+    }, {
+      "text": "option to pay",
+      "auto": true
+    }, {
+      "text": " with a virtual ",
+      "auto": true
+    }, {
+      "text": "credit",
+      "auto": true
+    }, {
+      "text": " card number?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " using a ",
+      "auto": true
+    }, {
+      "text": "money",
+      "auto": true
+    }, {
+      "text": " transfer ",
+      "auto": true
+    }, {
+      "text": "app",
+      "auto": true
+    }, {
+      "text": " like ",
+      "auto": true
+    }, {
+      "text": "Western Union",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you accept ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": " through a specific ",
+      "auto": true
+    }, {
+      "text": "mobile",
+      "auto": true
+    }, {
+      "text": " carrier?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "make payments",
+      "auto": true
+    }, {
+      "text": " through an Interactive Voice Response system?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with a ",
+      "auto": true
+    }, {
+      "text": "digital currency",
+      "auto": true
+    }, {
+      "text": " like ",
+      "auto": true
+    }, {
+      "text": "Bitcoin",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you accept ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " through ",
+      "auto": true
+    }, {
+      "text": "online",
+      "auto": true
+    }, {
+      "text": " wallets like ",
+      "auto": true
+    }, {
+      "text": "Venmo",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I set up autopay with my bank ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a fee for ",
+      "auto": true
+    }, {
+      "text": "paying",
+      "auto": true
+    }, {
+      "text": " with a certain method?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with a ",
+      "auto": true
+    }, {
+      "text": "mobile",
+      "auto": true
+    }, {
+      "text": " wallet ",
+      "auto": true
+    }, {
+      "text": "app",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you offer a ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": "-by-text service?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with a ",
+      "auto": true
+    }, {
+      "text": "gift card",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there an option for automatic ",
+      "auto": true
+    }, {
+      "text": "bill",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": " using a virtual card number?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you accept international ",
+      "auto": true
+    }, {
+      "text": "credit",
+      "auto": true
+    }, {
+      "text": " cards?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with a wire transfer?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there an option for direct deposit?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with a cashier'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " check?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you accept electronic wallets like Google ",
+      "auto": true
+    }, {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with a ",
+      "auto": true
+    }, {
+      "text": "money",
+      "auto": true
+    }, {
+      "text": " transfer service?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a specific deadline to ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": " using ",
+      "auto": true
+    }, {
+      "text": "online",
+      "auto": true
+    }, {
+      "text": " banking?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What are the steps to ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with a ",
+      "auto": true
+    }, {
+      "text": "third",
+      "auto": true
+    }, {
+      "text": "-party ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " provider?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Are there any restrictions on international ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": " in person?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you offer ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "assistance",
+      "auto": true
+    }, {
+      "text": " programs?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with multiple cards?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a limit to the ",
+      "auto": true
+    }, {
+      "text": "amount",
+      "auto": true
+    }, {
+      "text": " I can ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with a ",
+      "auto": true
+    }, {
+      "text": "credit",
+      "auto": true
+    }, {
+      "text": " card?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Are there any fees associated with certain ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you offer ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " plans?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " using a ",
+      "auto": true
+    }, {
+      "text": "mobile",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "app",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " portal on your website?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": " over the ",
+      "auto": true
+    }, {
+      "text": "phone",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you accept checks or ",
+      "auto": true
+    }, {
+      "text": "money",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "orders",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " in cash?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I set up recurring ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there an option for automatic ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with Apple ",
+      "auto": true
+    }, {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you accept ",
+      "auto": true
+    }, {
+      "text": "mobile",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Are ",
+      "auto": true
+    }, {
+      "text": "online",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": " available?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What types of ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " do you accept?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with a bank transfer?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Do you accept debit cards?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " with a ",
+      "auto": true
+    }, {
+      "text": "credit",
+      "auto": true
+    }, {
+      "text": " card?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": " are accepted?",
+      "auto": true
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Check payment options"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What methods do you accept for "
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " by check?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've been using a specific ",
+      "auto": true
+    }, {
+      "text": "payment method",
+      "auto": true
+    }, {
+      "text": ", but I want to know if there are any additional ",
+      "auto": true
+    }, {
+      "text": "charges",
+      "auto": true
+    }, {
+      "text": " associated with it.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm planning to ",
+      "auto": true
+    }, {
+      "text": "pay my bill",
+      "auto": true
+    }, {
+      "text": " using a ",
+      "auto": true
+    }, {
+      "text": "third",
+      "auto": true
+    }, {
+      "text": "-party ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " service. Is that an option?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm interested in setting up automatic ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": ". Can you guide me through the process?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I usually ",
+      "auto": true
+    }, {
+      "text": "pay my bill",
+      "auto": true
+    }, {
+      "text": " in person, but due to recent circumstances, I'm looking for alternative ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm considering switching my ",
+      "auto": true
+    }, {
+      "text": "payment method",
+      "auto": true
+    }, {
+      "text": ". Can you tell me the advantages of using direct debit?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I heard about a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment option",
+      "auto": true
+    }, {
+      "text": " your company introduced. Can you explain how it works?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I recently received an ",
+      "auto": true
+    }, {
+      "text": "email",
+      "auto": true
+    }, {
+      "text": " about a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment method",
+      "auto": true
+    }, {
+      "text": ". Can you provide ",
+      "auto": true
+    }, {
+      "text": "more",
+      "auto": true
+    }, {
+      "text": " details on that?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to know if you accept ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    }, {
+      "text": " through ",
+      "auto": true
+    }, {
+      "text": "mobile",
+      "auto": true
+    }, {
+      "text": " wallets like Apple ",
+      "auto": true
+    }, {
+      "text": "Pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I usually ",
+      "auto": true
+    }, {
+      "text": "pay my bill",
+      "auto": true
+    }, {
+      "text": " through ",
+      "auto": true
+    }, {
+      "text": "credit",
+      "auto": true
+    }, {
+      "text": " card, but I'm wondering if you accept other forms of ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What are the ways I can ",
+      "auto": true
+    }, {
+      "text": "pay my bill",
+      "auto": true
+    }, {
+      "text": " with you?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "need help",
+      "auto": true
+    }, {
+      "text": " understanding the available ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you clarify the ",
+      "auto": true
+    }, {
+      "text": "accepted forms of payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to know the ",
+      "auto": true
+    }, {
+      "text": "payment options",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How can I pay",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "my bill",
+      "auto": true
+    }, {
+      "text": " with your company?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm unsure about the ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": " available.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you explain how to ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": " for my services?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What are the ways to ",
+      "auto": true
+    }, {
+      "text": "settle my bill",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need ",
+      "auto": true
+    }, {
+      "text": "assistance",
+      "auto": true
+    }, {
+      "text": " with understanding ",
+      "auto": true
+    }, {
+      "text": "payment options",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you provide information on ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What forms of ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "do",
+      "auto": true
+    }, {
+      "text": " you accept?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm ",
+      "auto": true
+    }, {
+      "text": "not",
+      "auto": true
+    }, {
+      "text": " familiar with ",
+      "auto": true
+    }, {
+      "text": "payment options",
+      "auto": true
+    }, {
+      "text": ". Explain, please.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you clarify the ways to ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to know the available ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How can I pay",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "my bill",
+      "auto": true
+    }, {
+      "text": " with you?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What are the ",
+      "auto": true
+    }, {
+      "text": "accepted payment methods",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "need help",
+      "auto": true
+    }, {
+      "text": " understanding ",
+      "auto": true
+    }, {
+      "text": "payment options",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you explain how to ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": " can I use?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm unsure about the available ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you provide details about ",
+      "auto": true
+    }, {
+      "text": "payment options",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What are the ways I can ",
+      "auto": true
+    }, {
+      "text": "settle my bill",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to know how to ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " for my services.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you clarify the ",
+      "auto": true
+    }, {
+      "text": "accepted payment methods",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What forms of ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "do",
+      "auto": true
+    }, {
+      "text": " you support?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need information on ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": ". ",
+      "auto": true
+    }, {
+      "text": "Help",
+      "auto": true
+    }, {
+      "text": " me.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you explain the ways to ",
+      "auto": true
+    }, {
+      "text": "make a payment",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What are the ",
+      "auto": true
+    }, {
+      "text": "available payment options",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What ",
+      "auto": true
+    }, {
+      "text": "payment methods",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "do",
+      "auto": true
+    }, {
+      "text": " you accept?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "what the various method of making payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "ways to payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "ways to pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "payment process and options available",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "payment process and options",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "payment options",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "payment option",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "payment methods",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "payment method",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "payment inquiry",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "payment choices",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "payment choice",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "payment and options",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "payment and methods",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "payment and method",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "options to payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "options to pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "options for payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Need to update card number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "method of payment inquiry",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I would like to know how can I can make a payment. What are my choices",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to make my payment. What are my options",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to make my payment. What are my choices",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "how can I pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "different ways of payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "different options of payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "available payment options",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "accepted payment method",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "accepted forms of payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "accepted form of payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

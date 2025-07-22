@@ -1,0 +1,13 @@
+{
+  "entities": [ {
+    "value": "*",
+    "synonyms": [ "*" ],
+    "languageCode": "en",
+    "dtmfPattern": "*"
+  }, {
+    "value": "star",
+    "synonyms": [ "star" ],
+    "languageCode": "en",
+    "dtmfPattern": "*"
+  } ]
+}

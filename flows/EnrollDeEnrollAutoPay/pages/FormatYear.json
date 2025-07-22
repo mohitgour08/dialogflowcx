@@ -1,0 +1,57 @@
+{
+  "name": "ccd62e73-a286-4df8-b3db-5c4897065d24",
+  "displayName": "FormatYear",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_year",
+        "value": "$sys.func.IDENTITY($flow.expiration_date.year)"
+      } ]
+    },
+    "name": "5c8871f3-7773-4883-a096-bef606540fd0"
+  }, {
+    "condition": "$flow.card_expiration_year = null AND $sys.func.LEN($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \\\"\\\\s+\\\", \\\"\\\")) \u003e 4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_year",
+        "value": "$sys.func.MID($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \"\\s+\", \"\"), $sys.func.MINUS($sys.func.LEN($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \"\\s+\", \"\")), 3), 4)"
+      } ]
+    },
+    "name": "046b2127-fc51-4313-9264-037a8d8267b9"
+  }, {
+    "condition": "$flow.card_expiration_year = null AND $sys.func.LEN($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \\\"\\\\s+\\\", \\\"\\\")) \u003c= 4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_year",
+        "value": "$sys.func.MID($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \"\\s+\", \"\"), $sys.func.MINUS($sys.func.LEN($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \"\\s+\", \"\")), 1), 2)"
+      } ]
+    },
+    "name": "3a169a76-0ad7-4712-8373-a27c1290ce33"
+  }, {
+    "condition": "$sys.func.LEN($flow.card_expiration_year) = 2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_year",
+        "value": "$sys.func.CONCATENATE(\"20\", $flow.card_expiration_year)"
+      } ]
+    },
+    "name": "37ade1ae-b083-4a2a-a04e-beb1c1407f5f"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_FormatYear_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ValidateDate",
+    "name": "8de04107-78f7-4d49-9612-d52eaa5bdc33"
+  } ]
+}

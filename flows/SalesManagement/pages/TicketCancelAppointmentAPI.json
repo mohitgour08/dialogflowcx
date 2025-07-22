@@ -1,0 +1,181 @@
+{
+  "name": "c4fb5626-f164-457f-9557-ae7c4f66f5b3",
+  "displayName": "TicketCancelAppointmentAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "cancelAppointment",
+    "tag": "Cancel",
+    "setParameterActions": [ {
+      "parameter": "Metrics_SalesManagement_TicketCancelAppointmentAPI_wh",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Cancelstatus = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketCancelAppointmentAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SalesManagement_TicketCancelAppointmentAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelAppointment"
+      } ]
+    },
+    "targetPage": "CancelledRepairTicket",
+    "name": "4e040090-0a9b-4848-be02-077caaddb2ed"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketCancelAppointmentAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SalesManagement_TicketCancelAppointmentAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelAppointment"
+      } ]
+    },
+    "targetPage": "CancelAppointmentMessage",
+    "name": "bffa3453-61f4-4b7c-bf97-73a3a26d0609"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "CancelAppointmentMessage",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketCancelAppointmentAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "API_SalesManagement_TicketCancelAppointmentAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelAppointment"
+      } ]
+    },
+    "name": "0fcc5765-18f6-454c-9f4e-d018ef05e08c"
+  }, {
+    "targetPage": "CancelAppointmentMessage",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketCancelAppointmentAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "API_SalesManagement_TicketCancelAppointmentAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelAppointment"
+      } ]
+    },
+    "name": "3f7fdb71-87cd-44b6-8b43-58d2df5f05e2"
+  }, {
+    "targetPage": "CancelAppointmentMessage",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketCancelAppointmentAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "API_SalesManagement_TicketCancelAppointmentAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelAppointment"
+      } ]
+    },
+    "name": "32767af4-e052-4497-a0d1-84fc5fe90e2d"
+  }, {
+    "targetPage": "CancelAppointmentMessage",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketCancelAppointmentAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "API_SalesManagement_TicketCancelAppointmentAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelAppointment"
+      } ]
+    },
+    "name": "8b8fd460-72ad-4cef-9574-928c81519507"
+  }, {
+    "targetPage": "CancelAppointmentMessage",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketCancelAppointmentAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "API_SalesManagement_TicketCancelAppointmentAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelAppointment"
+      } ]
+    },
+    "name": "ba9d5466-d6b7-4a4c-ad0b-344838983e2f"
+  }, {
+    "targetPage": "CancelAppointmentMessage",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketCancelAppointmentAPI_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "API_SalesManagement_TicketCancelAppointmentAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "cancelAppointment"
+      } ]
+    },
+    "name": "c1b29992-df84-41d1-9bb0-9484e637736b"
+  } ]
+}

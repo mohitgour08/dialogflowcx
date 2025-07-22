@@ -1,0 +1,694 @@
+{
+  "trainingPhrases": [ {
+    "id": "bfcdcc13-f0c5-45bd-a606-e74ba5604409",
+    "parts": [ {
+      "text": "I need "
+    }, {
+      "text": "my username"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b10a9f07-f1d2-407c-81ef-aacd96c35627",
+    "parts": [ {
+      "text": "I need to retrieve "
+    }, {
+      "text": "my Username"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ba1213e8-080b-4fa8-b12c-51d356979e4d",
+    "parts": [ {
+      "text": "Can't"
+    }, {
+      "text": " recall "
+    }, {
+      "text": "my username"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "571e0560-436b-4d7e-96a4-951c8d4cd688",
+    "parts": [ {
+      "text": "Username"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2b27e572-a630-486b-a48d-186d71f83ffe",
+    "parts": [ {
+      "text": "I've switched "
+    }, {
+      "text": "devices"
+    }, {
+      "text": " and "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " find my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": " in the "
+    }, {
+      "text": "password"
+    }, {
+      "text": " "
+    }, {
+      "text": "manager"
+    }, {
+      "text": ". How can I retrieve it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6d61c657-8a2c-457d-bbec-3f29dab67ced",
+    "parts": [ {
+      "text": "I've recently changed my "
+    }, {
+      "text": "email address"
+    }, {
+      "text": " and "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " receive any "
+    }, {
+      "text": "emails"
+    }, {
+      "text": " with my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". What should "
+    }, {
+      "text": "I do"
+    }, {
+      "text": " now?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9f0c9ae8-2f15-4340-a2e2-82c6beb52f7c",
+    "parts": [ {
+      "text": "I've tried using my full name as the "
+    }, {
+      "text": "username"
+    }, {
+      "text": ", but it didn't work. How can I find my "
+    }, {
+      "text": "correct"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "370e0a24-8884-409b-8406-0beecad73bb1",
+    "parts": [ {
+      "text": "I've searched through my old documents, but I "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " find any reference to my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". How can I retrieve it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ac9ab8cd-cf14-4083-897f-e8bf26442890",
+    "parts": [ {
+      "text": "I "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " recall "
+    }, {
+      "text": "my username"
+    }, {
+      "text": " to regain access. What steps should I take"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "075f79b4-0621-4338-8635-4abfcc1d0486",
+    "parts": [ {
+      "text": "I need my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": " urgently. Is there "
+    }, {
+      "text": "a way"
+    }, {
+      "text": " to expedite the process of retrieving it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2c010d5a-9714-4105-92b3-41a5c8de6d05",
+    "parts": [ {
+      "text": "I've recently changed my "
+    }, {
+      "text": "phone number"
+    }, {
+      "text": " and "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " receive any SMS with my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". What other options "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I have?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "52a81f10-df05-447d-b7ab-3e3d5bc2b94c",
+    "parts": [ {
+      "text": "I've tried using my "
+    }, {
+      "text": "email address"
+    }, {
+      "text": " as the "
+    }, {
+      "text": "username"
+    }, {
+      "text": ", but it didn't work. How can I find my actual "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a0f0b69f-7993-4d95-90e2-383378bb227c",
+    "parts": [ {
+      "text": "I've accidentally cleared my browser "
+    }, {
+      "text": "history"
+    }, {
+      "text": ", and now I "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " remember my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". How can I recover it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a7120541-d111-47f7-8485-6978e9d103cc",
+    "parts": [ {
+      "text": "I've "
+    }, {
+      "text": "checked"
+    }, {
+      "text": " my "
+    }, {
+      "text": "email"
+    }, {
+      "text": " inbox, but I "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " find any "
+    }, {
+      "text": "email"
+    }, {
+      "text": " containing my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". What should "
+    }, {
+      "text": "I do"
+    }, {
+      "text": " "
+    }, {
+      "text": "next"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d49d0482-1a10-41fc-9127-b83d5bb48193",
+    "parts": [ {
+      "text": "I'm unable to proceed without my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". Can you provide any guidance on how to retrieve it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "52c73399-0b24-476f-af93-03954b05b80b",
+    "parts": [ {
+      "text": "I've recently changed "
+    }, {
+      "text": "my username"
+    }, {
+      "text": ", but now I "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " remember the "
+    }, {
+      "text": "new one"
+    }, {
+      "text": ". How can I retrieve it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ffda05cc-d072-4c50-9444-bbcbd4cd687b",
+    "parts": [ {
+      "text": "I'm trying to log in from a different "
+    }, {
+      "text": "device"
+    }, {
+      "text": ", but I'm unsure of my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". How can I retrieve it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4526120b-1b9b-487f-bc76-e4cb42697d0f",
+    "parts": [ {
+      "text": "I've encountered an error while logging in, and it's stating an invalid "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". How can I verify my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "93cbd60c-551b-4f74-a8ed-33934370b792",
+    "parts": [ {
+      "text": "I've mistakenly deleted the "
+    }, {
+      "text": "email"
+    }, {
+      "text": " containing my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". What can "
+    }, {
+      "text": "I do"
+    }, {
+      "text": " to retrieve it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f132d28a-163c-41fb-bf26-f6b76095bf25",
+    "parts": [ {
+      "text": "I've recently "
+    }, {
+      "text": "signed up"
+    }, {
+      "text": ", but I haven't received my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". How can I obtain it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8e75bf54-8dfc-43df-9cc2-6185ec2e5430",
+    "parts": [ {
+      "text": "I need my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": " to proceed further. Can you provide any "
+    }, {
+      "text": "assistance"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a4de3c70-71ad-4f1d-af1e-493a2d6b9f51",
+    "parts": [ {
+      "text": "I've searched through my records, but I "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " find my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". What's the "
+    }, {
+      "text": "next"
+    }, {
+      "text": " course of action?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a3810e7a-ae84-484d-ad4a-671bd7b9b5e4",
+    "parts": [ {
+      "text": "I'm struggling to recall my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". Is there "
+    }, {
+      "text": "any way"
+    }, {
+      "text": " you can "
+    }, {
+      "text": "help"
+    }, {
+      "text": " me retrieve it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1002b97a-fcff-4983-b20d-2ee31b721aed",
+    "parts": [ {
+      "text": "I "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " seem to find my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": " anywhere. Can you "
+    }, {
+      "text": "help"
+    }, {
+      "text": " me locate it"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "56e7fe1f-d8b9-4989-9e56-1bc4c9d32ccb",
+    "parts": [ {
+      "text": "I've tried multiple "
+    }, {
+      "text": "usernames"
+    }, {
+      "text": ", but none of them allowed me to log in. How can I get the "
+    }, {
+      "text": "correct"
+    }, {
+      "text": " "
+    }, {
+      "text": "one"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "48a74733-8996-4448-87f1-acdf2d0455a2",
+    "parts": [ {
+      "text": "Can you please guide me through the necessary steps to retrieve my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "357a5ee3-79ca-4e6a-a67a-38c6fcbef749",
+    "parts": [ {
+      "text": "I need to access my "
+    }, {
+      "text": "account"
+    }, {
+      "text": ", but I "
+    }, {
+      "text": "don't"
+    }, {
+      "text": " recall "
+    }, {
+      "text": "my username"
+    }, {
+      "text": ". What should "
+    }, {
+      "text": "I do"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5c5137b9-a79e-45b2-83d0-22edec7adbfb",
+    "parts": [ {
+      "text": "I'm unable to log in without my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I retrieve it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "28f13916-2020-46f2-bebd-dc74b28f00cd",
+    "parts": [ {
+      "text": "Is there a specific process to follow in "
+    }, {
+      "text": "order"
+    }, {
+      "text": " to obtain my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3dcb7cc9-4c91-4f21-af49-360fb5067681",
+    "parts": [ {
+      "text": "I've misplaced my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". How can I go about recovering it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "02018892-69b7-4a04-b261-053fd671b018",
+    "parts": [ {
+      "text": "Can you "
+    }, {
+      "text": "assist"
+    }, {
+      "text": " me in finding my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": "? I "
+    }, {
+      "text": "can't"
+    }, {
+      "text": " seem to remember it."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ae9a0d79-7813-448d-9ace-560fef53c6a0",
+    "parts": [ {
+      "text": "I'm having trouble accessing my "
+    }, {
+      "text": "account"
+    }, {
+      "text": ". Is there "
+    }, {
+      "text": "a way"
+    }, {
+      "text": " to retrieve "
+    }, {
+      "text": "my username"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e4cab41d-4ae5-4be0-bf62-e3a6b5bb9852",
+    "parts": [ {
+      "text": "What steps "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I need to take to get my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "794f586c-32a7-4dd7-b1ea-fd7f382017a3",
+    "parts": [ {
+      "text": "I forgot my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": ". Can you "
+    }, {
+      "text": "help"
+    }, {
+      "text": " me find it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "712a39ce-cc69-493f-b0a0-1b078bb190b9",
+    "parts": [ {
+      "text": "How can I retrieve my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "username"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

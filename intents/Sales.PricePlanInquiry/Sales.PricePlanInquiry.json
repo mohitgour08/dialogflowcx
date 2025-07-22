@@ -1,0 +1,16 @@
+{
+  "name": "dfccce3a-8bed-4998-a642-967ea048f934",
+  "displayName": "Sales.PricePlanInquiry",
+  "parameters": [ {
+    "id": "account_type",
+    "entityType": "@account_type"
+  }, {
+    "id": "service_name",
+    "entityType": "@service_name"
+  }, {
+    "id": "prebuilt_components_credit_card_expiration_month",
+    "entityType": "@prebuilt_components_credit_card_expiration_month"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 183
+}

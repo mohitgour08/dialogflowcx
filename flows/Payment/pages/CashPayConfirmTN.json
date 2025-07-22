@@ -1,0 +1,344 @@
+{
+  "name": "a84080a1-5743-4360-8310-fb87605240ec",
+  "displayName": "CashPayConfirmTN",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "To confirm, that number is \n\n" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e\n  \u003csay-as interpret-as=\"verbatim\"\u003e$session.params.contactNumber\u003c/say-as\u003e\n\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "If you want me to send the text to that number, say \"yes\". To enter the number again, say \"no\". " ]
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayConfirmTN_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CashPaySendSMS",
+    "name": "9f5f490e-9efd-4892-ba64-75f6f9507ad9"
+  }, {
+    "intent": "Confirmation.No",
+    "condition": "$session.params.firstTNFailure = \"false\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CashPayTN",
+        "value": null
+      }, {
+        "parameter": "firstTNFailure",
+        "value": "true"
+      }, {
+        "parameter": "Metric_Payment_CashPayConfirmTN_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CashPayCollectTN",
+    "name": "85c114b1-e59a-4964-a779-851950f8c78c"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayConfirmTN_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Payment_CashPayConfirmTN_1"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CashPaySendSMS",
+    "name": "3b80084c-4b6b-4c99-b597-fe2036dbf991"
+  }, {
+    "intent": "DTMF_2",
+    "condition": "$session.params.firstTNFailure = \"false\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CashPayTN",
+        "value": null
+      }, {
+        "parameter": "firstTNFailure",
+        "value": "true"
+      }, {
+        "parameter": "Metric_Payment_CashPayConfirmTN_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Payment_CashPayConfirmTN_2"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CashPayCollectTN",
+    "name": "f2cae777-89b0-4d4d-bf50-b0db7681cc9e"
+  }, {
+    "intent": "Confirmation.No",
+    "condition": "$session.params.firstTNFailure = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metric_Payment_CashPayConfirmTN_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "RetryorRepeatLimitExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ExceededCashPayTNRetry"
+      }, {
+        "parameter": "SS_CashPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "c7e14e4b-8fc2-47be-8698-e3699804de80"
+  }, {
+    "intent": "DTMF_2",
+    "condition": "$session.params.firstTNFailure = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metric_Payment_CashPayConfirmTN_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Payment_CashPayConfirmTN_2"
+      }, {
+        "parameter": "TransferReason",
+        "value": "RetryorRepeatLimitExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ExceededCashPayTNRetry"
+      }, {
+        "parameter": "SS_CashPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "5523daf8-abe7-4055-af4f-08bcffa2467c"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayConfirmTN_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_CashPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CashPayConfirmTN"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "1bfc8d36-f750-47aa-8733-66b4805dee47"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I didn't hear your answer. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "For 'yes,' press 1. For 'no,' press 2." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayConfirmTN_NI1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "5a4a037e-fde0-4885-881e-312ce5909c9e"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayConfirmTN_NI2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CashPayConfirmTN"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "7569008b-1ceb-48cf-9747-e933ac1549e7"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "For 'yes,' press 1. For 'no,' press 2." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayConfirmTN_NM1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "e0924da2-79b8-4f52-a9da-9dee960be444"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metric_Payment_CashPayConfirmTN_NM2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CashPayConfirmTN"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "343c8f57-2ada-49c9-9c58-b697dbf92837"
+  } ]
+}

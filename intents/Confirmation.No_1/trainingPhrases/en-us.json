@@ -1,0 +1,615 @@
+{
+  "trainingPhrases": [ {
+    "id": "eb914554-bc22-4303-b67b-259a0719b9b3",
+    "parts": [ {
+      "text": "No, you are wrong",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "177b1e79-8377-4b8c-abf4-036edfcfe5a6",
+    "parts": [ {
+      "text": "not working",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "effd5cac-dac1-4cd2-95f9-93701173509f",
+    "parts": [ {
+      "text": "neither",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f151d91a-8b16-4e02-8828-bdcbc279b43a",
+    "parts": [ {
+      "text": "thanks but no thanks"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a4f86719-4ac4-481d-9bf1-0a4c04768ac9",
+    "parts": [ {
+      "text": "thank you"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "81fd1a6c-1247-4fab-befd-bc8ef3c1c89d",
+    "parts": [ {
+      "text": "sorry no"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c3019ecb-01db-4be0-9ede-4faa82b8caa8",
+    "parts": [ {
+      "text": "of course not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "92b0edba-9319-4a8c-90ff-d11453b31eb0",
+    "parts": [ {
+      "text": "not today"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5831c284-0e2f-41dc-9fbb-354b7d30e11b",
+    "parts": [ {
+      "text": "not this time"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "900b875a-90ca-46c4-8e9f-2d3555fba374",
+    "parts": [ {
+      "text": "not this"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5dc92f68-0913-4ebb-9bff-68237060356e",
+    "parts": [ {
+      "text": "not that"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "135cae9f-9c10-4ebc-9f68-f346deba4306",
+    "parts": [ {
+      "text": "not right now thanks"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2bbe8cf1-3d4e-4d51-966b-9d951ef214eb",
+    "parts": [ {
+      "text": "not right now"
+    } ],
+    "repeatCount": 3,
+    "languageCode": "en-us"
+  }, {
+    "id": "0c567651-6bb3-4f3b-9f0b-c2c6fd8b36c9",
+    "parts": [ {
+      "text": "not really no"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2bc79aa8-93a3-4940-b8ca-1c796e2d50ca",
+    "parts": [ {
+      "text": "not really"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "759d3dd1-4914-454b-b870-28478aeeccc6",
+    "parts": [ {
+      "text": "not needed"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "33ee3211-2eba-4a7f-9e37-4016fc65842a",
+    "parts": [ {
+      "text": "not interested"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6ed08f08-676b-4fde-a533-788b285974f5",
+    "parts": [ {
+      "text": "not exactly"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "03216466-b169-41a1-9e8f-7a91e422acf4",
+    "parts": [ {
+      "text": "not at this time"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "62245787-0158-4ad2-afa7-45fcee7a80a4",
+    "parts": [ {
+      "text": "nope sorry"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2124a4a1-6068-4d86-8f71-2f27888c7610",
+    "parts": [ {
+      "text": "nope"
+    } ],
+    "repeatCount": 3,
+    "languageCode": "en-us"
+  }, {
+    "id": "cd368f78-5c7b-41bd-9ef9-afd5a43de7de",
+    "parts": [ {
+      "text": "nooo"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0b4ae032-5f0c-40e9-ab2b-fdc3abad62bd",
+    "parts": [ {
+      "text": "no way"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e04ab413-66ee-46bd-a013-976a9a818efb",
+    "parts": [ {
+      "text": "no that's wrong"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ce9fc104-e4b8-414b-a76d-59536e77b024",
+    "parts": [ {
+      "text": "no that's fine"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "468d3e93-a601-467d-9aa0-11de33c045cf",
+    "parts": [ {
+      "text": "no thanks not right now"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d663fdfb-d67d-40f2-8a7b-1114dac0328e",
+    "parts": [ {
+      "text": "no thanks"
+    } ],
+    "repeatCount": 3,
+    "languageCode": "en-us"
+  }, {
+    "id": "d6505a90-a8f9-41a7-9d49-1a20e25a5790",
+    "parts": [ {
+      "text": "no thank you very much"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "35d1cb79-8cd6-405b-85f8-f886f13bf4e4",
+    "parts": [ {
+      "text": "no thank you though"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "429c2ae7-0d99-41d9-8d83-ed915aefddb3",
+    "parts": [ {
+      "text": "no tanks"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7d8d16b4-a2ca-41f8-9775-0cd62ccfd87e",
+    "parts": [ {
+      "text": "no sorry"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f64cdc61-a149-416b-88db-683476975463",
+    "parts": [ {
+      "text": "no never"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c0e29fc3-0043-4aee-b405-0f1e6df0b838",
+    "parts": [ {
+      "text": "no need thanks"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "07e0d801-40ec-4922-9fb6-4beb0775b882",
+    "parts": [ {
+      "text": "no need"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fa7db667-4e9c-497c-9cbf-2b4c6318a627",
+    "parts": [ {
+      "text": "no leave it"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fc300a52-8f7e-403a-970a-3f58cfc38ccd",
+    "parts": [ {
+      "text": "no just no"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3f20a73b-4951-445e-9f55-5207e6ab0791",
+    "parts": [ {
+      "text": "no incorrect"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0a9ab113-61d3-417f-8b6e-d22c1720110a",
+    "parts": [ {
+      "text": "no I would not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1a7ab348-a295-45f4-baa6-9a38e12292ed",
+    "parts": [ {
+      "text": "no I "
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d268b82d-1be4-4ed1-b607-c0493c2c5e1d",
+    "parts": [ {
+      "text": "no forget"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e08123e2-1b2f-4791-a837-8bc9a8be7476",
+    "parts": [ {
+      "text": "no don't"
+    } ],
+    "repeatCount": 3,
+    "languageCode": "en-us"
+  }, {
+    "id": "cfa5f065-d30a-426c-b09f-5598153220f1",
+    "parts": [ {
+      "text": "no do not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "52bd6505-610b-4db9-8e30-5ea87fb26059",
+    "parts": [ {
+      "text": "no but thank you"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f9a58bb0-c739-4c27-90d3-dfe44b265777",
+    "parts": [ {
+      "text": "no actually"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "371f4f15-cab3-47ea-9cbe-a49ccd6375b0",
+    "parts": [ {
+      "text": "no "
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b87d18e5-3b1c-47ab-999a-8e9df9df54a8",
+    "parts": [ {
+      "text": "no"
+    } ],
+    "repeatCount": 17,
+    "languageCode": "en-us"
+  }, {
+    "id": "58b0c54b-ff69-4293-927b-02cdaf8cfcf7",
+    "parts": [ {
+      "text": "never"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "142851fb-bccc-40c7-b3dc-d4d1abc1f210",
+    "parts": [ {
+      "text": "nah"
+    } ],
+    "repeatCount": 3,
+    "languageCode": "en-us"
+  }, {
+    "id": "54ea7165-a5bb-484b-a511-a1a2c76fb1c8",
+    "parts": [ {
+      "text": "na"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a0157d50-d4ff-4993-87f9-a40b9c8fcb05",
+    "parts": [ {
+      "text": "let's not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ba767c09-2e25-4cdc-8dfb-90ca2e637fd3",
+    "parts": [ {
+      "text": "it's not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "091edb6d-7524-4f2f-a128-c508bc41370d",
+    "parts": [ {
+      "text": "it isn't"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ca476cab-bd89-4c1e-bea9-65bf12888582",
+    "parts": [ {
+      "text": "I'm not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8767c397-92ef-4f74-80a6-389a5ef9b0dd",
+    "parts": [ {
+      "text": "I think no"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "39e17ce4-ea29-4378-aaf6-b3186dcdc3d2",
+    "parts": [ {
+      "text": "I say no"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "151f8f9a-7ee3-4da6-9529-2fea436987f6",
+    "parts": [ {
+      "text": "I said no"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "943fffb8-c7c9-4400-858a-4f02766bf94f",
+    "parts": [ {
+      "text": "I don't want to"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "91c612d2-e24d-4dd1-b036-0e2cc0a8c36e",
+    "parts": [ {
+      "text": "I don't want that"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5b6ce497-f417-410d-a7ec-3f8faa407d50",
+    "parts": [ {
+      "text": "I don't want"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "534a6a15-ad5e-462c-af11-6ad89b055b4e",
+    "parts": [ {
+      "text": "I don't think so"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0bd98e22-4151-4470-8f9d-9a340079567f",
+    "parts": [ {
+      "text": "I disagree"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "57852348-3995-4320-a87a-8fc4b2aa6028",
+    "parts": [ {
+      "text": "how about no"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "99462027-4402-423a-8964-f39a30b49447",
+    "parts": [ {
+      "text": "don't do that"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "29e64227-b58e-4f9c-9d77-f376cec0b7c8",
+    "parts": [ {
+      "text": "don't"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "28008b75-03a7-4574-be88-45569e95f342",
+    "parts": [ {
+      "text": "don t have a sense"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "78ab8d37-a0b2-4682-9b6c-69b71eef6d66",
+    "parts": [ {
+      "text": "do not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3652e188-9cf2-48b4-a220-442011b2d2ae",
+    "parts": [ {
+      "text": "disagree"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "24eb2aeb-4462-4621-aa21-674d4a0cf10d",
+    "parts": [ {
+      "text": "definitely not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3a1184f2-6648-4cfc-8de8-4518b0963237",
+    "parts": [ {
+      "text": "apparently not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d7052d56-8f57-4bea-86a2-61eb4fd6e8c8",
+    "parts": [ {
+      "text": "actually no"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ff5cf5e3-6df2-474c-9b39-56bac293cbd7",
+    "parts": [ {
+      "text": "absolutely not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c6ab0926-19f9-4ad6-a4fd-e991b22f92ee",
+    "parts": [ {
+      "text": "absolutely no"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2290a4fa-2f60-43ae-8f5f-fde4f9152b98",
+    "parts": [ {
+      "text": "no please"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "27628e79-8143-405d-8cf0-d1bb5e0e43c8",
+    "parts": [ {
+      "text": "Not this time"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cd0bae23-1767-4f14-90f0-fa813f4a6425",
+    "parts": [ {
+      "text": "noo"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "518a8b84-5f4a-46da-a4f6-ce58069ac48e",
+    "parts": [ {
+      "text": "still not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "805fcae9-42cf-4a5a-b2fc-562e352fe300",
+    "parts": [ {
+      "text": "i still don't have"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "23a4e304-a6c4-472e-83a1-473e4f52ab3c",
+    "parts": [ {
+      "text": "i still can't"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cb8b8c5c-f299-46ac-83e8-322ba4e72529",
+    "parts": [ {
+      "text": "not yet"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d390c070-948b-4efd-99a6-dccf67c98423",
+    "parts": [ {
+      "text": "no that's all"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bc3b0e71-6235-4842-bae5-b4095115bf9d",
+    "parts": [ {
+      "text": " thank you"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f608ff35-9625-48fb-8728-7bf8092902af",
+    "parts": [ {
+      "text": " that would be it"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a6e7dee6-66e4-491e-9ce9-e1e26cbe61c3",
+    "parts": [ {
+      "text": " thanks"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fb52cadd-3954-41e8-818a-2a675f4af7ae",
+    "parts": [ {
+      "text": " i can't"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f35844d1-af14-4bcc-9812-9a03b0e957da",
+    "parts": [ {
+      "text": " they are not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f00256ef-64d0-442f-81f4-96206e6c9761",
+    "parts": [ {
+      "text": " not up to date"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "207b22f5-8d3b-44c6-9aaa-a5221b74d474",
+    "parts": [ {
+      "text": " i'm good thank you"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

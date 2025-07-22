@@ -1,0 +1,201 @@
+{
+  "name": "c1be71f1-a9a4-4fd6-90ca-f620b6d93810",
+  "displayName": "PhoneInternet",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "If you only have Brightspeed phone service, say \"phone\". If you have Brightspeed internet, say \"internet\". Or, you can say \"both\"." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Phone",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Mettrics_RoutetoAgent_PhoneInternet_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Products",
+        "value": "Telephone"
+      } ]
+    },
+    "targetPage": "CheckIntentA",
+    "name": "68155e5d-1cd7-47fa-8c16-2f42301aac66"
+  }, {
+    "intent": "Internet",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_PhoneInternet_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Products",
+        "value": "Internet"
+      } ]
+    },
+    "targetPage": "CheckIntentA",
+    "name": "593e5252-5a39-4246-9a12-41b291060600"
+  }, {
+    "intent": "Both",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_PhoneInternet_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Products",
+        "value": "Telephone and Internet"
+      } ]
+    },
+    "targetPage": "CheckIntentA",
+    "name": "2a824b16-3250-40ae-b77d-9af764d43951"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_PhoneInternet_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "RoutetoAgent_PhoneInternet_1"
+      }, {
+        "parameter": "Products",
+        "value": "Telephone"
+      } ]
+    },
+    "targetPage": "CheckIntentA",
+    "name": "ca399f9a-074b-40a0-8536-992d1f8053a9"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_PhoneInternet_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "RoutetoAgent_PhoneInternet_2"
+      }, {
+        "parameter": "Products",
+        "value": "Internet"
+      } ]
+    },
+    "targetPage": "CheckIntentA",
+    "name": "53572a74-3490-494a-9021-fd78cb852ada"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_PhoneInternet_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "RoutetoAgent_PhoneInternet_3"
+      }, {
+        "parameter": "Products",
+        "value": "Telephone and Internet"
+      } ]
+    },
+    "targetPage": "CheckIntentA",
+    "name": "3acbd02c-7b63-42a6-a4c0-8bdbad1fc2d8"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Press 1 if you only have Brightspeed phone service. Press 2 if you have Brightspeed internet service. Press 3 if you have both." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_PhoneInternet_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "6d120b3c-76f1-4a46-adbe-7832a830abcd"
+  }, {
+    "targetPage": "CheckAgentAvailability",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That’s okay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouetoAgent_PhoneInternet_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "RouteIntent ",
+        "value": "Sales"
+      }, {
+        "parameter": "Products",
+        "value": "No indication of product"
+      } ]
+    },
+    "name": "1bda704c-9155-4f18-ac8e-342df0b17038"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Press 1 if you only have Brightspeed phone service. Press 2 if you have Brightspeed internet service. Press 3 if you have both." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_PhoneInternet_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "0e7e935f-36aa-4606-a8ef-dd450df60c20"
+  }, {
+    "targetPage": "CheckAgentAvailability",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_PhoneInternet_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Products",
+        "value": "No indication of product"
+      } ]
+    },
+    "name": "0fb1e6ab-d9ff-44a6-bbe4-d3f0b09e0217"
+  } ]
+}

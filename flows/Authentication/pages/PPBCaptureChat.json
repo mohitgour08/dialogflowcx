@@ -1,0 +1,61 @@
+{
+  "name": "6305f01a-9fc4-4e14-a630-2d0b1ab70ffc",
+  "displayName": "PPBCaptureChat",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$sys.func.LEN($session.params.MultiSelectedBan_temp) = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MultiSelectedBan_temp1",
+        "value": "$session.params.MultiSelectedBan_temp"
+      }, {
+        "parameter": "PPBTemp1",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.MultiSelectedBan_temp1),4, 8)"
+      }, {
+        "parameter": "PPBTemp",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.MultiSelectedBan_temp),1, 3)"
+      }, {
+        "parameter": "Metrics_Authentication_PPBCaptureChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "789c7bf6-4978-4d6d-a17c-00623b144759"
+  }, {
+    "condition": "$session.params.PPBTemp = \"PPB\" OR $session.params.PPBTemp = \"ppb\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MultiSelectedBan",
+        "value": "$sys.func.CONCATENATE(\"1\",$sys.func.TO_TEXT($session.params.PPBTemp1))"
+      }, {
+        "parameter": "Metrics_Authentication_PPBCaptureChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "e57870a8-6922-4de8-9ad0-64665b3a92b4"
+  }, {
+    "condition": "$page.params.status = FINAL AND ($sys.func.LEN($session.params.MultiSelectedBan) = 9 OR $sys.func.LEN($session.params.MultiSelectedBan) = 10)",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PPBCaptureChat_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CompareBAN",
+    "name": "a17df069-9343-4b18-9713-abb7452d9c3a"
+  }, {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MultiSelectedBan",
+        "value": "$session.params.MultiSelectedBan_temp"
+      }, {
+        "parameter": "Metrics_Authentication_PPBCaptureChat_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckNoMatchBAN",
+    "name": "81692872-f929-4739-afde-91249186783a"
+  } ]
+}

@@ -1,0 +1,221 @@
+{
+  "name": "8eae79c1-5fe0-4666-bb04-2f4ee1b3bd2d",
+  "displayName": "AUPPhoneCollect",
+  "form": {
+    "parameters": [ {
+      "displayName": "ENTER_TN",
+      "required": true,
+      "entityType": "@ENTER_TN",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_Troubleshooting_AUPNumberCollect_ENTER_TN",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+            
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again? " ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Okay, starting with the area code, please use the keypad to enter the phone number you'd like me to send the message to." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Troubleshooting_CollectPhoneNumber_NoInput_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "ba9ec20a-3bc3-4024-b3b3-7a299e55bb54"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "That’s okay." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Troubleshooting_AUPPhoneCollect_NoInput_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Repair"
+            }, {
+              "parameter": "SS_GeneralTroubleshooting",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_PhoneIssues",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "NoInput"
+            }, {
+              "parameter": "DTMF_Fail",
+              "value": "Troubleshooting_CollectPhoneNumber"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "448957dd-55de-44c7-8295-644bbe485896"
+        }, {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I am sorry I didn't catch that." ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Starting with the area code, please use the keypad to enter the phone number you'd like me to send the message to." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Troubleshooting_AUPPhoneCollect_NoMatch_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "dfcb54d7-4cf7-4812-899f-c2b0b7f9e823"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ " I didn’t understand your answer. " ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Troubleshooting_AUPPhoneCollect_NoMatch_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Repair"
+            }, {
+              "parameter": "SS_GeneralTroubleshooting",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_PhoneIssues",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "DTMF_Fail",
+              "value": "Troubleshooting_AUPPhoneCollect"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "b711eed8-2b7d-4fbc-b8e4-7936f6971838"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay, starting with the area code, please use the keypad to enter the phone number you'd like me to send the message to." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.ENTER_TN) = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$session.params.ENTER_TN",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.ENTER_TN),2, 10)"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "5ab7990d-8e83-45d3-a508-c700d8ad1212"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.ENTER_TN) = 10",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AUPNumberCollect_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SMSNumber",
+        "value": "$session.params.ENTER_TN"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AUPPhoneConfirm",
+    "name": "1d337231-45d6-4598-94c7-bb7ca0a564f8"
+  } ]
+}

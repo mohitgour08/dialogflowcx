@@ -1,0 +1,80 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "[DTMF] "
+    }, {
+      "text": "024131",
+      "parameterId": "GetPasscode"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "[DTMF] "
+    }, {
+      "text": "058549",
+      "parameterId": "GetPasscode"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "dtmf_digits_"
+    }, {
+      "text": "110843",
+      "parameterId": "GetPasscode"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "[DTMF] dtmf_digits_"
+    }, {
+      "text": "110843",
+      "parameterId": "GetPasscode"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My passcode is ",
+      "auto": true
+    }, {
+      "text": "234567",
+      "parameterId": "GetPasscode",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "123456",
+      "parameterId": "GetPasscode",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "passcode is ",
+      "auto": true
+    }, {
+      "text": "678901",
+      "parameterId": "GetPasscode",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My code is ",
+      "auto": true
+    }, {
+      "text": "678954",
+      "parameterId": "GetPasscode",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

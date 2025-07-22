@@ -1,0 +1,40 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "auto ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "autopay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Manage Auto ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Manage ",
+      "auto": true
+    }, {
+      "text": "Autopay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "5150b9bc-b2d3-4d3b-99b7-4dc65e553d99",
+  "displayName": "VerifyPaymentLastPayRecievedCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_PastDueAmount \u003e 0 OR $session.params.BillInfo_PastDueAmount \u003e 0.0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_VerifyPaymentLastPayRecievedCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentRecieved",
+        "value": "N"
+      } ]
+    },
+    "targetPage": "VerifyPayPrepaidStatusPaymtNotReceived",
+    "name": "5f6dabfe-26ab-40cf-ae81-eacc63960351"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_VerifyPaymentLastPayRecievedCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "VerifyPayPrepaidStatusPaymentReceived",
+    "name": "462f99ab-d8f2-466e-960f-c80c62efff3c"
+  } ],
+  "description": "PaymentRecieved?"
+}

@@ -1,0 +1,54 @@
+{
+  "name": "5004e046-9496-482e-900b-29a38ff584b2",
+  "displayName": "PrepaidCurrentACHForm",
+  "form": {
+    "parameters": [ {
+      "displayName": "formresponseach",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_PrepaidBalance_PrepaidCurrentACHForm_formResponseACH",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+            
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n  \"chatClientForm\": \"PrepaidCurrentACH\",\n  \"currentBalance\": \"$session.params.MonthlyRecurringCharge\",\n  \"dueDate\": \"$session.params.BillInfo_BillDueDate\",\n  \"paymentMethod\": \"$session.params.PaymentMethod\",\n  \"lastFourDigits\": \"$session.params.LastFourDigitsAcctNum\",\n  \"latestInvoiceAmount\": \"$session.params.LatestInvoiceAmount\",\n  \"balance\": \"$session.params.BillInfo_LatestDueAmount\"\n}" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_PrepaidCurrentACHForm_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PrepaidCurrentACHFormChk",
+    "name": "2c8c69ec-8839-49cb-87e7-657757d10bcd"
+  } ]
+}

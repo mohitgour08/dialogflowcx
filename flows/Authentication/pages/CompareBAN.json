@@ -1,0 +1,108 @@
+{
+  "name": "2434fca8-edb7-43a2-90b0-6607a4ae2fca",
+  "displayName": "CompareBAN",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.MultiAcctCount \u003c= 10 AND ($session.params.billing_account_numbers[0] = $session.params.MultiSelectedBan OR $session.params.billing_account_numbers[1] = $session.params.MultiSelectedBan OR $session.params.billing_account_numbers[2] = $session.params.MultiSelectedBan OR $session.params.billing_account_numbers[3] = $session.params.MultiSelectedBan OR $session.params.billing_account_numbers[4] = $session.params.MultiSelectedBan OR $session.params.billing_account_numbers[5] = $session.params.MultiSelectedBan OR $session.params.billing_account_numbers[6] = $session.params.MultiSelectedBan OR $session.params.billing_account_numbers[7] = $session.params.MultiSelectedBan OR $session.params.billing_account_numbers[8] = $session.params.MultiSelectedBan OR $session.params.billing_account_numbers[9] = $session.params.MultiSelectedBan)",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntry_CompareBAN_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GetAllDetails",
+    "name": "0ce15aa9-0f0d-4174-9af9-2a7879945c06"
+  }, {
+    "condition": "$session.params.BanEntryCounter = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_CompareBAN_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "BAN_NotMatched"
+      } ]
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "8b15aa9b-5b60-4ae8-8a84-f1468a957b71"
+  }, {
+    "condition": "($session.params.MultiAcctCount \u003c= 10 AND $session.params.channel = \"voice\" AND $session.params.PPBCapture = \"true\") AND ($session.params.billing_account_numbers[0] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[1] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[2] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[3] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[4] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[5] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[6] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[7] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[8] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[9] != $session.params.MultiSelectedBan)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I can't find an account with that information. Let's try again." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "MultiSelectedBanPPB",
+        "value": null
+      }, {
+        "parameter": "Metrics_Authentication_CompareBAN_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "BanEntryCounter",
+        "value": "$sys.func.ADD($session.params.BanEntryCounter,1)"
+      } ]
+    },
+    "targetPage": "PPBCapture",
+    "name": "c3735632-dd6e-45b8-9f69-040a99060759"
+  }, {
+    "condition": "$session.params.MultiAcctCount \u003c= 10 AND $session.params.channel = \"voice\" AND ($session.params.billing_account_numbers[0] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[1] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[2] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[3] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[4] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[5] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[6] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[7] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[8] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[9] != $session.params.MultiSelectedBan)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I can't find an account with that information. Let's try again." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Uusing the keypad on your phone, please enter the account number you need assistance with. You can find your account number in the Brightspeed Portal, on the Brightspeed App, or in the upper right corner of your invoice. If your account number begins with the letters PPB, say \"more help\" now." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "MultiSelectedBan",
+        "value": null
+      }, {
+        "parameter": "Metrics_Authentication_CompareBAN_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "BanEntryCounter",
+        "value": "$sys.func.ADD($session.params.BanEntryCounter,1)"
+      } ]
+    },
+    "targetPage": "BANNumberEntryVoice",
+    "name": "01cb9c2d-e757-44ab-a72c-593a8cb15695"
+  }, {
+    "condition": "$session.params.MultiAcctCount \u003c= 10 AND ($session.params.billing_account_numbers[0] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[1] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[2] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[3] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[4] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[5] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[6] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[7] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[8] != $session.params.MultiSelectedBan AND $session.params.billing_account_numbers[9] != $session.params.MultiSelectedBan)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I don't see an account that matches that information. Let's try one more time. If your account number begins with the letters PPB, please replace the letters with a singular number 1. For example, PPB45 would be 145. If there are no letters in your account number, you can enter it now." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "BanEntryCounter",
+        "value": "$sys.func.ADD($session.params.BanEntryCounter,1)"
+      }, {
+        "parameter": "Metrics_Authentication_CompareBAN_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      } ]
+    },
+    "targetPage": "ReEnteredBAN",
+    "name": "7e71202a-3757-4cd3-b70e-a37673744a2f"
+  } ]
+}

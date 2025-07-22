@@ -1,0 +1,54 @@
+{
+  "name": "08f0a81e-9d4a-479f-bd9d-ed68aaa21339",
+  "displayName": "PendingOrderorRepairTicketCapture",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Authentication = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_PendingOrderorRepairTicketCapture_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OrderStatusAPINew",
+    "name": "04b06061-8cc6-41c1-9b1a-4627fe0fa793"
+  }, {
+    "condition": "$session.params.Authentication = \"ACCTFOUND\" OR $session.params.Authentication = \"NO\" OR $session.params.Authentication = \"MULTIACCTFOUND\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "Metrics_SalesManagement_PendingOrderorRepairTicketCapture_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      } ]
+    },
+    "targetFlow": "Authentication",
+    "name": "4003c205-267d-4f79-8897-2db909feb169"
+  }, {
+    "condition": "$session.params.Authentication = \"FAILED\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_PendingOrderorRepairTicketCapture_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      } ]
+    },
+    "targetPage": "SpeakWithAgent",
+    "name": "006cc549-6dbf-493a-8c4c-337ec29f31bb"
+  } ],
+  "description": "Authentication Check"
+}

@@ -1,0 +1,66 @@
+{
+  "name": "74260801-caed-40d3-a99d-445dde6a919e",
+  "displayName": "CheckOverdue",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_LatestDueAmount = \"0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.00\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.0\" OR $session.params.BillInfo_LatestDueAmount \u003c 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_CheckOverdue_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "POZeroBalance",
+    "name": "55a49307-21eb-458d-b659-8b37c1e5792d"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your account is not past due at this time, but you have a balance of $$session.params.BillInfo_LatestDueAmount due on $session.params.NextDueDate." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Your account is not past due at this time, but you have a balance of $$session.params.BillInfo_LatestDueAmount  due on $session.params.NextDueDate." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_CheckOverdue_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ReadNotPastDue",
+    "name": "d9a11728-52b4-4552-ab55-7846c43bb0d6"
+  } ]
+}

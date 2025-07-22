@@ -1,0 +1,60 @@
+{
+  "name": "58637519-f328-4ebf-9c95-98258afe7d6b",
+  "displayName": "AccountStatus",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "SS_CheckOutages",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.AccountStatus = \"Suspended\" OR $session.params.AccountStatus = \"Non Pay\" OR $session.params.AccountStatus = \"Pending Disconnect\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "BalanceInquiry"
+      }, {
+        "parameter": "Metrics_Troubleshooting_AccountCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "8fc024a9-5bbe-4f0d-bc11-fc2f2cedca2d"
+  }, {
+    "condition": "$session.params.WallGardenStatus = \"Abuse\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AccountCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WalledGardenViolation",
+    "name": "b05e98cc-d018-4c82-b60c-4b6da6c9b55a"
+  }, {
+    "condition": "$session.params.OutageId != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AccountCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ETRExists",
+    "name": "91651e9f-89cd-4c67-af8c-1455aa5b985a"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AccountCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AuthCheck",
+    "name": "cdfdf465-6fa7-407d-9a1e-38c415d73c8c"
+  } ]
+}

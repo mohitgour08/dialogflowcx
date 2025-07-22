@@ -1,0 +1,38 @@
+{
+  "name": "a0feec85-84bc-4a9d-aa5f-2a8a70b3bc7e",
+  "displayName": "GetDateDiff",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/getdatediff",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"Diff1\": \"$session.params.CurrentDate\",\n  \"date2\": \"$session.params.CCExpirationDate\",\n  \"Diff2\": \"$session.params.BillInfo_BillDueDate\",\n  \"date4\": \"$session.params.CCExpirationDate\",\n  \"Diff3\": \"$session.params.CurrentDate\",\n  \"date6\": \"$session.params.BillInfo_BillDueDate\",\n  \"Diff4\": \"$session.params.CurrentDate\",\n  \"date8\": \"$session.params.OrderDueDate\",\n  \"Diff5\": \"$session.params.CurrentDate\",\n  \"date10\": \"$session.params.CheckPaymentDate\",\n  \"Diff6\": \"$session.params.CheckPaymentDate\",\n  \"date12\": \"$session.params.NextDueDate\"\n}",
+    "parameterMapping": [ {
+      "key": "CCDueExpDiff",
+      "value": "Diff2"
+    }, {
+      "key": "CCExpDateDiff",
+      "value": "Diff1"
+    }, {
+      "key": "DueDateDiff",
+      "value": "Diff6"
+    }, {
+      "key": "DueDiff",
+      "value": "Diff3"
+    }, {
+      "key": "OrderDueDiff",
+      "value": "Diff4"
+    }, {
+      "key": "PaymentDateDiff",
+      "value": "Diff5"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth2/token",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

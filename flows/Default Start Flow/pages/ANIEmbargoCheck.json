@@ -1,0 +1,210 @@
+{
+  "name": "7adf4f7d-b0ba-4c93-85a7-8764d28c4a52",
+  "displayName": "ANIEmbargoCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "Embargo",
+    "tag": "ANIEmbargo",
+    "setParameterActions": [ {
+      "parameter": "Metrics_DefaultStartFlow_ANIEmbargoCheck_ANIEmbargo_wh_Embargo",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Embargo_Status = \"EXIST\" OR $session.params.Embargo_Status = \"Exist\" OR $session.params.Embargo_Status = \"EXISTS\" OR $session.params.Embargo_Status = \"Exists\" OR $session.params.Embargo_Status = \"exists\" OR $session.params.Embargo_Status = \"exist\"",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "Embargo_logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "API_Default Start Flow_ANIEmbargoCheck",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "targetFlow": "Embargo",
+    "name": "4f344790-b5a7-43f6-8a65-4a1666730439"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "Embargo_logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "NoData"
+      }, {
+        "parameter": "ANIEmbargoCheck",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "targetPage": "Call360",
+    "name": "dfac64b8-2706-4845-a632-a439b57a1701"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "Call360",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoCheck_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Embargo"
+      }, {
+        "parameter": "API_Default Start Flow_ANIEmbargoCheck",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "name": "ecbbb89e-4b4a-4695-9077-a1afe1a00862"
+  }, {
+    "targetPage": "Call360",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoCheck_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "API_Default Start Flow_ANIEmbargoCheck",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "name": "56a22e16-5948-4670-ae40-0bd4a3341952"
+  }, {
+    "targetPage": "Call360",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoCheck_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "API_Default Start Flow_ANIEmbargoCheck",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "name": "8a089046-f4b2-4d5e-9500-a3498b34fdf9"
+  }, {
+    "targetPage": "Call360",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoCheck_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "API_Default Start Flow_ANIEmbargoCheck",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "name": "9d143a5a-02f0-4b2f-a917-19b2bf67fb91"
+  }, {
+    "targetPage": "Call360",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoCheck_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "API_Default Start Flow_ANIEmbargoCheck",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "name": "81084464-b42c-4910-ab33-6eef52a36227"
+  }, {
+    "targetPage": "Call360",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoCheck_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "API_Default Start Flow_ANIEmbargoCheck",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "name": "2bff8f80-5cc6-4a99-a823-7a78e73bda62"
+  } ],
+  "description": "CHECK EMBARGO FOR ANI"
+}

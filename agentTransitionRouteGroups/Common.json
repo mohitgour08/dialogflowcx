@@ -1,0 +1,12 @@
+{
+  "name": "ce83ac7f-7201-478a-bc8b-9628af420a5f",
+  "displayName": "Common",
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+    
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "ebc756d6-cff9-491e-be39-33b52d16bbff"
+  } ]
+}

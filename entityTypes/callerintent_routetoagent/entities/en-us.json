@@ -1,0 +1,15 @@
+{
+  "entities": [ {
+    "value": "billing",
+    "synonyms": [ "account", "bill", "billing", "care", "late fees", "management", "money", "move", "password", "pay", "payment", "payment arrangement", "something else", "username" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "ordering",
+    "synonyms": [ "brand new", "buy", "new", "new customer", "new product", "order", "ordering", "purchase", "sales", "service" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "repair",
+    "synonyms": [ "damage", "fix", "issue", "not working", "outage", "repair", "slow speed", "tech support" ],
+    "languageCode": "en-us"
+  } ]
+}

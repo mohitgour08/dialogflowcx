@@ -1,0 +1,46 @@
+{
+  "name": "27549b78-5ce6-4af2-82ff-21f91bedb5f1",
+  "displayName": "AuthenticationRequest",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "To save you time when you speak with an agent, we need to collect some information from you." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "To save you time when you speak with an agent, we need to collect some information from you." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_AuthenticationRequest_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "RoutetoAgent"
+      }, {
+        "parameter": "skipRepeatCaller",
+        "value": "True"
+      } ]
+    },
+    "targetFlow": "Authentication",
+    "name": "f4fe49a1-3112-4a14-89e6-e7641b949a82"
+  } ]
+}

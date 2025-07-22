@@ -1,0 +1,163 @@
+{
+  "name": "80ce5cea-a0ac-47bc-be87-0f97ff9ebca8",
+  "displayName": "RepeatCallerCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "Repeat Caller",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_Authentication_RepeatCallerCheck",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "RepeatCaller_Trigger",
+      "value": "True"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.RepeatCallerResponse = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Authentication_RepeatCaller",
+        "value": "Success"
+      }, {
+        "parameter": "RepeatCaller_Status",
+        "value": "Success"
+      } ]
+    },
+    "targetPage": "RepeatCallerMenu",
+    "name": "8fa119fc-bbfd-40e3-b6f9-f6d9bd334035"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RepeatCaller_Status",
+        "value": "Failure"
+      } ]
+    },
+    "targetPage": "UnidentifiedANI",
+    "name": "e467d7da-2d69-42c5-a2a1-95ee5e905ebd"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "UnidentifiedANI",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerCheck_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "APIFailReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "API_Authentication_RepeatCallerCheck",
+        "value": "Fail_Error"
+      } ]
+    },
+    "name": "9392ddaf-7cd0-41dd-8b8e-17aa920d0e3a"
+  }, {
+    "targetPage": "UnidentifiedANI",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerCheck_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "APIFailReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "API_Authentication_RepeatCallerCheck",
+        "value": "Fail_Invalid"
+      } ]
+    },
+    "name": "af5936c4-1b36-4dc0-bbfc-936428cf1a22"
+  }, {
+    "targetPage": "UnidentifiedANI",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerCheck_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "APIFailReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "API_Authentication_RepeatCallerCheck",
+        "value": "Fail_NotFound"
+      } ]
+    },
+    "name": "898358f3-c7e8-48d6-af55-2345b7b12d42"
+  }, {
+    "targetPage": "UnidentifiedANI",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerCheck_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "APIFailReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "API_Authentication_RepeatCallerCheck",
+        "value": "Fail_Rejected"
+      } ]
+    },
+    "name": "98addace-a07a-4f15-9140-62a1ae4b29f4"
+  }, {
+    "targetPage": "UnidentifiedANI",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerCheck_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "APIFailReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "API_Authentication_RepeatCallerCheck",
+        "value": "Fail_Timeout"
+      } ]
+    },
+    "name": "7d7ac84e-6ef0-48eb-bfdb-f78ebb0115e6"
+  }, {
+    "targetPage": "UnidentifiedANI",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerCheck_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "APIFailReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "API_Authentication_RepeatCallerCheck",
+        "value": "Fail_Unavailable"
+      } ]
+    },
+    "name": "356ad314-15eb-41e0-91b7-7f9f30f2166f"
+  } ]
+}

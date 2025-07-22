@@ -1,0 +1,40 @@
+{
+  "name": "d9d7330d-433b-468e-9e64-4fb5f33e16e5",
+  "displayName": "CancelAccount",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CancelAccount_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "DisconnectService",
+    "name": "0052e36f-9703-4d01-9edb-9e90d16db2eb"
+  }, {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CancelAccount_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Saves"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer needs help with Cancel Account"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "756f4f6d-44bf-4046-bd09-e86828028269"
+  } ]
+}

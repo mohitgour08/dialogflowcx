@@ -1,0 +1,11 @@
+{
+  "name": "d4473f9a-ff0e-49c9-868c-a1bea0bf94e0",
+  "displayName": "MainMenu_DTMF3",
+  "parameters": [ {
+    "id": "DTMF3",
+    "entityType": "@DTMF3"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 8,
+  "dtmfPattern": "^3$"
+}

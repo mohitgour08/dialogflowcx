@@ -1,0 +1,195 @@
+{
+  "name": "4bec35df-db3c-41c9-9e20-725be83d341f",
+  "displayName": "PhoneEmailOnProfileChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Thanks! I see that a phone number ending in $sys.func.MID($session.params.contactNumber, 7, 4) is already registered to your account, as well as this email address: $session.params.MaskedEmail" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Which one would you like me to send the code to?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Email"
+          }, {
+            "action": "quick_reply",
+            "title": "Phone Number"
+          }, {
+            "action": "quick_reply",
+            "title": "Go Back"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Email",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Auth2FactorChannel",
+        "value": "Email"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "EmailSend",
+    "name": "3c44400f-1709-4003-a1fd-36e455e685d6"
+  }, {
+    "intent": "PhoneNumber",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Auth2FactorChannel",
+        "value": "SMS"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "TextSend",
+    "name": "1262fa28-73b4-475e-bc3a-1ac0df6d98f7"
+  }, {
+    "intent": "Goback",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileChat_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "AuthOptionsChat",
+    "name": "8000386f-6df0-4f2e-a72d-b889ae094d36"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Email"
+            }, {
+              "action": "quick_reply",
+              "title": "Phone Number"
+            }, {
+              "action": "quick_reply",
+              "title": "Go Back"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileChat_Nomatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "71861928-ba6a-4927-bd49-d1abb02351c2"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "NoMatch"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileChat_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PhoneEmailOnProfileChat"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "d753b9bf-fccc-4456-875c-56204a5ca1f7"
+  } ]
+}

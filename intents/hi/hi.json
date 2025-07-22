@@ -1,0 +1,10 @@
+{
+  "name": "9b45fe66-863d-4c63-b14a-3a58a68127f2",
+  "displayName": "hi",
+  "parameters": [ {
+    "id": "person",
+    "entityType": "@sys.person"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 24
+}

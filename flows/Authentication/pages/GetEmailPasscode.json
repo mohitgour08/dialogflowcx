@@ -1,0 +1,37 @@
+{
+  "name": "d8846099-9232-4f14-89e5-05848ee9ff54",
+  "displayName": "GetEmailPasscode",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_GetEmailPasscode_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "GetEmailPasscodeChat",
+    "name": "eafe955d-26a1-42dd-bbcf-3770ebcfdff4"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_GetEmailPasscode_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "GetEmailPasscodeVoice",
+    "name": "9151aa87-ed03-4a1e-9558-f8d99f66685d"
+  } ]
+}

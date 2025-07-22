@@ -1,0 +1,54 @@
+{
+  "name": "dc787e29-5d5a-4a56-b47c-9463586cd8c9",
+  "displayName": "FiberServiceUpgrade",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay! All done. You're currently receiving a speed of $session.params.CurrentSpeed MBPS, which falls into the range of your current plan. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e Okay! All done. You're currently receiving a speed of $session.params.CurrentSpeed MBPS, which falls into the range of your current plan. \u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_FiberServiceUpgrade_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Troubleshooting"
+      }, {
+        "parameter": "ToState",
+        "value": "RebootModem"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Troubleshooting",
+    "name": "fb3f2dd5-6592-4ca6-a43f-b380a63b7bf3"
+  } ]
+}

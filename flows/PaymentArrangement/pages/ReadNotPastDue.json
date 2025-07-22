@@ -1,0 +1,143 @@
+{
+  "name": "7b310bd9-1bda-4cc8-98dd-19753f2cdb8d",
+  "displayName": "ReadNotPastDue",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "firstDatefailure",
+      "value": "false"
+    }, {
+      "parameter": "UpcomingDueDate",
+      "value": "$session.params.UpcomingDueDate"
+    }, {
+      "parameter": "NextDueDate",
+      "value": "$sys.func.TO_TEXT($session.params.UpcomingDueDate)"
+    }, {
+      "parameter": "NextDueYear",
+      "value": "$sys.func.MID($session.params.NextDueDate, 1, 4)"
+    }, {
+      "parameter": "NextDueMonth",
+      "value": "$sys.func.MID($session.params.NextDueDate, 5, 2)"
+    }, {
+      "parameter": "NextDueDay",
+      "value": "$sys.func.MID($session.params.NextDueDate, 7, 2)"
+    }, {
+      "parameter": "NextDueDate",
+      "value": "$session.params.NextDueMonth/$session.params.NextDueDay/$session.params.NextDueYear"
+    }, {
+      "parameter": "PlayNextDueDate",
+      "value": "$sys.func.CONCATENATE($session.params.NextDueMonth,\"-\",$session.params.NextDueDay,\"-\",$session.params.NextDueYear)"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PayArrPlans[0].planId = \"4\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "planId",
+        "value": "$session.params.PayArrPlans[0].planId"
+      }, {
+        "parameter": "PayInstall1Amount",
+        "value": "$session.params.PayArrPlans[0].installment[0].amount"
+      }, {
+        "parameter": "PayInstall1Date",
+        "value": "$session.params.PayArrPlans[0].installment[0].date"
+      }, {
+        "parameter": "PayInstall2Amount",
+        "value": "$session.params.PayArrPlans[0].installment[1].amount"
+      }, {
+        "parameter": "PayInstall2Date",
+        "value": "$session.params.PayArrPlans[0].installment[1].date"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_ReadNotPastDue_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PayInstall2Year",
+        "value": "$sys.func.MID($session.params.PayInstall2Date, 1, 4)"
+      }, {
+        "parameter": "PayInstall2Month",
+        "value": "$sys.func.MID($session.params.PayInstall2Date, 5, 2)"
+      }, {
+        "parameter": "PayInstall2Day",
+        "value": "$sys.func.MID($session.params.PayInstall2Date, 7, 2)"
+      }, {
+        "parameter": "PayInstall2DateNew",
+        "value": "$session.params.PayInstall2Month/$session.params.PayInstall2Day/$session.params.PayInstall2Year"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "3870f848-f6a3-470f-8e9e-070d4998b933",
+    "description": "Pay in 2 installments \nPlanID 4\n"
+  }, {
+    "condition": "$session.params.PayArrPlans[1].planId = \"5\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "planId",
+        "value": "$session.params.PayArrPlans[1].planId"
+      }, {
+        "parameter": "Payin30DaysDate",
+        "value": "$session.params.PayArrPlans[1].installment[0].date"
+      }, {
+        "parameter": "Payin30DaysAmount",
+        "value": "$session.params.PayArrPlans[1].installment[0].amount"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_ReadNotPastDue_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NotPastDue",
+    "name": "d1723397-baee-4366-874f-3901b0908be8",
+    "description": "Pay in 1 installment\n\nPlanId 5"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_ReadNotPastDue_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentArrangement-ReadNotPastDue,PlanIDOthers"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "826455d6-e7c7-4667-89ca-9c03b6351b6c"
+  } ]
+}

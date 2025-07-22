@@ -1,0 +1,7 @@
+{
+  "name": "0604c42f-5d4f-4298-bee7-2f9f8fe440a8",
+  "displayName": "RemoveService_DTMF3",
+  "priority": 500000,
+  "numTrainingPhrases": 5,
+  "dtmfPattern": "^3$"
+}

@@ -1,0 +1,111 @@
+{
+  "name": "f360b306-35c6-449e-8c46-97ce7d5ac051",
+  "displayName": "CheckCustomerProd",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.callerintent = \"InternetIssues\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckCustomerProd_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Products",
+        "value": "Internet"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "InternetorSpeedCheck",
+    "name": "9edc7347-8467-40f9-8031-80a01634c508"
+  }, {
+    "condition": "$session.params.callerintent = \"PhoneIssues\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckCustomerProd_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Products",
+        "value": "Telephone"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PhoneIssuesNetworkType",
+    "name": "d0d0c495-8a8e-45d3-b655-d5a1bd371a2f"
+  }, {
+    "condition": "$session.params.callerintent = \"InternetAndPhoneIssues\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckCustomerProd_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Products",
+        "value": "Telephone and Internet"
+      }, {
+        "parameter": "TransferReason",
+        "value": "TransferMessage"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Telephone and Internet"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "2a32647e-2384-40ae-ad5a-cab6625ead9f"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckCustomerProd_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Products",
+        "value": "No indication of product"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CustomerHavePots",
+    "name": "6b91fe0d-cf2c-47da-8d8b-0f94ede209fa"
+  } ]
+}

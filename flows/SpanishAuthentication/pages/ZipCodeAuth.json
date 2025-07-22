@@ -1,0 +1,32 @@
+{
+  "name": "5b4c1ff8-a5f4-452f-9af7-189350aaafda",
+  "displayName": "ZipCodeAuth",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_ZipCodeAuth_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ZipAttempt",
+        "value": 0
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckNetworkType",
+    "name": "b97cab1a-42a9-4bc0-a597-1331a96d556c"
+  } ]
+}

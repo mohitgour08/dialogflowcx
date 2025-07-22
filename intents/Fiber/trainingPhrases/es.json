@@ -1,0 +1,75 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Fibra",
+      "parameterId": "embargodtmf",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Cliente de "
+    }, {
+      "text": "fibra",
+      "parameterId": "embargodtmf",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Tengo internet de "
+    }, {
+      "text": "fibra",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": " en casa"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Estoy interesado en actualizar a "
+    }, {
+      "text": "fibra",
+      "parameterId": "embargodtmf",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "¿La "
+    }, {
+      "text": "fibra",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": " está disponible en mi área?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Internet de "
+    }, {
+      "text": "fibra",
+      "parameterId": "embargodtmf",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Servicio de "
+    }, {
+      "text": "fibra",
+      "parameterId": "embargodtmf",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  } ]
+}

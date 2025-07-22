@@ -1,0 +1,47 @@
+{
+  "name": "2296c7bc-e83e-4f80-a5c3-a24496f1665a",
+  "displayName": "PAChkCurrentNotFullyPaidweb",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentArrangementEligibility = \"Y\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_PAChkCurrentNotFullyPaidweb_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PAEligCurrentNotFullyPaid",
+    "name": "d3c9c183-1db2-41a1-b3f0-0b3a33cda5cf"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_PAChkCurrentNotFullyPaidweb_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CurrentNotFullyPaid",
+    "name": "17f523ab-4bdc-4fa7-9829-feb04bc13bee"
+  } ]
+}

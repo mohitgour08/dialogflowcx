@@ -1,0 +1,15 @@
+{
+  "entities": [ {
+    "value": "account_number",
+    "synonyms": [ "a/c no", "a/c no.", "a/c number", "ac no.", "acc no", "acc no.", "acc number", "acccount number", "account", "account no", "account no.", "Account number", "account_number", "acno", "act", "act no", "act no." ],
+    "languageCode": "en"
+  }, {
+    "value": "email",
+    "synonyms": [ "address", "e-mail", "electronic mail", "email", "Email Address", "email id", "email_address", "mail address", "mail id", "online mail", "webmail" ],
+    "languageCode": "en"
+  }, {
+    "value": "phone_number",
+    "synonyms": [ "cell no", "cell number", "cell phone", "cell phone number", "contact detail", "contact no", "contact number", "landline", "landline no", "landline number", "mob no", "mob number", "mobile", "Mobile no", "mobile number", "Mobile number", "phone", "phone no", "phone number", "phone_number" ],
+    "languageCode": "en"
+  } ]
+}

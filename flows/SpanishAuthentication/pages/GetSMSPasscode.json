@@ -1,0 +1,29 @@
+{
+  "name": "19a0bf4c-4c71-43e7-b775-9f42ed017053",
+  "displayName": "GetSMSPasscode",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_GetSMSPasscode",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "GetSMSPasscodeVoice",
+    "name": "01b624b8-3659-452e-b4a9-3c02142d4c83"
+  } ]
+}

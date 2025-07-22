@@ -1,0 +1,369 @@
+{
+  "name": "4dd9190b-7f0c-4864-9c70-f49b237a6ce6",
+  "displayName": "Call2FactorEmailAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "SendEmail",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Passcode",
+      "value": "$sys.func.MID($sys.func.TO_TEXT($sys.func.RAND()), 3, 6)"
+    }, {
+      "parameter": "EmailMessage",
+      "value": "\u003chtml\u003e\u003cbody\u003e\u003cbr\u003eHere is your \u003cb\u003e one time code: $session.params.Passcode\u003c/b\u003e \u003cbr\u003e Please enter this code to authenticate your account.\u003cbr\u003e Note: This code will expire 10 minutes after it was requested.\u003cbr\u003e\u003cbr\u003e If you did not request this access code, click \u003ca href='https://myaccount.brightspeed.com/uni-login'\u003ehere \u003c/a\u003e to access account security. \u003cbr\u003e\u003cbr\u003e\u003c/body\u003e\u003c/html\u003e"
+    }, {
+      "parameter": "EmailSubject",
+      "value": "Brightspeed One Time Code"
+    }, {
+      "parameter": "EmailHeader",
+      "value": "\u003chtml\u003e \u003cbody\u003e\u003ca\u003e\u003cimg src='https://image.notifications.brightspeed.com/lib/fe2a11737164047b721078/m/1/098677d3-73bd-4171-ace3-905a13bf0c99.png' alt='Brightspeed home page' width='200px' height='40px'/\u003e\u003c/a\u003e  \u003c/body\u003e \u003c/html\u003e"
+    }, {
+      "parameter": "EmailFooter",
+      "value": "\u003chtml\u003e\u003cbody\u003e****This is an automatically generated message; please do not reply. \u003cbr\u003e\u003cbr\u003e\u003c/body\u003e\u003c/html\u003e"
+    }, {
+      "parameter": "Metrics_Authentication_Call2FactorEmailAPI_wh_SendEmail",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.codeSent = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Call2FactorEmailAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ENTER",
+    "name": "aa5667ae-8af8-4d04-8625-a9b59b13c4d8"
+  }, {
+    "condition": "$session.params.codeSent \u003e 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm still experiencing issues with your account verification." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eI'm still experiencing issues with your account verification.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Call2FactorEmailAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "13266f0d-d813-4fbf-98b7-6c1e223aa7e8"
+  }, {
+    "condition": "$session.params.EmailResponseStatus = \"Success\" OR $session.params.EmailResponseStatus = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Call2FactorEmailAPI_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Success"
+      }, {
+        "parameter": "API_Authentication_Call2FactorEmailAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "targetPage": "GetEmailPasscode",
+    "name": "4827c1f3-f7fa-419b-ad55-6d4d2a5da60e"
+  }, {
+    "condition": "$session.params.EmailResponseStatus != \"Success\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I ran into an issue when I tried to send the email." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eI ran into an issue when I tried to send the text message.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Call2FactorEmailAPI_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "EmailAPIFailed"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "API_Authentication_Call2FactorEmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "dd1a4308-a0c8-403d-95e7-6a07d86656f9"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "ListenInitialIntent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I ran into an issue when I tried to send the email." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Call2FactorEmailAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook Error"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "API_Authentication_Call2FactorEmailAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "name": "236349b0-c14d-4baa-a939-88c20044f98c"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I ran into an issue when I tried to send the email." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Call2FactorEmailAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "API_Authentication_Call2FactorEmailAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "name": "e429c859-1a96-4e9d-84b8-151dc2ca46ad"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I ran into an issue when I tried to send the email." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Call2FactorEmailAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "API_Authentication_Call2FactorEmailAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "name": "3b904709-fe07-4d1b-a81d-4cabd3bb9104"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I ran into an issue when I tried to send the email." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Call2FactorEmailAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "API_Authentication_Call2FactorEmailAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "name": "d599c80d-4395-48fe-88b2-66599646ee39"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I ran into an issue when I tried to send the email." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Call2FactorEmailAPI_Webhook_TimeOut",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookTimeOut"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "API_Authentication_Call2FactorEmailAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "name": "74b9130b-d2b6-44a8-8776-8d8a002f4ccf"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I ran into an issue when I tried to send the email." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Call2FactorEmailAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "API_Authentication_Call2FactorEmailAPI",
+        "value": "Fail_Unavaliable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "name": "318f7ca0-34b0-4795-8116-c83da9749717"
+  } ]
+}

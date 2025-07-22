@@ -1,0 +1,1813 @@
+{
+  "trainingPhrases": [ {
+    "id": "d1a39590-f4d5-42e3-9104-01c6745fdc01",
+    "parts": [ {
+      "text": "Why is it telling me"
+    }, {
+      "text": " invalid name on card when it is correct"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5f2c1db3-4a20-42be-90e7-84b34beb40f9",
+    "parts": [ {
+      "text": "I'm trying to"
+    }, {
+      "text": " "
+    }, {
+      "text": "pay my bill"
+    }, {
+      "text": ". My "
+    }, {
+      "text": "banking information"
+    }, {
+      "text": " is supposed "
+    }, {
+      "text": "to be stored"
+    }, {
+      "text": ", but your automated "
+    }, {
+      "text": "or online service is not letting me do that. What do I need to do"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b079eb23-eac6-473d-b1a7-b0093eec8b4d",
+    "parts": [ {
+      "text": "I wasn"
+    }, {
+      "text": "'t able to use my"
+    }, {
+      "text": " checking "
+    }, {
+      "text": "account"
+    }, {
+      "text": " to "
+    }, {
+      "text": "pay my bill"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "79532086-98a3-4105-b456-d3ee57154b4c",
+    "parts": [ {
+      "text": "i have a routing "
+    }, {
+      "text": "and account number for the"
+    }, {
+      "text": " debit card"
+    }, {
+      "text": ", will that work for me?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e440fe90-7d71-44a3-aa1f-1c66eac1cdea",
+    "parts": [ {
+      "text": "how do i check to make sure my"
+    }, {
+      "text": " routing "
+    }, {
+      "text": "number and account number are"
+    }, {
+      "text": " correct before submitting a "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " ."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2eb662ad-eebf-41f0-824d-e51102777faa",
+    "parts": [ {
+      "text": "i am trying to"
+    }, {
+      "text": " "
+    }, {
+      "text": "pay a bill"
+    }, {
+      "text": " via "
+    }, {
+      "text": "wells"
+    }, {
+      "text": " fargo, so my "
+    }, {
+      "text": "bank"
+    }, {
+      "text": " can "
+    }, {
+      "text": "pay"
+    }, {
+      "text": " "
+    }, {
+      "text": "century link"
+    }, {
+      "text": " "
+    }, {
+      "text": "directly"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a6be22ed-c7c2-474b-94a5-f96cc7f4effb",
+    "parts": [ {
+      "text": "I do "
+    }, {
+      "text": "not"
+    }, {
+      "text": " have my routing "
+    }, {
+      "text": "number. You should have it on file."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a73f3e82-538c-4c6a-807a-85d3e71223e9",
+    "parts": [ {
+      "text": "Banking"
+    }, {
+      "text": " "
+    }, {
+      "text": "profile information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b162552c-35a9-4027-b666-b043f1ec6a7c",
+    "parts": [ {
+      "text": "Bank"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": " details"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "723b7e7c-e571-48cf-aafe-6721f9eff513",
+    "parts": [ {
+      "text": "Banking"
+    }, {
+      "text": " credentials"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "ea8ee4d1-100f-404c-9d99-2966ce7ac7be",
+    "parts": [ {
+      "text": "Financial institution details"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6336141d-bf13-4799-953c-72b51f7b1428",
+    "parts": [ {
+      "text": "Can I set up autopay "
+    }, {
+      "text": "using my"
+    }, {
+      "text": " "
+    }, {
+      "text": "bank"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "db981ee0-7ec2-4231-8fda-721b9d4655f6",
+    "parts": [ {
+      "text": "Autopay"
+    }, {
+      "text": " setup with "
+    }, {
+      "text": "bank"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4a870db8-cf0b-4891-b5f1-64f0e2c8d8f7",
+    "parts": [ {
+      "text": "Can I set up autopay with my "
+    }, {
+      "text": "bank"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0a25f3f5-e0f9-4cb4-aecd-1062db85b8b4",
+    "parts": [ {
+      "text": "I'd like to delete "
+    }, {
+      "text": "all"
+    }, {
+      "text": " of my saved "
+    }, {
+      "text": "payment methods"
+    }, {
+      "text": " and start fresh"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4418b7a0-f49a-40fd-91ed-f6a31a64e3b5",
+    "parts": [ {
+      "text": "Can you "
+    }, {
+      "text": "help"
+    }, {
+      "text": " me resolve an "
+    }, {
+      "text": "issue"
+    }, {
+      "text": " with my saved "
+    }, {
+      "text": "payment method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "eba43432-9ef6-47f6-81d6-6633169e4f6d",
+    "parts": [ {
+      "text": "I'm "
+    }, {
+      "text": "not"
+    }, {
+      "text": " able to "
+    }, {
+      "text": "make a payment"
+    }, {
+      "text": " using my saved "
+    }, {
+      "text": "payment method"
+    }, {
+      "text": ", what should "
+    }, {
+      "text": "I do"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b14b4bdf-55a3-4699-9690-e5a7b206d3c8",
+    "parts": [ {
+      "text": "I want to add a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment method"
+    }, {
+      "text": " to my "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "24307821-0fe5-4a18-a25b-a87fb9761759",
+    "parts": [ {
+      "text": "I'm having trouble "
+    }, {
+      "text": "making a payment"
+    }, {
+      "text": ", can you "
+    }, {
+      "text": "check"
+    }, {
+      "text": " my saved "
+    }, {
+      "text": "payment methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "10a0b984-79c6-4dd0-92b3-366ac2af27e6",
+    "parts": [ {
+      "text": "Can you please "
+    }, {
+      "text": "assist"
+    }, {
+      "text": " me in "
+    }, {
+      "text": "updating"
+    }, {
+      "text": " my "
+    }, {
+      "text": "bank information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5713e73f-29f3-432d-8085-4d28ebc95497",
+    "parts": [ {
+      "text": "I need to remove a saved "
+    }, {
+      "text": "payment method"
+    }, {
+      "text": " from my "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5da9758d-2c50-409c-b5e4-d17750ee1c31",
+    "parts": [ {
+      "text": "How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I change my default "
+    }, {
+      "text": "payment method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0cee1623-24a7-4b9c-90c0-8bed81f06326",
+    "parts": [ {
+      "text": "Can you "
+    }, {
+      "text": "help"
+    }, {
+      "text": " me "
+    }, {
+      "text": "update"
+    }, {
+      "text": " my saved "
+    }, {
+      "text": "payment method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f6594e06-7f68-4e37-a1d5-ab18a3316293",
+    "parts": [ {
+      "text": "I want to add a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " bank "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ecd8a789-71d7-4a65-940a-b273cdfa63dd",
+    "parts": [ {
+      "text": "Can I see my saved bank "
+    }, {
+      "text": "accounts"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "59673d40-ec9a-4a51-b75a-935222ae8177",
+    "parts": [ {
+      "text": "Show me "
+    }, {
+      "text": "all"
+    }, {
+      "text": " of my saved "
+    }, {
+      "text": "payment methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1034cceb-85d9-461d-96c8-7577ea61ab23",
+    "parts": [ {
+      "text": "I need to change my saved "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "411453ce-6006-4c86-9594-9ccd85ec3b88",
+    "parts": [ {
+      "text": "How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I "
+    }, {
+      "text": "update"
+    }, {
+      "text": " my default "
+    }, {
+      "text": "payment method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "90d04730-ea60-4e09-b86a-b9d9fcf66b3f",
+    "parts": [ {
+      "text": "I want to remove a saved bank "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e80bea53-b1e2-4aeb-9d25-146f7fa3f211",
+    "parts": [ {
+      "text": "Can I delete my saved "
+    }, {
+      "text": "payment methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3ec26a02-708a-4aec-9932-320bf43395f2",
+    "parts": [ {
+      "text": "I want to "
+    }, {
+      "text": "manage"
+    }, {
+      "text": " my saved "
+    }, {
+      "text": "payment method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ad869d82-00d5-449c-abca-056c57864c8a",
+    "parts": [ {
+      "text": "I'm having trouble adding a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": ". What should I "
+    }, {
+      "text": "check"
+    }, {
+      "text": " or "
+    }, {
+      "text": "do"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b83e5a88-0d4e-40b5-96de-5b313b2f5144",
+    "parts": [ {
+      "text": "Can you walk me through the process of deleting a saved "
+    }, {
+      "text": "payment method"
+    }, {
+      "text": " from my "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a18a2321-87e4-4b9b-bd49-368af81bb06e",
+    "parts": [ {
+      "text": "What are the steps to "
+    }, {
+      "text": "update"
+    }, {
+      "text": " my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " details for automatic "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2e615704-8125-4c4f-9ee3-83a848d8644d",
+    "parts": [ {
+      "text": "How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I switch my default "
+    }, {
+      "text": "payment method"
+    }, {
+      "text": " to a different "
+    }, {
+      "text": "credit"
+    }, {
+      "text": " card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "05c1e9e0-63f6-42e7-bb2d-2c2087053cfb",
+    "parts": [ {
+      "text": "I "
+    }, {
+      "text": "need help"
+    }, {
+      "text": " setting up a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment method"
+    }, {
+      "text": ". Can you provide instructions"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "878bfc7b-dfba-4098-a410-408c051f65c5",
+    "parts": [ {
+      "text": "Could you explain how I can "
+    }, {
+      "text": "manage"
+    }, {
+      "text": " my saved "
+    }, {
+      "text": "payment methods"
+    }, {
+      "text": " or bank "
+    }, {
+      "text": "accounts"
+    }, {
+      "text": " "
+    }, {
+      "text": "online"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5e5cb4c7-4376-4bdc-b264-9ce148ca5042",
+    "parts": [ {
+      "text": "I want to make changes to the "
+    }, {
+      "text": "bank information"
+    }, {
+      "text": " associated with my "
+    }, {
+      "text": "account"
+    }, {
+      "text": ". What's the procedure"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "07fd6374-698d-4167-8cb0-29f25a57cbea",
+    "parts": [ {
+      "text": "What are the available options to modify my saved "
+    }, {
+      "text": "payment methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3611605d-45b6-4974-b43f-88a8af9a6e4f",
+    "parts": [ {
+      "text": "How can I "
+    }, {
+      "text": "view"
+    }, {
+      "text": " and "
+    }, {
+      "text": "manage"
+    }, {
+      "text": " the bank "
+    }, {
+      "text": "accounts"
+    }, {
+      "text": " I have on file"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7ed5d755-e3dd-4daf-83d7-91b3ab77c4c4",
+    "parts": [ {
+      "text": "I'm interested in "
+    }, {
+      "text": "updating"
+    }, {
+      "text": " my saved "
+    }, {
+      "text": "payment methods"
+    }, {
+      "text": ". Is there a specific page for that"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0a230b5c-0746-4b94-989d-c2a3b1f5eee0",
+    "parts": [ {
+      "text": "I want to remove an outdated bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " from "
+    }, {
+      "text": "my profile"
+    }, {
+      "text": ". What's the process"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "728ed7ea-0e06-41e3-9de5-f032dce9573e",
+    "parts": [ {
+      "text": "What steps "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I need to follow to change my default "
+    }, {
+      "text": "payment method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5ffdd13f-6bcd-4089-8cc6-7d7492af20be",
+    "parts": [ {
+      "text": "I'm looking for options to "
+    }, {
+      "text": "manage"
+    }, {
+      "text": " my saved "
+    }, {
+      "text": "payment methods"
+    }, {
+      "text": ". Where can I find them"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1fcf4c37-d345-4e5a-9c56-e51e23c15b08",
+    "parts": [ {
+      "text": "How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I edit my "
+    }, {
+      "text": "bank information"
+    }, {
+      "text": " in my "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c1184930-79e7-4f72-9598-f78a97ef356b",
+    "parts": [ {
+      "text": "I need "
+    }, {
+      "text": "assistance"
+    }, {
+      "text": " deleting a saved "
+    }, {
+      "text": "payment method"
+    }, {
+      "text": ". What should "
+    }, {
+      "text": "I do"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "da860b46-2ef9-4dc6-917b-3ac09cc1c46a",
+    "parts": [ {
+      "text": "Can you "
+    }, {
+      "text": "help"
+    }, {
+      "text": " me add a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " to "
+    }, {
+      "text": "my profile"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "30074446-f5bc-43ab-9e0b-caece5adfc76",
+    "parts": [ {
+      "text": "I want to "
+    }, {
+      "text": "update my payment methods"
+    }, {
+      "text": ". How can "
+    }, {
+      "text": "I do"
+    }, {
+      "text": " that"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "02792c46-2119-4e48-a7d6-2d9d9514efff",
+    "parts": [ {
+      "text": "How can I "
+    }, {
+      "text": "manage"
+    }, {
+      "text": " my saved "
+    }, {
+      "text": "payment methods"
+    }, {
+      "text": " or "
+    }, {
+      "text": "bank information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f566909d-8ff9-46e5-b0fe-3fb12f6c953c",
+    "parts": [ {
+      "text": "I "
+    }, {
+      "text": "need help"
+    }, {
+      "text": " "
+    }, {
+      "text": "managing"
+    }, {
+      "text": " my saved "
+    }, {
+      "text": "payment methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "232929cc-5ac8-420e-b443-2ba321f499fc",
+    "parts": [ {
+      "text": "I want to learn "
+    }, {
+      "text": "more"
+    }, {
+      "text": " about my saved "
+    }, {
+      "text": "payment methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "58aed91b-2267-484c-b9e6-5e6ea89d5c87",
+    "parts": [ {
+      "text": "I want to delete my saved "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a139da15-127e-477b-b8c5-cd1491c42f83",
+    "parts": [ {
+      "text": "I want to "
+    }, {
+      "text": "view"
+    }, {
+      "text": " my saved "
+    }, {
+      "text": "payment methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d284a54a-72af-42be-8625-cd24d02e1509",
+    "parts": [ {
+      "text": "I want to remove a saved "
+    }, {
+      "text": "payment method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "906e44af-2229-4200-a865-e730aa4f21ab",
+    "parts": [ {
+      "text": "I want to "
+    }, {
+      "text": "update"
+    }, {
+      "text": " my saved "
+    }, {
+      "text": "payment method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "75954434-14d4-408d-a6d0-72016bbdaced",
+    "parts": [ {
+      "text": "I want to add a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "659b8cee-0a7a-4b3d-8e3b-80af4638731c",
+    "parts": [ {
+      "text": "I want to remove my saved "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " info and start fresh with "
+    }, {
+      "text": "new"
+    }, {
+      "text": " bank details"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9e260107-e5c2-47ef-b8f7-fbc6411899a5",
+    "parts": [ {
+      "text": "Please change my "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " "
+    }, {
+      "text": "profile"
+    }, {
+      "text": " from the old card to this "
+    }, {
+      "text": "new"
+    }, {
+      "text": " debit card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "64ad8783-7a05-4763-9877-16aa900b084b",
+    "parts": [ {
+      "text": "Can you swap out the "
+    }, {
+      "text": "payment method"
+    }, {
+      "text": " you have with this "
+    }, {
+      "text": "updated"
+    }, {
+      "text": " "
+    }, {
+      "text": "credit"
+    }, {
+      "text": " card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7d04f129-7cba-4b79-a9c6-3dfd9e18c450",
+    "parts": [ {
+      "text": "I need you to replace my saved bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " with this "
+    }, {
+      "text": "new one"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "09452108-bb61-479d-b057-6eb1f1f06a00",
+    "parts": [ {
+      "text": "I "
+    }, {
+      "text": "no"
+    }, {
+      "text": " longer want to use that "
+    }, {
+      "text": "payment method"
+    }, {
+      "text": ", please delete it"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f0bb6501-322b-49de-acc0-c46a78d83407",
+    "parts": [ {
+      "text": "My bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " was hacked, I need to remove it from your records immediately"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d9494b77-aa77-49f0-9179-e7755dffd8fd",
+    "parts": [ {
+      "text": "Can you remove the "
+    }, {
+      "text": "old payment"
+    }, {
+      "text": " details and let me add "
+    }, {
+      "text": "new ones"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e37bdc57-9349-4050-88e1-6f79d512c8a8",
+    "parts": [ {
+      "text": "How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I delete my saved "
+    }, {
+      "text": "checking"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7a1ee3c1-ac0f-4d12-b36d-aaac49bc7b1c",
+    "parts": [ {
+      "text": "I need to "
+    }, {
+      "text": "update"
+    }, {
+      "text": " my bank "
+    }, {
+      "text": "account number"
+    }, {
+      "text": " you have on file"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "aa60afb1-e04a-4b54-8a88-6988dc5bd804",
+    "parts": [ {
+      "text": "My "
+    }, {
+      "text": "credit"
+    }, {
+      "text": " card expired, how can I "
+    }, {
+      "text": "update the payment method"
+    }, {
+      "text": " you have stored"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a752f649-9f5f-4688-b48f-402c0a21cbc5",
+    "parts": [ {
+      "text": "I want to remove my old debit card and add a "
+    }, {
+      "text": "new one"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e5550557-d799-4554-a8d4-1bdd02360a5e",
+    "parts": [ {
+      "text": "How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I edit my saved "
+    }, {
+      "text": "payment methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b1a31e24-cfab-4602-a1b2-6a68cf144260",
+    "parts": [ {
+      "text": "I need to change my bank "
+    }, {
+      "text": "account on"
+    }, {
+      "text": " file"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dd4a850d-d020-4a31-941d-842322b007e9",
+    "parts": [ {
+      "text": "where "
+    }, {
+      "text": "online"
+    }, {
+      "text": " "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I edit the saved "
+    }, {
+      "text": "payment method"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d18bc0fe-2f36-4a7b-baf2-d38ca39e6e7d",
+    "parts": [ {
+      "text": "Where "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I see full "
+    }, {
+      "text": "account number"
+    }, {
+      "text": " listed in Saved "
+    }, {
+      "text": "Payment Methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4ca01f0c-5e02-4aad-a0d9-135ef9da78a2",
+    "parts": [ {
+      "text": "Can I save multiple bank "
+    }, {
+      "text": "accounts"
+    }, {
+      "text": " for future transactions"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f24c9612-e240-4537-8201-b6a24dd4c8ff",
+    "parts": [ {
+      "text": "How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I add multiple "
+    }, {
+      "text": "payment methods"
+    }, {
+      "text": " to my "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "21ee53ce-1565-4fe5-b066-dec64b808c6a",
+    "parts": [ {
+      "text": "Are there any restrictions on the types of "
+    }, {
+      "text": "payment methods"
+    }, {
+      "text": " I can add"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "180af3f9-dda8-43d2-94a1-256b111ec00a",
+    "parts": [ {
+      "text": "How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I "
+    }, {
+      "text": "view"
+    }, {
+      "text": " and modify my saved "
+    }, {
+      "text": "payment methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "22cfb2c5-6645-4fb9-b10d-51bee1af01bb",
+    "parts": [ {
+      "text": "What steps should I follow to "
+    }, {
+      "text": "update my payment methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b2ffdf4e-b5b7-4fad-944e-5f3fda6cd3cd",
+    "parts": [ {
+      "text": "Can you guide me through the process of "
+    }, {
+      "text": "managing"
+    }, {
+      "text": " my "
+    }, {
+      "text": "bank information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fce49d39-25cf-414b-b3a0-81370c699f4a",
+    "parts": [ {
+      "text": "I want to change the default "
+    }, {
+      "text": "payment method"
+    }, {
+      "text": ". How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " "
+    }, {
+      "text": "I do"
+    }, {
+      "text": " that"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f2a0c316-7545-4999-92ac-73cd423968ba",
+    "parts": [ {
+      "text": "What options "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I have to "
+    }, {
+      "text": "manage"
+    }, {
+      "text": " my saved "
+    }, {
+      "text": "payment methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "932a1c79-bcc9-47e4-943f-bb1741be114e",
+    "parts": [ {
+      "text": "How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I edit my bank details in my "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0f279fda-8969-4058-b980-dba396a6fa7e",
+    "parts": [ {
+      "text": "I need to remove a saved "
+    }, {
+      "text": "payment method"
+    }, {
+      "text": ". What are the steps"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d47e5a15-bfd0-430a-aaed-99d5078d4def",
+    "parts": [ {
+      "text": "Can you "
+    }, {
+      "text": "help"
+    }, {
+      "text": " me add a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment method"
+    }, {
+      "text": " to my "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5906456f-469b-41ce-b9fd-77669ed1b18e",
+    "parts": [ {
+      "text": "I want to "
+    }, {
+      "text": "update"
+    }, {
+      "text": " my "
+    }, {
+      "text": "bank information"
+    }, {
+      "text": ". How can "
+    }, {
+      "text": "I do"
+    }, {
+      "text": " that"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f549cf92-2c43-4cfc-aa9e-0bcabb1bc363",
+    "parts": [ {
+      "text": "How can I "
+    }, {
+      "text": "manage"
+    }, {
+      "text": " my saved "
+    }, {
+      "text": "payment methods"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0a92e682-8296-42e2-964f-9396aca2e900",
+    "parts": [ {
+      "text": "I've been "
+    }, {
+      "text": "paying"
+    }, {
+      "text": " with my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " and would like to know if my "
+    }, {
+      "text": "bank information"
+    }, {
+      "text": " is on there."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2690ad09-e3d2-462b-9c7a-fb7d6185143f",
+    "parts": [ {
+      "text": "I want to verify the "
+    }, {
+      "text": "bank information"
+    }, {
+      "text": " thats on file"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f68f3610-69b3-4db7-a14a-e0d83b3210d5",
+    "parts": [ {
+      "text": "How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I add my "
+    }, {
+      "text": "bank information"
+    }, {
+      "text": " to my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " "
+    }, {
+      "text": "profile"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "808e694e-e9e2-4eea-a015-5522ffe2d561",
+    "parts": [ {
+      "text": "add "
+    }, {
+      "text": "updated"
+    }, {
+      "text": " "
+    }, {
+      "text": "bank information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f67a77f4-077d-4a9d-90b3-e0666ad06995",
+    "parts": [ {
+      "text": "I need you to look up my bank "
+    }, {
+      "text": "account number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "184f65d7-5785-4a3c-a846-e315ad3b9ae8",
+    "parts": [ {
+      "text": "I am facing "
+    }, {
+      "text": "issues"
+    }, {
+      "text": " "
+    }, {
+      "text": "updating"
+    }, {
+      "text": " my "
+    }, {
+      "text": "bank"
+    }, {
+      "text": " infomation"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "17527668-a609-4a0c-9d9e-a801554045c2",
+    "parts": [ {
+      "text": "I encounter "
+    }, {
+      "text": "issues"
+    }, {
+      "text": " while "
+    }, {
+      "text": "updating"
+    }, {
+      "text": " my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d1152fed-8aba-4bfc-81aa-558ad033d48f",
+    "parts": [ {
+      "text": "Are there any security measures in place to "
+    }, {
+      "text": "protect"
+    }, {
+      "text": " my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information during the "
+    }, {
+      "text": "update"
+    }, {
+      "text": " process"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4b4bfa90-202f-4bf1-8c10-72ff52c06de6",
+    "parts": [ {
+      "text": "Can you "
+    }, {
+      "text": "confirm"
+    }, {
+      "text": " if my "
+    }, {
+      "text": "updated"
+    }, {
+      "text": " bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information has been "
+    }, {
+      "text": "successfully"
+    }, {
+      "text": " processed for future "
+    }, {
+      "text": "bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2f670a42-f624-4f5e-9b8a-e8dc6c50d255",
+    "parts": [ {
+      "text": "What information "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I need to provide when "
+    }, {
+      "text": "updating"
+    }, {
+      "text": " my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " details for "
+    }, {
+      "text": "bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fa96339e-f134-4e41-bf08-e0081c289657",
+    "parts": [ {
+      "text": "Are there any forms or documents I need to fill out to "
+    }, {
+      "text": "update"
+    }, {
+      "text": " my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information for "
+    }, {
+      "text": "bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b099bee1-3255-42ee-ae4f-302e784f49aa",
+    "parts": [ {
+      "text": "How long does it usually take for the "
+    }, {
+      "text": "updated"
+    }, {
+      "text": " bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information to reflect for "
+    }, {
+      "text": "bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8841f84b-afd8-4cf1-b49a-dc36a66dc161",
+    "parts": [ {
+      "text": "update"
+    }, {
+      "text": " "
+    }, {
+      "text": "bank information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6f2bb03e-6a94-4822-99d1-027642315af9",
+    "parts": [ {
+      "text": "Can you "
+    }, {
+      "text": "assist"
+    }, {
+      "text": " me in "
+    }, {
+      "text": "updating"
+    }, {
+      "text": " my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information for "
+    }, {
+      "text": "bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5a9e75c2-8508-45f9-8a7a-8e06a22a6320",
+    "parts": [ {
+      "text": "I would like to change the bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " linked to "
+    }, {
+      "text": "my bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "691ff1c2-a68c-40c9-8b97-ad20c27f00e0",
+    "parts": [ {
+      "text": "I would like to change the bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " linked to "
+    }, {
+      "text": "my bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    }, {
+      "text": ". What steps "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I need to take"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d35220c9-9325-4bf5-8a88-85a42435977a",
+    "parts": [ {
+      "text": "Is there an "
+    }, {
+      "text": "online"
+    }, {
+      "text": " portal or form where I can "
+    }, {
+      "text": "update"
+    }, {
+      "text": " my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " details for "
+    }, {
+      "text": "bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1adca9ce-91d9-4da2-bf41-c1a132bf5083",
+    "parts": [ {
+      "text": "Do"
+    }, {
+      "text": " I need to provide any supporting documents when "
+    }, {
+      "text": "updating"
+    }, {
+      "text": " my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information for "
+    }, {
+      "text": "bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "158cec8d-7775-4a17-8e98-47f26581740a",
+    "parts": [ {
+      "text": "Can you "
+    }, {
+      "text": "confirm"
+    }, {
+      "text": " if my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information is "
+    }, {
+      "text": "successfully"
+    }, {
+      "text": " "
+    }, {
+      "text": "updated"
+    }, {
+      "text": " for future "
+    }, {
+      "text": "bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2c981fd5-6885-47b6-9f3f-2096890ed6ca",
+    "parts": [ {
+      "text": "Who should I contact to "
+    }, {
+      "text": "update"
+    }, {
+      "text": " my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information for "
+    }, {
+      "text": "bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b0f12ef2-7738-436f-87ea-8b6aebcf7033",
+    "parts": [ {
+      "text": "I recently changed my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " and need to provide the "
+    }, {
+      "text": "updated"
+    }, {
+      "text": " information for "
+    }, {
+      "text": "bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    }, {
+      "text": ". What steps should I follow"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a8c9c489-89c0-4cf7-800a-d97ec22d668e",
+    "parts": [ {
+      "text": "Can you guide me through the process of "
+    }, {
+      "text": "updating"
+    }, {
+      "text": " my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information for "
+    }, {
+      "text": "bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e7ddf6e9-33a5-4dd9-b277-63fa860217d3",
+    "parts": [ {
+      "text": "I need to "
+    }, {
+      "text": "update"
+    }, {
+      "text": " my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information for "
+    }, {
+      "text": "bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b287e5f4-bf81-4f42-b952-d083e7ad5002",
+    "parts": [ {
+      "text": "What is the process for "
+    }, {
+      "text": "updating"
+    }, {
+      "text": " my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f4ea50b6-f6e8-4102-a512-d81416e327de",
+    "parts": [ {
+      "text": "how to mapped "
+    }, {
+      "text": "bank information"
+    }, {
+      "text": " to my "
+    }, {
+      "text": "new"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "432fc17a-b433-4d44-a030-edc492fb1ebe",
+    "parts": [ {
+      "text": "I want to mapped my bank details to my account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bdce39de-4169-43df-8fa0-e62d02d4a976",
+    "parts": [ {
+      "text": "I want to update bank information assosiated with my account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "45b9faa4-50db-4b5b-a6b5-ead0c18508ec",
+    "parts": [ {
+      "text": "I want to "
+    }, {
+      "text": "update"
+    }, {
+      "text": " "
+    }, {
+      "text": "bank information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "23c8c11c-254d-4458-9712-7c21317cf02f",
+    "parts": [ {
+      "text": "What is the process for "
+    }, {
+      "text": "updating"
+    }, {
+      "text": " my bank "
+    }, {
+      "text": "account"
+    }, {
+      "text": " information for "
+    }, {
+      "text": "bill"
+    }, {
+      "text": " "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "67d57755-66a0-45b9-a63c-76a162c1ccd1",
+    "parts": [ {
+      "text": "Bank Information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

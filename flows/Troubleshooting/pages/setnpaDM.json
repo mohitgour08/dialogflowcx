@@ -1,0 +1,63 @@
+{
+  "name": "3a03304b-581e-4337-8787-ada2acf32517",
+  "displayName": "setnpaDM",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ContactNumber = \"\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "npa",
+        "value": ""
+      }, {
+        "parameter": "Metrics_Troubleshooting_setnpaDM_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "setNetworkTypeDM",
+    "name": "de367f5e-d587-4952-a552-6a5acc6263ad"
+  }, {
+    "condition": "$session.params.ContactNumber = \"\" AND $session.params.phone_number != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "npa",
+        "value": "$sys.func.MID($session.params.phone_number,1,3)"
+      }, {
+        "parameter": "Metrics_Troubleshooting_setnpaDM_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "setNetworkTypeDM",
+    "name": "c4d1b30d-d54e-4b34-a19d-8653220d1339"
+  }, {
+    "condition": "$session.params.ContactNumber != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "npa",
+        "value": "$sys.func.MID($session.params.ContactNumber,1,3)"
+      }, {
+        "parameter": "Metrics_Troubleshooting_setnpaDM_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "setNetworkTypeDM",
+    "name": "43c689e3-d580-4ea9-a97e-f1ec7cee7a47"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_setnpaDM_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "npa",
+        "value": ""
+      } ]
+    },
+    "targetPage": "setNetworkTypeDM",
+    "name": "cbf24ee4-d35f-41d5-bdac-4221e836713f"
+  } ]
+}

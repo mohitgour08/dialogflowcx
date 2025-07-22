@@ -1,0 +1,94 @@
+{
+  "name": "b49c594a-99e2-42c6-bf69-444832f14c41",
+  "displayName": "PendingOrCompletedOrder",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.NetworkType = \"GPON\" OR $session.params.NetworkType = \"XGSPON\" OR $session.params.NetworkType = \"BPON\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_PendingOrCompletedOrder_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PendingOrCompletedOrder"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Saves"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "9a64b94a-9aa1-4aee-bed5-805e0a2645e6"
+  }, {
+    "condition": "$session.params.channel = \"voice\" AND ($session.params.NetworkType = \"GPON\" OR $session.params.NetworkType = \"XGSPON\" OR $session.params.NetworkType = \"BPON\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "BRSPDPEND"
+      }, {
+        "parameter": "Metrics_SalesManagement_PendingOrCompletedOrder_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PendingOrCompletedOrder"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "09957494-583a-473b-95db-efbd9607ca74"
+  }, {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "GPENDLCRES"
+      }, {
+        "parameter": "Metrics_SalesManagement_PendingOrCompletedOrder_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PendingOrCompletedOrder"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "864d7c25-80ab-4a9c-b52d-1cdba3c43749"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_PendingOrCompletedOrder_default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PendingOrCompletedOrder"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Saves"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "524a5b98-1f35-4239-b8bc-919057e1a0b4"
+  } ]
+}

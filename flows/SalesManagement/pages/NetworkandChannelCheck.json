@@ -1,0 +1,44 @@
+{
+  "name": "41ea5462-e5a4-4815-acf7-13218d032470",
+  "displayName": "NetworkandChannelCheck",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Sure! I can help with that. What day of the week works best for you? Our Copper techs are available Tuesday through Friday. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eSure! I can help with that. What day of the week works best for you? Our Copper techs are available Tuesday through Friday. \nFor Tuesday, Press 1. For Wednesday, Press 2. For Thursday, Press 3. For Friday, Press 4. Say \"Repeat\" to repeat this message.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ]
+    },
+    "targetPage": "CopperDays",
+    "name": "26d5408f-fccd-4999-9016-952fdb743524"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Sure! I can help with that. What day of the week works best for you? Our fiber techs are available Monday through Friday. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eSure! I can help with that. What day of the week works best for you? Our Fiber techs are available Monday through Friday. \nFor Monday, Press 1. For Tuesday, Press 2. For Wednesday, Press 3. For Thursday, Press 4. For Friday, Press 5. Say \"Repeat\" to repeat this message.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ]
+    },
+    "targetPage": "FiberDays",
+    "name": "25f89cfd-4bdd-4995-b2e6-28795bfd0ed8"
+  } ]
+}

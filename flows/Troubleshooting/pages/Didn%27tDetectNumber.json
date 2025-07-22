@@ -1,0 +1,43 @@
+{
+  "name": "a078303e-9b19-4ac7-8f60-8c1a467c60e0",
+  "displayName": "Didn'tDetectNumber",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.CollectSMSCounter \u003c= 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I am sorry, I didn't catch that. Let's try entering that telephone number one more time." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "PhoneNumber",
+        "value": null
+      }, {
+        "parameter": "Metrics_Troubleshooting_Didn'tDetectNumber_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CollectSMSNumber",
+    "name": "cb71945b-0fbb-4d4e-9145-9936269a9c30"
+  }, {
+    "condition": "$session.params.CollectSMSCounter \u003e= 2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_Troubleshooting_Didn'tDetectNumber_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "610b0a92-c4bd-4f1c-9520-6a0f33864c99"
+  } ]
+}

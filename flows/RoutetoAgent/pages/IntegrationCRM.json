@@ -1,0 +1,153 @@
+{
+  "name": "9d9a5dff-81ed-442b-8c2f-074959d89217",
+  "displayName": "IntegrationCRM",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "IntegrationCRM",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_IntegrationCRM_none_wh_IntegrationCRM",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_IntegrationCRM_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_IntegrationCRM",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "IntegrationCRM"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "6f78d4a1-1f52-4fde-9523-4cf53c60010f"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "HandOff",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_IntegrationCRM_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_IntegrationCRM",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "IntegrationCRM"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "93378b19-8616-471d-a6d9-57c194073846"
+  }, {
+    "targetPage": "HandOff",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_IntegrationCRM_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_IntegrationCRM",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "IntegrationCRM"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "b6fe77c5-a29e-4fe6-b26e-1a6b728e1aff"
+  }, {
+    "targetPage": "HandOff",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_IntegrationCRM_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_IntegrationCRM",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "IntegrationCRM"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "8147a934-8117-4a52-bdf9-7858c44d0ece"
+  }, {
+    "targetPage": "HandOff",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_IntegrationCRM_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_IntegrationCRM",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "IntegrationCRM"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "c25de20d-16c4-47d9-9a0c-059af8b595b6"
+  }, {
+    "targetPage": "HandOff",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_IntegrationCRM_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_IntegrationCRM",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "IntegrationCRM"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "d9df3786-accb-481b-a5f8-6a3239d1f2c1"
+  }, {
+    "targetPage": "HandOff",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_IntegrationCRM_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_IntegrationCRM",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "IntegrationCRM"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "b3e1e145-ef73-41aa-bbc0-ef1356b39362"
+  } ]
+}

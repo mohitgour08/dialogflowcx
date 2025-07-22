@@ -1,0 +1,82 @@
+{
+  "name": "3ddcf614-3670-4690-8ced-d0298e33a33c",
+  "displayName": "FiberCardFormCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.formResponse = \"formBack\" OR $session.params.formResponse = \"Form Back\") AND $session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "formResponse",
+        "value": null
+      }, {
+        "parameter": "Metrics_SecuredPayments_FiberCardFormCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberPayment",
+    "name": "38dc323f-2d39-41ca-9435-29ab9c079ef7"
+  }, {
+    "condition": "$session.params.formResponse = \"CancelForm\" OR $session.params.formResponse = \"Form Cancel\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\r\n\"chatClientForm\": \"BackToChat\"\r\n}" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Okay, I'll cancel this transaction for now. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "formResponse",
+        "value": null
+      }, {
+        "parameter": "Metrics_SecuredPayments_FiberCardFormCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CancelTransaction",
+    "name": "af8587ba-c806-4dc3-98a7-e2b2b058ee04"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberCardFormCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "JsonFiberPayment",
+    "name": "da1cca7c-af30-49dd-a39a-0149a0c5d356"
+  } ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "5801a74a-9dfb-400a-befc-4e8804cecbfe",
+  "displayName": "FECheckACHCurrentDueVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Thank you for keeping your account up to date! The next payment $session.params.MonthlyRecurringCharge1 will be automatically processed on $session.params.BillInfo_BillDueDate using your Bank account." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_PrepaidBalance",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "ACHCurrentDueVoice"
+      }, {
+        "parameter": "ToModule",
+        "value": "PrepaidBalance"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_FECheckACHCurrentDueVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "23a5e51a-7f88-402b-9345-43d880e906df"
+  } ]
+}

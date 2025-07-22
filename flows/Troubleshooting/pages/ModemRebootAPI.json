@@ -1,0 +1,191 @@
+{
+  "name": "d96ccf81-e94a-4c52-af6c-42bb17f0c28b",
+  "displayName": "ModemRebootAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003caudio src=\"https://chatservices.brightspeed.com/audio/HoldMusic.wav\" clipEnd=\"59s\"/\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "webhook": "RebootModembyBan",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_ModemRebootAPI_none_wh_RebootModemAPI",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowCancellation": true
+      }
+    },
+    "returnPartialResponses": true
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ModemRebootStatus = \"success\" OR $session.params.ModemRebootStatus = \"Success\" OR $session.params.ModemRebootStatus = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ModemRebootAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_ModemRebootAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RebootModembyBan"
+      } ]
+    },
+    "targetPage": "ModemRebootCompleted",
+    "name": "17772eb2-5b57-4871-ab27-dfcf17717714"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ModemRebootAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemRebootAPIResponseStatus",
+        "value": "Failure"
+      }, {
+        "parameter": "ModemRebootAPIFailure",
+        "value": "$session.params.ModemRebootStatus"
+      }, {
+        "parameter": "API_Troubleshooting_ModemRebootAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RebootModembyBan"
+      } ]
+    },
+    "targetPage": "ModemCount",
+    "name": "b4d49210-84f6-4e9d-8cd0-48bc7855a9b0"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "ModemCount",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ModemRebootAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemRebootAPIResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "ModemRebootAPIFailure",
+        "value": "WebhookError"
+      }, {
+        "parameter": "API_Troubleshooting_ModemRebootAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RebootModembyBan"
+      } ]
+    },
+    "name": "e5fe3723-d470-45cc-81df-c15d3abd8cea"
+  }, {
+    "targetPage": "ModemCount",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ModemRebootAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemRebootAPIResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "ModemRebootAPIFailure",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "API_Troubleshooting_ModemRebootAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RebootModembyBan"
+      } ]
+    },
+    "name": "993c4b02-d0fa-4738-9927-7e8afac0a02a"
+  }, {
+    "targetPage": "ModemCount",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ModemRebootAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemRebootAPIResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "ModemRebootAPIFailure",
+        "value": "WebhookNotfound"
+      }, {
+        "parameter": "API_Troubleshooting_ModemRebootAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RebootModembyBan"
+      } ]
+    },
+    "name": "6b214160-8d0f-4521-9723-724a4768d268"
+  }, {
+    "targetPage": "ModemCount",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ModemRebootAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemRebootAPIResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "ModemRebootAPIFailure",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RebootModembyBan"
+      } ]
+    },
+    "name": "a26ba072-b64b-4a80-8fa1-51941a807b36"
+  }, {
+    "targetPage": "AsyncRebootModemAPI",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ModemRebootAPI_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemRebootAPIResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "ModemRebootAPIFailure",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RebootModembyBan"
+      } ]
+    },
+    "name": "c303055c-d39e-45aa-8299-4467a719d46d"
+  }, {
+    "targetPage": "ModemCount",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ModemRebootAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemRebootAPIResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "ModemRebootAPIFailure",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "RebootModembyBan"
+      } ]
+    },
+    "name": "35df94fb-822d-4225-bbe1-9fc4f869ca45"
+  } ]
+}

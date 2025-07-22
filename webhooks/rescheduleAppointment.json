@@ -1,0 +1,23 @@
+{
+  "name": "adad2ee5-df68-4632-8c80-b666207547c9",
+  "displayName": "rescheduleAppointment",
+  "genericWebService": {
+    "uri": " https://api-dv.brightspeed.com/ccsfieldtechservice/api/appointments/rescheduleAppointment?tarn=$session.params.dispatch_tarn\u0026ucid=$session.params.APICallID",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"appointmentReservationNumber\": \"$session.params.AppointmentReservationNumber\",\n  \"appointment\": {\n    \"arriveAfter\": \"$session.params.ArriveAfter\",\n    \"arriveBefore\": \"$session.params.ArriveBefore\",\n    \"commitTime\": \"$session.params.CommitTime\",\n    \"appointmentSlotInfo\": {\n      \"appointmentType\": \"$session.params.AppointmentType\"\n    }\n  }\n}",
+    "parameterMapping": [ {
+      "key": "rescheduleAppointmentStatus",
+      "value": "responseStatus"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth2/token",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 25
+  }
+}

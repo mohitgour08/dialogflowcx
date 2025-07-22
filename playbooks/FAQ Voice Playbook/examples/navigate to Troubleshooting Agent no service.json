@@ -1,0 +1,38 @@
+{
+  "name": "53fee28d-91f7-444a-a19e-e32a793c90c2",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "How can I help you today?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "I have no service"
+    }
+  }, {
+    "playbookInvocation": {
+      "playbook": "TroubleshootingAgent",
+      "playbookInput": {
+        "precedingConversationSummary": "customer doesn't have service",
+        "actionParameters": {
+          "FAQSuccess": "DirectTransferToBA"
+        }
+      },
+      "playbookOutput": {
+        "actionParameters": {
+        
+        }
+      },
+      "playbookState": "OUTPUT_STATE_OK"
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "Customer doesn't have service"
+  },
+  "playbookOutput": {
+    "executionSummary": "."
+  },
+  "displayName": "navigate to Troubleshooting Agent no service",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 168,
+  "languageCode": "en"
+}

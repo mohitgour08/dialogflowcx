@@ -1,0 +1,262 @@
+{
+  "name": "c40eaf4a-8158-4269-b6d6-9c82a9a8b6f4",
+  "displayName": "QuickBillPayAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "QuickBillPay",
+    "tag": "QuickBillPay",
+    "setParameterActions": [ {
+      "parameter": "Metrics_PaymentArrangementEnrollment_QuickBillPayAPI_wh",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.QuickBillPay != \"Success\" AND $session.params.QuickBillPay != \"success\" AND $session.params.QuickBillPay != \"SUCCESS\" AND $session.params.QuickBillPayErrorMessage != null AND $session.params.QuickBillPayErrorMessage != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangement_QuickBillPayAPI_Message",
+        "value": "$session.params.QuickBillPayErrorMessage"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_QuickBillPayAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "75cab36f-f051-4526-ae5d-b979f6422a95"
+  }, {
+    "condition": "$session.params.QuickBillPay = \"Success\" OR $session.params.QuickBillPay = \"success\" OR $session.params.QuickBillPay = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_QuickBillPayAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "paymentConfirmationId",
+        "value": "$session.params.ConfirmationCode"
+      }, {
+        "parameter": "ConfirmationCode",
+        "value": "$session.params.ConfirmationCode"
+      }, {
+        "parameter": "API_PaymentArrangement_QuickBillPayAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "targetPage": "PayByPaymentArrangement",
+    "name": "5cfabdc6-5d26-43aa-991d-423597931987"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_QuickBillPayAPI_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_QuickBillPayAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Wehook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "71fc6f96-058d-473c-98ba-0de346f31dab"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_QuickBillPayAPI_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_QuickBillPayAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "name": "a0cc18cc-36d9-4e16-8af5-0eae8641a7d4"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_QuickBillPayAPI_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_QuickBillPayAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "name": "d5e0cf43-efb0-4577-bb6c-5d3855d43325"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_QuickBillPayAPI_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_QuickBillPayAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "name": "fce2cda1-46fd-47ce-a3f0-66130a1b4409"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_QuickBillPayAPI_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_QuickBillPayAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "name": "826ee40d-5231-4ab3-ae44-7bf49701e197"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_QuickBillPayAPI_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_QuickBillPayAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "name": "3bcc3ec1-0e60-41bb-9940-f089e420e995"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_QuickBillPayAPI_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "QuickBillPayAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_QuickBillPayAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "QuickBillPay"
+      } ]
+    },
+    "name": "f3dce13a-9746-4ef9-ae87-f99f4c053ba5"
+  } ]
+}

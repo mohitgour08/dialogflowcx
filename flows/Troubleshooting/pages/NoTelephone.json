@@ -1,0 +1,31 @@
+{
+  "name": "f5b53cb2-eb69-4fde-93b8-a4c2d8f3d286",
+  "displayName": "NoTelephone",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.contactNumber = null OR $session.params.contactNumber = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NoTelephone_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SetContactNoAsBAN",
+    "name": "1335b58c-f186-4cb6-b8ba-b0bca9ffd9a1"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NoTelephone_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APIRecalled",
+    "name": "cdeaa9c3-835a-494a-bc0a-eee9cdefa63c"
+  } ]
+}

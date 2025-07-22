@@ -1,0 +1,80 @@
+{
+  "name": "fe0e84a5-eef7-4a94-b50c-f04837aa8a9d",
+  "displayName": "Last4DigitPhoneNum",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "phone_number",
+      "value": "$session.params.phone_number"
+    }, {
+      "parameter": "SS_AuthANIMatch",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.phone_number != null OR $session.params.phone_number != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Last4DigitPhoneNum",
+        "value": "$sys.func.MID($session.params.phone_number, 7, 4)"
+      }, {
+        "parameter": "Metrics_Authentication_Last4DigitPhoneNum_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AuthAcctFound",
+    "name": "903af632-980c-46da-875f-8ffd729dce5c"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Last4DigitPhoneNum_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "SS_AuthANIMatch",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": " No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Authentication-Last4DigitPhoneNum,phone number is empty"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "BANTN_NoMatch"
+      } ]
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "bb7d09e2-29c2-458a-a1a5-cc0ae3e159fe"
+  } ]
+}

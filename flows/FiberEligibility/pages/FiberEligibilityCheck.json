@@ -1,0 +1,109 @@
+{
+  "name": "df89e628-8a83-42f0-9c73-8daf9a3e8df9",
+  "displayName": "FiberEligibilityCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "Metrics_FiberEligibility_CCSP_Flag",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "FEAfterSelfServe",
+      "value": "Yes"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.fiberEligibility = \"Eligible\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "If you'd like quick access to more account management options, as well as easier billing and payment, we may be able to switch your account to Brightspeed Fiber. Our Fiber internet makes you less susceptible to service interruptions, and often comes at a lower monthly rate than your current plan. I'll transfer you to an agent now for assistance." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "If you'd like quick access to more account management options, as well as easier billing and payment, we may be able to switch your account to Brightspeed Fiber. Our Fiber internet makes you less susceptible to service interruptions, and often comes at a lower monthly rate than your current plan. I'll transfer you to an agent now for assistance." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_FiberEligibilityCheck_Eligible",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FiberEligibility",
+        "value": "$session.params.fiberEligibility"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Fiber eligible after self serve"
+      }, {
+        "parameter": "FiberTransfer",
+        "value": "TRUE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "fb1d87e5-3075-4915-b260-aa8a71e33a02"
+  }, {
+    "condition": "$session.params.fiberEligibility = \"unknown\" OR $session.params.fiberEligibility = \"Unknown\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_FiberEligibilityCheck_Unknown",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FiberEligibility",
+        "value": "$session.params.fiberEligibility"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "IntentCheck",
+    "name": "2ac892bc-fda4-499c-a029-7c5dbaf1e173"
+  }, {
+    "condition": "$session.params.fiberEligibility = \"Service Unavailable\" OR $session.params.fiberEligibility = \"Fiber\" OR $session.params.fiberEligibility = \"EligibleWithExistingPendingOrder\" OR $session.params.fiberEligibility = \"Ineligible\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_FiberEligibilityCheck_Unqualified",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FiberEligibility",
+        "value": "$session.params.fiberEligibility"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "ModuleCheck",
+    "name": "75c32930-ad8c-4b15-b2d8-b5ba51090bdf"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_FiberEligibilityCheck_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ModuleCheck",
+    "name": "5694743d-1b55-41a2-9500-90373737e998"
+  } ]
+}

@@ -1,0 +1,149 @@
+{
+  "name": "b0d4b585-d5d6-4f61-bc80-e046bd81c6d8",
+  "displayName": "CopperTimeFrame",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay! What time frame is most convenient? Our Copper techs are available 8am-5pm EASTERN. Please note, all appointments are in EASTERN time. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "8am-10am eastern"
+          }, {
+            "action": "quick_reply",
+            "title": "10am-12pm eastern"
+          }, {
+            "action": "quick_reply",
+            "title": "12pm-2pm eastern"
+          }, {
+            "action": "quick_reply",
+            "title": "2pm-5pm eastern"
+          }, {
+            "action": "quick_reply",
+            "title": "See days of the week again."
+          }, {
+            "action": "quick_reply",
+            "title": "None of these times works for me."
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003eOkay! What time frame is most convenient? Our Copper techs are available 8am to 5pm eastern. Please note, all appointments are in eastern time.\nFor an appointment between 8am and 10am, Press 1. For an appointment between 10am and 12pm, Press 2. For an appointment between 12pm and 2pm, Press 3. For an appointment between 2pm and 5pm, Press 4. To repeat this message, Press 5. If these times are not convenient, Press 6.\u003c/speak\u003e." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "8am-10am",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "eeb8bbe9-243f-403e-8452-8b99b15128f1"
+  }, {
+    "intent": "10am-12pm",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "4a9b81e4-008a-4da8-b804-58727ee516ad"
+  }, {
+    "intent": "12pm-2pm",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "505ca41b-6483-42d2-8dfb-af9f38e9af0d"
+  }, {
+    "intent": "2pm-5pm",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "334334e4-6fcc-4451-8ce8-45f948ab8cbd"
+  }, {
+    "intent": "Repeat_DTMF5",
+    "triggerFulfillment": {
+    
+    },
+    "name": "f0b300fa-2805-47ff-b10e-e15252abba84"
+  }, {
+    "intent": "Nevermind",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay! Please hold while I transfer you to an agent for further assistance with rescheduling." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eOkay! Please hold while I transfer you to an agent for further assistance with rescheduling.\u003c/speak\u003e." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "cf584f1d-4358-4cac-ab23-c27a1bf39b4e"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "a573d40d-7640-4576-861c-bd01df798cd6"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "bf586df2-e65b-4f0f-8c25-8bdbb831cd46"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "bcc9a897-7e68-46fe-ad50-eb02ddc37f33"
+  }, {
+    "intent": "DTMF_4",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "9838d477-e9de-4afe-b805-6e46fc600423"
+  }, {
+    "intent": "DTMF_6",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay! Please hold while I transfer you to an agent for further assistance with rescheduling." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "1ddc7d40-964e-440f-8585-deeafc9124ee"
+  } ]
+}

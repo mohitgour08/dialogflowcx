@@ -1,0 +1,49 @@
+{
+  "name": "b067991c-6ac5-44b5-81bf-2d6c17ade373",
+  "displayName": "CheckAgentAvailability",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "generators": [ {
+      "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/1d74047d-cf64-4fd4-97f6-0450ae0b3999",
+      "outputParameter": "$request.generative.text"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$session.params.summary",
+        "value": "$request.generative.text"
+      }, {
+        "parameter": "Metrics_RouteToAgent_HandOff",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CurrentTime",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POCheck",
+    "name": "fcd9295f-5477-48bf-b250-2364f62c6e93"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "suggestion_chips_tag",
+        "value": null
+      }, {
+        "parameter": "Metrics_RouteToAgent_CheckAgentAvailability_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "summary",
+        "value": "$request.generative.text"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "SetParametersChat",
+    "name": "e7dd3b54-d063-479f-9e01-6edfbfb16841"
+  } ]
+}

@@ -1,0 +1,95 @@
+{
+  "name": "37a8e765-3afd-4b70-bec7-7e59fcfd5643",
+  "displayName": "FormPastDueFiber",
+  "form": {
+    "parameters": [ {
+      "displayName": "FormResponsePDF",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n\"chatClientForm\": \"pastDueFiber\",\n\"paymentMethod\": \"$session.params.PaymentMethod\",\n\"lastFourDigits\": \"$session.params.MethodLastFourDigits\",\n\"currentBalance\": \"$session.params.TotalBalance\",\n\"dueDate\": \"$session.params.BillInfo_BillDueDate\",\n\"pastDueAmount\":\"$session.params.BillInfo_PastDueAmount\"\n}" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "FormResponsePDF",
+      "value": null
+    }, {
+      "parameter": "Metrics_Payment_FormPastDueFiber",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "MethodLastFourDigits",
+      "value": "$session.params.CreditCardNumberLast4"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.FormResponsePDF = \"Update\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "callerintent",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "ToState",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "Metrics_Payment_FormPastDueFiber_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "96014d00-c7ff-4787-96df-8e8ef1a71abe"
+  }, {
+    "condition": "$session.params.FormResponsePDF = \"onePayment\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "FiberPayment"
+      }, {
+        "parameter": "Metrics_Payment_FormPastDueFiber_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentAmount",
+        "value": "$session.params.BillInfo_PastDueAmount"
+      } ]
+    },
+    "targetFlow": "SecuredPayments",
+    "name": "e8bdc6e9-7074-448d-8e31-81435a66844d"
+  }, {
+    "condition": "$session.params.FormResponsePDF = \"formBack\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_FormPastDueFiber_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OtherPaymentOptions",
+    "name": "5d5f9f3a-197a-4e7a-ae74-37e2d0fc0e98"
+  } ]
+}

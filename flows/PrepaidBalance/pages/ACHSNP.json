@@ -1,0 +1,277 @@
+{
+  "name": "935b0dfe-6f27-413e-9d89-7eab1ee56bda",
+  "displayName": "ACHSNP",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Right now, the balance on your account is $$session.params.BillInfo_LatestDueAmount . Because this amount is past due, your service has been temporarily suspended.The amount needs to be paid in full to continue enjoying Brightspeed. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "What would you like to do?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Make a payment"
+          }, {
+            "action": "quick_reply",
+            "title": "View or print statements"
+          }, {
+            "action": "quick_reply",
+            "title": "See my payment history"
+          }, {
+            "action": "quick_reply",
+            "title": "I have an additional question"
+          }, {
+            "action": "quick_reply",
+            "title": "Thanks, that was all I needed"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_PrepaidBalance",
+      "value": "Success"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "MakeAPayment",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PrepaidPayment"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_ACHSNP_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Success"
+      }, {
+        "parameter": "callerintent",
+        "value": "PrepaidPayment"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "f4c6d6f2-945b-4235-a8f1-a910b86aaa3e"
+  }, {
+    "intent": "ViewOrPrintStatements",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "BillRequestBillCopy"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_ACHSNP_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Billing"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Success"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "Billing",
+    "name": "412d5e94-4b92-4eab-a9b4-175fee456d61"
+  }, {
+    "intent": "Payment.PaymentHistory",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentHistory"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_ACHSNP_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Success"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "d93db932-1486-4139-a1cf-e1cc9e60d308"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_ACHSNP_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "agentPromptRemoval",
+        "value": "Yes"
+      }, {
+        "parameter": "agentPromptRemoval_pagename",
+        "value": "PayPalSNP"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ACHSNP"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "063bd988-0be4-471d-881a-1a6e477f0658"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "What would you like to do?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Update payment"
+            }, {
+              "action": "quick_reply",
+              "title": "View or print statements"
+            }, {
+              "action": "quick_reply",
+              "title": "See my payment history"
+            }, {
+              "action": "quick_reply",
+              "title": "I have an additional question"
+            }, {
+              "action": "quick_reply",
+              "title": "Thanks, that was all I needed"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_ACHSNP_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "1c92cb86-d4b7-4711-9492-e025509df242"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_ACHSNP_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ACHSNP"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "fe831457-92a7-4c30-a25a-2c55785e2fb9"
+  } ],
+  "transitionRouteGroups": [ "AdditionalQuestion", "GoodToGo" ],
+  "description": "SUSPENDED PAYPAL"
+}

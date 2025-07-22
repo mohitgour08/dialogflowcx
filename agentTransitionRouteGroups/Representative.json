@@ -1,0 +1,14 @@
+{
+  "name": "9c9af920-3086-4441-ab02-4667bb7d6ff1",
+  "displayName": "Representative",
+  "transitionRoutes": [ {
+    "intent": "GoodToGo",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentsPostpaid_GoodToGo",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "73e0791b-2080-4115-b9cf-f53f24926051"
+  } ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "3ba96d2e-c887-436b-b52f-7c3dbc42cddf",
+  "displayName": "Check4GLTE",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"4GLTE\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eVoy a enviarte a un agente ahora para obtener más ayuda.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Check4GLTE_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "self service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Network 4GLTE"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "084954ea-3102-48c1-b432-8e4a58fda391"
+  }, {
+    "condition": "$session.params.networkType != \"4GLTE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Check4GLTE_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "TransferReason",
+        "value": "self service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "agent transfer flow"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "a7578424-3177-4d4a-90b0-2cba87a82d09"
+  } ]
+}

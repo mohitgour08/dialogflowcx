@@ -1,0 +1,99 @@
+{
+  "name": "9c284dfe-9eff-4ba7-b59b-820bb2f94d1a",
+  "displayName": "CheckNetworkType",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillingSystem : \"$\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "BillingSystemBackup",
+        "value": "$session.params.BillingSystem"
+      }, {
+        "parameter": "BillingSystem",
+        "value": ""
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_CheckNetworkType_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "fa9fcbb5-2af7-4f34-b063-2828dbe8389e"
+  }, {
+    "condition": "$session.params.networkType = \"4GLTE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_CheckNetworkType_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "4GLTEMenu",
+    "name": "c2e72df4-82a5-4ff3-960e-8b6c865fba66"
+  }, {
+    "condition": "$session.params.networkType != \"4GLTE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_CheckNetworkType_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckFiberEligibility",
+    "name": "e16e58cc-d6b6-4d8f-8c10-c2db3f5ee437"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_CheckNetworkType_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "PreChecks",
+    "name": "c25141e6-9623-4a9d-b7f0-5dcfc16143dd"
+  } ]
+}

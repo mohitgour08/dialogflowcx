@@ -1,0 +1,11 @@
+{
+  "name": "7a7547c3-1dbc-4620-bff1-e31a123f2696",
+  "displayName": "AuthenticationAccountInfoBAN",
+  "parameters": [ {
+    "id": "ENTER_BAN",
+    "entityType": "@ENTER_BAN"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 26,
+  "dtmfPattern": "^\\d{9}$"
+}

@@ -1,0 +1,492 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Wifi"
+    }, {
+      "text": " is down for the "
+    }, {
+      "text": "second time this month",
+      "parameterId": "time-period"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I am unable to use my ",
+      "auto": true
+    }, {
+      "text": "wifi"
+    }, {
+      "text": " on my IMAC and laptop",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My ",
+      "auto": true
+    }, {
+      "text": "wifi"
+    }, {
+      "text": " stop working",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How come my ",
+      "auto": true
+    }, {
+      "text": "router"
+    }, {
+      "text": " keeps losing the signal?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I have unplugged the ",
+      "auto": true
+    }, {
+      "text": "modem"
+    }, {
+      "text": " and reset it and still it keeps blinking ",
+      "auto": true
+    }, {
+      "text": "blue",
+      "parameterId": "color",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need help enabling my ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I’m trying to take certain items off my ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    }, {
+      "text": " started blinking ",
+      "auto": true
+    }, {
+      "text": "blue",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "need help with my ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How can I link my ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    }, {
+      "text": " to my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How to link my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " to my ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "How to connect ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    }, {
+      "text": " to my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "need a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    }, {
+      "text": " because my current ",
+      "auto": true
+    }, {
+      "text": "one",
+      "auto": true
+    }, {
+      "text": " is malfunctioning",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    }, {
+      "text": " is not working properly",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm having ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    }, {
+      "text": " problems and I need a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "experiencing problems with my ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm experiencing ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    }, {
+      "text": " issues",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "problem with my ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "having issues with my ",
+      "auto": true
+    }, {
+      "text": "router",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my ",
+      "auto": true
+    }, {
+      "text": "wifi",
+      "auto": true
+    }, {
+      "text": " won't connect",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Blue",
+      "auto": true
+    }, {
+      "text": " light keeps blinking past ",
+      "auto": true
+    }, {
+      "text": "15",
+      "auto": true
+    }, {
+      "text": " minutes",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I accidentally turned off wifi on my modem on the app and I can't undo it"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "we can not seem to get connected to the ",
+      "auto": true
+    }, {
+      "text": "wifi",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Unable to connect to ",
+      "auto": true
+    }, {
+      "text": "WiFi",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my calix router has been blinking on and off, red and green"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My wifi abruptly stopped functioning"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My ",
+      "auto": true
+    }, {
+      "text": "Wi-Fi",
+      "auto": true
+    }, {
+      "text": " hasn’t been working for about ",
+      "auto": true
+    }, {
+      "text": "three",
+      "auto": true
+    }, {
+      "text": " days.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I hooked my modem up it doesn’t work, it blinks."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I got a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "modem",
+      "auto": true
+    }, {
+      "text": " but it’s not connected.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "modem equipment is failing"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I might need a new modem as I see there is some issue with my modem"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My wifi is not working"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I am facing some issues with my device"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my device is malfunctioning"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "something happened to my device. its showing some weird behaviour"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "modem not functioning properly",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my modem is not working",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I cannot access my modem"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "facing issues with my modem",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Cant connect to my router"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "help reboot my modem",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I am getting DNS fail readings on my modem",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "what are red dsl lights indicate on modem"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My DSL keeps randomly going off",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My modem is flashing blue"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "DSL is flashing ",
+      "auto": true
+    }, {
+      "text": "green",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

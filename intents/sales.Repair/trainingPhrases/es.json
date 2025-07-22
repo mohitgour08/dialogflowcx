@@ -1,0 +1,61 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Reparación"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Reparar"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Quiero "
+    }, {
+      "text": "reparar"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Reparación"
+    }, {
+      "text": ", por favor"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Servicio de "
+    }, {
+      "text": "reparación"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Reparación"
+    }, {
+      "text": " de "
+    }, {
+      "text": "servicios"
+    }, {
+      "text": " existentes"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "Diga \""
+    }, {
+      "text": "reparación"
+    }, {
+      "text": "\""
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  } ]
+}

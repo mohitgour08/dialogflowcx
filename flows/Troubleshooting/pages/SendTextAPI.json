@@ -1,0 +1,375 @@
+{
+  "name": "2a9a6d24-a7fe-4bde-9b6c-094529bce4e7",
+  "displayName": "SendTextAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "SendSMSMessage",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_SendTextAPI_none_wh_SendSMSMessage",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "smsMessage",
+      "value": "Click this link to open Brightspeed's online troubleshooter:"
+    }, {
+      "parameter": "smsMessage1",
+      "value": "https://dssr.brightspeed.com/digicustcare/sts?_gl=1*yfe61x*_ga*NTU5MjIxNjk0LjE3MDY2NDM5NjQ.*_ga_15CLKCWTL3*MTc0MDE3NTM4NC44MC4xLjE3NDAxNzU3MDIuMC4wLjA.*_gcl_au*MTQ0OTExNDQ0Mi4xNzM5MjA1ODE3*_ga_Z1GY0LBN8G*MTc0MDE3NTM4NC4xMTEuMS4xNzQwMTc1NzAyLjYwLjAuMA.."
+    }, {
+      "parameter": "Passcode",
+      "value": ""
+    }, {
+      "parameter": "contactNumber",
+      "value": "$session.params.SMSNumber"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.SMSResponseStatus = \"success\" OR $session.params.SMSResponseStatus = \"Success\" OR $session.params.SMSResponseStatus = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_SendTextAPI_Succes",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_SendTextAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "targetPage": "MessageSentConfirmation",
+    "name": "06ea541c-0487-4901-a2aa-c7e15ad241bb"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm having trouble sending the text message. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_SendTextAPI_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_Failurereason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "SendSMSMessageAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SendSMSMessageAPIFailure",
+        "value": "$session.params.SMSResponseStatus"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendSMSMessage"
+      }, {
+        "parameter": "API_Troubleshooting_SendTextAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "e0980caf-0d41-4539-8d04-090cc7294ed3"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm having trouble sending the text message. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_SendTextAPI_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SendSMSMessageAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SendSMSMessageAPIFailure",
+        "value": "WebhookError"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendSMSMessage"
+      }, {
+        "parameter": "API_Troubleshooting_SendTextAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "973fa524-20e6-4cbc-a867-eacde4ef309a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm having trouble sending the text message. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_SendTextAPI_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SendSMSMessageAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SendSMSMessageAPIFailure",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid "
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendSMSMessage"
+      }, {
+        "parameter": "API_Troubleshooting_SendTextAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "0b3502f6-ff54-49b0-b00c-26e8f6608c54"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm having trouble sending the text message. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_SendTextAPI_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SendSMSMessageAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SendSMSMessageAPIFailure",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendSMSMessage"
+      }, {
+        "parameter": "API_Troubleshooting_SendTextAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "3d896c0b-e95a-43f3-9c10-c43db73a8745"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm having trouble sending the text message. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_SendTextAPI_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SendSMSMessageAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SendSMSMessageAPIFailure",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected "
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendSMSMessage"
+      }, {
+        "parameter": "API_Troubleshooting_SendTextAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "059e3fbe-e818-4c5b-abce-ddfda3c18b22"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm having trouble sending the text message. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_SendTextAPI_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SendSMSMessageAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SendSMSMessageAPIFailure",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendSMSMessage"
+      }, {
+        "parameter": "API_Troubleshooting_SendTextAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "ad86f3c1-c39a-4f6b-8907-67f66c6fda82"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm having trouble sending the text message. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_SendTextAPI_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SendSMSMessageAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SendSMSMessageAPIFailure",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable "
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendSMSMessage"
+      }, {
+        "parameter": "API_Troubleshooting_SendTextAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "1d0f3eff-fd1c-4c8f-9f01-e95166347c64"
+  } ]
+}

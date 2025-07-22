@@ -1,0 +1,68 @@
+{
+  "name": "cb1499a8-ec7d-4ad5-8dce-8192e3bf213d",
+  "displayName": "PayArrBalanceCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_LatestDueAmount = \"0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.00\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.0\" OR $session.params.BillInfo_LatestDueAmount \u003c 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrBalanceCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PayArrBalanceZero",
+    "name": "959b0337-2f17-475c-b7e0-aced42dee922"
+  }, {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrBalanceCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PayArrVoice",
+    "name": "7a2ad6a4-d72a-4064-a3fc-28803136bde4"
+  }, {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrBalanceCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PayArrMigCopperURL",
+    "name": "5222c79f-188b-4732-9209-71bdbef8e3f1"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_Payment_PayArrBalanceCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Payment-PayArrBalanceCheck,ChannelUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "733806fe-b879-4ea2-9756-6dfd67b22bf7"
+  } ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "a1f33ba0-9bcf-4d29-8d7c-18f2f8eee5da",
+  "displayName": "FiberOrMigratedCopper",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"GPON\" OR $session.params.networkType = \"BPON\" OR $session.params.networkType = \"XGSPON\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_FiberOrMigratedCopper_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckFiberPlan",
+    "name": "c6bf3901-f7a4-4e20-9208-8b94e26825f6"
+  }, {
+    "condition": "$session.params.networkType = \"Copper\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_FiberOrMogratedCopper_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "MigratedCopperServiceUpgrade",
+    "name": "36a5918d-f76a-4cac-8fe8-fdc5b773feb6"
+  } ]
+}

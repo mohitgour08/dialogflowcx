@@ -1,0 +1,54 @@
+{
+  "name": "0707b643-ab1c-45c4-a5b0-fd981e6c4de7",
+  "displayName": "VMRetryCounterCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.VMRetry = \"1\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_VMRetryCounterCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "VMSetUp",
+    "name": "e3f69598-beb4-4a59-a11a-6f7dd8d8e77b"
+  }, {
+    "condition": "$session.params.VMRetry = \"2\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_VMRetryCounterCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_VMSetUpOrPassword",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "TransferReason",
+        "value": "RetryorRepeatLimitExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Exceeded VMRetry"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "649040e1-fc9d-404e-9c2c-e8827a5d7254"
+  } ]
+}

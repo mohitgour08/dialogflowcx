@@ -1,0 +1,29 @@
+{
+  "name": "2d62def3-8364-4c80-9100-5283f42c1290",
+  "displayName": "CheckModemStatus",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/ccsautomateservice/api/v1/modemStatus",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"ucid\": \"$session.params.APICallID\",\n  \"networkType\": \"$session.params.networkType\",\n  \"tn\": \"$session.params.contactNumber\",\n  \"data\": \"summary\",\n  \"billingSystem\": \"$session.params.BillingSystem\"\n}",
+    "parameterMapping": [ {
+      "key": "GetModem",
+      "value": "responseBody.getModem"
+    }, {
+      "key": "GetModemResponseStatus",
+      "value": "responseStatus"
+    }, {
+      "key": "ProductClass",
+      "value": "responseBody.getModem[0].ProductClass"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 30
+  }
+}

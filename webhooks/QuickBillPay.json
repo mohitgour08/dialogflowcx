@@ -1,0 +1,36 @@
+{
+  "name": "839f8d0c-2c78-446d-b1ef-9db160697ce6",
+  "displayName": "QuickBillPay",
+  "genericWebService": {
+    "uri": "https://api-ut.brightspeed.com/ccsbrimservice/api/v2/payment/quick-bill-pay",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"ucid\": \"$session.params.APICallID\",\n  \"networkType\": \"$session.params.networkType\",\n  \"paymentAuthId\": \"$session.params.PaymentToken\",\n  \"ban\": \"$session.params.AccountNumber\",\n  \"emailAddress\": \"$session.params.Email\",\n  \"amount\": \"$session.params.PaymentAmount\",\n  \"debitName\": \"$session.params.CustFullName\",\n  \"zipCode\": \"$session.params.BillingAddress_zip\",\n  \"paymentType\": \"$session.params.PaymentType\",\n  \"banType\": \"R\",\n  \"accountId\": \"$session.params.BillInfo_AccountID\",\n  \"comment\": \"Payment\",\n  \"currency\": \"USD\",\n  \"effectiveDate\": \"\",\n  \"gatewayId\": \"\",\n  \"type\": \"Electronic\",\n  \"latestInvoiceId\": \"$session.params.LatestInvoiceId\",\n  \"latestInvoiceAmount\": \"$session.params.LatestInvoiceAmount\",\n  \"billingSystem\": \"$session.params.BillingSystem\"\n}",
+    "parameterMapping": [ {
+      "key": "ConfirmationCode",
+      "value": "responseBody.ConfirmationCode"
+    }, {
+      "key": "FiberConfirmationCode",
+      "value": "responseBody.number"
+    }, {
+      "key": "FiberPaymentStatus",
+      "value": "responseBody.status"
+    }, {
+      "key": "QuickBillPay",
+      "value": "responseStatus"
+    }, {
+      "key": "QuickBillPayErrorMessage",
+      "value": "responseBody.message"
+    } ],
+    "oauthConfig": {
+      "clientId": "Wxq32hAc8gxpoxhatAxdU38UhD8kVmkK3C0MAPHlzCZBhhtZ",
+      "clientSecret": "dtA3CT9c77cVxpI0Aw1THWKfO0ix3kqwKjrY080rCg1PeHQYmCMpmM52xd1LwY21",
+      "tokenEndpoint": "https://api-ut.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    },
+    "serviceAgentAuth": "NONE"
+  },
+  "timeout": {
+    "seconds": 25
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "2128701c-7a2c-486b-8930-677a7f7bf5e0",
+  "displayName": " GoodToGo",
+  "transitionRoutes": [ {
+    "intent": "GoodToGo",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_GoodToGo",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "c0d5389c-88fd-4d0e-bcc1-23f24bf71527"
+  } ]
+}

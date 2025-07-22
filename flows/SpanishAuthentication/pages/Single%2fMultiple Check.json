@@ -1,0 +1,45 @@
+{
+  "name": "fd0cc09d-8d42-49b0-b1bf-d62cf0d61a3a",
+  "displayName": "Single/Multiple Check",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Brightspeed[1].billingAccountNumber = \"\" OR $session.params.Brightspeed[1].billingAccountNumber = NULL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Single/MultiCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AccountIdentification",
+        "value": "SingleAccount"
+      } ]
+    },
+    "targetPage": "AuthOptions",
+    "name": "d7d75fe1-36cd-435d-93fc-46dbb7890d3a"
+  }, {
+    "condition": "$session.params.Brightspeed[1].billingAccountNumber != \"\" OR $session.params.Brightspeed[1].billingAccountNumber = NULL",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": " CustomerInfo",
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "MULTIACCTFOUND"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_Single/Multi Check_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_AccountIdentification",
+        "value": "MultipleAccount"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "4f36fe40-dc0e-4db3-aaa7-4b298dc12bea"
+  } ]
+}

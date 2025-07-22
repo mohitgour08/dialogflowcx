@@ -1,0 +1,21 @@
+{
+  "name": "f79420ca-18ea-470d-8fa4-f90a381ceb76",
+  "displayName": "AuthOptions",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_AuthOptions_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AuthOptionVoice",
+    "name": "cce91657-33b2-44b0-830a-7724d800aa32"
+  } ]
+}

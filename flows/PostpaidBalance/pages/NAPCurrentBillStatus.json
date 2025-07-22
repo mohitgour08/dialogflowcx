@@ -1,0 +1,71 @@
+{
+  "name": "304f3508-c63e-4b48-969c-7ca1a4fa623b",
+  "displayName": "NAPCurrentBillStatus",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.BillInfo_LatestDueAmount = \"0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.00\" OR $session.params.BillInfo_LatestDueAmount = \"\") AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_NAPCurrentBillStatus_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "CurrentBillBalance"
+      }, {
+        "parameter": "ToModule",
+        "value": "PostpaidBalance"
+      } ]
+    },
+    "targetPage": "FormNAPNodue",
+    "name": "ba6298c9-8c01-4116-b18a-532a23533845"
+  }, {
+    "condition": "($session.params.BillInfo_LatestDueAmount = \"0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.00\" OR $session.params.BillInfo_LatestDueAmount = \"\") AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your account is up to date at this time and there is no payment due. You can view your past or upcoming bills any time in your My Brightspeed portal online.  " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_NAPCurrentBillStatus_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Anythingelse",
+        "value": "Yes"
+      }, {
+        "parameter": "ToState",
+        "value": "CurrentBillBalance"
+      }, {
+        "parameter": "ToModule",
+        "value": "PostpaidBalance"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "b7e54ec4-c3a2-4b30-a2b0-779247e9ea66"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_NAPCurrentBillStatus_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NAPPAAcheckNotPaidFully",
+    "name": "b69a4d96-d17b-41cd-b992-022a46357d4a"
+  } ],
+  "description": "FULLY PAID OR NOT"
+}

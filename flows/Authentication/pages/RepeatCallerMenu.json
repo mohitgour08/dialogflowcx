@@ -1,0 +1,191 @@
+{
+  "name": "fbf902b9-0dd7-4d77-b696-ff5af769e339",
+  "displayName": "RepeatCallerMenu",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I see that you've called us a few times recently. If you'd like to speak with an agent right away, you can say \"agent\" now. Or, you can say \"self-service\" to continue as normal." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_Authentication_RepeatCallerMenu_1",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerMenu_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Self-Serve",
+        "value": "No"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "52bc8b96-cc31-425e-9c76-f76dc0b140e4"
+  }, {
+    "intent": "Self Service",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerMenu_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Self-Serve",
+        "value": "Yes"
+      } ]
+    },
+    "targetPage": "UnidentifiedANI",
+    "name": "75d09fd6-e602-4841-8e89-c123b9852982"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerMenu_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Authentication_RepeatCallerMenu_1"
+      }, {
+        "parameter": "Self-Serve",
+        "value": "No"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "f94fdbc8-3f42-443d-a780-0e8c65372c66"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerMenu_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Authentication_RepeatCallerMenu_2"
+      }, {
+        "parameter": "Self-Serve",
+        "value": "Yes"
+      } ]
+    },
+    "targetPage": "UnidentifiedANI",
+    "name": "e238c395-3b74-4a57-accd-ffe9b9329b10"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Press 1 to reach an agent, or press 2 for self service." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerMenu_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "1b147634-bdfd-43b5-89f5-a896f946bda8"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's Okay" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerMenu_NoInput2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "RepeatCallerMenu"
+      } ]
+    },
+    "name": "2745f4e4-c957-4b20-9485-45b74eb12dcf"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Press 1 to reach an agent, or press 2 for self service." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerMenu_Nomatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "1c3ebdda-e832-4b77-931c-759c34a1053d"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's Okay" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_RepeatCallerMenu_NoMatch2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "RepeatCallerMenu"
+      } ]
+    },
+    "name": "7a5c10e9-d58d-473d-ac6f-fdac8e3d556c"
+  } ]
+}

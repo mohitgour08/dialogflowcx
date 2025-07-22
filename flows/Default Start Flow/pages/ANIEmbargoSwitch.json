@@ -1,0 +1,176 @@
+{
+  "name": "fd2eed4c-b7c0-42a4-ac50-adfc03f6fc91",
+  "displayName": "ANIEmbargoSwitch",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "CCSPSwitch",
+    "tag": "EmbargoSwitchANI",
+    "setParameterActions": [ {
+      "parameter": "Metrics_DefaultStartFlow_ANIEmbargoSwitch_EmbargoSwitchANI_wh_EmbargoSwitch",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "CCSPToggle",
+      "value": "EmbargoSwitch"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.EmbargoSwitch = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoSwitch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "Success"
+      } ]
+    },
+    "targetPage": "ANIEmbargoCheck",
+    "name": "2a163d11-d48f-47c3-9450-2f186fa0fa64"
+  }, {
+    "condition": "$session.params.EmbargoSwitch = 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoSwitch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "Success"
+      } ]
+    },
+    "targetPage": "Call360",
+    "name": "e2804d10-46ac-416e-b23f-71883593faf1"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoSwitch_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "NoData"
+      } ]
+    },
+    "targetPage": "Call360",
+    "name": "fb6888c0-747b-4147-a757-66ce6dcb64ff"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "Call360",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoSwitch_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "FAILURE"
+      } ]
+    },
+    "name": "791c8418-a781-41ff-9472-84a3f9dae28a"
+  }, {
+    "targetPage": "Call360",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoSwitch_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "FAILURE"
+      } ]
+    },
+    "name": "c9491f25-f131-45f6-b66d-18210df0cc7b"
+  }, {
+    "targetPage": "Call360",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoSwitch_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "FAILURE"
+      } ]
+    },
+    "name": "aadaa4f6-4fe7-4339-a3a2-32255e73e73a"
+  }, {
+    "targetPage": "Call360",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoSwitch_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "FAILURE"
+      } ]
+    },
+    "name": "8b4c8e42-f626-4f12-91df-0f5a2388f449"
+  }, {
+    "targetPage": "Call360",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoSwitch_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "FAILURE"
+      } ]
+    },
+    "name": "536b4573-55bd-4ad0-a484-48f99b2d02cc"
+  }, {
+    "targetPage": "Call360",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_ANIEmbargoSwitch_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "FAILURE"
+      } ]
+    },
+    "name": "52ed465f-40ab-4840-a67e-1b48544b3cf4"
+  } ]
+}

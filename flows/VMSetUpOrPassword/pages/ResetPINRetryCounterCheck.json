@@ -1,0 +1,54 @@
+{
+  "name": "ec31d80f-57c2-4785-a9a8-5126990e6a74",
+  "displayName": "ResetPINRetryCounterCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ResetPINRetry = \"1\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetPINRetryCounterCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ResetVMPIN",
+    "name": "b9fb42a2-8db5-48e4-b75a-dac4fa9ce302"
+  }, {
+    "condition": "$session.params.ResetPINRetry = \"2\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetPINRetryCounterCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_VMSetUpOrPassword",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "TransferReason",
+        "value": "RetryorRepeatLimitExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Exceeded Reset PIN Retry"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "fea9bcfe-184e-449e-820c-ef2cf5432533"
+  } ]
+}

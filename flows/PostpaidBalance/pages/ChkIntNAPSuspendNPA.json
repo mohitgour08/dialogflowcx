@@ -1,0 +1,57 @@
+{
+  "name": "13bad835-b137-4826-af8a-8e6aedce46d6",
+  "displayName": "ChkIntNAPSuspendNPA",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.callerintent = \"BalanceInquiryPayment\" OR $session.params.callerintent = \"PostpaidPayment\" OR $session.params.callerintent = \"PrepaidPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_ChkIntNAPSuspendNPA_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "bff6c0e6-c459-4473-8ff4-531a7815c0a8"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_ChkIntNAPSuspendNPA_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "SuspendedNotPAEligible",
+    "name": "cda9812b-c132-40d6-bf29-96005fda34ba"
+  } ]
+}

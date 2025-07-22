@@ -1,0 +1,50 @@
+{
+  "name": "3ea68c5b-1b14-415d-8d63-8fdedd5a873d",
+  "displayName": "checkChannel",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_checkChannel_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountInfo",
+    "name": "716636c0-81d6-4e0e-9aff-913f64e4a667"
+  }, {
+    "condition": "$session.params.Authattempts = 1 OR $session.params.TN_BAN_attempt = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_checkChannel_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      } ]
+    },
+    "targetPage": "AskAccountInfoB",
+    "name": "3e5bd9a7-1c80-4e89-91cc-6f169b5e84ef"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_checkChannel_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      } ]
+    },
+    "targetPage": "AskAccountInfo",
+    "name": "2a92e375-4bc4-48a7-84e4-c8736b8e61f1"
+  } ]
+}

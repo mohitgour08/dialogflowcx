@@ -1,0 +1,31 @@
+{
+  "name": "f6133e27-afe5-49f4-b107-a21105c30ba4",
+  "displayName": "PaymentDueDateChange",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PaymentDueDateChange_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "DueDateChangeChat",
+    "name": "a2dacaac-96c2-4d4d-8797-60e3d40e2703"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PaymentDueDateChange_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "DueDateChangeMessageVoice",
+    "name": "695f8c35-a687-4a26-bd3a-0adc062a09d1"
+  } ]
+}

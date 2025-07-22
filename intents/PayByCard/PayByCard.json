@@ -1,0 +1,11 @@
+{
+  "name": "e0cd28c9-a818-47d9-aa59-51748d39968b",
+  "displayName": "PayByCard",
+  "parameters": [ {
+    "id": "prebuilt_components_credit_card_expiration_month",
+    "entityType": "@prebuilt_components_credit_card_expiration_month"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 28,
+  "dtmfPattern": "1"
+}

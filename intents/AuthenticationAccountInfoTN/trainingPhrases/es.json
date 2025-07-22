@@ -1,0 +1,49 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Sí, mi número de móvil es "
+    }, {
+      "text": "15055551234",
+      "parameterId": "phone-number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "dtmf"
+    }, {
+      "text": "_digits_"
+    }, {
+      "text": "3534346356",
+      "parameterId": "phone-number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "16416675678",
+      "parameterId": "phone-number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "+15055551234",
+      "parameterId": "tn_ban_voice",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  }, {
+    "parts": [ {
+      "text": "+1 (123) 456-7890",
+      "parameterId": "tn_ban_voice",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "es"
+  } ]
+}

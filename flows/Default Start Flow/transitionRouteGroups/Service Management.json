@@ -1,0 +1,29 @@
+{
+  "name": "7a907a6b-613b-48d4-b07e-131b4920ce31",
+  "displayName": "Service Management",
+  "transitionRoutes": [ {
+    "intent": "Service_Management.Move_service",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_path",
+        "value": "English/Sales/"
+      }, {
+        "parameter": "queue_name",
+        "value": "Sales"
+      }, {
+        "parameter": "head_intent",
+        "value": "Service Management"
+      } ]
+    },
+    "name": "7b3f34e9-3c40-48be-9fab-737b01b9c305"
+  }, {
+    "intent": "Service management",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "head_intent",
+        "value": "Service management"
+      } ]
+    },
+    "name": "4cd4041d-bd50-40ac-b339-438f3383bb2f"
+  } ]
+}

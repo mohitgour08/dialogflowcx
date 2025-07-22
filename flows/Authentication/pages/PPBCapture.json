@@ -1,0 +1,127 @@
+{
+  "name": "7f3c9912-ed5f-4edd-9d3a-21e8a1313301",
+  "displayName": "PPBCapture",
+  "form": {
+    "parameters": [ {
+      "displayName": "MultiSelectedBanPPB",
+      "required": true,
+      "entityType": "@TN_BAN_PPB_voice",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_Authentication_PPBCapture_MultiSelectedBan",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ]
+        },
+        "repromptEventHandlers": [ {
+          "targetPage": "CheckNoMatchBAN",
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "setParameterActions": [ {
+              "parameter": "Metrics_Authentication_BANNumberEntry_PPBCapture_MultiSelectedBan_NoInput_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "MultiSelectedBan",
+              "value": null
+            } ]
+          },
+          "name": "c079ac63-e95e-4a99-8b06-981c8230e50e"
+        }, {
+          "targetPage": "CheckNoMatchBAN",
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "setParameterActions": [ {
+              "parameter": "Metrics_Authentication_BANNumberEntry_PPBCapture_MultiSelectedBan_NoMatch_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "MultiSelectedBan",
+              "value": null
+            } ]
+          },
+          "name": "ffa730d3-a16f-4f20-8f56-7c68a6c3700d"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "To authenticate using an account number starting with PPB, please replace the letters with a singular number 1. For example, PPB45 would be 145. Please enter the account number in this format now. " ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "PPBCapture",
+      "value": true
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Temp_TNBANPPB",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MultiSelectedBanPBB",
+        "value": "$session.params.Temp_1"
+      }, {
+        "parameter": "Metrics_Authentication_PPBCapture_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "9ce98041-0dd1-46ae-858f-e9deb88e7922"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.MultiSelectedBanPPB) = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MultiSelectedBanPBB1",
+        "value": "$session.params.MultiSelectedBanPBB"
+      }, {
+        "parameter": "PPBTemp1",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.MultiSelectedBanPBB1),4, 8)"
+      }, {
+        "parameter": "PPBTemp",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.MultiSelectedBanPBB),1, 3)"
+      }, {
+        "parameter": "Metrics_Authentication_PPBCapture_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "826adc10-bcaf-4582-9cc1-900f75d57fa0"
+  }, {
+    "condition": "$session.params.PPBTemp = \"PPB\" OR $session.params.PPBTemp = \"ppb\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MultiSelectedBan",
+        "value": "$sys.func.CONCATENATE(\"1\",$sys.func.TO_TEXT($session.params.PPBTemp1))"
+      }, {
+        "parameter": "Metrics_Authentication_PPBCapture_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "7416e7a0-6a54-4c71-a0f2-a5f617787d83"
+  }, {
+    "condition": "$page.params.status = FINAL AND ($sys.func.LEN($session.params.MultiSelectedBanPPB) = 9 OR $sys.func.LEN($session.params.MultiSelectedBanPPB) = 10)",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PPBCapture_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "MultiSelectedBan",
+        "value": "$session.params.MultiSelectedBanPPB"
+      } ]
+    },
+    "targetPage": "CompareBAN",
+    "name": "b0988c30-6391-44ca-b39d-7e311a6ee6fc"
+  }, {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PPBCapture_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "MultiSelectedBanPPB",
+        "value": null
+      } ]
+    },
+    "targetPage": "CheckNoMatchBAN",
+    "name": "27803044-73ef-4a4c-a592-a572dd677a7d"
+  } ]
+}

@@ -1,0 +1,193 @@
+{
+  "name": "a807067e-80b8-447b-b524-f9bea893be88",
+  "displayName": "authentication",
+  "testCaseConversationTurns": [ {
+    "userInput": {
+      "injectedParameters": {
+        "channel": "web"
+      },
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "hi"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "sessionParameters": {
+        "channel": "web"
+      },
+      "textResponses": [ {
+        "text": [ "You are communicating with an AI enabled virtual assistant. Your chat may be recorded, monitored, or retained by us and our vendors to help improve and personalize our services for you. By continuing with this chat, you consent to this. For more information check out our {{ https://www.brightspeed.com/privacy-notice.html | Privacy Notice}}." ],
+        "allowPlaybackInterruption": true
+      }, {
+        "text": [ "How can I help you today?" ],
+        "allowPlaybackInterruption": true
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "forgot user name"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "triggeredIntent": {
+        "name": "Default Welcome Intent"
+      },
+      "currentPage": {
+        "name": "AskAccountInfo",
+        "flow": "Authentication"
+      },
+      "textResponses": [ {
+        "text": [ "Before we can help, I need to find your account. Starting with the area code please enter a telephone number associated with your account, or your 9 or 10 digit billing account number. If your account number begins with the letters \"PPB\", make sure to include that too." ],
+        "allowPlaybackInterruption": true
+      } ],
+      "currentFlow": {
+        "name": "Authentication"
+      }
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "300892094"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "triggeredIntent": {
+        "name": "AuthenticationAccountInfoPPB"
+      },
+      "currentPage": {
+        "name": "AuthOptionsChat",
+        "flow": "Authentication"
+      },
+      "textResponses": [ {
+        "text": [ "Please select one of the authentication options below: " ]
+      } ],
+      "currentFlow": {
+        "name": "Authentication"
+      }
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "zip"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "triggeredIntent": {
+        "name": "Zipcode"
+      },
+      "currentPage": {
+        "name": "ZipCodeLookUp",
+        "flow": "Authentication"
+      },
+      "textResponses": [ {
+        "text": [ "Okay! Please enter your billing zipcode now." ],
+        "allowPlaybackInterruption": true
+      } ],
+      "currentFlow": {
+        "name": "Authentication"
+      }
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "49817"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Thank you! I've authenticated your account." ],
+        "allowPlaybackInterruption": true
+      }, {
+        "text": [ "Okay, I'm ready to assist you. What can I help you with today?\n" ],
+        "allowPlaybackInterruption": true
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "what is my billing address"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Your billing address is 10429W CO RD 442, COOKS, MI, 49817, USA. Was there anything else I can help you with?\n" ],
+        "allowPlaybackInterruption": true
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "change my password"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "You can reset your password online. If you change your password, unauthorized users will need to log in again with the new password. Would you like me to send you an email guide on how to reset your password on the website for future reference?\n" ],
+        "allowPlaybackInterruption": true
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "yes"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "triggeredIntent": {
+        "name": "Default Welcome Intent"
+      },
+      "currentPage": {
+        "name": "AskAccountInfo",
+        "flow": "Authentication"
+      },
+      "textResponses": [ {
+        "text": [ "Before we can help, I need to find your account. Starting with the area code please enter a telephone number associated with your account, or your 9 or 10 digit billing account number. If your account number begins with the letters \"PPB\", make sure to include that too." ],
+        "allowPlaybackInterruption": true
+      } ],
+      "currentFlow": {
+        "name": "Authentication"
+      }
+    }
+  } ],
+  "creationTime": {
+    "seconds": 1751026849,
+    "nanos": 224929000
+  },
+  "testConfig": {
+    "flow": "Default Start Flow",
+    "page": "Start Page"
+  },
+  "languageCode": "en"
+}

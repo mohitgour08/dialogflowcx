@@ -1,0 +1,26 @@
+{
+  "name": "583b18ed-3d44-41f8-8cac-79b45b7dd253",
+  "displayName": "StaticLinkSecondary",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "staticLink_Secondary",
+    "tag": "LinkTest",
+    "setParameterActions": [ {
+      "parameter": "Metrics_DefaultStartFlow_StaticLinkSecondary",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_StaticLinkSecondary",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "welcomePrompt_chat",
+    "name": "e9b37d93-3de4-45a9-b84b-e9177d5fcee9"
+  } ]
+}

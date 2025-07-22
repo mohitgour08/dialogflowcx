@@ -1,0 +1,266 @@
+{
+  "name": "0ff70ae8-17c9-4dda-9fd6-0803d36c5ef4",
+  "displayName": "BANNumberEntryVoice",
+  "form": {
+    "parameters": [ {
+      "displayName": "MultiSelectedBan",
+      "required": true,
+      "entityType": "@TN_BAN_voice",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_Authentication__BANNumberEntryVoice_MultiSelectedBan",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ]
+        },
+        "repromptEventHandlers": [ {
+          "targetPage": "CheckNoMatchBAN",
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "setParameterActions": [ {
+              "parameter": "Metrics_Authentication_BANNumberEntryVoice_NoMatch_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "MultiSelectedBan",
+              "value": null
+            } ]
+          },
+          "name": "f3020a8a-3b46-4fcb-887e-bbd12f54f6b3"
+        }, {
+          "targetPage": "CheckNoMatchBAN",
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "setParameterActions": [ {
+              "parameter": "Metrics_Authentication_BANNumberEntryVoice_NoInput_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "MultiSelectedBan",
+              "value": null
+            } ]
+          },
+          "name": "3ca8ef60-5f51-48bb-8e2c-586ecc769352"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "webhook": "multiacctfound",
+    "tag": "multiacctfound",
+    "setParameterActions": [ {
+      "parameter": "MultiSelectedBan",
+      "value": null
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Temp_TNBAN",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MultiSelectedBan",
+        "value": "$session.params.Temp_1"
+      }, {
+        "parameter": "Metrics_Authentication_BANNumberEntryVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "2a18960b-3e65-4ea6-93be-6fd9fa10cf11"
+  }, {
+    "intent": "More info",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntryVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PPBCapture",
+    "name": "17230f1f-ae69-48b7-9596-38364c70be1c"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.MultiSelectedBan) = 9",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntryVoice_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CompareBAN",
+    "name": "983c5d77-9ed3-4890-9ee7-fcd4ceebd4eb"
+  }, {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntryVoice_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckNoMatchBAN",
+    "name": "adc70230-e70a-4481-992f-659ccff446c1"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntryVoice_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BANNumberEntryVoice"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookError"
+      } ]
+    },
+    "name": "6d7134ab-1114-4275-8229-f5bf9f8f47e8"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntryVoice_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BANNumberEntryVoice"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook_Invalid"
+      } ]
+    },
+    "name": "b515d72b-2e89-47b1-9c94-c727b167bb22"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntryVoice_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BANNumberEntryVoice"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook_NotFound"
+      } ]
+    },
+    "name": "3beedea8-3265-4a31-93fa-0e2ca6aa4a20"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntryVoice_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BANNumberEntryVoice"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook_Rejected"
+      } ]
+    },
+    "name": "3de9a111-3c40-47a5-bae9-626761d4a41a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntryVoice_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BANNumberEntryVoice"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook_Timeout"
+      } ]
+    },
+    "name": "faa15e0f-35fa-4ab7-af11-c75f92948c96"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntryVoice_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BANNumberEntryVoice"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook_Unavailable"
+      } ]
+    },
+    "name": "fd498ddb-003a-47bf-91b5-a1f831f24cc7"
+  } ]
+}

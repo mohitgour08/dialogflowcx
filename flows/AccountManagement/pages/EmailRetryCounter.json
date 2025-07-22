@@ -1,0 +1,28 @@
+{
+  "name": "9fa7d9cb-3fe1-4a35-a284-7ff88af38769",
+  "displayName": "EmailRetryCounter",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.EmailRetry = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_EmailRetryCounter_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ReenterEmailAddress",
+    "name": "0b259c58-ab47-4c41-a91f-4f6d2c1a00a7"
+  }, {
+    "condition": "$session.params.EmailRetry \u003e 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_EmailRetryCounter_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "1434d898-28d9-4ae3-8cfc-9a7b3194e6a4"
+  } ]
+}

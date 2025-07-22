@@ -1,0 +1,223 @@
+{
+  "name": "4d80ff86-812b-48b3-90bf-a056ad73cb55",
+  "displayName": "BANNumberEntry",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I found multiple accounts associated with this phone number. Please enter the account number you need assistance with. You can find your account number in the Brightspeed Portal, on the Brightspeed App, or on the upper right corner of your invoice." ]
+      },
+      "languageCode": "en"
+    } ],
+    "webhook": "multiacctfound",
+    "tag": "multiacctfound"
+  },
+  "transitionRoutes": [ {
+    "intent": "AuthenticationAccountInfoBAN",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MultiSelectedBan",
+        "value": "$session.params.ENTER_BAN"
+      }, {
+        "parameter": "Metrics_Authentication_BANNumberEntry_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckNoMatchBAN",
+    "name": "1c2b69e0-6655-4ad1-9dae-17fea97dbe95"
+  }, {
+    "intent": "AuthenticationAccountInfoPPB",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MultiSelectedBan_temp",
+        "value": "$session.params.ENTER_PPB"
+      }, {
+        "parameter": "Metrics_Authentication_BANNumberEntry_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PPBCaptureChat",
+    "name": "b8007cf9-53ed-422a-a9c9-ffe62f4d5dd0"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntry_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BANNumberEntry"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookError"
+      } ]
+    },
+    "name": "5d9bd31d-6b2a-4b09-bc1b-cda5763c2870"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntry_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BANNumberEntry"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook_Invalid"
+      } ]
+    },
+    "name": "bd01275a-b193-4992-b516-d3bfa75585d7"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntry_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BANNumberEntry"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook_NotFound"
+      } ]
+    },
+    "name": "2d66d469-edef-4bf1-a19e-3d3c7323ac19"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntry_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BANNumberEntry"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook_Rejected"
+      } ]
+    },
+    "name": "feb383a4-db0d-4c4a-9b4b-448fceb95738"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntry_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BANNumberEntry"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook_Timeout"
+      } ]
+    },
+    "name": "e032b994-3ba2-4c0b-b9cd-67e231e17c25"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntry_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BANNumberEntry"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook_Unavailable"
+      } ]
+    },
+    "name": "46f05830-f01f-43c6-a113-dba9a5d95e50"
+  }, {
+    "targetPage": "CheckNoMatchBAN",
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_BANNumberEntry_BANNumberEntry_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "fe6b3224-2dd2-402b-86e5-d4afa1e8d588"
+  } ]
+}

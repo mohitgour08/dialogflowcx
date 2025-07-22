@@ -1,0 +1,63 @@
+{
+  "name": "c9df81de-a69d-4177-8dd5-3b871cf874c6",
+  "displayName": "TryAgainCounter",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.SMSNumbercounter = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": " Metrics_ServiceManagement_TryAgainCounter_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SMSNumber",
+        "value": null
+      } ]
+    },
+    "targetPage": "VerifyMobileNumber",
+    "name": "708e67ce-c822-4824-8c75-4c6ffe83081d"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I am having issues capturing that number. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": " Metrics_ServiceManagement_TryAgainCounter_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_ReturnDevice",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ServiceManagement-TryAgainCounter,SMSRetryExceeded"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "3bddeca9-ff05-41cc-8f91-a9e52070d972"
+  } ]
+}

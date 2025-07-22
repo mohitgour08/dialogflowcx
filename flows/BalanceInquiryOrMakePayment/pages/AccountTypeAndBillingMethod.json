@@ -1,0 +1,217 @@
+{
+  "name": "43e2e573-9cc6-4e5d-a63a-e50d11a79060",
+  "displayName": "AccountTypeAndBillingMethod",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.AccountType = \"Small Business\" OR $session.params.AccountType = \"small business\" OR $session.params.AccountType = \"business\" OR $session.params.AccountType = \"Business\" OR $session.params.AccountType = \"Small business\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_AccountTypeAndBillingMethod_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "Small Business"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Small Business Accounts"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "778dff3b-42a4-4ed9-96fc-fe598495789d"
+  }, {
+    "condition": "$session.params.ToState = \"AutopayNetworkCheck\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_AccountTypeAndBillingMethod_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "EnrollDeEnrollAutoPay",
+    "name": "781ba55c-4e1c-44a1-a1f2-87289db3095b"
+  }, {
+    "condition": "$session.params.ToState = \"PaperlessBilling\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_AccountTypeAndBillingMethod_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PostpaidPaperlessBilling",
+    "name": "2cfd8f42-5d1a-45f3-8103-d502e07f342b"
+  }, {
+    "condition": "$session.params.ToState = \"AccountStatusConsumerCheck\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_AccountTypeAndBillingMethod_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "AccountManagement",
+    "name": "2abc368a-057b-4362-bad4-14f3b62a3131"
+  }, {
+    "condition": "$session.params.ToState = \"VerifyPayment\" OR $session.params.ToState = \"PaymentRestoreService\" OR $session.params.ToState = \"PaymentHistory\" OR $session.params.ToState = \"MethodOfPaymentUpdate\" OR $session.params.ToState = \"PaymentArrangement\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_AccountTypeAndBillingMethod_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "272b9e38-4c12-4653-9a5a-6cb1b1c2ae44"
+  }, {
+    "condition": "($session.params.AccountType = \"Residential\" OR $session.params.AccountType = \"residential\" OR $session.params.AccountType = \"Consumer\") AND ($session.params.BillingMethod = \"prepaid\" OR $session.params.BillingMethod = \"PR\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_AccountTypeAndBillingMethod_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PrepaidBalance"
+      }, {
+        "parameter": "onePaymentCounter",
+        "value": 0
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PrepaidBalance",
+    "name": "7cb2aecc-0a63-42ad-90d7-5e3befaea587"
+  }, {
+    "condition": "($session.params.AccountType = \"Residential\" OR $session.params.AccountType = \"residential\" OR $session.params.AccountType = \"Consumer\") AND ($session.params.BillingMethod = \"postpaid\" OR $session.params.BillingMethod = \"PO\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_AccountTypeAndBillingMethod_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PostpaidBalance"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "PostpaidBalance",
+    "name": "0ac0c6f3-93ee-427d-a4fe-3b09f3d44f93"
+  }, {
+    "condition": "$session.params.AccountType = \"MDU\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_AccountTypeAndBillingMethod_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "MDU Accounts"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "ed461810-d669-413b-9b16-f0cd88d432f4"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_AccountTypeAndBillingMethod_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BalanceInquiryOrMakePayment-AccountTypeAndBillingMethod,AccountTypeUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "630e7de7-b8f6-41cf-87ef-ac0201a6b716"
+  } ]
+}

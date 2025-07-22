@@ -1,0 +1,289 @@
+{
+  "name": "23b98f7f-ab74-4761-9b89-ae39f9044b7b",
+  "displayName": "AssignTokenID",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "PMSelected",
+      "value": null
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.SelectedPM = $session.params.Buttons.parameters.PaymentOption_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentToken",
+        "value": "$session.params.Buttons.parameters.PaymentOptionValue_1"
+      }, {
+        "parameter": "Metrics_SecuredPayments_AssighTokenID_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PMSelected",
+        "value": "First"
+      } ]
+    },
+    "targetPage": "SelectCardOrBankAcc",
+    "name": "3eb184f7-bf60-4c71-a546-74b73efce72f"
+  }, {
+    "condition": "$session.params.SelectedPM = $session.params.Buttons.parameters.PaymentOption_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AssighTokenID_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PMSelected",
+        "value": "Second"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.Buttons.parameters.PaymentOptionValue_2"
+      } ]
+    },
+    "targetPage": "SelectCardOrBankAcc",
+    "name": "0d3a9446-65d1-4164-870c-a44d68aa1dcb"
+  }, {
+    "condition": "$session.params.SelectedPM = $session.params.Buttons.parameters.PaymentOption_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AssighTokenID_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PMSelected",
+        "value": "Third"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.Buttons.parameters.PaymentOptionValue_3"
+      } ]
+    },
+    "targetPage": "SelectCardOrBankAcc",
+    "name": "c375c40f-2152-4ca7-9a2e-ee50a3402349"
+  }, {
+    "condition": "$session.params.SelectedPM = $session.params.Buttons.parameters.PaymentOption_4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AssighTokenID_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PMSelected",
+        "value": "Fourth"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.Buttons.parameters.PaymentOptionValue_4"
+      } ]
+    },
+    "targetPage": "SelectCardOrBankAcc",
+    "name": "66921920-17ef-4c81-8c89-01d1b8b7d26f"
+  }, {
+    "condition": "$session.params.SelectedPM = $session.params.Buttons.parameters.PaymentOption_5",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AssighTokenID_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PMSelected",
+        "value": "Fifth"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.Buttons.parameters.PaymentOptionValue_5"
+      } ]
+    },
+    "targetPage": "SelectCardOrBankAcc",
+    "name": "4bb61e77-7536-444e-bd3f-29d33dc25bab"
+  }, {
+    "condition": "$session.params.SelectedPM = $session.params.Buttons.parameters.PaymentOption_6",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AssighTokenID_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PMSelected",
+        "value": "Sixth"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.Buttons.parameters.PaymentOptionValue_6"
+      } ]
+    },
+    "targetPage": "SelectCardOrBankAcc",
+    "name": "fb47a662-bba8-44aa-ae43-2c353a96bdec"
+  }, {
+    "condition": "$session.params.SelectedPM = $session.params.Buttons.parameters.PaymentOption_7",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AssighTokenID_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PMSelected",
+        "value": "Seventh"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.Buttons.parameters.PaymentOptionValue_7"
+      } ]
+    },
+    "targetPage": "SelectCardOrBankAcc",
+    "name": "d4ce488b-a7b3-4ec0-abf8-376ab14afae6"
+  }, {
+    "condition": "$session.params.SelectedPM = $session.params.Buttons.parameters.PaymentOption_8",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AssighTokenID_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PMSelected",
+        "value": "Eight"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.Buttons.parameters.PaymentOptionValue_8"
+      } ]
+    },
+    "targetPage": "SelectCardOrBankAcc",
+    "name": "6d8bd15c-6ee2-4945-bb31-e745c719e292"
+  }, {
+    "condition": "$session.params.SelectedPM = $session.params.Buttons.parameters.PaymentOption_9",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AssighTokenID_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PMSelected",
+        "value": "Ninth"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.Buttons.parameters.PaymentOptionValue_9"
+      } ]
+    },
+    "targetPage": "SelectCardOrBankAcc",
+    "name": "c6e9b2fb-c678-4258-9554-d69536111a71"
+  }, {
+    "condition": "$session.params.SelectedPM = $session.params.Buttons.parameters.PaymentOption_10",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AssighTokenID_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PMSelected",
+        "value": "Tenth"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.Buttons.parameters.PaymentOptionValue_10"
+      } ]
+    },
+    "targetPage": "SelectCardOrBankAcc",
+    "name": "4c6db246-eabf-46c3-8833-8bd139798bbe"
+  }, {
+    "condition": "$session.params.SelectedPM = 1 OR $session.params.SelectedPM = \"1\" OR $session.params.SelectedPM = \"one\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentToken",
+        "value": "$session.params.Buttons.parameters.PaymentOptionValue_1"
+      }, {
+        "parameter": "Metrics_SecuredPayments_AssighTokenID_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PMSelected",
+        "value": "One"
+      } ]
+    },
+    "targetPage": "SelectCardOrBankAcc",
+    "name": "43366a40-1487-45a0-8c1c-985ef08f4181"
+  }, {
+    "condition": "$session.params.SelectedPM = 2 OR $session.params.SelectedPM = \"2\" OR $session.params.SelectedPM = \"two\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AssighTokenID_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.Buttons.parameters.PaymentOptionValue_2"
+      }, {
+        "parameter": "PMSelected",
+        "value": "Two"
+      } ]
+    },
+    "targetPage": "SelectCardOrBankAcc",
+    "name": "4a3b1d89-f798-4a86-9474-0e93c6505e55"
+  }, {
+    "condition": "$session.params.SelectedPM = 3 OR $session.params.SelectedPM = \"3\" OR $session.params.SelectedPM = \"three\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AssighTokenID_13",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.Buttons.parameters.PaymentOptionValue_3"
+      }, {
+        "parameter": "PMSelected",
+        "value": "Three"
+      } ]
+    },
+    "targetPage": "SelectCardOrBankAcc",
+    "name": "85a4eab5-7083-4c5d-8f4f-3203d081145f"
+  }, {
+    "condition": "$session.params.SelectedPM = 4 OR $session.params.SelectedPM = \"4\" OR $session.params.SelectedPM = \"four\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AssighTokenID_14",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.Buttons.parameters.PaymentOptionValue_4"
+      }, {
+        "parameter": "PMSelected",
+        "value": "Four"
+      } ]
+    },
+    "targetPage": "SelectCardOrBankAcc",
+    "name": "29704b59-d2eb-424f-b98f-f90090f49dac"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ButtonCount",
+        "value": "$sys.func.ADD($session.params.ButtonCount,1)"
+      }, {
+        "parameter": "Metrics_SecurePayments_AssignTokenID_default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SavedPMNoMatch",
+    "name": "c0520775-6c65-4f12-8f8c-87f70acd18f5"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      }, {
+        "parameter": "Metrics_SecurePayments_AssignTokenID_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "b45011c1-2f68-4357-a25b-99b75f6c4023"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't understand your answer" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecurePayments_AssignTokenID_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      } ]
+    },
+    "name": "38acdf00-fc22-4cd5-a14c-403cf6cfb820"
+  } ]
+}

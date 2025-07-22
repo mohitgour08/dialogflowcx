@@ -1,0 +1,213 @@
+{
+  "name": "afeac0e7-1d67-453a-8f4f-1a959045b0d7",
+  "displayName": "Authentication",
+  "transitionRoutes": [ {
+    "condition": "$session.params.Authentication = \"MULTIACCTFOUND\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Start_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "MultipleAccountFound"
+      }, {
+        "parameter": "TN_BAN_attempt",
+        "value": 0
+      } ]
+    },
+    "targetPage": "Single/Multiple Check",
+    "name": "919f4327-61e3-4186-8d9f-28e002311d4d"
+  }, {
+    "condition": "$session.params.Authentication = \"ACCTFOUND\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Start_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authattempts",
+        "value": 0
+      }, {
+        "parameter": "TN_BAN_attempt",
+        "value": 0
+      } ]
+    },
+    "targetPage": "2FactorSwitch",
+    "name": "2c9df2fe-6531-497c-a441-02f94b6daf73"
+  }, {
+    "condition": "$session.params.Authentication != \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authattempts",
+        "value": 0
+      }, {
+        "parameter": "Metrics_Authentication_Start_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN_attempt",
+        "value": 0
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "2FactorSwitch",
+    "name": "42f924a0-7b3c-47cf-9fd3-addbdf376841"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authattempts",
+        "value": 0
+      }, {
+        "parameter": "Metrics_Authentication_Start_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN_attempt",
+        "value": 0
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "checkChannel",
+    "name": "835d8763-fe14-4fe6-8770-abb398f918b3"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "74823b9d-5502-4449-850a-35e5ec3f9c35"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "0a01d71f-da50-4778-b21e-ebda601e5a7c"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    }
+  },
+  "advancedSettings": {
+    "enabled": true,
+    "speechAdaptationSettings": {
+      "enableManualSpeechAdaptation": true,
+      "biasingPhraseSets": [ {
+        "biasingPhrases": [ {
+          "value": "The account number is $OOV_CLASS_ALPHANUMERIC_SEQUENCE",
+          "boost": 15
+        }, {
+          "value": "$OOV_CLASS_ALPHANUMERIC_SEQUENCE",
+          "boost": 8
+        } ],
+        "displayName": "Test1"
+      } ]
+    }
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    },
+    "languageCode": "en"
+  } ],
+  "inputParameterDefinitions": [ {
+    "name": "ToModule",
+    "description": "SmartAccountManagementChatAuth",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "customerQuery",
+    "description": "This is customer first question",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "customerQuery",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "outputParameterDefinitions": [ {
+    "name": "ToModule",
+    "description": "SmartAccountManagementChatAuth",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "AccountNumber",
+    "description": "Customer account number",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "AccountNumber",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "customerQuery",
+    "description": "This is customer first question",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "customerQuery",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ]
+}

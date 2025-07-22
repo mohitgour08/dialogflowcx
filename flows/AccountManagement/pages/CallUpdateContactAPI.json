@@ -1,0 +1,117 @@
+{
+  "name": "89d058a2-2800-4d76-afd0-bd9ec70a5cef",
+  "displayName": "CallUpdateContactAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "UpdateContactAPI",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_AccountManagement_CallUpdateContactAPI",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.UpdateContactResponseStatus = \"success\" OR $session.params.UpdateContactResponseStatus = \"SUCCESS\" OR $session.params.UpdateContactResponse = \"Success\") AND $session.params.UpdateContact = \"Email\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CallUpdateContactAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdatedEmailSuccess",
+    "name": "010ede6b-0741-4d4b-9480-cc61dbad4d59"
+  }, {
+    "condition": "($session.params.UpdateContactResponseStatus != \"success\" OR $session.params.UpdateContactResponseStatus != \"SUCCESS\" OR $session.params.UpdateContactResponse != \"Success\") AND $session.params.UpdateContact = \"Email\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CallUpdateContactAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdateEmailFailure",
+    "name": "47514189-f0eb-45e4-976d-70738c404dda"
+  }, {
+    "condition": "($session.params.UpdateContactResponseStatus = \"success\" OR $session.params.UpdateContactResponseStatus = \"SUCCESS\" OR $session.params.UpdateContactResponse = \"Success\") AND $session.params.UpdateContact = \"Phone\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CallUpdateContactAPI_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdatePhoneSuccess",
+    "name": "7fd94576-259c-462f-bf96-32551ba7aa3a"
+  }, {
+    "condition": "($session.params.UpdateContactResponseStatus != \"success\" OR $session.params.UpdateContactResponseStatus != \"SUCCESS\" OR $session.params.UpdateContactResponse != \"Success\") AND $session.params.UpdateContact = \"Phone\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CallUpdateContactAPI_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdatePhoneFailure",
+    "name": "e4cb5637-1c0f-48d5-9eae-1357121fc9b5"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CallUpdateContactAPI_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "3c97266c-b646-4d28-bb4f-1b3b0a4e84d7"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CallUpdateContactAPI_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "8170c4e8-6c9a-4b6c-8562-e23773942151"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CallUpdateContactAPI_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "a36406e5-11fc-4ce2-a570-76380c86687e"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CallUpdateContactAPI_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "e97585aa-835e-41e7-b4da-ef5051f2e6f5"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CallUpdateContactAPI_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "509d5bd3-f0e0-46b4-b591-b45abedbe688"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CallUpdateContactAPI_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "5e72d944-8cdf-46da-9977-bec71bada147"
+  } ]
+}

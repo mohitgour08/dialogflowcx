@@ -1,0 +1,12 @@
+{
+  "name": "983a5449-fd6a-4a70-9da9-4307f5e66942",
+  "displayName": "GoodTwoGo2.0",
+  "transitionRoutes": [ {
+    "intent": "GoodToGo",
+    "triggerFulfillment": {
+    
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "a8fcef1e-e143-428a-a2c8-b64551068549"
+  } ]
+}

@@ -1,0 +1,64 @@
+{
+  "name": "51d07f4b-d941-4e90-972f-cfda993131b8",
+  "displayName": "CheckAuthStatus",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Authentication = \"SUCCESS\" AND $session.params.ToState = \"UpdateEmailAddr\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CheckAuthStatus_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "IsEmailAvailableOnProfile",
+    "name": "7315bd15-08bd-4472-a11c-8ebc7122092f"
+  }, {
+    "condition": "$session.params.Authentication = \"SUCCESS\" AND $session.params.ToState = \"UpdatePhoneNumber\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CheckAuthStatus_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "IsPhoneAvailableOnProfile",
+    "name": "4eb84326-60af-45af-99bb-a45e616a9519"
+  }, {
+    "condition": "$session.params.Authentication = \"ACCTFOUND\" OR $session.params.Authentication = \"NO\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      }, {
+        "parameter": "Metrics_AccountManagement_CheckAuthStatus_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Authentication",
+    "name": "caedd658-e4f0-4eee-930c-80c350fe04f6"
+  }, {
+    "condition": "$session.params.Authentication = \"FAILED\" OR $session.params.Authentication = \"MULTIACCTFOUND\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CheckAuthStatus_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "4ebd28fb-6cf1-4eeb-97f7-f56f54fc715f"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_CheckAuthStatus_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "0559ce93-66cb-43c0-b6cb-bcc9aead49f4"
+  } ]
+}

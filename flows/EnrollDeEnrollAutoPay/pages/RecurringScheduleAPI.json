@@ -1,0 +1,333 @@
+{
+  "name": "1ac1db24-284d-458f-83d9-2e19a88ec709",
+  "displayName": "RecurringScheduleAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "setupRecurringSchedule",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_wh",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.RecurringStatus != null AND $session.params.RecurringStatus != \"\" AND $session.params.SetupRecurringSchedule != \"SUCCESS\" AND $session.params.SetupRecurringSchedule != \"success\" AND $session.params.SetupRecurringSchedule != \"Success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_Message",
+        "value": "$session.params.RecurringStatus"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "ab1b3e95-c171-43c8-ace6-bdd68fd833a6"
+  }, {
+    "condition": "$session.params.SetupRecurringSchedule = \"SUCCESS\" OR $session.params.SetupRecurringSchedule = \"success\" OR $session.params.SetupRecurringSchedule = \"Success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_RecurringScheduleAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "targetPage": "UpdateSuccessful",
+    "name": "8cf09065-c066-4453-a158-1b728b9675d0"
+  }, {
+    "condition": "$session.params.FirstUpdateFailure = \"true\" AND $session.params.PaymentType = \"Card\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "updateattempts",
+        "value": "true"
+      } ]
+    },
+    "targetPage": "UpdateFailCard",
+    "name": "3cf6f3a6-f1a1-4054-955b-985a2ea3299c"
+  }, {
+    "condition": "$session.params.FirstUpdateFailure = \"true\" AND $session.params.PaymentType = \"ACH\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "updateattempts",
+        "value": "true"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdateFailBank",
+    "name": "bdeb6fe9-f32d-47c5-93ec-9fc00a4b8884"
+  }, {
+    "condition": "$session.params.FirstUpdateFailure = \"false\" AND $session.params.updateattempts = \"true\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to finish processing this change. Let me get you to someone who can help. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "RecurringScheduleAPI"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRetryExceeded"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_RecurringScheduleAPI",
+        "value": "Failure"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "09bf741e-2989-4c05-bf7e-291039bddb42"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to process your autopay." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to process your autopay." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Let me get you to someone who can help." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "RecurringScheduleAPI"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_RecurringScheduleAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "4df176d1-fa8e-48f5-b48e-93b9cf226ca9"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "RecurringScheduleAPI"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_RecurringScheduleAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "name": "48226166-00dc-4d8f-90cf-6b514aa6b73a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "RecurringScheduleAPI"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_RecurringScheduleAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "name": "374bc6fe-b28d-4260-9dca-06488e5bf059"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "RecurringScheduleAPI"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_RecurringScheduleAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "name": "0b94d9dd-ef8c-4f6e-80c5-d690ba24cd98"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": " SS_EnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "RecurringScheduleAPI"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_RecurringScheduleAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "name": "900c6ceb-16e7-4789-ad94-de6db730a29a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "Webhooktimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "RecurringScheduleAPI"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_RecurringScheduleAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "name": "60446023-a8d1-471d-9fd1-0cf36aa60dc6"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "RecurringScheduleAPI"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_RecurringScheduleAPI",
+        "value": "Fail_Unavailable"
+      } ]
+    },
+    "name": "cdce56b6-fbd6-4911-b9a3-421f47cef76b"
+  } ]
+}

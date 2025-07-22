@@ -1,0 +1,79 @@
+{
+  "name": "0e621f19-fb5b-460e-aa64-0278efa7291c",
+  "displayName": "NM_chk_voice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.IntentCounter = 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I didn't catch that." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_NM_chk_voice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Voice Customer's Intent collection retry exceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "9526ef3f-84af-446f-bde2-f4adc182491d"
+  }, {
+    "condition": "$session.params.IntentCounter = 0",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I didn't catch that." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "IntentCounter",
+        "value": "$sys.func.ADD($session.params.IntentCounter)"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_NM_chk_voice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "DTMFFallbackMenu",
+    "name": "aac886f2-102c-4ea6-bfdf-77d2bd848eb8"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_NM_chk_voice_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ListenInitialIntent-NM_chk_voice,IntentCollectionRetryExceeded"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "c2501427-bbb8-4646-a004-968610d913fd"
+  } ]
+}

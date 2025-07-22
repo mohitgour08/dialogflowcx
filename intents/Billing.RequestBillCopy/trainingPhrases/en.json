@@ -1,0 +1,336 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "I need monthly usage for the past year"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "get the monthly usage"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "View my bills",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need a copy of my bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want ",
+      "auto": true
+    }, {
+      "text": "my bill copy",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Duplicate copy of the bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "duplicate of my invoice",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Soft Copy",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Invoice copy",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "is it possible to send me a copy of my recent bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Please provide me with a ",
+      "auto": true
+    }, {
+      "text": "duplicate copy of my bill",
+      "auto": true
+    }, {
+      "text": " for ",
+      "auto": true
+    }, {
+      "text": "this month",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm unable to find ",
+      "auto": true
+    }, {
+      "text": "my bill",
+      "auto": true
+    }, {
+      "text": ". Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me in accessing it",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm requesting a ",
+      "auto": true
+    }, {
+      "text": "duplicate bill",
+      "auto": true
+    }, {
+      "text": " for my records",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I misplaced ",
+      "auto": true
+    }, {
+      "text": "my bill",
+      "auto": true
+    }, {
+      "text": ". Can you provide me with the necessary information",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Please send me a ",
+      "auto": true
+    }, {
+      "text": "copy of my bill",
+      "auto": true
+    }, {
+      "text": " as soon as possible",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need a ",
+      "auto": true
+    }, {
+      "text": "copy of my bill",
+      "auto": true
+    }, {
+      "text": " for reimbursement purposes",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me in obtaining a ",
+      "auto": true
+    }, {
+      "text": "duplicate copy of my bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Could you please provide me with a copy of my bill",
+      "auto": true
+    }, {
+      "text": " for this ",
+      "auto": true
+    }, {
+      "text": "billing",
+      "auto": true
+    }, {
+      "text": " cycle",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need to obtain a ",
+      "auto": true
+    }, {
+      "text": "copy of my billing",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "statement",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Please send me a duplicate of ",
+      "auto": true
+    }, {
+      "text": "my bill",
+      "auto": true
+    }, {
+      "text": " for ",
+      "auto": true
+    }, {
+      "text": "this month",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need a ",
+      "auto": true
+    }, {
+      "text": "copy of my recent bill",
+      "auto": true
+    }, {
+      "text": " for reference",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm missing ",
+      "auto": true
+    }, {
+      "text": "my bill",
+      "auto": true
+    }, {
+      "text": ". Can you send me ",
+      "auto": true
+    }, {
+      "text": "another",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "one",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you ",
+      "auto": true
+    }, {
+      "text": "email",
+      "auto": true
+    }, {
+      "text": " me a ",
+      "auto": true
+    }, {
+      "text": "copy of my bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'd like to request a ",
+      "auto": true
+    }, {
+      "text": "duplicate bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Could you provide me with a ",
+      "auto": true
+    }, {
+      "text": "copy of my invoice",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is it possible to get a duplicate of ",
+      "auto": true
+    }, {
+      "text": "my bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need a ",
+      "auto": true
+    }, {
+      "text": "copy of my bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you please send me a ",
+      "auto": true
+    }, {
+      "text": "copy of my bill",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Request ",
+      "auto": true
+    }, {
+      "text": "Bill Copy",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

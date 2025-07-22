@@ -1,0 +1,29 @@
+{
+  "name": "946f6500-4167-4b5e-a65c-209536d4bb17",
+  "displayName": "VerifyMobileOnProfile",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.contactNumber = null OR $session.params.contactNumber = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SMSNumbercounter",
+        "value": 0
+      } ]
+    },
+    "targetPage": "NewPhoneNumber",
+    "name": "28972bb4-66c6-4cab-b25a-eedfa6687b18"
+  }, {
+    "condition": "$session.params.contactNumber != null OR $session.params.contactNumber != \"\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "VerifyPhoneNumber",
+    "name": "cdc1cafc-47f2-4120-985a-2b5d5146cee3"
+  } ],
+  "description": "Customer has mobile on Profile"
+}

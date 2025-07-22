@@ -1,0 +1,65 @@
+{
+  "name": "1aa1c42a-3dae-4647-a9fa-6d633fff883b",
+  "displayName": "GoogleRetryCounter",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.SMSNumbercounter = \"1\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SMSNumber",
+        "value": null
+      }, {
+        "parameter": "Metrics_AccountManagement_GoogleRetryCounter_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AccountGooglePhone",
+    "name": "c59262c5-a492-4e44-a46d-49e05dd71088"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay, let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_AccountManagement_GoogleRetryCounter_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountManagement-GoogleRetryCounter,SMSNumbercounter\u003e1"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "feb37cde-ab6c-4671-9e81-a41dc7c4b510"
+  } ]
+}

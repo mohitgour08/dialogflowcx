@@ -1,0 +1,11 @@
+{
+  "name": "481151cd-7f28-420e-b464-9f034440a809",
+  "displayName": "Business/Wholesale_DTMF2",
+  "parameters": [ {
+    "id": "dtmf2",
+    "entityType": "@DTMF2"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 9,
+  "dtmfPattern": "^2$"
+}

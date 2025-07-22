@@ -1,0 +1,16 @@
+{
+  "name": "b84fdae3-34db-4d3d-85c9-3a3d1ca9698b",
+  "displayName": "GoodToGo",
+  "parameters": [ {
+    "id": "embargodtmf",
+    "entityType": "@EmbargoDTMF"
+  }, {
+    "id": "geo-city",
+    "entityType": "@sys.geo-city"
+  }, {
+    "id": "date-time",
+    "entityType": "@sys.date-time"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 274
+}

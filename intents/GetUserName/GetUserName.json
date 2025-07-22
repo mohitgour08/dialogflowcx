@@ -1,0 +1,10 @@
+{
+  "name": "06df85b3-5cac-4b6a-94a3-26929fae2c69",
+  "displayName": "GetUserName",
+  "parameters": [ {
+    "id": "name",
+    "entityType": "@sys.any"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 3
+}

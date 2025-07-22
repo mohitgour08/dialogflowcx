@@ -1,0 +1,186 @@
+{
+  "name": "35039a0a-7143-4175-9d7d-669785d181e8",
+  "displayName": "TSCNonFiberOptions",
+  "form": {
+    "parameters": [ {
+      "displayName": "TSC_Non_Fiber",
+      "required": true,
+      "entityType": "@TSC_Non_Fiber",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Has your customer been migrated to BOSS? \n\nMigrated States: AL, IL, IN, GA, MI, MS, NJ, OH, PA, SC, TN, VA" ]
+              },
+              "languageCode": "en"
+            }, {
+              "payload": {
+                "ujet": {
+                  "buttons": [ {
+                    "action": "quick_reply",
+                    "title": "Yes"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "No"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "I don't know"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "\u003c-Back"
+                  } ],
+                  "title": "",
+                  "type": "inline_button"
+                }
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_WebCETech_TSCNonFiberOptions_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "e4c33af6-b6ad-44f7-872d-850d58a86b76"
+        }, {
+          "targetPage": "End Session",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I am sorry, I am unable to assist you at this time. Please restart the chat if you need further assistance. Goodbye." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_WebCETech_TSCNonFiberOptions_NoMatch2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "b0cd8b72-46eb-4b84-8026-679a572d813d"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Has your customer been migrated to BOSS? \n\nMigrated States: AL, IL, IN, GA, MI, MS, NJ, OH, PA, SC, TN, VA" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Yes"
+          }, {
+            "action": "quick_reply",
+            "title": "No"
+          }, {
+            "action": "quick_reply",
+            "title": "I don't know"
+          }, {
+            "action": "quick_reply",
+            "title": "\u003c-Back"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "TSC_Non_Fiber",
+      "value": null
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.TSC_Non_Fiber = \"Yes\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_TSCNonFiberOptions_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "TSCFiberIntent",
+    "name": "ce53c86e-9751-44fe-b591-47b8998825ce"
+  }, {
+    "condition": "$session.params.TSC_Non_Fiber = \"No\" OR $session.params.TSC_Non_Fiber = \"I don\\'t know\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_TSCNonFiberOptions_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "TSCLegacyIntent",
+    "name": "bddece1f-6b28-4c4c-80f6-92fd77f859df"
+  }, {
+    "condition": "$session.params.TSC_Non_Fiber = \"Back\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_TSCNonFiberOptions_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "TSCEntry",
+    "name": "1c5e9bc8-27c3-425f-895b-97357a956302"
+  } ]
+}

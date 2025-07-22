@@ -1,0 +1,36 @@
+{
+  "name": "accfa95e-be43-4a6c-908e-aa14b5c7463b",
+  "displayName": "JsonPayloadPayment",
+  "genericWebService": {
+    "uri": "https://api-ut.brightspeed.com/ccai-field-extraction2",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"data\": \"$session.params.formresponsecard\"\n}",
+    "parameterMapping": [ {
+      "key": "OTPPaymentType",
+      "value": "f.t"
+    }, {
+      "key": "PaymentAmount",
+      "value": "f.a"
+    }, {
+      "key": "SetPrimaryMethod",
+      "value": "f.p"
+    }, {
+      "key": "encValues",
+      "value": "f.d"
+    }, {
+      "key": "formdata",
+      "value": "f"
+    } ],
+    "oauthConfig": {
+      "clientId": "Wxq32hAc8gxpoxhatAxdU38UhD8kVmkK3C0MAPHlzCZBhhtZ",
+      "clientSecret": "dtA3CT9c77cVxpI0Aw1THWKfO0ix3kqwKjrY080rCg1PeHQYmCMpmM52xd1LwY21",
+      "tokenEndpoint": "https://api-ut.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    },
+    "serviceAgentAuth": "NONE"
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

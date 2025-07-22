@@ -1,0 +1,31 @@
+{
+  "name": "4dc8a5d1-8222-4faa-bd22-2923d5d168e5",
+  "displayName": "CustomerType",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"Copper\" OR $session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CustomerType_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "VerifyMobileOnProfile",
+    "name": "cd021edd-f039-4d06-b0b8-fa12d328b7e2"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CustomerType_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "VerifyMobileOnProfile",
+    "name": "f1a47768-6301-4fce-86be-8ca675a70432"
+  } ]
+}

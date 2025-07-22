@@ -1,0 +1,15 @@
+{
+  "entities": [ {
+    "value": "New Service",
+    "synonyms": [ "New Service", "New services" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "Existing Customer",
+    "synonyms": [ "Existing Customer" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "Pending Order Question",
+    "synonyms": [ "Pending Order Question" ],
+    "languageCode": "en-us"
+  } ]
+}

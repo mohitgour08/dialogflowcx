@@ -1,0 +1,89 @@
+{
+  "name": "caea0187-90c1-4422-97f3-5e363083e8c1",
+  "displayName": "DetermineAuthMethod",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ContactNumber != null AND $session.params.ContactNumber != \"\" AND $session.params.Email != null AND $session.params.Email != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_DetermineAuthMethod_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "HasPhoneEmail",
+        "value": true
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PopulateEmailID",
+    "name": "f5410a5c-2583-4ff8-a93d-f988dc6d88bf"
+  }, {
+    "condition": "$session.params.ContactNumber != null AND $session.params.ContactNumber != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_DetermineAuthMethod_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "Phone",
+    "name": "d4fa568b-0a22-4f26-a2d0-5fd4228937f6"
+  }, {
+    "condition": "$session.params.Email != null AND $session.params.Email != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_DetermineAuthMethod_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "HasPhoneEmail",
+        "value": true
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PopulateEmailID",
+    "name": "54a44ba4-3360-484d-b042-4608a9f90674"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_DetermineAuthMethod_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoPhoneEmail",
+    "name": "84f5571f-7aec-4cb5-a5fc-b54f0d0afa2a"
+  } ]
+}

@@ -1,0 +1,357 @@
+{
+  "name": "8db30798-8777-4cb0-82f8-2f390989c872",
+  "displayName": "LineCheckAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "LineStatusAPI",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_LineCheckAPI_none_wh_LineStatusAPI",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.LineStatusResponse = \"Success\" OR $session.params.LineStatusResponse = \"SUCCESS\" OR $session.params.LineStatusResponse = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "API_Troubleshooting_LineCheckAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "LineStatusAPI"
+      } ]
+    },
+    "targetPage": "LineTest",
+    "name": "8be7e838-ae9b-484f-b40a-dc9e4dbf2819"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm having an issue reaching your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_LineCheckAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "LineStatusAPIFailure",
+        "value": "$session.params.LineStatusResponse"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "LineStatusAPI"
+      }, {
+        "parameter": "API_Troubleshooting_LineCheckAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "LineStatusAPI"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "23c12009-836e-4a26-9346-6f82b85ee6fe"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm having an issue reaching your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_LineTest_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "LineStatusAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "LineStatusAPIFailure",
+        "value": "WebhookError"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "LineStatusAPI"
+      }, {
+        "parameter": "API_Troubleshooting_LineCheckAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "LineStatusAPI"
+      } ]
+    },
+    "name": "ba9f2a72-550f-4d80-af1f-59a40e35c5c4"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm having an issue reaching your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_LineTest_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "LineStatusAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "LineStatusAPIFailure",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid "
+      }, {
+        "parameter": "TransferMessage",
+        "value": "LineStatusAPI"
+      }, {
+        "parameter": "API_Troubleshooting_LineCheckAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "LineStatusAPI"
+      } ]
+    },
+    "name": "3c9b9406-d42e-433c-b2b5-6e95be7d59c3"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm having an issue reaching your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_LineTest_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "LineStatusAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "LineStatusAPIFailure",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "LineStatusAPI"
+      }, {
+        "parameter": "API_Troubleshooting_LineCheckAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "LineStatusAPI"
+      } ]
+    },
+    "name": "751ed3d3-65db-4169-9bd8-31477dcda8ec"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm having an issue reaching your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_LineTest_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "LineStatusAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "LineStatusAPIFailure",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected "
+      }, {
+        "parameter": "TransferMessage",
+        "value": "LineStatusAPI"
+      }, {
+        "parameter": "API_Troubleshooting_LineCheckAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "LineStatusAPI"
+      } ]
+    },
+    "name": "f6f231f0-11de-439f-b5fd-54ba7025f300"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm having an issue reaching your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_LineTest_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "LineStatusAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "LineStatusAPIFailure",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "LineStatusAPI"
+      }, {
+        "parameter": "API_Troubleshooting_LineCheckAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "LineStatusAPI"
+      } ]
+    },
+    "name": "3c8b8853-71da-4725-81a3-67a1c371c9ac"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm having an issue reaching your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_LineTest_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "LineStatusAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "LineStatusAPIFailure",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PhoneIssues",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable "
+      }, {
+        "parameter": "TransferMessage",
+        "value": "LineStatusAPI"
+      }, {
+        "parameter": "API_Troubleshooting_LineCheckAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "LineStatusAPI"
+      } ]
+    },
+    "name": "03fad008-5175-491f-a41b-83df704a74a1"
+  } ]
+}

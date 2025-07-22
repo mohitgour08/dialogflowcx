@@ -1,0 +1,33 @@
+{
+  "name": "ee566e61-d6de-48df-a208-148a7d85d8c0",
+  "displayName": "AutopayCreditBalanceVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Thank you! Your account is up to date at this time and there is no payment due. You can go online to My Brightspeed to view any past or upcoming bills, and automatic payments are established with autopay." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AutopayCreditBalanceVoice_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "AnythingElse"
+      }, {
+        "parameter": "ToModule",
+        "value": "PostpaidBalance"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "48b52588-d273-49dd-b97f-57a83e0de682"
+  } ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "8870031d-666a-44fa-9dde-65b37a9d301e",
+  "displayName": "UpdateContactAPI",
+  "genericWebService": {
+    "uri": "https://api-ut.brightspeed.com/ccsc360service/api/v1/updateCustomerDetails",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"ucid\": \"$session.params.APICallID\",\n  \"ban\": \"$session.params.AccountNumber\",\n  \"tn\": \"$session.params.ContactNumber\",\n  \"newTn\": \"$session.params.EnteredPhoneNumber\",\n  \"email\": \"$session.params.Email\",\n  \"newEmail\": \"$session.params.EnteredEmailAddress\",\n  \"firstName \": \"$session.params.FirstName\",\n  \"lastName  \": \"$session.params.LastName\"\n}",
+    "parameterMapping": [ {
+      "key": "UpdateContactResponseStatus",
+      "value": "responseStatus"
+    } ]
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

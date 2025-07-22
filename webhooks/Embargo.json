@@ -1,0 +1,29 @@
+{
+  "name": "88585212-6f7c-4419-a964-0f8ceff0b73d",
+  "displayName": "Embargo",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/ccsmigservice/api/v1/lookup/$session.params.TN_BAN/$session.params.APICallID",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "GET",
+    "parameterMapping": [ {
+      "key": "Embargo_RefId",
+      "value": "RefId"
+    }, {
+      "key": "Embargo_Status",
+      "value": "status"
+    }, {
+      "key": "Embargo_message",
+      "value": "message"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    },
+    "serviceAgentAuth": "NONE"
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

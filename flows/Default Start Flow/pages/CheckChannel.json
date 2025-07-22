@@ -1,0 +1,113 @@
+{
+  "name": "5035a2ce-8555-4cb6-8677-8eb163a561bc",
+  "displayName": "CheckChannel",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "language",
+      "value": "English"
+    }, {
+      "parameter": "ServiceAddress_state",
+      "value": ""
+    }, {
+      "parameter": "networkType_DM",
+      "value": ""
+    }, {
+      "parameter": "business_unit",
+      "value": "All"
+    }, {
+      "parameter": "sublocation",
+      "value": ""
+    }, {
+      "parameter": "product",
+      "value": ""
+    }, {
+      "parameter": "npa",
+      "value": ""
+    }, {
+      "parameter": "channel_DM",
+      "value": "Chat"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_CheckChannel_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "phone_number",
+        "value": null
+      }, {
+        "parameter": "TNBAN",
+        "value": null
+      }, {
+        "parameter": "chatID",
+        "value": "$session.params.chatID"
+      }, {
+        "parameter": "language",
+        "value": "English"
+      }, {
+        "parameter": "APICallID",
+        "value": "$sys.func.CONCATENATE(\"CCAI-Chat_\", \"$session.params.CallID\")"
+      } ]
+    },
+    "targetPage": "StaticLinks",
+    "name": "d29993d6-b25d-404d-8e37-9598063e7b15"
+  }, {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_CheckChannel_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CallID",
+        "value": "$session.params.CallID"
+      }, {
+        "parameter": "channel_DM",
+        "value": "Voice"
+      }, {
+        "parameter": "DNIS",
+        "value": "$session.params.DNIS"
+      }, {
+        "parameter": "Time",
+        "value": "$sys.time"
+      }, {
+        "parameter": "APICallID",
+        "value": "$sys.func.CONCATENATE(\"CCAI-IVR_\", \"$session.params.CallID\")"
+      }, {
+        "parameter": "phone_numberBackup",
+        "value": "$session.params.phone_number"
+      }, {
+        "parameter": "PhoneNumberLength",
+        "value": "$sys.func.LEN($session.params.phone_number)"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckPhone",
+    "name": "9bebd026-2369-4c12-b8de-8d9793fbd684"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_CheckChannel_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "phone_number",
+        "value": ""
+      }, {
+        "parameter": "TNBAN",
+        "value": null
+      }, {
+        "parameter": "APICallID",
+        "value": "$sys.func.CONCATENATE(\"CCAI-Chat_\", \"$session.params.CallID\")"
+      } ]
+    },
+    "targetPage": "StaticLinks",
+    "name": "7ec0e51a-c981-4dbb-a13b-1f8460305c3b"
+  } ]
+}

@@ -1,0 +1,458 @@
+{
+  "name": "5ccc5de1-4be1-4ff3-850a-d639f673d332",
+  "displayName": "NoDueConfirmDate",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay, you will make the first payment of $$session.params.PayInstall1Amount today, and the second payment of $$session.params.PayInstall2Amount will be due on $session.params.PlayCheckPaymentDate.\nClick \"confirm\" below to enroll. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Confirm"
+          }, {
+            "action": "quick_reply",
+            "title": "Enter New Date"
+          }, {
+            "action": "quick_reply",
+            "title": "Cancel"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Okay, you will make the first payment of $session.params.PayInstall1Amount today, and the second payment of $session.params.PayInstall2Amount will be due on $session.params.PlayCheckPaymentDate  You can say \"confirm\" to enroll, \"new date\" to enter another date, or say \"cancel\". " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirm",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueConfirmDate_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "AutopaySignup"
+      }, {
+        "parameter": "PaymentAmount",
+        "value": "$session.params.PayInstall1Amount"
+      }, {
+        "parameter": "secondInstallmentAmount",
+        "value": "$session.params.PayInstall2Amount"
+      }, {
+        "parameter": "secondInstallmentDate",
+        "value": "$session.params.PayInstall2Date"
+      }, {
+        "parameter": "thirdInstallmentAmount",
+        "value": ""
+      }, {
+        "parameter": "thirdInstallmentDate",
+        "value": ""
+      }, {
+        "parameter": "firstInstallmentAmount",
+        "value": "$session.params.PayInstall1Amount"
+      }, {
+        "parameter": "firstInstallmentDate",
+        "value": "$session.params.PayInstall1Date"
+      }, {
+        "parameter": "ConfirmationCode",
+        "value": ""
+      }, {
+        "parameter": "paymentAuthId",
+        "value": "$session.params.BillInfo_paymentAuthId"
+      } ]
+    },
+    "targetPage": "PaymentMethodCheck",
+    "name": "798dd67a-aa33-4a56-b81d-ce14f19a111e"
+  }, {
+    "intent": "Enter New Date",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueConfirmDate_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentDate",
+        "value": null
+      }, {
+        "parameter": "PlayCheckPaymentDate",
+        "value": null
+      }, {
+        "parameter": "PAAPIDate",
+        "value": null
+      }, {
+        "parameter": "NextDueDate",
+        "value": null
+      }, {
+        "parameter": "fisrtDatefailure",
+        "value": "false"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoDueSignUp",
+    "name": "d44da144-1227-44d7-97d0-87abab1dd4df"
+  }, {
+    "intent": "Cancel",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueConfirmDate_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PastDueCancelEnroll",
+    "name": "3c46414b-aaf3-49da-a181-cefe368f9b78"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueConfirmDate_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NoDueConfirmDate"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "5739c5e1-3310-4b20-bfbe-c1e1b94194b0"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueConfirmDate_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "AutopaySignup"
+      }, {
+        "parameter": "PaymentAmount",
+        "value": "$session.params.PayInstall1Amount"
+      }, {
+        "parameter": "secondInstallmentAmount",
+        "value": "$session.params.PayInstall2Amount"
+      }, {
+        "parameter": "secondInstallmentDate",
+        "value": "$session.params.PayInstall2Date"
+      }, {
+        "parameter": "thirdInstallmentAmount",
+        "value": ""
+      }, {
+        "parameter": "thirdInstallmentDate",
+        "value": ""
+      }, {
+        "parameter": "firstInstallmentAmount",
+        "value": "$session.params.PayInstall1Amount"
+      }, {
+        "parameter": "firstInstallmentDate",
+        "value": "$session.params.PayInstall1Date"
+      }, {
+        "parameter": "ConfirmationCode",
+        "value": ""
+      }, {
+        "parameter": "paymentAuthId",
+        "value": "$session.params.BillInfo_paymentAuthId"
+      } ]
+    },
+    "targetPage": "PaymentMethodCheck",
+    "name": "c3dd188b-73ae-4ece-a644-7d41a647a7e2"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueConfirmDate_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentDate",
+        "value": null
+      }, {
+        "parameter": "PlayCheckPaymentDate",
+        "value": null
+      }, {
+        "parameter": "PAAPIDate",
+        "value": null
+      }, {
+        "parameter": "NextDueDate",
+        "value": null
+      }, {
+        "parameter": "firstDatefailure",
+        "value": "false"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoDueSignUp",
+    "name": "bdd008b9-8cf7-4864-828f-22cdcdf2a8e1"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueConfirmDate_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PastDueCancelEnroll",
+    "name": "bccd73d9-119b-47d6-a6a4-5376c2bdc960"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again? " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "To enroll, press 1. To enter a new date, press 2.  To cancel, press 3." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueConfirmDate_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "6648e7c3-6cee-4e46-bcd7-76c334ecc737"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That’s okay." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "That’s okay." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueConfirmDate_NoInput2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NoDueConfirmDate"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "48b94b4e-7624-4cb3-b71e-d8d25acac8a7"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Click \"confirm\" below to enroll. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Confirm"
+            }, {
+              "action": "quick_reply",
+              "title": "Enter New Date"
+            }, {
+              "action": "quick_reply",
+              "title": "Cancel"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "To enroll, press 1. To enter a new date, press 2.  To cancel, press 3." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueConfirmDate_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "a333a3aa-72b8-4c82-9c80-ea6458c8ec04"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueConfirmDate_NoMatch2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NoDueConfirmDate"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "aa8efb5f-a7da-4873-b170-37fe0c36c79e"
+  } ]
+}

@@ -1,0 +1,67 @@
+{
+  "name": "ff824fe6-8a53-42af-8a11-2dc544041f33",
+  "displayName": "NetworkType",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"Copper\" OR $session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay, I'm going to connect you with a repair agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NetworkType_1 ",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Lumen Copper need help with Internet connection Issue"
+      }, {
+        "parameter": "API_Troubleshooting_NetworkType",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "b17e7fda-5b70-4a95-ae1f-66fe6d2e3e48"
+  }, {
+    "condition": "$session.params.networkType = \"GPON\" OR $session.params.networkType = \"BPON\" OR $session.params.networkType = \"XGSPON\"",
+    "triggerFulfillment": {
+      "webhook": "getOrderProductInfo",
+      "tag": "products",
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NetworkType_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_NetworkType",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "targetPage": "PhysicalDamageCheck",
+    "name": "e21a5ca2-617a-4b02-b6a7-22c2e410e721"
+  } ]
+}

@@ -1,0 +1,143 @@
+{
+  "name": "be76ec17-0162-4b4f-9c41-a1e2db7b8256",
+  "displayName": "OtherPaymentOptions",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Brightspeed also offers 2 more ways to pay a past due balance:\n\n1. Visit your MyBrightspeed portal any time to make a payment or update your payment method.\n\n2. Find one of our physical partner locations to make a walk-in cash payment. \n\nIs there anything else I can help you with today?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Visit MyBrightSpeed portal"
+          }, {
+            "action": "quick_reply",
+            "title": "Find walk-in locations"
+          }, {
+            "action": "quick_reply",
+            "title": "No, I'm finished"
+          }, {
+            "action": "quick_reply",
+            "title": "Yes, I have another question"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "CashPayment",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CashPayment",
+        "value": "true"
+      }, {
+        "parameter": "Metrics_Payment_OtherPaymentOptions_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WalkinLocations",
+    "name": "dbabfc7a-46f6-4bc9-9ae4-16880f4e249c"
+  }, {
+    "intent": "My BrightSpeed Portal",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "callerintent",
+        "value": "PrepaidPayment"
+      }, {
+        "parameter": "Metrics_Payment_OtherPaymentOptions_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "MyBrightSpeedPortal",
+    "name": "4669fb6f-dca4-488c-8845-ed90ab579862"
+  }, {
+    "intent": "GoodToGo",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OtherPaymentOptions_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "03466799-2c12-4463-87a8-ae4b8e75c5c1"
+  }, {
+    "intent": "AdditionalQuestion",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OtherPaymentOptions_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "ba62389b-a869-4fef-b801-cd44e305f1cc"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Visit MyBrightSpeed portal"
+            }, {
+              "action": "quick_reply",
+              "title": "Find walk-in locations"
+            }, {
+              "action": "quick_reply",
+              "title": "No, I'm finished"
+            }, {
+              "action": "quick_reply",
+              "title": "Yes, I have another question"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OtherPaymentOptions_NM1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "e7efdc44-3cd2-4921-904d-80325875aedf"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_OtherPaymentOptions_NM2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "OtherPaymentOptions"
+      } ]
+    },
+    "name": "b8066280-a595-49d6-9f16-b2996b31c37e"
+  } ]
+}

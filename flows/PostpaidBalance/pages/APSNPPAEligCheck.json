@@ -1,0 +1,47 @@
+{
+  "name": "52055ed5-d86e-45c8-9088-f791d2bc92c2",
+  "displayName": "APSNPPAEligCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentArrangementEligibility = \"Y\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_SNP_PAEligCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APSNPPAEligBalanceCheck",
+    "name": "3397cd7e-2cd7-4829-9bf2-b3c73f0fe8d3"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_SNP_PAEligCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "APSNPBalanceCheck",
+    "name": "e02cae23-86bf-4d75-a5c2-a472fd112428"
+  } ],
+  "description": "AP - SNP PA ELIGIBILITY CHECK"
+}

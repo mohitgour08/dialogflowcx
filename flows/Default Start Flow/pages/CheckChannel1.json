@@ -1,0 +1,38 @@
+{
+  "name": "173340c8-367f-4c90-88b5-d95c655da430",
+  "displayName": "CheckChannel1",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_CheckChannel1_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckForHints",
+    "name": "16336cb5-f36d-462c-b0a1-ccaf218cb125"
+  }, {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_CheckChannel1_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckForOutageDynamicMsg",
+    "name": "7f85c522-df62-4949-bed1-ab09fd8217b3"
+  } ]
+}

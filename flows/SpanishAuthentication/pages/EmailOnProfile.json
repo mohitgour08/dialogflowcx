@@ -1,0 +1,189 @@
+{
+  "name": "c248e608-f74a-407d-b775-92830cc09ad9",
+  "displayName": "EmailOnProfile",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eBien, encontré tu cuenta. ¿Le gustaría que le envíe el código único a la dirección de correo electrónico que comienza con$sys.func.MID($session.params.EmailNameFirst5,1,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,2,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,3,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,4,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,5,1) \u003cbreak  time=\"300ms\"/\u003e Pulsa uno para sí o dos para no.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EmailOnProfile_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Auth2FactorChannel",
+        "value": "Email"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "SpanishAuthentication_EmailOnProfile_DTMF_1"
+      } ]
+    },
+    "targetPage": "EmailSend",
+    "name": "d5a392b2-a2b4-40f7-ada2-9dece3892046"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EmailOnProfile_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "SpanishAuthentication_EmailOnProfile_DTMF_2"
+      } ]
+    },
+    "targetPage": "NoOtherOption",
+    "name": "32e3e535-d897-4a40-a070-444874e90db4"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTu respuesta no coincide con ninguna de las opciones. Intentémoslo de nuevo.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003ePulsa uno para sí o dos para no.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Lo siento, tu respuesta no coincide con una de nuestras opciones." ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EmailOnProfile_Nomatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())\""
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "True"
+      } ]
+    },
+    "name": "b20cbb1d-aaea-4cee-9b05-d2e6fdc4201f"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eNo entendí tu respuesta\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "No entendí tu respuesta." ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "NoMatch-EmailOnProfile"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_EmailOnProfile_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "EmailOnProfile"
+      } ]
+    },
+    "name": "587fd2bd-47d7-4985-bb19-6ab8a3ea6d4e"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Lo siento! No entendí tu respuesta. Intentémoslo de nuevo.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003ePulsa uno para sí o dos para no.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Lo siento, no escuché tu respuesta." ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EmailOnProfile_Noinput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "True"
+      } ]
+    },
+    "name": "e0b7d48e-12e2-42df-8975-1f564f0fca27"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eeso esta bien\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Está bien." ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "NoInput-EmailOnProfile"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_EmailOnProfile_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "EmailOnProfile"
+      } ]
+    },
+    "name": "23495a5f-b73a-4f20-b783-f5cb650263b8"
+  } ]
+}

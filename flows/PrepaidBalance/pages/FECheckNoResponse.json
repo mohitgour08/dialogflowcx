@@ -1,0 +1,39 @@
+{
+  "name": "02c74d24-72d3-4383-b6dc-b6f54a29d104",
+  "displayName": "FECheckNoResponse",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "No problem, you can update your payment method online at any time by logging into your My Brightspeed account $session.params.link8 or opening the mobile app. " ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_PrepaidBalance",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToModule",
+        "value": "PrepaidBalance"
+      }, {
+        "parameter": "ToState",
+        "value": "NoResponse"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_FECheckNoResponse_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "1aad7b1c-e837-467e-8960-1d5cf1e06b18"
+  } ]
+}

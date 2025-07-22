@@ -1,0 +1,84 @@
+{
+  "name": "8b4cb6f4-d109-4169-8469-1387bb32603a",
+  "displayName": "FormNAPNodueCheck",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.FormNAPNodueresp = \"Update\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\":\"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "FormNAPNodueresp",
+        "value": null
+      }, {
+        "parameter": "ToState",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_FormNAPNodueCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "8b0e3bca-6c60-48f0-864a-60e9948d0569"
+  }, {
+    "condition": "$session.params.FormNAPNodueresp = \"onePayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FormNAPNodueresp",
+        "value": null
+      }, {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_FormNAPNodueCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "c3be4fc4-439c-4648-93d4-25fd9fbc6874"
+  }, {
+    "condition": "$session.params.FormNAPNodueresp = \"formBack\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FormNAPNodueresp",
+        "value": null
+      }, {
+        "parameter": "Metrics_PostpaidBalance_FormNAPNodueCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormNAPAnythingelse",
+    "name": "347b1c8b-41fa-45a7-9bf5-20bbfb56839a"
+  }, {
+    "condition": "$session.params.FormNAPNodueresp = \"EnrollInAutopay\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\":\"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "RecurringPaymentAutopay"
+      }, {
+        "parameter": "FormNAPNodueresp",
+        "value": null
+      }, {
+        "parameter": "Metrics_PostpaidBalance_FormNAPNodueCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "6a68280c-d772-4aa5-8cb3-4d0fa3dfbd43"
+  } ]
+}

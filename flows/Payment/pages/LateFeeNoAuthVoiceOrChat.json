@@ -1,0 +1,25 @@
+{
+  "name": "11726e33-2f2d-4cbf-9e52-32fe3d5f7d37",
+  "displayName": "LateFeeNoAuthVoiceOrChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "LateFeesNotAuthenticated",
+    "name": "345a87d1-59ed-4144-aa09-704a6e1e3811"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "LateFeesNotAuthenticatedVoice",
+    "name": "62bedee6-0fce-40f2-b2e5-9c2cf5ffd5bd"
+  } ]
+}

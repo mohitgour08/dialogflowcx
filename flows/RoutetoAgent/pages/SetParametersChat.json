@@ -1,0 +1,186 @@
+{
+  "name": "1bc01b85-4c86-45c0-ab6a-c099df0a1798",
+  "displayName": "SetParametersChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "SetParametersChat",
+    "tag": "test",
+    "setParameterActions": [ {
+      "parameter": "CallID",
+      "value": "$sys.func.IF(\"$session.params.chatID != null\", \"$session.params.chatID\", \"\")"
+    }, {
+      "parameter": "AccountNumber",
+      "value": "$sys.func.IF(\"$session.params.AccountNumber != null\", \"$session.params.AccountNumber\", \"\")"
+    }, {
+      "parameter": "AccountType",
+      "value": "$sys.func.IF(\"$session.params.AccountType != null\", \"$session.params.AccountType\", \"\")"
+    }, {
+      "parameter": "product",
+      "value": "$sys.func.IF(\"$session.params.Products!= null\", \"$session.params.Products\", \"\")"
+    }, {
+      "parameter": "networkType",
+      "value": "$sys.func.IF(\"$session.params.networkType != null\", \"$session.params.networkType\", \"\")"
+    }, {
+      "parameter": "language",
+      "value": "$sys.func.IF(\"$session.params.language != null\", \"$session.params.language\", \"\")"
+    }, {
+      "parameter": "callerintent",
+      "value": "$sys.func.IF(\"$session.params.callerintent != null\", \"$session.params.callerintent\", \"\")"
+    }, {
+      "parameter": "Authentication",
+      "value": "$sys.func.IF(\"$session.params.Authentication != null\", \"$session.params.Authentication\", \"\")"
+    }, {
+      "parameter": "AuthFailReason",
+      "value": "$sys.func.IF(\"$session.params.AuthFailReason != null\", \"$session.params.AuthFailReason\",\"\" )"
+    }, {
+      "parameter": "state",
+      "value": "$sys.func.IF(\"$session.params.state != null\", \"$session.params.state\", \"\")"
+    }, {
+      "parameter": "summary",
+      "value": "$sys.func.IF(\"$session.params.summary != null\", \"$session.params.summary\", \"\")"
+    }, {
+      "parameter": "summary",
+      "value": "$sys.func.SUBSTITUTE($session.params.summary, \"\\\"\", \"\")"
+    }, {
+      "parameter": "sales_customer_type",
+      "value": "$sys.func.IF(\"$session.params.sales_customer_type != null\", \"$session.params.sales_customer_type\",\"\" )"
+    }, {
+      "parameter": "FiberTransfer",
+      "value": "$sys.func.IF(\"$session.params.FiberTransfer != null\", \"$session.params.FiberTransfer\", \"\")"
+    }, {
+      "parameter": "phone_number_temp",
+      "value": "$sys.func.IF(\"$session.params.ContactNumber != null\", \"$session.params.ContactNumber\", \"\")"
+    }, {
+      "parameter": "KeyValuePairs",
+      "value": "$session.params.CallID,$session.params.AccountNumber,$session.params.AccountType,$session.params.product,$session.params.networkType,$session.params.language,$session.params.callerintent,$session.params.Authentication,$session.params.AuthFailReason,$session.params.state,$session.params.phone_number_temp,$session.params.DNIS,$session.params.CurrentTime,$session.params.sales_customer_type,$session.params.FiberTransfer,$session.params.FiberSelfServe,$session.params.summary,"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SetParametersChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_SetParametersChat",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParametersChat"
+      } ]
+    },
+    "targetPage": "QueueInfo",
+    "name": "2df37bf7-2c57-4c09-81fd-4c1b535c61f5"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "0f0311d7-b21f-4037-930d-dc030cc63e21"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "a6b762ed-d9e2-435c-b728-d8069a91e645"
+  }, {
+    "targetPage": "RecordSummary",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SetParametersChat_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_SetParametersChat",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParametersChat"
+      } ]
+    },
+    "name": "ef3edd54-c1ba-4dfa-bf6f-7ca3e42659f1"
+  }, {
+    "targetPage": "RecordSummary",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SetParametersChat_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_SetParametersChat",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParametersChat"
+      } ]
+    },
+    "name": "908516d8-fff1-42ac-af41-073df36163ff"
+  }, {
+    "targetPage": "RecordSummary",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SetParametersChat_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_SetParametersChat",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParametersChat"
+      } ]
+    },
+    "name": "7299c9d9-dc1f-412c-810f-f764cc22731d"
+  }, {
+    "targetPage": "RecordSummary",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SetParametersChat_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_SetParametersChat",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParametersChat"
+      } ]
+    },
+    "name": "7e2f51bc-3ffc-46cc-9331-7257b6b06091"
+  }, {
+    "targetPage": "RecordSummary",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SetParametersChat_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_SetParametersChat",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParametersChat"
+      } ]
+    },
+    "name": "dad74bc7-2e8d-4a0e-8302-8930400580ef"
+  }, {
+    "targetPage": "RecordSummary",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SetParametersChat_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_SetParametersChat",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParametersChat"
+      } ]
+    },
+    "name": "a4be9aea-3797-4119-a9b0-6fb0d62a49f1"
+  } ]
+}

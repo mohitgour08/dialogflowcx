@@ -1,0 +1,14 @@
+{
+  "name": "7775080e-4b4c-4f65-bbab-9b8ff5d0cb4b",
+  "displayName": "Confirmation.No",
+  "parameters": [ {
+    "id": "number",
+    "entityType": "@sys.number"
+  }, {
+    "id": "person",
+    "entityType": "@sys.person"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 210,
+  "dtmfPattern": "2"
+}

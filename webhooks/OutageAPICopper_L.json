@@ -1,0 +1,30 @@
+{
+  "name": "bb6e2897-3fb8-4b3f-81d7-e628b47228ff",
+  "displayName": "OutageAPICopper_L",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/ccsautomateservice/api/v1/checkoutage/legacyCopper",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"ucid\": \"$session.params.APICallID\",\n  \"tn\": \"$session.params.contactNumber\",\n  \"data\": \"summary\"\n}",
+    "parameterMapping": [ {
+      "key": "ETR",
+      "value": "responseBody.ETR"
+    }, {
+      "key": "NetworkOutage",
+      "value": "responseBody.isOutage"
+    }, {
+      "key": "OutageResponse",
+      "value": "responseStatus"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    },
+    "serviceAgentAuth": "NONE"
+  },
+  "timeout": {
+    "seconds": 30
+  }
+}

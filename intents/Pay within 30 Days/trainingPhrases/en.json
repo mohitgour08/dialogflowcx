@@ -1,0 +1,45 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": " Within ",
+      "auto": true
+    }, {
+      "text": "30",
+      "auto": true
+    }, {
+      "text": " Days",
+      "auto": true
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "30",
+      "auto": true
+    }, {
+      "text": " days",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": " within ",
+      "auto": true
+    }, {
+      "text": "30",
+      "auto": true
+    }, {
+      "text": " Days",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

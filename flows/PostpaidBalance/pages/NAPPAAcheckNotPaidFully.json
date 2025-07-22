@@ -1,0 +1,88 @@
+{
+  "name": "a508a2bb-d441-491d-a128-7adcde19aaf5",
+  "displayName": "NAPPAAcheckNotPaidFully",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentArrangementEligibility = \"Y\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your current balance is $$session.params.TotalBalance due on $session.params.BillInfo_BillDueDate. Click here to $session.params.link30 in my Brightspeed" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Your current balance is $$session.params.TotalBalance due on $session.params.BillInfo_BillDueDate." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_NAPPAAcheckNotPaidFully_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NotFullyPaidIntentCheckPA",
+    "name": "98017cb2-3379-4b90-b9f6-b5e8f802e007"
+  }, {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_NAPPAAcheckNotPaidFully_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormNAPdue",
+    "name": "bf05533e-2f4f-4104-9354-913631bf3601"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your current balance is $$session.params.TotalBalance due on $session.params.BillInfo_BillDueDate .$session.params.link30 in my Brightspeed" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Your current balance is $$session.params.TotalBalance due on $session.params.BillInfo_BillDueDate." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_NAPPAAcheckNotPaidFully_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NotFullPaidIntentCheck",
+    "name": "ead74189-9d40-435a-b875-dc6a82450026"
+  } ]
+}

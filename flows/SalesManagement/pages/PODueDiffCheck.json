@@ -1,0 +1,267 @@
+{
+  "name": "9d4703ef-ffe7-48d8-a256-2c013ef114a5",
+  "displayName": "PODueDiffCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "GetDateDiff",
+    "tag": "DateDifference",
+    "setParameterActions": [ {
+      "parameter": "Current",
+      "value": "$sys.func.NOW()"
+    }, {
+      "parameter": "CurrentDate",
+      "value": "$sys.func.FORMAT_DATE($sys.func.NOW(),\"yyyy-MM-dd\")"
+    }, {
+      "parameter": "BillInfo_BillDueDate",
+      "value": "$session.params.BillInfo_BillDueDate"
+    }, {
+      "parameter": "CCExpirationDate",
+      "value": "$session.params.CCExpirationDate"
+    }, {
+      "parameter": "Metrics_POApptDateCheck_DateDifference_cf_GetDateDiff",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "CheckPaymentDate",
+      "value": "$session.params.CheckPaymentDate"
+    }, {
+      "parameter": "NextDueDate",
+      "value": "$session.params.NextDueDate"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.NetworkType = \"Copper_L\" OR $session.params.OrderAppointmentDate = null OR $session.params.OrderAppointmentDate = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "OrderAppointmentDateBACKUP",
+        "value": "$session.params.OrderAppointmentDate"
+      }, {
+        "parameter": "OrderAppointmentDate",
+        "value": "$session.params.OrderDueDate"
+      }, {
+        "parameter": "Metrics_SalesManagement_PODueDiffCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SalesManagement_PODueDiffCheck",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "targetPage": "POApptCheck",
+    "name": "37fde3e2-a7b3-474d-915f-3dc5241f7c75"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_PODueDiffCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SalesManagement_PODueDiffCheck",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "targetPage": "POApptCheck",
+    "name": "4c71ab2d-5cc6-474a-8180-8ffc3dc4f57a"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_SalesManagement_DateDiff_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PendingOrder",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_SalesManagement_PODueDiffCheck",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "name": "d9e303d1-4edd-4b2f-86f4-5736db369802"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_DateDiff_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_PendingOrder",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_SalesManagement_PODueDiffCheck",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "name": "657e12b6-6f88-4e83-ae90-f8fa2e16f7b8"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_DateDiff_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_PendingOrder",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_SalesManagement_PODueDiffCheck",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "name": "faba5b28-4e09-4351-9c70-ad483958eeae"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_DateDiff_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PendingOrder",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_SalesManagement_PODueDiffCheck",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "name": "4aa613c8-d32a-4861-965d-63f7dd4bbc95"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_DateDiff_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PendingOrder",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_SalesManagement_PODueDiffCheck",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "name": "4e0e4ec8-1a03-4daa-960b-4913708add4b"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_DateDiff_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PendingOrder",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_SalesManagement_PODueDiffCheck",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "name": "f7a87ed2-1b12-49a5-b0e7-fb772e4e5faa"
+  } ]
+}

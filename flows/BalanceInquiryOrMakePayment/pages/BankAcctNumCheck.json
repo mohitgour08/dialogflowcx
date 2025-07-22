@@ -1,0 +1,34 @@
+{
+  "name": "2e53c38f-6e4f-4bb7-9a4f-88bc1fbdcad4",
+  "displayName": "BankAcctNumCheck",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BankAccountNum != null AND $session.params.BankAccountNum != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "LastFourDigitsAcctNum",
+        "value": "$sys.func.MID($session.params.BankAccountNum, 13, 4)"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BankAcctNumCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SuspensionDateCheck",
+    "name": "7c1f9ffa-8985-4e13-a26f-4e16f5720621"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "LastFourDigitsAcctNum",
+        "value": ""
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BankAcctNumCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SuspensionDateCheck",
+    "name": "8513f5a7-3abb-4252-8372-88f48f8a6e12"
+  } ]
+}

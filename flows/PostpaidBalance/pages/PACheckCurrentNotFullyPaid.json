@@ -1,0 +1,47 @@
+{
+  "name": "d8415b28-242c-4eb4-8b77-fa65780e58f5",
+  "displayName": "PACheckCurrentNotFullyPaid",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentArrangementEligibility = \"Y\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_PACurrentNotFullyPaid_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PACurrentNotFullyPaidVoice",
+    "name": "d7043d1c-fc2d-4720-9dc3-624b8ff7c035"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_PACurrentNotFullyPaid_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CurrentNotFullyPaidVoice",
+    "name": "b1e8ad16-f428-4cbc-b2cc-090d9b369a70"
+  } ]
+}

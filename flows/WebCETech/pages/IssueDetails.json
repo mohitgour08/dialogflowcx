@@ -1,0 +1,103 @@
+{
+  "name": "b18afb57-1170-4d7f-8f68-bd35c82d47f2",
+  "displayName": "IssueDetails",
+  "form": {
+    "parameters": [ {
+      "displayName": "Chat_Description",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "Your response has exceeded the character limit. Please enter another version that is under 256 characters and resubmit." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_WebCETech_IssueDetails_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "d94d6afa-ac0d-46ba-ba06-e21dd2a2b7cb"
+        }, {
+          "targetPage": "End Session",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I am sorry, I am unable to assist you at this time. Please restart the chat if you need further assistance. Goodbye." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_WebCETech_IssueDetails_NoMatch2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "74b171c6-01a9-4cb9-82b1-473d83471c53"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Provide any addition details you think would help us understand your issue.\nNote : This field has a 256 character limit." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Chat_Description",
+      "value": null
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "($sys.func.LEN($session.params.Chat_Description) = 256 OR $sys.func.LEN($session.params.Chat_Description) \u003c 256) AND $page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_IssueDetails_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CollectDepartment",
+    "name": "711b1adf-5057-488d-84e2-f2790a850187"
+  } ]
+}

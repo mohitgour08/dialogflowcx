@@ -1,0 +1,54 @@
+{
+  "name": "83985235-3fd0-4ae9-a96a-58685cf2087a",
+  "displayName": "FiberCardPaymentForm",
+  "form": {
+    "parameters": [ {
+      "displayName": "formResponse",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_SecuredPayments_FiberCardPaymentForm_formResponse",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+            
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\"chatClientForm\":\"CardPayment\", \n\"latestInvoiceAmount\": \"$session.params.LatestInvoiceAmount\"}" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberCardPaymentForm_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberCardFormCheck",
+    "name": "251b8102-1654-4358-8bd4-e2ff296709e4"
+  } ]
+}

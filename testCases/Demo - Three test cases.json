@@ -1,0 +1,201 @@
+{
+  "name": "3de65dc3-5aeb-4450-9616-8501b79bb248",
+  "tags": [ "#smart_acc.mng" ],
+  "displayName": "Demo - Three test cases",
+  "testCaseConversationTurns": [ {
+    "userInput": {
+      "injectedParameters": {
+        "Channel": "web"
+      },
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "Hi"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "sessionParameters": {
+        "Channel": "web"
+      },
+      "textResponses": [ {
+        "text": [ "You are communicating with an AI enabled virtual assistant. Your chat may be recorded, monitored, or retained by us and our vendors to help improve and personalize our services for you. By continuing with this chat, you consent to this. For more information check out our {{ https://www.brightspeed.com/privacy-notice.html | Privacy Notice}}." ],
+        "allowPlaybackInterruption": true
+      }, {
+        "text": [ "How can I help you today?" ],
+        "allowPlaybackInterruption": true
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "i forget my username"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "triggeredIntent": {
+        "name": "Default Welcome Intent"
+      },
+      "currentPage": {
+        "name": "AskAccountInfo",
+        "flow": "Authentication"
+      },
+      "textResponses": [ {
+        "text": [ "Before we can help, I need to find your account. Starting with the area code please enter a telephone number associated with your account, or your 9 or 10 digit billing account number. If your account number begins with the letters \"PPB\", make sure to include that too." ],
+        "allowPlaybackInterruption": true
+      } ],
+      "currentFlow": {
+        "name": "Authentication"
+      }
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "300892094"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "triggeredIntent": {
+        "name": "AuthenticationAccountInfoPPB"
+      },
+      "currentPage": {
+        "name": "AuthOptionsChat",
+        "flow": "Authentication"
+      },
+      "textResponses": [ {
+        "text": [ "Please select one of the authentication options below: " ]
+      } ],
+      "currentFlow": {
+        "name": "Authentication"
+      }
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "Validate Account Zipcode"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "triggeredIntent": {
+        "name": "Zipcode"
+      },
+      "currentPage": {
+        "name": "ZipCodeLookUp",
+        "flow": "Authentication"
+      },
+      "textResponses": [ {
+        "text": [ "Okay! Please enter your billing zipcode now." ],
+        "allowPlaybackInterruption": true
+      } ],
+      "currentFlow": {
+        "name": "Authentication"
+      }
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "49817"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Thank you! I've authenticated your account." ],
+        "allowPlaybackInterruption": true
+      }, {
+        "text": [ "OK. I have your account details. I see that your username is randy549@getnada.com. Was that what you were looking for?\n" ],
+        "allowPlaybackInterruption": true
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "what is my billing address"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Your billing address is 10429W CO RD 442, COOKS, MI, 49817, USA. Is there anything else I can help you with?\n" ],
+        "allowPlaybackInterruption": true
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "what is my account type"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Your account type is residential. Is there anything else I can help you with?\n" ],
+        "allowPlaybackInterruption": true
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "i want to change my passwrd"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "You can reset your password online. Visit https://dh.brightspeed.com/login/forgotPassword to do so. Changing your password will require unauthorized users to log in again.\n\nWould you like me to send you an email guide on how to reset your password on the website for future reference?\n" ],
+        "allowPlaybackInterruption": true
+      } ]
+    }
+  }, {
+    "userInput": {
+      "isWebhookEnabled": true,
+      "input": {
+        "text": {
+          "text": "yes"
+        },
+        "languageCode": "en"
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "OK. I've sent an email to randy549@getnada.com with instructions on how to reset your password. Is there anything else I can help you with?\n" ],
+        "allowPlaybackInterruption": true
+      } ]
+    }
+  } ],
+  "creationTime": {
+    "seconds": 1751007962,
+    "nanos": 957024000
+  },
+  "testConfig": {
+    "trackingParameters": [ "enteredZipCode" ],
+    "flow": "Default Start Flow",
+    "page": "Start Page"
+  },
+  "languageCode": "en"
+}

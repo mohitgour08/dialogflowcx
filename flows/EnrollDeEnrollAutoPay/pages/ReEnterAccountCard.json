@@ -1,0 +1,32 @@
+{
+  "name": "fce8a210-cc64-4b22-a847-2bffd5518a14",
+  "displayName": "ReEnterAccountCard",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "No problem! Let's try again. Enter your Card number again now." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "No problem! Let's try again. Enter your Card number again now." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_ReEnterAccountCard_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnterCardDetails",
+    "name": "0c8c3059-94fd-4319-b401-7379fd8c65cf"
+  } ]
+}

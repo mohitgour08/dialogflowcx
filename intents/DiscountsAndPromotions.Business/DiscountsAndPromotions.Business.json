@@ -1,0 +1,10 @@
+{
+  "name": "cff51676-5659-4742-bd13-3c687aab04cb",
+  "displayName": "DiscountsAndPromotions.Business",
+  "parameters": [ {
+    "id": "confirmpassword",
+    "entityType": "@ConfirmPassword"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 1
+}

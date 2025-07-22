@@ -1,0 +1,47 @@
+{
+  "name": "ab82b55b-cdc6-4c37-99f5-85ae52f9c238",
+  "displayName": "CheckFiberPlan",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckFiberPlan_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberServiceUpgrade",
+    "name": "b27cbf10-2aa2-486e-8f0b-0df4970cf4da"
+  }, {
+    "condition": "Hightstfiber AND plan = a",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_CheckFiberPlan_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "MigratedCopperServiceUpgrade",
+    "name": "0a7f32f5-f03f-439e-b859-bf11f5020122"
+  } ]
+}

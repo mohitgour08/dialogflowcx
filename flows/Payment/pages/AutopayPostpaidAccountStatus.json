@@ -1,0 +1,74 @@
+{
+  "name": "bd74a469-f438-431e-bcda-41e31fbdd298",
+  "displayName": "AutopayPostpaidAccountStatus",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_AccountStatus = \"Suspended\" OR $session.params.BillInfo_AccountStatus = \"Paused\" OR $session.params.BillInfo_AccountStatus = \"SUSPENDED\" OR $session.params.BillInfo_AccountStatus = \"PAUSED\" OR $session.params.BillInfo_AccountStatus = \"SNP\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AutoPayPostpaidAccountStatus_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AutopayCTLPURLSuspended",
+    "name": "2542c85a-afec-4d20-9d21-76950caa2ca4"
+  }, {
+    "condition": "$session.params.BillInfo_AccountStatus = \"Payment Past Due\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AutoPayPostpaidAccountStatus_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AutoPayCTLPURLPastDue",
+    "name": "dc4aec30-0cbf-430d-8bff-95a45cbea29c"
+  }, {
+    "condition": "$session.params.BillInfo_AccountStatus = \"Active\" OR $session.params.BillInfo_AccountStatus = \"Open\" OR $session.params.BillInfo_AccountStatus = \"OPENED\" OR $session.params.BillInfo_AccountStatus = \"OPEN\" OR $session.params.BillInfo_AccountStatus = \"Opened\" OR $session.params.BillInfo_AccountStatus = \"ACTIVE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AutoPayPostpaidAccountStatus_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AutopayCTLPURLCurrent",
+    "name": "e2e3c2cc-5c58-4c01-9913-8d061778d509"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_Payment_AutoPayPostpaidAccountStatus_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountStatus-DefaultRoute"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "4ed7961e-6feb-4774-beaa-4afedb387f92"
+  } ]
+}

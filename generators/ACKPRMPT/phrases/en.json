@@ -1,0 +1,6 @@
+{
+  "promptTexts": [ {
+    "text": "Your goal is to acknowledge the user utterance\nPlease follow below mentioned instructions carefully when generating the acknowledgment prompt:\n- Create a brief acknowledgment of the user's utterance in a single sentence.\n- Begin your acknowledgment with \"I understand that you \".\n- Analyze user' utterance and acknowledge. Do not make assumptions if the utterance is short and does not have enough details or intention.\n- \"tech\" and \"appointment\" mean \"need assistance with a technician appointment\".\n- Do not use acknowledgment like \"I understand that you want to access your account\"\n- Make sure to not use words like dispute, report.\n- Always maintain a polite and professional tone in your acknowledgments.\n\nUser query:\n$last-user-utterance\n\nYou answer:",
+    "languageCode": "en"
+  } ]
+}

@@ -1,0 +1,280 @@
+{
+  "name": "0d6c1733-3c4f-4bb7-849e-da07e638fdb8",
+  "displayName": "QueueInfo",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "UpdatedFetchQueueInfo",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_RouteToAgent_QueueInfo",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "UpdatedFetchQueueInfo_logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_QueueInfo_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "6e488d68-8853-490c-ad4e-770facbfa16f"
+  }, {
+    "condition": "$session.params.isAfterHours = True",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$session.params.message" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_QueueInfo_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_QueueInfo",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatedFetchQueueInfo"
+      } ]
+    },
+    "targetPage": "End Session",
+    "name": "eab0b81d-a932-4bcf-9093-dde69d556069"
+  }, {
+    "condition": "$session.params.isLongWait = True",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$session.params.message" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_QueueInfo_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_QueueInfo",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatedFetchQueueInfo"
+      } ]
+    },
+    "targetPage": "End Session",
+    "name": "cb09a9d6-d1d0-45a2-9650-31fde273b374"
+  }, {
+    "condition": "$session.params.isImmediateHandoff = True",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$session.params.message" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "API_RoutetoAgent_QueueInfo",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatedFetchQueueInfo"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "RecordSummary",
+    "name": "a5a5b28c-9898-43e1-bdfb-dfa5e8e8471c"
+  }, {
+    "condition": "$session.params.isAboveThreshold = False",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$session.params.message" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_QueueInfo_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_QueueInfo",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatedFetchQueueInfo"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "RecordSummary",
+    "name": "96ac3f96-bc00-4c6a-a60b-92961a631bbd"
+  }, {
+    "condition": "$session.params.isAboveThreshold = True",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$session.params.message" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_QueueInfo_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_QueueInfo",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatedFetchQueueInfo"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "HandOffFollowUp",
+    "name": "a703a641-2685-47eb-8be2-c387eed33b9b"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$session.params.message" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_QueueInfo_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_QueueInfo",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatedFetchQueueInfo"
+      } ]
+    },
+    "targetPage": "End Session",
+    "name": "6119d515-36ff-4dcf-93bd-f30a0a4d21b8"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "DefaultRoute",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_QueueInfo_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_QueueInfo",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatedFetchQueueInfo"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "d3d75920-f10c-47c1-95ff-25a134c01897"
+  }, {
+    "targetPage": "DefaultRoute",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_QueueInfo_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_QueueInfo",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatedFetchQueueInfo"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "e40ade50-53db-489b-8ff9-ab3810c86de9"
+  }, {
+    "targetPage": "DefaultRoute",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_QueueInfo_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_QueueInfo",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatedFetchQueueInfo"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "30ef21d5-aa6a-438f-aa24-30c1023c8aea"
+  }, {
+    "targetPage": "DefaultRoute",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_QueueInfo_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_QueueInfo",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatedFetchQueueInfo"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "4fd0ee70-044e-457f-a91b-95771874c437"
+  }, {
+    "targetPage": "DefaultRoute",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_QueueInfo_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_QueueInfo",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatedFetchQueueInfo"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "552aeda8-a6fc-45fb-ade5-a1f63c66fcbe"
+  }, {
+    "targetPage": "DefaultRoute",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_QueueInfo_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_QueueInfo",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatedFetchQueueInfo"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "182a1842-1ca1-4faa-b4c6-1308f45a6ac6"
+  } ]
+}

@@ -1,0 +1,136 @@
+{
+  "name": "5f743f38-9699-45f8-be70-1ae5c615d16d",
+  "displayName": "SpeedTestAndProvisioningCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "ExpectedSpeed",
+      "value": "$session.params.SpeedExpected"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.CurrentSpeed \u003e= $session.params.ExpectedSpeed",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_SpeedTestAndProvisioningCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberServiceUpgrade",
+    "name": "9d6c6094-6a61-48f5-83af-c8380b6e4de6"
+  }, {
+    "condition": "$session.params.CurrentSpeed \u003c $session.params.ExpectedSpeed",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay! All done. I've confirmed the internet speed does not match your current plan. I'm going to connect you with an agent now for more help. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e Okay! All done. I've confirmed the internet speed does not match your current plan. I'm going to connect you with an agent now for more help.  \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_SpeedTestAndProvisioningCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "SpeedNotMatch"
+      }, {
+        "parameter": "TransferReason",
+        "value": "SpeedNotMatch"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Current speed is less than provisioning speed"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "e2352216-e465-4d28-b969-41341b188630"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay! All done. I've confirmed the internet speed does not match your current plan. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e Okay! All done. I've confirmed the internet speed does not match your current plan. I'm going to connect you with an agent now for more help. . .\u003c/speak\u003e\n" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_SpeedTestAndProvisioningCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "SpeedNotMatch"
+      }, {
+        "parameter": "TransferReason",
+        "value": "SpeedNotMatch"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Current speed is less than provisioning speed"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "3947253a-c762-4b45-886b-ef3fd5290e34"
+  } ]
+}

@@ -1,0 +1,97 @@
+{
+  "name": "2ebde81b-ba6b-4c57-8e11-196acaaa8b9c",
+  "displayName": "AmountCounter",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.AmountCounter = 0 AND ($session.params.PaymentAmount = 0 OR $session.params.CustomAmt = 0)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "AmountCounter",
+        "value": "$sys.func.ADD($session.params.AmountCounter,1)"
+      }, {
+        "parameter": "PaymentAmount",
+        "value": null
+      }, {
+        "parameter": "CustomAmt",
+        "value": null
+      }, {
+        "parameter": "Metrics_SecuredPayments_AmountCounter_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CustomAmount",
+    "name": "04373e75-2a18-4a51-bb89-54c7c64691e9"
+  }, {
+    "condition": "$session.params.AmountCounter = 1 AND ($session.params.PaymentAmount = 0 OR $session.params.CustomAmt = 0)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I dint understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "Metrics_SecuredPayments_AmountCounter_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "RetryorRepeatLimitExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ExceededCustomAmountRetry"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "88835946-8238-4581-8cef-6dc14409e41f"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AmountCounter_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "LatestInvoiceAmount",
+        "value": "$session.params.PaymentAmount"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "PaymentAPI",
+    "name": "184399bf-dbee-4ecc-97a3-4b3b1387e7d4"
+  } ]
+}

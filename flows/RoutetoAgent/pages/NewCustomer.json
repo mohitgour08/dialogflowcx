@@ -1,0 +1,25 @@
+{
+  "name": "c43d3e51-da1a-4d21-a1b1-c70b912d85b6",
+  "displayName": "NewCustomer",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "NewCustomerRequirement",
+    "name": "6e3749fc-3349-4941-83a0-47ba83627ce6"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "NewCustomerVoice",
+    "name": "b7ef4da5-af13-413c-bb8d-0e88fa8bba3e"
+  } ]
+}

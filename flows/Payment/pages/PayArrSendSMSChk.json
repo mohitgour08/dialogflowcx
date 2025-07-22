@@ -1,0 +1,84 @@
+{
+  "name": "2486c180-9266-448b-ada8-3255c5a06af7",
+  "displayName": "PayArrSendSMSChk",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Great! I am sending the link now. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Please allow a moment for it to arrive. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "You can say \"I'm finished\" or \"I have another question\" once you receive it, or you can say \"send it again\" if it doesn't come in more than 60 seconds. " ]
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"Copper\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrSendSMSChk_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PayArrSendSMSCopper",
+    "name": "eaade108-59b4-4e78-9d98-01b90bbacd9b"
+  }, {
+    "condition": "$session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrSendSMSChk_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PayArrSendSMSLumenC",
+    "name": "e9bd719a-e5dd-4ed0-8bd2-bfa45a219d57"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrSendSMSChk_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "NetworkType Fiber"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "c61e6ad9-1d4d-44d7-9920-257a728044f1"
+  } ]
+}

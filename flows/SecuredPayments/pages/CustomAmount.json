@@ -1,0 +1,157 @@
+{
+  "name": "ffd8205e-f228-4a94-af1f-e8ea10344894",
+  "displayName": "CustomAmount",
+  "form": {
+    "parameters": [ {
+      "displayName": "CustomAmt",
+      "required": true,
+      "entityType": "@sys.number",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_SecuredPayments_CustomAmount_CustomAmt",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ]
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, your answer doesn’t match. Can you please repeat that?" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Please enter the amount you would like to pay. As an example, a payment of $52.99 would be entered as 52.99" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_SecuredPayments_CustomAmount_NM1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "NoMatch1Triggered",
+              "value": "TRUE"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "a5d5e0be-62da-4518-9a2a-28fba350133a"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I didn’t understand your answer. " ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_SecuredPayments_CustomAmount_NM2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Payment"
+            }, {
+              "parameter": "SS_SecuredPayments",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoMatchRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "CustomAmount"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "44698d6c-6615-4ad7-bac6-f6f50584ce5d"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay, please enter the amount you would like to pay. As an example, a payment of $52.99 would be entered as 52.99" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CustomAmount_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CustomAmount"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "79478971-0cee-400e-bcd7-ee143d1f1915"
+  }, {
+    "condition": "$page.params.status = FINAL AND $session.params.CustomAmt \u003e 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CustomAmount_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentAmount",
+        "value": "$session.params.CustomAmt"
+      }, {
+        "parameter": "PaymentAmount",
+        "value": "$sys.func.TO_TEXT($session.params.PaymentAmount)"
+      }, {
+        "parameter": "PaymentAmount",
+        "value": "$sys.func.SUBSTITUTE($session.params.PaymentAmount, \"\\$\", \"\")"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "AmountCounter",
+    "name": "b25d76a1-7aec-4738-84fa-70d8b79b2980"
+  } ]
+}

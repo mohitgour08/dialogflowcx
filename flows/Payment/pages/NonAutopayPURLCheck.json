@@ -1,0 +1,247 @@
+{
+  "name": "ac196032-a6b4-4cdd-a47a-1c6fa315aed6",
+  "displayName": "NonAutopayPURLCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "Send_PURL",
+    "tag": "NonAutopay",
+    "setParameterActions": [ {
+      "parameter": "Metrics_NonAutopayPURLCheck_NonAutopay_wh_NonAutopay_purl",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "PurlCheckNonAutopay",
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_NonAutopayPURLCheck_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendPURLAPI"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NonAutopayPURLAPI",
+    "name": "2236fd58-888a-46ea-a0b8-7cc86f0e9006"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_NonAutopayPURLCheck_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "PURLResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendPURLAPI"
+      }, {
+        "parameter": "API_Payment_NonAutopayPURLCheck",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Send_PURL"
+      } ]
+    },
+    "name": "a3907e27-1163-4346-88f0-32b3860e3e87"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_NonAutopayPURLCheck_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "PURLResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendPURLAPI"
+      }, {
+        "parameter": "API_Payment_NonAutopayPURLCheck",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Send_PURL"
+      } ]
+    },
+    "name": "fed8f007-c032-48d0-aa59-522f11db540e"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_NonAutopayPURLCheck_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "PURLResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendPURLAPI"
+      }, {
+        "parameter": "API_Payment_NonAutopayPURLCheck",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Send_PURL"
+      } ]
+    },
+    "name": "44ed1a35-d7f2-4e11-987a-ecc783507745"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_NonAutopayPURLCheck_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "PURLResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendPURLAPI"
+      }, {
+        "parameter": "API_Payment_NonAutopayPURLCheck",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Send_PURL"
+      } ]
+    },
+    "name": "b1b0167b-5f78-468b-a135-5090807fd95e"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_NonAutopayPURLCheck_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "PURLResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendPURLAPI"
+      }, {
+        "parameter": "API_Payment_NonAutopayPURLCheck",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Send_PURL"
+      } ]
+    },
+    "name": "3826e4cd-70ea-4357-9746-d8b956ed1c63"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_NonAutopayPURLCheck_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "PURLResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SendPURLAPI"
+      }, {
+        "parameter": "API_Payment_NonAutopayPURLCheck",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Send_PURL"
+      } ]
+    },
+    "name": "c0c707de-730c-41d7-8711-b7d33ceaa35b"
+  } ]
+}

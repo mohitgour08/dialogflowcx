@@ -1,0 +1,43 @@
+{
+  "name": "75287f50-6fd8-4667-a1ec-3ba331faf6af",
+  "displayName": "SmartAccountManagementChat_v1",
+  "description": "Using this tool for account management transcripts test.",
+  "dataStoreSpec": {
+    "dataStoreConnections": [ {
+      "dataStoreType": "UNSTRUCTURED",
+      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/account-management-chat-v2_1751544143233",
+      "documentProcessingMode": "CHUNKS",
+      "engineType": "CHAT_ENGINE",
+      "connectorConfig": {
+      
+      },
+      "createTime": {
+        "seconds": 1751544164,
+        "nanos": 48763000
+      },
+      "displayName": "Account_management_chat_V2"
+    } ],
+    "models": {
+      "summarizationModel": {
+        "model": "gemini_20_flash_001"
+      },
+      "rewriterModel": {
+      
+      }
+    },
+    "fallbackPrompt": {
+      "company": "Brightspeed"
+    },
+    "groundingSettings": {
+    
+    },
+    "payloadSettings": {
+      "enableSnippetsPayload": true,
+      "maxSnippetsCount": 2
+    },
+    "voiceModeSettings": {
+    
+    }
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

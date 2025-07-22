@@ -1,0 +1,214 @@
+{
+  "name": "00b09108-ac5f-449f-84a1-df74783e8fda",
+  "displayName": "FormEncryptCopperOTP",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "JsonPayload",
+    "tag": "none"
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.encValues != null AND $session.params.SetPrimaryMethod = \"t\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormEncryptCopperOTP_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SetPrimaryMethodBackup",
+        "value": "$session.params.SetPrimaryMethod"
+      }, {
+        "parameter": "SetPrimaryMethod",
+        "value": "true"
+      } ]
+    },
+    "targetPage": "AutopayEnrollCheck",
+    "name": "b9cecf60-41ca-40e4-ba67-48f739ac3d9a"
+  }, {
+    "condition": "$session.params.encValues != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormEncryptCopperOTP_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SetPrimaryMethodBackup",
+        "value": "$session.params.SetPrimaryMethod"
+      }, {
+        "parameter": "SetPrimaryMethod",
+        "value": "false"
+      } ]
+    },
+    "targetPage": "AutopayEnrollCheck",
+    "name": "2ed6535e-2410-43df-995c-731e4582fabe"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormEncryptCopperOTP_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "JsonPayloadPayment"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "c032221f-f4b9-4505-900c-156674772987"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormEncryptCopperOTP_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "JsonPayloadPayment"
+      } ]
+    },
+    "name": "c537c1bf-5ee5-4be9-afad-3040354bb203"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormEncryptCopperOTP_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "JsonPayloadPayment"
+      } ]
+    },
+    "name": "8684b886-13ff-4756-94da-2aa15ad6f9a5"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormEncryptCopperOTP_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "JsonPayloadPayment"
+      } ]
+    },
+    "name": "f85052de-4004-4146-a3a9-a760308a3cda"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormEncryptCopperOTP_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "JsonPayloadPayment"
+      } ]
+    },
+    "name": "da5f0fb4-637a-4a69-a9b1-1c2937660998"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormEncryptCopperOTP_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeOut"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "JsonPayloadPayment"
+      } ]
+    },
+    "name": "b0be014c-6751-469f-91ad-ccbd374b53e8"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormEncryptCopperOTP_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "JsonPayloadPayment"
+      } ]
+    },
+    "name": "6495f5e5-88d2-43b7-95e5-228b28894c4e"
+  } ]
+}

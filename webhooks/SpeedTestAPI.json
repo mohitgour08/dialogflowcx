@@ -1,0 +1,26 @@
+{
+  "name": "c2c806ac-d4a0-4369-b8fa-68cd79834d4d",
+  "displayName": "SpeedTestAPI",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/ccsautomateservice/api/v1/speedTest",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"ucid\": \"$session.params.APICallID\",\n  \"ban\": \"$session.params.AccountNumber\"\n}",
+    "parameterMapping": [ {
+      "key": "CurrentSpeed",
+      "value": "DownloadThroughput"
+    }, {
+      "key": "SpeedTestResponse",
+      "value": "responseStatus"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 30
+  }
+}

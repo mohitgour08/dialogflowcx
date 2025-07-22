@@ -1,0 +1,78 @@
+{
+  "name": "45ed723f-e2cd-41ba-b66a-05cc5ee29ac4",
+  "displayName": "AccountInfo",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.Authattempts = 1 OR $session.params.TN_BAN_attempt = 1) AND $session.params.comingFromPPB = true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_temp",
+        "value": null
+      }, {
+        "parameter": "TN_BAN",
+        "value": null
+      } ]
+    },
+    "targetPage": "PPBMoreInfo",
+    "name": "6eeccedf-d888-4b13-997d-e0eed8ba6cc0"
+  }, {
+    "condition": "$session.params.Authattempts = 1 OR $session.params.TN_BAN_attempt = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_AccountInfo_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "TN_BAN_temp",
+        "value": null
+      }, {
+        "parameter": "TN_BAN",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "askAccountInfoVoiceB",
+    "name": "8bf9d7e4-a083-40ce-b7dd-f55f8c7760d3"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_AccountInfo_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "askAccountInfoVoice",
+    "name": "fa149dc2-a3a8-4959-a3c4-d1cc7ed848df"
+  } ]
+}

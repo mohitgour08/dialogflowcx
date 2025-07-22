@@ -1,0 +1,46 @@
+{
+  "name": "e1940597-f832-437e-87b6-b41a82ec2b96",
+  "displayName": "SuspensionDateCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.SuspensionDate != NULL AND $session.params.SuspensionDate != \"\" AND $session.params.SuspensionDate != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SuspensionDateBackup",
+        "value": "$session.params.SuspensionDate"
+      }, {
+        "parameter": "SuspensionDay",
+        "value": "$sys.func.MID($session.params.SuspensionDate,9,2)"
+      }, {
+        "parameter": "SuspensionMonth",
+        "value": "$sys.func.MID($session.params.SuspensionDate,6,2)"
+      }, {
+        "parameter": "SuspensionYear",
+        "value": "$sys.func.MID($session.params.SuspensionDate,1,4)"
+      }, {
+        "parameter": "SuspensionDate",
+        "value": "$sys.func.CONCATENATE($session.params.SuspensionMonth,\"-\",$session.params.SuspensionDay,\"-\",$session.params.SuspensionYear)"
+      } ]
+    },
+    "targetPage": "AccountTypeAndBillingMethod",
+    "name": "691925a6-d48d-4f47-87e4-7ac628347151"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SuspensionDateBackup",
+        "value": "$session.params.SuspensionDate"
+      }, {
+        "parameter": "SuspensionDate",
+        "value": ""
+      } ]
+    },
+    "targetPage": "AccountTypeAndBillingMethod",
+    "name": "2da75458-8e0f-4bdd-98ee-06e295efaebb"
+  } ]
+}

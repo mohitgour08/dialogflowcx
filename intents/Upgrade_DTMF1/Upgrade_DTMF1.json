@@ -1,0 +1,7 @@
+{
+  "name": "673eb964-8d59-4d41-b65d-c94a7f534d4c",
+  "displayName": "Upgrade_DTMF1",
+  "priority": 500000,
+  "numTrainingPhrases": 4,
+  "dtmfPattern": "^1$"
+}

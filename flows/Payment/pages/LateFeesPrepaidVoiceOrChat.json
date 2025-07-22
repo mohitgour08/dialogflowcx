@@ -1,0 +1,31 @@
+{
+  "name": "a02fd879-52c6-4a9b-8c03-68ec81eccf0a",
+  "displayName": "LateFeesPrepaidVoiceOrChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeesPrepaidVoiceOrChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "Latefeesprepay",
+    "name": "e245074c-6d8a-410a-8ec6-3c8c801c9c21"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_LateFeesPrepaidVoiceOrChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "LateFeesPrepaidVoice",
+    "name": "70b891f4-4612-4763-8ef0-0aa97562b193"
+  } ]
+}

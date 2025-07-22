@@ -1,0 +1,104 @@
+{
+  "name": "b80a5ac5-0d57-4f6a-a1c6-c3eeb6b828a5",
+  "displayName": "CheckAccountStatusNonAutopay",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_AccountStatus = \"Suspended\" OR $session.params.BillInfo_AccountStatus = \"Paused\" OR $session.params.BillInfo_AccountStatus = \"SUSPENDED\" OR $session.params.BillInfo_AccountStatus = \"PAUSED\" OR $session.params.BillInfo_AccountStatus = \"SNP\" OR $session.params.BillInfo_AccountStatus : \"Suspend\" OR $session.params.BillInfo_AccountStatus : \"SUSPEND\" OR $session.params.BillInfo_AccountStatus = \"Suspended\" OR $session.params.BillInfo_AccountStatus = \"Suspend\" OR $session.params.BillInfo_AccountStatus = \"Non Pay Suspend\" OR $session.params.BillInfo_AccountStatus = \"Non Pay Disconnect\" OR $session.params.BillInfo_AccountStatus = \"SUSPEND-POSTPD NOPAY\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_CheckAccountStatusNonAutopay_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PostpaidAccountStatus",
+        "value": "SUSPENDED"
+      } ]
+    },
+    "targetPage": "NAPSNPPAEligibilityCheck",
+    "name": "3f1d8e8c-8e46-40a4-9664-a02a4da236ab"
+  }, {
+    "condition": "$session.params.BillInfo_AccountStatus = \"Payment Past Due\" OR $session.params.BillInfo_AccountStatus : \"Jeopardy\" OR $session.params.BillInfo_AccountStatus : \"jeopardy\" OR $session.params.BillInfo_AccountStatus : \"Past Due\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_CheckAccountStatusNonAutopay_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PostpaidAccountStatus",
+        "value": "PastDue"
+      } ]
+    },
+    "targetPage": "NAPPastDuePAEligibilityCheck",
+    "name": "717d677b-5cd5-4683-9c7d-f1052b8e968d"
+  }, {
+    "condition": "$session.params.AvailCreditBalance = \"Y\" AND ($session.params.BillInfo_AccountStatus = \"Active\" OR $session.params.BillInfo_AccountStatus = \"Open\" OR $session.params.BillInfo_AccountStatus = \"OPENED\" OR $session.params.BillInfo_AccountStatus = \"OPEN\" OR $session.params.BillInfo_AccountStatus = \"Opened\" OR $session.params.BillInfo_AccountStatus = \"ACTIVE\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_CheckAccountStatusNonAutopay_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CreditBalance",
+        "value": "$sys.func.SUBSTITUTE($session.params.BillInfo_LatestDueAmount,\"-\",\"\")"
+      } ]
+    },
+    "targetPage": "NAPCreditBalance",
+    "name": "7f9337a8-a9f6-4ab0-a52c-6a2f76e764bb"
+  }, {
+    "condition": "$session.params.BillInfo_AccountStatus = \"Active\" OR $session.params.BillInfo_AccountStatus = \"Open\" OR $session.params.BillInfo_AccountStatus = \"OPENED\" OR $session.params.BillInfo_AccountStatus = \"OPEN\" OR $session.params.BillInfo_AccountStatus = \"Opened\" OR $session.params.BillInfo_AccountStatus = \"ACTIVE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_CheckAccountStatusNonAutopay_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PostpaidAccountStatus",
+        "value": "CurrentDue"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NAPCurrentBillStatus",
+    "name": "3d91ad57-3338-4a2d-a194-57df2085cc04"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_CheckAccountStatusNonAutopay_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PostpaidBalance-CheckAccountStatusNonAutopay,AccountStatusUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "6f26d5f1-5093-4c67-ae24-91228720ee33"
+  } ]
+}

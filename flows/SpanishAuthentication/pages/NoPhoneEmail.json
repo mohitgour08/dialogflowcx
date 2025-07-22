@@ -1,0 +1,21 @@
+{
+  "name": "78fb2053-6bd8-467f-a59c-f28bca255284",
+  "displayName": "NoPhoneEmail",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_NoPhoneEmail_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NoPhoneEmailVoice",
+    "name": "ea1858f9-c24c-4472-ba7c-2ed429645cef"
+  } ]
+}

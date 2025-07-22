@@ -1,0 +1,222 @@
+{
+  "name": "d4d0e95a-65c1-4f3e-806f-23f505791212",
+  "displayName": "APCreditPMCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\" AND ($session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"PayPal\" OR $session.params.PaymentMethod = \"PAYPAL\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FormPostpaidCreditAP",
+        "value": "hasCreditACH"
+      }, {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.LastFourDigitsAcctNum"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_APCreditPMCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormPostpaidCreditAP",
+    "name": "6bd4a965-87da-4816-a3eb-232a1d1eda74",
+    "description": "ACH chat for Postpaid Autopay Credit"
+  }, {
+    "condition": "$session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"PayPal\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "You currently have a credit balance of $$session.params.CreditBalance on your account.  No payments are due at this time. You can go online to My Brightspeed $session.params.link29 to view any past or upcoming bills." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "You currently have a credit balance of $$session.params.CreditBalance on your account.  No payments are due at this time. You can view your past or upcoming bills any time in your My Brightspeed portal online.  " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCreditPMCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "APCreditBalance"
+      }, {
+        "parameter": "ToModule",
+        "value": "PostpaidBalance"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "90aeaec7-9414-42e1-8d2c-01e9b2c12250",
+    "description": "ACH VOICE for Postpaid Autopay Credit"
+  }, {
+    "condition": "$session.params.CCExpDateDiff : \"True\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_APCreditPMCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PostpaidBalance-APCreditPMCheck,CreditCardExpiryUnknown"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "ed273fce-455a-49f2-8412-72bbbf720bfb",
+    "description": "Credit card expiration details UNKNOWN"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003e 30 AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FormPostpaidCreditAP",
+        "value": "hasCreditCC"
+      }, {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_APCreditPMCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormPostpaidCreditAP",
+    "name": "b985b056-0910-4e30-994f-7d51599a492c",
+    "description": "Card chat for Postpaid Autopay Credit ------ Expiration GREATER THAN 30 DAYS"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003e 30",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "You currently have a credit balance of $$session.params.CreditBalance on your account.  No payments are due at this time. You can go online to My Brightspeed $session.params.link29 to view any past or upcoming bills." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "You currently have a credit balance of $$session.params.CreditBalance on your account.  No payments are due at this time. You can view your past or upcoming bills any time in your My Brightspeed portal online.  " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCreditPMCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "APCreditBalance"
+      }, {
+        "parameter": "ToModule",
+        "value": "PostpaidBalance"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "a3504cb1-85c4-4d27-871b-58c5a0908d79",
+    "description": "Card VOICE for Postpaid Autopay Credit ------ Expiration GREATER THAN 30 DAYS"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 30 AND $session.params.CCExpDateDiff \u003e 0 AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FormPostpaidCreditAP",
+        "value": "hasCreditCCE30"
+      }, {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_APCreditPMCheck_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormPostpaidCreditAP",
+    "name": "b88201db-f944-4263-a677-f36778172c5c",
+    "description": "Card chat for Postpaid Autopay Credit ------ Expiration LESS THAN 30 DAYS"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 30 AND $session.params.CCExpDateDiff \u003e 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCreditPMCheck_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCreditBalanceCCExpBelow30Days",
+    "name": "28853f0d-05cc-4656-9d27-2f10f3502179",
+    "description": "Card VOICE for Postpaid Autopay Credit ------ Expiration LESS THAN 30 DAYS"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 0 AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FormPostpaidCreditAP",
+        "value": "hasCreditCCE"
+      }, {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_APCreditPMCheck_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormPostpaidCreditAP",
+    "name": "18762415-d8c6-4ba6-8e8e-5a22039f5c60",
+    "description": "Card chat for Postpaid Autopay Credit ------ EXPIRED"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCreditPMCheck_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCreditBalanceCCExp",
+    "name": "194294fc-51d7-4afc-a38d-c5934cd4bfa9",
+    "description": "Card VOICE for Postpaid Autopay Credit ------ EXPIRED"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_APCreditPMCheck_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PostpaidBalance-APCreditPMCheck,PaymentMethodUnknown"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "50001ff8-0edd-4f10-b70a-d896f1425379",
+    "description": "No condition Matched"
+  } ],
+  "description": "AUTOPAY CREDIT BALANCE PAYMENT METHOD CHECK"
+}

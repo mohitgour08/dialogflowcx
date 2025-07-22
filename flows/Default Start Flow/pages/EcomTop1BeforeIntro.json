@@ -1,0 +1,185 @@
+{
+  "name": "746c4d05-f32d-4dfa-8bcb-884474f916a9",
+  "displayName": "EcomTop1BeforeIntro",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I'm happy to help you explore Brightspeed's plan options! You can select one of the frequently asked questions below, or just select \"Other\".  " ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "What are the installation fees and other upfront costs?"
+          }, {
+            "action": "quick_reply",
+            "title": "Are there any additional monthly fees or hidden charges?"
+          }, {
+            "action": "quick_reply",
+            "title": "Are there any extra costs for exceeding data limits?"
+          }, {
+            "action": "quick_reply",
+            "title": "Can I switch between plans after I activate?"
+          }, {
+            "action": "quick_reply",
+            "title": "Other"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Cost",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomTop1BeforeIntro_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "UserResponse",
+        "value": "InstallationFees"
+      } ]
+    },
+    "targetPage": "OneTimeFees",
+    "name": "0ed3cf7a-a9b9-4847-9231-15e6fdad813c"
+  }, {
+    "intent": "Fees",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomTop1BeforeIntro_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "UserResponse",
+        "value": "AdditionalHiddenFees"
+      } ]
+    },
+    "targetPage": "OneTimeFees",
+    "name": "de8e6c41-9360-42aa-b5f5-ee7f8414b00e"
+  }, {
+    "intent": "Exceed Data",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomTop1BeforeIntro_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "UserResponse",
+        "value": "ExtraCosts"
+      } ]
+    },
+    "targetPage": "DataCharges",
+    "name": "38da7a5d-3cf8-4233-8119-bccff34d68a1"
+  }, {
+    "intent": "One-time Setup",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomTop1BeforeIntro_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "UserResponse",
+        "value": "SwitchPlans"
+      } ]
+    },
+    "targetPage": "EcomUpgradePlan",
+    "name": "1c2fdda7-1e38-48fd-8d25-ccbe47f1164d"
+  }, {
+    "intent": "AnotherWay",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomTop1BeforeIntro_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "UserResponse",
+        "value": "Other"
+      } ]
+    },
+    "targetPage": "Agent",
+    "name": "edc9e0bf-19a8-4d51-b974-f2d5f2a2a5fd"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomTop1BeforeIntro_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EXIT_POP"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "ffce334e-eed2-4dec-921d-03fee9ff1d21"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?\r\n" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "What are the installation fees and other upfront costs?"
+            }, {
+              "action": "quick_reply",
+              "title": "Are there any additional hidden fees or monthly charges?"
+            }, {
+              "action": "quick_reply",
+              "title": "Are there any extra costs for exceeding data limits?"
+            }, {
+              "action": "quick_reply",
+              "title": "Can I switch between plans after I activate?"
+            }, {
+              "action": "quick_reply",
+              "title": "Other"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomTop1BeforeIntro_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "ce70814f-e9a9-4b52-936a-531a18c01117"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomTop1BeforeIntro_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EXIT_POP"
+      } ]
+    },
+    "name": "0eefe7cb-431f-4660-b4a6-0f513a323204"
+  } ]
+}

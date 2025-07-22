@@ -1,0 +1,94 @@
+{
+  "name": "8c7db700-fef3-449b-82d7-8e2155a7eb86",
+  "displayName": "ZeroBalanceCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "VoiceAmtEntryRetry",
+      "value": "false"
+    }, {
+      "parameter": "AmountEntryRetry",
+      "value": "false"
+    }, {
+      "parameter": "creditamountcheck",
+      "value": "$sys.func.MID($session.params.TotalBalance, 1, 1)"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.TotalBalance = \"0\" OR $session.params.TotalBalance = \"0\\.0\" OR $session.params.TotalBalance = \"0\\.00\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "To make an advanced payment here, your custom payment must be a whole dollar amount under 500 dollars. If you need to pay a more specific amount, you can chat with us on brightspeed.com or visit your My Brightspeed portal. Please say or enter the dollar amount you would like to pay now. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ZeroBalanceCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "EnterAmount",
+    "name": "2c93330f-9155-4582-95bf-2009bfbe84b9"
+  }, {
+    "condition": "$session.params.creditamountcheck = \"-\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "To make an advanced payment here, your custom payment must be a whole dollar amount under 500 dollars. If you need to pay a more specific amount, you can chat with us on brightspeed.com or visit your My Brightspeed portal. Please say or enter the dollar amount you would like to pay now. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ZeroBalanceCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "EnterAmount",
+    "name": "03a071b0-940f-4be4-a0db-1d478253ec79"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_ZeroBalanceCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckDefaultPaymentMethod",
+    "name": "f54dda60-0c0a-452a-adad-aca53363fc95"
+  } ]
+}

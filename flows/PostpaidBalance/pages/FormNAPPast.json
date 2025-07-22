@@ -1,0 +1,120 @@
+{
+  "name": "34bc0c15-8418-4809-a0f9-b42e5a97bf88",
+  "displayName": "FormNAPPast",
+  "form": {
+    "parameters": [ {
+      "displayName": "FormResponsePostpaidNAPPast",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n\"chatClientForm\": \"$session.params.FormNAPPast\",\n\"paymentMethod\": \"$session.params.PaymentMethod\",\n\"lastFourDigits\": \"$session.params.MethodLastFourDigits\",\n\"currentBalance\": \"$session.params.TotalBalance\",\n\"pastDueAmount\" : \"$session.params.BillInfo_PastDueAmount\",\n\"dueDate\": \"$session.params.BillInfo_BillDueDate\",\n\"suspensionDate\" : \"$session.params.SuspensionDate\"\n}\n " ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_PostpaidBalance",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    }, {
+      "parameter": "FormResponsePostpaidNAPPast",
+      "value": null
+    }, {
+      "parameter": "Metrics_PostpaidBalance_FormNAPPast_Form",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.FormResponsePostpaidNAPPast = \"Update\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "callerintent",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_FormNAPPast_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "8a85de90-b9ff-4286-92ac-cb6123f8cf86"
+  }, {
+    "condition": "$session.params.FormResponsePostpaidNAPPast = \"onePayment\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_FormNAPPast_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "2cb52d0d-1471-483d-835c-06b7ee372a36"
+  }, {
+    "condition": "$session.params.FormResponsePostpaidNAPPast = \"EnrollInAutopay\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "RecurringPaymentAutopay"
+      }, {
+        "parameter": "callerintent",
+        "value": "RecurringPaymentAutopay"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_FormNAPPast_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "f9b817fa-6760-46b4-b187-7ee79542cbc1"
+  }, {
+    "condition": "$session.params.FormResponsePostpaidNAPPast = \"formBack\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_FormNAPPast_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PastdueNotPAEligible",
+    "name": "754e80e7-a80f-4147-9fd6-abcb0e7cfe39"
+  } ]
+}

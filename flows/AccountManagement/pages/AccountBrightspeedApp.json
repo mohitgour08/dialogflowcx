@@ -1,0 +1,47 @@
+{
+  "name": "04e42514-138a-4ecf-a2d7-d2c3c8a3a3e1",
+  "displayName": "AccountBrightspeedApp",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = voice",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AccountBrightspeedApp_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AccountMoreinfoVoice",
+    "name": "7d5438bf-521c-4237-9c7d-5dc1855076ae"
+  }, {
+    "condition": "$session.params.channel = web",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AccountBrightspeedApp_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AccountMoreinfoChat",
+    "name": "a646048b-c88a-443d-907b-5c3eb83e9abf"
+  } ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "e2b25e5c-1268-46f1-984c-9575a0ddcccb",
+  "displayName": "CurrentNotFullyPaidVoiceOrChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your current balance is $$session.params.TotalBalance due on $session.params.BillInfo_BillDueDate .$session.params.link30 in my Brightspeed" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "CurrentNotFullyPaid"
+      }, {
+        "parameter": "ToModule",
+        "value": "PostpaidBalance"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_CurrentNotFullyPaidVoiceOrChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "93a13c05-71fc-45c9-8cdd-3d7ad7de8be2"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_CurrentNotFullyPaidVoiceOrChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PACheckCurrentNotFullyPaid",
+    "name": "36420829-d499-42c6-88dc-4df5abbc5fd4"
+  } ]
+}

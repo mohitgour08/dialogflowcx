@@ -1,0 +1,117 @@
+{
+  "name": "03e55fd5-ed76-4dbc-aa1f-e7c86bfd74e0",
+  "displayName": "AskAccountInfoB",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Starting with the area code please enter a telephone number associated with your account, or your 9 or 10 digit billing account number. If your account number begins with the letters \"PPB\", make sure to include that too." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_Authentication_AskAccountInfoB",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "AuthenticationAccountInfoBAN",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$session.params.ENTER_BAN"
+      }, {
+        "parameter": "Metrics_Authentication_AskAccountInfoB_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "validateAccountInfo",
+    "name": "ede044be-b1c2-4954-afcc-506543d1f458"
+  }, {
+    "intent": "AuthenticationAccountInfoTN",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$session.params.phone-number"
+      }, {
+        "parameter": "Metrics_Authentication_AskAccountInfoB_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "validateAccountInfo",
+    "name": "dde8140f-08b4-4738-8c5f-b7d9b054de3b"
+  }, {
+    "intent": "AuthenticationAccountInfoPPB",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$session.params.ENTER_PPB"
+      }, {
+        "parameter": "Metrics_Authentication_AskAccountInfoB_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PPBValidateChat",
+    "name": "bcf6446c-ba7a-4766-822a-f36996ddc80e"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_AskAccountInfoB_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AskAccountInfoB"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "78dc5eef-6456-4a4a-b5af-930e3ea79fe9"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "ListenInitialIntent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_AskAccountInfoB_NoMatch",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "BANTN_NoMatch"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        }
+      }
+    },
+    "name": "98e74d73-e97f-423e-9a32-5fb2ac381726"
+  } ]
+}

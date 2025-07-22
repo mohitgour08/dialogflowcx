@@ -1,0 +1,178 @@
+{
+  "name": "00436401-c8d9-40cd-945e-50d056895cb9",
+  "displayName": "APPastDuePaymentMethodCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Your current total balance is $$session.params.TotalBalance, You'll need to pay the past due balance of $$session.params.BillInfo_PastDueAmount to avoid service interruptions. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Your current total balance is $$session.params.TotalBalance, You'll need to pay the past due balance of $$session.params.BillInfo_PastDueAmount to avoid service interruptions. " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.callerintent = \"BalanceInquiryPayment\" OR $session.params.callerintent = \"PostpaidPayment\" OR $session.params.callerintent = \"PrepaidPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_PastDuePaymentMethodCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "91dbf34b-92b9-4629-b610-ad104e111048"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_PastDuePaymentMethodCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "APPastDueCC",
+    "name": "2e61c186-1317-4406-930d-4dacf96cfe32"
+  }, {
+    "condition": "($session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"PayPal\") AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_PastDuePaymentMethodCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "APPastDueBank",
+    "name": "97abab80-220b-4192-a34e-6b89b9439e4d"
+  }, {
+    "condition": "($session.params.PaymentMethod = \"CC\" OR $session.params.PaymentMethod = \"CreditCard\" OR $session.params.PaymentMethod = \"Credit Card\" OR $session.params.PaymentMethod = \"CREDITCARD\") AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_PastDuePaymentMethodCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "APPastDueCC",
+    "name": "7f57a805-71c2-4ce1-a432-1dea033ae0e6"
+  }, {
+    "condition": "$session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"PayPal\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_PastDuePaymentMethodCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "APPastDueBankVoice",
+    "name": "f053bab3-898f-460a-ba91-46eefa773120"
+  }, {
+    "condition": "$session.params.PaymentMethod = \"CC\" OR $session.params.PaymentMethod = \"CreditCard\" OR $session.params.PaymentMethod = \"Credit Card\" OR $session.params.PaymentMethod = \"CREDITCARD\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_PastDuePaymentMethodCheck_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "APPastDuePACCVoice",
+    "name": "3fc00e3d-6ac2-42da-ae6a-387bb234a147"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_PastDuePaymentMethodCheck_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PostpaidBalance-APPastDuePaymentMethodCheck,PaymentMethodUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "62f0338b-6e4f-4677-b17e-fb5b575a4a82"
+  } ],
+  "description": "AP - PASTDUE PAYMENT METHOD CHECK\n**Only First two routes will be used as in 3/10/25**\nRest all are retained for future references"
+}

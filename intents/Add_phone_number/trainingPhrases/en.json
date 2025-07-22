@@ -1,0 +1,12 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "my phone number is "
+    }, {
+      "text": "1234567890",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

@@ -1,0 +1,1188 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "repair"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Repair"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "repair status",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket status",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'd like to cancel my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket. How can I proceed?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a way to cancel the",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket ",
+      "auto": true
+    }, {
+      "text": "that I recently",
+      "auto": true
+    }, {
+      "text": " submitted?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you assist ",
+      "auto": true
+    }, {
+      "text": "me in canceling a",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket ",
+      "auto": true
+    }, {
+      "text": "associated with my account?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I've changed ",
+      "auto": true
+    }, {
+      "text": "my mind and would like to",
+      "auto": true
+    }, {
+      "text": " cancel ",
+      "auto": true
+    }, {
+      "text": "the repair",
+      "auto": true
+    }, {
+      "text": " ticket. What steps should I take?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need to cancel ",
+      "auto": true
+    }, {
+      "text": "a repair",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "request. What's the process for that?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Please ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " me cancel ",
+      "auto": true
+    }, {
+      "text": "the repair",
+      "auto": true
+    }, {
+      "text": " ticket linked to my prepaid/postpaid ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a customer service representative",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "who can",
+      "auto": true
+    }, {
+      "text": " guide ",
+      "auto": true
+    }, {
+      "text": "me through canceling my",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Could you provide instructions on",
+      "auto": true
+    }, {
+      "text": " canceling ",
+      "auto": true
+    }, {
+      "text": "a repair",
+      "auto": true
+    }, {
+      "text": " ticket for a prepaid/postpaid customer like me?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "no longer need the service",
+      "auto": true
+    }, {
+      "text": " associated with my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket. How can I cancel it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a specific channel ",
+      "auto": true
+    }, {
+      "text": "or support team I should contact to cancel my",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "pending",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Please guide ",
+      "auto": true
+    }, {
+      "text": "me on canceling the",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "pending",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket for my postpaid ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": ". What information do you need?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I mistakenly",
+      "auto": true
+    }, {
+      "text": " submitted ",
+      "auto": true
+    }, {
+      "text": "a repair",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "request. How can I cancel it as",
+      "auto": true
+    }, {
+      "text": " a postpaid customer?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " the window ",
+      "auto": true
+    }, {
+      "text": "for canceling a",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket for postpaid services, and how do I proceed?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "As a postpaid customer, what information do I need to provide to cancel my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " request?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need to cancel ",
+      "auto": true
+    }, {
+      "text": "a repair",
+      "auto": true
+    }, {
+      "text": " ticket. Can you guide me through ",
+      "auto": true
+    }, {
+      "text": "the cancellation process for",
+      "auto": true
+    }, {
+      "text": " postpaid ",
+      "auto": true
+    }, {
+      "text": "customers?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I appreciate ",
+      "auto": true
+    }, {
+      "text": "your assistance. Can you guide me on any",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "preventive",
+      "auto": true
+    }, {
+      "text": " measures related ",
+      "auto": true
+    }, {
+      "text": "to my repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Could you explain the status",
+      "auto": true
+    }, {
+      "text": " codes ",
+      "auto": true
+    }, {
+      "text": "or terms",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "used in the update for my",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a dedicated support line ",
+      "auto": true
+    }, {
+      "text": "for inquiries about my",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm seeking",
+      "auto": true
+    }, {
+      "text": " transparency regarding the process and timeline for my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you confirm the address and",
+      "auto": true
+    }, {
+      "text": " details associated with my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Are there any required actions",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "on my part for the",
+      "auto": true
+    }, {
+      "text": " completion of my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need clarification on the diagnosis or findings related ",
+      "auto": true
+    }, {
+      "text": "to my repair",
+      "auto": true
+    }, {
+      "text": " ticket.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Could you provide more information about the steps",
+      "auto": true
+    }, {
+      "text": " being ",
+      "auto": true
+    }, {
+      "text": "taken to",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "address",
+      "auto": true
+    }, {
+      "text": " my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a contact person ",
+      "auto": true
+    }, {
+      "text": "I can speak to regarding my",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'd like to discuss the details of my",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket ",
+      "auto": true
+    }, {
+      "text": "and any updates",
+      "auto": true
+    }, {
+      "text": " available.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need assistance understanding the charges associated with my",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can I get confirmation that my",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket has been received ",
+      "auto": true
+    }, {
+      "text": "and is in progress?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm unsure",
+      "auto": true
+    }, {
+      "text": " about the next steps for my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket",
+      "auto": true
+    }, {
+      "text": ". Can you guide me?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a way to escalate the",
+      "auto": true
+    }, {
+      "text": " priority of my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'd appreciate information on the expected resolution time for my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Could ",
+      "auto": true
+    }, {
+      "text": "you check if there are any",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "notes",
+      "auto": true
+    }, {
+      "text": " or comments on my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I have concerns about my",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket; ",
+      "auto": true
+    }, {
+      "text": "can we discuss the issues?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you provide details about the ",
+      "auto": true
+    }, {
+      "text": "technician",
+      "auto": true
+    }, {
+      "text": " assigned ",
+      "auto": true
+    }, {
+      "text": "to my repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a timeline for the completion of my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm looking for an update on the",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket I submitted.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Could you check the",
+      "auto": true
+    }, {
+      "text": " details of my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket for ",
+      "auto": true
+    }, {
+      "text": "me",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need to follow up on my",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket",
+      "auto": true
+    }, {
+      "text": ". Can you assist?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there ",
+      "auto": true
+    }, {
+      "text": "a way",
+      "auto": true
+    }, {
+      "text": " to expedite the resolution of my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I have a question regarding my recent",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I submitted ",
+      "auto": true
+    }, {
+      "text": "a repair",
+      "auto": true
+    }, {
+      "text": " ticket",
+      "auto": true
+    }, {
+      "text": ", and I'm seeking information on",
+      "auto": true
+    }, {
+      "text": " its status.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Could you help me track my",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there any progress on my",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'd ",
+      "auto": true
+    }, {
+      "text": "like to inquire about the status of my",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you provide an update on my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need assistance with my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "status of my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to know the status of my ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Is there a specific contact number to follow up on my",
+      "auto": true
+    }, {
+      "text": "  ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket ?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Telecom ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Connection ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Service outage fix",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Service ",
+      "auto": true
+    }, {
+      "text": "troubleshooting",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Repair",
+      "auto": true
+    }, {
+      "text": " assistance",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Service malfunction",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Service ",
+      "auto": true
+    }, {
+      "text": "not working",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Connection issue",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Fix",
+      "auto": true
+    }, {
+      "text": " my ",
+      "auto": true
+    }, {
+      "text": "phone",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Fix",
+      "auto": true
+    }, {
+      "text": " my internet",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Fix",
+      "auto": true
+    }, {
+      "text": " my telecom",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Service disruption",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Repair",
+      "auto": true
+    }, {
+      "text": " request",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Service outage",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Existing service",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Help",
+      "auto": true
+    }, {
+      "text": " with ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Connection fix",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Service problem",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Troubleshoot",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "issue",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Repair",
+      "auto": true
+    }, {
+      "text": " my connection",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Fix",
+      "auto": true
+    }, {
+      "text": " my service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Service repair",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Repair of existing Services",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Repair Ticket",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

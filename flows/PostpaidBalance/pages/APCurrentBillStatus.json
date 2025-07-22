@@ -1,0 +1,38 @@
+{
+  "name": "438834cd-a560-4c83-a1e5-2f51e78ccfbe",
+  "displayName": "APCurrentBillStatus",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_LatestDueAmount = \"0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.00\" OR $session.params.BillInfo_LatestDueAmount = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CurrentBillStatus",
+        "value": "FullyPaid"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBillStatus_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCurrentBalanceFullypaidPaymentMethodCheck",
+    "name": "42139af4-1285-4e4d-8eba-7ebd993615c1"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CurrentBillStatus",
+        "value": "NotFullyPaid"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBillStatus_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCurrentNFPPaymentMethodCheck",
+    "name": "af692b26-376a-49ee-8498-1bd0574eefdc"
+  } ],
+  "description": "FULLY PAID OR NOT"
+}

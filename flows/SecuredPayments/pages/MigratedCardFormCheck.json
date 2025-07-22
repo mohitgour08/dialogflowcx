@@ -1,0 +1,82 @@
+{
+  "name": "87f97bee-3492-4751-8cd2-0327a3ed39b9",
+  "displayName": "MigratedCardFormCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.formResponse = \"formBack\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "formResponse",
+        "value": null
+      }, {
+        "parameter": "Metrics_SecuredPayments_MigratedCardFormCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CancelTransaction",
+    "name": "aca5615e-a983-42ae-acb3-f77f2d5cd2e8"
+  }, {
+    "condition": "$session.params.formResponse = \"CancelForm\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\r\n\"chatClientForm\": \"BackToChat\"\r\n}" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Okay, I'll cancel this transaction for now. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "formResponse",
+        "value": null
+      }, {
+        "parameter": "Metrics_SecuredPayments_MigratedCardFormCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckBillingMethod",
+    "name": "2eb98ffe-6db2-4aae-bcd9-5d114f906fd3"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_MigratedCardFormCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "JsonMigratedPayment",
+    "name": "8d539b67-5356-43de-89e2-b29a1b37e933"
+  } ]
+}

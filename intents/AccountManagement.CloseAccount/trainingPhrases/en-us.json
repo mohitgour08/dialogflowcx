@@ -1,0 +1,607 @@
+{
+  "trainingPhrases": [ {
+    "id": "20029c90-d7d4-4eba-8af4-b69fdcaa8dfc",
+    "parts": [ {
+      "text": "I want to cancel my account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e00621c3-b01c-47d6-b010-432670252ed8",
+    "parts": [ {
+      "text": "Can you help me cancel my account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c2a1fce5-44e9-424b-bb59-28e1769f567b",
+    "parts": [ {
+      "text": "don"
+    }, {
+      "text": "'t need my account anymore"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "44d4436a-9b98-4e2d-92ec-8f52cbfe9e49",
+    "parts": [ {
+      "text": "What's the process for account cancellation?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "95b27ef4-76a7-4a38-b900-5d95ae778b1e",
+    "parts": [ {
+      "text": "I no longer need my account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "55198d96-3d6f-4ff6-92b7-82bba424ec95",
+    "parts": [ {
+      "text": "Account cancellation"
+    }, {
+      "text": " request"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f20148db-f454-4b82-b4f0-6aedb291338c",
+    "parts": [ {
+      "text": "Disable account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9ffdba0e-368f-4012-bb97-7d5fdd8c93a7",
+    "parts": [ {
+      "text": "Terminate account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "be6f123f-0515-4ec1-a622-3017cff7f682",
+    "parts": [ {
+      "text": "Account closure"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ea410985-1883-49aa-9f9f-b1e39e97fb02",
+    "parts": [ {
+      "text": "Help"
+    }, {
+      "text": " me close my "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": " and "
+    }, {
+      "text": "stop the services"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c5e89ad2-65f4-4abd-937a-5d85efe3a415",
+    "parts": [ {
+      "text": "I want to terminate my "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": ". What should "
+    }, {
+      "text": "I do"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1f2d205a-fadb-447a-b77e-c9d62a0c9cec",
+    "parts": [ {
+      "text": "Can you guide me through the steps to close my "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "feb81e2f-d151-4fb7-85a7-f29bbe177e4f",
+    "parts": [ {
+      "text": "I need to "
+    }, {
+      "text": "cancel my account"
+    }, {
+      "text": " with "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "52ccbb20-7871-4b74-9795-75e0465dd53a",
+    "parts": [ {
+      "text": "Please "
+    }, {
+      "text": "assist"
+    }, {
+      "text": " me in closing my "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "721fc05f-bc20-4476-9b07-24a522924582",
+    "parts": [ {
+      "text": "What is the process to close my "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "76fd8d8b-b1b6-4274-a948-5908a7ef644f",
+    "parts": [ {
+      "text": "How can I cancel my "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "95b72405-a7b2-4bb1-b0d3-ad2eb7e0496c",
+    "parts": [ {
+      "text": "I want to close my "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cb191ee7-9324-4364-8b88-f0178d9f456e",
+    "parts": [ {
+      "text": "How can I ensure a smooth closure of my "
+    }, {
+      "text": "account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6ed66fcd-f5ef-4fec-a5a3-2d5506bf4756",
+    "parts": [ {
+      "text": "Help"
+    }, {
+      "text": " me "
+    }, {
+      "text": "cancel my account"
+    }, {
+      "text": " and provide me with the "
+    }, {
+      "text": "final bill"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "483859fc-6c60-481c-b87a-1f932888d25a",
+    "parts": [ {
+      "text": "I want to close my account"
+    }, {
+      "text": " due to relocation. How "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I proceed?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b926d812-e86c-4828-8301-8fb7ca1cf46e",
+    "parts": [ {
+      "text": "I'm dissatisfied with the customer support and "
+    }, {
+      "text": "want to cancel my account"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1987db62-aedb-4012-8b0d-98294e72e9e6",
+    "parts": [ {
+      "text": "Can you explain the cancellation policy for my "
+    }, {
+      "text": "account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d082d3f2-03f0-4016-96e7-3c5f0fa12c66",
+    "parts": [ {
+      "text": "I'm "
+    }, {
+      "text": "no"
+    }, {
+      "text": " longer satisfied with the quality of your services. Can I "
+    }, {
+      "text": "cancel my account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dd7a78e0-80d5-4e9c-91ec-309d2bb30a52",
+    "parts": [ {
+      "text": "I want to cancel my account"
+    }, {
+      "text": ". What are the necessary steps?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "24d9876a-3418-4834-b784-2db7d98ab691",
+    "parts": [ {
+      "text": "Can you "
+    }, {
+      "text": "assist"
+    }, {
+      "text": " me in "
+    }, {
+      "text": "closing my account"
+    }, {
+      "text": " and transferring my data?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ebc59188-f4a8-42f6-8b2f-a70c97d23335",
+    "parts": [ {
+      "text": "Is there a specific notice period for "
+    }, {
+      "text": "canceling my account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0df3ece1-e292-4063-a60a-883e25c07d61",
+    "parts": [ {
+      "text": "I want to close my account"
+    }, {
+      "text": " and switch to a different provider."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "62f2299a-e8e3-4f29-b0cd-2559ddfb088f",
+    "parts": [ {
+      "text": "What "
+    }, {
+      "text": "do"
+    }, {
+      "text": " I need to "
+    }, {
+      "text": "do"
+    }, {
+      "text": " to "
+    }, {
+      "text": "close my services"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "269479a8-3ce1-440f-bd7f-1d72848d17f3",
+    "parts": [ {
+      "text": "I'm "
+    }, {
+      "text": "moving"
+    }, {
+      "text": " and need to "
+    }, {
+      "text": "cancel my account"
+    }, {
+      "text": ". How can I proceed?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "412dd7d5-8797-4ebf-86a7-9314f410527a",
+    "parts": [ {
+      "text": "Can you guide me on "
+    }, {
+      "text": "closing my account"
+    }, {
+      "text": " without any "
+    }, {
+      "text": "penalties"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7cdc4a0d-ce29-4753-9cd2-fa8d70df04af",
+    "parts": [ {
+      "text": "I want to discontinue my "
+    }, {
+      "text": "brightspeed"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6e6d6805-577f-4715-adce-a13d2740d149",
+    "parts": [ {
+      "text": "What are the options for "
+    }, {
+      "text": "canceling my account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "300b35dd-2058-4f01-a9bb-d512b0e33513",
+    "parts": [ {
+      "text": "Help"
+    }, {
+      "text": " me terminate my subscription and "
+    }, {
+      "text": "close my account"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d937ce1a-41d3-4067-b35d-aff26f7db277",
+    "parts": [ {
+      "text": "Is there a fee for "
+    }, {
+      "text": "closing my account"
+    }, {
+      "text": " before the contract ends?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "758a96e7-0f01-4aae-9543-ebd083033716",
+    "parts": [ {
+      "text": "I want to "
+    }, {
+      "text": "deactivate my account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "abe72e20-798b-4b01-9c8a-79a843b002ce",
+    "parts": [ {
+      "text": "Can you explain the consequences of "
+    }, {
+      "text": "closing my account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "46652642-f491-4861-969a-d6d41ad78b47",
+    "parts": [ {
+      "text": "What happens to my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " when I close it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "91dd9346-450e-4509-a670-46be67181b05",
+    "parts": [ {
+      "text": "I'm "
+    }, {
+      "text": "no"
+    }, {
+      "text": " longer in need of your services. How can I "
+    }, {
+      "text": "cancel my account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1e2f1751-fc74-4130-ac8a-7bed6ef28836",
+    "parts": [ {
+      "text": "I need to "
+    }, {
+      "text": "cancel my account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b76b6cc9-4243-4995-a57f-5feb7f76715a",
+    "parts": [ {
+      "text": "Can you provide instructions on how to "
+    }, {
+      "text": "close my account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "49af7093-0bd7-44af-9aa8-fe59130dd8fb",
+    "parts": [ {
+      "text": "I want to end my contract with your company."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a5538728-93e0-45c8-aca4-214fec60a002",
+    "parts": [ {
+      "text": "What is the procedure for "
+    }, {
+      "text": "closing my account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "60068f63-2e36-4955-b87c-043658a4b022",
+    "parts": [ {
+      "text": "Help"
+    }, {
+      "text": " me "
+    }, {
+      "text": "close my account"
+    }, {
+      "text": " and "
+    }, {
+      "text": "stop the services"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ec8cfb9a-7cc1-477c-9b5f-feebb9ba9fb7",
+    "parts": [ {
+      "text": "I want to "
+    }, {
+      "text": "terminate my account"
+    }, {
+      "text": ". What should "
+    }, {
+      "text": "I do"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6b055de9-c669-407f-ad93-a6cdf74b883b",
+    "parts": [ {
+      "text": "Can you guide me through the steps to "
+    }, {
+      "text": "close my account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "72f0d676-5190-4495-8845-5a190a0c4daf",
+    "parts": [ {
+      "text": "I need to "
+    }, {
+      "text": "cancel my account"
+    }, {
+      "text": " with your service."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "58fa9221-c16d-48f2-bcf0-616cb0432157",
+    "parts": [ {
+      "text": "Please "
+    }, {
+      "text": "assist"
+    }, {
+      "text": " me in "
+    }, {
+      "text": "closing my account"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f5357108-c883-4ff7-b081-8212710550eb",
+    "parts": [ {
+      "text": "What is the process to "
+    }, {
+      "text": "close my account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dd8153bd-6639-4bf1-85a8-b10ea1717de4",
+    "parts": [ {
+      "text": "How can I "
+    }, {
+      "text": "cancel my account"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "90f4006d-399b-46a3-a8eb-b5a8289332d4",
+    "parts": [ {
+      "text": "I want to close my account"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

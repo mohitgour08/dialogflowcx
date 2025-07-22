@@ -1,0 +1,64 @@
+{
+  "name": "0efe5054-1c94-4389-92a0-616574b9caef",
+  "displayName": "PaymentType",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "SS_RestoreService",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillingMethod = \"prepaid\" OR $session.params.BillingMethod = \"PR\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PaymentType_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountStatusPrepaid",
+    "name": "2873b4d3-5c65-4006-a523-ba8b83e0894c"
+  }, {
+    "condition": "$session.params.BillingMethod = \"postpaid\" OR $session.params.BillingMethod = \"PO\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PaymentType_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountStatusPostpaid",
+    "name": "b54354a9-6ac8-46cc-a7ea-28f7eafae8c6"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "payment"
+      }, {
+        "parameter": "Metrics_Payment_PaymentType_Default",
+        "value": "\"\"$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentType, Default Billing Method"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "846cdb04-8f95-4cd7-85c4-5064466e54c1"
+  } ]
+}

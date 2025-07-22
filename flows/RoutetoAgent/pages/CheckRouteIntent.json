@@ -1,0 +1,206 @@
+{
+  "name": "663a2251-0116-4e8b-bc12-9d867668eb92",
+  "displayName": "CheckRouteIntent",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.RouteIntent = \"EMBRGRPR\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": " Metrics_RouteToAgent_CheckRouteIntent_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EmbargoEscalationRepair",
+    "name": "087683a1-953e-49e1-92b2-837bcb63782c"
+  }, {
+    "condition": "$session.params.RouteIntent = \"EMBRGCARE\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_CheckRouteIntent_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "CTL"
+      }, {
+        "parameter": "queue_name",
+        "value": "CTL"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "EmbargoEscalationCare",
+    "name": "af8081d9-16a8-449b-abd6-4a8eac29e1a7"
+  }, {
+    "condition": "$session.params.RouteIntent = \"EMBRGRPR\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_CheckRouteIntent_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckAgentAvailability",
+    "name": "344d3629-2194-487f-bb66-a99f4b715048"
+  }, {
+    "condition": "$session.params.RouteIntent = \"EMBRGCARE\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_CheckRouteIntent_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckAgentAvailability",
+    "name": "9894858c-c30d-4e1f-a49d-a13349d4e6b1"
+  }, {
+    "condition": "$session.params.language = \"Spanish\" AND $session.params.RouteIntent = \"Sales\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_CheckRouteIntent_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queue_name",
+        "value": "Sales"
+      } ]
+    },
+    "targetPage": "IsCustomerName",
+    "name": "aa717da0-835a-464a-93da-59b2fab28d98"
+  }, {
+    "condition": "$session.params.RouteIntent = \"Sales\" AND $session.params.SkipAuth = \"True\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_CheckRouteIntent_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FiberOrCopper",
+    "name": "0790c2aa-64ac-4d3c-aaf9-7731bbe5dbcf"
+  }, {
+    "condition": "$session.params.RouteIntent = \"Sales\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_name",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_RouteToAgent_CheckRouteIntent_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NewCustomer",
+    "name": "db43231c-9b73-4ab2-b332-712e57c0cb0b"
+  }, {
+    "condition": "$session.params.fiberEligibility = \"Eligible\" AND $session.params.channel = \"voice\" AND $session.params.FiberSelfServe = \"BeforeSelfServe\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FiberSelfServe ",
+        "value": "BeforeSelfServe"
+      }, {
+        "parameter": "Metrics_RoutetoIntent_CheckRouteIntent_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PhoneInternet",
+    "name": "c0f9265f-b261-4735-a63d-f5ce6b71dd65"
+  }, {
+    "condition": "$session.params.RouteIntent = \"Repair\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_name",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_RouteToAgent_CheckRouteIntent_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "IsCustomerName",
+    "name": "519a64c1-608b-42ac-a322-831c5d61d4ee"
+  }, {
+    "condition": "$session.params.RouteIntent = \"Cancel\" OR $session.params.RouteIntent = \"Saves\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_name",
+        "value": "Saves"
+      }, {
+        "parameter": "Metrics_RouteToAgent_CheckRouteIntent_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "IsCustomerName",
+    "name": "01c0fb9b-b60d-4758-a41e-54f55e939cd9"
+  }, {
+    "condition": "$session.params.RouteIntent = \"Care\" OR $session.params.RouteIntent = \"Bill\" OR $session.params.RouteIntent = \"Payment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_name",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_RouteToAgent_CheckRouteIntent_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "IsCustomerName",
+    "name": "40f0a809-ecf1-4cf0-91a2-a97579e50310"
+  }, {
+    "condition": "$session.params.RouteIntent = \"EXIT_POP\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_name",
+        "value": "Sales"
+      }, {
+        "parameter": "customer_account_type",
+        "value": "EXIT_POP"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "IsAfterHours",
+    "name": "ab74664f-45bf-4486-bfd8-b5c56ea49fb3"
+  }, {
+    "condition": "$session.params.RouteIntent = \"BusinessSales\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_name",
+        "value": "BusinessSales"
+      }, {
+        "parameter": "summary",
+        "value": "$request.generative.text"
+      }, {
+        "parameter": "customer_account_type",
+        "value": "BusinessSales"
+      }, {
+        "parameter": " Metrics_RouteToAgent_CheckRouteIntent_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "IsAfterHours",
+    "name": "b544f4e9-1aa9-45eb-9806-e0da3ba8b54d"
+  }, {
+    "condition": "$session.params.RouteIntent = \"BRSPDPEND\" OR $session.params.RouteIntent = \"GPENDLCRES\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": " Metrics_RouteToAgent_CheckRouteIntent_13",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SetParameters",
+    "name": "05556832-d601-4744-ae35-95d37bf82541"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_CheckRouteIntent_13",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckIntent",
+    "name": "0700ab8d-fd8f-468f-80f9-89db248927c1"
+  } ]
+}

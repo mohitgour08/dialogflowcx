@@ -1,0 +1,879 @@
+{
+  "trainingPhrases": [ {
+    "id": "9e8ea58a-2d59-489d-8c7c-5d9b9aa3d526",
+    "parts": [ {
+      "text": "I would like "
+    }, {
+      "text": "to Chat with an"
+    }, {
+      "text": " "
+    }, {
+      "text": "agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2e09122e-7e55-4cc9-9bbf-bbfd3f63f99a",
+    "parts": [ {
+      "text": "Chat "
+    }, {
+      "text": "with an agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6d7e6695-ff0f-4458-9cf7-2cd640bd5b8b",
+    "parts": [ {
+      "text": "What time will "
+    }, {
+      "text": "specialist be"
+    }, {
+      "text": " online"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "437ccc5a-7478-4317-ab4b-6864ebda41d3",
+    "parts": [ {
+      "text": "How "
+    }, {
+      "text": "can I speak to a person"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b257baa6-02fe-4a9b-b2e4-3f27e966a01c",
+    "parts": [ {
+      "text": "How do I speak to a"
+    }, {
+      "text": " person"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "25be661a-6b2e-4f27-adbc-36bfbc534325",
+    "parts": [ {
+      "text": "speak to a person"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ac26cef0-bda1-4afd-b9c8-27fcf4f28521",
+    "parts": [ {
+      "text": "I was cut"
+    }, {
+      "text": " off to who "
+    }, {
+      "text": "I was talking to"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1d196e79-270c-41ab-852b-6c004dd927c2",
+    "parts": [ {
+      "text": "I need more help with this"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "21b72431-7540-4ced-8353-94a5d7dcebd9",
+    "parts": [ {
+      "text": "May I speak with a associate please"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8780ee08-61be-4928-b25a-865abfd51d5f",
+    "parts": [ {
+      "text": "Need some additional assistance please"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "873ac217-94f1-488e-85c6-1f51b952de08",
+    "parts": [ {
+      "text": "Speak with Agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9630211c-6e4f-4e9e-bcb4-9c6720141aa6",
+    "parts": [ {
+      "text": "I need some additional help"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2c448279-2b27-4047-9107-56eb00f4f141",
+    "parts": [ {
+      "text": "I need some additional help"
+    }, {
+      "text": " "
+    }, {
+      "text": "signing up"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b6cc6fa5-36de-4844-bdb8-05b5bc1f8ccb",
+    "parts": [ {
+      "text": "Need more help with the app"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0c619dbe-7a4b-4d82-beb2-d654afefb52d",
+    "parts": [ {
+      "text": "Agent"
+    } ],
+    "repeatCount": 6,
+    "languageCode": "en-us"
+  }, {
+    "id": "98565fc4-f206-4623-b31f-1e1636d87a93",
+    "parts": [ {
+      "text": "Speak to somebody"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f402a79b-1877-4d69-99bc-cb32664ddba1",
+    "parts": [ {
+      "text": "Speak with an agent"
+    } ],
+    "repeatCount": 4,
+    "languageCode": "en-us"
+  }, {
+    "id": "1106fe8c-64f6-488c-9a84-8b353e4a021a",
+    "parts": [ {
+      "text": "Chat "
+    }, {
+      "text": "with Agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "be827d8a-d8b7-419e-a04a-5efb0e420e5f",
+    "parts": [ {
+      "text": "Supervisor"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "73dd5716-0386-4294-b03d-a0c8cd165a2b",
+    "parts": [ {
+      "text": "Can I get on the "
+    }, {
+      "text": "phone"
+    }, {
+      "text": " with someone"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ea5c057d-2d3b-483d-b77c-976f0de45e83",
+    "parts": [ {
+      "text": "I have chatted "
+    }, {
+      "text": "with two"
+    }, {
+      "text": " people the last Keira W, "
+    }, {
+      "text": "can not send message"
+    }, {
+      "text": " after "
+    }, {
+      "text": "2"
+    }, {
+      "text": " or  "
+    }, {
+      "text": "3"
+    }, {
+      "text": " "
+    }, {
+      "text": "messages."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "71a3a477-4814-4a70-a599-205c31e2998c",
+    "parts": [ {
+      "text": "Speak with an Agent"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "95035266-161e-45a8-8bf3-ed2658e8c03f",
+    "parts": [ {
+      "text": "None of those"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4ab0be25-a780-49e9-8b23-faa0b8232c9c",
+    "parts": [ {
+      "text": "None of these"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "860dfeae-9a8e-4eb6-a9b2-cd2d4e5bbe2c",
+    "parts": [ {
+      "text": "Customer Service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "43ad74fb-5650-4c46-a7d6-890683ce0c58",
+    "parts": [ {
+      "text": "Customer Complaint"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9b94489e-d052-4645-8975-2113a7f00f3a",
+    "parts": [ {
+      "text": "customer care"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f358475b-068f-4368-90c8-383a56a51826",
+    "parts": [ {
+      "text": "rep"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dc67257c-2130-4233-ad88-0196171b8ef0",
+    "parts": [ {
+      "text": "Could I speak to a rep."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "783f6a19-1e5a-46ed-b458-69217fcf9f37",
+    "parts": [ {
+      "text": "connect me to a customer service representative"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "cbe5cb3f-9315-4309-a099-947c180721cc",
+    "parts": [ {
+      "text": "can I be connected to a representative"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a8efdc7d-cab5-4db2-a6b7-00a6b2a50023",
+    "parts": [ {
+      "text": "call me"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b38f9d0b-8950-4246-a593-7f903053ba43",
+    "parts": [ {
+      "text": "human"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "03c896f5-3fb4-4f73-918b-30925ff20551",
+    "parts": [ {
+      "text": "I want help"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b764ed8b-4773-48aa-bcb2-06b51dc704f8",
+    "parts": [ {
+      "text": "live person"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "50195ca6-4037-4d63-ac6a-a2d6247d434b",
+    "parts": [ {
+      "text": "Agent Please"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "94678511-8150-4f7d-8bda-7b7d49c8a0ff",
+    "parts": [ {
+      "text": "Speak to an Agent"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "1714ea45-a1a9-457f-b5e5-d13158c61945",
+    "parts": [ {
+      "text": "Talk to a person"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ebc3f1b0-3616-4cc6-8f10-a5d2db2e2d5d",
+    "parts": [ {
+      "text": "Talk to Human"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "94b56cce-de48-4f4e-8ae3-ab2a58d24cbf",
+    "parts": [ {
+      "text": "Human"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "26cae89f-ce45-43d0-a9c5-99192ccf94e0",
+    "parts": [ {
+      "text": "Spokesperson"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "49b59c8d-8cc5-442d-ae31-62823113480e",
+    "parts": [ {
+      "text": "Specialist"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "625c98c6-4981-42c4-a9e0-d6fdf9179a66",
+    "parts": [ {
+      "text": "Live Agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c8ce3e91-a481-4ad8-9e13-593594f67dad",
+    "parts": [ {
+      "text": "Customer Care"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7cc12b6d-bf3d-4799-8b22-dd8669ccf866",
+    "parts": [ {
+      "text": "Rep"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9155d95f-d319-4901-aaf7-9429f91e4928",
+    "parts": [ {
+      "text": "Live"
+    }, {
+      "text": " "
+    }, {
+      "text": "chat"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "033c0141-3c34-40be-9f0f-637ac02f63cd",
+    "parts": [ {
+      "text": "I need to speak with a "
+    }, {
+      "text": "manager"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "87db002d-ff9a-4049-aca8-b5140ab5c802",
+    "parts": [ {
+      "text": "Speak to a "
+    }, {
+      "text": "supervisor"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2b1ff3f4-c18d-4d1e-adbc-de986ecbc896",
+    "parts": [ {
+      "text": "help"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6d4517ec-447c-49c5-8a20-8fc66c73d77a",
+    "parts": [ {
+      "text": "Connect me to a "
+    }, {
+      "text": "Supervisor"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "14b6aa51-8ba6-491b-bd3e-c7c16071e5e5",
+    "parts": [ {
+      "text": "Speak to a Agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ac36ea4b-a2e6-4d75-af43-472c935f2d4a",
+    "parts": [ {
+      "text": "Speak with a Agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8eae8af8-ec08-4c93-a533-a266624604f4",
+    "parts": [ {
+      "text": "I want to speak to a Human"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0a0ff9f3-583f-4c95-ba5e-b857c9eb6b62",
+    "parts": [ {
+      "text": "Talk to an Agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "81e5f543-6381-48cc-a5ed-ac68685cb3a4",
+    "parts": [ {
+      "text": "Connect to an Agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d78b9afd-f337-4531-8e7a-153269bb7e90",
+    "parts": [ {
+      "text": "Support"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "555c25e0-11b6-4ea5-a62d-5a546c4bec26",
+    "parts": [ {
+      "text": "Support"
+    }, {
+      "text": " person"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c039b5bd-c408-4d14-b4a9-6d15c199ccab",
+    "parts": [ {
+      "text": "Representative"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dc3c50fd-cfa5-48fb-81a3-1667ffd93612",
+    "parts": [ {
+      "text": "Customer Support"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "10b490ae-8811-46ec-b9d8-a523632bfe0c",
+    "parts": [ {
+      "text": "Speak with a support person"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "78bf34ba-4630-4bf5-a092-74043df4dc41",
+    "parts": [ {
+      "text": "Need More "
+    }, {
+      "text": "help"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a4950abd-9b85-4f45-937c-6951f3633a0b",
+    "parts": [ {
+      "text": "More Help"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5f41f536-182a-4f54-bf40-856235cffbb5",
+    "parts": [ {
+      "text": "Please connect me with an agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d670dfbb-d79b-4212-b222-31e86d3a339f",
+    "parts": [ {
+      "text": "speak with agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2cc1b555-bb28-40d4-a106-4fbdbce15c18",
+    "parts": [ {
+      "text": "speak with an agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2c119ee5-9802-4c06-8ffa-95b0b212e57d",
+    "parts": [ {
+      "text": "May I speak with a live person"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ce4d9b01-a12a-4a89-b424-b2f90b4856b1",
+    "parts": [ {
+      "text": "I need a real person"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9122c727-f8fb-4f6b-a6e1-274b518d17d1",
+    "parts": [ {
+      "text": "Is there a way to reach to a customer service agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4a7e3d0a-4f0d-4120-accc-f7a8369a8093",
+    "parts": [ {
+      "text": "operator"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ed029e39-ff93-4021-8c76-5c1b1464a2da",
+    "parts": [ {
+      "text": "spokesperson"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f27ffeb2-899c-4760-9d6e-624432b577c2",
+    "parts": [ {
+      "text": "transfer me to an agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "aaa5fd31-ef9d-414f-abef-327564d3988d",
+    "parts": [ {
+      "text": "Tech support"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9e05e480-0576-4190-8748-69c0ab2aca41",
+    "parts": [ {
+      "text": "I require assistance from a live agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "76097b43-8ff9-4681-82eb-4c6a881f48cc",
+    "parts": [ {
+      "text": "human agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "80a15404-8d4b-4704-957f-e728a2fc98ff",
+    "parts": [ {
+      "text": "specialist"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a27556cb-a1a4-4bba-9913-6e7cbeac1010",
+    "parts": [ {
+      "text": "I want to talk to a "
+    }, {
+      "text": "representative"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "57ccd518-debd-4b39-985a-e009db43ad6f",
+    "parts": [ {
+      "text": "I want to talk to an agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6e0bfc83-d303-4c25-9225-805fdeae27d0",
+    "parts": [ {
+      "text": "Speak with agent"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "4765fa21-efa4-4b14-8c76-42f08ab0fb8c",
+    "parts": [ {
+      "text": "Speak with an "
+    }, {
+      "text": "agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "05505699-774a-47dd-a48b-093aa9f07e71",
+    "parts": [ {
+      "text": "I would like to speak with an agent please"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f92e9784-01c5-43b6-bfc8-b53d82cb0f04",
+    "parts": [ {
+      "text": "Speak with an agent please"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "52f81c1b-0cc9-4477-b0ce-b95cfc69ffc6",
+    "parts": [ {
+      "text": "I would like to talk with a service representative."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dd6662fb-94ab-4de8-9c7e-bb485710fdeb",
+    "parts": [ {
+      "text": "Cody"
+    }, {
+      "text": ", I need a specialist"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d8853724-a396-488c-a569-370a5441883b",
+    "parts": [ {
+      "text": "I need customer service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6bf8e9ca-66a9-4f12-bcd2-a859f3a3ce72",
+    "parts": [ {
+      "text": "I need a specialist"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c09089b8-415e-4901-afff-c6f565a98b83",
+    "parts": [ {
+      "text": "Please give me a telephone number to call"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "402b68de-aef7-4bf1-b387-9fe0e82000a6",
+    "parts": [ {
+      "text": "I want to speak to a real person."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e22176e6-a10a-4582-99e6-5c6c3e967e8d",
+    "parts": [ {
+      "text": "Need assistant"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "430ba8a0-6869-462a-8465-813cfe2239a8",
+    "parts": [ {
+      "text": "I've done this "
+    }, {
+      "text": "three"
+    }, {
+      "text": " times already just get me a live person"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5576bfb8-6ce7-4391-bc39-633f44d65671",
+    "parts": [ {
+      "text": "live rep"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "244d9900-d343-4e63-bd9b-06527887d42e",
+    "parts": [ {
+      "text": "I need to speak with someone"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c369b0dd-2c96-4bcc-8601-ef37dee1c835",
+    "parts": [ {
+      "text": "talk to a rep"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6fde7a1a-be28-45d2-b5ca-3752374a0d34",
+    "parts": [ {
+      "text": "Human assistant"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ad611adf-0af3-442f-895b-91c72a55a963",
+    "parts": [ {
+      "text": "speak with an assistant please"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5cbe69e2-8b1b-4a2f-8994-450f367bfd6e",
+    "parts": [ {
+      "text": "I am supposedly waiting for a real person"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1c35fe59-61bd-4a84-9691-899bdd1e5163",
+    "parts": [ {
+      "text": "I have been trying to get assistance for the "
+    }, {
+      "text": "past several hours"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "313d8e99-e22a-49c4-84d4-7f0e872bf044",
+    "parts": [ {
+      "text": "waiting on a specialist"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0f62eebb-9f12-42fa-9729-f569675c88eb",
+    "parts": [ {
+      "text": "I am Still waiting for someone to assist"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e2f1d783-b781-4f94-8bc5-5b485a2ebf15",
+    "parts": [ {
+      "text": "Need help from a human"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a5682b9a-dc9d-48fe-847a-7bd60749a531",
+    "parts": [ {
+      "text": "I need to talk to a live assistant."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "afac7873-4842-4c30-9804-63d20a55beae",
+    "parts": [ {
+      "text": "human being please"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0eac4335-0ec8-415a-bcaa-c73fc632df93",
+    "parts": [ {
+      "text": "live chat"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "47b7ad8e-df43-4bb8-94ce-def8e579fb62",
+    "parts": [ {
+      "text": "Can you put me in touch with a member of your support staff."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f6c02052-faaf-4c70-8a68-5fd8a68f6c7b",
+    "parts": [ {
+      "text": "Do you have a supervisor I can chat with?"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "4d60a6a0-fd9e-4d3d-a3c6-df0e5dd3c717",
+    "parts": [ {
+      "text": "Talk to human assistant"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "142aeb83-061f-480a-a36b-2eecb1b2ea5d",
+    "parts": [ {
+      "text": "Cody"
+    }, {
+      "text": " please connect me with customer support"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "50a36f59-7101-42dc-8bf5-788545422f86",
+    "parts": [ {
+      "text": "I want customer care"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "fd4e7d49-33b2-4489-8c69-7e6436e16894",
+    "parts": [ {
+      "text": "Can i speak to live agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c8307ee6-333e-4973-a9ce-eb4b847dbd0e",
+    "parts": [ {
+      "text": "Connect me to a counsellor"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d36b37e6-9c0c-40e4-a3c4-d1bc68dbe020",
+    "parts": [ {
+      "text": "talk to representative"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7b4d7b8b-df3f-4016-968e-6b38d9dcb49d",
+    "parts": [ {
+      "text": "talk to agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4bf0abce-7ba8-4e85-bc99-f424577c4626",
+    "parts": [ {
+      "text": "get me an agent now"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "495c0668-e52f-4e49-acf9-b60b788ef391",
+    "parts": [ {
+      "text": "talk to a person"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a5fe6f52-1eda-4873-91ed-522faf9b0c74",
+    "parts": [ {
+      "text": "I want to "
+    }, {
+      "text": "talk to an agent"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

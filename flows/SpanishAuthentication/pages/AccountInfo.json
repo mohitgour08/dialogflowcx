@@ -1,0 +1,37 @@
+{
+  "name": "188ba4da-83f7-4e38-8ea2-d35c669f29e0",
+  "displayName": "AccountInfo",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Authattempts = 1 OR $session.params.TN_BAN_attempt = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_AccountInfo_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      } ]
+    },
+    "targetPage": "AskAccountInfoB",
+    "name": "c4d6db1f-0087-48e0-be26-ae3f1ec74e93"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_AccountInfo_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      } ]
+    },
+    "targetPage": "askAccountInfoVoice",
+    "name": "dbd51a46-9870-4930-b705-6e9bb76a245f"
+  } ]
+}

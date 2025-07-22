@@ -1,0 +1,177 @@
+{
+  "name": "35eadea6-fac3-4469-aded-795b2fc746fa",
+  "displayName": "NewCustomerMenu",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "If you're calling about residential or home office services, press 1. If you're calling about a business or wholesale account, press 2. Or, you can press 3 to return to the main menu." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NewCustomer",
+      "value": "Yes"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Residential_DTMF1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_NewCustomer_NewCustomerMenu_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "NewCustomer_NewCustomerMenu_1"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "SkipAuth",
+        "value": "True"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "dec1c586-3fd0-43ed-80c4-9d8bdc285f84"
+  }, {
+    "intent": "Business/Wholesale_DTMF2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_NewCustomer_NewCustomerMenu_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "NewCustomer_NewCustomerMenu_2"
+      } ]
+    },
+    "targetPage": "BussinessOrWholesaleMenu",
+    "name": "95289e25-50f7-4e9c-b63a-cc496d267680"
+  }, {
+    "intent": "MainMenu_DTMF3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_NewCustomer_NewCustomerMenu_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "NewCustomer_NewCustomerMenu_3"
+      } ]
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "ad640b8c-a917-49a1-94e2-7b1e4e8be83e"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "If you're calling about residential or home office services, press 1. If you're calling about a business or wholesale account, press 2. Or, you can press 3 to return to the main menu." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_NewCustomer_NewCustomerMenu_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "3dabe860-8093-4692-9593-2a374203d7c7"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's Okay" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_NewCustomer_NewCustomerMenu_NoInput_Defult",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DTMFNewCustomerMenu"
+      }, {
+        "parameter": "SkipAuth",
+        "value": "True"
+      } ]
+    },
+    "name": "e3ed6259-435f-4c16-9925-f61f76352ae1"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "If you're calling about residential or home office services, press 1. If you're calling about a business or wholesale account, press 2. Or, you can press 3 to return to the main menu." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_NewCustomer_NewCustomerMenu_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "421fd4e4-4a5d-4f92-889a-22ba64a7430b"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_NewCustomer_NewCustomerMenu_NoMatch_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DTMFNewCustomerMenu"
+      }, {
+        "parameter": "SkipAuth",
+        "value": "True"
+      } ]
+    },
+    "name": "5bc69c12-5728-4bd2-9bd5-845f5d6e35c5"
+  } ]
+}

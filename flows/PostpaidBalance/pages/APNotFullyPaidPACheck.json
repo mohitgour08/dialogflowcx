@@ -1,0 +1,70 @@
+{
+  "name": "b53bd8e6-8c73-4c10-bcdb-ff8a8771c0a9",
+  "displayName": "APNotFullyPaidPACheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentArrangementEligibility = \"Y\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APNotFullyPaidPACheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCurrentBalance",
+    "name": "887b8aee-5404-46f2-8fce-0839549a1976"
+  }, {
+    "condition": "$session.params.channel = \"web\" AND ($session.params.PaymentMethod = \"ACH\" OR $session.params.channel = \"PayPal\" OR $session.params.channel = \"PAYPAL\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FormPostpaidCurrentAPNFP",
+        "value": "hasBalanceACH"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_APNotFullyPaidPACheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.LastFourDigitsAcctNum"
+      } ]
+    },
+    "targetPage": "FormPostpaidCurrentNotFullyPaidAP",
+    "name": "5a3d2658-7048-47ae-97fd-90c849031e73"
+  }, {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FormPostpaidCurrentAPNFP",
+        "value": "hasBalanceCC"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_APNotFullyPaidPACheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      } ]
+    },
+    "targetPage": "FormPostpaidCurrentNotFullyPaidAP",
+    "name": "19dfad41-b9e6-46fc-92cc-e1ce0eb2e3c2"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APNotFullyPaidPACheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCurrentBalanceNotPAEligible",
+    "name": "5ceafa5e-5171-497d-b74e-f08d7ece426b"
+  } ]
+}

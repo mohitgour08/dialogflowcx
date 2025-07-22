@@ -1,0 +1,41 @@
+{
+  "name": "6e0d18b7-e704-4bc2-8691-a471fb0c1169",
+  "displayName": "AgentRoute",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Sure! Let me get you to someone who can help. " ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_AgentRoute_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EXIT_POP"
+      }, {
+        "parameter": "Network",
+        "value": "$session.params.network"
+      }, {
+        "parameter": "Plan",
+        "value": "$session.params.PlanSelected"
+      }, {
+        "parameter": "Address",
+        "value": "$session.params.address"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "b7228b45-1c9c-4f1e-b9eb-adc712b817ac"
+  } ]
+}

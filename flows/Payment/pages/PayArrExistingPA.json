@@ -1,0 +1,47 @@
+{
+  "name": "7f065249-7c6a-4d47-8cd8-4bf0451e26aa",
+  "displayName": "PayArrExistingPA",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ExistingPA = \"Y\" OR $session.params.MigratedCopperExistingPA = \"YES\" OR $session.params.MigratedCopperExistingPA = \"Yes\" OR $session.params.MigratedCopperExistingPA = \"yes\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrAlreadyonPA_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PayArrAlreadyonPA",
+    "name": "5c7eadae-172c-4a07-812e-b43c0d085e21"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrAlreadyonPA_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PayArrNotEligible",
+    "name": "e4cda945-8993-46c1-8a77-f8bc61311503"
+  } ]
+}

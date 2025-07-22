@@ -1,0 +1,31 @@
+{
+  "name": "0cd72961-047d-4c3b-99ab-805b08deb581",
+  "displayName": "TicketChangeRepairDateChannelCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = voice",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketChangeRepairDateChannelCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketMessageForCustomer",
+    "name": "c09f88b0-5e33-459f-b6f8-99f74e4ce174"
+  }, {
+    "condition": "$session.params.channel = web",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketChangeRepairDateChannelCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GetNextAppointmentAPI",
+    "name": "9abf0a62-f613-4b27-b85f-7b24a45b4083"
+  } ]
+}

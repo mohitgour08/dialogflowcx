@@ -1,0 +1,168 @@
+{
+  "name": "2fefd0fa-fa26-4ee4-86f9-d5159dfeb74f",
+  "displayName": "VerifyMobileNumber",
+  "form": {
+    "parameters": [ {
+      "displayName": "ENTER_TN",
+      "required": true,
+      "entityType": "@ENTER_TN",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I am sorry I didn't catch that." ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Please say or enter the number you would like to receive the link at, regarding the Username or Password Reset" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Troubleshooting_VerifyMobileNumber_NoMatch_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ]
+          },
+          "name": "552f759f-2a41-4940-bcbe-1c1c5188d60d"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I didn’t understand your answer. " ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Troubleshooting_VerifyMobileNumber_NoMatch_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Repair"
+            }, {
+              "parameter": "SS_WifiModemPasswordUsername",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            } ]
+          },
+          "name": "1fb59452-dff4-422f-91b6-5707a99f2277"
+        }, {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again? " ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Please say or enter the number you would like to receive the link regarding the Username or Password Reset" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Troubleshooting_VerifyMobileNumber_NoInput_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ]
+          },
+          "name": "4c3e7dc6-c3df-436b-8680-a98568d20250"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "That’s okay." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Troubleshooting_VerifyMobileNumber_NoInput_2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Repair"
+            }, {
+              "parameter": "SS_WifiModemPasswordUsername",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "NoInput"
+            } ],
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "249a211f-27c1-4b38-8ebe-87f13018f75d"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Please say or enter the number you would like to receive the link at, regarding the Username or Password Reset" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_VerifyMobileNumber_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_WifiModemPasswordUsername",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "VerifyMobileNumber"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "d8fc0d3b-b883-4464-af1c-f9143666d91b"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.ENTER_TN) = 10",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SMSNumber",
+        "value": "$session.params.ENTER_TN"
+      }, {
+        "parameter": "Metrics_Troubleshooting_VerifyMobileNumber_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnterMobileNumber",
+    "name": "1487e2a1-23b0-4033-add1-3dec457d4502"
+  } ]
+}

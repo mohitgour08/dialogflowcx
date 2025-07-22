@@ -1,0 +1,55 @@
+{
+  "name": "ee754c2d-4c2a-4c35-87bc-e23a2c387c49",
+  "displayName": "DetermineAuthOptions",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.ContactNumber != null OR $session.params.Email != null) AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_DetermineAuthOptions_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AuthenticateOptionsVoice",
+    "name": "4cfbef02-c8d4-43f9-9f7f-3cd609448575"
+  }, {
+    "condition": "($session.params.ContactNumber != null OR $session.params.Email != null) AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_DetermineAuthOptions_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AuthOptionsChat",
+    "name": "786a6b7d-d342-47a9-a5fe-e452758ac7d6"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_DetermineAuthOptions_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "NO"
+      } ]
+    },
+    "targetPage": "ZipCodeAuth",
+    "name": "89039cf0-102f-48fd-9598-766af011837f"
+  } ]
+}

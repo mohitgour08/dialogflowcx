@@ -1,0 +1,649 @@
+{
+  "trainingPhrases": [ {
+    "id": "d8116afa-5dc2-437f-8df3-88591d27ff04",
+    "parts": [ {
+      "text": "Move My Service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "18e9712d-4cfd-4901-ad76-92a04632a95c",
+    "parts": [ {
+      "text": "shift my service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0aba8611-84e6-496f-bdb6-e6207368e098",
+    "parts": [ {
+      "text": "shift service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cbe22f2b-d951-450a-b096-18b452d5ffcd",
+    "parts": [ {
+      "text": "move my service order"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a096af7e-dc37-446a-b349-6fef30e4486c",
+    "parts": [ {
+      "text": "move my service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a35d87ff-ffcc-4a08-aadf-11ced5e09fff",
+    "parts": [ {
+      "text": "relocate my service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a9e288b4-a120-47d7-aa3c-c59aacb9934e",
+    "parts": [ {
+      "text": "relocate service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dd026174-5c23-4bfd-9b88-043afad0ff22",
+    "parts": [ {
+      "text": "move request"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d90b256a-b680-43cc-84aa-d8ff085601ec",
+    "parts": [ {
+      "text": "move service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c9554400-bbc4-4412-bdcc-fb77eb3aacef",
+    "parts": [ {
+      "text": "change my service"
+    }, {
+      "text": " "
+    }, {
+      "text": "address"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1cbe0454-b7d3-4c81-9122-7117c14c6457",
+    "parts": [ {
+      "text": "I'm changing apartments and I need to change my internet to that apartment"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "31272018-580f-4538-a9e1-da7b515ecedf",
+    "parts": [ {
+      "text": "I have specific requirements for the service installation at the "
+    }, {
+      "text": "new"
+    }, {
+      "text": " location due to accessibility concerns. How can I communicate these requirements to the installation team?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "22b2b4cf-a645-47ad-a569-55126961a328",
+    "parts": [ {
+      "text": "I'm "
+    }, {
+      "text": "moving"
+    }, {
+      "text": " internationally, and I would like to explore the options for continuing the services or transitioning to a local provider. Can you provide guidance on this matter?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1dd4119a-a4ff-4e6e-992f-2734776c0583",
+    "parts": [ {
+      "text": "I recently experienced an "
+    }, {
+      "text": "issue"
+    }, {
+      "text": " with my service, and I want to ensure that it gets resolved before the "
+    }, {
+      "text": "move"
+    }, {
+      "text": ". Can you coordinate the "
+    }, {
+      "text": "service order"
+    }, {
+      "text": " accordingly?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cb3fd1ca-4317-4e1a-ab13-13fc810a2af1",
+    "parts": [ {
+      "text": "I have a complex setup involving multiple "
+    }, {
+      "text": "devices"
+    }, {
+      "text": " and equipment. How can I ensure that everything is properly configured and transferred to the "
+    }, {
+      "text": "new"
+    }, {
+      "text": " location?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d3367d8e-e209-4203-901c-15e01bce5260",
+    "parts": [ {
+      "text": "I'm a business customer, and I need "
+    }, {
+      "text": "assistance"
+    }, {
+      "text": " with "
+    }, {
+      "text": "moving"
+    }, {
+      "text": " my office location along with the associated business services. Can you provide guidance on the process?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2f91f649-af5d-459a-ae69-2a0f167f7eed",
+    "parts": [ {
+      "text": "I'm "
+    }, {
+      "text": "moving"
+    }, {
+      "text": " to a different city within the same coverage area. Can you confirm if "
+    }, {
+      "text": "my service order"
+    }, {
+      "text": " needs any specific modifications for the "
+    }, {
+      "text": "new"
+    }, {
+      "text": " location?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b90669bc-aeaa-4377-bbfe-4f8bd3c54afb",
+    "parts": [ {
+      "text": "I have multiple "
+    }, {
+      "text": "accounts"
+    }, {
+      "text": " with your company, and I want to consolidate them into a single "
+    }, {
+      "text": "service order"
+    }, {
+      "text": " for the "
+    }, {
+      "text": "move"
+    }, {
+      "text": ". How can I proceed with this request?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4c8f4c5b-72b7-4c43-a65a-f4dfff210e0a",
+    "parts": [ {
+      "text": "I'm transferring my services to a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " "
+    }, {
+      "text": "address"
+    }, {
+      "text": ", but I also want to add an additional line to my "
+    }, {
+      "text": "account"
+    }, {
+      "text": ". Can you "
+    }, {
+      "text": "assist"
+    }, {
+      "text": " me with both requests simultaneously?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dc9731b1-98a1-4307-ac99-d6563b18e107",
+    "parts": [ {
+      "text": "I recently "
+    }, {
+      "text": "upgraded"
+    }, {
+      "text": " my "
+    }, {
+      "text": "device"
+    }, {
+      "text": ", and I want to ensure that the "
+    }, {
+      "text": "service order"
+    }, {
+      "text": " reflects the "
+    }, {
+      "text": "new"
+    }, {
+      "text": " "
+    }, {
+      "text": "device"
+    }, {
+      "text": " details. How can I update this information?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1d77f6e3-34a0-4b11-9f01-42ff058a59ef",
+    "parts": [ {
+      "text": "I'm "
+    }, {
+      "text": "moving"
+    }, {
+      "text": " to a location where your services are "
+    }, {
+      "text": "not"
+    }, {
+      "text": " currently available. Can you provide alternative options or suggest a suitable course of action?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "449437f4-8d17-470c-ae98-32ab6c29538b",
+    "parts": [ {
+      "text": "I have a specific date in mind for the service transfer, but I'm unsure if it'"
+    }, {
+      "text": "s"
+    }, {
+      "text": " feasible. Can you check the availability and coordinate the "
+    }, {
+      "text": "move"
+    }, {
+      "text": " accordingly?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c86c2393-b15f-47be-b887-bbee5a1ff917",
+    "parts": [ {
+      "text": "I'm temporarily relocating for "
+    }, {
+      "text": "a few months"
+    }, {
+      "text": " and would like to suspend my services during that period. Can you guide me through the process?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dfe413ee-bf92-4d71-ac92-15eb326ee0e3",
+    "parts": [ {
+      "text": "I have multiple services bundled together, and I want to "
+    }, {
+      "text": "move"
+    }, {
+      "text": " them to a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " location while maintaining the bundle. How can I accomplish this?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "360df37e-bd19-4dbc-93d3-ca4e86b20171",
+    "parts": [ {
+      "text": "I'm "
+    }, {
+      "text": "moving"
+    }, {
+      "text": " to a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " "
+    }, {
+      "text": "address"
+    }, {
+      "text": ", but I also want to "
+    }, {
+      "text": "upgrade"
+    }, {
+      "text": " my service plan. Can you "
+    }, {
+      "text": "assist"
+    }, {
+      "text": " me with both requests?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "987e9093-379a-4a35-bc71-6fc493d0af37",
+    "parts": [ {
+      "text": "I need to "
+    }, {
+      "text": "move my services"
+    }, {
+      "text": " to a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " "
+    }, {
+      "text": "address"
+    }, {
+      "text": ". Can you provide instructions on how to proceed?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c294c85d-cbcf-4841-843e-7bf7ea7ea61b",
+    "parts": [ {
+      "text": "Can you "
+    }, {
+      "text": "assist"
+    }, {
+      "text": " me in placing a "
+    }, {
+      "text": "service order"
+    }, {
+      "text": " to "
+    }, {
+      "text": "move my internet services"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "926db855-b9b4-4915-87d1-10dc586e89d1",
+    "parts": [ {
+      "text": "I want to "
+    }, {
+      "text": "schedule"
+    }, {
+      "text": " a service relocation for my "
+    }, {
+      "text": "account"
+    }, {
+      "text": ". What details do you require?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "46ea5e8e-844e-41eb-9642-d8d08d9a2b75",
+    "parts": [ {
+      "text": "I need guidance on how to transfer my internet services to a different location."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4cabc485-0f08-486c-b52c-2b3c99af164e",
+    "parts": [ {
+      "text": "What is the procedure for "
+    }, {
+      "text": "moving my internet services"
+    }, {
+      "text": " to a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " "
+    }, {
+      "text": "address"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8047c2d2-2882-45a1-9cd1-7a8cf272d1a7",
+    "parts": [ {
+      "text": "I'm in the process of relocating and need to "
+    }, {
+      "text": "move my internet services"
+    }, {
+      "text": ". How can I get started?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6b436a8c-d0d1-40e9-9d63-f68c0a9e3c57",
+    "parts": [ {
+      "text": "I want to transfer my services to "
+    }, {
+      "text": "another"
+    }, {
+      "text": " "
+    }, {
+      "text": "address"
+    }, {
+      "text": ". How long does the process typically take?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d30d4ceb-b809-4d85-97c3-287ee6e0de5d",
+    "parts": [ {
+      "text": "I would like to arrange a "
+    }, {
+      "text": "service move"
+    }, {
+      "text": " for my "
+    }, {
+      "text": "account"
+    }, {
+      "text": ". What information do you need?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "25e3fbb9-d7f2-4508-aed1-6da0cb66341c",
+    "parts": [ {
+      "text": "I need "
+    }, {
+      "text": "assistance"
+    }, {
+      "text": " with "
+    }, {
+      "text": "moving my internet services"
+    }, {
+      "text": " to a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " location. Can you "
+    }, {
+      "text": "help"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e1f2fbc0-1073-4625-b355-ff81f83287a3",
+    "parts": [ {
+      "text": "I want to initiate a service transfer for my internet services. What'"
+    }, {
+      "text": "s"
+    }, {
+      "text": " the "
+    }, {
+      "text": "next"
+    }, {
+      "text": " step?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3dcb3f62-7d58-4f0d-9c3b-ac9b0ab79d92",
+    "parts": [ {
+      "text": "I have a "
+    }, {
+      "text": "service order"
+    }, {
+      "text": " for "
+    }, {
+      "text": "moving my services"
+    }, {
+      "text": ". How can I proceed?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "788b3cc1-ce15-4ac6-b8f1-436a5df8143c",
+    "parts": [ {
+      "text": "I'm changing residences and need to "
+    }, {
+      "text": "move my internet services"
+    }, {
+      "text": ". Can you guide me through the process?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "08b1a0d9-9da5-4b6c-9aff-452dc62de526",
+    "parts": [ {
+      "text": "I need to "
+    }, {
+      "text": "move"
+    }, {
+      "text": " my internet/"
+    }, {
+      "text": "phone"
+    }, {
+      "text": "/TV services to a different "
+    }, {
+      "text": "address"
+    }, {
+      "text": ". What do I need to do?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "64dfb3bd-3e23-4222-8883-2a3daabd9e3d",
+    "parts": [ {
+      "text": "I want to "
+    }, {
+      "text": "schedule"
+    }, {
+      "text": " a service relocation. How can I request a "
+    }, {
+      "text": "service order"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "04baf528-2e22-4ecc-9e00-ce4e84d008da",
+    "parts": [ {
+      "text": "What are the steps to "
+    }, {
+      "text": "move my internet services"
+    }, {
+      "text": " to a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " location?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e536744c-b8f4-45ef-9dfa-b80b6e2c663b",
+    "parts": [ {
+      "text": "I'm relocating and need to arrange the transfer of my services. How do I proceed?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5ca6f2b6-7d37-40ba-af39-a460e9d38712",
+    "parts": [ {
+      "text": "I have a "
+    }, {
+      "text": "service order"
+    }, {
+      "text": " request to "
+    }, {
+      "text": "move my internet services"
+    }, {
+      "text": " to "
+    }, {
+      "text": "another"
+    }, {
+      "text": " "
+    }, {
+      "text": "address"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a35e3c72-648e-477f-a7e8-9e43a29b5268",
+    "parts": [ {
+      "text": "I'm "
+    }, {
+      "text": "moving"
+    }, {
+      "text": " to a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " place and need to "
+    }, {
+      "text": "schedule"
+    }, {
+      "text": " a service transfer. Can you "
+    }, {
+      "text": "assist"
+    }, {
+      "text": " me?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5b03d5c5-d33b-4025-ac21-aa1b262ccd85",
+    "parts": [ {
+      "text": "I want to transfer my service to a different location. What is the process?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "328991ab-7789-4d38-8f66-fae704a3f8cd",
+    "parts": [ {
+      "text": "I need to "
+    }, {
+      "text": "move my service"
+    }, {
+      "text": " to a "
+    }, {
+      "text": "new"
+    }, {
+      "text": " "
+    }, {
+      "text": "address"
+    }, {
+      "text": ". How can I place a "
+    }, {
+      "text": "service order"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c6a412ca-cbb6-4300-ab8d-14ea1e075dc2",
+    "parts": [ {
+      "text": "Move Service Order"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

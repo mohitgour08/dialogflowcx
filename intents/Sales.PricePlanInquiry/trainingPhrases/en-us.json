@@ -1,0 +1,951 @@
+{
+  "trainingPhrases": [ {
+    "id": "d66860d7-965b-43d7-8095-2bb9a23d82b4",
+    "parts": [ {
+      "text": "what "
+    }, {
+      "text": "is the digital"
+    }, {
+      "text": " "
+    }, {
+      "text": "voice subscription"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "30ecd8d0-6f7a-4151-a996-5cc0a8eeb1f6",
+    "parts": [ {
+      "text": "What is my data "
+    }, {
+      "text": "limit?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "920b0d52-37ca-43cb-a922-69c209b6c64d",
+    "parts": [ {
+      "text": "Service pricing"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5f7dd797-68ca-41dd-a2cd-2e003e54a696",
+    "parts": [ {
+      "text": "Subscription scheme"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "adf49399-1a00-4c2a-a736-1d2bab358958",
+    "parts": [ {
+      "text": "Rate"
+    }, {
+      "text": " model"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c2f86c38-4d11-49bd-8146-1dae61f05d16",
+    "parts": [ {
+      "text": "Rate"
+    }, {
+      "text": " system"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b592d891-d9ea-45d2-b54a-75d41e23662c",
+    "parts": [ {
+      "text": "Price scheme"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "aec12935-9041-4b38-8c20-22b7c862379a",
+    "parts": [ {
+      "text": "Tariff plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "efb33be9-e549-419f-a156-d3766956b30e",
+    "parts": [ {
+      "text": "Price package"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fb2dbf7c-4027-4773-9315-063f8a50431a",
+    "parts": [ {
+      "text": "Subscription model"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d6b221d3-2137-4754-a911-4a605ceb2126",
+    "parts": [ {
+      "text": "Cost plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7ab52a29-e53d-4d3a-948c-425d74551cc8",
+    "parts": [ {
+      "text": "Pricing strategy"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1c3b7677-8a62-4eb5-9c14-a0e6363a3158",
+    "parts": [ {
+      "text": "Service package"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e7b20b10-0857-4a31-8039-612fe4775bff",
+    "parts": [ {
+      "text": "Rate"
+    }, {
+      "text": " plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e12569eb-97fb-4087-9f3b-fdc0dd2d86e1",
+    "parts": [ {
+      "text": "Pricing model"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0a1c39f8-9882-499a-95da-84ca32f8b3a2",
+    "parts": [ {
+      "text": "Cost structure"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "93f79b89-852e-43c1-816e-5c12066b446b",
+    "parts": [ {
+      "text": "Subscription plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8b94e7c1-da83-4609-9dc4-6e5e9255e2b7",
+    "parts": [ {
+      "text": "Tariff"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e40abf4a-faab-4497-b4fe-657829b1c5cb",
+    "parts": [ {
+      "text": "Rate structure"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0d900910-3cac-4a80-bfaf-4c6a1d25c7ed",
+    "parts": [ {
+      "text": "Pricing scheme"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "39616be5-bdad-473e-9fe3-528ee62c120f",
+    "parts": [ {
+      "text": "I want to know the "
+    }, {
+      "text": "charges"
+    }, {
+      "text": " for my internet plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "20805ea1-7d09-43b8-9e03-6a50769f8df7",
+    "parts": [ {
+      "text": "I want to know the charges of your"
+    }, {
+      "text": " services"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5aac28fb-1dd7-4c05-8f58-32f57116e13c",
+    "parts": [ {
+      "text": "plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1e433541-910f-4ece-b4fe-bf01fbad5ebe",
+    "parts": [ {
+      "text": "Internet "
+    }, {
+      "text": "plans"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7516b484-5ee7-4722-95e0-060746d93ca3",
+    "parts": [ {
+      "text": "my plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ebb23705-fce0-46e4-bf30-2438a584caac",
+    "parts": [ {
+      "text": "I want to know my plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "31353006-08ef-4cdb-af8a-185153c7979b",
+    "parts": [ {
+      "text": "I need to change my plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2c25f8fb-6009-4571-8c60-fa72d9608ea7",
+    "parts": [ {
+      "text": "Is there a "
+    }, {
+      "text": "mobile"
+    }, {
+      "text": " "
+    }, {
+      "text": "app"
+    }, {
+      "text": " for "
+    }, {
+      "text": "managing"
+    }, {
+      "text": " and tracking my postpaid "
+    }, {
+      "text": "account"
+    }, {
+      "text": " with this plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ddc00e54-a047-4495-9c21-1116044c57d6",
+    "parts": [ {
+      "text": "I'd like to inquire about the availability of a dedicated "
+    }, {
+      "text": "account manager"
+    }, {
+      "text": " for this postpaid plan."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "15896df3-ec19-4ef2-a572-2535425b2ace",
+    "parts": [ {
+      "text": "Can you "
+    }, {
+      "text": "explain the bill"
+    }, {
+      "text": " and usage monitoring features available with the postpaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "af4f0867-95c1-4004-8fa6-9635bb1a7053",
+    "parts": [ {
+      "text": "What is the process for transitioning from a prepaid plan to this specific postpaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2e2d42a0-dcb9-4355-b929-578e99d495ee",
+    "parts": [ {
+      "text": "Are there any discounts or benefits for subscribers who have been with this postpaid plan for an extended period?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fb38e37b-09b6-49e3-a62b-6175fbf8bbd0",
+    "parts": [ {
+      "text": "I'm interested in knowing the details of international roaming options with the specific postpaid plan."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4aafdf8a-60d9-4999-a21c-cd204f7a2917",
+    "parts": [ {
+      "text": "Can you provide information on any referral programs or incentives tied to the postpaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "782164f4-bf2e-49e2-bf3a-e40d822b57e6",
+    "parts": [ {
+      "text": "Is there an option to add family members or shared lines to the specific postpaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "89b2e495-b8d6-4978-98f8-26b96909aec8",
+    "parts": [ {
+      "text": "What are the "
+    }, {
+      "text": "billing"
+    }, {
+      "text": " cycle and "
+    }, {
+      "text": "due date"
+    }, {
+      "text": " associated with the specific postpaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "24b5e428-6c83-433f-bb64-c278e7bf9937",
+    "parts": [ {
+      "text": "I'm considering the specific postpaid plan, and I'd like to understand the process of "
+    }, {
+      "text": "upgrading"
+    }, {
+      "text": " or downgrading the plan."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "045aff6d-130a-4ce8-8a3f-0d5e9c8a0ee3",
+    "parts": [ {
+      "text": "Is there "
+    }, {
+      "text": "a way"
+    }, {
+      "text": " to track and "
+    }, {
+      "text": "manage"
+    }, {
+      "text": " my prepaid "
+    }, {
+      "text": "account"
+    }, {
+      "text": " through a "
+    }, {
+      "text": "mobile"
+    }, {
+      "text": " "
+    }, {
+      "text": "app"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "99ab15ff-dcf2-44ec-8af0-71c576d3655d",
+    "parts": [ {
+      "text": "I'd like to know about any customer support channels and response times for this prepaid plan."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8b9077d9-eb0a-4dd2-96b0-79b2440fc44b",
+    "parts": [ {
+      "text": "Can you explain the data usage alerts or notifications available with the prepaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2fb1744e-4c3c-44de-bbb6-8f9c365c01fa",
+    "parts": [ {
+      "text": "What is the process for switching to the specific prepaid plan, and how long does it take?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0ca23dfc-844a-4ed4-86e2-2441dcf0f964",
+    "parts": [ {
+      "text": "Are there any specific "
+    }, {
+      "text": "devices"
+    }, {
+      "text": " or handsets that are compatible with this prepaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6746523a-b16b-4da6-993b-6b6c6dedd8ad",
+    "parts": [ {
+      "text": "I'm interested in knowing if there are any limitations on international "
+    }, {
+      "text": "calling"
+    }, {
+      "text": " with the specific prepaid plan."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "682b00be-c375-4b8b-8e9a-63f8a6ebd3d0",
+    "parts": [ {
+      "text": "Can you provide information on any rewards or loyalty points associated with the prepaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7f5e7b9a-e53d-472a-80e1-6e393423d7d8",
+    "parts": [ {
+      "text": "Is there an auto-renewal feature for the specific prepaid plan, and how does it work?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "87014032-9219-42bb-8ac5-88eb8a29e381",
+    "parts": [ {
+      "text": "What is the duration of validity for the specific prepaid plan I'm interested in?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3898424c-1c67-412d-bf7b-81b6ada1e4f6",
+    "parts": [ {
+      "text": "I'm considering the specific prepaid plan, and I'd like to know if there are any data rollover options."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bd4ace19-a776-47d4-b557-b07313ea5e79",
+    "parts": [ {
+      "text": "How does customer support work for the specific postpaid plan I'm considering?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a156b3c0-ac28-4436-8773-dbcb1e370b1f",
+    "parts": [ {
+      "text": "Do you have any testimonials or case studies from customers who've used the particular postpaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "99cf7124-c3a7-42eb-89fb-c61180a8a99b",
+    "parts": [ {
+      "text": "Is there an "
+    }, {
+      "text": "app"
+    }, {
+      "text": " or "
+    }, {
+      "text": "online"
+    }, {
+      "text": " portal for "
+    }, {
+      "text": "managing my account"
+    }, {
+      "text": " and usage with the specific postpaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fc196a77-1b5b-4e13-ab19-798e28ae6ecd",
+    "parts": [ {
+      "text": "I'm interested in the specific postpaid plan, but I'd like to learn more about any available discounts or "
+    }, {
+      "text": "promotions"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "19dccbe1-8ab3-4d88-af31-23f93d6bd2b6",
+    "parts": [ {
+      "text": "Can you guide me on how to switch to the specific postpaid plan from my current "
+    }, {
+      "text": "one"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "975d21f8-c0e5-4179-a73d-d4155736e516",
+    "parts": [ {
+      "text": "I want to ensure that the specific postpaid plan falls within my budget. Can you give me a detailed pricing breakdown?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2b8ad465-a7f8-4386-bd41-8eead45a8737",
+    "parts": [ {
+      "text": "What options are available for adding extra lines or family members to the postpaid plan I have in mind?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1b054d5e-a260-4387-96ae-5b010f5ad1d3",
+    "parts": [ {
+      "text": "Are there any loyalty or retention programs associated with the specific postpaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d63e5054-8e0b-4d31-a35e-fcf0bc49eddf",
+    "parts": [ {
+      "text": "Can you provide information on the international roaming and data roaming options included in the postpaid plan I'm interested in?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "add5f0e3-7cd6-4c6b-867c-5e1db8001b61",
+    "parts": [ {
+      "text": "I'm considering the specific postpaid plan, and I'd like to understand the contract terms and commitment associated with it."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d4c1b7b7-1a6a-4f86-b214-ff7fe12f295b",
+    "parts": [ {
+      "text": "How does customer support work for the specific prepaid plan I'm considering?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8a4a4c36-f51e-4dbb-81e9-e92d8a3f9056",
+    "parts": [ {
+      "text": "Are there any testimonials or "
+    }, {
+      "text": "success"
+    }, {
+      "text": " stories from customers who've used the particular prepaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b8a056b7-ec71-425b-9134-6c69ce9beaf2",
+    "parts": [ {
+      "text": "Is there "
+    }, {
+      "text": "an easy way"
+    }, {
+      "text": " to track my usage and "
+    }, {
+      "text": "balances"
+    }, {
+      "text": " with the specific prepaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6d0b7205-f9f8-40cb-a9d1-ab8b8443a1f0",
+    "parts": [ {
+      "text": "I'm interested in the specific prepaid plan, but I'd like to know more about any potential discounts or "
+    }, {
+      "text": "promotions"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "df8ec7bb-6e1a-4a04-af1e-df8e9b286ee4",
+    "parts": [ {
+      "text": "Can you guide me on how to switch to the specific prepaid plan from my current "
+    }, {
+      "text": "one"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0bca4943-5225-4225-a760-355c99f5165d",
+    "parts": [ {
+      "text": "I want to be sure that the specific prepaid plan aligns with my budget. Can you provide a cost breakdown?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "95c29de9-d1b1-4061-a957-abc7eeaf1d10",
+    "parts": [ {
+      "text": "What are the options for adding extra data or talk time to the prepaid plan I have in mind?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "30b87240-448f-4036-98ec-d3f27aaeff78",
+    "parts": [ {
+      "text": "Is the "
+    }, {
+      "text": "specific prepaid"
+    }, {
+      "text": " plan eligible for any loyalty rewards or loyalty programs?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4004f3b5-0e1c-4468-999b-a0646bea6755",
+    "parts": [ {
+      "text": "Can you explain the "
+    }, {
+      "text": "network"
+    }, {
+      "text": " coverage and data speeds included in the prepaid plan I'm interested in?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ac5411d1-8d13-4663-8c74-43069ebec52a",
+    "parts": [ {
+      "text": "I'm considering the specific prepaid plan, and I'd like to know if there are any restrictions or limitations associated with it."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3cb77446-e932-4917-9c2b-edd260712e15",
+    "parts": [ {
+      "text": "Is there a "
+    }, {
+      "text": "sales"
+    }, {
+      "text": " team or "
+    }, {
+      "text": "representative"
+    }, {
+      "text": " I can speak to for detailed information about the postpaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "382fc8c8-fe76-4843-849d-5e1034701fac",
+    "parts": [ {
+      "text": "What additional services or add-ons are compatible with the specific postpaid plan I'm considering?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bb6aadc7-19fd-4694-98a7-c5a885b70a87",
+    "parts": [ {
+      "text": "I'm attracted to a certain postpaid plan, but I'd like to understand more about its features and pricing."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "99c858de-9ba5-4d5f-9c04-60304db84fd7",
+    "parts": [ {
+      "text": "Do you have any customer reviews or "
+    }, {
+      "text": "success"
+    }, {
+      "text": " stories related to the specific postpaid "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "65156ac7-5a68-4552-b2f3-c1419d1734d3",
+    "parts": [ {
+      "text": "Can you explain the "
+    }, {
+      "text": "sign-up"
+    }, {
+      "text": " process and requirements for the postpaid plan I'm considering?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "63d9b374-de71-448c-b08b-03ffc2781a94",
+    "parts": [ {
+      "text": "Are there any ongoing "
+    }, {
+      "text": "promotions"
+    }, {
+      "text": " or offers associated with the specific postpaid plan I have in mind?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "baf25d86-ba87-4033-b3f1-cc41eca3faa4",
+    "parts": [ {
+      "text": "I'm interested in the postpaid plan, but I want to make sure it'"
+    }, {
+      "text": "s"
+    }, {
+      "text": " the right fit for my needs. Can you "
+    }, {
+      "text": "assist"
+    }, {
+      "text": " me with that?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "61bee78d-f22e-4fa9-b775-65b6749e4c95",
+    "parts": [ {
+      "text": "How does the particular postpaid plan compare to other plans in terms of pricing and benefits?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a5ec8666-d533-43f8-821b-505015d66f40",
+    "parts": [ {
+      "text": "Can you provide information on the "
+    }, {
+      "text": "billing"
+    }, {
+      "text": " cycle and "
+    }, {
+      "text": "payment options"
+    }, {
+      "text": " for the specific postpaid plan I have in mind?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cdff34ca-04f5-4e9f-919c-1de6e44500ce",
+    "parts": [ {
+      "text": "I'd like to explore the features and inclusions of the postpaid "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": " I'm considering."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ba4cd43a-2e16-4ddb-82a5-8b9de4b90916",
+    "parts": [ {
+      "text": "Is there a "
+    }, {
+      "text": "representative"
+    }, {
+      "text": " or "
+    }, {
+      "text": "sales"
+    }, {
+      "text": " "
+    }, {
+      "text": "agent"
+    }, {
+      "text": " I can speak to about the details of the prepaid plan?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e63ce453-a2a6-4f45-8304-73aa152f7e89",
+    "parts": [ {
+      "text": "What additional services or add-ons can be combined with the specific prepaid plan I'm considering?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f9c183ce-62d0-444c-be2f-df7ef6410da5",
+    "parts": [ {
+      "text": "I'm attracted to a certain prepaid plan, but I'd like more information about its features and pricing."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d233be20-9e28-4550-a80d-5f41f1ee21ca",
+    "parts": [ {
+      "text": "Is there a customer reviews or testimonials for the specific prepaid "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8adedebe-15ab-43a4-bf9b-5a7585cee70e",
+    "parts": [ {
+      "text": "Can you explain the process for "
+    }, {
+      "text": "signing up"
+    }, {
+      "text": " for the prepaid plan I'm interested in?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1e4dc05e-3548-44b9-aa28-2c3499806d19",
+    "parts": [ {
+      "text": "Are there any special "
+    }, {
+      "text": "promotions"
+    }, {
+      "text": " or discounts associated with the specific prepaid plan I have in mind?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ddad101d-cf2c-46b6-8e65-432ef28fdc73",
+    "parts": [ {
+      "text": "I want to ensure that the prepaid plan I'm considering aligns with my needs. Can you "
+    }, {
+      "text": "help"
+    }, {
+      "text": " me with that?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "273fb39a-439b-48a2-bd14-6d2f084df722",
+    "parts": [ {
+      "text": "Could you provide a comparison between the particular prepaid "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": " and others available?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "eee4ce41-f453-4531-862e-bcececd391b2",
+    "parts": [ {
+      "text": "What are the "
+    }, {
+      "text": "payment options"
+    }, {
+      "text": " and duration of the prepaid plan I'm interested in?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "098a731d-04c9-4c4c-bd64-6e59916b1aad",
+    "parts": [ {
+      "text": "I'd like to explore the details of the specific prepaid "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": " I have in mind."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8650a1a9-6fe3-4631-b469-899843b321bb",
+    "parts": [ {
+      "text": "I'm considering a specific "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": ". How can I get a quote or estimate for it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "62d0f1bb-9244-4e02-bcd3-76e3468c127d",
+    "parts": [ {
+      "text": "Can you explain the terms and conditions of the "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": " I'm considering?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "845c3901-a562-4f41-bf59-aa5e084942b5",
+    "parts": [ {
+      "text": "Is there a brochure or document that outlines the features of the "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": " I'm looking into?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a8b809e2-b7a8-45d5-a80d-0f03c20a95be",
+    "parts": [ {
+      "text": "I'd like to discuss the details and benefits of the specific "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": " I have in mind."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2019bf66-dd71-4c06-9c62-878cc5118c92",
+    "parts": [ {
+      "text": "Can you provide a breakdown of the services included in the particular "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b3adbc8e-b8ab-43a2-9bc2-8aae5f4e7b38",
+    "parts": [ {
+      "text": "What are the key offerings of the "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": " I'm interested in?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "35fa1acc-e127-490f-9af9-4d1528cf88af",
+    "parts": [ {
+      "text": "Is there "
+    }, {
+      "text": "a way"
+    }, {
+      "text": " to get more information on the "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": " I'm considering?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "073cf484-9ed9-446e-b169-0ad70e85afa2",
+    "parts": [ {
+      "text": "I'd like to learn about the features and costs of a particular "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ccf952cc-70f2-4d8f-86c0-8ae9bd1f7806",
+    "parts": [ {
+      "text": "Could you tell me more about the specific "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": " I have in mind?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "23d7e0e2-b339-446c-99e9-8c2d9efe8eca",
+    "parts": [ {
+      "text": "I'm interested in a particular "
+    }, {
+      "text": "price plan"
+    }, {
+      "text": ". Can you provide details about it?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "02034fe8-55a1-4023-b170-67795a73cf97",
+    "parts": [ {
+      "text": "price plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

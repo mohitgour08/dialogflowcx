@@ -1,0 +1,59 @@
+{
+  "name": "fb6d812c-605c-4ab3-bd4a-acae65d2c3a5",
+  "displayName": "FiberPay",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Currently, I can accept any card type except American Express." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Currently, I can accept any card type except American Express. Please start by entering the 16-digit card number followed by the pound sign. " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "DefaultPM",
+      "value": "false"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.BillInfo_AccountStatus = \"Payment Past Due\" OR $session.params.BillInfo_AccountStatus : \"Jeopardy\" OR $session.params.BillInfo_AccountStatus : \"jeopardy\" OR $session.params.BillInfo_AccountStatus : \"Past Due\") AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "FormPastDueOTP",
+    "name": "d6972823-fc6d-467b-b12f-3fd8a8d90bc0"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberPay_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberPayment",
+    "name": "72701a3c-3425-41b3-a9cf-fd2f74d393b1"
+  } ]
+}

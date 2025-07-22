@@ -1,0 +1,213 @@
+{
+  "name": "b7cc21b7-20c1-40ba-89ea-ca8ff9b543de",
+  "displayName": "OutageAPIMigratedCopper",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "OutageAPI_MigratedCopper_Fiber",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_OutageAPIMigratedCopper_none_wh_OutageAPI_MigratedCopper_Fiber",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.OutageResponseStatus = \"Sucess\" OR $session.params.OutageResponseStatus = \"SUCCESS\" OR $session.params.OutageResponseStatus = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_OutageAPIMigratedCopper_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "OutageReturnStatus",
+        "value": "success"
+      }, {
+        "parameter": "API_Troubleshooting_OutageAPIMigratedCopper",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "targetPage": "OutageCheckMigratedCopperAndFiber",
+    "name": "08a112ea-8138-4fa4-bc6c-6adb0110c98c"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_OutageAPIMigratedCopper_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_CheckOutage",
+        "value": "Failure"
+      }, {
+        "parameter": "API_Troubleshooting_OutageAPIMigratedCopper",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "targetPage": "WallGardenSuspendAbuse",
+    "name": "c1af3eec-8f40-4c82-8313-ea2c51ffb7a3"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "WallGardenSuspendAbuse",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_OutageAPIMigratedCopper_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "OutageAPI_MigratedCopperResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_CheckOutage",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "API_Troubleshooting_OutageAPIMigratedCopper",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "name": "bf32b6af-7626-40f4-8dde-a19ef37dd4c7"
+  }, {
+    "targetPage": "WallGardenSuspendAbuse",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": " Metrics_Troubleshooting_OutageAPIMigratedCopper_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "OutageAPI_MigratedCopperResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_CheckOutage",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "API_Troubleshooting_OutageAPIMigratedCopper",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "name": "63a79e7a-3325-4109-8ac1-f91e56c067d9"
+  }, {
+    "targetPage": "WallGardenSuspendAbuse",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_OutageAPIMigratedCopper_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "OutageAPI_MigratedCopperResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_CheckOutage",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "API_Troubleshooting_OutageAPIMigratedCopper",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "name": "7ba5616e-6d85-43ca-a171-947395effeb5"
+  }, {
+    "targetPage": "WallGardenSuspendAbuse",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_OutageAPIMigratedCopper_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "OutageAPI_MigratedCopperResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_CheckOutage",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "API_Troubleshooting_OutageAPIMigratedCopper",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "name": "25c2db7c-e563-42cc-a0be-e3866b43cee5"
+  }, {
+    "targetPage": "WallGardenSuspendAbuse",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_OutageAPIMigratedCopper_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "OutageAPI_MigratedCopperResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_CheckOutage",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "API_Troubleshooting_OutageAPIMigratedCopper",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "name": "1f7bd96d-0c1e-4178-a1d6-a40817a4034f"
+  }, {
+    "targetPage": "WallGardenSuspendAbuse",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": " Metrics_Troubleshooting_OutageAPIMigratedCopper_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "OutageAPI_MigratedCopperResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_CheckOutage",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "API_Troubleshooting_OutageAPIMigratedCopper",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "OutageAPI_MigratedCopper_Fiber"
+      } ]
+    },
+    "name": "00863d68-26c0-4d08-8765-9da01e9ad05a"
+  } ]
+}

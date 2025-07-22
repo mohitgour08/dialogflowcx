@@ -1,0 +1,99 @@
+{
+  "name": "109cc871-7ee9-47c1-b5f9-aa78ab8e1ceb",
+  "displayName": "UpdateMigratedCard",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "Metrics_UpdateMigratedCard_none_wh_UpdatePaymentMethodChat",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.UpdatePayment = \"Success\" OR $session.params.UpdatePayment = \"success\" OR $session.params.UpdatePayment = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdateMigratedCard_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FECheckUpdateSuccessful",
+    "name": "ccc91400-71b1-4fb9-90e8-eff0db62ca76"
+  }, {
+    "condition": "$session.params.FirstUpdateFailure = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdateMigratedCard_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "updatepayment",
+        "value": "$session.params.UpdatePayment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberCheckFirstUpdateFail",
+    "name": "1e48635a-2a9e-4e2d-ac8d-eda372b130d9"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to finish processing this change." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ " Let me get you to someone who can help. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdateCard_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TranferMessage",
+        "value": "SecuredPayments-UpdateMigratedCard,CardUpdateFailed"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "aa1438dc-073a-418d-b0d1-842072c32ac0"
+  } ]
+}

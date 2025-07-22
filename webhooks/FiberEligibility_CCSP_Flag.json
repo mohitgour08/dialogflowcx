@@ -1,0 +1,23 @@
+{
+  "name": "4ee1fbc7-b3a0-4abb-ac29-6baf1c2286c4",
+  "displayName": "FiberEligibility_CCSP_Flag",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/ccs-data-api/getGlobalflagVal",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"key_name\": \"$session.params.FiberEligibleKey\"\n}",
+    "parameterMapping": [ {
+      "key": "Flag_Value",
+      "value": "value"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth2/token",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

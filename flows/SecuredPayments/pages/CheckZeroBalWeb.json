@@ -1,0 +1,76 @@
+{
+  "name": "890c1828-e62b-4902-b916-b71ee70392ba",
+  "displayName": "CheckZeroBalWeb",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "creditamountcheck",
+      "value": "$sys.func.MID($session.params.TotalBalance, 1, 1)"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.TotalBalance = \"0\" OR $session.params.TotalBalance = \"0\\.0\" OR $session.params.TotalBalance = \"0\\.00\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckZeroBalWeb_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CustomAmount",
+    "name": "b8fbed7f-f065-40c1-b52e-fe9edf9127b9"
+  }, {
+    "condition": "$session.params.creditamountcheck = \"-\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckZeroBalWeb_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CustomAmount",
+    "name": "592e7966-5dc6-4a24-9395-da84312b7d70"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckZeroBalWeb_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoOverdue",
+    "name": "ef7425fd-acfd-4564-ac85-5672f469853a"
+  } ]
+}

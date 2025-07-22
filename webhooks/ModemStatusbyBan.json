@@ -1,0 +1,28 @@
+{
+  "name": "13ac95dd-176e-4ded-b25b-1e4407368c71",
+  "displayName": "ModemStatusbyBan",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/ccsautomateservice/api/v1/modemStatusByBan?ban=$session.params.AccountNumber",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "GET",
+    "parameterMapping": [ {
+      "key": "GetModem",
+      "value": "responseBody.modems"
+    }, {
+      "key": "GetModemResponseStatus",
+      "value": "responseStatus"
+    }, {
+      "key": "ProductClass",
+      "value": "responseBody.modems[0].ProductClass"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 30
+  }
+}

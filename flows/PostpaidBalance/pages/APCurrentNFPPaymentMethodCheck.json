@@ -1,0 +1,125 @@
+{
+  "name": "523e2db0-9955-482d-b871-339d73f1a034",
+  "displayName": "APCurrentNFPPaymentMethodCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"PayPal\" OR $session.params.PaymentMethod = \"PAYPAL\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCurrentNFPPaymentMethodCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APNotFullyPaidPACheck",
+    "name": "c4140040-ffd0-4f6e-83dd-35653f7d0a21"
+  }, {
+    "condition": "$session.params.CCExpDateDiff : \"True\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCurrentNFPPaymentMethodCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PostpaidBalance-APCurrentBalanceNotFullypaidPaymentMethodCheck,CreditCardExpiryUnknown"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "4221c888-b69e-41c0-94f0-c00a169a99a1"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003e 30",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCurrentNFPPaymentMethodCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APNotFullyPaidPACheck",
+    "name": "ccaaa199-d48c-4ad5-babe-524fcee9698d"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCurrentNFPPaymentMethodCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCurrentBalanceCCExpVoiceorChat",
+    "name": "8324ff00-5598-4c50-9c73-372a661157f1"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 30 AND $session.params.channel = \"web\" AND $session.params.CCExpDateDiff \u003e 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCurrentNFPPaymentMethodCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FormPostpaidCurrentAPNFP",
+        "value": "hasBalanceCCE30"
+      }, {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      } ]
+    },
+    "targetPage": "FormPostpaidCurrentNotFullyPaidAP",
+    "name": "e66f2ebe-db97-4e1b-a8d1-ad09e4a1a178"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 30 AND $session.params.CCExpDateDiff \u003e 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCurrentNFPPaymentMethodCheck_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APVoice2",
+    "name": "49905398-2059-4f61-9e52-04493426d456"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_APCurrentNFPPaymentMethodCheck_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PostpaidBalance-APCurrentBalanceNotFullypaidPaymentMethodCheck,PaymentMethodUnknown"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "885b4f50-f2fc-4445-b925-ef1c2109fdaf"
+  } ],
+  "description": "AUTOPAY CURRENTBALANCE NOT FULLY PAID PAYMENT METHOD CHECK"
+}

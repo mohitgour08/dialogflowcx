@@ -1,0 +1,34 @@
+{
+  "name": "726224b1-6c6e-4e0f-b28b-11f35193f7cf",
+  "displayName": "FormCheck",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.BillingMethod = \"postpaid\" OR $session.params.BillingMethod = \"PO\") AND ($session.params.BillInfo_paymentAuthId = null OR $session.params.BillInfo_paymentAuthId = \"\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CopperForm",
+        "value": "CopperOTPSaveMethod"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FormCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormCopper",
+    "name": "57b0d0b7-a2e3-45a4-8b7b-47dba8946549"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CopperForm",
+        "value": "CopperOTP"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FormCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormCopper",
+    "name": "73069b1f-4ea4-400a-aca5-692709f94bdc"
+  } ]
+}

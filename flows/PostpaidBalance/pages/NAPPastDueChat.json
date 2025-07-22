@@ -1,0 +1,56 @@
+{
+  "name": "3c4d5fe7-aa88-4877-bee4-35a4e1dcf1ca",
+  "displayName": "NAPPastDueChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.PaymentMethod = \"CreditCard\" OR $session.params.PaymentMethod = \"CC\" OR $session.params.PaymentMethod = \"CREDITCARD\" OR $session.params.PaymentMethod = \"Creditcard\") AND $session.params.CreditCardNumberLast4 != \"\" AND $session.params.CreditCardNumberLast4 != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      }, {
+        "parameter": "FormNAPPast",
+        "value": "hasPrimaryCC"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_NAPPastDueChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormNAPPast",
+    "name": "6371de08-4ec6-4c39-9e00-cab02b1f2756"
+  }, {
+    "condition": "($session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"PAYPAL\" OR $session.params.PaymentMethod = \"PayPal\" OR $session.params.PaymentMethod = \"paypal\") AND $session.params.LastFourDigitsAcctNum != \"\" AND $session.params.LastFourDigitsAcctNum != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.LastFourDigitsAcctNum"
+      }, {
+        "parameter": "FormNAPPast",
+        "value": "hasPrimaryACH"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_NAPPastDueChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormNAPPast",
+    "name": "fe93ba4e-2f5a-4896-9269-203b9389c364"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FormNAPPast",
+        "value": "noPrimary"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_NAPPastDueChat_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormNAPPast",
+    "name": "2f6a57ef-22d7-4786-8b37-0986d54cae74"
+  } ]
+}

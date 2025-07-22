@@ -1,0 +1,34 @@
+{
+  "name": "9ad36574-3a6e-41f4-b899-811d10816427",
+  "displayName": "SavedPMChatOrVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "Metrics_SecuredPayments_SavedPMChatOrVoice",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SavedPMChatOrVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GetPMFailure",
+    "name": "863aaa6a-5e9d-4b45-8567-d79b42f77713"
+  }, {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SavedPMChatOrVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GetPMFailureVoice",
+    "name": "40bb4b1b-2683-4c1b-9326-8a30b871f3d8"
+  } ]
+}

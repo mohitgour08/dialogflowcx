@@ -1,0 +1,7 @@
+{
+  "entities": [ {
+    "value": "^[0-9]{10}$",
+    "synonyms": [ "^[0-9]{10}$" ],
+    "languageCode": "en"
+  } ]
+}

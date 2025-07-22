@@ -1,0 +1,28 @@
+{
+  "name": "eaf943c8-edee-4848-a62c-49645b834d85",
+  "displayName": "PhoneRetryCounter",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PhoneRetry = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_PhoneRetryCounter_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ReenterPhoneNumber",
+    "name": "6861f93c-a2d4-4026-9aa8-a0087a7344b3"
+  }, {
+    "condition": "$session.params.PhoneRetry \u003e 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_PhoneRetryCounter_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "a42fe71b-1a12-4e0a-9886-0d2347a182b5"
+  } ]
+}

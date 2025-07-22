@@ -1,0 +1,43 @@
+{
+  "name": "1e2de0cf-88c8-4bb7-a9a9-f78bd8c70c6e",
+  "displayName": "MandatoryEmail",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "You must have a valid email address on file to enroll. You can update your email address any time on brightspeed.com or through the Brightspeed app." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_MandatoryEmail_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AssistRequest",
+    "name": "d38b8368-af3c-40da-a347-11f1b7cc5b92"
+  } ]
+}

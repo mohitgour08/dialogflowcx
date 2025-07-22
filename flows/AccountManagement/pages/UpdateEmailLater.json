@@ -1,0 +1,176 @@
+{
+  "name": "4e7e2fd2-e386-4a7e-8589-1a5ce76b04bb",
+  "displayName": "UpdateEmailLater",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay! You can always update your email on your MyBrightspeed portal or on the Brightspeed app.", "Is there anything else I can help you with today?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "I have an additional question."
+          }, {
+            "action": "quick_reply",
+            "title": "Thanks, that's all I need!"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Okay! You can always update your email on your MyBrightspeed portal or on the Brightspeed app. Is there anything else I can help you with today? You can say you have an additional question, or just tell me  you're finished." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_AccountManagement_UpdateEmailLater_Default",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+    
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "1407727f-7846-42b5-8470-0de8fd4950fa"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+    
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "dcf9c189-bcd6-4b17-b5d9-d6a3ebe6f06a"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I didn't hear your answer.. If you have an additional question, Press 1. If you are finished, Press 2" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_UpdateEmailLater_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "e9a8bb3e-2bbf-49c2-b08f-7e26a8394d89"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_UpdateEmailLater_NoInput2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_UpdateEmailAddress",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountManagement-UpdateEmailLater"
+      } ]
+    },
+    "name": "8de81b66-6100-4138-b154-f0d10b63ed54"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "I have an additional question."
+            }, {
+              "action": "quick_reply",
+              "title": "Thanks, that's all I need!"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry, your answer doesn't match one of our options. Can you please repeat that? If you have an additional question, Press 1. If you are finished, Press 2" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_UpdateEmailLater_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "1991daff-d9e5-4112-9f5d-c9fae462fc16"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_UpdateEmailLater_NoMatch2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_UpdateEmailAddress",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountManagement-UpdateEmailLater"
+      } ]
+    },
+    "name": "ecb1dbe5-b9a2-4cfe-b20e-6cbebacfd15d"
+  } ],
+  "transitionRouteGroups": [ "AdditionalQuestion", " GoodToGo" ]
+}

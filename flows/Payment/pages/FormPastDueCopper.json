@@ -1,0 +1,86 @@
+{
+  "name": "20868d93-ae53-4b11-9d8b-a0c158b70e5e",
+  "displayName": "FormPastDueCopper",
+  "form": {
+    "parameters": [ {
+      "displayName": "FormResponsePDC",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n\"chatClientForm\": \"pastDueCopper\",\n\"paymentMethod\": \"$session.params.PaymentMethod\",\n\"lastFourDigits\": \"$session.params.MethodLastFourDigits\",\n\"currentBalance\": \"$session.params.TotalBalance\",\n\"dueDate\": \"$session.params.BillInfo_BillDueDate\",\n\"pastDueAmount\":\"$session.params.MigCopperPastDueAmount\"\n}" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_Payment_FormPastDueCopper",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "FormResponsePDC",
+      "value": null
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.FormResponsePDC = \"Update\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "callerintent",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "ToState",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "Metrics_Payment_FormPastDueCopper_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "61294613-4bf0-42e4-a2eb-6b8eb981f5fe"
+  }, {
+    "condition": "$session.params.FormResponsePDC = \"onePayment\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_FormPastDueCopper_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "SecuredPayments",
+    "name": "0febfe5f-7819-4785-872d-09dba07c587c"
+  }, {
+    "condition": "$session.params.FormResponsePDC = \"formBack\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_FormPastDueCopper_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OtherPaymentOptions",
+    "name": "09eafa2a-f07e-4da7-98e2-7cf8469402c2"
+  } ]
+}

@@ -1,0 +1,387 @@
+{
+  "name": "b9e789ba-6549-4efa-826a-0cda4d7e0eee",
+  "displayName": "OrderStatusAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "getOrderProductInfo",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_SpeedTest_OrderStatusAPI_wh_getOrderProductInfo",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.OrderResponseStatus = \"Success\" OR $session.params.OrderResponseStatus = \"success\" OR $session.params.OrderResponseStatus = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_OrderStatusAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SpeedTest_OrderStatusAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "targetPage": "SpeedCheckAPI",
+    "name": "bcbfc352-9771-44c9-84d8-1d28593bb3c0"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_OrderStatusAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "OrderStatusAPIFailure",
+        "value": "$session.params.OrderResponseStatus\\\"\""
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "getOrderProductInfo"
+      }, {
+        "parameter": "API_SpeedTest_OrderStatusAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "targetPage": "UnableToConnectService",
+    "name": "8a439584-1254-4137-9c61-827deaf332a4"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ " I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_OrderStatusAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "OrderStatusAPIFailure",
+        "value": "WebhookError"
+      }, {
+        "parameter": "OrderStatusAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "getOrderProductInfo"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpeedTest_OrderStatusAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "84dd0137-dde3-41f2-bc00-f02a9d98b8f8"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ " I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ " \u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help.. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_OrderStatusAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "OrderStatusAPIFailure",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "OrderStatusAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "getOrderProductInfo"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpeedTest_OrderStatusAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "424740ce-7f75-4b24-8bcd-96dc9d53e5e5"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_OrderStatusAPI_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "OrderStatusAPIFailure",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "OrderStatusAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "getOrderProductInfo"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpeedTest_OrderStatusAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "1627b471-170e-404b-a709-e4c445e7cbb7"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_OrderStatusAPI_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "OrderStatusAPIFailure",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "OrderStatusAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "getOrderProductInfo"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpeedTest_OrderStatusAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "71674c29-3de5-4423-8301-0c5cd85c001a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_OrderStatusAPI_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "OrderStatusAPIFailure",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "OrderStatusAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "getOrderProductInfo"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpeedTest_OrderStatusAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "53ee531b-8912-48ac-938d-6eb369a5414d"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ " I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm not able to connect with your services remotely. I'm going to connect you with an agent now for more help. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_OrderStatusAPI_WebhookUnavaliable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SpeedTest",
+        "value": "Failure"
+      }, {
+        "parameter": "OrderStatusAPIFailure",
+        "value": "WebhookUnavaliable"
+      }, {
+        "parameter": "OrderStatusAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavaliable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "getOrderProductInfo"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpeedTest_OrderStatusAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "941e1e45-9bf2-4455-a11a-d67ca0d9e494"
+  } ]
+}

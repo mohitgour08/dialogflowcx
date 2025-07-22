@@ -1,0 +1,130 @@
+{
+  "name": "df1d201e-6050-4dd2-93de-d30ffb1074c9",
+  "displayName": "AcctTypeBillMethod",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.AccountType = \"Residential\" OR $session.params.AccountType = \"residential\" OR $session.params.AccountType = \"Consumer\") AND ($session.params.BillingMethod = \"prepaid\" OR $session.params.BillingMethod = \"PR\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AcctTypeBillMethod_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "LateFeesPrepaidVoiceOrChat",
+    "name": "99064f6d-2128-477e-a1ba-0901de0aa752"
+  }, {
+    "condition": "($session.params.AccountType = \"Residential\" OR $session.params.AccountType = \"residential\" OR $session.params.AccountType = \"Consumer\") AND ($session.params.BillingMethod = \"postpaid\" OR $session.params.BillingMethod = \"PO\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AcctTypeBillMethod_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "LateFeesPostpaidVoiceOrChat",
+    "name": "19fff407-25ec-4fa2-8309-06b870431689"
+  }, {
+    "condition": "$session.params.AccountType : \"Small Business\" OR $session.params.AccountType = \"Small Business\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AcctTypeBillMethod_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_ExplainLateFees",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "SmallBusinessAccount"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Small Business Accounts"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "74e60c1b-0de8-4c2f-b222-6fdbdc6491b8"
+  }, {
+    "condition": "$session.params.AccountType = \"MDU\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AcctTypeBillMethod_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_ExplainLateFees",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "MDU"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "MDU Accounts"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "df114502-3a90-4f12-9bf8-015b981bbb32"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_Payment_AcctTypeBillMethod_Default",
+        "value": "\"\"$sys.func.TO_TEXT($sys.func.NOW())\"\""
+      }, {
+        "parameter": "SS_ExplainLateFees",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UnknownAccountType"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountType-DefaultRoute"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "46104247-57a9-46f3-a4d3-817c7016d890"
+  } ]
+}

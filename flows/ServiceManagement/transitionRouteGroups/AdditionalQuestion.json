@@ -1,0 +1,15 @@
+{
+  "name": "7a393afc-7e45-491f-aaf3-3419da01bb45",
+  "displayName": "AdditionalQuestion",
+  "transitionRoutes": [ {
+    "intent": "AdditionalQuestion",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_AdditionalQuestion",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "0c66ea28-6637-47d1-8543-f0736d454c6b"
+  } ]
+}

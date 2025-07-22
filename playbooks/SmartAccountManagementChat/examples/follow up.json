@@ -1,0 +1,20 @@
+{
+  "name": "150a3143-4ecf-4693-9f07-1b191486f3c0",
+  "playbookInput": {
+    "precedingConversationSummary": "User query was provided responses. Agent is looking to make sure that customer is satisfied.\n\nData store was accessed, and/or user request was understood.\n\n",
+    "actionParameters": {
+    
+    }
+  },
+  "playbookOutput": {
+    "executionSummary": "Follow up is given either \"was that what you were looking for?\" or \"is there anything else i can help you with?\", depending on context.\n\nUser affirms that yes, they are satisfied before end of conversation.\n",
+    "actionParameters": {
+    
+    }
+  },
+  "displayName": "follow up",
+  "retrievalStrategy": "STATIC",
+  "tokenCount": 124,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "undetected"
+}

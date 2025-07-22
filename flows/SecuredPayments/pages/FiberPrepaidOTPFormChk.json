@@ -1,0 +1,77 @@
+{
+  "name": "425a17b5-1812-4ad8-866e-91e7215d7ae2",
+  "displayName": "FiberPrepaidOTPFormChk",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.formresponsecard = \"CancelForm\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberPrepaidOTPFormChk_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "OnePaymentCounter",
+        "value": "$sys.func.ADD($session.params.OnePaymentCounter,1)"
+      }, {
+        "parameter": "formresponsecc",
+        "value": null
+      }, {
+        "parameter": "formresponsedpmc",
+        "value": null
+      }, {
+        "parameter": "formresponsecard",
+        "value": null
+      }, {
+        "parameter": "formresponsecce30",
+        "value": null
+      }, {
+        "parameter": "formresponsecce",
+        "value": null
+      } ]
+    },
+    "targetFlow": "PrepaidBalance",
+    "name": "151774e2-8edd-41e7-80fe-317623b39857"
+  }, {
+    "condition": "$session.params.formresponsecard = \"formBack\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberPrepaidOTPFormChk_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "formresponsecc",
+        "value": null
+      }, {
+        "parameter": "formresponsedpmc",
+        "value": null
+      }, {
+        "parameter": "formresponsecard",
+        "value": null
+      }, {
+        "parameter": "formresponsecce30",
+        "value": null
+      }, {
+        "parameter": "formresponsecce",
+        "value": null
+      } ]
+    },
+    "targetPage": "AnythingElse",
+    "name": "17c6cdd2-3359-446e-8ed8-ac0a91ac338b"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberPrepaidOTPFormChk_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "JsonPayloadPayment",
+    "name": "cbe0aa4c-b28c-4a6d-ba18-970966a0e329"
+  } ]
+}

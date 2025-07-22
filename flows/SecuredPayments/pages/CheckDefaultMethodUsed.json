@@ -1,0 +1,111 @@
+{
+  "name": "d477f93c-2c62-49b3-834e-4fcd560cfe22",
+  "displayName": "CheckDefaultMethodUsed",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.CopperCurrentDue = \"true\" AND $session.params.channel = \"web\" AND ($session.params.BillingMethod = \"PR\" OR $session.params.BillingMethod = \"prepaid\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultMethodUsed_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "39970455-df89-49e2-a202-8492280cf41b"
+  }, {
+    "condition": "$session.params.OtherSavedPay = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultMethodUsed_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "6d8aa610-eccf-49ab-afc3-4d1729fc7659"
+  }, {
+    "condition": "$session.params.SetPrimaryMethod = \"true\" AND $session.params.OTPPaymentType = \"C\" AND $session.params.CopperCurrentDue = \"true\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SaveNewPaymentMethod",
+        "value": "true"
+      }, {
+        "parameter": "callerintent",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultMethodUsed_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdateCard2",
+    "name": "c92dd4a2-c7bb-4232-9f9c-434e99eb1965"
+  }, {
+    "condition": "$session.params.SetPrimaryMethod = \"true\" AND $session.params.OTPPaymentType = \"B\" AND $session.params.CopperCurrentDue = \"true\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SaveNewPaymentMethod",
+        "value": "true"
+      }, {
+        "parameter": "callerintent",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultMethodUsed_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdateAccount2",
+    "name": "172bb144-7c43-4f5e-8659-19c8549fc41c"
+  }, {
+    "condition": "$session.params.CopperCurrentDue = \"true\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultMethodUsed_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnrollAPCheck",
+    "name": "6658f383-6a33-4c12-91d9-6d89175b1ed1"
+  }, {
+    "condition": "$session.params.DefaultPM = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultMethodUsed_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "60ba03d3-d966-48ac-aa74-2c2b8d88cf9a"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultMethodUsed_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SaveNewPaymentMethod",
+    "name": "bd22007b-7f0e-418a-a807-10ea02cc37fa"
+  } ]
+}

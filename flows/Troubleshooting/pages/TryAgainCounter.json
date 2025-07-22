@@ -1,0 +1,63 @@
+{
+  "name": "f266a877-0b2d-4bef-aba5-a8dfc6581fd4",
+  "displayName": "TryAgainCounter",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.SMSNumbercounter = \"1\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SMSNumber",
+        "value": null
+      }, {
+        "parameter": "Metrics_Troubleshooting_TryAgainCounter_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "VerifyMobileNumber",
+    "name": "945bb132-dede-42c1-8eaa-8206c93b66e5"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I am having issues capturing that number. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_Troubleshooting_TryAgainCounter_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_WifiModemPasswordUsername",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "RetryorRepeatLimitExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Incorrect mobile number entered multiple times"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "7253952c-ba9a-4078-9cb4-54fdbfaed8ce"
+  } ]
+}

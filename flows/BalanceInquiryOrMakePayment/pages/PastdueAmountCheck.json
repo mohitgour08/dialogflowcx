@@ -1,0 +1,61 @@
+{
+  "name": "0436950e-c1f6-44b6-805c-0991583612fc",
+  "displayName": "PastdueAmountCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "CreditAmount",
+      "value": "$sys.func.MID($session.params.BillInfo_PastDueAmount, 1, 1)"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.BillInfo_PastDueAmount != \"0\\.00\" AND $session.params.BillInfo_PastDueAmount != \"\" AND $session.params.BillInfo_PastDueAmount != \"0\" AND $session.params.BillInfo_PastDueAmount != \"0\\.0\" AND $session.params.CreditAmount != \"-\") AND ($session.params.NetworkType = \"Copper\" OR $session.params.NetworkType = \"copper\") AND ($session.params.BillInfo_AccountStatus = \"Active\" OR $session.params.BillInfo_AccountStatus = \"Open\" OR $session.params.BillInfo_AccountStatus = \"OPENED\" OR $session.params.BillInfo_AccountStatus = \"OPEN\" OR $session.params.BillInfo_AccountStatus = \"Opened\" OR $session.params.BillInfo_AccountStatus = \"ACTIVE\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "BillInfo_AccountStatus",
+        "value": "Payment Past Due"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_PastdueAmountCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "BankAcctNumCheck",
+    "name": "b5f1c40a-a79a-4d1f-b8a1-86f5f6919427"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_PastdueAmountCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "BankAcctNumCheck",
+    "name": "79d39f70-c6b8-48b7-b833-3f721982a231"
+  } ]
+}

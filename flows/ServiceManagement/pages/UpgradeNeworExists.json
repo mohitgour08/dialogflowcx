@@ -1,0 +1,182 @@
+{
+  "name": "b4d600a2-30b0-4eb8-80b9-0b5e912df4cc",
+  "displayName": "UpgradeNeworExists",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "At Brightspeed we offer a vast array of communication services to our customers. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Can you tell me which category best describes you?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "New customer to Brightspeed"
+          }, {
+            "action": "quick_reply",
+            "title": "Existing Customer looking to make changes to account"
+          }, {
+            "action": "quick_reply",
+            "title": "Pending Order Question"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Sales.NewCustomer",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_ServiceManagement_UpgradeNeworExists_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "f35ea216-5662-41d7-8143-8283f9b92b52"
+  }, {
+    "intent": "Authentication.ExistingCustomer",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToModule",
+        "value": "ServiceManagement"
+      }, {
+        "parameter": "Metrics_ServiceManagement_UpgradeNeworExists_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Authentication",
+    "name": "41fe4565-8ccb-4189-b914-8a65cd7621b8"
+  }, {
+    "intent": "Sales.ProductOrderStatus",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "OrderStatus"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "Metrics_ServiceManagement_UpgradeNeworExists_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "e6806ab6-7edd-47a5-a614-192af7d3e4e6"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_UpgradeService",
+        "value": "Failure"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "agentPromptRemoval_pagename",
+        "value": "UpgradeNeworExists"
+      }, {
+        "parameter": "agentPromptRemoval",
+        "value": "Yes"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpgradeServiceChat"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "Metrics_ServiceManagement_UpgradeNeworExists_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "958d988e-7e4f-49eb-90bd-6bddd5f4cf8b"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Can you tell me which category best describes you?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "New customer to Brightspeed"
+            }, {
+              "action": "quick_reply",
+              "title": "Existing Customer looking to make changes to account"
+            }, {
+              "action": "quick_reply",
+              "title": "Pending Order Question"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_UpgradeNeworExists_NM1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "f3699dfe-ab07-4ee6-9525-8cf063939423"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_UpgradeService",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpgradeServiceChat"
+      }, {
+        "parameter": "Metrics_ServiceManagement_UpgradeNeworExists_NM2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "af23f6ab-0c04-48b4-b591-24260b221843"
+  } ]
+}

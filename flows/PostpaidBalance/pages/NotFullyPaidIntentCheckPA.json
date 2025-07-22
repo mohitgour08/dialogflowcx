@@ -1,0 +1,57 @@
+{
+  "name": "128ae144-cdf2-4b99-a229-76893451a5bc",
+  "displayName": "NotFullyPaidIntentCheckPA",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.callerintent = \"BalanceInquiryPayment\" OR $session.params.callerintent = \"PostpaidPayment\" OR $session.params.callerintent = \"PrepaidPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_NotFullyPaidIntentCheckPA_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "cd9fcc53-2b96-40b0-b425-9cda57047126"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_NotFullyPaidIntentCheckPA_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CurrentNotFullyPaid",
+    "name": "645ce20e-a12f-4ff1-bd09-43c01ed4ef35"
+  } ]
+}

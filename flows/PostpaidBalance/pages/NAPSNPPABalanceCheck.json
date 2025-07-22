@@ -1,0 +1,40 @@
+{
+  "name": "7ae927ef-8332-48ce-9482-8c9778074917",
+  "displayName": "NAPSNPPABalanceCheck",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_LatestDueAmount = \"0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.00\" OR $session.params.BillInfo_LatestDueAmount = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_NAPSNPPABalanceCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NAPSNPBalanceCheck",
+    "name": "e753a252-9f7e-4693-8744-91a3b0f7775f"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your account is currently suspended with a total balance of $$session.params.TotalBalance. You'll need to pay at least the past due amount of $$session.params.BillInfo_PastDueAmount to restore service." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Your account is currently suspended with a total balance of $$session.params.TotalBalance. You'll need to pay at least the past due amount of $$session.params.BillInfo_PastDueAmount to restore service. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_NAPSNPPABalanceCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckIntentforNAPSuspend",
+    "name": "beedd035-ecbe-49a6-84da-1f91818dccb3"
+  } ]
+}

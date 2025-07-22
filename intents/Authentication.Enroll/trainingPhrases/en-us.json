@@ -1,0 +1,325 @@
+{
+  "trainingPhrases": [ {
+    "id": "078b31bb-11f6-4aa5-873d-228617ed49c2",
+    "parts": [ {
+      "text": "I'm not an ",
+      "auto": true
+    }, {
+      "text": "existing",
+      "parameterId": "service_type",
+      "auto": true
+    }, {
+      "text": " customer",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "09381e86-ce8b-47ed-8412-679406e70b2b",
+    "parts": [ {
+      "text": "Want to do a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "parameterId": "service_type",
+      "auto": true
+    }, {
+      "text": " signup",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "50b7d225-c005-4860-9df7-c9e05cdc7dcf",
+    "parts": [ {
+      "text": "Looking to sign up for service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "37edbbd2-5438-4a4e-8f2b-01c48644c459",
+    "parts": [ {
+      "text": "How do I create a new "
+    }, {
+      "text": "brightspeed",
+      "parameterId": "product"
+    }, {
+      "text": " account?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "087fe8eb-65af-426a-bab2-ccb8892ca65b",
+    "parts": [ {
+      "text": "Not a customer yet",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a35b4c70-fc6d-44f1-a4b2-43bfc20335b9",
+    "parts": [ {
+      "text": "i am a prevous user of "
+    }, {
+      "text": "century link",
+      "parameterId": "product"
+    }, {
+      "text": " and need to set up my account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "842d2f13-dab9-410c-b107-54aeab09cf58",
+    "parts": [ {
+      "text": "I need to set up an "
+    }, {
+      "text": "brightspeed",
+      "parameterId": "product"
+    }, {
+      "text": " account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "32b70041-4f05-4fd5-98b2-287fdb5375ee",
+    "parts": [ {
+      "text": "I am a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " customer",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8a404680-c7dd-4ba4-8eff-202b533ec46b",
+    "parts": [ {
+      "text": "i am trying to sign up for service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9c2448af-f31f-46fd-9fec-8a6181a6e86e",
+    "parts": [ {
+      "text": "Joining "
+    }, {
+      "text": "Brightspeed",
+      "parameterId": "product"
+    }, {
+      "text": " is something I would like to do."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "50def31e-a539-4856-a2af-90eb056ba5b2",
+    "parts": [ {
+      "text": "yeah, I need to enroll. can you help me with that please ?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "90001698-b8b5-4ac8-b4b1-9f187583606c",
+    "parts": [ {
+      "text": "I'd like to sign up for sure.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "29f070d3-4091-47e2-8f0e-e79f0bfcc911",
+    "parts": [ {
+      "text": "Yes, please sign me up right away.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "adb9a756-61b7-4dab-ae6c-99207efd53e8",
+    "parts": [ {
+      "text": "Yeah, I'd like to sign up right away.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8bccf6d3-8b83-484a-8312-f4e5f08a4a6c",
+    "parts": [ {
+      "text": "Please assist me in enrolling.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e7b67cb3-9ace-41a3-89d4-bcd3ebb8817d",
+    "parts": [ {
+      "text": "Could you assist me with enrolling?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a4dd26a6-329a-4c43-9474-680fec25df47",
+    "parts": [ {
+      "text": "can you help me in enrolling ?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2a7917dd-16d5-436d-ac0c-13ab33afdeda",
+    "parts": [ {
+      "text": "I'm considering registering for Brightspeed's internet services.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "814d935f-63c3-4120-9912-8ebf14ebd56e",
+    "parts": [ {
+      "text": "I'm interested in signing up for Brightspeed.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9e9bbdc7-9076-47a0-a951-b60ef7fd110b",
+    "parts": [ {
+      "text": "I want to register for Brightspeed.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c1bef527-4d58-49a9-987b-1c769797fae1",
+    "parts": [ {
+      "text": "I want to sign up for Brightspeed.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bdba8895-3a66-403d-834a-9c8dfa0a7a71",
+    "parts": [ {
+      "text": "I want to sign up",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4d114276-d6a9-462a-831d-c5d1cea95fc8",
+    "parts": [ {
+      "text": "I would like to enroll into brightspeed",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "20466abe-6b7a-42e1-904a-19bbcc7a344c",
+    "parts": [ {
+      "text": "enroll",
+      "auto": true
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "e9eaa735-071d-4700-8cf3-530dc649978d",
+    "parts": [ {
+      "text": "yes",
+      "auto": true
+    }, {
+      "text": " i want to enroll",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f4fe78c5-25ce-4e0d-b4a8-b643e8e92fda",
+    "parts": [ {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " around ",
+      "auto": true
+    }, {
+      "text": "here",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1f8e0a9c-fdd6-4d16-8870-42c7d3a41bf1",
+    "parts": [ {
+      "text": "good as ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "374d1623-7846-4753-b158-e433c9569d53",
+    "parts": [ {
+      "text": "fresh ",
+      "auto": true
+    }, {
+      "text": "here",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8b6210a9-1058-46e5-9481-d2c17974369a",
+    "parts": [ {
+      "text": "lets enroll",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4ee4b94d-e4d0-4809-996c-7b07f2e7eaa9",
+    "parts": [ {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "here",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9bc146b9-224a-4bdd-a8b7-29de06b7498b",
+    "parts": [ {
+      "text": "i am ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "here",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "67046773-b0bc-4113-bd2b-a3318fee2482",
+    "parts": [ {
+      "text": "I want to enroll",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

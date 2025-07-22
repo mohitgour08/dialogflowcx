@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: SendSMSAPI
+  version: 1.0.0
+  description: Tool to send SMS messages using OAuth 2.0 with client credentials.
+
+servers:
+  - url: https://api-dv.brightspeed.com/ccsutilservice/api/v1
+
+paths:
+  /sendSMS:
+    post:
+      summary: Send an SMS
+      operationId: sendSMS
+      security:
+        - oauth2: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - phone_number
+                - message
+              properties:
+                phone_number:
+                  type: string
+                  description: 10-digit phone number to send the SMS to
+                  example: "17324514435"
+                message:
+                  type: string
+                  description: SMS content
+                  example: "This is a test SMS from the Dev environment"
+      responses:
+        '200':
+          description: SMS sent successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  name:
+                    type: string
+                    example: CcsUtilService
+                  message:
+                    type: string
+                    example: SMS sent Successfully to 17324514435
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '500':
+          description: Server error
+
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api-dv.brightspeed.com/oauth2/token
+          scopes: {}

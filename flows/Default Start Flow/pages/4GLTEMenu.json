@@ -1,0 +1,260 @@
+{
+  "name": "fc2ffb51-6d83-4082-833c-e810845e1a3a",
+  "displayName": "4GLTEMenu",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Thank you, I've found your account. If you're calling about troubleshooting or repair, say \"repair\" now. If you're calling about payment, billing, or account management say \"customer service\". Or, you can say \"something else\"." ]
+      },
+      "languageCode": "en"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "sales.Repair",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Got it. I'm going to connect you with someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_4GLTEMenu_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "02ec221c-1368-4d73-8dd2-bd6b529a5690"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Got it. I'm going to connect you with someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_4GLTEMenu_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "6302b12d-3035-4d22-91f0-c88b4182f243"
+  }, {
+    "intent": "SomethingElse",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Got it. I'm going to connect you with someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_4GLTEMenu_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "04e7c9c7-20af-4e32-9c36-6a3b36260aa7"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Got it. I'm going to connect you with someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_4GLTEMenu_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "DefaultStartFlow_4GLTEMenu_1"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "44fbaca9-79ab-40df-98b8-8d5ae4ecd1fa"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Got it. I'm going to connect you with someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_4GLTEMenu_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "DefaultStartFlow_4GLTEMenu_2"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "3cf770c8-ff06-4b81-87bc-21eb9cf205c0"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Got it. I'm going to connect you with someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_4GLTEMenu_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "DefaultStartFlow_4GLTEMenu_3"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "5a8b5c26-d672-4199-bc45-652f317ee27b"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, your answer doesn't match one of our options. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "If you're calling about troubleshooting or repair, press 1. If you're calling about payment, billing, or account management press 2.  If you need help with something else, press 3." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_4GLTEMenu_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "72394f8b-fb1a-4fa8-998e-7f09cc430c64"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_4GLTEMenu_NoMatch_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "DefaultStartFlow_4GLTEMenu"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "a3e65b71-7859-4dc6-86bd-c6d7003cc971"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "If you're calling about troubleshooting or repair, press 1. If you're calling about payment, billing, or account management press 2.  If you need help with something else, press 3." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_4GLTEMenu_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "c1cda11f-ae13-440c-b512-2a9d2053f5c0"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That’s okay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_4GLTEMenu_NoInput_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "DefaultStartFlow_4GLTEMenu"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "8695c548-6aab-4bf6-bda2-9de213f5a4fe"
+  } ]
+}

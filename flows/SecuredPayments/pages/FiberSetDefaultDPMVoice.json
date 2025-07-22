@@ -1,0 +1,271 @@
+{
+  "name": "31da9bea-db8a-4192-91f6-437737098f02",
+  "displayName": "FiberSetDefaultDPMVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "UpdatePaymentMethodCard",
+    "tag": "FiberVoiceSetDefaultMethod",
+    "setParameterActions": [ {
+      "parameter": "UpdatePayment",
+      "value": ""
+    }, {
+      "parameter": "NewDefaultPaymentMethodSaved",
+      "value": "Failure"
+    }, {
+      "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMVoice_wh",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.UpdatePayment = \"Success\" OR $session.params.UpdatePayment = \"SUCCESS\" OR $session.params.UpdatePayment = \"success\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay! I've saved that information." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "SS_MethodOfPaymentUpdate",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NewDefaultPaymentMethodSaved",
+        "value": "Success"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMVoice",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ]
+    },
+    "targetPage": "PaymentSuccessful",
+    "name": "000ea495-fda7-440c-9235-e63909de880d"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this information. You can update your payment methods any time in your My Brightspeed account." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this card. You can update your payment methods any time in your My Brightspeed portal online. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMVoice",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ]
+    },
+    "targetPage": "PaymentSuccessful",
+    "name": "b9bd39a9-e871-4b73-bf9f-c69334b60e5f"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "PaymentSuccessful",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this card. You can update your payment methods any time in your My Brightspeed portal online. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMVoice_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodCard"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMVoice",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ]
+    },
+    "name": "442bc0d1-00e6-4c68-850a-0da727e4300e"
+  }, {
+    "targetPage": "PaymentSuccessful",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this card. You can update your payment methods any time in your My Brightspeed portal online. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMVoice_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid "
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodCard"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMVoice",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ]
+    },
+    "name": "5e269757-bcbb-4f2e-89b7-bf5cb28da849"
+  }, {
+    "targetPage": "PaymentSuccessful",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this card. You can update your payment methods any time in your My Brightspeed portal online. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMVoice_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodCard"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMVoice",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ]
+    },
+    "name": "7d891780-91b5-4c8d-852c-1451d5c35128"
+  }, {
+    "targetPage": "PaymentSuccessful",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this card. You can update your payment methods any time in your My Brightspeed portal online. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMVoice_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected "
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodCard"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMVoice",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ]
+    },
+    "name": "5bc553f1-bab4-4cda-b475-3b89a5961829"
+  }, {
+    "targetPage": "PaymentSuccessful",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this card. You can update your payment methods any time in your My Brightspeed portal online. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMVoice_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodCard"
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMVoice",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ]
+    },
+    "name": "7be22406-7844-439b-84df-2d355957ca08"
+  }, {
+    "targetPage": "PaymentSuccessful",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this card. You can update your payment methods any time in your My Brightspeed portal online. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberSetDefaultDPMVoice_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodCard"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable "
+      }, {
+        "parameter": "API_SecuredPayments_FiberSetDefaultDPMVoice",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ]
+    },
+    "name": "5fc44043-dcfe-469f-8041-284cba9ea8be"
+  } ]
+}

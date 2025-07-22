@@ -1,0 +1,104 @@
+{
+  "name": "97fa1cb0-0e68-4af0-8d60-98758da0da75",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "How can I help you today?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "is your service available in dallas"
+    }
+  }, {
+    "toolUse": {
+      "tool": "FAQs",
+      "action": "FAQs",
+      "inputActionParameters": {
+        "requestBody": {
+          "fallback": "",
+          "filter": "",
+          "query": "is your service available in dallas",
+          "userMetadata": {
+          
+          }
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "answer": "Yes, Brightspeed offers both internet and home phone service in Dallas. You can click here to enter your address and find the best plan options for your area: https://shop.brightspeed.com/uas/internet/",
+          "snippets": [ {
+            "text": "Can I bundle Bright Speed voice with the internet service? Yes, we offer bundle options based on your location and service needs. You can click here to enter your address and find the best plan options for your area https://shop.brightspeed.com/uas/internet/",
+            "title": "Can I bundle Bright Speed voice with the internet service?",
+            "uri": ""
+          }, {
+            "text": "Can I get more information about the services offered by Bright Speed? The service plan and speeds you need depend on your location and what you use your internet for on a daily basis. We can help you compare pricing and details to find the best plan for your home or business. You can click here to enter your address and find the best plan options for your area https://shop.brightspeed.com/uas/internet/",
+            "title": "Can I get more information about the services offered by Bright Speed?",
+            "uri": ""
+          }, {
+            "text": "Is Bright Speed both internet and telephone? Brightspeed offers both internet and home phone service.",
+            "title": "Is Bright Speed both internet and telephone?",
+            "uri": ""
+          }, {
+            "text": "Does Bright Speed provide telephone service? Yes, Brightspeed provides both telephone and internet services.",
+            "title": "Does Bright Speed provide telephone service?",
+            "uri": ""
+          } ]
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "You can click {{https://shop.brightspeed.com/uas/internet/ | here}} to enter your address and find the best plan options for your area."
+    }
+  }, {
+    "userUtterance": {
+      "text": "is it available in Idaho too"
+    }
+  }, {
+    "toolUse": {
+      "tool": "FAQs",
+      "action": "FAQs",
+      "inputActionParameters": {
+        "requestBody": {
+          "fallback": "",
+          "filter": "",
+          "query": "is your service available in Idaho",
+          "userMetadata": {
+          
+          }
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "answer": "",
+          "snippets": [ ]
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "You can click {{https://shop.brightspeed.com/uas/internet/ | here}} to enter your address and find the best plan options for your area."
+    }
+  }, {
+    "userUtterance": {
+      "text": "okay thanks"
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Is there anything else I can help you with?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "no"
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "customer wants to know if brightspeed service available in their area"
+  },
+  "playbookOutput": {
+    "executionSummary": "."
+  },
+  "displayName": "Use FAQs tool service area inquiry",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 768,
+  "languageCode": "en"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "a26d0a84-3484-483f-a509-561a864a6d67",
+  "displayName": "Send_PURL",
+  "genericWebService": {
+    "uri": "https://ccsbrimservice-irefuzinuq-uc.a.run.app/api/v1/purl/sendpurl",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"ucid\": \"$session.params.APICallID\",\n  \"tokenType\": \"$session.params.TokenType\",\n  \"paymentTypeCode\": \"P\",\n  \"billingAccountNumber\": \"$session.params.AccountNumber\",\n  \"networkType\": \"$session.params.networkType\",\n  \"email\": \"$session.params.email\",\n  \"sms\": \"$session.params.SMSNumber\",\n  \"channelType\": \"$session.params.channel\",\n  \"billingSystem\": \"$session.params.BillingSystem\",\n  \"cutomerAddressDetails\": {\n    \"firstName\": \"$session.params.CTLName\",\n    \"lastName\": \"$session.params.LastName\",\n    \"streetAddress1\": \"$session.params.BillingAddress_street\",\n    \"city\": \"$session.params.BillingAddress_city\",\n    \"postalCode\": \"$session.params.enteredzipcode\",\n    \"stateProvince\": \"$session.params.serviceAddress_state\"\n  }\n}",
+    "parameterMapping": [ {
+      "key": "Send_PURLResponseStatus",
+      "value": "responseStatus"
+    }, {
+      "key": "URL",
+      "value": "responseBody.sessionURL"
+    } ]
+  },
+  "timeout": {
+    "seconds": 30
+  }
+}

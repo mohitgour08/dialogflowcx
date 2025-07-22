@@ -1,0 +1,34 @@
+{
+  "name": "2713fe48-4063-4480-862a-6e6f6500c8ce",
+  "displayName": "EmbargoEscalationRepair",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "action": "escalation",
+          "escalation_reason": "by_virtual_agent",
+          "language": "en",
+          "menu_id": "$session.params.MenuID_EmbargoRepair",
+          "type": "action"
+        }
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "eventHandlers": [ {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "09159b0f-f356-49c1-b762-a2b9561e9a51"
+  }, {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "96b7d431-b25e-4a03-a5c2-5c440d25e46e"
+  } ]
+}

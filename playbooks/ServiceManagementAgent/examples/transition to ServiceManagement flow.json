@@ -1,0 +1,32 @@
+{
+  "name": "cea77ea4-6d6c-4842-b305-4ec844f8c16d",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "I understand that you need help returning device"
+    }
+  }, {
+    "flowInvocation": {
+      "flow": "ServiceManagement",
+      "inputActionParameters": {
+        "FAQSuccess": "DirectTransferToBA",
+        "ToModule": "ServiceManagement",
+        "ToState": "ReturnDevice",
+        "callerintent": "ReturnDevice"
+      },
+      "outputActionParameters": {
+      
+      }
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "Customer needs help with returning device"
+  },
+  "playbookOutput": {
+    "executionSummary": "."
+  },
+  "displayName": "transition to ServiceManagement flow",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 142,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "en"
+}

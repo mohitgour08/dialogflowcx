@@ -1,0 +1,49 @@
+{
+  "name": "7cb1c824-0623-4b2f-9820-49234ff48d81",
+  "displayName": "NoOtherOptionVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "You don't have any other phone number or email currently associated with your account. Let's try another way.\n" ]
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_NoOtherOptionVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "NO"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "ZipCodeAuth",
+    "name": "cee6e3b3-ae21-4c5e-81de-91e4130a7257"
+  } ]
+}

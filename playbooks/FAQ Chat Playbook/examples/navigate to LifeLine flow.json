@@ -1,0 +1,39 @@
+{
+  "name": "70683b46-1142-42f2-9fba-ac44ecf165f2",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "How can I help you today?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "how can I use my LifeLine discount for internet services?"
+    }
+  }, {
+    "agentUtterance": {
+      "text": "I understand that you want to know about using LifeLine discount for internet services."
+    }
+  }, {
+    "flowInvocation": {
+      "flow": "LifeLine",
+      "inputActionParameters": {
+        "FAQSuccess": "HandoverToBA",
+        "ToModule": "LifeLine",
+        "ToState": "LifeLine",
+        "callerintent": "LifeLine"
+      },
+      "outputActionParameters": {
+      
+      }
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "User wants to know about lifeline discount"
+  },
+  "playbookOutput": {
+    "executionSummary": "-"
+  },
+  "displayName": "navigate to LifeLine flow",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 188,
+  "languageCode": "en"
+}

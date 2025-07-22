@@ -1,0 +1,113 @@
+{
+  "name": "8740cffd-eab6-4545-aca3-357868a4d1f4",
+  "displayName": "EnterPasscode",
+  "form": {
+    "parameters": [ {
+      "displayName": "GetPasscode",
+      "required": true,
+      "entityType": "@OTP_voice",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+              "allowPlaybackInterruption": true
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        },
+        "repromptEventHandlers": [ {
+          "targetFlow": "ListenInitialIntent",
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I'm still experiencing issues with your account verification" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_validatePasscode",
+              "value": "Failure"
+            }, {
+              "parameter": "PasscodeCount",
+              "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+            }, {
+              "parameter": "GetPasscode",
+              "value": null
+            }, {
+              "parameter": "Metrics_Authentication_EnterPasscodeVoice_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "EmailResponseStatus",
+              "value": null
+            }, {
+              "parameter": "codeSent",
+              "value": "$sys.func.ADD($session.params.codeSent,1)"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "Authentication"
+            }, {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "AuthFailReason",
+              "value": "NoMatch_Passcode"
+            } ],
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "45c82801-c8f7-4355-a4ed-d5e03c804c1b"
+        } ]
+      },
+      "advancedSettings": {
+        "dtmfSettings": {
+          "enabled": true,
+          "maxDigits": 6,
+          "finishDigit": "#",
+          "useSystemEntityRule": false,
+          "interdigitTimeoutDuration": {
+            "seconds": 8
+          },
+          "endpointingTimeoutDuration": {
+            "seconds": 8
+          }
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CheckEmailPasscode",
+    "name": "47ca9a2d-9e50-4860-bb33-c48f780e7be8"
+  } ],
+  "advancedSettings": {
+    "dtmfSettings": {
+      "enabled": true,
+      "useSystemEntityRule": false,
+      "interdigitTimeoutDuration": {
+        "seconds": 5
+      },
+      "endpointingTimeoutDuration": {
+        "seconds": 5
+      }
+    },
+    "speechAdaptationSettings": {
+    
+    }
+  },
+  "speakerIdSettings": {
+  
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "83c0df51-f1e2-4c3c-bc5a-f5d9d780624f",
+  "displayName": "CheckAutopay",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.BillingMethod = \"postpaid\" OR $session.params.BillingMethod = \"PO\") AND ($session.params.Autopay = \"N\" OR $session.params.Autopay = \"\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckAutopay_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AutopayForm",
+    "name": "09f7fc71-4b42-474b-ad09-1eb1ef30e0e5"
+  }, {
+    "condition": "$session.params.encValues != null AND $session.params.PaymentType = \"ACH\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckAutopay_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdateAccount2",
+    "name": "79bdbef0-9100-4078-a987-2c684cde2d07"
+  }, {
+    "condition": "$session.params.encValues != null AND $session.params.PaymentType = \"Card\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckAutopay_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdateCard2",
+    "name": "4654ac72-f005-4631-b25b-8fe31bea99ea"
+  } ]
+}

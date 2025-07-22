@@ -1,0 +1,31 @@
+{
+  "name": "3ea26888-5bf2-4b39-989a-575710835072",
+  "displayName": "CCExpVoiceOrChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_CCExpVoiceOrChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ZeroBalChk1",
+    "name": "853a602a-2adf-4dd9-815b-c31ec9ecc761"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_CCExpVoiceOrChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CCExpVoice",
+    "name": "fc319e77-1bc2-4003-b7c5-1b124d9b7386"
+  } ]
+}

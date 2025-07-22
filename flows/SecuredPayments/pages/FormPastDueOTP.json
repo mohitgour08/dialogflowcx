@@ -1,0 +1,73 @@
+{
+  "name": "239ff834-362c-40fd-8bd7-b48846412e12",
+  "displayName": "FormPastDueOTP",
+  "form": {
+    "parameters": [ {
+      "displayName": "formResponsePastDue",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n  \"chatClientForm\": \"pastDueNp\",\n  \"pastDueAmount\":\"$session.params.BillInfo_PastDueAmount\",\n  \"billingSystem\": \"$session.params.BillingSystem\"\n}" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "formResponsePastDue",
+      "value": null
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.formResponsePastDue = \"formBack\" OR $session.params.formResponsePastDue = \"Form Back\") AND $session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormPastDueOTP_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "PrepaidBalance",
+    "name": "b13002f4-eaf6-45fa-8c9c-7add16b65d3a"
+  }, {
+    "condition": "$session.params.formResponsePastDue = \"CancelForm\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\r\n\"chatClientForm\": \"BackToChat\"\r\n}" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Okay, I'll cancel this transaction for now. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormPastDueOTP_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CancelTransaction",
+    "name": "8c68aab6-5539-401a-9289-58876c4fddb3"
+  }, {
+    "condition": "$session.params.formResponsePastDue = \"OnePayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentAmount",
+        "value": "$session.params.BillInfo_PastDueAmount"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FormPastDueOTP_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "JsonFiberPayment",
+    "name": "c914f0bd-6722-45fe-b67a-137d133c108d"
+  } ]
+}

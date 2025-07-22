@@ -1,0 +1,33 @@
+{
+  "name": "c56d0a57-0b56-449d-91c0-796d8e8e8e8d",
+  "displayName": "AccountNumberSelected",
+  "form": {
+    "parameters": [ {
+      "displayName": "Acct_Number",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_DefaultStartFlow_AccountNumberSelected_AcctNumber",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ]
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = \"FINAL\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_AccountNumberSelected_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FindOtherDetails",
+    "name": "35564c9b-abe8-4db5-b47d-988d770c288c"
+  } ]
+}

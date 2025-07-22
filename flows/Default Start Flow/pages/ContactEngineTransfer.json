@@ -1,0 +1,240 @@
+{
+  "name": "cbd0864a-d7d6-41ba-bb3c-13a070616cc8",
+  "displayName": "ContactEngineTransfer",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "Metrics_DefaultStartFlow_contactEngineTransfer",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.contactEngine = 13",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ContactEngineTransfer_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "customer_lob",
+        "value": "BRSPD"
+      }, {
+        "parameter": "contactEngine",
+        "value": "13"
+      } ]
+    },
+    "targetPage": "RepairOption",
+    "name": "d95ad313-a203-44f1-b784-262d8282d820"
+  }, {
+    "condition": "$session.params.contactEngine = 15",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ContactEngineTransfer_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "customer_lob",
+        "value": "CTL"
+      }, {
+        "parameter": "contactEngine",
+        "value": "15"
+      } ]
+    },
+    "targetPage": "RepairOption",
+    "name": "cb9cf9b1-5a38-4833-add4-c18b9ffd6897"
+  }, {
+    "condition": "$session.params.contactEngine = 16",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ContactEngineTransfer_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "contactEngine",
+        "value": "16"
+      } ]
+    },
+    "targetPage": "RepairOption",
+    "name": "d429c208-4183-4170-850c-74c6d38278c3"
+  }, {
+    "condition": "$session.params.contactEngine = 17",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I see you may want to modify your Brightspeed service." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Saves"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_ContactEngineTransfer_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "customer_lob",
+        "value": "BRSPD"
+      }, {
+        "parameter": "skipAuth",
+        "value": "True"
+      }, {
+        "parameter": "contactEngine",
+        "value": "17"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "cfbebf56-5479-43e4-bca1-502e889aaf6a"
+  }, {
+    "condition": "$session.params.contactEngine = 19",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I see you may want to modify your Brightspeed service." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ContactEngineTransfer_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Saves"
+      }, {
+        "parameter": "customer_lob",
+        "value": "CTL"
+      }, {
+        "parameter": "skipAuth",
+        "value": "True"
+      }, {
+        "parameter": "contactEngine",
+        "value": "19"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "5fd8b9ea-034e-4d2c-9b04-da2901cd909e"
+  }, {
+    "condition": "$session.params.contactEngine = 20",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I see you may want to modify your Brightspeed service." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ContactEngineTransfer_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Saves"
+      }, {
+        "parameter": "skipAuth",
+        "value": "True"
+      }, {
+        "parameter": "contactEngine",
+        "value": "20"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "f89f71b7-276b-449a-80d8-3783a2e8fa0f"
+  }, {
+    "condition": "$session.params.contactEngine = 21",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_ContactEngineTransfer_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "customer_lob",
+        "value": "BRSPD"
+      }, {
+        "parameter": "contactEngine",
+        "value": "21"
+      } ]
+    },
+    "targetPage": "CareOption",
+    "name": "65840f43-44de-4059-b2c1-7498c0fef29e"
+  }, {
+    "condition": "$session.params.contactEngine = 23",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ContactEngineTransfer_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "customer_lob",
+        "value": "CTL"
+      }, {
+        "parameter": "contactEngine",
+        "value": "23"
+      } ]
+    },
+    "targetPage": "CareOption",
+    "name": "329b5aee-01a4-4658-a731-6841352bb71b"
+  }, {
+    "condition": "$session.params.contactEngine = 24",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ContactEngineTransfer_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "contactEngine",
+        "value": "24"
+      } ]
+    },
+    "targetPage": "CareOption",
+    "name": "5c8e7d72-f704-4232-b93b-39a50901bfe8"
+  }, {
+    "condition": "$session.params.contactEngine = \"TECH\" OR $session.params.contactEngine = \"Tech\" OR $session.params.contactEngine = \"tech\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ContactEngineTransfer_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "ContactEngineTech"
+      }, {
+        "parameter": "contactEngine",
+        "value": "TECH"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "WebCETech",
+    "name": "09446db1-c3a0-4458-b687-aefd85e09b7a"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ContactEngineTransfer_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "contactEngine",
+        "value": "Default"
+      } ]
+    },
+    "targetPage": "CheckForOutageDynamicMsg",
+    "name": "59ce4f4f-4d68-4da7-82b7-9c4908db94a8"
+  } ]
+}

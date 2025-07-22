@@ -1,0 +1,27 @@
+{
+  "name": "8a0bb2a0-61e8-47e1-8b5c-66ea750b0e32",
+  "displayName": "VoiceNoUpdate",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "No problem, you can update your payment method online at any time by logging into your My Brightspeed account or opening the mobile app." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_VoiceNoUpdate_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "AnythingElse",
+    "name": "ffb72eea-713a-4e52-add3-3485f33193f6"
+  } ]
+}

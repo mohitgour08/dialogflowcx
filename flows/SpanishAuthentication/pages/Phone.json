@@ -1,0 +1,29 @@
+{
+  "name": "ab1501d5-24fc-45dd-a40f-74bc4f35e721",
+  "displayName": "Phone",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ContactNumberFirst4",
+        "value": "$sys.func.MID($session.params.ContactNumber, 7, 4)"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PhoneOnProfile",
+    "name": "401b2619-fcf7-470a-bca0-bee53f09163f"
+  } ]
+}

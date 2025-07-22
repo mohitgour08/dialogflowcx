@@ -1,0 +1,11 @@
+{
+  "name": "fa541bfc-42e2-49ff-8bbf-6769c2127a71",
+  "displayName": "Residential_DTMF1",
+  "parameters": [ {
+    "id": "DTMF1",
+    "entityType": "@DTMF1"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 10,
+  "dtmfPattern": "^1$"
+}

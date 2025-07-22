@@ -1,0 +1,45 @@
+{
+  "name": "e1d4b5bd-91ea-4a58-b4fc-a10fa9412df9",
+  "displayName": "EmailSend",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay. I'm sending the code now. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003eOkay, I'm sending the code now.\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Auth2FactorChannel",
+      "value": "Email"
+    }, {
+      "parameter": "PasscodeCount",
+      "value": 0
+    }, {
+      "parameter": "codeSent",
+      "value": 0
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_EmailSend_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "Call2FactorEmailAPI",
+    "name": "5387a053-463d-467c-b449-52dd135d74fe"
+  } ]
+}

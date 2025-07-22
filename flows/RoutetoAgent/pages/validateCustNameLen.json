@@ -1,0 +1,65 @@
+{
+  "name": "e2314e52-a670-476a-aed9-ac18799157c8",
+  "displayName": "validateCustNameLen",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "Len_custName",
+      "value": "$sys.func.LEN($session.params.temp_CustName)"
+    }, {
+      "parameter": "Metrics_RoutetoAgent_validateCustNameLen",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Len_custName \u003e 50 AND $session.params.custname_attempt = 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I am sorry I didn't catch that. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_validateCustNameLen_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SetParametersChat",
+    "name": "41b31c90-7f9d-4c6c-8609-f761e3c86af7"
+  }, {
+    "condition": "$session.params.Len_custName \u003e 50 AND $session.params.custname_attempt = 0",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I am sorry I didn't catch that." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_validateCustNameLen_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "custname_attempt",
+        "value": "$sys.func.ADD($session.params.custname_attempt,1)"
+      }, {
+        "parameter": "CustName",
+        "value": null
+      } ]
+    },
+    "targetPage": "CollectName",
+    "name": "7b08a63e-3fcd-4993-9f72-e65772dd341b"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_validateCustNameLen_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "81db82f9-287a-43d9-a712-f427c1c25c12"
+  } ]
+}

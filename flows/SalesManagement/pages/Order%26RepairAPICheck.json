@@ -1,0 +1,52 @@
+{
+  "name": "701b1678-9a62-42da-b18e-608cd799af34",
+  "displayName": "Order\u0026RepairAPICheck",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.OrderResponseStatus = \"SUCCESS\" OR $session.params.OrderResponseStatus = \"success\" OR $session.params.OutageResponseStatus = \"SUCCESS\" OR $session.params.OutageResponseStatus = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_Order\u0026RepairAPICheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "Order\u0026RepairLookup",
+    "name": "413276a4-3cef-4a0a-9d68-b924aeb23f0b"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm not able to retrieve your order information automatically. Let me transfer you to an agent for more help. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! I'm not able to retrieve your order information automatically. Let me transfer you to an agent for more help. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_Order\u0026RepairAPICheck_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PendingOrderCancel",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Order\u0026RepairAPICheck"
+      }, {
+        "parameter": "ToState",
+        "value": "RouteToAgent"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "c7105d5a-fc2a-4d3b-9eea-5f32dadcf7d5"
+  } ]
+}

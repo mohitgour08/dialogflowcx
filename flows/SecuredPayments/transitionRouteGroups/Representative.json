@@ -1,0 +1,26 @@
+{
+  "name": "1676f17a-aed0-4a44-8ac9-ea217385892a",
+  "displayName": "Representative",
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_Representative",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "73e0791b-2080-4115-b9cf-f53f24926051"
+  } ]
+}

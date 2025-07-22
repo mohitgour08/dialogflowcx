@@ -1,0 +1,39 @@
+{
+  "name": "9a610365-2db2-49ba-9d10-03a50850d83c",
+  "displayName": "FAQ_intents_28_02_2025",
+  "description": "This contains parent_intent and child_intent columns mapping.",
+  "dataStoreSpec": {
+    "dataStoreConnections": [ {
+      "dataStoreType": "STRUCTURED",
+      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/generalized-intents_1741705725577",
+      "documentProcessingMode": "DOCUMENTS",
+      "engineType": "CHAT_ENGINE",
+      "connectorConfig": {
+      
+      },
+      "createTime": {
+        "seconds": 1741705729,
+        "nanos": 856184000
+      },
+      "displayName": "Generalized_intents"
+    } ],
+    "models": {
+      "summarizationModel": {
+      
+      }
+    },
+    "fallbackPrompt": {
+    
+    },
+    "groundingSettings": {
+    
+    },
+    "payloadSettings": {
+    
+    },
+    "voiceModeSettings": {
+    
+    }
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

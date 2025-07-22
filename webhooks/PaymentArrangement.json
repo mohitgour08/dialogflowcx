@@ -1,0 +1,31 @@
+{
+  "name": "19048aee-9a27-4384-8692-94bdd0a1c8ee",
+  "displayName": "PaymentArrangement",
+  "genericWebService": {
+    "uri": "https://apgx-dev.brightspeed.com/ccsbrimservice/api/v1/payment/arrangement/plans?ban=$session.params.AccountNumber\u0026ucid=$session.params.APICallID\u0026networkType=$session.params.networkType\u0026billingSystem=$session.params.BillingSystem",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "GET",
+    "parameterMapping": [ {
+      "key": "PAresponse",
+      "value": "responseStatus"
+    }, {
+      "key": "PayArrPlans",
+      "value": "responseBody.treatment"
+    }, {
+      "key": "UpcomingDueDate",
+      "value": "responseBody.upcomingDueDate"
+    }, {
+      "key": "eligible",
+      "value": "responseBody.eligible"
+    } ],
+    "oauthConfig": {
+      "clientId": "byJQMxAg9HvOlxQ9IYsGRqSvvSxDycLfy3GiYOyAd5cLMaL4",
+      "clientSecret": "i1rTFXl017jxep391Y8Yt0fJVvJM4aLh5TbDAGhn5qAhNxpWL8xKn7EleriCXyqT",
+      "tokenEndpoint": "https://apgx-dev.brightspeed.com/oauth2/token",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

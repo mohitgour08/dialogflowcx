@@ -1,0 +1,51 @@
+{
+  "name": "486a9d2f-ef9a-4281-a99c-fc9007e50f94",
+  "displayName": "TicketChatMessageForCustomer",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I'm sorry but I'm unable to reschedule your appointment using our automated system. Please give me a moment to connect you with the next available agent." ]
+      },
+      "languageCode": "en"
+    } ],
+    "webhook": "Logging_API",
+    "tag": "getAvailAppointments_logging"
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "Metrics_SalesManagement_TicketChatMessageForCustomer_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SalesManagement-TicketChatMessageForCustomer,TicketRescheduleFailed"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "6212fd5a-2ff6-4728-aa0b-373a80d81f16"
+  } ]
+}

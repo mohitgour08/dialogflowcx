@@ -1,0 +1,34 @@
+{
+  "name": "4ea78967-759f-4c6d-a20d-3687147ce4f8",
+  "displayName": "PaymentMethodChk",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"PayPal\" OR $session.params.PaymentMethod = \"PAYPAL\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.LastFourDigitsAcctNum"
+      }, {
+        "parameter": "Metrics_Payment_PaymentMethodChk_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormPastDueCopper",
+    "name": "abecee98-e524-475a-86fa-d58bb2aa99fb"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      }, {
+        "parameter": "Metrics_Payment_PaymentMethodChk_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormPastDueCopper",
+    "name": "916af98f-0062-463c-a1e8-96b333f93cbd"
+  } ]
+}

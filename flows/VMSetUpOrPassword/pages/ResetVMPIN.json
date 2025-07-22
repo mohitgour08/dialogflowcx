@@ -1,0 +1,524 @@
+{
+  "name": "d0c8b398-a3f0-4303-80bc-1be77b2579b0",
+  "displayName": "ResetVMPIN",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "If you know your current PIN, you can change it through your current voicemail system. You can access your voicemail system by dialing 1-833-558-6245 from the device connected to your Brightspeed service." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "If you do not remember your current PIN number, please call us at 866-457-0715 and we will be happy to reset it for you." ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "I have an additional question"
+          }, {
+            "action": "quick_reply",
+            "title": "Thanks, that was all I needed"
+          }, {
+            "action": "quick_reply",
+            "title": "I need to setup a new  voicemail box"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "If you know your current PIN, you can change it through your current voicemail system. You can access your voicemail system by dialing 1-833-558-6245 from the device connected to your Brightspeed service." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "If you do not remember your current PIN number, please call us at 866-457-0715 and we will be happy to reset it for you." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "Is there anything else I can help you with today? You can say things like \"I need to setup a new voicemail box\", something else, that's all I needed, or \"repeat\" to repeat this message." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_VMSetUpOrPassword",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ResetVMPIN"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "a8bb0e9e-2a60-4247-9843-b5852c1f68da"
+  }, {
+    "intent": "SomethingElse",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "130c6e14-1646-4627-b28e-63d760000aa1"
+  }, {
+    "intent": "GoodToGo",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "853c89f8-8bbc-45a0-9ec7-fd0a1e8482df"
+  }, {
+    "intent": "VoiceMailSetUpOrPINReset",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Voicemail"
+      }, {
+        "parameter": "VMRetry",
+        "value": "$sys.func.ADD($session.params.VMRetry,1)"
+      } ]
+    },
+    "targetPage": "VMRetryCounterCheck",
+    "name": "af0591e4-3a2a-4264-a2a6-4b7938eb7d7a"
+  }, {
+    "intent": "AdditionalQuestion",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "4ec1129f-4f6b-4bc7-83db-1aa97de67932"
+  }, {
+    "intent": "Repeat ",
+    "condition": "$session.params.ResetVMPIN = 2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_VMSetUpOrPassword",
+        "value": "Success"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "75793cdb-f76f-4387-bb52-24c9c07a5312"
+  }, {
+    "intent": "Repeat ",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ResetVMPIN",
+        "value": "$sys.func.ADD($session.params.ResetVMPIN,1)"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "Current Page",
+    "name": "8f083b0d-52cb-4ed3-a826-d779f5b1e9d8"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Voicemail"
+      }, {
+        "parameter": "VMRetry",
+        "value": "$sys.func.ADD($session.params.VMRetry,1)"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "VMSetUpOrPassword_ResetVMPIN_1"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "VMRetryCounterCheck",
+    "name": "bd908f5b-2fda-428d-9b33-515ff5934ebb"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "VMSetUpOrPassword_ResetVMPIN_2"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "c801e4b6-bf97-42b1-b4e9-c86a0720613d"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "VMSetUpOrPassword_ResetVMPIN_3"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "a72ed43e-7b64-49b2-840f-5a73515bacfd"
+  }, {
+    "intent": "VM_DTMF4",
+    "condition": "$session.params.ResetVMPIN = 2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_VMSetUpOrPassword",
+        "value": "Success"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "5eb489ab-1b6b-4945-b889-0a9c12cbb687"
+  }, {
+    "intent": "VM_DTMF4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ResetVMPIN",
+        "value": "$sys.func.ADD($session.params.ResetVMPIN,1)"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "VMSetUpOrPassword_ResetVMPIN_4"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "Current Page",
+    "name": "525c896b-5686-4705-ab69-a40aa5a31cb6"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again? " ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "I have an additional question"
+            }, {
+              "action": "quick_reply",
+              "title": "Thanks, that was all I needed"
+            }, {
+              "action": "quick_reply",
+              "title": "I need to setup a new  voicemail box"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "To setup a new voicemail box, press 1, if you have an additional question, press 2. if you are done, press 3. If you would like to hear this message again, press 4." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "564dbe39-38df-45ac-b6b1-85e263faecf2"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_NoInputDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_VMSetUpOrPassword",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "VMSetUpOrPassword_ResetVMPIN"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ResetVMPIN"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "266d6372-c1b0-497c-8dd0-c5ed8e678833"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "I have an additional question"
+            }, {
+              "action": "quick_reply",
+              "title": "Thanks, that was all I needed"
+            }, {
+              "action": "quick_reply",
+              "title": "I need to setup a new  voicemail box"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eTo setup a new voicemail box, press 1, if you have an additional question, press 2. if you are done, press 3. If you would like to hear this message again, press 4.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "c3355f6f-33d3-4c57-9481-83322fe8cf4f"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_VMSetUpOrPassword_ResetVMPIN_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_VMSetUpOrPassword",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "VMSetUpOrPassword_ResetVMPIN"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ResetVMPIN"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "bd983d1a-82ce-4fce-bf7f-686d490f2658"
+  } ]
+}

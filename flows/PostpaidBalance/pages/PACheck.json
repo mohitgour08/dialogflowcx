@@ -1,0 +1,77 @@
+{
+  "name": "9c2274dc-ebeb-4022-81c2-37cccd8fd3a5",
+  "displayName": "PACheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "ViewYourBillsURL",
+      "value": "dh.brightspeed.com/billing"
+    }, {
+      "parameter": "ViewYourPrevBillsURL",
+      "value": "dh.brightspeed.com/billing"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ExistingPA = \"Y\" AND $session.params.networkType = \"Copper_L\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_PACheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentArrangement"
+      } ]
+    },
+    "targetFlow": "PaymentTransfer",
+    "name": "2d11e689-ab8a-439f-8a0f-146725d2ab06"
+  }, {
+    "condition": "$session.params.ExistingPA = \"Y\" OR $session.params.MigratedCopperExistingPA = \"YES\" OR $session.params.MigratedCopperExistingPA = \"Yes\" OR $session.params.MigratedCopperExistingPA = \"yes\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_PACheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer is already on payment arrangement"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "645c918b-0891-4e20-9583-00ce8798c21e"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_PACheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AutopayOrNonAutopay",
+    "name": "0c3ba3a7-f0bc-4a9d-9b6c-a583b12038f9"
+  } ],
+  "description": "ON PAYMENT ARRANGEMENT?"
+}

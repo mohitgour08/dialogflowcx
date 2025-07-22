@@ -1,0 +1,117 @@
+{
+  "name": "964be01b-b18e-4e73-8ba7-0dded4ecdb6a",
+  "displayName": "FormPostpaidCreditAP",
+  "form": {
+    "parameters": [ {
+      "displayName": "FormResponsePostpaidAPCredit",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n\"chatClientForm\": \"$session.params.FormPostpaidCreditAP\",\n\"paymentMethod\": \"$session.params.PaymentMethod\",\n\"lastFourDigits\": \"$session.params.MethodLastFourDigits\",\n\"currentBalance\": \"$session.params.CreditBalance\",\n\"dueDate\": \"$session.params.BillInfo_BillDueDate\"\n}\n " ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_PostpaidBalance_FormPostpaidCreditAP_Form",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "SS_PostpaidBalance",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    }, {
+      "parameter": "FormResponsePostpaidAPCredit",
+      "value": null
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.FormResponsePostpaidAPCredit = \"Update\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "callerintent",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_FormPostpaidCreditAP_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "5bc2b408-4dd7-455e-987b-abfe5b77b7b6"
+  }, {
+    "condition": "$session.params.FormResponsePostpaidAPCredit = \"CancelA\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "ConfirmCancelAutopay"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_FormPostpaidCreditAP_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormCancelAutoPay",
+    "name": "7011fefb-4a2a-420a-89ae-2babf1520191"
+  }, {
+    "condition": "$session.params.FormResponsePostpaidAPCredit = \"viewInvoice\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "FormAnythingElseAP"
+      }, {
+        "parameter": "ToModule",
+        "value": "PostpaidBalance"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_FormPostpaidCreditAP_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "02685f1c-7d56-48ce-a324-f9ba23abe812"
+  }, {
+    "condition": "$session.params.FormResponsePostpaidAPCredit = \"formBack\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "FormAnythingElseAP"
+      }, {
+        "parameter": "ToModule",
+        "value": "PostpaidBalance"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_FormPostpaidCreditAP_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "013795ca-4dc0-46ab-b69e-a90d9cde7762"
+  } ]
+}

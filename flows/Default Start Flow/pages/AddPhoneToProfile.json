@@ -1,0 +1,40 @@
+{
+  "name": "c7061d32-f716-48cd-aa0b-fb08b856d2f1",
+  "displayName": "AddPhoneToProfile",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003eI see your phone number $sys.func.MID($session.params.phone_number,1,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.phone_number,2,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.phone_number,3,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.phone_number,4,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.phone_number,5,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.phone_number,6,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.phone_number,7,1)  \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.phone_number,8,1)  \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.phone_number,9,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.phone_number,10,1) \u003cbreak time=\"300ms\"/\u003e  is not associated with Profile. Can I register this mobile number to the Profile. Next time when you call back , you will be Identified automatically. \u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+      "webhook": "callAniLookUpCloudFunctions",
+      "tag": "setAniToProfile",
+      "setParameterActions": [ {
+        "parameter": "accountnumber",
+        "value": "200008219"
+      } ]
+    },
+    "targetPage": "Call360",
+    "name": "db7dfc60-ce09-4d17-afc3-9524da4b4bb7"
+  }, {
+    "intent": "Confirmation.No",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Thanks. You can register it any time" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "6efdd2ba-c855-4c13-a942-deda620b2901"
+  } ]
+}

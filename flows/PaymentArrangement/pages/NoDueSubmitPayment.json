@@ -1,0 +1,267 @@
+{
+  "name": "a23e8089-1e86-40ab-99c5-6ba669c6a89c",
+  "displayName": "NoDueSubmitPayment",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Thank you! Please allow me a moment to submit your first payment." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Thank you! Please allow me a moment to submit your first payment." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "webhook": "GetPayTokenAPI",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSubmitPayment_wh",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentAuthResponse = \"Success\" OR $session.params.PaymentAuthResponse = \"SUCCESS\" OR $session.params.PaymentAuthResponse = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSubmitPayment_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_PaymentArrangement_NoDueSubmitPayment",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPI"
+      } ]
+    },
+    "targetPage": "QuickBillPay",
+    "name": "8a456cfa-6a3b-4fd8-b482-b2692025922d"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSubmitPayment_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "BackendError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayTokenAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_NoDueSubmitPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPI"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "bbf4fc76-76e4-40e9-a41d-ddc5fe5d61f7"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSubmitPayment_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayTokenAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_NoDueSubmitPayment",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPI"
+      } ]
+    },
+    "name": "16aeb442-4347-4bec-9250-ce6d0ee9823a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSubmitPayment_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayTokenAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_NoDueSubmitPayment",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPI"
+      } ]
+    },
+    "name": "bdbb76ce-6c22-43f8-8a25-440cf2a0be61"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSubmitPayment_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayTokenAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_NoDueSubmitPayment",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPI"
+      } ]
+    },
+    "name": "236361cd-5129-423a-bae5-7cefb406093a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSubmitPayment_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayTokenAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_NoDueSubmitPayment",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPI"
+      } ]
+    },
+    "name": "0245aff3-3e0c-43d3-8b08-56115ab064b8"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSubmitPayment_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayTokenAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_NoDueSubmitPayment",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPI"
+      } ]
+    },
+    "name": "1626ac57-17d4-4f6c-bd2e-f547e8e5a0ba"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NoDueSubmitPayment_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayTokenAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_NoDueSubmitPayment",
+        "value": "Fail_Unavaliable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPI"
+      } ]
+    },
+    "name": "9bfcfd07-7d11-484a-9540-fdea75f82c42"
+  } ]
+}

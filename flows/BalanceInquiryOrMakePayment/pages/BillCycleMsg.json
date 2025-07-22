@@ -1,0 +1,158 @@
+{
+  "name": "46f87009-906c-4b65-a24b-eaa40ac4c676",
+  "displayName": "BillCycleMsg",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Your bill cycle was impacted by our recent system upgrades. Late fees will not be incurred for payments due between 7/14-7/20. If your bill was delayed, it should arrive within the next week. For customers on autopay, you may notice a delay in processing. If that answers your question, you can choose \"Finished\" below. Or, click \"Continue\" to keep going." ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Finished"
+          }, {
+            "action": "quick_reply",
+            "title": "Continue"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Your bill cycle was impacted by our recent system upgrades. Late fees will not be incurred for payments due between 7/14-7/20. If your bill was delayed, it should arrive within the next week. For customers on autopay, you may notice a delay in processing. If that answered your question, you can say \"finished\" or you can say \"continue\" to keep going." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "GoodToGo",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillCycleMsg_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "e46a191f-996c-479a-8203-9c754765622d"
+  }, {
+    "intent": "Continue",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillCycleMsg_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "BillInfoCheck",
+    "name": "a40320fc-a5e9-4469-b25d-8fefe66e0284"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Finished"
+            }, {
+              "action": "quick_reply",
+              "title": "Continue"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ]
+    },
+    "name": "8aed7be5-4263-4a88-bea2-b83f5c4e9b68"
+  }, {
+    "targetPage": "BillInfoAPI",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ]
+    },
+    "name": "42d12237-57d1-44db-b733-76870ccdf0c9"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Finished"
+            }, {
+              "action": "quick_reply",
+              "title": "Continue"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ]
+    },
+    "name": "1e6da318-33d1-4975-87ac-8278dc6e036f"
+  }, {
+    "targetPage": "BillInfoAPI",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ]
+    },
+    "name": "14e3c497-4a00-4add-9dd0-78ac0aa52f2d"
+  } ]
+}

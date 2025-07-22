@@ -1,0 +1,37 @@
+{
+  "name": "b59cec26-4d73-4f0e-af04-495e4e608055",
+  "displayName": "Noreschedule",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay, is there anything else that I can help with today?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "I have an additional question"
+          }, {
+            "action": "quick_reply",
+            "title": "Thanks, that was all I needed"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003eOkay, is there anything else that I can help with today? If you have an additional question, Press 1. If you're finished, Press 2.\u003c/speak\u003e." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ]
+  },
+  "transitionRouteGroups": [ " GoodToGo", "AdditionalQuestion" ]
+}

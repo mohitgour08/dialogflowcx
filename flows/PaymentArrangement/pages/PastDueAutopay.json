@@ -1,0 +1,70 @@
+{
+  "name": "1eac4e2b-baa2-40a5-8891-940a14359984",
+  "displayName": "PastDueAutopay",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "firstDatefailure",
+      "value": "false"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Autopay = \"Y\" OR $session.params.Autopay = \"Enrolled\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PastDueAutopay_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PastDueAutopayExist",
+    "name": "1015fd8e-47be-40c3-9e9a-966c19c73684"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm happy to help you get enrolled! First, I will need to sign you up for our autopay system, so that your installment will draft automatically from a card or bank account. You will be dropped from autopay when the payment arrangement concludes. \n\nYou can always view our $session.params.link46 . " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm happy to help you get enrolled! First, I will need to sign you up for our autopay system, so that your installments draft automatically from a card or bank account. You will be dropped from autopay when the payment arrangement concludes. \n\nYou can always view our payment agreement on brightspeed.com." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PastDueAutopay_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PastDueAutopaySignUp",
+    "name": "3f88d065-f83f-444a-bab9-782b8c4ebd78"
+  } ]
+}

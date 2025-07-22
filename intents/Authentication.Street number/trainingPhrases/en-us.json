@@ -1,0 +1,177 @@
+{
+  "trainingPhrases": [ {
+    "id": "95b2e18c-5897-4dcc-93ce-e91c0692b3f2",
+    "parts": [ {
+      "text": "my street",
+      "auto": true
+    }, {
+      "text": " number is ",
+      "auto": true
+    }, {
+      "text": "120",
+      "parameterId": "street_number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "15ec0e6f-e5aa-4887-a3e7-e4daca598d40",
+    "parts": [ {
+      "text": "the street number is "
+    }, {
+      "text": "18",
+      "parameterId": "street_number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d4cca226-f253-43ee-b859-af71c91b3bed",
+    "parts": [ {
+      "text": "There should be a street number "
+    }, {
+      "text": "18",
+      "parameterId": "street_number"
+    }, {
+      "text": " on the account I'm looking for."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2ef2035b-a8b0-4414-bdea-a3d7ca469962",
+    "parts": [ {
+      "text": "Street Number "
+    }, {
+      "text": "18",
+      "parameterId": "street_number"
+    }, {
+      "text": " should appear on the account I'm looking for."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9387797f-c0be-4e80-853b-7d1990c7f5b7",
+    "parts": [ {
+      "text": "My Street, number "
+    }, {
+      "text": "132",
+      "parameterId": "street_number"
+    }, {
+      "text": ", Kingston, New York "
+    }, {
+      "text": "12401",
+      "parameterId": "zip-code"
+    }, {
+      "text": ", should appear on the account I'm looking for."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "164cb8c3-5cc3-4876-b569-fbe115a7c02b",
+    "parts": [ {
+      "text": "The address for the account I'm looking for should be "
+    }, {
+      "text": "132 My Street,",
+      "parameterId": "street_number"
+    }, {
+      "text": " Kingston, New York "
+    }, {
+      "text": "12401",
+      "parameterId": "zip-code"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2fe641a0-8c2e-4e94-ace3-d97f9e4281b8",
+    "parts": [ {
+      "text": "The account I'm looking for should have the address Kingston, New York, "
+    }, {
+      "text": "12401",
+      "parameterId": "zip-code"
+    }, {
+      "text": ", at 132 My Street."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f940b66b-1be7-4895-92e1-a24f813ff327",
+    "parts": [ {
+      "text": "the account which I am looking for should have the street no "
+    }, {
+      "text": "132",
+      "parameterId": "street_number"
+    }, {
+      "text": ", My Street, Kingston"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "947c6fd4-ab81-4371-8fdc-a8c8df27b6f5",
+    "parts": [ {
+      "text": "My Street, 132, Kingston, NY 12401"
+    }, {
+      "text": " should be the address listed on my account."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8d0e432d-7406-46f5-a9e7-9aac8a72d552",
+    "parts": [ {
+      "text": "the address on my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " should be 132, My Street, Kingston, New York 12401.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e13d0036-b1ba-4287-a988-46cd9c923b9d",
+    "parts": [ {
+      "text": "Yes, 132 My Street, Kingston, New York 12401 is my address.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "10e2ff08-47c1-4af7-b70a-832e8cc989fc",
+    "parts": [ {
+      "text": "sure my address is 132, My Street, Kingston, New York 12401.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cc2a01ee-b7f9-40d5-b533-924b4407822b",
+    "parts": [ {
+      "text": "I live at "
+    }, {
+      "text": "18 West View Street",
+      "parameterId": "street_number"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "45d8d0ee-9733-45f4-acf3-d91aceb232d0",
+    "parts": [ {
+      "text": "My address is 18 West View.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8f7d47fc-4ce1-4136-aae5-b41479453fed",
+    "parts": [ {
+      "text": "my street number is 18 west view",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

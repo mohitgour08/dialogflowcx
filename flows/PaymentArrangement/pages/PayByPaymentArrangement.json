@@ -1,0 +1,277 @@
+{
+  "name": "e9e0c303-c83d-47a1-845c-2b4956e8d18f",
+  "displayName": "PayByPaymentArrangement",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "PaybyPaymentArrangement",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "PaymentType",
+      "value": "$session.params.PaymentType"
+    }, {
+      "parameter": "paymentAuthId",
+      "value": "$session.params.paymentAuthId"
+    }, {
+      "parameter": "Metrics_PaymentArrangementEnrollment_PayByPaymentArrangement",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PAPayResponseErrorMessage != null AND $session.params.PAPayResponseErrorMessage != \"\" AND $session.params.PAPayResponse != \"Success\" AND $session.params.PAPayResponse != \"success\" AND $session.params.PAPayResponse != \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangement_PaybyPaymentArrangement_Message",
+        "value": "$session.params.PAPayResponseErrorMessage"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PayByPaymentArrangement_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "0f2a7f8c-ad18-48a7-8bec-5bf4ccbc78fb"
+  }, {
+    "condition": "$session.params.PAPayResponse = \"Success\" OR $session.params.PAPayResponse = \"success\" OR $session.params.PAPayResponse = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PayByPaymentArrangement_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_PaymentArrangement_PayByPaymentArrangement",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaybyPaymentArrangement"
+      } ]
+    },
+    "targetPage": "PaymentArrangementConfirmation",
+    "name": "0344cdac-decf-4d40-9238-ad7606c55da5"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue getting you enrolled. Let me get you to someone who can help. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PayByPaymentArrangement_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayByPaymentArrangementAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_PayByPaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaybyPaymentArrangement"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "188e5588-8179-4826-8546-dfc05083e4ee"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PayByPaymentArrangement_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayByPaymentArrangementAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_PayByPaymentArrangement",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaybyPaymentArrangement"
+      } ]
+    },
+    "name": "1af65f03-7cbb-4747-b55a-094323ca2948"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PayByPaymentArrangement_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayByPaymentArrangementAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_PayByPaymentArrangement",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaybyPaymentArrangement"
+      } ]
+    },
+    "name": "490204be-a235-4d37-a5ea-a4f9ca72e304"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PayByPaymentArrangement_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayByPaymentArrangementAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_PayByPaymentArrangement",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaybyPaymentArrangement"
+      } ]
+    },
+    "name": "8de79737-1a7b-4026-ad10-815a72ebbdd5"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PayByPaymentArrangement_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayByPaymentArrangementAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_PayByPaymentArrangement",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaybyPaymentArrangement"
+      } ]
+    },
+    "name": "f9a24c3c-0132-4698-99a2-3b9d39e84de7"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PayByPaymentArrangement_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayByPaymentArrangementAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_PayByPaymentArrangement",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaybyPaymentArrangement"
+      } ]
+    },
+    "name": "253f8e7e-dbef-4575-b310-94ee42ed5e5d"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PayByPaymentArrangement_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayByPaymentArrangementAPI"
+      }, {
+        "parameter": "API_PaymentArrangement_PayByPaymentArrangement",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "PaybyPaymentArrangement"
+      } ]
+    },
+    "name": "09b2c704-ac1c-4ea8-aadb-3abc46d28f65"
+  } ],
+  "description": "PaybyPaymentArrangementAPI"
+}

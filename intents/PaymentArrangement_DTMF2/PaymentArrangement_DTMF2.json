@@ -1,0 +1,7 @@
+{
+  "name": "be313899-d61d-4f79-9436-4323debd247f",
+  "displayName": "PaymentArrangement_DTMF2",
+  "priority": 500000,
+  "numTrainingPhrases": 4,
+  "dtmfPattern": "^2$"
+}

@@ -1,0 +1,255 @@
+{
+  "name": "32da9ff5-e2f7-400e-871b-56df1c139579",
+  "displayName": "DRCIntent",
+  "form": {
+    "parameters": [ {
+      "displayName": "DRC",
+      "required": true,
+      "entityType": "@DRC",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "What do you need help with?" ]
+              },
+              "languageCode": "en"
+            }, {
+              "payload": {
+                "ujet": {
+                  "buttons": [ {
+                    "action": "quick_reply",
+                    "title": "Dispatch"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "Pattern Desk"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "Fiber support desk non-complete"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "Dispatch Central Office Desk"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "\u003c-Back"
+                  } ],
+                  "title": "",
+                  "type": "inline_button"
+                }
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_WebCETech_DRCIntent_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "627ab35a-a81e-4c9a-a73c-cacec9df0ccc"
+        }, {
+          "targetPage": "End Session",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I am sorry, I am unable to assist you at this time. Please restart the chat if you need further assistance. Goodbye." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_WebCETech_DRCIntent_NoMatch2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "084fe05c-831d-45a5-8d1b-9188ac24a999"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "What do you need help with?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Dispatch"
+          }, {
+            "action": "quick_reply",
+            "title": "Pattern Desk"
+          }, {
+            "action": "quick_reply",
+            "title": "Fiber support desk non-complete"
+          }, {
+            "action": "quick_reply",
+            "title": "Dispatch Central Office Desk"
+          }, {
+            "action": "quick_reply",
+            "title": "\u003c-Back"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "DRC",
+      "value": null
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.DRC = \"Dispatch\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_DRCIntent_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CustomerState",
+    "name": "905ca756-9e4b-4767-94a6-a811b7cb903c"
+  }, {
+    "condition": "$session.params.DRC = \"Pattern Desk\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "**Collected Details**\r\nCallback : $session.params.ENTER_TN\r\nFirst and Last Name : $session.params.Name\r\nOrder Number : $session.params.Work_Order\r\nProblem Description : $session.params.Chat_Description" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_DRCIntent_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "QueueName",
+        "value": "DispatchPatternDesk"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "fba51cf1-fbeb-4729-b201-f60e5c549e9a"
+  }, {
+    "condition": "$session.params.DRC = \"Fiber support desk non-complete\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "**Collected Details**\r\nCallback : $session.params.ENTER_TN\r\nFirst and Last Name : $session.params.Name\r\nOrder Number : $session.params.Work_Order\r\nProblem Description : $session.params.Chat_Description" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_DRCIntent_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "QueueName",
+        "value": "OCCFiberSupportDesk"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "fe593d7f-8d68-4158-8a3a-6c995fa136a6"
+  }, {
+    "condition": "$session.params.DRC = \"Dispatch Central Office Desk\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "**Collected Details**\r\nCallback : $session.params.ENTER_TN\r\nFirst and Last Name : $session.params.Name\r\nOrder Number : $session.params.Work_Order\r\nProblem Description : $session.params.Chat_Description" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_DRCIntent_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "QueueName",
+        "value": "DispatchCentralOfficeDesk"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "b8ac3b20-dabd-4b3c-bd6c-a7b744e43a0d"
+  }, {
+    "condition": "$session.params.DRC = \"Back\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_DRCIntent_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CollectDepartment",
+    "name": "b928b0bb-636c-41e1-85c1-e2a8ae2d826e"
+  } ]
+}

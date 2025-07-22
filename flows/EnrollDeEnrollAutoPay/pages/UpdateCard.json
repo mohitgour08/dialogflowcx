@@ -1,0 +1,310 @@
+{
+  "name": "5b91700f-c32e-48ab-8af7-c8d2cd8d3a08",
+  "displayName": "UpdateCard",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "UpdatePaymentMethodCard",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_EnrollDeEnrollAutoPay_UpdateCard_wh",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.UpdatePayment != \"Success\" AND $session.params.UpdatePayment != \"success\" AND $session.params.UpdatePayment != \"SUCCESS\" AND $session.params.UpdatePaymentErrorMessage != null AND $session.params.UpdatePaymentErrorMessage != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_updateCard_Message",
+        "value": "$session.params.UpdatePaymentErrorMessage"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_UpdateCard_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "5f5449a6-2913-4157-b834-eefc2604fff1"
+  }, {
+    "condition": "$session.params.UpdatePayment = \"Success\" OR $session.params.UpdatePayment = \"success\" OR $session.params.UpdatePayment = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "setupRecurringSchedule_Loggin",
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_UpdateCard_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "paymentAuthId",
+        "value": "$session.params.BillInfo_paymentAuthId"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_UpdateCard",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ]
+    },
+    "targetPage": "RecurringScheduleAPI",
+    "name": "34658e09-a5b8-4180-89e3-e27f3268e058"
+  }, {
+    "condition": "$session.params.FirstUpdateFailure = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "updateattempts",
+        "value": "true"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_UpdateCard_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdateFailCard",
+    "name": "ef35dc39-d906-4e32-8319-467fa30dc898"
+  }, {
+    "condition": "$session.params.FirstUpdateFailure = \"false\" AND $session.params.updateattempts = \"true\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to finish processing this change. Let me get you to someone who can help. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_UpdateCard_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "RetryorRepeatLimitExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodCard"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_UpdateCard",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "cf5d4f12-b5e5-41c4-a4d7-71f6e6da6e1b"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to finish processing this change." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ " Let me get you to someone who can help. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to process this change" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Let me get you to someone who can help." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_UpdateCard_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethod"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_UpdateCard",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "5314a59d-0788-4644-a5e5-6e8cb3da6622"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_UpdateCard_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethod"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_UpdateCard",
+        "value": "Fail_Error"
+      } ]
+    },
+    "name": "acdbc0e6-98e0-43c5-abaa-62983cbd37fc"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_UpdateCard_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethod"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_UpdateCard",
+        "value": "Fail_Invalid"
+      } ]
+    },
+    "name": "6df727db-8879-4dc6-a697-abecc53cbb2a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_UpdateCard_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethod"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_UpdateCard",
+        "value": "Fail_NotFound"
+      } ]
+    },
+    "name": "60c010a6-44be-47f5-848c-7ee01aa38ea6"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_UpdateCard_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethod"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_UpdateCard",
+        "value": "Fail_Rejected"
+      } ]
+    },
+    "name": "ace60c80-f843-41fc-8b09-d60d80ca04aa"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_UpdateCard_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethod"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_UpdateCard",
+        "value": "Fail_Timeout"
+      } ]
+    },
+    "name": "3553269d-7446-4dd6-830f-e0b5c629d2b3"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_UpdateCard_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethod"
+      }, {
+        "parameter": "API_EnrollDeEnrollAutoPay_UpdateCard",
+        "value": "Fail_Unavailable"
+      } ]
+    },
+    "name": "959f9716-20be-4208-a3e2-97a23a5913cb"
+  } ]
+}

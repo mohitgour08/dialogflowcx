@@ -1,0 +1,742 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "rotate the ",
+      "auto": true
+    }, {
+      "text": "number",
+      "parameterId": "press9",
+      "auto": true
+    }, {
+      "text": " please",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": " that ",
+      "auto": true
+    }, {
+      "text": "number",
+      "parameterId": "press9",
+      "auto": true
+    }, {
+      "text": " please",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "confirmation ",
+      "auto": true
+    }, {
+      "text": "number",
+      "parameterId": "press9",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": " the confirmation ",
+      "auto": true
+    }, {
+      "text": "number",
+      "parameterId": "press9",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": " that.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you say it again?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I didn't catch that",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "please ",
+      "auto": true
+    }, {
+      "text": "repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I missed what you said Can you ",
+      "auto": true
+    }, {
+      "text": "repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": " it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Could you please say that ",
+      "auto": true
+    }, {
+      "text": "one",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": " more time?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I didn't quite get it",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you ",
+      "auto": true
+    }, {
+      "text": "repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": " what you just said?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Say that again"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I didn't understand",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you ",
+      "auto": true
+    }, {
+      "text": "repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": " the last part?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "One",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": " more time",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "please."
+    } ],
+    "repeatCount": 3,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "(",
+      "auto": true
+    }, {
+      "text": "*",
+      "parameterId": "dtmfstar",
+      "auto": true
+    }, {
+      "text": ")[@DTMFStar, dtmfstar]",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "(",
+      "auto": true
+    }, {
+      "text": "star",
+      "parameterId": "dtmfstar",
+      "auto": true
+    }, {
+      "text": ")[@DTMFStar, dtmfstar]",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "(",
+      "auto": true
+    }, {
+      "text": "Repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ")[@EmbargoDTMF, embargodtmf] for confirmation",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "(",
+      "auto": true
+    }, {
+      "text": "Repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ")[@EmbargoDTMF, embargodtmf] the confirmation",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you (",
+      "auto": true
+    }, {
+      "text": "repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ")[@EmbargoDTMF, embargodtmf]?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I didn't catch that, (",
+      "auto": true
+    }, {
+      "text": "repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ")[@EmbargoDTMF, embargodtmf]",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "(",
+      "auto": true
+    }, {
+      "text": "Repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ")[@EmbargoDTMF, embargodtmf], please",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "(",
+      "auto": true
+    }, {
+      "text": "Yes",
+      "parameterId": "tsc_non_fiber",
+      "auto": true
+    }, {
+      "text": ")[@",
+      "auto": true
+    }, {
+      "text": "TSC",
+      "parameterId": "collect_department",
+      "auto": true
+    }, {
+      "text": "_Non_",
+      "auto": true
+    }, {
+      "text": "Fiber",
+      "parameterId": "account_type",
+      "auto": true
+    }, {
+      "text": ", ",
+      "auto": true
+    }, {
+      "text": "tsc",
+      "parameterId": "collect_department1",
+      "auto": true
+    }, {
+      "text": "_non_",
+      "auto": true
+    }, {
+      "text": "fiber",
+      "parameterId": "account_type1",
+      "auto": true
+    }, {
+      "text": "], (",
+      "auto": true
+    }, {
+      "text": "repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ")[@EmbargoDTMF, embargodtmf]",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "(",
+      "auto": true
+    }, {
+      "text": "Repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ")[@EmbargoDTMF, embargodtmf] the confirmation (",
+      "auto": true
+    }, {
+      "text": "number",
+      "parameterId": "press9",
+      "auto": true
+    }, {
+      "text": ")[@Press",
+      "auto": true
+    }, {
+      "text": "9",
+      "parameterId": "prebuilt_components_credit_card_expiration_date",
+      "auto": true
+    }, {
+      "text": ", press",
+      "auto": true
+    }, {
+      "text": "9",
+      "parameterId": "prebuilt_components_credit_card_expiration_date1",
+      "auto": true
+    }, {
+      "text": "]",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Say it again",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "(",
+      "auto": true
+    }, {
+      "text": "Repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ")[@EmbargoDTMF, embargodtmf] confirmation",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "(",
+      "auto": true
+    }, {
+      "text": "Repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ")[@EmbargoDTMF, embargodtmf] the confirmation for (",
+      "auto": true
+    }, {
+      "text": "me",
+      "parameterId": "prebuilt_components_credit_card_expiration_month",
+      "auto": true
+    }, {
+      "text": ")[@prebuilt_components_credit_card_expiration_month, prebuilt_components_credit_card_expiration_month]",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need it (",
+      "auto": true
+    }, {
+      "text": "repeated",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ")[@EmbargoDTMF, embargodtmf] for my confirmation (",
+      "auto": true
+    }, {
+      "text": "number",
+      "parameterId": "press9",
+      "auto": true
+    }, {
+      "text": ")[@Press",
+      "auto": true
+    }, {
+      "text": "9",
+      "parameterId": "prebuilt_components_credit_card_expiration_month",
+      "auto": true
+    }, {
+      "text": ", press",
+      "auto": true
+    }, {
+      "text": "9",
+      "parameterId": "prebuilt_components_credit_card_expiration_month1",
+      "auto": true
+    }, {
+      "text": "]",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to make sure, (",
+      "auto": true
+    }, {
+      "text": "repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ")[@EmbargoDTMF, embargodtmf]",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Say the confirmation (",
+      "auto": true
+    }, {
+      "text": "number",
+      "parameterId": "press9",
+      "auto": true
+    }, {
+      "text": ")[@Press",
+      "auto": true
+    }, {
+      "text": "9",
+      "parameterId": "prebuilt_components_credit_card_expiration_date",
+      "auto": true
+    }, {
+      "text": ", press",
+      "auto": true
+    }, {
+      "text": "9",
+      "parameterId": "prebuilt_components_credit_card_expiration_date1",
+      "auto": true
+    }, {
+      "text": "] again",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I missed it, can you (",
+      "auto": true
+    }, {
+      "text": "repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ")[@EmbargoDTMF, embargodtmf]?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "(",
+      "auto": true
+    }, {
+      "text": "Repeat",
+      "parameterId": "embargodtmf",
+      "auto": true
+    }, {
+      "text": ")[@EmbargoDTMF, embargodtmf] confirmation (",
+      "auto": true
+    }, {
+      "text": "number",
+      "parameterId": "press9",
+      "auto": true
+    }, {
+      "text": ")[@Press",
+      "auto": true
+    }, {
+      "text": "9",
+      "parameterId": "press91",
+      "auto": true
+    }, {
+      "text": ", press",
+      "auto": true
+    }, {
+      "text": "9",
+      "parameterId": "press92",
+      "auto": true
+    }, {
+      "text": "]",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "en",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "RepeatOrPress",
+      "auto": true
+    }, {
+      "text": "*",
+      "parameterId": "dtmfstar",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Phrase",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Language",
+      "parameterId": "confirmpassword",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Intent Display Name",
+      "parameterId": "street_number_custom",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "star",
+      "parameterId": "dtmfstar"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "*",
+      "parameterId": "dtmfstar",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Repeat"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "One more time",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you repeat the",
+      "auto": true
+    }, {
+      "text": " last ",
+      "auto": true
+    }, {
+      "text": "part",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I didn't",
+      "auto": true
+    }, {
+      "text": " understand",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Say that",
+      "auto": true
+    }, {
+      "text": " again",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you repeat what you",
+      "auto": true
+    }, {
+      "text": " just said?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I didn't",
+      "auto": true
+    }, {
+      "text": " quite get it",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Could ",
+      "auto": true
+    }, {
+      "text": "you please say that",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "one",
+      "auto": true
+    }, {
+      "text": " more time?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I missed ",
+      "auto": true
+    }, {
+      "text": "what you said Can you",
+      "auto": true
+    }, {
+      "text": " repeat it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "please repeat.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I didn't",
+      "auto": true
+    }, {
+      "text": " catch that",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you say it",
+      "auto": true
+    }, {
+      "text": " again?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Repeat that.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

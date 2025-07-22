@@ -1,0 +1,34 @@
+{
+  "name": "f83a1d5c-b12b-4cf4-9b8d-893ba11a7e2f",
+  "displayName": "EmbargoEscalationCare",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "action": "escalation",
+          "escalation_reason": "by_virtual_agent",
+          "language": "en",
+          "menu_id": "$session.params.MenuID_EmbargoCare",
+          "type": "action"
+        }
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "eventHandlers": [ {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "b6e4f8d0-8c86-4ec5-be9a-9e58f55f9ded"
+  }, {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "7c944c06-17ef-4ec5-af8a-577b5dbb94fc"
+  } ]
+}

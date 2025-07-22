@@ -1,0 +1,72 @@
+{
+  "name": "b594cd7b-f22d-42c2-b88a-1d896a0deeef",
+  "displayName": "Discounts\u0026Promotions",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Authentication = \"SUCCESS\" OR $session.params.Authentication = \"ACCTFOUND\" OR $session.params.Authentication = \"MULTIACCTFOUND\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_SalesManagement_Discounts\u0026Promotions_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "d62bc26c-21fc-4949-83fa-f1e5447cb455"
+  }, {
+    "condition": "$session.params.channel = \"web\" AND ($session.params.Authentication = \"NO\" OR $session.params.Authentication = \"FAILED\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_Discounts\u0026Promotions_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NewOrExistingCustomerDiscountsAndPromotions",
+    "name": "b84c827c-caa4-4148-b9af-8ecedf062eb6"
+  }, {
+    "condition": "$session.params.Authentication = \"NO\" OR $session.params.Authentication = \"FAILED\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_Discounts\u0026Promotions_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "Discounts\u0026Promotionsvoice",
+    "name": "a88b538e-135b-4d41-b1a2-505bbeafc19c"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_Discounts\u0026Promotions_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SalesManagement-Discounts\u0026Promotions,AuthenticationStatusUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "b6ae792c-5ee5-4d66-bc5b-e4e358316fb8"
+  } ],
+  "description": "Authentication Check"
+}

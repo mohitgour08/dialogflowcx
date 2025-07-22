@@ -1,0 +1,113 @@
+{
+  "name": "f98bfe3f-635b-48be-903f-94f6e38914a5",
+  "displayName": "SmartBillAgent",
+  "goal": "- Analyze customer invoice bills to answer questions such as \"why their bill is high,\" \"why there is a late fee,\" or any other bill-related issues to resolve.\n- Capture user intent related to bill credit, recurring charges, one-time charges, bill dispute charges, final bill,  understand last bill, and balance inquiry and more.\n- Map parameters according to the specific instructions provided in the subsequent prompt.",
+  "inputParameterDefinitions": [ {
+    "name": "AccountNumber",
+    "description": "Customer Account Number",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "NUMBER"
+      }
+    },
+    "parameterType": {
+      "name": "AccountNumber",
+      "openapiJsonSchema": {
+        "type": "number"
+      }
+    }
+  }, {
+    "name": "ToModule",
+    "description": "SmartBillAuth",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "outputParameterDefinitions": [ {
+    "name": "AccountNumber",
+    "description": "This is account number",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "AccountNumber",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "CurrentInvoice",
+    "description": "Current invoice details",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "CurrentInvoice",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "PreviousInvoice",
+    "description": "Previous invoice details",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "PreviousInvoice",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToModule",
+    "description": "SmartBillAgent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "tokenCount": 417,
+  "referencedFlows": [ "Authentication", "RoutetoAgent" ],
+  "referencedTools": [ "FAQs", "Process_inv_pr", "GetCustomerAPI" ],
+  "instruction": {
+    "steps": [ {
+      "text": "Do not greet the user."
+    }, {
+      "text": "Remember the query to answer after authentication"
+    }, {
+      "text": "if customer is not authenticated Transfer the customer to ${FLOW:Authentication}then map the parameter ToModule=SmartBillAuth"
+    }, {
+      "text": "Then get invoice details for Account Number from tool ${TOOL:Process_inv_pr} This tool provides you current invoice and previous invoice information. Analyze both bills to answer their question."
+    }, {
+      "text": "Based on query asked before authentication, summerize the invoice for customer."
+    }, {
+      "text": "If customer question is not answered by tool ${TOOL:Process_inv_pr} then try in ${TOOL:FAQs} to answer."
+    }, {
+      "text": "If customer's issue is not resolved  then ask a follow up question and need further assistance if yes then route to ${FLOW:RoutetoAgent} set FAQSuccess=\"HandoverToAgent\""
+    }, {
+      "text": "After offering to help with anything else, and confirmation that the user has further queries, greet them with \"Have a nice day!\""
+    } ]
+  }
+}

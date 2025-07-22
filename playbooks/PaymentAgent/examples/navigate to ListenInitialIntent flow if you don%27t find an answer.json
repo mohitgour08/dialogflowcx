@@ -1,0 +1,25 @@
+{
+  "name": "fff425a1-3095-4af6-b61d-0f6f1d41d8d3",
+  "actions": [ {
+    "flowInvocation": {
+      "flow": "ListenInitialIntent",
+      "inputActionParameters": {
+        "FAQSuccess": "HandoverToBA",
+        "comingfromstate": "playbook"
+      },
+      "outputActionParameters": {
+      
+      }
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "customer has a question about payment security concerns and you don't have answer"
+  },
+  "playbookOutput": {
+    "executionSummary": "."
+  },
+  "displayName": "navigate to ListenInitialIntent flow if you don't find an answer",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 118,
+  "languageCode": "undetected"
+}

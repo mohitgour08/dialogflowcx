@@ -1,0 +1,13 @@
+{
+  "name": "0ee963ff-309d-4ef2-8013-c3f218391c3a",
+  "displayName": "AuthenticationAccountInfoTN",
+  "parameters": [ {
+    "id": "phone-number",
+    "entityType": "@sys.phone-number"
+  }, {
+    "id": "tn_ban_voice",
+    "entityType": "@TN_BAN_voice"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 29
+}

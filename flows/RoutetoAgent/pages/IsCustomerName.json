@@ -1,0 +1,25 @@
+{
+  "name": "214a26f2-1f6b-456c-bd69-0b9f60023b5c",
+  "displayName": "IsCustomerName",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\" AND $session.params.CustName = \"NULL\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "IsAfterHours",
+    "name": "8ead4297-e0a4-44be-8e87-a2db1abf1486"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "86c1b35e-f06c-4f9c-9af6-c096080af099"
+  } ]
+}

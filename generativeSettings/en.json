@@ -1,0 +1,91 @@
+{
+  "fallbackSettings": {
+    "selectedPrompt": "Default"
+  },
+  "generativeSafetySettings": {
+    "raiSettings": {
+      "categoryFilters": [ {
+        "category": "DANGEROUS_CONTENT",
+        "filterLevel": "BLOCK_FEW"
+      }, {
+        "category": "SEXUALLY_EXPLICIT_CONTENT",
+        "filterLevel": "BLOCK_SOME"
+      }, {
+        "category": "HARASSMENT",
+        "filterLevel": "BLOCK_SOME"
+      }, {
+        "category": "HATE_SPEECH",
+        "filterLevel": "BLOCK_SOME"
+      } ]
+    },
+    "defaultRaiSettings": {
+      "categoryFilters": [ {
+        "category": "DANGEROUS_CONTENT",
+        "filterLevel": "BLOCK_FEW"
+      }, {
+        "category": "SEXUALLY_EXPLICIT_CONTENT",
+        "filterLevel": "BLOCK_SOME"
+      }, {
+        "category": "HARASSMENT",
+        "filterLevel": "BLOCK_SOME"
+      }, {
+        "category": "HATE_SPEECH",
+        "filterLevel": "BLOCK_SOME"
+      } ]
+    },
+    "defaultBannedPhraseMatchStrategy": "PARTIAL_MATCH",
+    "responsibleAiFilters": [ {
+      "category": "DANGEROUS_CONTENT",
+      "filterLevel": "MINIMAL_BLOCKING"
+    }, {
+      "category": "SEXUALLY_EXPLICIT_CONTENT",
+      "filterLevel": "MODERATE_BLOCKING"
+    }, {
+      "category": "HARASSMENT",
+      "filterLevel": "MODERATE_BLOCKING"
+    }, {
+      "category": "HATE_SPEECH",
+      "filterLevel": "MODERATE_BLOCKING"
+    } ],
+    "defaultResponsibleAiFilters": [ {
+      "category": "DANGEROUS_CONTENT",
+      "filterLevel": "MINIMAL_BLOCKING"
+    }, {
+      "category": "SEXUALLY_EXPLICIT_CONTENT",
+      "filterLevel": "MODERATE_BLOCKING"
+    }, {
+      "category": "HARASSMENT",
+      "filterLevel": "MODERATE_BLOCKING"
+    }, {
+      "category": "HATE_SPEECH",
+      "filterLevel": "MODERATE_BLOCKING"
+    } ],
+    "promptSecuritySettings": {
+      "sensitivityLevel": 3,
+      "minQueryLength": 15
+    }
+  },
+  "languageCode": "en",
+  "knowledgeConnectorSettings": {
+    "business": "Brightspeed",
+    "groundingSettings": {
+      "groundingConfidence": "LOW"
+    },
+    "mainLlmConfig": {
+      "configSet": "gemini_20_flash_001"
+    }
+  },
+  "llmModelSettings": {
+    "model": "gemini-2.0-flash-001",
+    "parameters": {
+      "temperature": 0,
+      "inputTokenLimit": "INPUT_TOKEN_LIMIT_LONG",
+      "outputTokenLimit": "OUTPUT_TOKEN_LIMIT_SHORT"
+    }
+  },
+  "playbookSettings": {
+    "memoryRetentionSettings": {
+      "contextWindow": "CONTEXT_WINDOW_INDEFINITE"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "name": "6fb439f7-8b15-48d2-89d5-d9ba51427b3d",
+  "displayName": "CheckLanguage",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.language = \"English\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_Lang_English",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckANIAvailable",
+    "name": "6626ac2e-04f7-4115-b50f-9cdf867297a8"
+  }, {
+    "condition": "$session.params.language = \"Spanish\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_Lang_Spanish",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "skipAuth",
+        "value": "True"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "SpanishMenu",
+    "name": "3488b564-b115-4447-a0cd-a2fa858dd085"
+  } ]
+}

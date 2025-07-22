@@ -1,0 +1,46 @@
+{
+  "name": "4478e8fa-264c-4916-a32a-1d99e5b9598a",
+  "displayName": "CopperOrFiber",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.customer_lob : \"BRSPD\" OR $session.params.networkType = \"XGSPON\" OR $session.params.networkType = \"GPON\" OR $session.params.networkType = \"BPON\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "customer_account_type",
+        "value": "BF"
+      }, {
+        "parameter": "queue_name",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_RouteToAgent_AuthenticationCheck_CopperOrFiber_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckAgentAvailability",
+    "name": "00ba3438-31e7-446d-8227-5b5661e39f80"
+  }, {
+    "condition": "$session.params.customer_lob : \"CTL\" OR $session.params.networkType = \"Copper\" OR $session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "customer_account_type",
+        "value": "CTL"
+      }, {
+        "parameter": "queue_name",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_RouteToAgent_AuthenticationCheck_CopperOrFiber_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckAgentAvailability",
+    "name": "591be8ef-4cef-4940-a71b-0acd242bf84c"
+  } ]
+}

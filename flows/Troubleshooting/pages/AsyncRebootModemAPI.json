@@ -1,0 +1,176 @@
+{
+  "name": "1a5624be-a945-4124-b5c1-efb3284d9e51",
+  "displayName": "AsyncRebootModemAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "AsyncWebhook_RebootModem",
+    "tag": "AsyncModemReboot",
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_AsyncRebootModemAPI__AsyncModemReboot_wh_AsyncRebootModem",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "AsyncRebootModemCalled",
+      "value": "True"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true,
+        "allowCancellation": true
+      }
+    },
+    "returnPartialResponses": true
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ModemRebootStatus = \"success\" OR $session.params.ModemRebootStatus = \"Success\" OR $session.params.ModemRebootStatus = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AsyncRebootModemAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_AsyncRebootModemAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AsyncWebhook_RebootModem"
+      } ]
+    },
+    "targetPage": "ModemRebootCompleted",
+    "name": "4f55423e-6740-469d-8a51-dcfb10ac1d6f"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AsyncRebootModemAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AsyncModemStatus",
+        "value": "$session.params.ModemRebootStatus"
+      }, {
+        "parameter": "API_Troubleshooting_AsyncRebootModemAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AsyncWebhook_RebootModem"
+      } ]
+    },
+    "targetPage": "ModemCount",
+    "name": "01854f67-ce63-4153-aded-a52d5c2f59cf"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "ModemCount",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ModemRebootAPIFailure",
+        "value": "AsyncWebhookError"
+      }, {
+        "parameter": "Metrics_Troubleshooting_AsyncRebootModemAPI_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_AsyncRebootModemAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AsyncWebhook_RebootModem"
+      } ]
+    },
+    "name": "e24f4ff5-9f30-490a-af05-09c02b4cb450"
+  }, {
+    "targetPage": "ModemCount",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ModemRebootAPIFailure",
+        "value": "AsyncWebhookInvalid"
+      }, {
+        "parameter": "Metrics_Troubleshooting_AsyncRebootModemAPI_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_AsyncRebootModemAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AsyncWebhook_RebootModem"
+      } ]
+    },
+    "name": "2f4a6a22-c096-4d3f-92c9-a824ce55ac22"
+  }, {
+    "targetPage": "ModemCount",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ModemRebootAPIFailure",
+        "value": "AsyncWebhookNotfound"
+      }, {
+        "parameter": "Metrics_Troubleshooting_AsyncRebootModemAPI_WebhookNotfound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_AsyncRebootModemAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AsyncWebhook_RebootModem"
+      } ]
+    },
+    "name": "8b0919d0-3f80-4aeb-9db1-cf02dd6651db"
+  }, {
+    "targetPage": "ModemCount",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ModemRebootAPIFailure",
+        "value": "AsyncWebhookRejected"
+      }, {
+        "parameter": "Metrics_Troubleshooting_AsyncRebootModemAPI_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_AsyncRebootModemAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AsyncWebhook_RebootModem"
+      } ]
+    },
+    "name": "7d77e7b6-0f00-4605-8154-2815f3b288eb"
+  }, {
+    "targetPage": "ModemCount",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ModemRebootAPIFailure",
+        "value": "AsyncWebhookTimeout"
+      }, {
+        "parameter": "Metrics_Troubleshooting_AsyncRebootModemAPI_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_AsyncRebootModemAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AsyncWebhook_RebootModem"
+      } ]
+    },
+    "name": "0e7cfccd-de66-47f2-8e15-255cef242fe2"
+  }, {
+    "targetPage": "ModemCount",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ModemRebootAPIFailure",
+        "value": "AsyncWebhookUnavailable"
+      }, {
+        "parameter": "Metrics_Troubleshooting_AsyncRebootModemAPI_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_AsyncRebootModemAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AsyncWebhook_RebootModem"
+      } ]
+    },
+    "name": "c692cde4-eb70-4eb9-a7fa-f8e5e7377235"
+  } ]
+}

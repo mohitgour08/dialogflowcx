@@ -1,0 +1,125 @@
+{
+  "name": "1cc25474-d897-4d98-8d57-5a8cb11e60a5",
+  "displayName": "NM_chk",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.IntentCounter = 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_NM_chk_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Chat Customer's Intent collection retry exceeded"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "3e5b4f3c-6f61-4b9c-8d74-8a7f7c6f52f7"
+  }, {
+    "condition": "$session.params.IntentCounter = 0",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I did not understand. Perhaps you can ask your question a different way or select one of the following options to help you identify the right specialist." ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Account Management"
+            }, {
+              "action": "quick_reply",
+              "title": "Billing"
+            }, {
+              "action": "quick_reply",
+              "title": "Order Status"
+            }, {
+              "action": "quick_reply",
+              "title": "Payment"
+            }, {
+              "action": "quick_reply",
+              "title": "Sales"
+            }, {
+              "action": "quick_reply",
+              "title": "Service Management"
+            }, {
+              "action": "quick_reply",
+              "title": "Troubleshooting/Technical Support"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "IntentCounter",
+        "value": "$sys.func.ADD($session.params.IntentCounter)"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_NM_chk_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CollectIntent",
+    "name": "65faf1f2-28a1-40ef-b42b-d08937fd30a6"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_NM_chk_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "ListenInitialIntent-NM_chk,IntentCollectionRetryExceeded"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "40ff3184-2524-47ef-a72c-540cf30f7f29"
+  } ]
+}

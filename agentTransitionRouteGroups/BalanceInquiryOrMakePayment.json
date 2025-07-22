@@ -1,0 +1,133 @@
+{
+  "name": "7fd6942f-446c-48f1-87af-2d8876c69534",
+  "displayName": "BalanceInquiryOrMakePayment",
+  "transitionRoutes": [ {
+    "intent": "Payment.VerifyPayment",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding verifying your payment." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "VerifyPayment"
+      }, {
+        "parameter": "callerintent",
+        "value": "VerifyPayment"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_VerifyPayment",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "9917cd1f-6405-4b81-993d-c773f9f42b97"
+  }, {
+    "intent": "BalanceInquiryOrMakePayment.BillCycleDate",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding your billing cycle date." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_BillCycleDate",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CallerIntent",
+        "value": "BillCycleDate"
+      }, {
+        "parameter": "ToState",
+        "value": "BillCycleDate"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "f2633377-0a17-4fe7-9d4e-5ee829993cc1"
+  }, {
+    "intent": "BalanceInquiryOrMakePayment.Billing",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding your billing." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_Billing",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "billing"
+      }, {
+        "parameter": "ToState",
+        "value": "BalanceInquiry"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "be2666b1-b355-4578-96d6-6e88e9756d58"
+  }, {
+    "intent": "BalanceInquiryOrMakePayment.Payment",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding payments." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_Payment",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "payment"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      }, {
+        "parameter": "ToState",
+        "value": "BalanceInquiry"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "51adf600-acf1-40d1-9659-a30fb62fac62"
+  }, {
+    "intent": "Payment.RestoreService",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding restoring a service." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenIntialIntent_CollectIntent_RestoreService\"",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PaymentRestoreService"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "CallerIntent",
+        "value": "Restore Service"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "26cfdd85-08a2-4e90-b737-f041cbaaa546"
+  } ]
+}

@@ -1,0 +1,386 @@
+{
+  "name": "9c88673a-a74e-4e3a-a5d5-c40c0aeec072",
+  "displayName": "MultipleAccountFound",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I see multiple accounts tied to your My Brightspeed account.  Which account did you have questions about today?" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Authentication",
+      "value": "MULTIACCTFOUND"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Brightspeed[9] != \"\" OR $session.params.Brightspeed[9] != null",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[0].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[1].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[2].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[3].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[4].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[5].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[6].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[7].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[8].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[9].billingAccountNumber"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_MultipleAccountFound_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountNumberSelected",
+    "name": "6133bdd6-458e-464d-88d4-69fe8286942e"
+  }, {
+    "condition": "($session.params.Brightspeed[8] != \"\" OR $session.params.Brightspeed[8] != null) AND ($session.params.Brightspeed[9] = \"\" OR $session.params.Brightspeed[9] = null)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[0].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[1].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[2].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[3].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[4].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[5].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[6].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[7].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[8].billingAccountNumber"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_MultipleAccountFound_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountNumberSelected",
+    "name": "5101c7c1-7825-4545-b603-c8ac56cf4ed2"
+  }, {
+    "condition": "($session.params.Brightspeed[7] != \"\" OR $session.params.Brightspeed[7] != NULL) AND ($session.params.Brightspeed[8] = \"\" OR $session.params.Brightspeed[8] = NULL)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[0].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[1].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[2].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[3].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[4].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[5].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[6].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[7].billingAccountNumber"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_MultipleAccountFound_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountNumberSelected",
+    "name": "6cc878ce-8dfd-4ea1-b28b-828d1e4025f4"
+  }, {
+    "condition": "($session.params.Brightspeed[6] != \"\" OR $session.params.Brightspeed[6] != NULL) AND ($session.params.Brightspeed[7] = \"\" OR $session.params.Brightspeed[7] = NULL)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[0].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[1].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[2].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[3].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[4].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[5].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[6].billingAccountNumber"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_MultipleAccountFound_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountNumberSelected",
+    "name": "dba28457-f256-4f7e-85ff-7cd5f20b0c42"
+  }, {
+    "condition": "($session.params.Brightspeed[5] != \"\" OR $session.params.Brightspeed[5] != NULL) AND ($session.params.Brightspeed[6] = \"\" OR $session.params.Brightspeed[6] = NULL)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[0].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[1].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[2].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[3].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[4].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[5].billingAccountNumber"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_MultipleAccountFound_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountNumberSelected",
+    "name": "136cb90c-bbe4-4c31-86c3-1401fea0aab2"
+  }, {
+    "condition": "($session.params.Brightspeed[4] != \"\" OR $session.params.Brightspeed[4] != NULL) AND ($session.params.Brightspeed[5] = \"\" OR $session.params.Brightspeed[5] = NULL)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[0].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[1].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[2].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[3].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[4].billingAccountNumber"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_MultipleAccountFound_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountNumberSelected",
+    "name": "0adbb923-b4cf-484a-b988-86fe5d31c3d4"
+  }, {
+    "condition": "($session.params.Brightspeed[3] != \"\" OR $session.params.Brightspeed[3] != NULL) AND ($session.params.Brightspeed[4] = \"\" OR $session.params.Brightspeed[4] = NULL)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[0].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[1].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[2].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[3].billingAccountNumber"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_MultipleAccountFound_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountNumberSelected",
+    "name": "59e0d0f9-87a8-45c5-a6e6-d21d27818166"
+  }, {
+    "condition": "($session.params.Brightspeed[2] != \"\" OR $session.params.Brightspeed[2] != NULL) AND ($session.params.Brightspeed[3] = \"\" OR $session.params.Brightspeed[3] = NULL)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[0].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[1].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[2].billingAccountNumber"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_MultipleAccountFound_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountNumberSelected",
+    "name": "35c5eb9c-88af-44f4-b605-41c0df393b4d"
+  }, {
+    "condition": "($session.params.Brightspeed[1] != \"\" OR $session.params.Brightspeed[1] != NULL) AND ($session.params.Brightspeed[2] = \"\" OR $session.params.Brightspeed[2] = NULL)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[0].billingAccountNumber"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.Brightspeed[1].billingAccountNumber"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_MultipleAccountFound_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AccountNumberSelected",
+    "name": "6cd80411-aa51-426f-9cfc-9ab696fd092d"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "df742ed5-cc5d-4380-ac65-3e941808a852"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "33491b42-5176-4f65-9189-26f678ad4798"
+  } ]
+}

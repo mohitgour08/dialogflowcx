@@ -1,0 +1,323 @@
+{
+  "name": "ed59f3dd-a142-41c0-8734-8bcd6f85bbfe",
+  "displayName": "EnrollAutopayAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "setupRecurringSchedule",
+    "tag": "EnrollAutopay",
+    "setParameterActions": [ {
+      "parameter": "SS_EnrollAutoPay",
+      "value": "Failure"
+    }, {
+      "parameter": "callerintent",
+      "value": "RecurringPaymentAutopay"
+    }, {
+      "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_wh",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.RecurringStatus != null AND $session.params.RecurringStatus != \"\" AND $session.params.SetupRecurringSchedule != \"SUCCESS\" AND $session.params.SetupRecurringSchedule != \"success\" AND $session.params.SetupRecurringSchedule != \"Success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentAPI_Message",
+        "value": "$session.params.RecurringStatus"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_RecurringScheduleAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "b231a1bd-fe7e-426a-9c71-48dc8c6840f4"
+  }, {
+    "condition": "($session.params.SetupRecurringSchedule = \"SUCCESS\" OR $session.params.SetupRecurringSchedule = \"success\" OR $session.params.SetupRecurringSchedule = \"Success\") AND $session.params.EnrollAutopay = \"True\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I have successfully saved this payment method and you should see this reflected on your account shortly. The first drafted payment will be on $session.params.NextDueDate " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "UpdateSuccessful"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "Metrics_SecuredPayments_EnrollAutopayAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SecuredPayments_EnrollAutoPayAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "1bf753a2-057a-4b64-b1cc-e95d6df04cd2"
+  }, {
+    "condition": "$session.params.SetupRecurringSchedule = \"SUCCESS\" OR $session.params.SetupRecurringSchedule = \"success\" OR $session.params.SetupRecurringSchedule = \"Success\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I have successfully saved this payment method and you should see this reflected on your account shortly. The first drafted payment will be on $session.params.NextDueDate . " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "Metrics_SecuredPayments_EnrollAutopayAPI_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SecuredPayments_EnrollAutoPayAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "0ad6d2b5-ecc0-4a8a-a3d5-db6b21f698c9"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue while enrolling you in autopay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "SS_EnrollAutoPay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "AutopayEnrollFailed"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "Metrics_SecuredPayments_EnrollAutopayAPI_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SecuredPayments_EnrollAutoPayAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "3748095c-a1a0-4dd5-90aa-74b0eb8f7950"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "FiberEligibility",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue while enrolling you in autopay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "API_SecuredPayments_EnrollAutoPayAPI",
+        "value": "API_Error"
+      }, {
+        "parameter": "Metrics_SecuredPayments_EnrollAutopayAPI_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "name": "2653f5bb-1194-4990-9fdc-1c5749f3718d"
+  }, {
+    "targetFlow": "FiberEligibility",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue while enrolling you in autopay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "API_SecuredPayments_EnrollAutoPayAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Metrics_SecuredPayments_EnrollAutopayAPI_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "name": "3cd3d2c9-f54c-44f8-8f79-3b98283af29a"
+  }, {
+    "targetFlow": "FiberEligibility",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue while enrolling you in autopay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "API_SecuredPayments_EnrollAutoPayAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Metrics_SecuredPayments_EnrollAutopayAPI_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "name": "d7d75b1a-ee26-45e6-b5bf-cdf4a7f06e26"
+  }, {
+    "targetFlow": "FiberEligibility",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue while enrolling you in autopay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "API_SecuredPayments_EnrollAutoPayAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Metrics_SecuredPayments_EnrollAutopayAPI_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "name": "440605f6-ce7b-431b-9579-142ac8aef110"
+  }, {
+    "targetFlow": "FiberEligibility",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue while enrolling you in autopay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "API_SecuredPayments_EnrollAutoPayAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Metrics_SecuredPayments_EnrollAutopayAPI_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "name": "9f72db1f-543e-4918-b2c9-dc0cf1f17397"
+  }, {
+    "targetFlow": "FiberEligibility",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue while enrolling you in autopay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "API_SecuredPayments_EnrollAutoPayAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Metrics_SecuredPayments_EnrollAutopayAPI_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "setupRecurringSchedule"
+      } ]
+    },
+    "name": "eb9f5a2b-6657-411b-849e-3f7807d92ede"
+  } ]
+}

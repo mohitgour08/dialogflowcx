@@ -1,0 +1,276 @@
+{
+  "name": "297d051f-b404-4138-ae39-2da4e30d73da",
+  "displayName": "DateDiff",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "GetDateDiff",
+    "tag": "DateDifference",
+    "setParameterActions": [ {
+      "parameter": "Current",
+      "value": "$sys.func.NOW()"
+    }, {
+      "parameter": "CurrentDate",
+      "value": "$sys.func.FORMAT_DATE($sys.func.NOW(),\"yyyy-MM-dd\")"
+    }, {
+      "parameter": "Metrics_DateDiff_DateDifference_cf_GetDateDiff",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "OrderDueDate",
+      "value": "$session.params.OrderDueDate"
+    }, {
+      "parameter": "OrderCompletionDate",
+      "value": "$session.params.OrderCompletionDate"
+    }, {
+      "parameter": "CheckPaymentDate",
+      "value": "$session.params.CheckPaymentDate"
+    }, {
+      "parameter": "NextDueDate",
+      "value": "$session.params.NextDueDate"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_DateDiff_Webhook_Success",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CCExpBeforeDue",
+        "value": "$sys.func.IF($session.params.CCDueExpDiff\u003c=\"0\", \"Y\",\"N\")"
+      }, {
+        "parameter": "CCExpDateDiffBackup",
+        "value": "$session.params.CCExpDateDiff"
+      }, {
+        "parameter": "DueDiff",
+        "value": "$sys.func.TO_NUMBER($session.params.DueDiff)"
+      }, {
+        "parameter": "CCExpDateDiff",
+        "value": "$sys.func.TO_NUMBER($session.params.CCExpDateDiff)"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_DateDiff",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "targetPage": "DueDateCheck",
+    "name": "2e74dee9-e2b5-4cc4-8f9d-e3889e63e90e"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_DateDiff_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "SS_DateDiffAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "CCExpirationDate",
+        "value": "$sys.func.CONCATENATE($session.params.ExpYear,\"/\",$session.params.ExpMon,\"/\",$session.params.ExpDay)"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_DateDiff",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "name": "b3801d37-7fc8-4554-8811-b1ac6f74da8c"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_DateDiff_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "SS_DateDiffAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "CCExpirationDate",
+        "value": "$sys.func.CONCATENATE($session.params.ExpYear,\"/\",$session.params.ExpMon,\"/\",$session.params.ExpDay)"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_DateDiff",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "name": "97a87769-692d-45a0-b596-11e0c115a1bf"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_DateDiff_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "SS_DateDiffAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "CCExpirationDate",
+        "value": "$sys.func.CONCATENATE($session.params.ExpYear,\"/\",$session.params.ExpMon,\"/\",$session.params.ExpDay)"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_DateDiff",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "name": "feb94edf-bfc6-4ea0-9a94-b45ec9fec512"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_DateDiff_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "SS_DateDiffAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "CCExpirationDate",
+        "value": "$sys.func.CONCATENATE($session.params.ExpYear,\"/\",$session.params.ExpMon,\"/\",$session.params.ExpDay)"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_DateDiff",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "name": "67f8d30d-9da2-45fe-9fb6-e5f3452a9d25"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_DateDiff_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "SS_GetDateDiff",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "CCExpirationDate",
+        "value": "$sys.func.CONCATENATE($session.params.ExpYear,\"/\",$session.params.ExpMon,\"/\",$session.params.ExpDay)"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_DateDiff",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "name": "75477854-8e02-4d79-a1d6-0ff97fbff9ce"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_DateDiff_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "SS_GetDateDiff",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "CCExpirationDate",
+        "value": "$sys.func.CONCATENATE($session.params.ExpYear,\"/\",$session.params.ExpMon,\"/\",$session.params.ExpDay)"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DateDifferenceAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_DateDiff",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetDateDiff"
+      } ]
+    },
+    "name": "cb6dd2be-fcd9-4c69-aa16-e1c6417d5482"
+  } ],
+  "description": "WEBHOOK TO DATE DIFF"
+}

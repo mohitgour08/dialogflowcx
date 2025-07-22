@@ -1,0 +1,187 @@
+{
+  "name": "ff002841-eddd-4816-9fc3-90497f86dcd0",
+  "displayName": "APSNPPaymentMethodCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.callerintent = \"BalanceInquiryPayment\" OR $session.params.callerintent = \"PostpaidPayment\" OR $session.params.callerintent = \"PrepaidPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_APSNPPaymentMethodCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "edb24602-8b96-4a4d-8f2f-7d075aca9592"
+  }, {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APSNPPaymentMethodCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "APSNPCCVoice",
+    "name": "149687a5-418a-43e2-8aed-da41b1c7a160"
+  }, {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APSNPPaymentMethodCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "APSNPCC",
+    "name": "5f0ccd37-2ae7-4d6c-9bef-a1f4f7ee4e17"
+  }, {
+    "condition": "($session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"PayPal\") AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APSNPPaymentMethodCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "APSNPBank",
+    "name": "ae03e66e-834c-4e1b-a3b9-2d4e09a94092"
+  }, {
+    "condition": "($session.params.PaymentMethod = \"CC\" OR $session.params.PaymentMethod = \"CREDITCARD\" OR $session.params.PaymentMethod = \"CreditCard\" OR $session.params.PaymentMethod = \"Credit Card\") AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APSNPPaymentMethodCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "APSNPCC",
+    "name": "b3834e80-92d5-46e8-b665-f97adb4e1280"
+  }, {
+    "condition": "$session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"PayPal\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APSNPPaymentMethodCheck_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "APSNPBankVoice",
+    "name": "4669a4b2-512b-4e32-9a10-2e9fd9451486"
+  }, {
+    "condition": "$session.params.PaymentMethod = \"CC\" OR $session.params.PaymentMethod = \"CREDITCARD\" OR $session.params.PaymentMethod = \"CreditCard\" OR $session.params.PaymentMethod = \"Credit Card\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APSNPPaymentMethodCheck_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "APSNPCCVoice",
+    "name": "2c1842e0-7643-4e90-b606-6666e22b906b"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Difficulty",
+        "value": "PostpaidAutopaySNPPaymentMethodCheck"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_APSNPPaymentMethodCheck_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PostpaidBalance-APSNPPaymentMethodCheck,PaymentMethodUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "6d5bd47e-55e6-43e7-bc84-5d18f603d860"
+  } ],
+  "description": "AP - SNP PAYMENT METHOD CHECK\nFirst 3 routes will be used here as per new design on 3/10/25"
+}

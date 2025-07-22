@@ -1,0 +1,40 @@
+{
+  "name": "e32986c5-0ffd-4b8d-9d5b-ef9d9577ed36",
+  "displayName": "PrePaidOrPostpaid",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillingMethod = \"postpaid\" OR $session.params.BillingMethod = \"PO\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PrePaidOrPostpaid_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckOverdue",
+    "name": "7a4b5cd2-f694-4e8d-9223-24d23be502d5"
+  }, {
+    "condition": "$session.params.BillingMethod = \"prepaid\" OR $session.params.BillingMethod = \"PR\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PrepaidPayment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_PrePaidOrPostpaid_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CardOrAccount",
+    "name": "3a209a65-7c63-435f-990e-a01972cae657"
+  } ]
+}

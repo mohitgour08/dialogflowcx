@@ -1,0 +1,44 @@
+{
+  "name": "450ef072-14f3-46e5-85f4-989eb6e016f0",
+  "displayName": "GetAccountUsername",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.callerintent = \"OnlineUsername\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_GetAccountUsername_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OnlineUsername",
+    "name": "8dade4e2-5fe3-473c-8e15-b01206ef5413"
+  }, {
+    "condition": "$session.params.callerintent = \"GetWifiModemUsernamePassword\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "GetWifiModemUsernamePassword"
+      }, {
+        "parameter": "Metrics_AccountManagement_GetAccountUsername_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Troubleshooting",
+    "name": "47ffbd30-9f56-4828-9091-3c042693323e"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_GetAccountUsername_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UnsureUsername",
+    "name": "fa3c45dd-381b-4636-84fc-744e82b28f65"
+  } ]
+}

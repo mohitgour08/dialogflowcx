@@ -1,0 +1,40 @@
+{
+  "name": "4b4370ec-f5d8-4413-8b14-000bb0383a41",
+  "displayName": "SetContactNoAsBAN",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "contactNumber",
+        "value": "$session.params.TN_BAN_temp"
+      }, {
+        "parameter": "Metrics_Troubleshooting_ SetContactNoAsBAN _1",
+        "value": "\"\\\"$sys.func.TO_TEXT($sys.func.NOW())\\\""
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "APIRecalled",
+    "name": "9a4eeb84-4a24-4cc0-b176-1792ae4eb4a6"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "contactNumber",
+        "value": "$session.params.TN_BAN"
+      }, {
+        "parameter": "Metrics_Troubleshooting_ SetContactNoAsBAN _1",
+        "value": "\"$sys.func.TO_TEXT($sys.func.NOW())\"\""
+      } ]
+    },
+    "targetPage": "APIRecalled",
+    "name": "12bfbd98-9ac8-4481-8197-13275c187de7"
+  } ]
+}

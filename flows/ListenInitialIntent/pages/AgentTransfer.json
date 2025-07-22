@@ -1,0 +1,21 @@
+{
+  "name": "a58bde36-0a89-433c-ae8d-22f395c6e36a",
+  "displayName": "AgentTransfer",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "action": "escalation",
+          "escalation_reason": "by_virtual_agent",
+          "language": "en",
+          "menu_id": "$session.params.MenuID",
+          "type": "action"
+        }
+      },
+      "languageCode": "en"
+    } ]
+  }
+}

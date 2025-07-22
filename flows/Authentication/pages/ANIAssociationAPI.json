@@ -1,0 +1,27 @@
+{
+  "name": "a463dbea-48a7-470f-ad19-b8f5f7fe193d",
+  "displayName": "ANIAssociationAPI",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ANIAssociationStatus = \"SUCCESS\" OR $session.params.ANIAssociationStatus = \"Success\" OR $session.params.ANIAssociationStatus = \"success\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Check4GLTE",
+    "name": "aa7e2fe4-4061-4161-98df-566cf05b3426"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I was unable to complete this request. Let's keep going for now. " ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetPage": "Check4GLTE",
+    "name": "8d7a428c-54c1-4c81-a027-fe7ab5f3f8a9"
+  } ]
+}

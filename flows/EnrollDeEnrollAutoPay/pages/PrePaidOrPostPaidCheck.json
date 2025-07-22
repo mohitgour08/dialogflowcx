@@ -1,0 +1,58 @@
+{
+  "name": "2e992e63-4550-40f6-8a90-6abcf19919f3",
+  "displayName": "PrePaidOrPostPaidCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillingMethod = \"prepaid\" OR $session.params.BillingMethod = \"PR\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_PrePaidOrPostPaidCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PrepaidAutopay",
+    "name": "47bcd2a2-ab5d-4206-99ac-e4eb209abdca"
+  }, {
+    "condition": "$session.params.BillingMethod = \"postpaid\" OR $session.params.BillingMethod = \"PO\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_PrePaidOrPostPaidCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PostpaidAutopay",
+    "name": "874c508a-1956-4041-9eab-4fb0014e5f57"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_PrePaidOrPostPaidCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "EnrollDeEnrollAutoPay-PrePaidOrPostPaidCheck,BillingMethodUnknown"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "4f493946-0c90-471b-8b51-39bbafc4ee0c"
+  } ]
+}

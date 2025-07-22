@@ -1,0 +1,19 @@
+{
+  "name": "24728113-cd79-4014-b9b1-d7cda2db5673",
+  "displayName": "IntegrationCRM",
+  "genericWebService": {
+    "uri": "https://api-ut.brightspeed.com/ccaisn/v1/record/update",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"billingAccountNumber\": \"$session.params.AccountNumber\",\n  \"chatID\": \"$session.params.chatID\",\n  \"from\": \"IntegrationCRM\"\n}",
+    "oauthConfig": {
+      "clientId": "Wxq32hAc8gxpoxhatAxdU38UhD8kVmkK3C0MAPHlzCZBhhtZ",
+      "clientSecret": "dtA3CT9c77cVxpI0Aw1THWKfO0ix3kqwKjrY080rCg1PeHQYmCMpmM52xd1LwY21",
+      "tokenEndpoint": "https://api-ut.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

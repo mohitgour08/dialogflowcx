@@ -1,0 +1,253 @@
+{
+  "name": "8bbf097a-1b00-4b53-95d1-4fb86e3b20da",
+  "displayName": "AccountApplePhoneConfirmation",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003eJust to confirm, you would like the link to download the Brightspeed App sent to $sys.func.MID($session.params.SMSNumber,1,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,2,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,3,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,4,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,5,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,6,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,7,1)  \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,8,1)  \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,9,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,10,1) \u003cbreak time=\"300ms\"/\u003e, Is that correct?\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Yes_DTMF1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AccountApplePhoneConfirmation_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Userinput",
+        "value": "Yes"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AccountAppleSendText",
+    "name": "f367c19c-4ef0-4e9c-9d00-e80df5ba33ac"
+  }, {
+    "intent": "No_DTMF2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AccountApplePhoneConfirmation_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SMSNumber",
+        "value": ""
+      }, {
+        "parameter": "SMSNumbercounter",
+        "value": "$sys.func.ADD($session.params.SMSNumbercounter,1)"
+      }, {
+        "parameter": "Userinput",
+        "value": "No"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AppleRetryCounter",
+    "name": "b2e57e53-759e-48ea-9e2e-8dc9c1926db0"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountApplePhoneConfirmation_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountApplePhoneConfirmation"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "b18cef6b-5383-4350-b3fc-a96f2d40c992"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e You can say \"yes\" to get Brightspeed App link at this number, or you can say \"no\" to enter a different number.\u003c/speak\u003e " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AccountApplePhoneConfirmation_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "af22b59e-613a-436f-9754-c6b1d389979f"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountApplePhoneConfirmation_NoMatch2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountApplePhoneConfirmation"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "612d8219-9716-4755-9cd3-244d21fd370e"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e You can say \"yes\" to get Brightspeed App link at this number, or you can say \"no\" to enter a different number.\u003c/speak\u003e " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AccountApplePhoneConfirmation_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "62977da8-f3c0-4e43-b755-0d0537b568b0"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That’s okay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountApplePhoneConfirmation_NoInput2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountApplePhoneConfirmation"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "3ca1df4e-340d-4494-8f85-0f8764dbe448"
+  } ]
+}

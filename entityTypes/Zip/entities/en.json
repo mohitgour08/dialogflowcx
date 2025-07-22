@@ -1,0 +1,11 @@
+{
+  "entities": [ {
+    "value": "^\\d{5}$",
+    "synonyms": [ "^\\d{5}$" ],
+    "languageCode": "en"
+  }, {
+    "value": "^\\d{5}(?:[-\\s]\\d{4})?$",
+    "synonyms": [ "^\\d{5}(?:[-\\s]\\d{4})?$" ],
+    "languageCode": "en"
+  } ]
+}

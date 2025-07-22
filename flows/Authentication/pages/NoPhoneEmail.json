@@ -1,0 +1,37 @@
+{
+  "name": "a10cac59-e36a-46ab-b5d1-0ec2c73f6fca",
+  "displayName": "NoPhoneEmail",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_NoPhoneEmail_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "NoPhoneEmailChat",
+    "name": "d2142e84-27cb-4b5b-8245-dfd0d574d3b9"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_NoPhoneEmail_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "NoPhoneEmailVoice",
+    "name": "9fe0673c-c8c9-4739-bea4-8f78a58256fa"
+  } ]
+}

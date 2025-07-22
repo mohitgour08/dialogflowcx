@@ -1,0 +1,75 @@
+{
+  "name": "ea810fb5-f183-43a1-8d91-5e1a9f8aa08c",
+  "displayName": "FiberPayment",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\" AND ($session.params.BillInfo_AccountStatus = \"Active\" OR $session.params.BillInfo_AccountStatus = \"Open\" OR $session.params.BillInfo_AccountStatus = \"OPENED\" OR $session.params.BillInfo_AccountStatus = \"ACTIVE\" OR $session.params.BillInfo_AccountStatus = \"OPEN\" OR $session.params.BillInfo_AccountStatus = \"Opened\" OR $session.params.BillInfo_AccountStatus = \"CURRENT\" OR $session.params.BillInfo_AccountStatus = \"Current\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentType",
+        "value": "Card"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "CreditCard"
+      }, {
+        "parameter": "CardNoRetry",
+        "value": "false"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FiberPayment_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberCardPaymentForm",
+    "name": "d859695f-61cf-4967-a7d3-715dc1d70c22"
+  }, {
+    "condition": "($session.params.BillInfo_AccountStatus = \"Payment Past Due\" OR $session.params.BillInfo_AccountStatus : \"Jeopardy\" OR $session.params.BillInfo_AccountStatus : \"jeopardy\" OR $session.params.BillInfo_AccountStatus : \"Past Due\") AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberPayment_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormPastDueOTP",
+    "name": "a2a8b4b1-dc50-4fe9-87f6-1ff07f5bf83b"
+  }, {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberPayment_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FiberCardPaymentOverdue",
+    "name": "9df1c83e-5696-4b20-95ed-9060e7da4cd2"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberPayment_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnterCardDetails",
+    "name": "e0e80cc5-1aaa-45ac-b3ac-b43b59c52550"
+  } ]
+}

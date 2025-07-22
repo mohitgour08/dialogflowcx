@@ -1,0 +1,233 @@
+{
+  "name": "a725802f-8db0-49c7-8313-804803fb795a",
+  "displayName": "askAccountInfoVoice",
+  "form": {
+    "parameters": [ {
+      "displayName": "TN_BAN_temp",
+      "required": true,
+      "entityType": "@TN_BAN_voice",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_Authentication_askAccountInfoVoice_BAN",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+              "allowPlaybackInterruption": true
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          }
+        },
+        "repromptEventHandlers": [ {
+          "targetPage": "validateAccountInfo",
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "setParameterActions": [ {
+              "parameter": "Metrics_Authentication_askAccountInfoVoice_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "TN_BAN",
+              "value": null
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+                "allowPlaybackInterruption": true
+              }
+            }
+          },
+          "name": "d1ad4026-4bb5-4dc8-8fde-e48197285191"
+        }, {
+          "targetPage": "validateAccountInfo",
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "setParameterActions": [ {
+              "parameter": "Metrics_Authentication_askAccountInfoVoice_NoInput1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "TN_BAN",
+              "value": null
+            }, {
+              "parameter": "TN_BAN_temp",
+              "value": null
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+                "allowPlaybackInterruption": true
+              }
+            }
+          },
+          "name": "8bc5629e-c542-431c-a673-faf43d204d71"
+        } ]
+      },
+      "advancedSettings": {
+        "dtmfSettings": {
+          "enabled": true,
+          "finishDigit": "#",
+          "useSystemEntityRule": false,
+          "interdigitTimeoutDuration": {
+            "seconds": 5
+          },
+          "endpointingTimeoutDuration": {
+            "seconds": 5
+          }
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Before we can help, I need to find your account. If your account number begins with the letters P P B, say \"more help\" now, \"if\" there are no letters in your account number, you can enter it now, or enter the telephone number associated with your account." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_Authentication_askAccountInfoVoice",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Temp_TNBAN",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_temp",
+        "value": "$session.params.Temp_1"
+      }, {
+        "parameter": "Metrics_Authentication_askAccountInfoVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "196d0b64-2295-42e2-9aaf-775040e0fb50"
+  }, {
+    "intent": "More info",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_askAccountInfoVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PPBMoreInfo",
+    "name": "cbabd2e3-0613-4ae6-8bba-35f1cad0fc63"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.TN_BAN_temp) = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_temp",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.TN_BAN_temp),2, 10)"
+      }, {
+        "parameter": "Metrics_Authentication_askAccountInfoVoice_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "3b74978e-1e69-4a24-b4d7-9b4db5e63b6d"
+  }, {
+    "condition": "$page.params.status = FINAL AND ($sys.func.LEN($session.params.TN_BAN_temp) = 9 OR $sys.func.LEN($session.params.TN_BAN_temp) = 10)",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_askAccountInfoVoice_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": "$session.params.TN_BAN_temp"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        }
+      }
+    },
+    "targetPage": "EmbargoSwitch",
+    "name": "4cea1a24-a5f6-47e2-8ad4-427852744386"
+  }, {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$session.params.TN_BAN_temp"
+      }, {
+        "parameter": "Metrics_Authentication_askAccountInfoVoice_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN_temp",
+        "value": null
+      } ]
+    },
+    "targetPage": "validateAccountInfo",
+    "name": "4b6d8c37-b3f0-4cbc-925f-9cc300eb0cbe"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I am sorry I didn't catch that." ]
+        },
+        "languageCode": "en"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "e42eff89-85e6-4707-a73b-ad11f49bf895"
+  }, {
+    "targetPage": "askAccountInfoVoiceB",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "1fb31981-3ac7-4b07-91dd-895eff69d8a5"
+  } ],
+  "advancedSettings": {
+    "speechSettings": {
+      "endpointerSensitivity": 90,
+      "noSpeechTimeout": {
+        "seconds": 10
+      }
+    },
+    "speechAdaptationSettings": {
+      "biasingPhraseSets": [ {
+        "biasingPhrases": [ {
+          "value": "A $OOV_CLASS_ALPHANUMERIC_SEQUENCE",
+          "boost": 18
+        } ],
+        "displayName": "Test2"
+      } ]
+    }
+  },
+  "speakerIdSettings": {
+  
+  }
+}

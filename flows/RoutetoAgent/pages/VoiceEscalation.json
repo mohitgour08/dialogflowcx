@@ -1,0 +1,99 @@
+{
+  "name": "47d88670-25b3-4221-ab64-144b0354292b",
+  "displayName": "VoiceEscalation",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "action": "escalation",
+          "escalation_reason": "by_virtual_agent",
+          "language": "en",
+          "menu_id": "$session.params.MenuID_GenesysTransfer",
+          "type": "action"
+        }
+      },
+      "languageCode": "es"
+    }, {
+      "payload": {
+        "ujet": {
+          "action": "escalation",
+          "escalation_reason": "by_virtual_agent",
+          "language": "en",
+          "menu_id": "$session.params.MenuID_GenesysTransfer",
+          "type": "action"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrcis_RouteToAgent_VoiceEscalation_1",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "eventHandlers": [ {
+    "targetPage": "End Session",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "$session.params.MenuID_GenesysTransfer",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_VoiceEscalation_NoInput",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "d4f50781-3843-43e1-bb89-b91906769a58"
+  }, {
+    "targetPage": "End Session",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "$session.params.MenuID_GenesysTransfer",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_VoiceEscalation_NoMatch",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "73821746-3fea-4531-ae74-16cb26243755"
+  } ],
+  "description": "**NI and NM are intentionally excluded from having metrics to avoid the inclusion of extra prompts in the conversation history."
+}

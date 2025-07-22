@@ -1,0 +1,154 @@
+{
+  "name": "ebe21c29-69b9-42ed-b3ea-38c4d683da15",
+  "displayName": "RetrymanualRebootType1_HoldMusic",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003eOkay, lets try one more time. Please unplug the power cord from the back of the modem. \u003cbreak time=\"1s\"/\u003e Make sure you have unplugged the correct cord by checking that all the lights on the modem go OFF. \u003cbreak time=\"1s\"/\u003e Wait one full minute and then plug the cord back in. Waiting the entire 60 seconds will give you the best result. \u003cbreak time=\"1s\"/\u003e Say \"yes\" when you have completed this step.\u003caudio src=\"https://storage.googleapis.com/awh-ccaip-public/HoldMusic.wav\" clipEnd=\"30s\" /\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoMatch1Triggered ",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_RetryManualRebootType1_HoldMusic_Yes",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WaitForRebootType1_HoldMusic",
+    "name": "ad0f5b7a-6300-4cd2-9942-ab581a3b35db"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_RetryManualRebootType1_HoldMusic_DTMF_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WaitForRebootType1_HoldMusic",
+    "name": "3650202a-a087-4d70-a8a7-fbd8e65e7213"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_RetryManualRebootType1_HoldMusic_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_ModemReboot",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "RetrymanualRebootType1_HoldMusic"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "e7ec4fe6-3a99-4ac9-91bd-c6210d34e742"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "RetryManualRebootType1",
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_RetryManualRebootType1_HoldMusic_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "eb57a2bb-3ec5-49f4-8122-80f550917aac"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry to hear that! Please give me a minute and will connect to next available agent to assist you further." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_RetryManualRebootType1_HoldMusic_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_ModemReboot",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "RetrymanualRebootType1_HoldMusic"
+      }, {
+        "parameter": "NoMatch1Triggered ",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "dbfc93ca-5d3b-4058-863d-88f0cbb2a370"
+  } ]
+}

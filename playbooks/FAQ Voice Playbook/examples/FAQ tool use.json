@@ -1,0 +1,115 @@
+{
+  "name": "a7b68f7b-bf41-4bb3-97b9-1dbfc5eaf8df",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "Hi, how can I help you today?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "how do i seup voicemail"
+    }
+  }, {
+    "toolUse": {
+      "tool": "FAQs",
+      "action": "FAQs",
+      "inputActionParameters": {
+        "requestBody": {
+          "fallback": "",
+          "filter": "",
+          "query": "how do i seup voicemail",
+          "userMetadata": {
+          
+          }
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "answer": "To set up your voicemail, follow these steps:\n1. Access the voicemail system by dialing 1-833-55VMAIL or 1-833-558-6245.\n2. Voice prompts will guide you through creating a voicemail PIN, recording greetings, recording a name, and checking voicemail messages.",
+          "snippets": [ {
+            "text": "Voice prompts will guide you through creating a voicemail PIN, recording greetings, recording a name, and checking voicemail messages. 2. Generate your PIN The length of your voicemail PIN might range from 4 to 15 digits. You'll need it in the future to access your messages, so be sure to write it down. 3.",
+            "title": "Brightspeed Voicemail",
+            "uri": "https://www.brightspeed.com/help/home-phone/calling-features/how-to-set-up-your-brightspeed-voice-mail#:~:text=Voice%20prompts%20will,it%20down.%203."
+          }, {
+            "text": "Call Brightspeed support at 833-692-7773. I missed all the notifications, and I can't access my old voicemail messages? Can Brightspeed retrieve them for me? The old voicemail platform has been decommissioned as of April 30, 2024, so Brightspeed cannot retrieve any messages. Can I still create voicemail distribution lists? Where can I find the instructions to do so? This feature is currently being tested and will be implemented soon. Are you on a previous voicemail system? Learn about the fundamentals of voicemail: How to set up your voicemail How to reset your PIN How to access voicemail, from home and away How to turn off voicemail Voicemail is usually included in home phone service. To change your service or features, contact us. How to configure voicemail Follow the steps below to access and configure your voicemail. 1. Access the voicemail system Please dial 1-833-55VMAIL or 1-833-558-6245 to access the voicemail system.",
+            "title": "Brightspeed Voicemail",
+            "uri": "https://www.brightspeed.com/help/home-phone/calling-features/how-to-set-up-your-brightspeed-voice-mail#:~:text=Call%20Brightspeed%20support,the%20voicemail%20system."
+          }, {
+            "text": "How to reset your voicemail PIN Call 833-692-7773. A representative will ask you a series of questions to verify your identity, and then will reset your PIN for you. Get Voicemail Basic Guide Get Voicemail Business How to check voicemail Simply dial 1-833-55VMAIL (1-833-558-6245) from your home phone to retrieve your voicemail. Voice prompts will guide you through the options to check voice messages and save or delete them after listening to them. Check voicemail away from home Call home and interrupt your outgoing message with #, *, or 2 (varies by location) to check your messages while away from home, or dial your retrieval number. If you don't have your retrieval number, please contact us to get it. Any time you're checking voicemail from a phone line that is not your home line, you are required to enter your voicemail PIN. Call home and interrupt the greeting Call your home phone number. Press # to interrupt the greeting.",
+            "title": "Brightspeed Voicemail",
+            "uri": "https://www.brightspeed.com/help/home-phone/calling-features/how-to-set-up-your-brightspeed-voice-mail#:~:text=How%20to%20reset,interrupt%20the%20greeting."
+          }, {
+            "text": "Dial 1-833-55VMAIL (1-833-558-6245) from the device associated with your Brightspeed voice service to access your voicemail box. How do I access voicemail if I'm not at my Brightspeed voice service location? Access to Brightspeed voicemail from anywhere by dialing 1-833-55VMAIL (1-833-558-6245) then enter your telephone number and voicemail pin. Does my Auto Attendant Feature Change with the new platform? Auto Attendant is also part of the new voicemail platform. For assistance with auto attendant configuration please contact us at 833-692-7773 and select the option for technical support or repair. Where can I reset my voicemail pin? Users can reset a voicemail pin if they know their old pin via the Telephony User Interface or through the voicemail portal. If a user doesn't know their old pin they can call Brightspeed at 833-692-7773 to have the pin reset. My new voicemail box was created but I can't login to check my messages?",
+            "title": "Brightspeed Voicemail",
+            "uri": "https://www.brightspeed.com/help/home-phone/calling-features/how-to-set-up-your-brightspeed-voice-mail#:~:text=Dial%201%2D833%2D55VMAIL%20(1%2D833%2D558%2D6245),check%20my%20messages%3F"
+          }, {
+            "text": "Your privacy By clicking \"I'm okay with this\", you agree to the use of cookies and other technologies to automatically collect information about visitor activity on the site to enhance site navigation, analyze site usage, and facilitate sharing of that information with our social media, advertising and analytics partners. You can exercise your right to opt-out by clicking “Other options”. By continuing to use this site, you agree to the site's use of these technologies, and also agree to our Website User Agreement and our Privacy Notice. Other options I'm okay with this Company Logo Privacy preference center When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences or your device and is mostly used to make the site work as you expect it to. The information does not usually directly identify you, but it can give you a more personalized web experience.",
+            "title": "Newest Brightspeed modems",
+            "uri": "https://www.brightspeed.com/help/internet/modems-and-routers/newer-brightspeed-modems.html#:~:text=Your%20privacy%20By,personalized%20web%20experience."
+          }, {
+            "text": "You can exercise your right to opt-out by clicking “Other options”. By continuing to use this site, you agree to the site's use of these technologies, and also agree to our Website User Agreement and our Privacy Notice. Other options I'm okay with this Company Logo Privacy preference center When you visit any website, it may store or retrieve information on your browser, mostly in the form of cookies. This information might be about you, your preferences or your device and is mostly used to make the site work as you expect it to. The information does not usually directly identify you, but it can give you a more personalized web experience. Because we respect your right to privacy, you can choose not to allow some types of cookies. Click on the different category headings to find out more and change our default settings. However, blocking some types of cookies may impact your experience of the site and the services we are able to offer.",
+            "title": "How to make payment arrangements | Brightspeed",
+            "uri": "https://www.brightspeed.com/help/account/pay-bill/how-to-make-payment-arrangements.html#:~:text=You%20can%20exercise,able%20to%20offer."
+          }, {
+            "text": "My Brightspeed Quick bill pay Make one-time bill payments online. No sign-in required. Quick bill pay teest Download the Brightspeed Internet app to manage your account. googleplayicon applestoreicon Was this page helpful? Yes No Brightspeed services support Icon links getting started support page Getting Started Icon links to main internet support page Internet Icon links to video library page Videos Icon links to main home phone support page Home Phone Icon links to main account support page Account Footer logo About Brightspeed | Careers | Newsroom | Legal | Privacy Notice | Tariffs | Customers with Disabilities | Site Map | Privacy preference center | Accessibility Residential | Small Business | Enterprise ©2024 Connect Holding LLC. All Rights Reserved. Third party marks are the property of their respective owners. Your privacy By clicking \"I'm okay with this\", you agree to the use of cookies and other technologies to automatically collect information about visitor activity on the site to enhance site navigation, analyze site usage, and facilitate sharing of that information with our social media, advertising and analytics partners.",
+            "title": "How to make payment arrangements | Brightspeed",
+            "uri": "https://www.brightspeed.com/help/account/pay-bill/how-to-make-payment-arrangements.html#:~:text=My%20Brightspeed%20Quick,and%20analytics%20partners."
+          }, {
+            "text": "A payment arrangement might be the best choice for you in those circumstances. What is a payment plan?",
+            "title": "How to make payment arrangements | Brightspeed",
+            "uri": "https://www.brightspeed.com/help/account/pay-bill/how-to-make-payment-arrangements.html#:~:text=A%20payment%20arrangement,a%20payment%20plan%3F"
+          }, {
+            "text": "How to make payment arrangements | Brightspeed Chat Contact Us Residential Shop Internet Home Phone Moving? Check for Deals at My Home My Brightspeed My Home Quick Bill Pay Enroll Support Support Center Contact Us Small Business Shop Business Internet Business Phone Support Contact Us Support Center Quick Bill Pay Manage Your Account Support Sign In Chat Residential x Check For Deals At My Home Internet Home Phone Moving? My Brightspeed Sign In Support Contact Us Support Center Quick Bill Pay Small Business Search Technical Support Center \u0026 Customer Service Account support Paying your bill How to make payment arrangements How to set up partial payments We recognize that it can be challenging to pay your entire amount when it's due. A payment arrangement might be the best choice for you in those circumstances. What is a payment plan? Payment plans are prearranged payments that go through automatically on the dates you choose. You can pay the entire amount owed in two payments under the most typical payment plan. Within 30 days after the date you make the arrangement, you can schedule both payments.",
+            "title": "How to make payment arrangements | Brightspeed",
+            "uri": "https://www.brightspeed.com/help/account/pay-bill/how-to-make-payment-arrangements.html#:~:text=How%20to%20make,schedule%20both%20payments."
+          }, {
+            "text": "Note: In some areas, the # key will not interrupt the greeting. Try pressing the * key or 2 instead. Enter your PIN. Follow the prompts to listen to your messages. How to turn off voicemail If you do not want to use your voicemail and would like to turn it off, please contact us to remove the service from your number. At this time, there is no self-service option for turning off voicemail. Was this page helpful? Yes No Brightspeed services support Icon links getting started support page Getting Started Icon links to main internet support page Internet Icon links to video library page Videos Icon links to main home phone support page Home Phone Icon links to main account support page Account Footer logo About Brightspeed | Careers | Newsroom | Legal | Privacy Notice | Tariffs | Customers with Disabilities | Site Map | Privacy preference center | Accessibility Residential | Small Business | Enterprise ©2024 Connect Holding LLC. All Rights Reserved. Third party marks are the property of their respective owners.",
+            "title": "Brightspeed Voicemail",
+            "uri": "https://www.brightspeed.com/help/home-phone/calling-features/how-to-set-up-your-brightspeed-voice-mail#:~:text=Note:%20In%20some,their%20respective%20owners."
+          }, {
+            "text": "You can set your browser to block or alert you about these cookies, but some parts of the site will not then work. These cookies do not store any personally identifiable information. Cookies Details‎ Functional Cookies Functional Cookies These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages. If you do not allow these cookies then some or all of these services may not function properly. Cookies Details‎ Targeting Cookies Targeting Cookies These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites. They do not store directly personal information, but are based on uniquely identifying your browser and internet device. If you do not allow these cookies, you will experience less targeted advertising. Cookies Details‎ Cookie List Clear checkbox label label Apply Cancel Consent Leg.",
+            "title": "How to make payment arrangements | Brightspeed",
+            "uri": "https://www.brightspeed.com/help/account/pay-bill/how-to-make-payment-arrangements.html#:~:text=You%20can%20set,Cancel%20Consent%20Leg."
+          }, {
+            "text": "Bank account - no fee To avoid payment fees, you can pay your bill using a bank account. Make sure you keep your account number and routing number close at hand. Credit or debit card - fee charge If you use a debit card or credit card to pay your bill, a $3.50 fee will be applied to each payment. Note: If payments are scheduled after your bill due date, late fees may still apply. Need help? Not sure which email address we have on file for your account? Having any other trouble retrieving your username or your password? Our Account \u0026 Billing Support team is happy to assist you. Just contact us by phone or by chat — we're here to help! Top pay bill topics Different ways to pay your bill Pay your bill online Pay your bill by phone How to make payment arrangements Pay your bill by mail Pay your bill in person Enroll in AutoPay View all Pay Bill topics Sign in to My Brightspeed Manage your account preferences and billing information online.",
+            "title": "How to make payment arrangements | Brightspeed",
+            "uri": "https://www.brightspeed.com/help/account/pay-bill/how-to-make-payment-arrangements.html#:~:text=Bank%20account%20%2D,billing%20information%20online."
+          }, {
+            "text": "Icon links to Internet speed test page Internet Speed Test Icon links to My Brightspeed login page to access troubleshooter and outage check Troubleshooter \u0026 Outage Check Icon links to My Brightspeed login page to access service appointment manager Where's My Technician Icon links to My Brightspeed login page to access service appointment manager Service Appointment Manager Icon links to the Brightspeed compatible modem support page Modem Compatibility Icon links to check availability page Find Available Services Was this page helpful? Yes No Brightspeed services support Icon links getting started support page Getting Started Icon links to main internet support page Internet Icon links to video library page Videos Icon links to main home phone support page Home Phone Icon links to main account support page Account Footer logo About Brightspeed | Careers | Newsroom | Legal | Privacy Notice | Tariffs | Customers with Disabilities | Site Map | Privacy preference center | Accessibility Residential | Small Business | Enterprise ©2024 Connect Holding LLC. All Rights Reserved. Third party marks are the property of their respective owners.",
+            "title": "Newest Brightspeed modems",
+            "uri": "https://www.brightspeed.com/help/internet/modems-and-routers/newer-brightspeed-modems.html#:~:text=Icon%20links%20to,their%20respective%20owners."
+          } ]
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "I can provide you with the steps to set up your voicemail. To set up your voicemail, follow these steps:\n1. Access the voicemail system by dialing 1-833-55VMAIL or 1-833-558-6245.\n2. Voice prompts will guide you through creating a voicemail PIN, recording greetings, recording a name, and checking voicemail messages.\nYou can find more details on our website at www.brightspeed.com, click on help, then home-phone, then calling features, and then set up Brightspeed voicemail."
+    }
+  }, {
+    "userUtterance": {
+      "text": "ok thanks"
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Is there anything else I can assist you with today?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "no thanks"
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Thank you for contacting Brightspeed, have a wonderful day!"
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "Customer wants to know how to setup voicemail"
+  },
+  "playbookOutput": {
+    "executionSummary": "You're welcome. Thank you for contacting Brightspeed today. Please visit us at www.brightspeed.com any time in the future for additional assistance with your Brightspeed account."
+  },
+  "displayName": "FAQ tool use",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 3928,
+  "languageCode": "en"
+}

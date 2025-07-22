@@ -1,0 +1,10 @@
+{
+  "name": "ba0c8999-6a96-4695-9127-e9c0dc379f47",
+  "displayName": "prebuilt_components_credit_card_expiration_date_collection_collect_date",
+  "parameters": [ {
+    "id": "expiration_date",
+    "entityType": "@prebuilt_components_credit_card_expiration_date"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 22
+}

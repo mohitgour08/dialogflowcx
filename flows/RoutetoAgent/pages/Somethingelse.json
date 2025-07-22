@@ -1,0 +1,159 @@
+{
+  "name": "7e43812a-1ffa-40e1-94b4-530d48c08883",
+  "displayName": "Somethingelse",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I would be happy to transfer you to an agent once we have identified your needs. Please select one of the following options that best supports your needs." ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Billing/Payment"
+          }, {
+            "action": "quick_reply",
+            "title": "Sales"
+          }, {
+            "action": "quick_reply",
+            "title": "Repair/Technical Support/Outage"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "I would be happy to transfer you to an agent once we have identified your needs. If you're a new customer or want to add a service, say \"service\". For billing or payment, say billing. For technical support, say \"tech support\". To report an outage, say \"outage.\" For questions about your account, say \"account\". Or, say \"something else\". \r\n" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Billing/Payment",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_RouteToAgent_SomethingElse_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queue_name",
+        "value": "Care"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "IsCustomerName",
+    "name": "aa156972-06b8-4996-9147-73a2a0fc7db2"
+  }, {
+    "intent": "Sales",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SomethingElse_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queue_name",
+        "value": "Sales"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NewCustomer",
+    "name": "1094cd7d-2a55-4061-a127-18f42c482474"
+  }, {
+    "intent": "sales.Repair",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_SomethingElse_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queue_name",
+        "value": "Repair"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "IsCustomerName",
+    "name": "574d7d3e-070e-4046-ab2b-12f3148e8d71"
+  }, {
+    "intent": "AccountManagement",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_RouteToAgent_SomethingElse_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queue_name",
+        "value": "Care"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "IsCustomerName",
+    "name": "dd239f0f-79ef-4ec3-a615-c995473acdcc"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "CheckIntent",
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+    
+    },
+    "name": "7b288d94-2bb7-4e43-b79e-de163cec84e4"
+  }, {
+    "targetPage": "CheckIntent",
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+    
+    },
+    "name": "c9ef5528-98a9-411f-bac7-745766f65414"
+  } ]
+}

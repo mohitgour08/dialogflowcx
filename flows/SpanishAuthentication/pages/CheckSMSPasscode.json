@@ -1,0 +1,169 @@
+{
+  "name": "2b519a08-cf5e-4cac-95af-18ee01f29882",
+  "displayName": "CheckSMSPasscode",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Passcode = $session.params.GetPasscode AND $session.params.networkType = \"4GLTE\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Gracias! He verificado tu cuenta.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eVoy a enviarte a un agente ahora para obtener más ayuda.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "¡Gracias! He verificado tu cuenta." ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Voy a enviarte a un agente ahora para obtener más ayuda." ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "SUCCESS"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": null
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_CheckSMSPasscode_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Success"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "94a8f0e1-e632-4f6f-af9a-9e27de599c49"
+  }, {
+    "condition": "$session.params.Passcode = $session.params.GetPasscode AND $session.params.networkType != \"4GLTE\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Gracias! He verificado tu cuenta.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "¡Gracias! He verificado tu cuenta." ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "SUCCESS"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": null
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_CheckSMSPasscode_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Success"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "17a5d479-ae45-4a4f-86a2-747acd12a807"
+  }, {
+    "condition": "$session.params.Passcode != $session.params.GetPasscode AND $session.params.PasscodeCount \u003c 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eEse código no parece coincidir; intentémoslo una vez más. Voy a enviar un nuevo código ahora. Utilice el teclado para escribir el código una vez que lo reciba.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "\r\nEse código no parece coincidir; intentémoslo una vez más. Voy a enviar un nuevo código ahora. Utilice el teclado para escribir el código una vez que lo reciba.\r\n" ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_validatePasscode",
+        "value": "Failure"
+      }, {
+        "parameter": "PasscodeCount",
+        "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+      }, {
+        "parameter": "GetPasscode",
+        "value": null
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_CheckSMSPasscode_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SMSResponseStatus",
+        "value": null
+      }, {
+        "parameter": "codeSent",
+        "value": "$sys.func.ADD($session.params.codeSent,1)"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      } ]
+    },
+    "targetPage": "Call2FactorSMSAPI",
+    "name": "7620382a-2c14-4a4e-b3dd-064d39b6e495"
+  }, {
+    "condition": "$session.params.Passcode != $session.params.GetPasscode AND $session.params.PasscodeCount \u003e= 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Sigo teniendo problemas con la verificación de tu cuenta." ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_CheckSMSPasscode_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "1401b761-2938-4af3-b033-6b076fdca529"
+  } ]
+}

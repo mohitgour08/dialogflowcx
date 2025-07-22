@@ -1,0 +1,23 @@
+{
+  "name": "6da9dd3b-8e85-47d3-889b-15dd158e534a",
+  "displayName": "Representative",
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutopay_Representative",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "973d9c4e-aee2-4710-8cbf-6cbb94a49214"
+  } ]
+}

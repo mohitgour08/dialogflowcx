@@ -1,0 +1,169 @@
+{
+  "name": "7c3e461d-e915-4378-839c-86fce4855ba4",
+  "displayName": "CardTypeCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "AskDateCounter",
+      "value": 0
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$sys.func.MID($session.params.CreditCardNo, 1, 1) = 4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CardType",
+        "value": "Visa"
+      }, {
+        "parameter": "Metrics_SecuredPayments_CardTypeCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "a7189554-d689-41e5-962a-10110cfa86e9"
+  }, {
+    "condition": "$sys.func.MID($session.params.CreditCardNo, 1, 1) = 5",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CardType",
+        "value": "MasterCard"
+      }, {
+        "parameter": "Metrics_SecuredPayments_CardTypeCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "a36d62a1-fb88-4c85-8133-067907cb73f2"
+  }, {
+    "condition": "$sys.func.MID($session.params.CreditCardNo, 1, 2) = 3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CardType",
+        "value": "JCB"
+      }, {
+        "parameter": "Metrics_SecuredPayments_CardTypeCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "ca94703a-42a0-4160-bcdd-c4f4444af168"
+  }, {
+    "condition": "$sys.func.MID($session.params.CreditCardNo, 1, 2) = 34 OR $sys.func.MID($session.params.CreditCardNo, 1, 2) = 37",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CardType",
+        "value": "AmericanExpress"
+      }, {
+        "parameter": "Metrics_SecuredPayments_CardTypeCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "85031e0a-a5a2-438d-84e8-afa5a1cdf01d"
+  }, {
+    "condition": "$sys.func.MID($session.params.CreditCardNo, 1, 1) = 6",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CardType",
+        "value": "Discover"
+      }, {
+        "parameter": "Metrics_SecuredPayments_CardTypeCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "a1d266a1-ab67-4846-86dd-a06afcf95a68"
+  }, {
+    "condition": "$sys.func.MID($session.params.CreditCardNo, 1, 2) = 30 OR $sys.func.MID($session.params.CreditCardNo, 1, 2) = 36 OR $sys.func.MID($session.params.CreditCardNo, 1, 2) = 38",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CardType",
+        "value": "Diners"
+      }, {
+        "parameter": "Metrics_SecuredPayments_CardTypeCheck_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "e3ee6fcc-0f8b-45a8-b2fb-6f44cefa6cfb"
+  }, {
+    "condition": "($session.params.Networktype = \"GPON\" OR $session.params.Networktype = \"BPON\" OR $session.params.Networktype = \"XGSPON\") AND $session.params.BillingSystem != \"BRIM\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentTypeBackup",
+        "value": "$session.params.PaymentType"
+      }, {
+        "parameter": "PaymentType",
+        "value": "$session.params.CardType"
+      }, {
+        "parameter": "Metrics_SecuredPayments_CardTypeCheck_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "18ffdb73-fdaa-4486-88cc-fbdc0a599c83"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Great! Next, " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Great! Next, " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CardTypeCheck_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "EnterExpiryDate",
+    "name": "ff457043-ad72-4108-a8fa-bce3066847c3"
+  } ]
+}

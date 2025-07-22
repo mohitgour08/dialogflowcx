@@ -1,0 +1,45 @@
+{
+  "trainingPhrases": [ {
+    "id": "2b70a754-6a26-4bb9-b847-58303e524a7d",
+    "parts": [ {
+      "text": "Questions"
+    }, {
+      "text": " about ",
+      "auto": true
+    }, {
+      "text": "Autopay",
+      "parameterId": "person",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a0308247-2a00-48d6-bff6-57d8f87f9ba4",
+    "parts": [ {
+      "text": "I have ",
+      "auto": true
+    }, {
+      "text": "question",
+      "auto": true
+    }, {
+      "text": " about Autopay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c89018fa-fc6f-476f-8422-9e191f602b36",
+    "parts": [ {
+      "text": "Questions",
+      "auto": true
+    }, {
+      "text": " about ",
+      "auto": true
+    }, {
+      "text": "Autopay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

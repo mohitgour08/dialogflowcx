@@ -1,0 +1,85 @@
+{
+  "name": "51ff23cb-e5eb-44fc-9c67-f45e86ae2343",
+  "displayName": "CheckOrderType",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.TicketCount != 0 AND $session.params.TicketCount != null AND ($session.params.OrdersRecentlyCompleted = \"true\" OR $session.params.PendingOrder = \"true\" OR $session.params.OrdersRecentlyCompleted = \"True\" OR $session.params.PendingOrder = \"True\" OR $session.params.OrdersRecentlyCompleted = \"TRUE\" OR $session.params.PendingOrder = \"TRUE\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_CheckOrderType_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OrderOrRepair",
+    "name": "c844158a-3de2-4ddc-afdd-594533026ea1"
+  }, {
+    "condition": "$session.params.TicketCount != 0 AND $session.params.TicketCount != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_CheckOrderType_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "TicketFound"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": null
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": null
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "4942e433-55df-4288-868f-12d8668dc318"
+  }, {
+    "condition": "$session.params.OrdersRecentlyCompleted = \"true\" OR $session.params.PendingOrder = \"true\" OR $session.params.OrdersRecentlyCompleted = \"True\" OR $session.params.PendingOrder = \"True\" OR $session.params.OrdersRecentlyCompleted = \"TRUE\" OR $session.params.PendingOrder = \"TRUE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_CheckOrderType_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PendingOrder"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": null
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": null
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "24722f10-e9a4-4329-8a02-ee879cbea159"
+  }, {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_CheckOrderType_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketNoAppointmentsFound",
+    "name": "65bb89c6-db7a-4e8e-a148-1e218978dbcb"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_CheckOrderType_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketNoAppointmentsFound",
+    "name": "e21461aa-155b-4cff-8f76-e5c51ce5e349"
+  } ]
+}

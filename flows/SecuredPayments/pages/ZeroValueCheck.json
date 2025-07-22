@@ -1,0 +1,73 @@
+{
+  "name": "32c0aaf7-2ae1-45f5-ab53-6022226395eb",
+  "displayName": "ZeroValueCheck",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_AccountStatus = \"Payment Past Due\" OR $session.params.BillInfo_AccountStatus : \"Jeopardy\" OR $session.params.BillInfo_AccountStatus : \"jeopardy\" OR $session.params.BillInfo_AccountStatus : \"Past Due\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentAmount",
+        "value": "$session.params.BillInfo_PastDueAmount"
+      }, {
+        "parameter": "Metrics_SecuredPayments_ZeroValueCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PaymentConfirmation",
+    "name": "919e26c9-fa10-461d-b526-808bde8fbe68"
+  }, {
+    "condition": "$session.params.LatestInvoiceAmount = 0 AND $session.params.BillInfo_PastDueAmount = 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentAmount",
+        "value": "$session.params.MonthlyRecurringCharge"
+      }, {
+        "parameter": "Metrics_SecuredPayments_ZeroValueCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PaymentConfirmation",
+    "name": "73cde7fb-5e8f-4721-b7c6-a9c4463acb1d"
+  }, {
+    "condition": "$session.params.LatestInvoiceAmount = 0 AND $session.params.BillInfo_PastDueAmount \u003e 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentAmount",
+        "value": "$session.params.BillInfo_PastDueAmount"
+      }, {
+        "parameter": "Metrics_SecuredPayments_ZeroValueCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PaymentConfirmation",
+    "name": "dee481b0-5cd9-4989-91ea-a82fdddeaf97"
+  }, {
+    "condition": "$session.params.LatestInvoiceAmount = \"\" AND $session.params.BillInfo_PastDueAmount \u003e 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentAmount",
+        "value": "$session.params.BillInfo_PastDueAmount"
+      }, {
+        "parameter": "Metrics_SecuredPayments_ZeroValueCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PaymentConfirmation",
+    "name": "16da7991-db6b-46a2-a425-2ac7ef336292"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentAmount",
+        "value": "$session.params.LatestInvoiceAmount"
+      }, {
+        "parameter": "Metrics_SecuredPayments_ZeroValueCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PaymentConfirmation",
+    "name": "5cc8330b-49e2-43c5-8aa1-63c0c5237a78"
+  } ]
+}

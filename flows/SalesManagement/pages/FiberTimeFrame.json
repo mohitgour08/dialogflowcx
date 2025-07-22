@@ -1,0 +1,150 @@
+{
+  "name": "f54c3bdb-e9a4-4604-b67a-806714119d97",
+  "displayName": "FiberTimeFrame",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay! What time frame is most convenient? Our Fiber techs are available 8am to 12 pm and 1pm to 5pm EASTERN. Please note, all appointments are in EASTERN time." ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "8am-10am eastern"
+          }, {
+            "action": "quick_reply",
+            "title": "10am-12pm eastern"
+          }, {
+            "action": "quick_reply",
+            "title": "1pm-3pm eastern"
+          }, {
+            "action": "quick_reply",
+            "title": "3pm-5pm eastern"
+          }, {
+            "action": "quick_reply",
+            "title": "See days of the week again."
+          }, {
+            "action": "quick_reply",
+            "title": "None of these times works for me."
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003eOkay! What time frame is most convenient? Our Fiber techs are available 8am to 12pm and 1pm to 5pm eastern. Please note, all appointments are in eastern time.\nFor an appointment between 8am and 10am, Press 1. For an appointment between 10am and 12pm, Press 2. For an appointment between 1pm and 3pm, Press 3. For an appointment between 3pm and 5pm, Press 4.  To repeat this message, Press 5. If these times are not convenient, Press 6.\u003c/speak\u003e." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "8am-10am",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "56cbb95d-f09d-484d-8dc2-f0c4e4518746"
+  }, {
+    "intent": "10am-12pm",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "5fa061a6-61bb-4c68-81b7-2e1e6ceedf7f"
+  }, {
+    "intent": "1pm-3pm",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "9c2d5d7f-5f08-4cdf-ae81-73ad67b8f6cd"
+  }, {
+    "intent": "3pm-5pm",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "a26c47c5-9e69-4ccd-bb84-a778829ad2b6"
+  }, {
+    "intent": "Repeat_DTMF5",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "FiberDays",
+    "name": "e4b1e13e-efc5-4452-902d-7d76e4124079"
+  }, {
+    "intent": "Nevermind",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay! Please hold while I transfer you to an agent for further assistance with rescheduling." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eOkay! Please hold while I transfer you to an agent for further assistance with rescheduling.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "8b4b8e9c-1960-4562-bd5c-cb51e6aac7fa"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "cea9f922-4ec3-4eb7-b658-b8226e2abd36"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "3c910439-5d41-4793-97af-40d3fae9cd60"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "c55486ed-653d-4f1c-944d-1174780c1811"
+  }, {
+    "intent": "DTMF_4",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "RescheduleConfirmation",
+    "name": "946a3f2c-3732-462f-ab78-c74f1fa3a5b2"
+  }, {
+    "intent": "DTMF_6",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay! Please hold while I transfer you to an agent for further assistance with rescheduling." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "e5c57f79-60b3-4c5e-842e-bf19b2f76ace"
+  } ]
+}

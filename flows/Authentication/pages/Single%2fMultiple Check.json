@@ -1,0 +1,106 @@
+{
+  "name": "e678da5c-4e26-4ccc-95e0-9ff02fcbbc37",
+  "displayName": "Single/Multiple Check",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Brightspeed[1].billingAccountNumber = \"\" OR $session.params.Brightspeed[1].billingAccountNumber = NULL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Single/MultiCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AccountIdentification",
+        "value": "SingleAccount"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "SingleAccountFound",
+    "name": "d5b7f607-c322-4759-b6f3-4b37d1a94bf3"
+  }, {
+    "condition": "$session.params.channel = \"voice\" AND ($session.params.Brightspeed[1].billingAccountNumber != \"\" OR $session.params.Brightspeed[1].billingAccountNumber != NULL)",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I found multiple accounts associated with this phone number. Using the keypad on your phone, please enter the account number you need assistance with. You can find your account number in the Brightspeed Portal, on the Brightspeed App, or in the upper right corner of your invoice. If your account number begins with the letters PPB, say \"more help\" now." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Single/Multi Check_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AccountIdentification",
+        "value": "MultipleAccount"
+      }, {
+        "parameter": "BanEntryCounter",
+        "value": 0
+      }, {
+        "parameter": "Authentication",
+        "value": "MULTIACCTFOUND"
+      } ]
+    },
+    "targetPage": "BANNumberEntryVoice",
+    "name": "fccc0936-b78c-47cd-b3ed-66ee3ce81323"
+  }, {
+    "condition": "$session.params.Brightspeed[1].billingAccountNumber != \"\" OR $session.params.Brightspeed[1].billingAccountNumber != NULL",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": " CustomerInfo",
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "MULTIACCTFOUND"
+      }, {
+        "parameter": "Metrics_Authentication_Single/Multi Check_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AccountIdentification",
+        "value": "MultipleAccount"
+      }, {
+        "parameter": "BanEntryCounter",
+        "value": 0
+      } ]
+    },
+    "targetPage": "BANNumberEntry",
+    "name": "6b4de624-a829-4214-92de-a61b4163b032"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I can't find an account with that information. Let's try again." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! I don't see an account that matches that information. Let's try one more time." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Authattempts",
+        "value": "1"
+      }, {
+        "parameter": "Metrics_Authentication_Single/Multi Check_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      } ]
+    },
+    "targetPage": "checkChannel",
+    "name": "638a42d4-2fab-4d54-ab9c-02a95da8c103"
+  } ]
+}

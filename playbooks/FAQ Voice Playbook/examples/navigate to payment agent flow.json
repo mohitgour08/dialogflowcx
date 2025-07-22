@@ -1,0 +1,38 @@
+{
+  "name": "9eb616eb-2cd5-4da1-b299-be33a3a1881d",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "How can I help you today?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "I want to know about autopay"
+    }
+  }, {
+    "playbookInvocation": {
+      "playbook": "PaymentAgent",
+      "playbookInput": {
+        "precedingConversationSummary": "User want to know about auto pay",
+        "actionParameters": {
+          "FAQSuccess": "DirectTransferToBA"
+        }
+      },
+      "playbookOutput": {
+        "actionParameters": {
+        
+        }
+      },
+      "playbookState": "OUTPUT_STATE_OK"
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "User want to know about auto payment"
+  },
+  "playbookOutput": {
+    "executionSummary": "."
+  },
+  "displayName": "navigate to payment agent flow",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 171,
+  "languageCode": "en"
+}

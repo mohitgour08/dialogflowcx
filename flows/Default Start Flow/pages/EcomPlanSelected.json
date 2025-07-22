@@ -1,0 +1,171 @@
+{
+  "name": "657afc95-1600-471e-898d-cfa2014fd146",
+  "displayName": "EcomPlanSelected",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.PlanSelected = null OR $session.params.PlanSelected = \"\" OR $session.params.PlanSelected = \" \") AND $session.params.BuyFlowStep = 1 AND $session.params.ChatReason = \"BrowserBar\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomPlanSelected_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EcomBrowser1BeforeIntro",
+    "name": "a0a9f1d1-ed48-47fa-8f51-006718e03897"
+  }, {
+    "condition": "($session.params.PlanSelected != null OR $session.params.PlanSelected = \"\" OR $session.params.PlanSelected = \" \") AND $session.params.BuyFlowStep = 1 AND $session.params.ChatReason = \"BrowserBar\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomPlanSelected_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EcomBrowser1AfterIntro",
+    "name": "2c0e0164-a5b6-45c9-8d98-55f6e77a5a9e"
+  }, {
+    "condition": "($session.params.PlanSelected = null OR $session.params.PlanSelected = \"\" OR $session.params.PlanSelected = \" \") AND $session.params.BuyFlowStep = 1 AND $session.params.ChatReason = \"TopLeftCorner\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomPlanSelected_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EcomTop1BeforeIntro",
+    "name": "002f3487-ce3b-452c-9d4c-38681700eee1"
+  }, {
+    "condition": "($session.params.PlanSelected != null OR $session.params.PlanSelected = \"\" OR $session.params.PlanSelected = \" \") AND $session.params.BuyFlowStep = 1 AND $session.params.ChatReason = \"TopLeftCorner\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomPlanSelected_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EcomTop1AfterIntro",
+    "name": "2a0c990c-f2ab-4fb5-a806-c8d2a3309e7e"
+  }, {
+    "condition": "$session.params.BuyFlowStep = 2 AND $session.params.ChatReason = \"BrowserBar\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomPlanSelected_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EcomStep2",
+    "name": "f141fed7-c862-4dc0-bd54-48b1b90e235c"
+  }, {
+    "condition": "($session.params.PlanSelected != null OR $session.params.PlanSelected = \"\" OR $session.params.PlanSelected = \" \") AND $session.params.BuyFlowStep = 2 AND $session.params.ChatReason = \"BrowserBar\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomPlanSelected_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EcomStep2",
+    "name": "5c89be88-11bc-4b95-907d-9086707d828b"
+  }, {
+    "condition": "$session.params.BuyFlowStep = 2 AND $session.params.ChatReason = \"TopLeftCorner\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomPlanSelected_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EcomStep2",
+    "name": "a69b6647-ab57-4d10-96ff-407a7aad92ab"
+  }, {
+    "condition": "($session.params.PlanSelected != null OR $session.params.PlanSelected = \"\" OR $session.params.PlanSelected = \" \") AND $session.params.BuyFlowStep = 2 AND $session.params.ChatReason = \"TopLeftCorner\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomPlanSelected_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "EcomStep2",
+    "name": "c41ce09a-851c-4cee-a410-c4122540e254"
+  }, {
+    "condition": "($session.params.PlanSelected = null OR $session.params.PlanSelected = \"\" OR $session.params.PlanSelected = \" \") AND $session.params.BuyFlowStep = 3 AND $session.params.ChatReason = \"BrowserBar\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomPlanSelected_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "Ecom3BeforeIntro",
+    "name": "d540fb11-57b0-44f7-bec1-9be4641f864f"
+  }, {
+    "condition": "($session.params.PlanSelected != null OR $session.params.PlanSelected = \"\" OR $session.params.PlanSelected = \" \") AND $session.params.BuyFlowStep = 3 AND $session.params.ChatReason = \"BrowserBar\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomPlanSelected_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "Ecom3AfterIntro",
+    "name": "2bb2ca56-ab19-4395-8df5-64fdbf4ff3e3"
+  }, {
+    "condition": "($session.params.PlanSelected = null OR $session.params.PlanSelected = \"\" OR $session.params.PlanSelected = \" \") AND $session.params.BuyFlowStep = 3 AND $session.params.ChatReason = \"TopLeftCorner\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomPlanSelected_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "Ecom3BeforeIntro",
+    "name": "64e48d80-b8d9-4cab-a434-b081e1a91d78"
+  }, {
+    "condition": "($session.params.PlanSelected != null OR $session.params.PlanSelected = \"\" OR $session.params.PlanSelected = \" \") AND $session.params.BuyFlowStep = 3 AND $session.params.ChatReason = \"TopLeftCorner\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomPlanSelected_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "Ecom3AfterIntro",
+    "name": "3c710e9e-b96d-4e6f-bb3c-5f02398dbb9b"
+  } ]
+}

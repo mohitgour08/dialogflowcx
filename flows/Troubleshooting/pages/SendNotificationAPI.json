@@ -1,0 +1,31 @@
+{
+  "name": "3dfc1a19-1a94-4eed-95ce-351572e34ad8",
+  "displayName": "SendNotificationAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.TemporaryVoiceMailPIN != NULL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_SendNotificationAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SMSConfirmation",
+    "name": "e4a980b6-1634-4649-9916-64de8e35a646"
+  }, {
+    "condition": "$session.params.TemporaryVoiceMailPIN = NULL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_SendNotificationAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "Didn'tDetectNumber",
+    "name": "d7975cee-babb-48b5-97bb-56634d032b7c"
+  } ]
+}

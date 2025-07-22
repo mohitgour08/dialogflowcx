@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: Customer info API
+  version: 1.0.0
+servers:
+  - url: https://api-ut.brightspeed.com/ccsc360service/api/v1/
+paths:
+  /getAccountInfo?:
+    get:
+      summary: get all customer details
+      operationId: get-customer
+      parameters:
+        - name: ucid
+          in: query
+          description: Filter customer account data based on ucid number
+          required: true
+          schema:
+            type: string
+        - name: tnorban
+          in: query
+          description: Filter customer account data on account number 
+          required: true
+          schema:
+            type: string
+         
+            
+      responses:
+        '200':
+          description: customer details
+          content:
+            application/json:
+                schema:
+                    type: object 
+                example:
+                    basedon: "tn"
+                    customer: 
+                        $ref: '#/components/schemas/Customer'
+                     
+                 
+components:
+    schemas:
+      Customer:
+        type: object
+        properties:
+            billongAccoundNumber:
+              type: string 
+            networkType:
+              type: string
+            

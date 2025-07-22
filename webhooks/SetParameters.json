@@ -1,0 +1,19 @@
+{
+  "name": "8ce5d8d3-a6ed-4488-8fd3-715b58cc827b",
+  "displayName": "SetParameters",
+  "genericWebService": {
+    "uri": "https://apgx-dev.brightspeed.com/ccsdataservice/api/v1/setAttachdataByTn",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"customer_tn\": \"$session.params.phone_number\",\n  \"cc_source\": \"ccai\",\n  \"universal_id\": \"$session.params.CallID\",\n  \"fulfilled_intent\": \"null\",\n  \"transfer_intent\": \"$session.params.RouteIntent\",\n  \"key_values\": \"$session.params.KeyValuePairs\"\n}",
+    "oauthConfig": {
+      "clientId": "byJQMxAg9HvOlxQ9IYsGRqSvvSxDycLfy3GiYOyAd5cLMaL4",
+      "clientSecret": "i1rTFXl017jxep391Y8Yt0fJVvJM4aLh5TbDAGhn5qAhNxpWL8xKn7EleriCXyqT",
+      "tokenEndpoint": "https://apgx-dev.brightspeed.com/oauth2/token",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "7f6cda91-be10-41e8-a684-4eb76441169a",
+  "displayName": "SendSMSMessage",
+  "genericWebService": {
+    "uri": "https://api-ut.brightspeed.com/ccsutilservice/api/v1/sendSMS",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"phone_number\": \"$session.params.contactNumber\",\n  \"message\": \"$session.params.smsMessage $session.params.Passcode $session.params.smsMessage1\"\n}",
+    "parameterMapping": [ {
+      "key": "SMSResponseStatus",
+      "value": "status"
+    } ],
+    "oauthConfig": {
+      "clientId": "Wxq32hAc8gxpoxhatAxdU38UhD8kVmkK3C0MAPHlzCZBhhtZ",
+      "clientSecret": "dtA3CT9c77cVxpI0Aw1THWKfO0ix3kqwKjrY080rCg1PeHQYmCMpmM52xd1LwY21",
+      "tokenEndpoint": "https://api-ut.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 27
+  }
+}

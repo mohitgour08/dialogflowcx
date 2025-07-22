@@ -1,0 +1,27 @@
+{
+  "entities": [ {
+    "value": "^[1-9]\\d{9}$",
+    "synonyms": [ "^[1-9]\\d{9}$" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "^[1-9]\\d{8}$",
+    "synonyms": [ "^[1-9]\\d{8}$" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "^dtmf_digits_[1-9]\\d{9}$",
+    "synonyms": [ "^dtmf_digits_[1-9]\\d{9}$" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "^dtmf_digits_[1-9]\\d{8}$",
+    "synonyms": [ "^dtmf_digits_[1-9]\\d{8}$" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "\\b(?:A\\d{8}|\\d{9})\\b",
+    "synonyms": [ "\\b(?:A\\d{8}|\\d{9})\\b" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "^\\(?\\d{3}\\)?[-,_ ]?\\d{3}[-,_ ]?\\d{3}$",
+    "synonyms": [ "^\\(?\\d{3}\\)?[-,_ ]?\\d{3}[-,_ ]?\\d{3}$" ],
+    "languageCode": "en-us"
+  } ]
+}

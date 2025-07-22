@@ -1,0 +1,28 @@
+{
+  "name": "ac34a9c2-57af-4d26-90ac-55f04a916030",
+  "displayName": "AutopayEnrollCheck",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Autopay = \"Enrolled\" OR $session.params.Autopay = \"Y\" OR $session.params.BillingMethod = \"prepaid\" OR $session.params.BillingMethod = \"PR\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AutopayEnrollCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OTPBankorCard",
+    "name": "a88e74c7-1d29-483c-9a54-9a6492378879"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AutopayEnrollCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormEnrollAutopay",
+    "name": "42032620-1a49-4996-8587-434f3e4e926d"
+  } ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "4de9c0a6-a1f2-4a9b-9401-1e2e1ac23de0",
+  "displayName": "RepeatCounter",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.EmbargoCounter = \"1\" AND $session.params.language = \"Spanish\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "EmbargoSpanishMenu",
+    "name": "3f993376-0831-49c1-9bba-3df3f437da19"
+  }, {
+    "condition": "$session.params.EmbargoCounter = \"2\" AND $session.params.language = \"Spanish\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "EmbargoSpanishMenu",
+    "name": "e822694f-f37b-483c-9c0b-4575a6436b2d"
+  }, {
+    "condition": "$session.params.EmbargoCounter = \"1\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "BillCycleCheck",
+    "name": "baba3c2e-64d7-4d56-98e0-e55f4ed475a8"
+  }, {
+    "condition": "$session.params.EmbargoCounter = \"2\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "BillCycleCheck",
+    "name": "0f77b647-fc91-4582-9cdb-11f5deab99d8"
+  }, {
+    "condition": "$session.params.EmbargoCounter = \"3\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "EMBRGCARE"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "76a07e5d-4faf-4778-9a2d-de05e7377cb4"
+  } ]
+}

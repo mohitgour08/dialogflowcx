@@ -1,0 +1,90 @@
+{
+  "name": "c510cf5f-a082-48e0-907c-2501bc201f3f",
+  "displayName": "AskAccountInfoB",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eComenzando con el código de área, ingrese un número de 10 dígitos asociado con su cuenta, o su número de cuenta de facturación de 9 dígitos.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "AuthenticationAccountInfoBAN",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$session.params.ENTER_BAN"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_AskAccountInfoB_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "validateAccountInfo",
+    "name": "e9531920-5776-4259-8648-79b022329295"
+  }, {
+    "intent": "AuthenticationAccountInfoTN",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$session.params.phone-number"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_AskAccountInfoB_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "validateAccountInfo",
+    "name": "9b99a8be-b1cb-416d-8e1c-fdc62ad96582"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_AskAccountInfoB_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "BANTN_NoMatch"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Invalid BANTN"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AskAccountInfoB"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        }
+      }
+    },
+    "name": "61ebd3fd-f987-425e-85c1-485f71a56400"
+  } ]
+}

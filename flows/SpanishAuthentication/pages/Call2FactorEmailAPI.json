@@ -1,0 +1,375 @@
+{
+  "name": "44ad4fa5-e343-4ebf-97b5-ac1aa75cb967",
+  "displayName": "Call2FactorEmailAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "SendEmail",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Passcode",
+      "value": "$sys.func.MID($sys.func.TO_TEXT($sys.func.RAND()), 3, 6)"
+    }, {
+      "parameter": "EmailMessage",
+      "value": "\u003chtml\u003e\u003cbody\u003e\u003cbr\u003eHere is your \u003cb\u003e one time code: $session.params.Passcode\u003c/b\u003e \u003cbr\u003e Please enter this code to authenticate your account.\u003cbr\u003e Note: This code will expire 10 minutes after it was requested.\u003cbr\u003e\u003cbr\u003e If you did not request this access code, click \u003ca href='https://myaccount.brightspeed.com/uni-login'\u003ehere \u003c/a\u003e to access account security. \u003cbr\u003e\u003cbr\u003e\u003c/body\u003e\u003c/html\u003e"
+    }, {
+      "parameter": "EmailSubject",
+      "value": "Brightspeed One Time Code"
+    }, {
+      "parameter": "EmailHeader",
+      "value": "\u003chtml\u003e \u003cbody\u003e\u003ca\u003e\u003cimg src='https://image.notifications.brightspeed.com/lib/fe2a11737164047b721078/m/1/098677d3-73bd-4171-ace3-905a13bf0c99.png' alt='Brightspeed home page' width='200px' height='40px'/\u003e\u003c/a\u003e  \u003c/body\u003e \u003c/html\u003e"
+    }, {
+      "parameter": "EmailFooter",
+      "value": "\u003chtml\u003e\u003cbody\u003e****This is an automatically generated message; please do not reply. \u003cbr\u003e\u003cbr\u003e\u003c/body\u003e\u003c/html\u003e"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.codeSent = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorEmailAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ENTER",
+    "name": "8c76fe47-e00d-40d6-8ba4-9d4b79921709"
+  }, {
+    "condition": "$session.params.codeSent \u003e 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eSigo teniendo problemas con la verificación de tu cuenta.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Sigo teniendo problemas con la verificación de tu cuenta." ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorEmailAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "2582d6d7-0211-4851-b1c5-79f47c870d8b"
+  }, {
+    "condition": "$session.params.EmailResponseStatus = \"Success\" OR $session.params.EmailResponseStatus = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorEmailAPI_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Success"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorEmailAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "targetPage": "GetEmailPasscode",
+    "name": "0bc98a7f-3a05-4df1-8a0e-968414b10844"
+  }, {
+    "condition": "$session.params.EmailResponseStatus != \"Success\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTuve un problema cuando intenté enviar el mensaje de texto.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Tuve un problema cuando intenté enviar el mensaje de texto." ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorEmailAPI_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "EmailAPIFailed"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorEmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "af944c9a-1bf5-43df-b092-ba859a9f9479"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTuve un problema cuando intenté enviar el mensaje de texto.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorEmailAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook Error"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorEmailAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "name": "462482ec-2502-4e9d-bc05-2ec5471b8aa3"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTuve un problema cuando intenté enviar el mensaje de texto.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorEmailAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorEmailAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "name": "c8c9561f-e24c-49b5-869e-4285546fbb2e"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTuve un problema cuando intenté enviar el mensaje de texto.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorEmailAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorEmailAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "name": "6ac08078-1185-4e9f-b858-56882dbda82b"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTuve un problema cuando intenté enviar el mensaje de texto.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorEmailAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorEmailAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "name": "37d4152e-84cf-4090-8625-154483edfb8c"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTuve un problema cuando intenté enviar el mensaje de texto.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorEmailAPI_Webhook_TimeOut",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookTimeOut"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorEmailAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "name": "9d044dae-0413-411c-b390-a6a3b853f26d"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eTuve un problema cuando intenté enviar el mensaje de texto.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_Call2FactorEmailAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_EmailAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "API_SpanishAuthentication_Call2FactorEmailAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendEmail"
+      } ]
+    },
+    "name": "8d7cac38-e433-42a0-a14f-bf868ec19d07"
+  } ]
+}

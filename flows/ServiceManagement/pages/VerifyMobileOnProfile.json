@@ -1,0 +1,35 @@
+{
+  "name": "a8b10085-d569-41b0-94a2-6766ae1a4bd0",
+  "displayName": "VerifyMobileOnProfile",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ContactNumber != null AND $session.params.ContactNumber != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_VerifyMobileOnProfile_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PhoneNumberInProfile",
+    "name": "96fa8d3a-0393-487d-b607-436ef91aa412"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_VerifyMobileOnProfile_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SMSNumbercounter",
+        "value": 0
+      } ]
+    },
+    "targetPage": "VerifyMobileNumber",
+    "name": "3fc64105-352c-4bce-a577-ce3e2c7115d8"
+  } ],
+  "description": "Customer has mobile on Profile"
+}

@@ -1,0 +1,37 @@
+{
+  "name": "8f45499e-c731-433c-a32e-13fadc4230dc",
+  "displayName": "APCurrentBalanceCCExpVoiceorChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCurrentBalanceCCExpVoiceorChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FormPostpaidCurrentAPNFP",
+        "value": "hasBalanceCCE"
+      }, {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      } ]
+    },
+    "targetPage": "FormPostpaidCurrentNotFullyPaidAP",
+    "name": "1638a64c-a03e-4f5d-8316-241bd2884a73"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APCurrentBalanceCCExpVoiceorChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCurrentBalanceCCExp",
+    "name": "8da89560-0dde-4343-9f40-8a66e616ed78"
+  } ]
+}

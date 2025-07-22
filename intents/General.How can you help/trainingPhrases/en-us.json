@@ -1,0 +1,157 @@
+{
+  "trainingPhrases": [ {
+    "id": "5c48e8f9-6dd5-4bd9-8906-e1b12fa1a089",
+    "parts": [ {
+      "text": "Can you help me ",
+      "auto": true
+    }, {
+      "text": "Cody",
+      "parameterId": "person",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ff2c7a7e-018f-4fb2-9c48-21478f7159a4",
+    "parts": [ {
+      "text": "I have a question",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8fe0d52f-0e27-41fd-bcef-fddbd95ec3ab",
+    "parts": [ {
+      "text": "how can you help me ",
+      "auto": true
+    }, {
+      "text": "cody",
+      "auto": true
+    }, {
+      "text": " ?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "67839250-a165-4cf3-85ee-deddbf401802",
+    "parts": [ {
+      "text": "i need some help",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "51138e2d-2c55-420a-84b0-55f2e433c0bb",
+    "parts": [ {
+      "text": "how can u help ?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0cbd090c-d1a7-4dd6-82ce-9cece17dbcdf",
+    "parts": [ {
+      "text": "What sort of inquiries are you open to receiving?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1fee9c6a-5042-429f-b0ad-281cf7c8eb16",
+    "parts": [ {
+      "text": "What sort of questions am I allowed to ask you?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cf1cefb0-a2d8-4226-bf0b-30eb5ca5ff7e",
+    "parts": [ {
+      "text": "What sort of inquiries are acceptable to you?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "432c032a-dc32-424c-9244-3f02c5fc043c",
+    "parts": [ {
+      "text": "what type of questions can I ask you ?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cbfdbaf0-712a-416f-b92c-dc5c5df52494",
+    "parts": [ {
+      "text": "Which issues can you answer?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "da0807b3-0438-4912-9fb5-5e14902ca103",
+    "parts": [ {
+      "text": "What questions can you answer?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "185df0c3-98e5-4f6f-b825-03fc9d70cff3",
+    "parts": [ {
+      "text": "Which problems can you solve?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "511becde-488e-404c-897e-37205bb4bb01",
+    "parts": [ {
+      "text": "what queries can you resolve?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "eaaf6a34-ee6f-4030-9742-4834b30250e1",
+    "parts": [ {
+      "text": "What can you do to assist me?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9b1c4877-7e17-4247-bb36-6fd0da77ec18",
+    "parts": [ {
+      "text": "Please tell me how you can assist me.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b0f2860c-cadf-4a99-bc76-c3676c5793d1",
+    "parts": [ {
+      "text": "How can you assist me?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "be7a9e39-3ad0-4d9f-ba2d-22bbf5ab6f04",
+    "parts": [ {
+      "text": "how can you help me?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3acce848-bc9d-4f71-b465-24dfbc93125d",
+    "parts": [ {
+      "text": "what services do you offer",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ee81d159-512a-4185-a9c4-635364ddcdc3",
+  "displayName": "Sales.DiscountsandPromotions",
+  "parameters": [ {
+    "id": "confirmpassword",
+    "entityType": "@ConfirmPassword"
+  }, {
+    "id": "jargons",
+    "entityType": "@Jargons"
+  }, {
+    "id": "payment_arrangement",
+    "entityType": "@Payment_Arrangement"
+  }, {
+    "id": "person",
+    "entityType": "@sys.person"
+  }, {
+    "id": "callerintent_routetoagent",
+    "entityType": "@callerintent_routetoagent"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 168
+}

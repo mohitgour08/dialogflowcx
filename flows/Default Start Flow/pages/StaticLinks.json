@@ -1,0 +1,251 @@
+{
+  "name": "4099d215-c58b-4a6b-bf91-0ed39144d6be",
+  "displayName": "StaticLinks",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "staticLink_Primary",
+    "tag": "LinkTest",
+    "setParameterActions": [ {
+      "parameter": "Link_Key1",
+      "value": "GetAccountNumber"
+    }, {
+      "parameter": "Link_Key2",
+      "value": "OnlineUsername"
+    }, {
+      "parameter": "Link_Key3",
+      "value": "OnlinePassword"
+    }, {
+      "parameter": "Link_Key4",
+      "value": "ManageApp1"
+    }, {
+      "parameter": "Link_Key5",
+      "value": "ManageApp2"
+    }, {
+      "parameter": "Link_Key6",
+      "value": "OnlineAccountAccess"
+    }, {
+      "parameter": "Link_Key7",
+      "value": "SetUpOnlineAcct"
+    }, {
+      "parameter": "Link_Key8",
+      "value": "CustProfile"
+    }, {
+      "parameter": "Link_Key9",
+      "value": "Brightspeedurl"
+    }, {
+      "parameter": "Link_Key10",
+      "value": "BillCopy"
+    }, {
+      "parameter": "Link_Key11",
+      "value": "Bankinfo"
+    }, {
+      "parameter": "Link_Key12",
+      "value": "LateFee"
+    }, {
+      "parameter": "Link_Key13",
+      "value": "PaymentInquiry"
+    }, {
+      "parameter": "Link_Key14",
+      "value": "PaymentHistory"
+    }, {
+      "parameter": "Link_Key15",
+      "value": "RecurringPayment"
+    }, {
+      "parameter": "Link_Key16",
+      "value": "RecurringPayment1"
+    }, {
+      "parameter": "Link_Key17",
+      "value": "VoluntarySuspend"
+    }, {
+      "parameter": "Link_Key18",
+      "value": "Support"
+    }, {
+      "parameter": "Link_Key19",
+      "value": "VerifyPayment"
+    }, {
+      "parameter": "Link_Key20",
+      "value": "UpdatePayment"
+    }, {
+      "parameter": "Link_Key21",
+      "value": "TaxResponse"
+    }, {
+      "parameter": "Link_Key22",
+      "value": "OneTimeCharge0"
+    }, {
+      "parameter": "Link_Key23",
+      "value": "Onetimecharge1"
+    }, {
+      "parameter": "Link_Key24",
+      "value": "Onetimecharge2"
+    }, {
+      "parameter": "Link_Key25",
+      "value": "Onetimecharge3"
+    }, {
+      "parameter": "Link_Key26",
+      "value": "CallingFeature"
+    }, {
+      "parameter": "Link_Key27",
+      "value": "WifiModem"
+    }, {
+      "parameter": "Link_Key28",
+      "value": "ACPService"
+    }, {
+      "parameter": "Link_Key29",
+      "value": "CreditBalance"
+    }, {
+      "parameter": "Link_Key30",
+      "value": "CurrentBalance"
+    }, {
+      "parameter": "Link_Key31",
+      "value": "PrepaidPayment"
+    }, {
+      "parameter": "Link_Key32",
+      "value": "NAPURLFailure"
+    }, {
+      "parameter": "Link_Key33",
+      "value": "MailingAddress"
+    }, {
+      "parameter": "Link_Key34",
+      "value": "Location"
+    }, {
+      "parameter": "Link_Key35",
+      "value": "APURLFailure"
+    }, {
+      "parameter": "Link_Key36",
+      "value": "CTLUpdateSuccess"
+    }, {
+      "parameter": "Link_Key37",
+      "value": "VerifyPayment2"
+    }, {
+      "parameter": "Metrics_DefaultStartFlow_StaticLinks",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "Link_Key38",
+      "value": "CopperEquipmentReturn"
+    }, {
+      "parameter": "Link_Key39",
+      "value": "ModemStatus"
+    }, {
+      "parameter": "Link_Key40",
+      "value": "GetAccountNumber2"
+    }, {
+      "parameter": "Link_Key41",
+      "value": "BrightspeedPortal"
+    }, {
+      "parameter": "Link_Key42",
+      "value": "TermsAndConditions"
+    }, {
+      "parameter": "Link_Key43",
+      "value": "LifeLine"
+    }, {
+      "parameter": "Link_Key44",
+      "value": "PaymentArrangement"
+    }, {
+      "parameter": "Link_Key45",
+      "value": "PaymentArrangement1"
+    }, {
+      "parameter": "Link_Key46",
+      "value": "PaymentAgreement"
+    }, {
+      "parameter": "Link_Key47",
+      "value": "AppleappLink"
+    }, {
+      "parameter": "Link_Key48",
+      "value": "GoogleappLink"
+    }, {
+      "parameter": "Link_Key49",
+      "value": "OnlineTroubleshooter"
+    }, {
+      "parameter": "Link_Key50",
+      "value": "CashPayments"
+    }, {
+      "parameter": "Link_Key51",
+      "value": "privacyNotice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_StaticLinks_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "welcomePrompt_chat",
+    "name": "7e5e63f6-cb60-4e53-acd0-be2069818f8c"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "StaticLinkSecondary",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_staticLinks_webhookerror",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "3e0b1105-cd27-4e5c-a214-095cd620cb4b"
+  }, {
+    "targetPage": "StaticLinkSecondary",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_staticLinks_webhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "98ab4a53-702f-4192-bbac-d288dc83d5f3"
+  }, {
+    "targetPage": "StaticLinkSecondary",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_staticLinks_webhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "107cfddb-39d8-4bed-82f7-bb647a06f4d5"
+  }, {
+    "targetPage": "StaticLinkSecondary",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_staticLinks_webhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "477db19b-1e7f-44a1-b2ac-309aa9993de4"
+  }, {
+    "targetPage": "StaticLinkSecondary",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_staticLinks_webhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "8a59cb62-873b-4134-9233-097f76892a42"
+  }, {
+    "targetPage": "StaticLinkSecondary",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_staticLinks_webhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "e59dfa32-32f2-41fa-8e14-b06e4df4e5f7"
+  } ]
+}

@@ -1,0 +1,254 @@
+{
+  "name": "db9e0232-93d9-4c7f-bab9-39c5183bb17f",
+  "displayName": "Common",
+  "transitionRoutes": [ {
+    "intent": "AffordableConnectivityProgram ",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "AffordableConnectivityProgram"
+      }, {
+        "parameter": "Metrics_ListenIntialIntent_CollectIntent_AffordableConnectivityProgram",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "AffordableConnectivityProgram"
+      }, {
+        "parameter": "ToModule",
+        "value": "ACP"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "ACP",
+    "name": "09ae8ef2-11e3-4a6d-887b-a94d5f354a9d"
+  }, {
+    "intent": "HoursOfOperation",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "HoursOfOperation"
+      }, {
+        "parameter": "Metrics_ListenIntialIntent_CollectIntent_HoursOfOperation",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "HoursOfOperation"
+      }, {
+        "parameter": "ToModule",
+        "value": "HoursOfOperation"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "HoursOfOperation",
+    "name": "037d3cce-1d7c-4b06-ad4a-f873b803893e"
+  }, {
+    "intent": "TermsAndConditions",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "TermsAndConditions"
+      }, {
+        "parameter": "Metrics_ListenIntialIntent_CollectIntent_TermsAndConditions",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "TermsAndConditions"
+      }, {
+        "parameter": "ToModule",
+        "value": "TermsAndConditions"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "TermsAndConditions",
+    "name": "ae77349d-c5db-4c96-8892-79cc3e954959"
+  }, {
+    "intent": "VoiceMailSetUpOrPINReset",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntentVoice_VMSetUpOrPassword",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "VMSetUpOrPassword"
+      }, {
+        "parameter": "callerintent",
+        "value": "VMSetUpOrPassword"
+      }, {
+        "parameter": "ToModule",
+        "value": "VMSetUpOrPassword"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "VMSetUpOrPassword",
+    "name": "9701d86d-684d-49f7-8907-10fde7b494da"
+  }, {
+    "intent": "LifeLine",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "LifeLine"
+      }, {
+        "parameter": "Metrics_ListenIntialIntent_CollectIntent_LifeLine",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "LifeLine"
+      }, {
+        "parameter": "callerIntent",
+        "value": "LifeLine"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "LifeLine",
+    "name": "76c6e580-12d5-4120-a7b6-9e580bbb19eb"
+  }, {
+    "intent": "EquipmentDamage",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand your concern." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "EquipmentDamage"
+      }, {
+        "parameter": "Metrics_ListenIntialIntent_CollectIntent_EquipmentDamage",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "ExternalEquipmentDamage"
+      }, {
+        "parameter": "callerIntent",
+        "value": "EquipmentDamage"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "ExternalEquipmentDamage",
+    "name": "9fc48dd9-97a9-4635-a2b9-d0ea0421a52f"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_representative",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "representative"
+      }, {
+        "parameter": "ToModule",
+        "value": "RoutetoAgent"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CollectIntentVoice"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "9c564672-7af3-4f2e-8ad1-fef9bc54e086"
+  }, {
+    "intent": "Default Welcome Intent",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "callerintent",
+        "value": null
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_Hi",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "Start Page",
+    "name": "c9d1baa0-8710-446d-bc4e-7a6856eacc9c"
+  }, {
+    "intent": "GoodToGo",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_GoodtoGo",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "12398a94-349e-46a3-8deb-d34ee0db8e55"
+  }, {
+    "intent": "GoodBye",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_GoodBye",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "c34a88df-ba9c-4cb4-a3a5-3a856bcad89b"
+  } ]
+}

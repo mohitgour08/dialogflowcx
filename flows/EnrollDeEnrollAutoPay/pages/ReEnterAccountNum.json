@@ -1,0 +1,40 @@
+{
+  "name": "80100548-45e9-4e3c-ac9b-0c8df5ff2366",
+  "displayName": "ReEnterAccountNum",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "No problem! Let's try again. Enter your bank account number again now." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "No problem! Let's try again. Please say or enter your 8-12 digit bank account number followed by the pound sign." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_ReEnterAccountNum_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnterAccountNumber",
+    "name": "e141f69f-c7f6-4780-8a48-94acce5ff7d6"
+  } ]
+}

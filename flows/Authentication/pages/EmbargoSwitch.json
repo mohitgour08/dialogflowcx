@@ -1,0 +1,184 @@
+{
+  "name": "cc439692-5de1-4220-9e77-f01df72488d1",
+  "displayName": "EmbargoSwitch",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "CCSPSwitch",
+    "tag": "EmbargoSwitchAuth",
+    "setParameterActions": [ {
+      "parameter": "Metrics_Authentication_EmbargoSwitch_EmbargoSwitchAuth_wh_EmbargoSwitch",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "CCSPToggle",
+      "value": "EmbargoSwitch"
+    }, {
+      "parameter": "EmbargoSwitch",
+      "value": 0
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.EmbargoSwitch = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_EmbargoSwitch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EmbargoAuth",
+    "name": "09675a8c-3af0-4385-b4f9-31b2d606161d"
+  }, {
+    "condition": "$session.params.EmbargoSwitch = 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "Success"
+      }, {
+        "parameter": "Metrics_Authentication_EmbargoSwitch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CustLookUp",
+    "name": "4d05ced4-363f-432e-af42-ac8eacd3515a"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_EmbargoSwitch_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "NoData"
+      } ]
+    },
+    "targetPage": "CustLookUp",
+    "name": "0d64d048-4216-4cb9-98e1-9325d92e02ff"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "CustLookUp",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_EmbargoSwitch_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      } ]
+    },
+    "name": "9058289d-ddd2-4d42-bcc0-b59f5df0d3b0"
+  }, {
+    "targetPage": "CustLookUp",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_EmbargoInvalid_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      } ]
+    },
+    "name": "5444884f-8acd-457f-a809-5ea066b0dea7"
+  }, {
+    "targetPage": "CustLookUp",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_EmbargoSwitch_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      } ]
+    },
+    "name": "892c4035-168e-44c3-b808-7f93329c445e"
+  }, {
+    "targetPage": "CustLookUp",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_EmbargoSwitch_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      } ]
+    },
+    "name": "90aaa497-3843-475f-9007-81bb968a9b05"
+  }, {
+    "targetPage": "CustLookUp",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_EmbargoSwitch_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      } ]
+    },
+    "name": "506f7d93-09ce-4e49-903a-20614510f2d4"
+  }, {
+    "targetPage": "CustLookUp",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_EmbargoSwitch_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoSwitch_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      } ]
+    },
+    "name": "289983ef-410a-48e6-81a6-edd4bccec6f0"
+  } ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "82153a5b-a816-495e-b4e6-436e20b0b69e",
+  "displayName": "Troubleshooting.PhoneIssues",
+  "parameters": [ {
+    "id": "street_number_custom",
+    "entityType": "@street_number_custom"
+  }, {
+    "id": "authentication",
+    "entityType": "@Authentication"
+  }, {
+    "id": "detail_type",
+    "entityType": "@detail_type"
+  }, {
+    "id": "callerintent_routetoagent",
+    "entityType": "@callerintent_routetoagent"
+  }, {
+    "id": "prebuilt_components_credit_card_expiration_month",
+    "entityType": "@prebuilt_components_credit_card_expiration_month"
+  }, {
+    "id": "password",
+    "entityType": "@Password"
+  }, {
+    "id": "phone-number",
+    "entityType": "@sys.phone-number"
+  }, {
+    "id": "account_type",
+    "entityType": "@account_type"
+  }, {
+    "id": "callerintent_routetoagent1",
+    "entityType": "@callerintent_routetoagent"
+  }, {
+    "id": "callerintent_routetoagent2",
+    "entityType": "@callerintent_routetoagent"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 128
+}

@@ -1,0 +1,14 @@
+{
+  "name": "478df848-a378-49e7-9927-91177b8483a2",
+  "displayName": "AdditionalQuestion",
+  "transitionRoutes": [ {
+    "intent": "AdditionalQuestion",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_TermsAndConditions_AdditionalQuestion",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "0c66ea28-6637-47d1-8543-f0736d454c6b"
+  } ]
+}

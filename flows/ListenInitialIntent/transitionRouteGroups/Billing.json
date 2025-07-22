@@ -1,0 +1,350 @@
+{
+  "name": "f32b3d0e-0159-4688-8469-76ffb4a26e56",
+  "displayName": "Billing",
+  "transitionRoutes": [ {
+    "intent": "Billing.BillCredit",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "AccountCredit"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_BillCredit",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "AccountCredit"
+      }, {
+        "parameter": "ToModule",
+        "value": "Billing"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Billing",
+    "name": "c73a25c6-7236-4976-b31d-47489eb24f4a"
+  }, {
+    "intent": "Billing.ExplainRecurringCharges",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "ExplainRecurringCharges"
+      }, {
+        "parameter": "ToModule",
+        "value": "Billing"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_ExplainRecurringCharges",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "ExplainRecurringCharges"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Billing",
+    "name": "9b41dd0d-34ac-4f51-b46f-6000959a7021"
+  }, {
+    "intent": "Billing.OneTimeCharges",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "OneTimeCharges"
+      }, {
+        "parameter": "ToModule",
+        "value": "Billing"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_OneTimeCharges",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "OneTimeCharges"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Billing",
+    "name": "5f1b6b49-9777-48ec-ba5a-fc51d995819d"
+  }, {
+    "intent": "Billing.BillingDisputeCharges",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "BillingDispute"
+      }, {
+        "parameter": "ToModule",
+        "value": "Billing"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_DisputeCharges",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "BillingDispute"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Billing",
+    "name": "508c75a3-9e81-4730-b341-d5ca4a0203ad"
+  }, {
+    "intent": "Billing.TaxesSurcharges",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "LearnAboutTaxesFeesAndSurcharges"
+      }, {
+        "parameter": "ToModule",
+        "value": "Billing"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_TaxesSurcharges",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "LearnAboutTaxesFeesAndSurcharges"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Billing",
+    "name": "a5e1df79-d796-4926-ac76-e04bb8f23900"
+  }, {
+    "intent": "Billing.AcctSentToCollections",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "BillingAccountSentToCollections"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_AcctSentToCollections",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "BillingAccountSentToCollections"
+      }, {
+        "parameter": "ToModule",
+        "value": "Billing"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Billing",
+    "name": "31f0257e-34f5-4954-97d5-957d38eb2d39"
+  }, {
+    "intent": "Billing.RenewDiscounts",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "RenewDiscounts"
+      }, {
+        "parameter": "ToModule",
+        "value": "Billing"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_RenewDiscounts",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "RenewDiscounts"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Billing",
+    "name": "1a9b4264-f1cb-46de-a81e-677f4406e13f"
+  }, {
+    "intent": "Billing.FinalBill",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "FinalBill"
+      }, {
+        "parameter": "ToModule",
+        "value": "Billing"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_FinalBill",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "FinalBill"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Billing",
+    "name": "fd562f3c-c193-43d9-b6e5-4a9e5b10015f"
+  }, {
+    "intent": "Billing.GiftCard",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Intent",
+        "value": "\"Gift card\"\""
+      }, {
+        "parameter": "ToState",
+        "value": "GiftCard"
+      }, {
+        "parameter": "ToModule",
+        "value": "Billing"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_GiftCard",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "GiftCard"
+      } ]
+    },
+    "targetFlow": "Billing",
+    "name": "407a5fcb-c6ad-4609-a82d-e522b27266b9"
+  }, {
+    "intent": "Billing.RequestBillCopy",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "BillRequestBillCopy"
+      }, {
+        "parameter": "ToModule",
+        "value": "Billing"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_BillCopy",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "BillRequestBillCopy"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Billing",
+    "name": "d6f877c6-135b-4baa-8ae7-5e11d1ccf74e"
+  }, {
+    "intent": "Billing.UnderstandLastBill",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "BillingUnderstandLastBill"
+      }, {
+        "parameter": " Metrics_ListenInitialIntent_CollectIntent_UnderstandLastBill",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "BillingUnderstandLastBill"
+      }, {
+        "parameter": "ToModule",
+        "value": "Billing"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Billing",
+    "name": "b02f000e-8441-42ad-b1d3-1302b62dc6e7"
+  } ]
+}

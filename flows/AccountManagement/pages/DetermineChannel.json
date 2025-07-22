@@ -1,0 +1,28 @@
+{
+  "name": "e205bede-de82-4d59-b17c-7ee840566fd5",
+  "displayName": "DetermineChannel",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_DetermineChannel_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdateEmailVoice",
+    "name": "05afdf07-82df-4ac6-9803-4581db777503"
+  }, {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_DetermineChannel_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnterEmailAddress",
+    "name": "f41a5a9e-2070-468b-b4fe-c488efd68d0b"
+  } ]
+}

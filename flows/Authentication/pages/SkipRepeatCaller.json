@@ -1,0 +1,25 @@
+{
+  "name": "6ecedede-59f9-45af-8cfa-639e35556c59",
+  "displayName": "SkipRepeatCaller",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.skipRepeatCaller = \"True\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Check4GLTE",
+    "name": "bf73df03-7a5b-40f1-ae4a-2fec8effa362"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_SkipRepeatCallerCheck",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "RepeatCallerCheck",
+    "name": "043f6649-b3d0-43e4-a35d-1482aa2ef4eb"
+  } ]
+}

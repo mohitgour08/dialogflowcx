@@ -1,0 +1,122 @@
+{
+  "name": "f4d24759-2402-458a-a95c-320ff8ffed52",
+  "displayName": "CardFormCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.formResponse = \"Form Back\" AND ($session.params.networkType = \"GPON\" OR $session.params.networkType = \"XGSPON\" OR $session.params.networkType = \"BPON\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "formResponse",
+        "value": null
+      }, {
+        "parameter": "Metrics_SecuredPayments_CardFormCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberPay",
+    "name": "523faadd-f9b5-4fa0-94a9-19b8f84970d3"
+  }, {
+    "condition": "$session.params.formResponse = \"Form Back\" AND $session.params.BillingMethod = \"postpaid\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CardFormCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "formResponse",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckOverdue",
+    "name": "27f5b156-d06e-4e8c-9b8a-9efc4f4bc1b4"
+  }, {
+    "condition": "$session.params.formResponse = \"Form Back\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "formResponse",
+        "value": null
+      }, {
+        "parameter": "Metrics_SecuredPayments_CardFormCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CardOrAccount",
+    "name": "4ab6fd9b-4467-43eb-981c-580a9a1bdba5"
+  }, {
+    "condition": "$session.params.formResponse = \"Form Cancel\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "formResponse",
+        "value": null
+      }, {
+        "parameter": "Metrics_SecuredPayments_CardFormCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CancelTransactionChat",
+    "name": "58ae8dc0-6f82-40d6-8866-89adee6481de"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "GetPayTokenAPI-chat_Logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CardFormCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "JsonPayloadAPI",
+    "name": "6493b6f7-137b-4086-81e4-3dc808927f11"
+  } ]
+}

@@ -1,0 +1,358 @@
+{
+  "name": "f75616e7-74fe-4213-a25c-60efae34df4c",
+  "displayName": "UpdateCardWrapperVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "AddUpdatePaymentMethodWrapperAPICardVoice",
+    "tag": "AddWalletFiberVoice",
+    "setParameterActions": [ {
+      "parameter": "Metrics_UpdateCardWrapperVoice_none_wh_AddUpdatePaymentMethodWrapperAPICardVoice",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "UpdatePayment",
+      "value": ""
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.UpdatePaymentErrorMessage != null AND $session.params.UpdatePaymentErrorMessage != \"\" AND $session.params.UpdatePayment != \"Success\" AND $session.params.UpdatePayment != \"success\" AND $session.params.UpdatePayment != \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_updatecardWrappervoice_Message",
+        "value": "$session.params.UpdatePaymentErrorMessage"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdateCardWrapperVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "e668d663-c374-455d-bc11-bd123aad1679"
+  }, {
+    "condition": "$session.params.ToState = \"FiberPayment\" AND ($session.params.UpdatePayment = \"Success\" OR $session.params.UpdatePayment = \"success\" OR $session.params.UpdatePayment = \"SUCCESS\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentToken",
+        "value": "$session.params.paymentAuthId"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdateCardWrapperVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCardWrapperVoice",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AddUpdatePaymentMethodWrapperAPICardVoice"
+      } ]
+    },
+    "targetPage": "PaymentAPI",
+    "name": "1025cb96-c5c7-4ad4-968e-6ebffdf441de"
+  }, {
+    "condition": "$session.params.FailureCount = \"2\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to process your payment. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdateCardWrapperVoice_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "ac178864-3899-4b10-8610-355ba6b91ea4"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdateCardWrapperVoice_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FailureCount",
+        "value": "2"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SecuredPayments-UpdateCardWrapperVoice,Failure"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCardWrapperVoice",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AddUpdatePaymentMethodWrapperAPICardVoice"
+      } ]
+    },
+    "targetPage": "FiberPaymentFailed",
+    "name": "299023df-fb00-456f-9d17-31dad0df3ede"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. Let me transfer you to an agent." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdateCardWrapperVoice_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AddUpdatePaymentMethodWrapperAPICardVoice"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCardWrapperVoice",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AddUpdatePaymentMethodWrapperAPICardVoice"
+      } ]
+    },
+    "name": "b53c68a5-158f-4560-993f-ad949b6c97f3"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. Let me transfer you to an agent." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdateCardWrapperVoice_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid "
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AddUpdatePaymentMethodWrapperAPICardVoice"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCardWrapperVoice",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AddUpdatePaymentMethodWrapperAPICardVoice"
+      } ]
+    },
+    "name": "4010d69a-bf3c-4edd-b237-7a4171c2fec8"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. Let me transfer you to an agent." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdateCardWrapperVoice_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AddUpdatePaymentMethodWrapperAPICardVoice"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCardWrapperVoice",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AddUpdatePaymentMethodWrapperAPICardVoice"
+      } ]
+    },
+    "name": "b4ee5cf8-9817-4b69-bc6c-f27f0f95db88"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. Let me transfer you to an agent." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdateCardWrapperVoice_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AddUpdatePaymentMethodWrapperAPICardVoice"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCardWrapperVoice",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AddUpdatePaymentMethodWrapperAPICardVoice"
+      } ]
+    },
+    "name": "72f13781-49a2-459a-b176-9f08bff6008e"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. Let me transfer you to an agent." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdateCardWrapperVoice_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AddUpdatePaymentMethodWrapperAPICardVoice"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCardWrapperVoice",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AddUpdatePaymentMethodWrapperAPICardVoice"
+      } ]
+    },
+    "name": "d8d8bf30-5968-4428-8978-77eebc61020d"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. Let me transfer you to an agent." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdateCardWrapperVoice_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AddUpdatePaymentMethodWrapperAPICardVoice"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCardWrapperVoice",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "AddUpdatePaymentMethodWrapperAPICardVoice"
+      } ]
+    },
+    "name": "d4b32276-0561-4704-9c0a-6b38ac60e7c8"
+  } ]
+}

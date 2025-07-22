@@ -1,0 +1,31 @@
+{
+  "name": "984ea37a-15db-4a2c-9e7f-702ca51b6237",
+  "displayName": "PendingOrderOrRepairTicketNumber",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "getOrderProductInfo",
+    "tag": "Order"
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ResponseStatus = \"SUCCESS\" OR $session.params.ResponseStatus = \"success\" OR $session.params.ResponseStatus = \"Success\" OR $session.params.returnvalue = \"PendingOrder\"",
+    "triggerFulfillment": {
+    
+    },
+    "name": "8a9a6487-ad49-4388-93d7-dee80bf37a87"
+  }, {
+    "condition": "$session.params.ResponseStatus = \"SUCCESS\" OR $session.params.ResponseStatus = \"success\" OR $session.params.ResponseStatus = \"Success\" OR $session.params.ReturnValue = \"RepairTicket\"",
+    "triggerFulfillment": {
+    
+    },
+    "name": "6e3bf8e9-61fe-46c2-a176-d7ff8f5d38a5"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "TicketNoAppointmentFoundCopyNew",
+    "name": "7b11b4f0-3a08-4971-93d2-ff1480514990"
+  } ]
+}

@@ -1,0 +1,11 @@
+{
+  "entities": [ {
+    "value": "\\d{7,9}",
+    "synonyms": [ "\\d{7,9}" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "(^[A-Z]{1}[0-9]{6,8})$|^([0-9]{7,9}$)",
+    "synonyms": [ "(^[A-Z]{1}[0-9]{6,8})$|^([0-9]{7,9}$)" ],
+    "languageCode": "en-us"
+  } ]
+}

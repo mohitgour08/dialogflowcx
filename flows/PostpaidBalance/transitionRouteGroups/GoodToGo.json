@@ -1,0 +1,15 @@
+{
+  "name": "ed807c67-a619-4153-aa0b-d6c54772677e",
+  "displayName": "GoodToGo",
+  "transitionRoutes": [ {
+    "intent": "GoodToGo",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_GoodToGo",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerIndicatedTheyWereDone",
+    "name": "c5db6bd9-4682-466c-94c6-0ddedb3daf98"
+  } ]
+}

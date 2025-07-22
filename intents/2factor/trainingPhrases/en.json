@@ -1,0 +1,40 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "factor",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "2factor",
+      "parameterId": "street_number_custom",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "2",
+      "parameterId": "prebuilt_components_credit_card_expiration_date",
+      "auto": true
+    }, {
+      "text": " factor",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "two",
+      "parameterId": "prebuilt_components_credit_card_expiration_month",
+      "auto": true
+    }, {
+      "text": " factor",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

@@ -1,0 +1,191 @@
+{
+  "name": "a9d69613-b07a-428f-9925-b50837788df0",
+  "displayName": "Troubleshooting",
+  "transitionRoutes": [ {
+    "intent": "28d4a919-c2d2-42e7-a50c-765359b78804",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding rescheduling your appointment." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_RescheduleAppointment",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "339f84ec-f61c-43c9-aef6-815792583f40"
+  }, {
+    "intent": "Troubleshooting.CheckOutages",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding Outages." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_CheckOutages",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "CheckOutages"
+      }, {
+        "parameter": "ToModule",
+        "value": "Troubleshooting"
+      } ]
+    },
+    "targetFlow": "Troubleshooting",
+    "name": "541fb840-091f-4a37-8a6b-a9ef171ccc01"
+  }, {
+    "intent": "Troubleshooting.GeneralTroubleshooting",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding issues with Internet." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_InternetIssues",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "GeneralTroubleshooting"
+      }, {
+        "parameter": "ToModule",
+        "value": "Troubleshooting"
+      } ]
+    },
+    "targetFlow": "Troubleshooting",
+    "name": "d370a8af-0bc2-47f7-b9a8-72491a6d99d5"
+  }, {
+    "intent": "Troubleshooting.ModemIssues",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding issues with modem." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_ModemIssues",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "08fe4a4d-fdf3-4925-bc68-7879a44f54a7"
+  }, {
+    "intent": "Troubleshooting.PhoneIssues",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding issues with phone." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_PhoneIssues",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "95e12ef3-0a30-4f7b-a9a3-29b0269c9fe7"
+  }, {
+    "intent": "sales.Repair",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding slow Internet." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_SlowInternet",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "b2895e19-bc1b-4470-90c5-6d64465d38b8"
+  }, {
+    "intent": "43d638f2-e4f2-4917-8122-d7f7a0a3631f",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding technician's unavailability." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_TechnicianUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "05542cf2-6e90-434c-874c-c14f3f9a182b"
+  }, {
+    "intent": "Troubleshooting.GetWifiModemCredentials",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding your Wi-Fi." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "GetWifiModemUsernamePassword"
+      }, {
+        "parameter": "ToModule",
+        "value": "Troubleshooting"
+      }, {
+        "parameter": "callerintent",
+        "value": "Get Wifi/Modem Username/Password"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_GetWifiModemUsernamePassword",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Troubleshooting",
+    "name": "0042a386-d40a-4030-b857-29b2313bdfcb"
+  }, {
+    "intent": "Troubleshooting.DisputeOrder",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding a dispute with your order." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_DisputeOrder",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "dbb24f48-0674-44b4-8c11-6cf1d8ece328"
+  } ]
+}

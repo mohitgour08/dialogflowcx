@@ -1,0 +1,28 @@
+{
+  "name": "acac3031-f703-4ce3-a72e-7d9dbeceb7eb",
+  "displayName": "CheckPOorFiber",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckPOorFiber_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FiberSuccessDPMCheck",
+    "name": "cb30b31e-4f71-4934-aa82-c26d4b2808b4"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckPOorFiber_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckDefaultMethodUsed",
+    "name": "862dbea5-b5a6-4c99-871d-b8e4ef41c672"
+  } ]
+}

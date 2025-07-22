@@ -1,0 +1,11 @@
+{
+  "name": "e67be446-f827-48dd-8388-5aee6a6a87d1",
+  "displayName": "callAniLookUpCloudFunctions",
+  "genericWebService": {
+    "uri": "https://us-central1-bs-prj-dev-ccai.cloudfunctions.net/AniLookUp",
+    "webhookType": "STANDARD"
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

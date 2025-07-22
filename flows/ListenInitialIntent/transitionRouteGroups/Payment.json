@@ -1,0 +1,360 @@
+{
+  "name": "d7e9371e-4f43-4806-89af-688e5616fd4d",
+  "displayName": "Payment",
+  "transitionRoutes": [ {
+    "intent": "Payment.LateFee",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "ExplainLateFees"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_LateFee",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "ExplainLateFees"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_ExplainLateFees",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "4689cb32-d190-4bf2-aa2a-1d3ad9b079f0"
+  }, {
+    "intent": "Payment.RecurringPaymentAutopay",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "RecurringPaymentAutopay"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_RecurringPaymentAutopay",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "RecurringPaymentAutopay"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_RecurringPaymentAutopay",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "fb279096-8c0d-4e51-91ab-b6e761e6cf95"
+  }, {
+    "intent": "Payment.BankInformation",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "BankInformation"
+      }, {
+        "parameter": "callerintent",
+        "value": "BankInformation"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_BankInformation",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_BankInformation",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "1aa4a7cb-391f-4c76-9282-979a4aa784c5"
+  }, {
+    "intent": "Payment.MethodOfPaymentUpdate",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "callerintent",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_MethodOfPaymentUpdate",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_MethodOfPaymentUpdate",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "39766c18-79f4-4583-af57-c7bf2a4a8bbf"
+  }, {
+    "intent": "Payment.MethodOfPaymentInquiry",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "MethodsofPaymentInquiry"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_MethodofPaymentInquiry",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "MethodsofPaymentInquiry"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_MethodOfPaymentInquiry",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "9e966d42-e42b-46a5-bb89-5118a074f353"
+  }, {
+    "intent": "Payment.MissingPayment",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentMissingOrMisappliedPayment"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_MissingPayment",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentMissingOrMisappliedPayment"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentMissing",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "ef9dc8ba-0b97-4c18-b83f-e65086bcf0f8"
+  }, {
+    "intent": "Payment.PaymentDueDate",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentDueDate"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentDueDate"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_PaymentDueDate",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "53b817bc-469b-4b4c-b924-0bbec377f14a"
+  }, {
+    "intent": "Payment.PaymentHistory",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentHistory"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_PaymentHistory",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentHistory"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentHistory",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "a6b1dfa3-1e5c-42a0-b241-d60763239062"
+  }, {
+    "intent": "Payment.PaymentArrangement",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentArrangement"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_PaymentArrangement",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentArrangement"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "5aa9ec89-44d2-4764-87f2-836923390033"
+  }, {
+    "intent": "Payment.DueDateChange",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentDueDateChange"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentDueDateChange"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_PaymentDueDateChange",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "3ce9ab2a-0a74-42e2-8ea4-3f06a1847f9d"
+  } ]
+}

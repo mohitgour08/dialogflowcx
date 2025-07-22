@@ -1,0 +1,40 @@
+{
+  "name": "465fb16c-e299-418a-97f6-d0c565442cc6",
+  "displayName": "FiberCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.NetworkType = \"GPON\" OR $session.params.NetworkType = \"XGSPON\" OR $session.params.NetworkType = \"BPON\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "BillInfo_BillDueDateCopper",
+        "value": "$session.params.BillInfo_BillDueDate"
+      }, {
+        "parameter": "BillInfo_BillDueDate",
+        "value": "$session.params.NextDueDate"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_FiberCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "DateDiff",
+    "name": "21f816fc-c887-4d21-a951-e535fc56f7c9"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "BillInfo_BillDueDateCopper",
+        "value": "$session.params.BillInfo_BillDueDate"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_FiberCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "DateDiff",
+    "name": "54c315b7-adcd-4a1c-aef5-54ba4db3dedc"
+  } ]
+}

@@ -1,0 +1,93 @@
+{
+  "name": "a4f64278-1c4d-48bc-9339-9971b2dbd4d5",
+  "displayName": "POCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.OrdersRecentlyCompleted = \"true\" OR $session.params.PendingOrder = \"true\" OR $session.params.OrdersRecentlyCompleted = \"True\" OR $session.params.PendingOrder = \"True\" OR $session.params.OrdersRecentlyCompleted = \"TRUE\" OR $session.params.PendingOrder = \"TRUE\") AND ($session.params.networkType = \"GPON\" OR $session.params.networkType = \"BPON\" OR $session.params.networkType = \"XGSPON\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "BRSPDPEND"
+      }, {
+        "parameter": "Metrics_RouteToAgent_POCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "2e0585e4-fad0-4226-9ca9-987fbc9b5fbc"
+  }, {
+    "condition": "($session.params.OrdersRecentlyCompleted = \"true\" OR $session.params.PendingOrder = \"true\" OR $session.params.OrdersRecentlyCompleted = \"True\" OR $session.params.PendingOrder = \"True\" OR $session.params.OrdersRecentlyCompleted = \"TRUE\" OR $session.params.PendingOrder = \"TRUE\") AND $session.params.networkType = \"Copper\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "GPENDLCRES"
+      }, {
+        "parameter": "Metrics_RouteToAgent_POCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "5568c3d9-143a-4a2f-beca-4f300acc2c3b"
+  }, {
+    "condition": "$session.params.networkType = \"Copper\" OR $session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "state",
+        "value": "$session.params.BillingAddress_state"
+      }, {
+        "parameter": "Metrics_RouteToAgent_POCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "SetParameters",
+    "name": "0e8d58ab-7c69-45c4-84db-372dafcc7ac9"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_POCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "state",
+        "value": "$session.params.ServiceAddress_state"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "SetParameters",
+    "name": "56bd9409-2310-47c0-8c56-131ab57f9764"
+  } ]
+}

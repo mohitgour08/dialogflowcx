@@ -1,0 +1,1764 @@
+{
+  "trainingPhrases": [ {
+    "id": "3a430c8c-9fcc-4ab3-85be-16a28b5fbad5",
+    "parts": [ {
+      "text": "I am moving and need to",
+      "auto": true
+    }, {
+      "text": " keep ",
+      "auto": true
+    }, {
+      "text": "my phone number.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7d3452c1-07a2-473a-886c-5588a2dcb643",
+    "parts": [ {
+      "text": "Relinquish ",
+      "auto": true
+    }, {
+      "text": "my number to a new",
+      "auto": true
+    }, {
+      "text": " provider",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9be679a8-dbf1-47bd-a492-6d5bd230823e",
+    "parts": [ {
+      "text": "Transition ",
+      "auto": true
+    }, {
+      "text": "my existing",
+      "auto": true
+    }, {
+      "text": " number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7381de9f-5ba5-4187-bbaa-722e5666fb5b",
+    "parts": [ {
+      "text": "Transport ",
+      "auto": true
+    }, {
+      "text": "my phone number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "73acb749-dc0b-4b6f-9dc2-ac4e8cec2292",
+    "parts": [ {
+      "text": "Move ",
+      "auto": true
+    }, {
+      "text": "my number to a different",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "carrier",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0d266d96-3ae4-475a-9b2a-1934f5a770da",
+    "parts": [ {
+      "text": "Convert ",
+      "auto": true
+    }, {
+      "text": "my number to a new",
+      "auto": true
+    }, {
+      "text": " provider",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d732a2f7-993a-4aee-b079-cb6225e790d8",
+    "parts": [ {
+      "text": "Switch ",
+      "auto": true
+    }, {
+      "text": "carriers with my",
+      "auto": true
+    }, {
+      "text": " number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d0b883fd-bdb2-421f-ad40-4e8ab0be5b44",
+    "parts": [ {
+      "text": "Shift ",
+      "auto": true
+    }, {
+      "text": "my existing",
+      "auto": true
+    }, {
+      "text": " number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "366bac01-2fe3-4a9e-a7f1-d6ab3b8e1532",
+    "parts": [ {
+      "text": "Change service provider with my number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "64528ba1-7514-4a7b-8ff0-a4c66239c6ad",
+    "parts": [ {
+      "text": "Transfer ",
+      "auto": true
+    }, {
+      "text": "my phone number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "87be6810-b078-490a-9427-9b47af46906a",
+    "parts": [ {
+      "text": "Migrate my number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "40778266-be68-4328-abe9-d795280e7905",
+    "parts": [ {
+      "text": "Port over my phone number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9ea16ac2-d519-446e-9589-4d015fcd2284",
+    "parts": [ {
+      "text": "Take my number with me",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7465356e-b0a4-42ce-9d99-0b5545036253",
+    "parts": [ {
+      "text": "Relocate ",
+      "auto": true
+    }, {
+      "text": "my phone number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1fb326cb-3534-48a1-b1f4-e775ce1904df",
+    "parts": [ {
+      "text": "Bring my number",
+      "auto": true
+    }, {
+      "text": " with me",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d70e66d2-23c0-45f0-b0d9-ce73c01450de",
+    "parts": [ {
+      "text": "Carry ",
+      "auto": true
+    }, {
+      "text": "over my number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b5b0ea76-db17-4027-8795-d9208e2a87c5",
+    "parts": [ {
+      "text": "Retain my current number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f8c41e6f-2a4b-41e3-9832-23b450ed3487",
+    "parts": [ {
+      "text": "Move",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "my phone number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "20da3359-95c2-4804-9acb-7bf6391a04db",
+    "parts": [ {
+      "text": "Switch my number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f42e54f8-8357-48df-9f67-ab51730f879e",
+    "parts": [ {
+      "text": "Keep my existing",
+      "auto": true
+    }, {
+      "text": " number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "875217b9-1bd0-4ca0-9782-be050b39d617",
+    "parts": [ {
+      "text": "transfer my number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "158660c1-a4f3-45c9-8d53-d301f43fbde8",
+    "parts": [ {
+      "text": "transfer ",
+      "auto": true
+    }, {
+      "text": "my number to Brightspeed",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d74a9d1f-76a9-4192-9ee3-5f52f57950f9",
+    "parts": [ {
+      "text": "port in existing number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3947fa87-77e7-46e3-99ed-b6ad8c35efec",
+    "parts": [ {
+      "text": "steps to port in ",
+      "auto": true
+    }, {
+      "text": "existing",
+      "auto": true
+    }, {
+      "text": " number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7e6cdbd3-2fcb-45ea-8164-fe9607de2628",
+    "parts": [ {
+      "text": "I'd like to understand the terms and conditions related to number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " in detail.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1f2c3f5b-65fb-4754-95e8-935bd68af3de",
+    "parts": [ {
+      "text": "Do you offer any temporary numbers or services while the number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " process is in progress?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "02a9b3c8-8e26-4989-8a70-1fdd0a5c601d",
+    "parts": [ {
+      "text": "What is the expected timeframe for my ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " to be fully functional with ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " after ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "849bf7a5-e120-4fc4-86c9-6fcf12e965f4",
+    "parts": [ {
+      "text": "Can you guide me on how to initiate the number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " process to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " step by step?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6e9fed4b-752c-4fea-9d88-dc8e0ba91b5c",
+    "parts": [ {
+      "text": "Is there a fee associated with the number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " process to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": ", and if so, what'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " the cost?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4fd2ec76-8b16-40ec-9f3d-9c5cba45214b",
+    "parts": [ {
+      "text": "Are there any specific forms or documentation I need to fill out for the number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " request at ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "755634df-5b91-4149-b1f4-bdba72be9e68",
+    "parts": [ {
+      "text": "Can you provide information on any potential ",
+      "auto": true
+    }, {
+      "text": "downtime",
+      "auto": true
+    }, {
+      "text": " or service interruptions during number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a044a03c-fb86-4c63-93ca-544f616a989b",
+    "parts": [ {
+      "text": "Is there a dedicated hotline or contact point for ",
+      "auto": true
+    }, {
+      "text": "assistance",
+      "auto": true
+    }, {
+      "text": " with the number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " process at ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c75ea981-c22c-4e6b-a163-c9648505d7af",
+    "parts": [ {
+      "text": "What are the technical requirements or compatibility considerations for ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " my number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e2ada7ef-525e-4afa-a078-84090875207d",
+    "parts": [ {
+      "text": "I'm considering ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " for ",
+      "auto": true
+    }, {
+      "text": "phone",
+      "auto": true
+    }, {
+      "text": " service, and I'd like to understand the benefits of ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " my number.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8db951af-31c9-4830-8ede-ed629d43b33d",
+    "parts": [ {
+      "text": "I'd like to hear about any success stories or experiences from customers who've ported their numbers to BrightSpeed."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e7061e35-5e2c-4ec8-a33e-c0b7e1bd395f",
+    "parts": [ {
+      "text": "Can you clarify any potential challenges or ",
+      "auto": true
+    }, {
+      "text": "issues",
+      "auto": true
+    }, {
+      "text": " that might arise during the number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " process?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fa32bd26-aefd-4a12-9ad7-9923e67d97ba",
+    "parts": [ {
+      "text": "What happens to my ",
+      "auto": true
+    }, {
+      "text": "existing",
+      "auto": true
+    }, {
+      "text": " contract or agreement with my current service provider when I ",
+      "auto": true
+    }, {
+      "text": "port",
+      "auto": true
+    }, {
+      "text": " my number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c409fc83-f1f0-4c02-a561-ba88e5167926",
+    "parts": [ {
+      "text": "Is there an ",
+      "auto": true
+    }, {
+      "text": "online",
+      "auto": true
+    }, {
+      "text": " portal or ",
+      "auto": true
+    }, {
+      "text": "app",
+      "auto": true
+    }, {
+      "text": " where I can track the progress of my number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " request?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5453fe8a-85e8-43f0-99f1-2a68f45d0ace",
+    "parts": [ {
+      "text": "Are there any additional services or features included when I ",
+      "auto": true
+    }, {
+      "text": "port",
+      "auto": true
+    }, {
+      "text": " my number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "32074b2e-7f1c-45b1-b678-a0cfef9e2607",
+    "parts": [ {
+      "text": "I want to make sure the transition to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " is smooth. Can you provide guidance on number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "edf05e67-4a83-45b6-8ac7-83f6641d77bc",
+    "parts": [ {
+      "text": "Can you explain the steps involved in ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " my ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " in detail?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "acfbf861-d27f-4e4b-bbcb-5ffbc4efb7d9",
+    "parts": [ {
+      "text": "Is there a dedicated team or support available to ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " with the number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " process at ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7676ffe8-5bc9-4a16-a7e4-107079ff8888",
+    "parts": [ {
+      "text": "How long does the number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " process to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " typically take?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4677197c-d468-4d74-a9dd-5e84c99a271e",
+    "parts": [ {
+      "text": "I'm interested in ",
+      "auto": true
+    }, {
+      "text": "signing up",
+      "auto": true
+    }, {
+      "text": " for ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": ", and I'd like to know if I can keep my current ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cbd06d4b-0983-4436-a54f-3e3e8ff91114",
+    "parts": [ {
+      "text": "Can you explain how the process works for ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " a number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "66b2d365-c026-48be-bbcd-bb9bc716742c",
+    "parts": [ {
+      "text": "What documents or information do I need to provide to ",
+      "auto": true
+    }, {
+      "text": "successfully",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "port",
+      "auto": true
+    }, {
+      "text": " my number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c5bb2ae7-afee-4168-b8ca-3957dafae57d",
+    "parts": [ {
+      "text": "Is there a fee or ",
+      "auto": true
+    }, {
+      "text": "charge",
+      "auto": true
+    }, {
+      "text": " associated with transferring my ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f421362c-5d37-4e85-96ad-a7f2b1ac0aab",
+    "parts": [ {
+      "text": "Can you provide details on the requirements and timeline for ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " a number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cbb30dac-e588-4276-bda0-97b386c1fe75",
+    "parts": [ {
+      "text": "I'm considering ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": ", and I'd like to know if my current number can be ",
+      "auto": true
+    }, {
+      "text": "ported",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "20c9a389-5b68-46ea-a187-8ec2d5692386",
+    "parts": [ {
+      "text": "Do you have any guidelines or information on ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " a number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "03b43e05-d3a2-434b-a917-099106c7016b",
+    "parts": [ {
+      "text": "I want to retain my current ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " when switching to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": ". Is that possible?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e1cb4024-8a04-4aff-82ec-ceaa02d60515",
+    "parts": [ {
+      "text": "How can I initiate the process of ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " my current ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "30900189-ebe3-449d-b829-44c33af50f65",
+    "parts": [ {
+      "text": "Is number portability supported by ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "? I'd like to bring my ",
+      "auto": true
+    }, {
+      "text": "existing",
+      "auto": true
+    }, {
+      "text": " number with me.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f4db8bb7-b562-42d0-9d59-578eedd418bc",
+    "parts": [ {
+      "text": "Can I transfer my current ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " for ",
+      "auto": true
+    }, {
+      "text": "phone",
+      "auto": true
+    }, {
+      "text": " service?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dda12fcd-edfd-43ad-b8ca-559eee8d9a4b",
+    "parts": [ {
+      "text": "Do you have any resources or guidance available to ensure a smooth transition when I ",
+      "auto": true
+    }, {
+      "text": "port",
+      "auto": true
+    }, {
+      "text": " my number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " postpaid plan?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1eb75fe2-b585-489c-bebc-b79cf2755c92",
+    "parts": [ {
+      "text": "Is there a dedicated support team or process for postpaid customers looking to transfer their numbers to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2274fc50-0e95-4772-8d96-63dac379cde0",
+    "parts": [ {
+      "text": "How does ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " postpaid customers in the number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " process to make it convenient and efficient?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "84a0c410-9178-42e1-9f4e-1ae9f84bf7e7",
+    "parts": [ {
+      "text": "I'm currently on a postpaid plan with ",
+      "auto": true
+    }, {
+      "text": "another",
+      "auto": true
+    }, {
+      "text": " provider, but I'm considering ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": ". Can I ",
+      "auto": true
+    }, {
+      "text": "port",
+      "auto": true
+    }, {
+      "text": " my ",
+      "auto": true
+    }, {
+      "text": "existing",
+      "auto": true
+    }, {
+      "text": " number to your service?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "076f13f5-bfaa-4506-bf03-665f7166abc4",
+    "parts": [ {
+      "text": "I want to ensure minimal disruption to my communication. How reliable is the number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " process for postpaid customers?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "717a5121-3e14-4185-af03-0e7a7f0e629f",
+    "parts": [ {
+      "text": "Can you explain the documentation or details I need to provide to ",
+      "auto": true
+    }, {
+      "text": "successfully",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "port",
+      "auto": true
+    }, {
+      "text": " my number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1f2e3774-b60c-4064-8253-fe23c777bf89",
+    "parts": [ {
+      "text": "Are there any fees or ",
+      "auto": true
+    }, {
+      "text": "charges",
+      "auto": true
+    }, {
+      "text": " associated with transferring my ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " as a postpaid customer?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "62f9d192-d362-4284-8ac6-2aaac269ae5a",
+    "parts": [ {
+      "text": "What'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " the estimated duration for the number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " process when switching to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " postpaid service?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1becba8b-93b3-4225-b599-c4b9fc30e205",
+    "parts": [ {
+      "text": "I'm considering switching to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " postpaid plan and would like to retain my current ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": ". Is this an option?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6f4b8eac-b9c7-43d9-80fe-f0fccde4cf33",
+    "parts": [ {
+      "text": "Can you provide any tips or recommendations to ensure a hassle-free experience when ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " my number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0c84bc13-15f1-487d-b3b9-dfdfd832f7d4",
+    "parts": [ {
+      "text": "Is there a dedicated team or contact point I should reach out to when I'm ready to ",
+      "auto": true
+    }, {
+      "text": "port",
+      "auto": true
+    }, {
+      "text": " my number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " prepaid plan?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fb0f75a2-bd48-46a1-8758-539857798a8d",
+    "parts": [ {
+      "text": "What kind of support does ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed offer",
+      "auto": true
+    }, {
+      "text": " to make the number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " process as smooth as possible for prepaid customers?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c0101f5e-2059-4ef7-9460-ad6ce302cf06",
+    "parts": [ {
+      "text": "I've been with my current provider for a while, and I'd like to switch to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": ". Can I transfer my ",
+      "auto": true
+    }, {
+      "text": "existing",
+      "auto": true
+    }, {
+      "text": " number to your prepaid service?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "48a253e0-8de9-4b58-bb44-31ab0165f16f",
+    "parts": [ {
+      "text": "I want to make sure my contacts can still reach me. How seamless is the number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " process for prepaid customers?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c78eea92-c2fe-4de0-a1d0-b5fd7a167ead",
+    "parts": [ {
+      "text": "Can you clarify the documentation or information I need to provide to ",
+      "auto": true
+    }, {
+      "text": "port",
+      "auto": true
+    }, {
+      "text": " my number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f4459a1c-3a2c-4866-8801-e9301388df07",
+    "parts": [ {
+      "text": "Are there any fees associated with transferring my ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " as a prepaid customer?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3378881f-ceb1-4d96-b590-69e7c8805a84",
+    "parts": [ {
+      "text": "What is the expected timeframe for ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " my number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " prepaid plan?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a84ff904-7f39-46d4-ac0e-9e4cba8731cd",
+    "parts": [ {
+      "text": "I've heard great things about ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": ", and I'd like to bring my current number with me. Is that possible for prepaid customers?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "977ae3aa-ecbb-4a94-95c6-2fd04f34b430",
+    "parts": [ {
+      "text": "Could you explain the steps and requirements for ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " my number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " as a postpaid customer?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9e0965a0-b6ac-4697-82a3-5c72fef70ff2",
+    "parts": [ {
+      "text": "Is there a straightforward process for postpaid customers to transfer their numbers to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e8a27b5d-2a81-4819-a498-10a7137aef76",
+    "parts": [ {
+      "text": "I'd like to explore the option of keeping my current ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " with ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " postpaid plan.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3ff7d163-82fb-453d-b168-9d570451e8a4",
+    "parts": [ {
+      "text": "Can you provide details on how postpaid customers can ",
+      "auto": true
+    }, {
+      "text": "port",
+      "auto": true
+    }, {
+      "text": " their ",
+      "auto": true
+    }, {
+      "text": "existing",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "phone numbers",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "34b53d52-7494-4e87-a9a1-1478325fada0",
+    "parts": [ {
+      "text": "I'm thinking of switching to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " as a postpaid customer. Is number portability supported?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3f69abf2-ce3c-4fea-9934-79c62fc41647",
+    "parts": [ {
+      "text": "Can you explain the steps involved in ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " my number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " prepaid service?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7e48c0cb-f143-4c22-b394-3c68d3cdb71b",
+    "parts": [ {
+      "text": "Is there a process in place for prepaid customers to keep their ",
+      "auto": true
+    }, {
+      "text": "phone numbers",
+      "auto": true
+    }, {
+      "text": " when switching to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0f6d9e02-d07f-4f21-91a6-fd386658332b",
+    "parts": [ {
+      "text": "I'd like to know if I can ",
+      "auto": true
+    }, {
+      "text": "port",
+      "auto": true
+    }, {
+      "text": " my current number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " prepaid plan.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bc28063c-bed1-445b-beff-de8e7c009095",
+    "parts": [ {
+      "text": "How do I go about transferring my ",
+      "auto": true
+    }, {
+      "text": "existing",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " as a prepaid customer?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9800604b-b199-4be1-bedd-c90ff42b3a5d",
+    "parts": [ {
+      "text": "I'm considering ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " for my ",
+      "auto": true
+    }, {
+      "text": "phone",
+      "auto": true
+    }, {
+      "text": " service. Can I bring my current ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " with me?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "01bf80ac-ea51-4c06-858f-15eed47818f5",
+    "parts": [ {
+      "text": "Please provide information on how I can ",
+      "auto": true
+    }, {
+      "text": "port in my existing number",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cd41326f-45c3-4293-aa4c-621751be7b84",
+    "parts": [ {
+      "text": "I'd like to keep my ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " but switch to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": " for ",
+      "auto": true
+    }, {
+      "text": "phone",
+      "auto": true
+    }, {
+      "text": " service. Is that feasible?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a402923e-ca28-4ea9-809e-0acb8f49f9cf",
+    "parts": [ {
+      "text": "What are the requirements and steps for transferring my ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "698f5b7b-6a38-4ff3-84c7-e2df8f3e3232",
+    "parts": [ {
+      "text": "Do you support number ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " for customers looking to join ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bd8d926b-fd3d-41ee-aada-1b6693ccc4c9",
+    "parts": [ {
+      "text": "I want to retain my current ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " when I switch to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": ". How can I do that?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "14ca7195-97bb-4c1d-8f08-f7eeae7570e3",
+    "parts": [ {
+      "text": "Can you guide me through the process of ",
+      "auto": true
+    }, {
+      "text": "porting",
+      "auto": true
+    }, {
+      "text": " my number to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a718decf-e055-444a-b777-55e48a613c9d",
+    "parts": [ {
+      "text": "Is it possible to bring my ",
+      "auto": true
+    }, {
+      "text": "existing",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ce20e85b-489a-4468-92bd-35154b75946b",
+    "parts": [ {
+      "text": "I'm interested in switching to ",
+      "auto": true
+    }, {
+      "text": "BrightSpeed",
+      "auto": true
+    }, {
+      "text": ". Can I ",
+      "auto": true
+    }, {
+      "text": "port",
+      "auto": true
+    }, {
+      "text": " in my current ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ebda8300-8908-461d-b13c-07c606f2131f",
+    "parts": [ {
+      "text": "porting",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "027dd575-c2f4-42fd-91ed-15666887cb4a",
+    "parts": [ {
+      "text": "port",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

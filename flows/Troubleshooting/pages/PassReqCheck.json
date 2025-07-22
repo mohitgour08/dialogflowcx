@@ -1,0 +1,47 @@
+{
+  "name": "ffc7c826-cb52-4463-8cf7-2bd41dd5e157",
+  "displayName": "PassReqCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_PassReqCheckvalidate_password_wh_WifiPasswordcheck",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.valid = false AND $session.params.RetryCounter = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_PassReqCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "IssueWithEnteringPassword",
+    "name": "aa67ab9d-96d7-4b1a-be7c-7f2909f5ed70"
+  }, {
+    "condition": "$session.params.valid = True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_PassReqCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PasswordReqMet",
+    "name": "499a9042-10ae-4eeb-94b2-392301306254"
+  }, {
+    "condition": "$session.params.valid = false",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RetryCounter",
+        "value": "$sys.func.ADD($session.params.RetryCounter,1)"
+      }, {
+        "parameter": "Metrics_Troubleshooting_PassReqCheck_3",
+        "value": "Metrics_Troubleshooting_PassReqCheck_2"
+      } ]
+    },
+    "targetPage": "InvalidPassword",
+    "name": "c1823480-fabe-4db9-9d38-fac0f7c972ed"
+  } ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "daaf886e-df75-4089-956d-063d59246726",
+  "displayName": "VoiceDoNotUpdate",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "No problem, you can update your payment method online at any time by logging into your My Brightspeed account or opening the mobile app." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_PrepaidBalance",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_VoiceDoNotUpdate_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "AnythingElse"
+      }, {
+        "parameter": "ToModule",
+        "value": "PrepaidBalance"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "e30354e2-7da3-4188-a551-98c3b9c83634"
+  } ]
+}

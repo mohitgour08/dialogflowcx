@@ -1,0 +1,78 @@
+{
+  "name": "da934a91-f29c-4fa5-8b22-e3482dbd1b6d",
+  "displayName": "EcomChatPopUp",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ChatReason = \"TopLeftCorner\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ EcomChatPopUp _1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ChatReason",
+        "value": "TopLeftCorner"
+      } ]
+    },
+    "targetPage": "EcomBuyFlowCheck",
+    "name": "f7f7c5f2-8094-4fb2-aef6-211c3a2a1bdc"
+  }, {
+    "condition": "$session.params.chatReason = \"BrowserBar\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ EcomChatPopUp _2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ChatReason",
+        "value": "BrowserBar"
+      } ]
+    },
+    "targetPage": "EcomBuyFlowCheck",
+    "name": "c5da67ef-f2de-4932-84a7-47279a626f41"
+  }, {
+    "condition": "$session.params.chatReason = \"Inactivity\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ EcomChatPopUp _4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ChatReason",
+        "value": "Inactivity"
+      } ]
+    },
+    "targetPage": "EcomInactivityIntro",
+    "name": "5d60b678-98c3-4107-b61a-ed00a4a59a69"
+  }, {
+    "condition": "$session.params.chatReason = \"RageClicking\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ EcomChatPopUp _5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ChatReason",
+        "value": "RageClicking"
+      } ]
+    },
+    "targetPage": "EcomRageClickingIntro",
+    "name": "4dcdb913-202e-426c-a7e7-19c08b2c7ed8"
+  }, {
+    "condition": "$session.params.ChatReason = \"SwipeRight\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomChatPopUp_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ChatReason",
+        "value": "SwipeRight"
+      } ]
+    },
+    "targetPage": "EcomInactivityIntro",
+    "name": "0be0bf51-bdf8-40e2-aa9c-909788e3eed0"
+  } ]
+}

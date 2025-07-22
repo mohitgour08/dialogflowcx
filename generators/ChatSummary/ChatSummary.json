@@ -1,0 +1,13 @@
+{
+  "name": "1d74047d-cf64-4fd4-97f6-0450ae0b3999",
+  "displayName": "ChatSummary",
+  "modelParameter": {
+    "temperature": 0.40000001,
+    "maxDecodeSteps": 128,
+    "topP": 0.94999999,
+    "topK": 40
+  },
+  "llmModelSettings": {
+    "model": "gemini-2.0-flash-lite-001"
+  }
+}

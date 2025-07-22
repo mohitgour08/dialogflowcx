@@ -1,0 +1,256 @@
+{
+  "name": "00000000-0000-0000-0000-000000000000",
+  "displayName": "Default Start Flow",
+  "description": "A start flow created along with the agent",
+  "transitionRoutes": [ {
+    "intent": "Default Welcome Intent",
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "¡Hola!", "¡Hey!", "¡Buenos días!" ]
+        },
+        "languageCode": "es"
+      }, {
+        "text": {
+          "text": [ "¡Hola!", "¡Hey!", "¡Buenos días!" ]
+        },
+        "languageCode": "es-419"
+      }, {
+        "text": {
+          "text": [ "Hi! How are you doing?", "Hello! How can I help you?", "Good day! What can I do for you today?", "Greetings! How can I assist?" ]
+        },
+        "languageCode": "en-us"
+      }, {
+        "text": {
+          "text": [ "¡Hola!", "¡Hey!", "¡Buenos días!" ]
+        },
+        "languageCode": "es-us"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "channel",
+        "value": "$session.params.channel"
+      }, {
+        "parameter": "EmailECOM",
+        "value": ""
+      }, {
+        "parameter": "Metrics_Session",
+        "value": "Start"
+      }, {
+        "parameter": "Metrics_TimeStamp",
+        "value": "$sys.func.NOW()_Start"
+      }, {
+        "parameter": "Metrics_AgentName",
+        "value": "BrightspeedAssistant_start"
+      }, {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "Hints",
+        "value": "$session.params.pageid"
+      }, {
+        "parameter": "Metrics_Pageid",
+        "value": "$session.params.Hints"
+      }, {
+        "parameter": "ConvID",
+        "value": "$session.params.ConversationID"
+      }, {
+        "parameter": "contactEngine",
+        "value": "$session.params.CE"
+      }, {
+        "parameter": "agentPromptRemoval",
+        "value": ""
+      }, {
+        "parameter": "agentPromptRemoval_pagename",
+        "value": ""
+      }, {
+        "parameter": "comingfromstate",
+        "value": ""
+      }, {
+        "parameter": "recordId",
+        "value": "$session.params.recordId"
+      }, {
+        "parameter": "ChatReason",
+        "value": "$session.params.chatReason"
+      }, {
+        "parameter": "BuyFlowStep",
+        "value": "$session.params.buyFlowStep"
+      }, {
+        "parameter": "Network",
+        "value": "$session.params.network"
+      }, {
+        "parameter": "Address",
+        "value": "$session.params.address"
+      }, {
+        "parameter": "recordId",
+        "value": "$session.params.recordId"
+      }, {
+        "parameter": "customer_account_type",
+        "value": ""
+      }, {
+        "parameter": "Metrics_Url",
+        "value": "$session.params.url"
+      }, {
+        "parameter": "Metrics_useragent",
+        "value": "$session.params.useragent"
+      }, {
+        "parameter": "language",
+        "value": "$session.params.language"
+      }, {
+        "parameter": "Metrics_AccountIdentification",
+        "value": "AccountNotFound"
+      }, {
+        "parameter": "Metrics_IdentificationMethod",
+        "value": ""
+      }, {
+        "parameter": "Metrics_IsPPBAccount",
+        "value": false
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckBotType",
+    "name": "e19eed87-9ee1-4c0d-9a78-2bd34c71efce"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es-419"
+      }, {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en-us"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es-us"
+      } ]
+    },
+    "name": "e10d31ba-7cea-4101-8562-23d0b82b1e45"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es-419"
+      }, {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en-us"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es-us"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "de0cc17d-b8af-455d-9630-aadacf7ae83d"
+  }, {
+    "targetPage": "End Session",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "We are having some issues at the minute, please reach out again later." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "e04da76e-b6ef-48b6-a5e8-7b0805ea1177"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.60000002,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    }
+  },
+  "advancedSettings": {
+    "enabled": true
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.60000002,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    },
+    "languageCode": "en"
+  }, {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.60000002,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    },
+    "languageCode": "es"
+  } ],
+  "inputParameterDefinitions": [ {
+    "name": "FAQSuccess",
+    "description": "FAQ status",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "FAQSuccess",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "outputParameterDefinitions": [ {
+    "name": "FAQSuccess",
+    "description": "FAQ Status",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "FAQSuccess",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ]
+}

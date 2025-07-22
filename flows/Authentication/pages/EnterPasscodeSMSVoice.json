@@ -1,0 +1,205 @@
+{
+  "name": "d52e7b6b-bfcf-4c8f-96bf-f2be06434ab7",
+  "displayName": "EnterPasscodeSMSVoice",
+  "form": {
+    "parameters": [ {
+      "displayName": "ResendOTP",
+      "required": true,
+      "entityType": "@OTP_voice",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_Authentication_EnterPasscodeSMSVoice",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ],
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+              "allowPlaybackInterruption": true
+            },
+            "dtmfSettings": {
+              "useSystemEntityRule": false
+            }
+          },
+          "nextActionOverride": {
+          
+          }
+        },
+        "repromptEventHandlers": [ {
+          "targetFlow": "ListenInitialIntent",
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003eThat code doesn't seem to match. I'm still experiencing issues with your account verification\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_validatePasscode",
+              "value": "Failure"
+            }, {
+              "parameter": "PasscodeCount",
+              "value": "$sys.func.ADD($session.params.PasscodeCount,1)"
+            }, {
+              "parameter": "GetPasscode",
+              "value": null
+            }, {
+              "parameter": "Metrics_Authentication_EnterPasscodeSMSVoice_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "SMSResponseStatus",
+              "value": null
+            }, {
+              "parameter": "codeSent",
+              "value": "$sys.func.ADD($session.params.codeSent,1)"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "comingfromstate",
+              "value": "Authentication"
+            }, {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            } ],
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "cfc06df8-8275-49de-8350-ef7ece63ec20"
+        }, {
+          "targetFlow": "ListenInitialIntent",
+          "event": "sys.no-input-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e I'm still experiencing issues with your account verification. \u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "comingfromstate",
+              "value": "Authentication"
+            }, {
+              "parameter": "Authentication",
+              "value": "FAILED"
+            }, {
+              "parameter": "Metrics_2Factor",
+              "value": "Failure"
+            }, {
+              "parameter": "AuthFailReason",
+              "value": "Passcode"
+            }, {
+              "parameter": "GetPasscode",
+              "value": null
+            } ],
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "44a109ae-de75-439a-857d-1cda6725b738"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "GetPasscode",
+        "value": "$session.params.ResendOTP"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckSMSPasscode",
+    "name": "75d09b58-ecf7-41c3-bdad-8670ffaffb3d"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "ListenInitialIntent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e I'm still experiencing issues with your account verification. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_EnterPasscodeSMSVoice",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "GetPasscode",
+        "value": null
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "bf4df264-d0e7-48d3-bfb2-d36b71027dfe"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eI'm still experiencing issues with your account verification.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_EnterPasscodeSMSVoice_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "DifferentPasscode"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_AuthFailReason",
+        "value": "DifferentPasscode"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "23994b93-7e41-4e32-b3f1-c1994832a415"
+  } ],
+  "advancedSettings": {
+    "speechSettings": {
+      "endpointerSensitivity": 90,
+      "noSpeechTimeout": {
+        "seconds": 60
+      }
+    }
+  },
+  "speakerIdSettings": {
+  
+  }
+}

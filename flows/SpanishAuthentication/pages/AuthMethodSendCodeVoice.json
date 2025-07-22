@@ -1,0 +1,29 @@
+{
+  "name": "3d068e18-1bdc-4aeb-babf-33e56ecedd47",
+  "displayName": "AuthMethodSendCodeVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_AuthMethodSendCodeVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "SingleAccountFound",
+    "name": "0283a9e3-effb-42de-85d4-83faa1392568"
+  } ]
+}

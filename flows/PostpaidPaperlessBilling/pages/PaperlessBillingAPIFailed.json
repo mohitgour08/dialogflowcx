@@ -1,0 +1,62 @@
+{
+  "name": "d1022b7f-49ff-4a0c-aae8-96996edeab17",
+  "displayName": "PaperlessBillingAPIFailed",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ExistingCustomer = \"False\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm not able to process your request at this time. You can enroll in paperless billing any time on brightspeed.com or in the Brightspeed app." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_PaperlessBillingAPIFailed_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidPaperlessBilling",
+        "value": "Failure"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AssistRequest",
+    "name": "2415ebaa-cfc3-42ba-93d8-e93c2ccb0731"
+  }, {
+    "condition": "$session.params.ExistingCustomer = \"True\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm not able to process your request at this time. You can enroll in paperless billing any time on brightspeed.com or in the Brightspeed app." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_PaperlessBillingAPIFailed_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PaperlessEnroll_updateEmail",
+        "value": "Failure"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AssistRequest",
+    "name": "75ed91a7-e93e-48de-85ef-236893ce5286"
+  } ]
+}

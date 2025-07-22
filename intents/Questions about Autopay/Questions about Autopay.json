@@ -1,0 +1,10 @@
+{
+  "name": "26141703-b142-4b6f-bd51-dd463f02bce9",
+  "displayName": "Questions about Autopay",
+  "parameters": [ {
+    "id": "person",
+    "entityType": "@sys.person"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 6
+}

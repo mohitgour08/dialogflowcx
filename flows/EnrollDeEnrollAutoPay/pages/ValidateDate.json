@@ -1,0 +1,153 @@
+{
+  "name": "050fe153-12c8-4fac-b0ad-c359e6e61c21",
+  "displayName": "ValidateDate",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "CardExpiryYearSpoken",
+      "value": "$flow.card_expiration_year"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$flow.card_expiration_month = NULL OR $flow.card_expiration_month = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.expiration_date",
+        "value": null
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_ValidateDate_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AskDateCounter",
+        "value": "$sys.func.ADD($session.params.AskDateCounter,1)"
+      } ]
+    },
+    "targetPage": "CheckExpDateCounter",
+    "name": "2cddd483-b524-4a0e-82d6-e0e932fceae9",
+    "description": "If Month is null"
+  }, {
+    "condition": "$sys.func.LEN($flow.card_expiration_year) != 4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.expiration_date",
+        "value": null
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_ValidateDate_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AskDateCounter",
+        "value": "$sys.func.ADD($session.params.AskDateCounter,1)"
+      } ]
+    },
+    "targetPage": "CheckExpDateCounter",
+    "name": "b7ef42fe-85f5-4056-bc73-5d2027e01333",
+    "description": "If Year is not right"
+  }, {
+    "condition": "$flow.card_expiration_month \u003c \"01\" OR $flow.card_expiration_month \u003e \"12\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.expiration_date",
+        "value": null
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_ValidateDate_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AskDateCounter",
+        "value": "$sys.func.ADD($session.params.AskDateCounter,1)"
+      } ]
+    },
+    "targetPage": "CheckExpDateCounter",
+    "name": "f4aaa836-5ac7-4fda-87e6-4385f641f633",
+    "description": "If Months are beyond the limit"
+  }, {
+    "condition": "$flow.card_expiration_year \u003c= $sys.func.MINUS($flow.current_year, 1)",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.expiration_date",
+        "value": null
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_ValidateDate_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AskDateCounter",
+        "value": "$sys.func.ADD($session.params.AskDateCounter,1)"
+      } ]
+    },
+    "targetPage": "CheckExpDateCounter",
+    "name": "8aa6cc2e-2737-4a59-a840-c7cd85cea387"
+  }, {
+    "condition": "$flow.card_expiration_year \u003e= $sys.func.ADD($flow.current_year, 10)",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_ValidateDate_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AskDateCounter",
+        "value": "$sys.func.ADD($session.params.AskDateCounter,1)"
+      } ]
+    },
+    "targetPage": "CheckExpDateCounter",
+    "name": "44d703d2-62c6-4e8d-bb0d-6b5cdfa1cb28"
+  }, {
+    "condition": "$flow.card_expiration_year \u003c= $flow.current_year AND $sys.func.MINUS($flow.current_month, 1) \u003e= $flow.card_expiration_month",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_month",
+        "value": null
+      }, {
+        "parameter": "$flow.card_expiration_year",
+        "value": null
+      }, {
+        "parameter": "$flow.expiration_date",
+        "value": null
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_ValidateDate_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AskDateCounter",
+        "value": "$sys.func.ADD($session.params.AskDateCounter,1)"
+      } ]
+    },
+    "targetPage": "CheckExpDateCounter",
+    "name": "1db03926-e53c-47a9-b88c-ad13b2cf071c"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "expiration_date",
+        "value": "$flow.card_expiration_month/$flow.card_expiration_year"
+      }, {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_ValidateDate_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ConfirmCard",
+    "name": "5fd3f932-7344-4897-88ed-5226712bb937"
+  } ]
+}

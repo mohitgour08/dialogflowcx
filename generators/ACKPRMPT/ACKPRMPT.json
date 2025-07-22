@@ -1,0 +1,13 @@
+{
+  "name": "a0063baa-3941-429e-aac4-bbc6b0714bf8",
+  "displayName": "ACKPRMPT",
+  "modelParameter": {
+    "temperature": 0.5,
+    "maxDecodeSteps": 128,
+    "topP": 0.94999999,
+    "topK": 40
+  },
+  "llmModelSettings": {
+    "model": "gemini-1.5-flash"
+  }
+}

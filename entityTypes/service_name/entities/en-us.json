@@ -1,0 +1,15 @@
+{
+  "entities": [ {
+    "value": "email",
+    "synonyms": [ "E-mail", "electronic mail", "email", "email address", "email id", "email_address", "gmail", "mail address", "mail id", "online mail", "webmail" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "account",
+    "synonyms": [ " A/c", "a/c", "acc", "Acc", "acc. ", "account", "Account", "online account" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "wifi/modem/device",
+    "synonyms": [ "cable modem", "device", "Device", "dongle", "modem", "Modem", "router", "wi-fi", "Wi-Fi", "wifi", "Wifi", "wifi/modem/device" ],
+    "languageCode": "en-us"
+  } ]
+}

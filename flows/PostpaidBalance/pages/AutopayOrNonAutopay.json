@@ -1,0 +1,42 @@
+{
+  "name": "bde0160c-d70e-4637-b278-89ac2523b169",
+  "displayName": "AutopayOrNonAutopay",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Autopay = \"Y\" OR $session.params.Autopay = \"Enrolled\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AutopayOrNonAutopay_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APCheckAccountStatus",
+    "name": "51bbc1e5-f3f8-45e5-95e1-5b24d8cb35e8"
+  }, {
+    "condition": "$session.params.Autopay = \"N\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AutopayOrNonAutopay_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckAccountStatusNonAutopay",
+    "name": "87b4977b-4702-4975-b563-f5e373483236"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AutopayOrNonAutopay_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckAccountStatusNonAutopay",
+    "name": "26862288-187d-4e07-9b94-ca899961fc67"
+  } ],
+  "description": "HAS AUTOPAY?"
+}

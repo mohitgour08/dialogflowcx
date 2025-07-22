@@ -1,0 +1,280 @@
+{
+  "trainingPhrases": [ {
+    "id": "faafb8dc-6b1d-411f-b1e8-31c85e42f01e",
+    "parts": [ {
+      "text": "Update order timing",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c6491872-6c00-4767-b97b-bddca9f5010d",
+    "parts": [ {
+      "text": "Modify delivery",
+      "auto": true
+    }, {
+      "text": " timeline",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7f7d507d-165f-4e42-92d3-aec534f79720",
+    "parts": [ {
+      "text": "Reschedule order",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8e0deaf4-288b-49a0-b56e-0d3dfd6d4c32",
+    "parts": [ {
+      "text": "Change ",
+      "auto": true
+    }, {
+      "text": "shipping",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "day",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "983f241b-72b0-4098-90f4-c61c919e083d",
+    "parts": [ {
+      "text": "Shift order date",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8fbc6212-fec6-46f6-9035-69e3b45959ef",
+    "parts": [ {
+      "text": "Adjust delivery date",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "042bb37a-b26b-4129-b6f1-10ec6167914b",
+    "parts": [ {
+      "text": "Update ",
+      "auto": true
+    }, {
+      "text": "shipping",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "schedule",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3f086d03-3810-4982-b9f9-8f2189429689",
+    "parts": [ {
+      "text": "Modify order",
+      "auto": true
+    }, {
+      "text": " timeline",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e354a447-6f8e-4d7a-a219-98ad80b14ccc",
+    "parts": [ {
+      "text": "Reschedule delivery",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8e71ecd6-f9cc-4310-a111-6f93b0c9407f",
+    "parts": [ {
+      "text": "Change ",
+      "auto": true
+    }, {
+      "text": "order",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "day",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7596e736-32f4-4c4b-9f0a-94795518b40d",
+    "parts": [ {
+      "text": "Shift",
+      "auto": true
+    }, {
+      "text": " shipment date",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d94b0ae6-cf22-4325-a098-c9e82f55906d",
+    "parts": [ {
+      "text": "Adjust order",
+      "auto": true
+    }, {
+      "text": " timeframe",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "80acd6e5-c539-4575-b875-8f2412fc9d51",
+    "parts": [ {
+      "text": "Update delivery ",
+      "auto": true
+    }, {
+      "text": "schedule",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "775a7d8b-ccfb-4d14-a910-e76551d482d4",
+    "parts": [ {
+      "text": "Modify ",
+      "auto": true
+    }, {
+      "text": "shipping",
+      "auto": true
+    }, {
+      "text": " date",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2af91400-e826-46f9-8ab4-9a1355da17d2",
+    "parts": [ {
+      "text": "Change ",
+      "auto": true
+    }, {
+      "text": "order",
+      "auto": true
+    }, {
+      "text": " timeline",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7e252fb5-285c-435b-a959-94313762beb2",
+    "parts": [ {
+      "text": "Shift order",
+      "auto": true
+    }, {
+      "text": " delivery",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "89055988-0026-4938-8ff1-deefb23d8260",
+    "parts": [ {
+      "text": "Adjust order",
+      "auto": true
+    }, {
+      "text": " \tshipment date",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e5ccb775-459f-4ea2-ad29-660825827d55",
+    "parts": [ {
+      "text": "Update ",
+      "auto": true
+    }, {
+      "text": "order",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "schedule",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a00236aa-615c-4e84-911e-82dad36ee666",
+    "parts": [ {
+      "text": "Change order delivery date",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8a23afe3-1a84-40f3-892b-5e8f94eaa5ea",
+    "parts": [ {
+      "text": "Modify order date",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "627360d2-dffc-4159-9def-68931d068912",
+    "parts": [ {
+      "text": "change date",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "04609ab0-7761-41db-9f3f-2f5038e44286",
+    "parts": [ {
+      "text": "Change the Date",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "97fa9078-96bd-41c6-9c04-71868cb09092",
+    "parts": [ {
+      "text": "Order Date Change",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b2d4b1be-f626-4f6f-a977-91ce0801ce23",
+    "parts": [ {
+      "text": "Change the Order Date",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d60b9ad3-5c55-4250-a0a3-d5b08b2fb09e",
+    "parts": [ {
+      "text": "Change Order Date",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "adcdf0ca-aeba-45b0-ab32-09ea359f3119",
+    "parts": [ {
+      "text": "Change my Order Date",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

@@ -1,0 +1,73 @@
+{
+  "name": "b06d48bd-6a09-42b1-92b0-541b05a67714",
+  "displayName": "AUPViolation",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "We've been notified of suspicious activity related to your account. As a result, your service may have been impacted." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "We've been notified of suspicious activity related to your account. As a result, your service may have been impacted." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_GeneralTroubleshooting",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AUPViolation_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AUPViolationVoice",
+    "name": "e8db2a64-3126-4e37-96e1-fb8d70964edd"
+  }, {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AUPViolation_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AUPViolationChat",
+    "name": "f4bf2358-4f47-4b2d-8ff7-b224e5171f3a"
+  } ]
+}

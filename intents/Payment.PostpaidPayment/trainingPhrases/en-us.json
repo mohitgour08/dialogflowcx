@@ -1,0 +1,970 @@
+{
+  "trainingPhrases": [ {
+    "id": "acc81ae6-3133-4fbe-ae5b-396ccd910a3c",
+    "parts": [ {
+      "text": "What payment method is being"
+    }, {
+      "text": " used for my postpaid "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "52bef169-d6a0-4111-a7c0-f4894b14f10a",
+    "parts": [ {
+      "text": "What payment method is"
+    }, {
+      "text": " "
+    }, {
+      "text": "currently"
+    }, {
+      "text": " being used for my postpaid "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4e809ac9-79a7-4f05-bb5e-761dd2ca19a5",
+    "parts": [ {
+      "text": "Can you tell me what payment method is"
+    }, {
+      "text": " linked to my postpaid "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7eea9539-95fd-4262-baa0-b1b795cf0b2a",
+    "parts": [ {
+      "text": "I'm not sure "
+    }, {
+      "text": "what payment method I'm"
+    }, {
+      "text": " using for my postpaid "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d91e2aa5-1a8a-4103-b497-974356540c15",
+    "parts": [ {
+      "text": "I'd "
+    }, {
+      "text": "like to know what payment method"
+    }, {
+      "text": " is associated with my postpaid "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6b04185d-634f-4c52-b008-875394232aa3",
+    "parts": [ {
+      "text": "I need to "
+    }, {
+      "text": "verify the payment"
+    }, {
+      "text": " method for my postpaid "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d5c974ba-89cf-47d1-bfa5-6e27dd5abe82",
+    "parts": [ {
+      "text": "Can you please confirm the "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method for my postpaid "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ca725d97-659a-4d1d-b272-32a5ec0ffb61",
+    "parts": [ {
+      "text": "I'm concerned about the payment"
+    }, {
+      "text": " method being used for my postpaid "
+    }, {
+      "text": "account"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d27f48f5-7d44-477c-91ed-78ea9c5ecd93",
+    "parts": [ {
+      "text": "How can I see what payment method is"
+    }, {
+      "text": " linked to my postpaid "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8302b00b-86ac-4313-a5ce-b6c2721c51ff",
+    "parts": [ {
+      "text": "I am a postpaid customer. I want to change "
+    }, {
+      "text": "the credit card I have on"
+    }, {
+      "text": " file "
+    }, {
+      "text": "to a new one. Can I do this online?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8e650062-af89-48cf-ab05-1f84905c1611",
+    "parts": [ {
+      "text": "As a pay as you"
+    }, {
+      "text": " go user, I lost my credit card "
+    }, {
+      "text": "that you have on file. How can I update this to"
+    }, {
+      "text": " continue "
+    }, {
+      "text": "using your service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "02dbd908-0833-4852-8cee-c9dd64e3e5b3",
+    "parts": [ {
+      "text": "I'm on a pay as "
+    }, {
+      "text": "you go plan. I"
+    }, {
+      "text": " want to view "
+    }, {
+      "text": "my current usage charges and"
+    }, {
+      "text": " "
+    }, {
+      "text": "remaining balance. Also need to"
+    }, {
+      "text": " update expired "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8966f386-2d36-4ee4-be4e-844ccb3e7086",
+    "parts": [ {
+      "text": "As a postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " customer, how do I update my "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " information and view "
+    }, {
+      "text": "my current balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "07510ffd-9cfd-4887-b6e7-ecebc56ca78a",
+    "parts": [ {
+      "text": "Is there a self"
+    }, {
+      "text": "-service option to update my"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " "
+    }, {
+      "text": "information as a"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " customer"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "16f29f4d-a201-43c9-a6f8-63b7d770d922",
+    "parts": [ {
+      "text": "Can you provide me with the steps to update "
+    }, {
+      "text": "my credit card details"
+    }, {
+      "text": " as a postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " customer"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c07cfd1a-234b-4862-bc88-16d0176efc50",
+    "parts": [ {
+      "text": "I need to update "
+    }, {
+      "text": "my credit card information, can you"
+    }, {
+      "text": " guide me through the process"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "aa2d7c94-83a2-4cae-8215-1c422ee4df52",
+    "parts": [ {
+      "text": "What options do I have to update my"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " "
+    }, {
+      "text": "information as a"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " customer"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "548d4ee9-7cbd-4d94-a136-e9792a6996dd",
+    "parts": [ {
+      "text": "How can I update "
+    }, {
+      "text": "my credit card information"
+    }, {
+      "text": " as a postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " customer"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dc643bca-674f-4267-8eb8-cd355575ec5f",
+    "parts": [ {
+      "text": "I need to update "
+    }, {
+      "text": "my credit card on my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d15c662b-0dee-4c3f-83ec-3ccfea73400e",
+    "parts": [ {
+      "text": "How do I change "
+    }, {
+      "text": "the credit card"
+    }, {
+      "text": " linked to my postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "98af648d-57c4-4555-b925-1e70c0a214b8",
+    "parts": [ {
+      "text": "I want to update my "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " information for my postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "55dca5d0-f5be-4b5e-90bc-795313cd2aea",
+    "parts": [ {
+      "text": "Can I update "
+    }, {
+      "text": "my credit card online for my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3db2829b-ac7b-4da0-92f0-9f86e5f7b6cd",
+    "parts": [ {
+      "text": "Where can I change "
+    }, {
+      "text": "my credit card details for my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9880ff42-09ab-47db-bbbf-2205d75d7082",
+    "parts": [ {
+      "text": "I need to update "
+    }, {
+      "text": "my credit card information for my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " service."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "863ea00f-cf14-466c-9c0e-2e003d7d8f9c",
+    "parts": [ {
+      "text": "Can you "
+    }, {
+      "text": "help"
+    }, {
+      "text": " me update "
+    }, {
+      "text": "the credit card associated with my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "69de0faf-e428-4750-9e6a-21ca69773200",
+    "parts": [ {
+      "text": "I want to change "
+    }, {
+      "text": "the credit card I'm"
+    }, {
+      "text": " using for my postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d96046a0-ab47-4fd1-b124-dfdc0bc2ad7e",
+    "parts": [ {
+      "text": "How can I update "
+    }, {
+      "text": "my credit card information for my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6c368b92-2de2-482e-b90d-e67037dd8180",
+    "parts": [ {
+      "text": "Please guide me through the process of updating my"
+    }, {
+      "text": " "
+    }, {
+      "text": "credit"
+    }, {
+      "text": " card for my postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " service."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1bd07f50-e0a3-4617-a653-86a833066a4b",
+    "parts": [ {
+      "text": "What is my current balance"
+    }, {
+      "text": " on my postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5e98a21e-200f-4d34-91b8-5308fc930047",
+    "parts": [ {
+      "text": "How much "
+    }, {
+      "text": "money"
+    }, {
+      "text": " "
+    }, {
+      "text": "is remaining"
+    }, {
+      "text": " on my postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8b0f70f3-45b0-49e0-b4b3-0d94a73d3000",
+    "parts": [ {
+      "text": "Can I see my current"
+    }, {
+      "text": " "
+    }, {
+      "text": "balance"
+    }, {
+      "text": " before updating "
+    }, {
+      "text": "my credit card"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8a3e15ba-bfc4-4926-a4b7-562621d2933e",
+    "parts": [ {
+      "text": "Do I need a certain "
+    }, {
+      "text": "balance"
+    }, {
+      "text": " to update "
+    }, {
+      "text": "my credit card on my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9953a85a-7d52-4644-81a4-ab4bc1d80ee5",
+    "parts": [ {
+      "text": "Where can I find my current "
+    }, {
+      "text": "balance information for my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "876eb1da-a89a-439c-ae18-030f3127833d",
+    "parts": [ {
+      "text": "What is my "
+    }, {
+      "text": "current"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ab4334da-aae2-4249-a845-ef55aa7cf04f",
+    "parts": [ {
+      "text": "Can you show me my "
+    }, {
+      "text": "current"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account balance"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9102df9d-e673-4e72-9eb2-c70440440561",
+    "parts": [ {
+      "text": "I'd like to check my current"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "balance"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "be4075db-bbe6-4e3c-bd64-c471009f3f84",
+    "parts": [ {
+      "text": "How much is my remaining balance"
+    }, {
+      "text": " for my postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ba598ac0-c615-4c3d-b82a-a119df582c3c",
+    "parts": [ {
+      "text": "I want to update my payment method for my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "feb1d15e-20fb-48bd-89e5-e30ab9f6d481",
+    "parts": [ {
+      "text": "Can you show me "
+    }, {
+      "text": "the different payment options available for my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ae3393ed-f917-4551-93ff-7c10a2f43414",
+    "parts": [ {
+      "text": "I'd like to know "
+    }, {
+      "text": "how I can change my payment method for my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e5047b68-d402-4aee-8329-c32ae898b953",
+    "parts": [ {
+      "text": "Are there any online options for"
+    }, {
+      "text": " updating my "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method for my postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fc2e77f3-c6ba-46e0-8639-1c46d2efa721",
+    "parts": [ {
+      "text": "Please provide me with instructions on how to update my"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method for my postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5e985a78-1eab-4458-b2f1-980c5195ec10",
+    "parts": [ {
+      "text": "What payment "
+    }, {
+      "text": "method do you currently have on file for my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0c039e15-b088-4528-b92c-344e12434077",
+    "parts": [ {
+      "text": "As a pay as you"
+    }, {
+      "text": " go "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " user, "
+    }, {
+      "text": "I'd like to know if you are charging my credit or"
+    }, {
+      "text": " debit card "
+    }, {
+      "text": "when I use services"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "922e3180-1571-496b-b977-f6a564116123",
+    "parts": [ {
+      "text": "Can you tell me if you have my Visa "
+    }, {
+      "text": "card details"
+    }, {
+      "text": " saved for my postpaid plan "
+    }, {
+      "text": "balances"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8c0487bf-84de-48b9-a1c7-1b7d5fa56062",
+    "parts": [ {
+      "text": "What card do you have"
+    }, {
+      "text": " linked right now "
+    }, {
+      "text": "to cover charges on my pay"
+    }, {
+      "text": " as "
+    }, {
+      "text": "you go plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e3567c51-0e97-49b0-90d7-40bf56f2c7cb",
+    "parts": [ {
+      "text": "Are you drawing "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " from my "
+    }, {
+      "text": "Mastercard"
+    }, {
+      "text": " "
+    }, {
+      "text": "for usage on my"
+    }, {
+      "text": " postpaid connection whenever applicable"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "47fe9cef-6401-4715-91a4-438e67b37df9",
+    "parts": [ {
+      "text": "I need you to check and let me know which "
+    }, {
+      "text": "credit card you have associated with my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ea060229-fc1c-4b91-a0c3-b3caffca2ca3",
+    "parts": [ {
+      "text": "As "
+    }, {
+      "text": "a subscriber of your"
+    }, {
+      "text": " "
+    }, {
+      "text": "monthly"
+    }, {
+      "text": " postpaid service, do I have an automated "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " set up via my "
+    }, {
+      "text": "bank"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    }, {
+      "text": " or do I need to manually add "
+    }, {
+      "text": "credit"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a4155bd8-3362-4010-acc0-6773ebef413b",
+    "parts": [ {
+      "text": "How can I find out "
+    }, {
+      "text": "what payment method is being"
+    }, {
+      "text": " "
+    }, {
+      "text": "used as a"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " customer"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ff20f364-fb0f-4ed3-981c-cf8b9061fbcc",
+    "parts": [ {
+      "text": "Can you tell me what payment method is"
+    }, {
+      "text": " "
+    }, {
+      "text": "currently"
+    }, {
+      "text": " on file for my postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "56aedd84-6562-4770-a346-3b187625d898",
+    "parts": [ {
+      "text": "I would like to know the payment method"
+    }, {
+      "text": " associated with my postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "536651b7-2ef5-451d-936f-97ea55cd8e0f",
+    "parts": [ {
+      "text": "What payment method do you have on"
+    }, {
+      "text": " "
+    }, {
+      "text": "record for my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "849fed9f-d930-4fde-a52b-f2b937a9d5d0",
+    "parts": [ {
+      "text": "Can you provide information about the payment method"
+    }, {
+      "text": " linked to my postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "be14e6b8-b3e0-4297-8d44-ce2f8ca0aefc",
+    "parts": [ {
+      "text": "How can I check which "
+    }, {
+      "text": "payment method is being"
+    }, {
+      "text": " used for my postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a50b5182-d450-4853-b054-71cb6eb79b04",
+    "parts": [ {
+      "text": "I need to confirm the "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " "
+    }, {
+      "text": "method associated with my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d64fecb0-6745-472f-9790-6b795925940e",
+    "parts": [ {
+      "text": "What is the current payment"
+    }, {
+      "text": " "
+    }, {
+      "text": "method on file for my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c196fb78-07db-4dc2-9602-03e5454e35ba",
+    "parts": [ {
+      "text": "Can you help me verify the"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " "
+    }, {
+      "text": "method used for my"
+    }, {
+      "text": " postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1033d544-378f-4882-b2c4-22338f245257",
+    "parts": [ {
+      "text": "I want to inquire about the"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " method linked to my postpaid "
+    }, {
+      "text": "CTL"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

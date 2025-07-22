@@ -1,0 +1,28 @@
+{
+  "name": "644cd46f-e372-4dc7-8f2e-52b047562ea5",
+  "displayName": "APSNPPAEligBalanceCheck",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_LatestDueAmount = \"0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.0\" OR $session.params.BillInfo_LatestDueAmount = \"0\\.00\" OR $session.params.BillInfo_LatestDueAmount = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APSNPPAEligBalanceCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APSNPBalanceCheck",
+    "name": "6bfae8ea-acf7-48bd-ae5a-3c2598e2b83b"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_APSNPPAEligBalanceCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "APSNPPaymentMethodCheckPAElig",
+    "name": "57d864d6-67dc-4589-a2d7-ebea315b69e4"
+  } ]
+}

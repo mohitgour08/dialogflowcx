@@ -1,0 +1,134 @@
+{
+  "name": "c74ff722-4063-4c2a-89a9-f661f7b42b67",
+  "displayName": "TicketETAPresent",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.RepairDispatchStatus = \"ENROUTE\" OR $session.params.RepairDispatchStatus = \"enroute\" OR $session.params.RepairDispatchStatus = \"Enroute\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketETAPresent_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketTechOnTheWay",
+    "name": "932d7986-fa2c-4ea2-9d05-fe6555fe8c46"
+  }, {
+    "condition": "$session.params.RepairDispatchStatus = \"PENDING\" OR $session.params.RepairDispatchStatus = \"Pending\" OR $session.params.RepairDispatchStatus = \"pending\" OR $session.params.RepairDispatchStatus = \"Accepted\" OR $session.params.RepairDispatchStatus = \"Created\" OR $session.params.RepairDispatchStatus = \"Assigned\" OR $session.params.RepairDispatchStatus = \"Allocated\" OR $session.params.RepairDispatchStatus = \"Unscheduled\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketETAPresent_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketPendingETACheckIntent",
+    "name": "78877cfd-580e-46af-b78c-83de4487006d"
+  }, {
+    "condition": "$session.params.RepairDispatchStatus = \"HOLD\" OR $session.params.RepairDispatchStatus = \"HLD\" OR $session.params.RepairDispatchStatus = \"Hold\" OR $session.params.RepairDispatchStatus = \"hold\" OR $session.params.RepairDispatchStatus = \"hld\" OR $session.params.RepairDispatchStatus = \"Canceled\" OR $session.params.RepairDispatchStatus = \"CANCELED\" OR $session.params.RepairDispatchStatus = \"Cancelled\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_SalesManagement_TicketETAPresent_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "$session.params.RepairDispatchStatus"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "061b4c0f-22f1-4903-8a1d-e780ea8a0399"
+  }, {
+    "condition": "$session.params.RepairDispatchStatus = \"OnSite\" OR $session.params.RepairDispatchStatus = \"Onsite\" OR $session.params.RepairDispatchStatus = \"onsite\" OR $session.params.RepairDispatchStatus = \"ONSITE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketETAPresent_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketTechIsOnSite",
+    "name": "c3afc687-009c-4a50-a768-d3a4112e671c"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_SalesManagement_TicketETAPresent_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason ",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SalesManagement-TicketETAPresent,TicketStatusUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "5141d8ca-028c-46b8-9117-6d3a5527d2d8"
+  }, {
+    "condition": "$session.params.RepairDispatchStatus = \"ENROUTE\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_SalesManagement_RepairETAPresent_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "$session.params.RepairDispatchStatus"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "2f767bbd-6208-4598-9377-5f6cba227cfc"
+  } ]
+}

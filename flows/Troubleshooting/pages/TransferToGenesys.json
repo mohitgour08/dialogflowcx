@@ -1,0 +1,82 @@
+{
+  "name": "f90feaf5-cd5a-4c4e-91ed-55188f819b97",
+  "displayName": "TransferToGenesys",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "SetParameters",
+    "tag": "test",
+    "setParameterActions": [ {
+      "parameter": "CallID",
+      "value": "$sys.func.IF(\"$session.params.CallID != null\", \"$session.params.CallID\", \"\")"
+    }, {
+      "parameter": "AccountNumber",
+      "value": "$sys.func.IF(\"$session.params.AccountNumber != null\", \"$session.params.AccountNumber\", \"\")"
+    }, {
+      "parameter": "AccountType",
+      "value": "$sys.func.IF(\"$session.params.AccountType != null\", \"$session.params.AccountType\", \"\")"
+    }, {
+      "parameter": "callerintent",
+      "value": "$sys.func.IF(\"$session.params.callerintent != null\", \"$session.params.callerintent\", \"\")"
+    }, {
+      "parameter": "RouteIntent",
+      "value": "Repair"
+    }, {
+      "parameter": "product",
+      "value": "$sys.func.IF(\"$session.params.product != null\", \"$session.params.product\", \"\")"
+    }, {
+      "parameter": "networkType",
+      "value": "$sys.func.IF(\"$session.params.networkType != null\", \"$session.params.networkType\", \"\")"
+    }, {
+      "parameter": "language",
+      "value": "$sys.func.IF(\"$session.params.language != null\", \"$session.params.language\", \"\")"
+    }, {
+      "parameter": "Authentication",
+      "value": "$sys.func.IF(\"$session.params.Authentication != null\", \"$session.params.Authentication\", \"\")"
+    }, {
+      "parameter": "AuthFailReason",
+      "value": "$sys.func.IF(\"$session.params.AuthFailReason != null\", \"$session.params.AuthFailReason\",\"\" )"
+    }, {
+      "parameter": "state",
+      "value": "$sys.func.IF(\"$session.params.state != null\", \"$session.params.state\", \"\")"
+    }, {
+      "parameter": "summary",
+      "value": "$sys.func.IF(\"$session.params.summary != null\", \"$session.params.summary\", \"\")"
+    }, {
+      "parameter": "summary",
+      "value": "$sys.func.SUBSTITUTE($session.params.summary, \"\\\"\", \"\")"
+    }, {
+      "parameter": "CurrentTime",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "$session.params.MenuID_CopperL",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_TransferToGenesys_default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_TransferToGenesys",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SetParameters"
+      } ]
+    },
+    "name": "ed57e526-8150-4b99-afe3-b91e901038ed"
+  } ]
+}

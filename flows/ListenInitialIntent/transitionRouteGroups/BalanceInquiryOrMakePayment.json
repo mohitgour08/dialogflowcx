@@ -1,0 +1,278 @@
+{
+  "name": "2b47e1c7-6381-4aeb-88cc-4743ec1e719e",
+  "displayName": "BalanceInquiryOrMakePayment",
+  "transitionRoutes": [ {
+    "intent": "BalanceInquiryOrMakePayment.BillCycleDate",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_BillCycleDate",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "BillCycleDate"
+      }, {
+        "parameter": "ToState",
+        "value": "BillCycleDate"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "f2633377-0a17-4fe7-9d4e-5ee829993cc1"
+  }, {
+    "intent": "BalanceInquiryOrMakePayment.Billing",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_Billing",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "BalanceInquiryBilling"
+      }, {
+        "parameter": "ToState",
+        "value": "BalanceInquiry"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "be2666b1-b355-4578-96d6-6e88e9756d58"
+  }, {
+    "intent": "BalanceInquiryOrMakePayment.Payment",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_Payment",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "BalanceInquiryPayment"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      }, {
+        "parameter": "ToState",
+        "value": "BalanceInquiry"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "51adf600-acf1-40d1-9659-a30fb62fac62"
+  }, {
+    "intent": "Payment.VerifyPayment",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "VerifyPayment"
+      }, {
+        "parameter": "callerintent",
+        "value": "VerifyPayment"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_VerifyPayment",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      }, {
+        "parameter": "SS_VerifyPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "9917cd1f-6405-4b81-993d-c773f9f42b97"
+  }, {
+    "intent": "Payment.RestoreService",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenIntialIntent_CollectIntent_RestoreService\"",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PaymentRestoreService"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentRestoreService"
+      }, {
+        "parameter": "SS_RestoreService",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "26cfdd85-08a2-4e90-b737-f041cbaaa546"
+  }, {
+    "intent": "Payment.PrepaidPayment",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PrepaidPayment"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PrepaidPayment"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_PrepaidPayment",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "8c539426-c9e5-42ff-a6ff-5ca863adbd37"
+  }, {
+    "intent": "Payment.PostpaidPayment",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_PostpaidPayment",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PostpaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "UserDisconnected"
+      } ],
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "7f561b12-09f8-4fb8-995a-75fe8712ced7"
+  }, {
+    "intent": "BalanceInquiryOrMakePayment.PaperlessBilling",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "$request.generative.prompt" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_paperlessBilling",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaperlessBilling"
+      }, {
+        "parameter": "ToState",
+        "value": "PaperlessBilling"
+      }, {
+        "parameter": "ToModule",
+        "value": "BalanceInquiryOrMakePayment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "generators": [ {
+        "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/a0063baa-3941-429e-aac4-bbc6b0714bf8",
+        "outputParameter": "$request.generative.prompt"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "b555c43b-2577-43f3-9904-5673812f0c3b"
+  } ]
+}

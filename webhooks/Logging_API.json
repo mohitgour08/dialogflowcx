@@ -1,0 +1,11 @@
+{
+  "name": "3d6cbc20-107b-4d4a-ad93-aa0d37ddcaab",
+  "displayName": "Logging_API",
+  "genericWebService": {
+    "uri": " https://us-central1-bs-prj-dev-ccai.cloudfunctions.net/CCAI-Log",
+    "webhookType": "STANDARD"
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

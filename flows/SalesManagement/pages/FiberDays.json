@@ -1,0 +1,50 @@
+{
+  "name": "6995437f-5d8e-473c-ba27-655a6ebf9f7e",
+  "displayName": "FiberDays",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "intent": "Monday",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "FiberTimeFrame",
+    "name": "3f49935a-7186-41b5-bdf5-44432b8e490b"
+  }, {
+    "intent": "Tuesday",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "FiberTimeFrame",
+    "name": "c2c1f97e-a993-451c-9d47-6e80420d4293"
+  }, {
+    "intent": "Wednesday",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "FiberTimeFrame",
+    "name": "16416845-f938-4ad2-a36d-8a5b3b25f4a1"
+  }, {
+    "intent": "Thursday",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "FiberTimeFrame",
+    "name": "62c0cc86-eacd-4caa-b0f9-8ffcf3a2c281"
+  }, {
+    "intent": "Friday",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "FiberTimeFrame",
+    "name": "5d90860a-db45-47e1-b1bf-df1693d60afa"
+  }, {
+    "intent": "Nevermind",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Noreschedule",
+    "name": "1f047237-d77b-4e93-aa99-6d1e6d6f3f88"
+  } ]
+}

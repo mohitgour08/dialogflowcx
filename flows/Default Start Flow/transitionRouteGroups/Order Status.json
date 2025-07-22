@@ -1,0 +1,14 @@
+{
+  "name": "e7175e6a-dbe3-4d05-b1b3-10b279bace1c",
+  "displayName": "Order Status",
+  "transitionRoutes": [ {
+    "intent": "Sales.ProductOrderStatus",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "head_intent",
+        "value": "Order Status"
+      } ]
+    },
+    "name": "0b8cfc40-5f56-492e-8165-11ed8adb8f0a"
+  } ]
+}

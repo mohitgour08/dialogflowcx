@@ -1,0 +1,11 @@
+{
+  "name": "6ee0ba6c-f74e-4d1a-9210-11346e27840a",
+  "displayName": "DTMF_4",
+  "parameters": [ {
+    "id": "DTMF4",
+    "entityType": "@DTMF4"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 7,
+  "dtmfPattern": "^4$"
+}

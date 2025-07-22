@@ -1,0 +1,274 @@
+{
+  "name": "91c123ca-4535-471f-a7db-ca0d217ec220",
+  "displayName": "TicketAdditionalAvailableDates",
+  "form": {
+    "parameters": [ {
+      "displayName": "user_reply",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Here are a few additional openings. Please choose which one works best for you." ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "$session.params.AppointmentSlot4"
+          }, {
+            "action": "quick_reply",
+            "title": "$session.params.AppointmentSlot5"
+          }, {
+            "action": "quick_reply",
+            "title": "$session.params.AppointmentSlot6"
+          }, {
+            "action": "quick_reply",
+            "title": "Previous Dates and Times"
+          }, {
+            "action": "quick_reply",
+            "title": "None of these times work for me"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.user_reply = $session.params.AppointmentSlot4 AND $page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ArriveAfter",
+        "value": "$session.params.arriveAfter4"
+      }, {
+        "parameter": "ArriveBefore",
+        "value": "$session.params.arriveBefore4"
+      }, {
+        "parameter": "CommitTime",
+        "value": "$session.params.commitTime4"
+      }, {
+        "parameter": "AppointmentType",
+        "value": "$session.params.appointmentType4"
+      }, {
+        "parameter": "AppointmentReservationNumber",
+        "value": "$session.params.AppointmentReservation"
+      }, {
+        "parameter": "tarn",
+        "value": "$session.params.RepairDispatchTarn"
+      }, {
+        "parameter": "ConfirmedAppointment",
+        "value": "$session.params.AppointmentSlot4"
+      }, {
+        "parameter": "Metrics_SalesManagement_TicketAdditionalAvailableDates_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketRescheduleAppointmentAPI",
+    "name": "cec93c72-82f5-4544-84f6-9f12b9e60ffc"
+  }, {
+    "condition": "$session.params.user_reply = $session.params.AppointmentSlot5 AND $page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ArriveAfter",
+        "value": "$session.params.arriveAfter5"
+      }, {
+        "parameter": "ArriveBefore",
+        "value": "$session.params.arriveBefore5"
+      }, {
+        "parameter": "CommitTime",
+        "value": "$session.params.commitTime5"
+      }, {
+        "parameter": "AppointmentType",
+        "value": "$session.params.appointmentType5"
+      }, {
+        "parameter": "AppointmentReservationNumber",
+        "value": "$session.params.AppointmentReservation"
+      }, {
+        "parameter": "tarn",
+        "value": "$session.params.RepairDispatchTarn"
+      }, {
+        "parameter": "ConfirmedAppointment",
+        "value": "$session.params.AppointmentSlot5"
+      }, {
+        "parameter": "Metrics_SalesManagement_TicketAdditionalAvailableDates_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketRescheduleAppointmentAPI",
+    "name": "5d897f7a-ce4b-48a1-800a-e6795973d228"
+  }, {
+    "condition": "$session.params.user_reply = $session.params.AppointmentSlot6 AND $page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ArriveAfter",
+        "value": "$session.params.arriveAfter6"
+      }, {
+        "parameter": "ArriveBefore",
+        "value": "$session.params.arriveBefore6"
+      }, {
+        "parameter": "CommitTime",
+        "value": "$session.params.commitTime6"
+      }, {
+        "parameter": "AppointmentType",
+        "value": "$session.params.appointmentType6"
+      }, {
+        "parameter": "AppointmentReservationNumber",
+        "value": "$session.params.AppointmentReservation"
+      }, {
+        "parameter": "tarn",
+        "value": "$session.params.RepairDispatchTarn"
+      }, {
+        "parameter": "ConfirmedAppointment",
+        "value": "$session.params.AppointmentSlot6"
+      }, {
+        "parameter": "Metrics_SalesManagement_TicketAdditionalAvailableDates_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketRescheduleAppointmentAPI",
+    "name": "e314f8e7-bf0e-4db8-b034-8896e93f1bdc"
+  }, {
+    "condition": "$session.params.user_reply : Previous AND $page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketAdditionalAvailableDates_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "user_input",
+        "value": null
+      } ]
+    },
+    "targetPage": "TicketNextAvailableAppointment",
+    "name": "5fbfe29e-05bd-4aed-b644-8d48ed232c1f"
+  }, {
+    "condition": "$session.params.user_reply : None AND $page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketAdditionalAvailableDates_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketConnecttoAgent",
+    "name": "67f5ff23-0d0f-4748-8377-ddad39b74121"
+  }, {
+    "condition": "$session.params.user_reply != $session.params.AppointmentSlot4 AND $session.params.user_reply != $session.params.AppointmentSlot5 AND $session.params.user_reply != $session.params.AppointmentSlot6 AND $session.params.user_reply != Previous AND $session.params.user_reply != None AND $page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "user_reply",
+        "value": null
+      }, {
+        "parameter": "Metrics_SalesManagement_TicketAdditionalAvailableDates_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "AdditionalAppointmentNoMatch",
+    "name": "59b7062e-d969-4a9c-a42f-3c0f534301ee"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "$session.params.AppointmentSlot4"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.AppointmentSlot5"
+            }, {
+              "action": "quick_reply",
+              "title": "$session.params.AppointmentSlot6"
+            }, {
+              "action": "quick_reply",
+              "title": "Previous Dates and Times"
+            }, {
+              "action": "quick_reply",
+              "title": "None of these times work for me"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketAdditionalAvailableDates_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "97ac2fae-68f2-49b8-ad4e-b420032bdd90"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketAdditionalAvailableDates_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "TicketAdditionalAvailableDates"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "64ecf633-927f-403e-a3c6-725ae22d8914"
+  } ]
+}

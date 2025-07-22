@@ -1,0 +1,97 @@
+{
+  "name": "90b2e3cd-9c34-4084-ac78-d8816828ac73",
+  "displayName": "TicketOrderStatus",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.RepairDispatchStatus = \"ENROUTE\" OR $session.params.RepairDispatchStatus = \"Enroute\" OR $session.params.RepairDispatchStatus = \"enroute\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketOrderStatus_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketTechOnTheWay",
+    "name": "bff0f20a-1584-47a0-b05b-2ab0b02bc3f7"
+  }, {
+    "condition": "$session.params.RepairDispatchStatus = \"PENDING\" OR $session.params.RepairDispatchStatus = \"Pending\" OR $session.params.RepairDispatchStatus = \"pending\" OR $session.params.RepairDispatchStatus = \"Accepted\" OR $session.params.RepairDispatchStatus = \"Created\" OR $session.params.RepairDispatchStatus = \"Assigned\" OR $session.params.RepairDispatchStatus = \"Allocated\" OR $session.params.RepairDispatchStatus = \"Unscheduled\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketOrderStatus_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketPendingCheckIntent",
+    "name": "d58666ad-f109-43a3-95b1-21e0c5f6db85"
+  }, {
+    "condition": "$session.params.RepairDispatchStatus = \"HOLD\" OR $session.params.RepairDispatchStatus = \"HLD\" OR $session.params.RepairDispatchStatus = \"Hold\" OR $session.params.RepairDispatchStatus = \"Canceled\" OR $session.params.RepairDispatchStatus = \"CANCELED\" OR $session.params.RepairDispatchStatus = \"Cancelled\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_SalesManagement_TicketOrderStatus_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "$session.params.RepairDispatchStatus"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "038b9fbf-c3d2-48f1-bf87-d2b25254764c"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_SalesManagement_TicketOrderStatus_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SalesManagement-TicketOrderStatus,TicketStatusUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "b6636382-8c51-4cb4-8747-131931ca8f80"
+  } ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "1b9db622-1519-4011-b215-0ed180c49458",
+  "displayName": "AuthenticationZipcode",
+  "parameters": [ {
+    "id": "zipcode",
+    "entityType": "@sys.zip-code"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 6
+}

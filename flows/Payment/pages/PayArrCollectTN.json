@@ -1,0 +1,234 @@
+{
+  "name": "b048e2d0-aab6-4c53-8ee6-099051a92c78",
+  "displayName": "PayArrCollectTN",
+  "form": {
+    "parameters": [ {
+      "displayName": "PayArr_TN_Collect",
+      "required": true,
+      "entityType": "@ENTER_TN",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_Payment_PayArrCollectTN_PayArr_TN",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ]
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Using the keypad, please type in the ten digit mobile number you would like me to send the link to. " ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Payment_PayArrCollectTN_NoInput1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ]
+          },
+          "name": "21190bca-9ffa-4313-b895-a982859888b3"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "That’s okay." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Payment_PayArrCollectTN_NoInput2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Payment"
+            }, {
+              "parameter": "SS_PaymentArrangement",
+              "value": "Failure"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "NoInput"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoInputRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "PayArrCollectTN"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "9a06241d-fb24-4e21-b038-3c8ca3eca244"
+        }, {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Using the keypad, please type in the ten digit mobile number you would like me to send the link to. " ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Payment_PayArrCollectTN_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ]
+          },
+          "name": "4ac48094-f32d-4887-b959-0745a1ff690c"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I didn’t understand your answer." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_Payment_PayArrCollectTN_NoMatch2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Payment"
+            }, {
+              "parameter": "SS_FailureReason",
+              "value": "RetryLimitExceeded"
+            }, {
+              "parameter": "SS_PaymentArrangement",
+              "value": "Failure"
+            }, {
+              "parameter": "TransferReason",
+              "value": "NoMatchRetryExceeded"
+            }, {
+              "parameter": "TransferMessage",
+              "value": "PayArrCollectTN"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "493c95c7-34d2-484e-ba59-c63ebbf559be"
+        } ]
+      },
+      "advancedSettings": {
+        "dtmfSettings": {
+          "enabled": true,
+          "finishDigit": "#",
+          "useSystemEntityRule": false,
+          "interdigitTimeoutDuration": {
+            "seconds": 5
+          },
+          "endpointingTimeoutDuration": {
+            "seconds": 5
+          }
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_Payment_PayArrCollectTN_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayArrCollectTN"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "7b15c617-b0a5-4e2d-8431-1322552fc87d"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.PayArr_TN_Collect) = 10",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrCollectTN_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PayArr_TN",
+        "value": "$session.params.PayArr_TN_Collect"
+      }, {
+        "parameter": "PayArr_TN_Collect",
+        "value": null
+      } ]
+    },
+    "targetPage": "PayArrConfirmTN",
+    "name": "145e5680-1c5d-4e43-81ef-b0246a548f34"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.PayArr_TN_Collect) = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrCollectTN_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PayArr_TN_Collect",
+        "value": "$sys.func.TO_TEXT($session.params.PayArr_TN_Collect)"
+      }, {
+        "parameter": "PayArr_TN_Collect",
+        "value": "$sys.func.MID($session.params.PayArr_TN_Collect, 2, 10)"
+      }, {
+        "parameter": "PayArr_TN",
+        "value": "$session.params.PayArr_TN_Collect"
+      }, {
+        "parameter": "PayArr_TN_Collect",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PayArrConfirmTN",
+    "name": "ff6a407c-b2bc-4913-b94b-b40bafd84238"
+  } ]
+}

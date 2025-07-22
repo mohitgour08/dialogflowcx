@@ -1,0 +1,696 @@
+{
+  "trainingPhrases": [ {
+    "id": "5e4f371d-4060-481f-a9f0-00d45bc52046",
+    "parts": [ {
+      "text": "Yes, I would like to speak to a specialist"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "18b3eb6d-faa0-471b-b3d0-cc9c7379a086",
+    "parts": [ {
+      "text": "ready to stay here "
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6fbcc857-c42b-4574-82bb-4cf7a1f23177",
+    "parts": [ {
+      "text": "I am ready to wait"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3d9cb6b9-d403-47e2-ac73-8307fc70d863",
+    "parts": [ {
+      "text": "yeah I can wait"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "aba30889-b561-4b03-9278-bd750ba4b173",
+    "parts": [ {
+      "text": "yes i will wait"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "19d1998c-7c55-4ec2-a661-9cb00b018356",
+    "parts": [ {
+      "text": "yup"
+    } ],
+    "repeatCount": 3,
+    "languageCode": "en-us"
+  }, {
+    "id": "f590b4d3-9af9-4f5b-a0be-d40eef169738",
+    "parts": [ {
+      "text": "yes you may"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "94f46fd8-3635-4b48-bed1-e3184d0f5ed4",
+    "parts": [ {
+      "text": "yes this is correct"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "36690fe7-78ac-44f1-b54b-4850f48e6082",
+    "parts": [ {
+      "text": "yes that's "
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "07f457b1-a8b6-4731-97df-cb70aae7f44b",
+    "parts": [ {
+      "text": "yes thank you"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "12abbf79-05fc-421f-9513-3560cba468fe",
+    "parts": [ {
+      "text": "yes right"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "21116e91-e2c5-4cd2-b909-c4568199f3f1",
+    "parts": [ {
+      "text": "yes it is"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "eef2ff1c-58f3-42bd-8adf-d1a955a239d2",
+    "parts": [ {
+      "text": "yes indeed"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d831e628-91a6-45c2-8694-52d089bfab93",
+    "parts": [ {
+      "text": "yes I would like to confirm"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "65f9d024-b5fc-4104-a8c9-cd1f083ddb0e",
+    "parts": [ {
+      "text": "yes I do"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bf8ac130-9fbf-4479-b3bc-fc2d824872b3",
+    "parts": [ {
+      "text": "yes I agree"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9cdfaf1d-5dd4-47f7-932c-8a1ca9cb9826",
+    "parts": [ {
+      "text": "yes definitely"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a46e44eb-0eab-4410-9dba-3a6183b61dab",
+    "parts": [ {
+      "text": "yes correct"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "17bbcdde-0b79-4017-8b3a-e41272f981c6",
+    "parts": [ {
+      "text": "yes"
+    } ],
+    "repeatCount": 17,
+    "languageCode": "en-us"
+  }, {
+    "id": "ba80efdb-4a9c-4f1d-97f7-5e5ddcc89668",
+    "parts": [ {
+      "text": "yep"
+    } ],
+    "repeatCount": 3,
+    "languageCode": "en-us"
+  }, {
+    "id": "9bb72e0c-d7ea-42ed-b52d-21d23578b228",
+    "parts": [ {
+      "text": "yeh"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "00d4d3c0-52a9-47ab-9e6a-c0761a7a7f54",
+    "parts": [ {
+      "text": "yeah that's right"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "99002d62-2eec-4bd2-a5c1-9e722491e536",
+    "parts": [ {
+      "text": "yeah right"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ef1f9b19-4990-43a9-b154-b1d1aa7a993c",
+    "parts": [ {
+      "text": "yeah of course"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b063bb33-5db4-4b0a-9a7d-bcd46a68b2e2",
+    "parts": [ {
+      "text": "yeah go ahead"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "90038d30-8073-47f5-ac51-10961227a82d",
+    "parts": [ {
+      "text": "yeah exactly"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a4b42601-da51-4dc4-8536-0e2d9394cd52",
+    "parts": [ {
+      "text": "yeah "
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0705960c-c08d-4530-826d-27b54de49dea",
+    "parts": [ {
+      "text": "yeah"
+    } ],
+    "repeatCount": 5,
+    "languageCode": "en-us"
+  }, {
+    "id": "875105a3-c56e-43a8-b328-a57c8729329b",
+    "parts": [ {
+      "text": "yea"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "41ad140e-a433-497e-b3d6-077817aabb86",
+    "parts": [ {
+      "text": "ye"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "10432a1a-864e-4f95-90b2-24b6a4598caa",
+    "parts": [ {
+      "text": "yap"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "29ee62f9-59f1-4fd3-83ea-c82c1dc3abc3",
+    "parts": [ {
+      "text": "ya"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "84f16dc2-385e-4ae1-9e1a-62ea5d5f1f05",
+    "parts": [ {
+      "text": "why not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5c0652cf-7697-4091-a24b-1e5a5845b648",
+    "parts": [ {
+      "text": "this is correct"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8b8cc07e-c8c9-40e4-b4e3-e6eba16299d5",
+    "parts": [ {
+      "text": "that's correct"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2c976e79-64a3-4cac-a2e1-d22aca5bbff3",
+    "parts": [ {
+      "text": "that's okay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "036424e2-5086-43ce-8a0a-eefcbd07496f",
+    "parts": [ {
+      "text": "that is ok"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3313cdb8-0dd1-4ec2-b046-d8d3de0cd9fe",
+    "parts": [ {
+      "text": "sure why not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9a9356c7-2096-4dda-98b4-cb6317937274",
+    "parts": [ {
+      "text": "sure"
+    } ],
+    "repeatCount": 3,
+    "languageCode": "en-us"
+  }, {
+    "id": "8b7112fc-cb77-4aa7-b757-693ea226b866",
+    "parts": [ {
+      "text": "sounds good"
+    } ],
+    "repeatCount": 3,
+    "languageCode": "en-us"
+  }, {
+    "id": "ddce2979-c0ae-45d7-99b1-8209024cbc4b",
+    "parts": [ {
+      "text": "right"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "49b9e5a6-a116-4150-a7a9-dd670c957067",
+    "parts": [ {
+      "text": "please do"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c74196e3-f016-46ed-ab1d-0d0f626db4af",
+    "parts": [ {
+      "text": "okie dokie"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c0106dc8-35dc-420d-ac66-d67b45346ff7",
+    "parts": [ {
+      "text": "okey"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "62f4302e-0d87-4dc6-bff8-92bd7d5d0b77",
+    "parts": [ {
+      "text": "okay then"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0b9c2177-87ee-402c-b5ec-02f16e8f2a6c",
+    "parts": [ {
+      "text": "okay that's "
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "25af2e91-301a-4475-b66b-2527c3ff7ba6",
+    "parts": [ {
+      "text": "okay sounds "
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dc5740fc-8a32-40c5-b169-474d98f1ff77",
+    "parts": [ {
+      "text": "okay"
+    } ],
+    "repeatCount": 3,
+    "languageCode": "en-us"
+  }, {
+    "id": "7ee4a277-c5a2-4f58-9188-8a138b49bbcf",
+    "parts": [ {
+      "text": "ok you can"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "96c6c3d0-4131-4ba4-9357-1a568e727e64",
+    "parts": [ {
+      "text": "ok yes"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3a65f12e-7635-4248-b4d3-96a0fe9447ee",
+    "parts": [ {
+      "text": "ok thank you"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f28f0195-1e89-4f18-b1e3-2e8a8250fa47",
+    "parts": [ {
+      "text": "ok go ahead"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cd6fc56c-541b-4535-a90e-6b6462aa2bdf",
+    "parts": [ {
+      "text": "ok "
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a13ad416-be54-4502-83d9-6d21395f7ff2",
+    "parts": [ {
+      "text": "ok"
+    } ],
+    "repeatCount": 3,
+    "languageCode": "en-us"
+  }, {
+    "id": "9bf2c18e-1443-4229-a4b7-e907521871bb",
+    "parts": [ {
+      "text": "oh yes"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cd2295fe-5cd3-455c-bed9-cfb1ff4c6d1a",
+    "parts": [ {
+      "text": "of course why not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5a76f8ad-1794-4c27-9cd6-cba3a6346c12",
+    "parts": [ {
+      "text": "of course"
+    } ],
+    "repeatCount": 3,
+    "languageCode": "en-us"
+  }, {
+    "id": "125588a7-0bd8-4b4a-bb39-ec0756841cb9",
+    "parts": [ {
+      "text": "obviously"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "85fac566-df5f-4b5a-b5a5-11257b58e43c",
+    "parts": [ {
+      "text": "looks correct"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "17acdb28-bf68-4521-87aa-8d099e63d4c7",
+    "parts": [ {
+      "text": "k"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "aaf6d31b-6e69-4d56-a17a-21a874872f0d",
+    "parts": [ {
+      "text": "it is correct"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ffc8bb42-7b98-473b-a079-28a193343284",
+    "parts": [ {
+      "text": "I'm sure"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3e6ced13-0067-4a36-8ab6-dd45e1ee5db7",
+    "parts": [ {
+      "text": "I think so"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "878cec25-ad33-4f1d-8dea-58b46b84d0ff",
+    "parts": [ {
+      "text": "I guess"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8a1629bd-fc8a-40db-9baf-99de69cbfbfa",
+    "parts": [ {
+      "text": "I don't mind"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3fae5d6b-c1de-4501-bcdd-17a310eccf3e",
+    "parts": [ {
+      "text": "I do"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "09d80075-c898-4eb5-96cc-b03841e953ee",
+    "parts": [ {
+      "text": "I agree"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4e628862-6a51-42e4-9924-c40f8de50752",
+    "parts": [ {
+      "text": "good"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6791a9bf-54ae-4247-acf8-8b2269db80b7",
+    "parts": [ {
+      "text": "go for it"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e5a4e02f-009b-431d-8fc1-1a85cc696c9d",
+    "parts": [ {
+      "text": "go ahead"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "71967a70-20be-47ad-8b49-767a89aac78c",
+    "parts": [ {
+      "text": "for sure"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9822dc2c-de85-4720-828e-c504e1e14049",
+    "parts": [ {
+      "text": "fine"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d16c0bcf-e8f1-4c0a-bb58-7a8e42475f32",
+    "parts": [ {
+      "text": "exactly"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "40610383-a835-4da1-9b62-aa8abd73be30",
+    "parts": [ {
+      "text": "do it"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b7fb422a-a5e2-4a10-a6ae-e8895849294e",
+    "parts": [ {
+      "text": "definitely"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d6626339-4a9a-4604-aafe-179ed743fd4c",
+    "parts": [ {
+      "text": "confirmed"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e720618f-fcc8-4e1c-b20e-568e5db48567",
+    "parts": [ {
+      "text": "certainly"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "716d508e-09c1-4e51-b293-6e80ac4247b3",
+    "parts": [ {
+      "text": "alrighty"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e74760a9-4135-4cff-9baf-17faa35e3acf",
+    "parts": [ {
+      "text": "all right"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e9287b52-1116-422e-b21d-032bb91e1ad5",
+    "parts": [ {
+      "text": "affirmative"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c255fcf5-a646-4a3e-9135-53edd39f7a90",
+    "parts": [ {
+      "text": "absolutely"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "226f5b7b-e407-40c3-81da-a075aa73e1d8",
+    "parts": [ {
+      "text": "yes yes"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "541ede99-7693-45f9-bcf9-4e73bd65e1d7",
+    "parts": [ {
+      "text": "yes please"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0d6dc394-097b-4126-877c-1a784b954101",
+    "parts": [ {
+      "text": "sure thing"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "193dbc04-3487-4900-87af-416d5ab7c848",
+    "parts": [ {
+      "text": "yes sure"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3a279cc9-ca11-42a4-9aff-ea4c72e99aca",
+    "parts": [ {
+      "text": " why not"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7b073233-7374-4260-9708-bfe482cf0cac",
+    "parts": [ {
+      "text": " sounds good"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d589e87d-6c07-4d49-ac5f-be7db10edade",
+    "parts": [ {
+      "text": "yaa"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "40421e1c-fd07-4226-a517-5a27a2b43c3a",
+    "parts": [ {
+      "text": " i do"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5d5b660b-98cd-4e1d-a24a-fcaa438933dd",
+    "parts": [ {
+      "text": " i have"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d46bcbd8-1299-4553-8cd8-fbbed2e4a04a",
+    "parts": [ {
+      "text": " thanks!"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0de7f453-3839-4ba5-86b8-db30d2e67abb",
+    "parts": [ {
+      "text": " i can"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "56ec3408-8cd2-40d2-866d-471a6b1e25fc",
+    "parts": [ {
+      "text": " they are"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b9cf310e-d8f3-4c56-8b42-0572b680def2",
+    "parts": [ {
+      "text": "ok. thanks!"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e69c4d52-569a-4726-bb50-0df87845401e",
+    "parts": [ {
+      "text": " thank you"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2850a67f-b4a6-4f70-886d-816a3d5b423d",
+    "parts": [ {
+      "text": "alright"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "143d442a-266b-4d5e-b373-6f12da4a68f9",
+    "parts": [ {
+      "text": "ok. cool. thank you!"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1a1dc909-ef0f-4164-9563-473b6ad91fc5",
+    "parts": [ {
+      "text": "yes please do"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9c79127a-f36e-417d-a4cb-51cf2f849af4",
+    "parts": [ {
+      "text": " I have done that"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

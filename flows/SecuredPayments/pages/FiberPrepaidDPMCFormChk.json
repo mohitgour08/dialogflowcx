@@ -1,0 +1,50 @@
+{
+  "name": "8585b55a-4d1c-428d-8e1c-c34c08235e44",
+  "displayName": "FiberPrepaidDPMCFormChk",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.formresponsedpmc = \"yesDPM\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberPrepaidDPMCFormChk_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "formresponsedpmc",
+        "value": null
+      }, {
+        "parameter": "DefaultPM",
+        "value": "true"
+      } ]
+    },
+    "targetPage": "ZeroValueCheck",
+    "name": "e71a1033-26ec-4b4f-a9cd-d52db07e39f7"
+  }, {
+    "condition": "$session.params.formresponsedpmc = \"noDPM\" AND ($session.params.BillInfo_AccountStatus = \"Payment Past Due\" OR $session.params.BillInfo_AccountStatus : \"Jeopardy\" OR $session.params.BillInfo_AccountStatus : \"jeopardy\" OR $session.params.BillInfo_AccountStatus : \"Past Due\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberPrepaidDPMCFormChk_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "formresponsedpmc",
+        "value": null
+      } ]
+    },
+    "targetPage": "FormPastDueOTP",
+    "name": "21dbcbfe-6141-4e8a-bae9-3f6c1290f9d8"
+  }, {
+    "condition": "$session.params.formresponsedpmc = \"noDPM\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberPrepaidDPMCFormChk_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "formresponsedpmc",
+        "value": null
+      } ]
+    },
+    "targetPage": "FiberPrepaidCardOTPForm",
+    "name": "e26086dd-1523-4eb4-afaa-de14cb3562fb"
+  } ]
+}

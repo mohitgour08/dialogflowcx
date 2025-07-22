@@ -1,0 +1,84 @@
+{
+  "name": "d0c2831c-0d0c-4b42-ac6a-7a592e06ce7c",
+  "displayName": "AutopayorNon-Autopay",
+  "form": {
+    "parameters": [ {
+      "displayName": "TokenType",
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      },
+      "advancedSettings": {
+        "dtmfSettings": {
+          "enabled": true,
+          "useSystemEntityRule": false,
+          "interdigitTimeoutDuration": {
+            "seconds": 5
+          },
+          "endpointingTimeoutDuration": {
+            "seconds": 5
+          }
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "SS_PostpaidPayment",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Autopay = \"Y\" OR $session.params.Autopay = \"Enrolled\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AutopayorNon-Autopay_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TokenType",
+        "value": "ManageAutoPay"
+      } ]
+    },
+    "targetPage": "AutopayPURLCheck",
+    "name": "59c98936-2a44-4970-bccc-e765c6d93787"
+  }, {
+    "condition": "$session.params.Autopay = \"N\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AutopayorNon-Autopay_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TokenType",
+        "value": "MakePayment"
+      } ]
+    },
+    "targetPage": "NonAutopayPURLCheck",
+    "name": "a0ed60eb-80ab-4d1c-bb91-a420d94a5d5c"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_AutopayorNon-Autopay_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TokenType",
+        "value": "MakePayment"
+      } ]
+    },
+    "targetPage": "NonAutopayPURLCheck",
+    "name": "5f43df3a-258c-43ac-922c-d90ac656947a"
+  } ]
+}

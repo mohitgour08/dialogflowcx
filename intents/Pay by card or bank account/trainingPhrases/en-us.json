@@ -1,0 +1,350 @@
+{
+  "trainingPhrases": [ {
+    "id": "9e0534e6-c2f3-4623-87d0-0a1b064875fb",
+    "parts": [ {
+      "text": "Payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d9da7143-7e16-4e30-baec-69927baf5004",
+    "parts": [ {
+      "text": "Bank",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Account Payments",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8d0b91b6-16fa-4d9d-a29e-8501b6340e51",
+    "parts": [ {
+      "text": "Bank",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Payments",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "caba9762-d748-4d5c-9bb0-b55bec919223",
+    "parts": [ {
+      "text": "Bank",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Account Payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "79c9e51e-494c-4ee8-bea9-3c4fca1ec34a",
+    "parts": [ {
+      "text": "Card ",
+      "auto": true
+    }, {
+      "text": "payments",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "251854d6-8858-4b2a-8815-0c404b1c5be0",
+    "parts": [ {
+      "text": "Bank",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Payment",
+      "auto": true
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "46fba1e1-aaa5-4ccd-9f4c-9d7eac610b3a",
+    "parts": [ {
+      "text": "Card Payment",
+      "auto": true
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "592c65a2-a9ce-40ab-a8ca-c33b3bda8419",
+    "parts": [ {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "using",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Bank",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1c265f86-ee2f-45b6-873c-8255240fd322",
+    "parts": [ {
+      "text": "Pay by",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Bank",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "49f313cc-427a-4272-93df-3522f4978df5",
+    "parts": [ {
+      "text": "Make payment",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "using",
+      "auto": true
+    }, {
+      "text": " Card or ",
+      "auto": true
+    }, {
+      "text": "Bank",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Account",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fade1aac-f4de-440a-9f90-4c52385278e3",
+    "parts": [ {
+      "text": "Make payment by",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Bank",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Account",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e765b83a-c166-45c0-8ae8-be80493c8168",
+    "parts": [ {
+      "text": "Make payment by",
+      "auto": true
+    }, {
+      "text": " Card",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "56eb187d-4db2-47ac-9d81-1d796fa8f7e1",
+    "parts": [ {
+      "text": "Bank Account",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0b446f2c-0d9e-414f-8888-3f76818c83a8",
+    "parts": [ {
+      "text": "Bank",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d1fc06ee-e567-4282-88b7-ffd9a9f6331d",
+    "parts": [ {
+      "text": "Debitcard",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "71887209-80c4-47da-b875-9d4d94f433ec",
+    "parts": [ {
+      "text": "Creditcard",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "be48fe65-4f7c-4f6f-9c6e-4df18706fa08",
+    "parts": [ {
+      "text": "Card",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8f535d77-3517-4c0c-b9a5-5a0e2d3643ed",
+    "parts": [ {
+      "text": "Make Card Payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "456df370-164b-4425-92cb-15d4df777c6f",
+    "parts": [ {
+      "text": "Make ",
+      "auto": true
+    }, {
+      "text": "Bank",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ac720c50-8ffe-4733-9361-e2f6ce65b5fb",
+    "parts": [ {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "using",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Bank",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Account",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d0ca4ba5-900d-4146-8486-4cc2a603d3ed",
+    "parts": [ {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "using",
+      "auto": true
+    }, {
+      "text": " Card",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7d70e068-1ada-4c9f-b3c6-4b96c1ab8a0b",
+    "parts": [ {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "using",
+      "auto": true
+    }, {
+      "text": " Card or ",
+      "auto": true
+    }, {
+      "text": "Bank",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Account",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b4c702a6-139e-4244-8868-1cc10c8b203e",
+    "parts": [ {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " by bank ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8583198f-a661-4e3d-bc0b-3d7fe21c0d19",
+    "parts": [ {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": " by card",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "39f7a5a5-43cd-44a5-b7d6-c45a5972ab98",
+    "parts": [ {
+      "text": "Pay",
+      "auto": true
+    }, {
+      "text": " by card or bank ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

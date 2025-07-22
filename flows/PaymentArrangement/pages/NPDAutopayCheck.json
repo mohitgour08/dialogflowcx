@@ -1,0 +1,71 @@
+{
+  "name": "aefb9784-43e4-4d6a-bc34-40f4786cce9a",
+  "displayName": "NPDAutopayCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Autopay = \"Y\" OR $session.params.Autopay = \"Enrolled\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NPDAutopayCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NPDAutopayEnrolled30Days",
+    "name": "baea1962-6c81-4a9c-8bfe-7842f304cbbf"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm happy to help you get enrolled! First, I will need to sign you up for our autopay system, so that your installments will draft automatically from a card or bank account. You will be dropped from autopay when the payment arrangement concludes. \n\n" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "You can always view our $session.params.link46 ." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm happy to help you get enrolled! First, I will need to sign you up for our autopay system, so that your installments will draft automatically from a card or bank account. You will be dropped from autopay when the payment arrangement concludes. \n\nYou can always view our payment agreement at brightspeed.com." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_NPDAutopayCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NPDSignUp30day",
+    "name": "d0cc1586-7a2a-47e4-ada9-55afe14b730e"
+  } ]
+}

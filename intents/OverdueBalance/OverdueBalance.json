@@ -1,0 +1,10 @@
+{
+  "name": "ffcdad49-8fd3-4a31-bfe5-75841f307dd9",
+  "displayName": "OverdueBalance",
+  "parameters": [ {
+    "id": "prebuilt_components_credit_card_expiration_date",
+    "entityType": "@prebuilt_components_credit_card_expiration_date"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 17
+}

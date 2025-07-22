@@ -1,0 +1,827 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Avoiding interruption during transition"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to ",
+      "auto": true
+    }, {
+      "text": "move my services",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Move My Service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "shift my service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "shift service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "move my service order",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "move my service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "relocate my service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "relocate service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "move request",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "move service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "change my service",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "address",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm changing apartments and I need to change my internet to that apartment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I have specific requirements for the service installation at the ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " location due to accessibility concerns. How can I communicate these requirements to the installation team?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm ",
+      "auto": true
+    }, {
+      "text": "moving",
+      "auto": true
+    }, {
+      "text": " internationally, and I would like to explore the options for continuing the services or transitioning to a local provider. Can you provide guidance on this matter?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I recently experienced an ",
+      "auto": true
+    }, {
+      "text": "issue",
+      "auto": true
+    }, {
+      "text": " with my service, and I want to ensure that it gets resolved before the ",
+      "auto": true
+    }, {
+      "text": "move",
+      "auto": true
+    }, {
+      "text": ". Can you coordinate the ",
+      "auto": true
+    }, {
+      "text": "service order",
+      "auto": true
+    }, {
+      "text": " accordingly?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I have a complex setup involving multiple ",
+      "auto": true
+    }, {
+      "text": "devices",
+      "auto": true
+    }, {
+      "text": " and equipment. How can I ensure that everything is properly configured and transferred to the ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " location?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm a business customer, and I need ",
+      "auto": true
+    }, {
+      "text": "assistance",
+      "auto": true
+    }, {
+      "text": " with ",
+      "auto": true
+    }, {
+      "text": "moving",
+      "auto": true
+    }, {
+      "text": " my office location along with the associated business services. Can you provide guidance on the process?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm ",
+      "auto": true
+    }, {
+      "text": "moving",
+      "auto": true
+    }, {
+      "text": " to a different city within the same coverage area. Can you confirm if ",
+      "auto": true
+    }, {
+      "text": "my service order",
+      "auto": true
+    }, {
+      "text": " needs any specific modifications for the ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " location?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I have multiple ",
+      "auto": true
+    }, {
+      "text": "accounts",
+      "auto": true
+    }, {
+      "text": " with your company, and I want to consolidate them into a single ",
+      "auto": true
+    }, {
+      "text": "service order",
+      "auto": true
+    }, {
+      "text": " for the ",
+      "auto": true
+    }, {
+      "text": "move",
+      "auto": true
+    }, {
+      "text": ". How can I proceed with this request?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm transferring my services to a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "address",
+      "auto": true
+    }, {
+      "text": ", but I also want to add an additional line to my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": ". Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me with both requests simultaneously?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I recently ",
+      "auto": true
+    }, {
+      "text": "upgraded",
+      "auto": true
+    }, {
+      "text": " my ",
+      "auto": true
+    }, {
+      "text": "device",
+      "auto": true
+    }, {
+      "text": ", and I want to ensure that the ",
+      "auto": true
+    }, {
+      "text": "service order",
+      "auto": true
+    }, {
+      "text": " reflects the ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "device",
+      "auto": true
+    }, {
+      "text": " details. How can I update this information?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm ",
+      "auto": true
+    }, {
+      "text": "moving",
+      "auto": true
+    }, {
+      "text": " to a location where your services are ",
+      "auto": true
+    }, {
+      "text": "not",
+      "auto": true
+    }, {
+      "text": " currently available. Can you provide alternative options or suggest a suitable course of action?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I have a specific date in mind for the service transfer, but I'm unsure if it'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " feasible. Can you check the availability and coordinate the ",
+      "auto": true
+    }, {
+      "text": "move",
+      "auto": true
+    }, {
+      "text": " accordingly?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm temporarily relocating for ",
+      "auto": true
+    }, {
+      "text": "a few months",
+      "auto": true
+    }, {
+      "text": " and would like to suspend my services during that period. Can you guide me through the process?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I have multiple services bundled together, and I want to ",
+      "auto": true
+    }, {
+      "text": "move",
+      "auto": true
+    }, {
+      "text": " them to a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " location while maintaining the bundle. How can I accomplish this?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm ",
+      "auto": true
+    }, {
+      "text": "moving",
+      "auto": true
+    }, {
+      "text": " to a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "address",
+      "auto": true
+    }, {
+      "text": ", but I also want to ",
+      "auto": true
+    }, {
+      "text": "upgrade",
+      "auto": true
+    }, {
+      "text": " my service plan. Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me with both requests?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need to ",
+      "auto": true
+    }, {
+      "text": "move my services",
+      "auto": true
+    }, {
+      "text": " to a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "address",
+      "auto": true
+    }, {
+      "text": ". Can you provide instructions on how to proceed?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me in placing a ",
+      "auto": true
+    }, {
+      "text": "service order",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "move my internet services",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to ",
+      "auto": true
+    }, {
+      "text": "schedule",
+      "auto": true
+    }, {
+      "text": " a service relocation for my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": ". What details do you require?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need guidance on how to transfer my internet services to a different location.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What is the procedure for ",
+      "auto": true
+    }, {
+      "text": "moving my internet services",
+      "auto": true
+    }, {
+      "text": " to a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "address",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm in the process of relocating and need to ",
+      "auto": true
+    }, {
+      "text": "move my internet services",
+      "auto": true
+    }, {
+      "text": ". How can I get started?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to transfer my services to ",
+      "auto": true
+    }, {
+      "text": "another",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "address",
+      "auto": true
+    }, {
+      "text": ". How long does the process typically take?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I would like to arrange a ",
+      "auto": true
+    }, {
+      "text": "service move",
+      "auto": true
+    }, {
+      "text": " for my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": ". What information do you need?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need ",
+      "auto": true
+    }, {
+      "text": "assistance",
+      "auto": true
+    }, {
+      "text": " with ",
+      "auto": true
+    }, {
+      "text": "moving my internet services",
+      "auto": true
+    }, {
+      "text": " to a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " location. Can you ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to initiate a service transfer for my internet services. What'",
+      "auto": true
+    }, {
+      "text": "s",
+      "auto": true
+    }, {
+      "text": " the ",
+      "auto": true
+    }, {
+      "text": "next",
+      "auto": true
+    }, {
+      "text": " step?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I have a ",
+      "auto": true
+    }, {
+      "text": "service order",
+      "auto": true
+    }, {
+      "text": " for ",
+      "auto": true
+    }, {
+      "text": "moving my services",
+      "auto": true
+    }, {
+      "text": ". How can I proceed?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm changing residences and need to ",
+      "auto": true
+    }, {
+      "text": "move my internet services",
+      "auto": true
+    }, {
+      "text": ". Can you guide me through the process?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need to ",
+      "auto": true
+    }, {
+      "text": "move",
+      "auto": true
+    }, {
+      "text": " my internet/",
+      "auto": true
+    }, {
+      "text": "phone",
+      "auto": true
+    }, {
+      "text": "/TV services to a different ",
+      "auto": true
+    }, {
+      "text": "address",
+      "auto": true
+    }, {
+      "text": ". What do I need to do?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to ",
+      "auto": true
+    }, {
+      "text": "schedule",
+      "auto": true
+    }, {
+      "text": " a service relocation. How can I request a ",
+      "auto": true
+    }, {
+      "text": "service order",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What are the steps to ",
+      "auto": true
+    }, {
+      "text": "move my internet services",
+      "auto": true
+    }, {
+      "text": " to a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " location?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm relocating and need to arrange the transfer of my services. How do I proceed?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I have a ",
+      "auto": true
+    }, {
+      "text": "service order",
+      "auto": true
+    }, {
+      "text": " request to ",
+      "auto": true
+    }, {
+      "text": "move my internet services",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "another",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "address",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm ",
+      "auto": true
+    }, {
+      "text": "moving",
+      "auto": true
+    }, {
+      "text": " to a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " place and need to ",
+      "auto": true
+    }, {
+      "text": "schedule",
+      "auto": true
+    }, {
+      "text": " a service transfer. Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to transfer my service to a different location. What is the process?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I need to ",
+      "auto": true
+    }, {
+      "text": "move my service",
+      "auto": true
+    }, {
+      "text": " to a ",
+      "auto": true
+    }, {
+      "text": "new",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "address",
+      "auto": true
+    }, {
+      "text": ". How can I place a ",
+      "auto": true
+    }, {
+      "text": "service order",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Move Service Order",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

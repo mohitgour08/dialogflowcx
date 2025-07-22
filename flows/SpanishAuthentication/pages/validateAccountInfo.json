@@ -1,0 +1,94 @@
+{
+  "name": "6b2a4f28-5c7b-4051-bfb3-5797e2b01388",
+  "displayName": "validateAccountInfo",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$sys.func.LEN($session.params.TN_BAN) = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$session.params.TN_BAN",
+        "value": "$sys.func.MID($session.params.TN_BAN, 2, 10)"
+      }, {
+        "parameter": "$session.params.phone-number",
+        "value": "$session.params.TN_BAN"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "f43a0dcb-39ab-4f41-ad76-3da09c13518a"
+  }, {
+    "condition": "($sys.func.LEN($session.params.TN_BAN) != 9 AND $session.params.TN_BAN_attempt = 1) AND ($sys.func.LEN($session.params.TN_BAN) != 10 AND $session.params.TN_BAN_attempt = 1)",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "comingfromstate",
+        "value": "SpanishAuthentication"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "BANTN_NoMatch"
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_validateAccountInfo_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "Failure"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "25211811-3573-4d2b-b91e-3de604d91956"
+  }, {
+    "condition": "($sys.func.LEN($session.params.TN_BAN) != 9 AND $session.params.TN_BAN_attempt = 0) AND ($sys.func.LEN($session.params.TN_BAN) != 10 AND $session.params.TN_BAN_attempt = 0)",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_attempt",
+        "value": "$sys.func.ADD($session.params.TN_BAN_attempt,1)"
+      }, {
+        "parameter": "TN_BAN",
+        "value": null
+      }, {
+        "parameter": "Metrics_SpanishAuthentication_validateAccountInfo_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "checkChannel",
+    "name": "ef2055f4-9d3f-45f9-b98a-b337bb8027dc"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Entiendo! Estoy buscando ahora\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_validateAccountInfo_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EmbargoSwitch",
+    "name": "c7ca0749-3679-4e8a-b070-68db0dc2337a"
+  } ]
+}

@@ -1,0 +1,1406 @@
+{
+  "trainingPhrases": [ {
+    "id": "750f8b00-32df-465a-a24b-d9bf5b3acd02",
+    "parts": [ {
+      "text": "Live Agent",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4ab98852-c431-4322-ac9b-c3312c3755dc",
+    "parts": [ {
+      "text": "Live",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "Chat",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3b922aad-84cc-41d6-b257-43a127361791",
+    "parts": [ {
+      "text": "Rep",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "97ba8ef1-092d-42bf-a8b8-71de60c2b837",
+    "parts": [ {
+      "text": "More ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "d3828305-5340-4480-b271-7b89ce2b767d",
+    "parts": [ {
+      "text": "More ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " with my ",
+      "auto": true
+    }, {
+      "text": "Balance",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7abc20bd-da63-4d57-b05e-292bfa8b7192",
+    "parts": [ {
+      "text": "I need further assistance with this ",
+      "auto": true
+    }, {
+      "text": "issue",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d26f84d6-6566-4e2e-9a02-d01e64aa9151",
+    "parts": [ {
+      "text": "Can you provide more help with this problem",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f7f95e37-f055-4b95-8860-5724b07f51cf",
+    "parts": [ {
+      "text": "I require additional ",
+      "auto": true
+    }, {
+      "text": "support for this",
+      "auto": true
+    }, {
+      "text": " matter.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1006fbd8-7efe-400a-b736-c134efbef80e",
+    "parts": [ {
+      "text": "Please guide me further with this ",
+      "auto": true
+    }, {
+      "text": "issue",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "74fc1f33-f1c9-4fe2-ad91-329d5a7f0cd4",
+    "parts": [ {
+      "text": "I'm still facing difficulties with this problem.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d34624a9-793d-4619-8a25-f4463858f577",
+    "parts": [ {
+      "text": "Can you offer ",
+      "auto": true
+    }, {
+      "text": "more guidance on this issue",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7cb14466-8ed9-4403-aaf1-91588ba136e0",
+    "parts": [ {
+      "text": "I need more information to resolve this problem.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "18943b76-e4ae-4a0e-9b88-cab1c1cfe0f2",
+    "parts": [ {
+      "text": "Can you provide additional ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c25dd4de-4a0f-475f-9b11-82bb160724ce",
+    "parts": [ {
+      "text": "I require further clarification on this matter.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f82be90e-2d03-41af-9b70-4ab4734a91a2",
+    "parts": [ {
+      "text": "Please give me more details ",
+      "auto": true
+    }, {
+      "text": "to address this issue.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3e4cb162-ef50-4d24-97ba-38ca50b4ca93",
+    "parts": [ {
+      "text": "I'm still not able to resolve this problem.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b761893f-cccf-4b79-9e8e-6a728483dd6c",
+    "parts": [ {
+      "text": "Can you offer more in-",
+      "auto": true
+    }, {
+      "text": "depth ",
+      "auto": true
+    }, {
+      "text": "support for this issue?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8f133319-ee89-4f47-b1f2-f6b4c54278fb",
+    "parts": [ {
+      "text": "I need more specific instructions to fix this problem.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1dad7a09-16bc-453c-9bb5-1749f7565d61",
+    "parts": [ {
+      "text": "Please provide more resources to help with this issue.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9c21dc4c-9349-4aae-b989-f1e1112840e1",
+    "parts": [ {
+      "text": "I require advanced assistance for this matter.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "19710c9b-ed3a-453e-8da1-07ac7de3dc50",
+    "parts": [ {
+      "text": "Can you escalate this issue for",
+      "auto": true
+    }, {
+      "text": " further resolution?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "98e47dc7-3fac-40d1-bd44-cdf1ec2ea630",
+    "parts": [ {
+      "text": "I need more expertise to resolve this problem.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a5c4d8bf-247b-45ea-8cf1-2eca690e37b0",
+    "parts": [ {
+      "text": "Please connect me with a specialist",
+      "auto": true
+    }, {
+      "text": " for this ",
+      "auto": true
+    }, {
+      "text": "issue",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "95f68a59-3650-45a3-9e4f-ec6b03f74a2e",
+    "parts": [ {
+      "text": "I'm seeking more detailed",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "troubleshooting steps.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fabada6f-982f-4083-9175-30a5ef649faf",
+    "parts": [ {
+      "text": "Can you provide examples or",
+      "auto": true
+    }, {
+      "text": " case studies ",
+      "auto": true
+    }, {
+      "text": "related to this issue",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "27afef76-6305-4862-9024-49494d582759",
+    "parts": [ {
+      "text": "Please suggest",
+      "auto": true
+    }, {
+      "text": " alternative ",
+      "auto": true
+    }, {
+      "text": "solutions for this problem.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a24f0815-b83d-4ec5-8015-41537a1534c5",
+    "parts": [ {
+      "text": "I need more troubleshooting tips for this issue.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3878c67c-1602-49a7-99c0-6da3170f6ac3",
+    "parts": [ {
+      "text": "Can you provide a step-by-step guide to resolve this problem",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c3eba94b-54a5-446b-82b7-ddfc3dfaac29",
+    "parts": [ {
+      "text": "I require more information on similar cases or",
+      "auto": true
+    }, {
+      "text": " scenarios.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bad3ebd9-89ac-413d-855b-d8cf31523368",
+    "parts": [ {
+      "text": "Please share ",
+      "auto": true
+    }, {
+      "text": "best practices to address this issue.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2771538b-5a39-4e3f-8445-21906506cea4",
+    "parts": [ {
+      "text": "I'm looking for additional ",
+      "auto": true
+    }, {
+      "text": "resources or documentation.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d8056555-1428-4ee3-9217-49b51e224ffc",
+    "parts": [ {
+      "text": "Can you recommend any external sources for more ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "84f51378-2ca8-4b78-991b-4b4a224f5aa4",
+    "parts": [ {
+      "text": "I require more",
+      "auto": true
+    }, {
+      "text": " training or tutorials on this topic.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9f0af040-eb03-48e6-a8e1-316e0f7eabf0",
+    "parts": [ {
+      "text": "Please provide additional ",
+      "auto": true
+    }, {
+      "text": "troubleshooting",
+      "auto": true
+    }, {
+      "text": " FAQs.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "292e3316-8dff-4d81-8c2a-69545e949a1d",
+    "parts": [ {
+      "text": "I'm seeking more",
+      "auto": true
+    }, {
+      "text": " examples ",
+      "auto": true
+    }, {
+      "text": "or use cases for this issue.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4593c9a2-97be-461d-9c56-547f3a1e7e2d",
+    "parts": [ {
+      "text": "Can you offer more",
+      "auto": true
+    }, {
+      "text": " insights or industry knowledge?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "11d5a769-3410-438d-8c60-9a325938c414",
+    "parts": [ {
+      "text": "I need more information on related ",
+      "auto": true
+    }, {
+      "text": "products or services.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "75d426a9-821d-488c-87bc-25a1c1b870a8",
+    "parts": [ {
+      "text": "Please suggest other",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "features or",
+      "auto": true
+    }, {
+      "text": " options to consider.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fe4d08de-472b-402c-9ac9-eecbcf06c505",
+    "parts": [ {
+      "text": "I'm looking ",
+      "auto": true
+    }, {
+      "text": "for additional user",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "guides or",
+      "auto": true
+    }, {
+      "text": " manuals.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e0b42aff-b339-4ed8-a8e2-a849e8e4ff88",
+    "parts": [ {
+      "text": "I require more assistance with troubleshooting steps.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c3a937d6-228b-4f7b-8a57-0a36c256d9c2",
+    "parts": [ {
+      "text": "Please explain potential ",
+      "auto": true
+    }, {
+      "text": "causes for this issue in more",
+      "auto": true
+    }, {
+      "text": " detail.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bd3e431c-c5b7-4cae-860f-8919a8c4f2cd",
+    "parts": [ {
+      "text": "I'm seeking ",
+      "auto": true
+    }, {
+      "text": "more troubleshooting tips or",
+      "auto": true
+    }, {
+      "text": " tricks.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8e497615-3108-43b1-89af-4b0f2c15c2f3",
+    "parts": [ {
+      "text": "Can you provide ",
+      "auto": true
+    }, {
+      "text": "real",
+      "auto": true
+    }, {
+      "text": "-time or live ",
+      "auto": true
+    }, {
+      "text": "assistance for this issue?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "49504821-425e-4b7c-aa88-ef51a8cd1485",
+    "parts": [ {
+      "text": "Please suggest any known",
+      "auto": true
+    }, {
+      "text": " workarounds for this problem.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ff7f968d-a141-4a79-86a7-f8d9b154050a",
+    "parts": [ {
+      "text": "I'm looking for more troubleshooting",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "forums",
+      "auto": true
+    }, {
+      "text": " or communities.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7f88f9e3-c082-47b1-bf34-3093b0e8967f",
+    "parts": [ {
+      "text": "Can you recommend any third",
+      "auto": true
+    }, {
+      "text": "-party tools or software",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e1badfa0-9487-4b63-87d4-5d116034ab5a",
+    "parts": [ {
+      "text": "I require more information on",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "compatibility",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "issues",
+      "auto": true
+    }, {
+      "text": " or ",
+      "auto": true
+    }, {
+      "text": "limitations.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ea0f6f34-85ad-42fd-9257-1a4e6183d02b",
+    "parts": [ {
+      "text": "Please provide more insights on common pitfalls ",
+      "auto": true
+    }, {
+      "text": "or mistakes.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "54440cc1-ff0a-4144-beb5-8d672822be58",
+    "parts": [ {
+      "text": "I'm seeking more information.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "24d76409-9ccd-43ca-91f4-66fccde89157",
+    "parts": [ {
+      "text": "More Help",
+      "auto": true
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "967f1559-10d1-4033-8d91-e3389fbdf97b",
+    "parts": [ {
+      "text": "More Help with this Issues",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "96699eba-b967-4f29-a538-18b9dfba90d8",
+    "parts": [ {
+      "text": "More ",
+      "auto": true
+    }, {
+      "text": "Help needed",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "58b5abab-4677-42ce-9d01-ca64ab4ff677",
+    "parts": [ {
+      "text": "I need more ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "920390a9-25ac-436e-a421-6b0cb2a931c7",
+    "parts": [ {
+      "text": "I still ",
+      "auto": true
+    }, {
+      "text": "need Help",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "17edec04-37d7-4b18-a4be-808a4109d4c6",
+    "parts": [ {
+      "text": "More help with this problem",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "90e0b8c2-650c-4ea1-972a-ac78bc036f1e",
+    "parts": [ {
+      "text": "More Help with this Issue",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "395c8ecb-6916-4b07-b1c5-963e4f03201e",
+    "parts": [ {
+      "text": "Representative",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "90ad764e-6eaf-4c43-b450-88110b70e22d",
+    "parts": [ {
+      "text": "Customer support",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "157850c6-3755-411d-89da-1549ab539b80",
+    "parts": [ {
+      "text": "More help with this issue",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "be8f5941-c982-4405-a13e-a0fc54948941",
+    "parts": [ {
+      "text": "More help"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e98385ef-d520-412c-93b5-db8608174db9",
+    "parts": [ {
+      "text": "speak with agent",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "24bab38e-8812-4fb4-badd-0077ba523cb5",
+    "parts": [ {
+      "text": "speak with an agent",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "36700f3f-9757-4cec-8042-a69f7409353d",
+    "parts": [ {
+      "text": "May I speak with a live person",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6673491b-bd57-438b-9d6c-5acd1ba124ad",
+    "parts": [ {
+      "text": "I need a real person",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9e814966-c7ae-427e-a46a-370c7c8bcdc3",
+    "parts": [ {
+      "text": "connect me to a customer service representative",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c207ef66-9243-4a9f-a572-fa1d3240ac5a",
+    "parts": [ {
+      "text": "Is there a way to reach to a customer service agent",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e6ac0729-5cc9-4845-ba81-a4dc933fa08c",
+    "parts": [ {
+      "text": "operator",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c8bbdfbf-f692-4e1b-a1d4-0f174c5bdac7",
+    "parts": [ {
+      "text": "spokesperson",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7676020b-b648-4c6f-8c9c-36fb81b9c7d1",
+    "parts": [ {
+      "text": "transfer me to an agent",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6fcb44e0-4b5c-417d-ad6e-b0f653f02dc3",
+    "parts": [ {
+      "text": "Tech support",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "53efdc35-e4bf-4299-abd6-b45a2d00d310",
+    "parts": [ {
+      "text": "I require assistance from a live agent",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ca7241db-af68-4022-bacb-81561fa74e34",
+    "parts": [ {
+      "text": "human agent",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c1906435-962b-4cdc-9496-6ce6d4c093a1",
+    "parts": [ {
+      "text": "specialist",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "513842c1-6289-4e84-9d10-99020e7f2056",
+    "parts": [ {
+      "text": "I want to talk to a representative",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "80e6d004-ee4b-4b8c-9391-d1c8c745b980",
+    "parts": [ {
+      "text": "I want to talk to an agent",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f3315286-7f67-469f-bdfd-1efa8e2b0870",
+    "parts": [ {
+      "text": "Speak with agent",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fab98518-824c-4a91-b78c-fb34a617d98f",
+    "parts": [ {
+      "text": "Speak with an agent",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d9e457d2-5ae8-4f84-9cb5-f2789b5062c6",
+    "parts": [ {
+      "text": "Agent",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c768bf3e-b8f7-4041-8fff-7dc4e75a59ea",
+    "parts": [ {
+      "text": "I would like to speak with an agent please",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "03b60184-453e-4a75-8175-eba8818843be",
+    "parts": [ {
+      "text": "Speak with an agent please",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "140b2d7c-5aeb-4241-b7ec-c3f08be31a79",
+    "parts": [ {
+      "text": "I would like to talk with a service representative.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f64057fa-bcff-4f55-a2f1-b3c13cb7d659",
+    "parts": [ {
+      "text": "Cody",
+      "auto": true
+    }, {
+      "text": ", I need a specialist",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0b429084-d00f-4352-9ae0-268ca6058be3",
+    "parts": [ {
+      "text": "I need ",
+      "auto": true
+    }, {
+      "text": "customer service",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e1c2bc5e-9575-4ba8-8c21-465d8c4400de",
+    "parts": [ {
+      "text": "I need a specialist",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b830fe0c-691d-49f7-970d-ac2c007db313",
+    "parts": [ {
+      "text": "Please give me a telephone number to ",
+      "auto": true
+    }, {
+      "text": "call",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0bb31783-9acb-4c86-8564-d7ba0e6a8a3d",
+    "parts": [ {
+      "text": "I want to speak to a real person.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2730eef7-c028-460a-a3f5-6b75823d7b22",
+    "parts": [ {
+      "text": "Need assistant",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "322983d9-c033-4bce-a811-f62eeddb77bd",
+    "parts": [ {
+      "text": "I've done",
+      "auto": true
+    }, {
+      "text": " this ",
+      "auto": true
+    }, {
+      "text": "three",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "times already",
+      "auto": true
+    }, {
+      "text": " just get ",
+      "auto": true
+    }, {
+      "text": "me a live person",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "812ac586-b9a2-481e-9650-f56c82f6a68c",
+    "parts": [ {
+      "text": "live rep",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6e9d23b5-aa8f-42e2-bae2-e35bcb21f0f6",
+    "parts": [ {
+      "text": "I need to speak with someone",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7b9ffe1f-138e-40c9-bb51-4a33030a2b36",
+    "parts": [ {
+      "text": "talk to a rep",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d9fde335-198c-4fa6-a12a-e24febf10573",
+    "parts": [ {
+      "text": "Human assistant",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ddfff67b-11d0-4d02-ad45-4902ddd75183",
+    "parts": [ {
+      "text": "speak with an assistant please",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "168a7956-2a6f-48ec-8f0e-8eb57b762871",
+    "parts": [ {
+      "text": "I am supposedly ",
+      "auto": true
+    }, {
+      "text": "waiting for",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "a real person",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a9c71549-037f-4b4b-ae29-bd9d6a43163c",
+    "parts": [ {
+      "text": "I have been ",
+      "auto": true
+    }, {
+      "text": "trying to get assistance for the",
+      "auto": true
+    }, {
+      "text": " past several ",
+      "auto": true
+    }, {
+      "text": "hours",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bc3deb8c-37d7-4f8a-babd-de0e13b86fab",
+    "parts": [ {
+      "text": "waiting",
+      "auto": true
+    }, {
+      "text": " on ",
+      "auto": true
+    }, {
+      "text": "a specialist",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "48a9a23c-a9c4-4516-9e70-39de975eeb6e",
+    "parts": [ {
+      "text": "I am Still ",
+      "auto": true
+    }, {
+      "text": "waiting for",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "someone to assist",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1306bc66-b1ba-4e85-9009-f0a72d230575",
+    "parts": [ {
+      "text": "Need help from a human",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "eac16b57-b052-4b92-a24f-8c7d09ab17ee",
+    "parts": [ {
+      "text": "I need to talk to a live assistant.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cf4ccb34-b153-485f-ba6d-1feab16c6097",
+    "parts": [ {
+      "text": "human",
+      "auto": true
+    }, {
+      "text": " being please",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3b58b8bd-1289-44d9-a3de-9e750dc02199",
+    "parts": [ {
+      "text": "live",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "chat",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a77fd2d5-460f-42aa-a544-4bd619e78d3c",
+    "parts": [ {
+      "text": "Can you put me",
+      "auto": true
+    }, {
+      "text": " in touch with a member ",
+      "auto": true
+    }, {
+      "text": "of your support",
+      "auto": true
+    }, {
+      "text": " staff.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4932132d-1e24-4a60-b368-0ce2c280dbe9",
+    "parts": [ {
+      "text": "Do you have a ",
+      "auto": true
+    }, {
+      "text": "supervisor",
+      "auto": true
+    }, {
+      "text": " I can chat with?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dabb4174-e059-4597-94c5-329417976d4e",
+    "parts": [ {
+      "text": "Talk to human assistant",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "89199357-ad46-4d78-aeae-f641f9bc2aea",
+    "parts": [ {
+      "text": "Cody ",
+      "auto": true
+    }, {
+      "text": "please connect me with customer support",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "54df6a86-dfee-4672-bde7-1c43e85ca1ac",
+    "parts": [ {
+      "text": "I want customer care",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9c21f2b8-2465-4b36-a4ef-38f0257e874d",
+    "parts": [ {
+      "text": "Can i speak to live agent",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1bd6871f-1b21-44ad-a574-cc809800f873",
+    "parts": [ {
+      "text": "Connect me to a counsellor",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "cd133083-498c-4366-82e9-a87c91a14f55",
+    "parts": [ {
+      "text": "talk to representative",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ef99f8b5-9865-4f0a-a773-35a804207bac",
+    "parts": [ {
+      "text": "talk to agent",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "020dbccd-addc-418f-a2e3-9cdec24c7bc0",
+    "parts": [ {
+      "text": "get ",
+      "auto": true
+    }, {
+      "text": "me an agent",
+      "auto": true
+    }, {
+      "text": " now",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5f4807e7-30cc-44fc-b199-ae4f6c7af522",
+    "parts": [ {
+      "text": "talk to a person",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7a255fe5-9953-4417-9253-589f1e0bac8e",
+    "parts": [ {
+      "text": "more help with this issue",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "306e60e9-d91d-4e7f-95d4-a2fdb09517aa",
+    "parts": [ {
+      "text": "need more ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ccae1f2e-e12b-4058-970a-4ed16a2e5ae9",
+    "parts": [ {
+      "text": "more ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    }, {
+      "text": " please",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bff79189-31a0-4ca5-8702-c605dc92d42d",
+    "parts": [ {
+      "text": "Need more assistance",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0a752c16-bdd4-4b6c-86ec-dda2bb8c4596",
+    "parts": [ {
+      "text": "Need more ",
+      "auto": true
+    }, {
+      "text": "help",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f853e4c2-e46b-499b-82ed-ff1b00c9ee95",
+    "parts": [ {
+      "text": "Need more information",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9f8a5685-23c8-448a-aa31-4c385f00ea84",
+    "parts": [ {
+      "text": "Need More info",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "65ad210e-9a7b-4b0b-a13a-b3b42e5b810f",
+    "parts": [ {
+      "text": "Need more",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "62a78753-9946-4d05-8184-bfd03e3353a7",
+    "parts": [ {
+      "text": "Need more Clarification",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "128f92a7-b506-43b8-b864-36598095bd25",
+    "parts": [ {
+      "text": "More clarification",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0f87355f-7dc6-43a1-a168-a0af70217974",
+    "parts": [ {
+      "text": "Issue",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "not",
+      "auto": true
+    }, {
+      "text": " resolved",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "befaa3bb-2da6-4abe-90e1-e8acd45a3b64",
+    "parts": [ {
+      "text": "payment",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "issue",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a02eac02-7790-4582-b8c2-25f764b96e73",
+    "parts": [ {
+      "text": "balance issue",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bdb8bd51-463f-4ca0-a0cc-307d1528a28c",
+    "parts": [ {
+      "text": "pay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "17bebd14-e65d-4eb5-8419-15d3c51213e8",
+    "parts": [ {
+      "text": "payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "59b0915d-3ec7-4d54-8286-140c5a05c1f1",
+    "parts": [ {
+      "text": "balance",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bb932f27-0b0b-4689-a89f-1250096ea85b",
+    "parts": [ {
+      "text": "additional",
+      "auto": true
+    }, {
+      "text": " question about my ",
+      "auto": true
+    }, {
+      "text": "balance",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c53634f6-eca9-4231-86ed-4b2a2bba25e6",
+    "parts": [ {
+      "text": "more help",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "89a6eabe-d588-4194-846d-43060f1d3720",
+    "parts": [ {
+      "text": "More help with balance",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f96bde86-1bb6-4c0d-b3a9-f0878680b760",
+    "parts": [ {
+      "text": "More help with my balance",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

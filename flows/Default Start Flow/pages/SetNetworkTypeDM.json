@@ -1,0 +1,41 @@
+{
+  "name": "631d2c51-2524-449a-ac1f-17c4ed010e16",
+  "displayName": "SetNetworkTypeDM",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"XGSPON\" OR $session.params.networkType = \"GPON\" OR $session.params.networkType = \"BPON\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "networkType_DM",
+        "value": "Fiber"
+      } ]
+    },
+    "targetPage": "CheckForOutageDynamicMsg",
+    "name": "6851f3e9-b5b2-4a9a-8375-9fa057116081"
+  }, {
+    "condition": "$session.params.networkType = \"Copper\" OR $session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "networkType_DM",
+        "value": "Copper"
+      } ]
+    },
+    "targetPage": "CheckForOutageDynamicMsg",
+    "name": "e7039037-7bd1-4401-ad6b-650d9571b1cc"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "networkType_DM",
+        "value": ""
+      } ]
+    },
+    "targetPage": "CheckForOutageDynamicMsg",
+    "name": "956e16a1-4b72-4438-98e7-408ae1593140"
+  } ]
+}

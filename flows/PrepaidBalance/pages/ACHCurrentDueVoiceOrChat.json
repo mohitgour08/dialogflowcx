@@ -1,0 +1,37 @@
+{
+  "name": "8fc00c1c-dfdc-4160-a5fc-438bd5d0afab",
+  "displayName": "ACHCurrentDueVoiceOrChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_ACHCurrentDueVoiceOrChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "ZeroBalChk4",
+    "name": "b0fa6154-f809-490e-861e-5c0b6a6bc759"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_ACHCurrentDueVoiceOrChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "FECheckACHCurrentDueVoice",
+    "name": "22f0bc56-7a3f-4650-90ed-1be019f0da5b"
+  } ]
+}

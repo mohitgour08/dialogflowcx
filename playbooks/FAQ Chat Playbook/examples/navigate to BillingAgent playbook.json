@@ -1,0 +1,39 @@
+{
+  "name": "d59e4573-6812-44d4-8119-5a357148c264",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "How can I help you today?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "I want to understand my monthly bill in details. Please help me out"
+    }
+  }, {
+    "playbookInvocation": {
+      "playbook": "BillingAgent",
+      "playbookInput": {
+        "precedingConversationSummary": "customer wants to understand monthly bill in details.",
+        "actionParameters": {
+          "FAQSuccess": "DirectTransferToBA"
+        }
+      },
+      "playbookOutput": {
+        "actionParameters": {
+        
+        }
+      },
+      "playbookState": "OUTPUT_STATE_OK"
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "customer wants to understand monthly bill in details."
+  },
+  "playbookOutput": {
+    "executionSummary": "."
+  },
+  "displayName": "navigate to BillingAgent playbook",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 184,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "en"
+}

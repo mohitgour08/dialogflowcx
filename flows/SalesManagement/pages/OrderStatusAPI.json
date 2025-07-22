@@ -1,0 +1,206 @@
+{
+  "name": "2e7ace27-0d92-42f6-8ba8-2c0b7a44fa1a",
+  "displayName": "OrderStatusAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Please give a moment to find your order and stay on the line." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e\n   Please give a moment to find your order and stay on the line.\n \u003cbreak time=\"1s\"/\u003e\n\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "webhook": "getOrderProductInfo",
+    "tag": "Order",
+    "setParameterActions": [ {
+      "parameter": "Metrics_OrderStatusAPI_Order_wh_getOrderProductInfo",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "SS_WhereIsMyTech",
+      "value": "Failure"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": "HumanEscalation"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "productOrder_logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_OrderStatusAPI_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "getOrderProductInfo_ReturnStatus",
+        "value": "SUCCESS"
+      }, {
+        "parameter": "SS_WhereIsMyTech",
+        "value": null
+      }, {
+        "parameter": "API_SalesManagement_OrderStatusAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "targetPage": "CheckNetworkType",
+    "name": "f9f8efc9-9493-4cfe-bdd8-0bf3d41e9e11"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "CheckNetworkType",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_OrderStatusAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "getOrderProductInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "API_SalesManagement_OrderStatusAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "b316c3ad-9b5d-479f-bbd4-e4b330e55a2b"
+  }, {
+    "targetPage": "CheckNetworkType",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_OrderStatusAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "getOrderProductInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "API_SalesManagement_OrderStatusAPI",
+        "value": "Fail_Invalid"
+      } ]
+    },
+    "name": "ecbba456-92b7-4e74-a18e-cb1fe1eb2b96"
+  }, {
+    "targetPage": "CheckNetworkType",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_OrderStatusAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "getOrderProductInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "API_SalesManagement_OrderStatusAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "1d09d079-686c-4406-a9b8-e88f9ced1e12"
+  }, {
+    "targetPage": "CheckNetworkType",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_OrderStatusAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "getOrderProductInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "API_SalesManagement_OrderStatusAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "968f9c20-c6f0-4ea0-80ea-b9c73cb2cc0f"
+  }, {
+    "targetPage": "CheckNetworkType",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_OrderStatusAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "getOrderProductInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "API_SalesManagement_OrderStatusAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "e2b056dc-c116-4904-ba5b-8c82562a1efa"
+  }, {
+    "targetPage": "CheckNetworkType",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_OrderStatusAPI_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "getOrderProductInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "API_SalesManagement_OrderStatusAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getOrderProductInfo"
+      } ]
+    },
+    "name": "8e034da5-1d89-429b-98e1-a588a3d7288f"
+  } ]
+}

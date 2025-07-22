@@ -1,0 +1,221 @@
+{
+  "name": "3a5d979f-877a-462e-a908-bf7d5c8469e4",
+  "displayName": "TSCLegacyIntent",
+  "form": {
+    "parameters": [ {
+      "displayName": "TSC_Legacy",
+      "required": true,
+      "entityType": "@TSC_Legacy",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "What do you need help with?" ]
+              },
+              "languageCode": "en"
+            }, {
+              "payload": {
+                "ujet": {
+                  "buttons": [ {
+                    "action": "quick_reply",
+                    "title": "Assignment"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "Programming"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "Order Support"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "GPON facility support"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "Structure Load"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "\u003c-Back"
+                  } ],
+                  "title": "",
+                  "type": "inline_button"
+                }
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_WebCETech_TSCLegacyIntent_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "09aeea91-eec8-4e2f-b59d-58be296a142a"
+        }, {
+          "targetPage": "End Session",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I am sorry, I am unable to assist you at this time. Please restart the chat if you need further assistance. Goodbye." ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_WebCETech_TSCLegacyIntent_NoMatch2",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            }
+          },
+          "name": "347c001f-562c-40f2-8b03-530982a05eda"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "What do you need help with?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Assignment"
+          }, {
+            "action": "quick_reply",
+            "title": "Programming"
+          }, {
+            "action": "quick_reply",
+            "title": "Order Support"
+          }, {
+            "action": "quick_reply",
+            "title": "GPON facility support"
+          }, {
+            "action": "quick_reply",
+            "title": "Structure Load"
+          }, {
+            "action": "quick_reply",
+            "title": "\u003c-Back"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.TSC_Legacy = \"Assignment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_TSCLegacyIntent_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "QueueName",
+        "value": "TSCAssignmentTechCopper"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "76ae8140-7774-4dd9-9ad8-abdabf33e4e8"
+  }, {
+    "condition": "$session.params.TSC_Legacy = \"Programming\" OR $session.params.TSC_Legacy = \"Order Support\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_TSCLegacyIntent_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "QueueName",
+        "value": "TSCProgrammingTechCopper"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "72dff1d1-9124-49b2-9b2b-7e2a257fafe2"
+  }, {
+    "condition": "$session.params.TSC_Legacy = \"GPON facility support\" OR $session.params.TSC_Legacy = \"Structure Load\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_TSCLegacyIntent_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "QueueName",
+        "value": "TSCAssignmentTechFiber"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "2fd1bcbc-b43f-4790-bcd1-ee6f561fbc21"
+  }, {
+    "condition": "$session.params.TSC_Legacy = \"Back\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_WebCETech_TSCLegacyIntent_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "TSCNonFiberOptions",
+    "name": "3549415e-2097-41c0-8ea5-8dcfb3ca3965"
+  } ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "a756bc0e-e963-4e1e-8c6e-5eeacce618e8",
+  "displayName": "CCSPSwitch",
+  "genericWebService": {
+    "uri": "https://api-qa.brightspeed.com/ccs-data-api-pg/getGlobalConfigVal",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"key_name\": \"$session.params.CCSPToggle\"\n}",
+    "parameterMapping": [ {
+      "key": "BillCycleEmbargo",
+      "value": "BillCycleEmbargo"
+    }, {
+      "key": "EmbargoSwitch",
+      "value": "EmbargoSwitch"
+    }, {
+      "key": "TwoFactor",
+      "value": "TwoFactor"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth2/token",
+      "scopes": [ "read" ]
+    },
+    "serviceAgentAuth": "NONE"
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

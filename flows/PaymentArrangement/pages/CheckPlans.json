@@ -1,0 +1,71 @@
+{
+  "name": "061deb01-10e6-4983-9ab1-549804330f38",
+  "displayName": "CheckPlans",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PlanID = \"4\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Great You're now enrolled in this payment arrangement. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Great You're now enrolled in this payment arrangement. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_CheckPlans_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoDuePASuccessful",
+    "name": "9321a8ae-5353-4704-b2b2-cd6cea9001e4"
+  }, {
+    "condition": "$session.params.PlanID = \"1\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Great! I've confirmed your enrollment. The first payment will be reflected on your account shortly." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "The first payment will be reflected on your account shortly. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_CheckPlans_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoDuePASuccessful",
+    "name": "16bfd300-9102-4ce0-9eed-1be42604a0dd"
+  } ]
+}

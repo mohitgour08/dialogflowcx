@@ -1,0 +1,30 @@
+{
+  "name": "c4fd1522-0d3b-48b3-8b48-653791a67a0f",
+  "displayName": "FAQ_webtest",
+  "dataStoreSpec": {
+    "dataStoreConnections": [ {
+      "dataStoreType": "PUBLIC_WEB",
+      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/brightspeed-portal-pages_1732048642444",
+      "documentProcessingMode": "DOCUMENTS"
+    } ],
+    "models": {
+      "summarizationModel": {
+        "model": "gemini_15_flash_002"
+      },
+      "rewriterModel": {
+      
+      }
+    },
+    "fallbackPrompt": {
+      "company": "Brightspeed"
+    },
+    "groundingSettings": {
+    
+    },
+    "payloadSettings": {
+      "enableSnippetsPayload": true,
+      "maxSnippetsCount": 2
+    }
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

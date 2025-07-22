@@ -1,0 +1,46 @@
+{
+  "name": "ee2e10d1-338a-4b32-a702-07447ba59b0e",
+  "displayName": "PayArrCheckBilling",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "SS_PaymentArrangement",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.AccountType = \"Residential\" OR $session.params.AccountType = \"residential\" OR $session.params.AccountType = \"Consumer\") AND ($session.params.BillingMethod = \"postpaid\" OR $session.params.BillingMethod = \"PO\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrCheckBilling_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PayArrNetworkCheck",
+    "name": "f30a6885-7179-4ebb-8149-c493064b2499"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrCheckBilling_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PayArrNotEligible",
+    "name": "d5ce7c1d-7e3c-466f-847d-4965e7275411"
+  } ],
+  "description": "To check if the billing method is postpaid or prepaid."
+}

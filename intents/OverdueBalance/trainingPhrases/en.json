@@ -1,0 +1,179 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "past ",
+      "auto": true
+    }, {
+      "text": "due",
+      "auto": true
+    }, {
+      "text": " amount",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "past ",
+      "auto": true
+    }, {
+      "text": "2",
+      "parameterId": "prebuilt_components_credit_card_expiration_date",
+      "auto": true
+    }, {
+      "text": " amount",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "past ",
+      "auto": true
+    }, {
+      "text": "2",
+      "parameterId": "prebuilt_components_credit_card_expiration_date",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "do amount",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "due",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "due",
+      "auto": true
+    }, {
+      "text": " amount",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "2",
+      "parameterId": "prebuilt_components_credit_card_expiration_date",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " past amount",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " past ",
+      "auto": true
+    }, {
+      "text": "due",
+      "auto": true
+    }, {
+      "text": " amount",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to "
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " "
+    }, {
+      "text": "pastdue",
+      "auto": true
+    }, {
+      "text": " amount"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "past amount",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "pastdue",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "past ",
+      "auto": true
+    }, {
+      "text": "due",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Only Overdue",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I will ",
+      "auto": true
+    }, {
+      "text": "pay",
+      "auto": true
+    }, {
+      "text": " just Overdue",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Overdue",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Overdue Balance",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "1cd9a40a-980c-45a9-902a-c022461d0bf4",
+  "displayName": "ENTER",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_ENTER_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnterPasscodeVoice",
+    "name": "416c69f8-4285-4eef-8996-503b33afda7f"
+  } ]
+}

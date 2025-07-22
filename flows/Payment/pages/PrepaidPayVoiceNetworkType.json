@@ -1,0 +1,108 @@
+{
+  "name": "e38319dc-f2e3-4c83-a46c-bede8a1553fb",
+  "displayName": "PrepaidPayVoiceNetworkType",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"Copper_L\" AND $session.params.Autopay = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TokenType",
+        "value": "MakePayment"
+      }, {
+        "parameter": "Metrics_Payment_PrepaidPayVoiceNetworkType_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PrepaidPaymentVoice",
+    "name": "9538c39e-cd52-48f4-8207-a1c17fbaea02"
+  }, {
+    "condition": "$session.params.networkType = \"Copper_L\" AND $session.params.Autopay = \"Enrolled\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TokenType",
+        "value": "ManageAutoPay"
+      }, {
+        "parameter": "Metrics_Payment_PrepaidPayVoiceNetworkType_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PrepaidPaymentVoice",
+    "name": "89f19584-a1e9-4c4a-93e4-053d26385a58"
+  }, {
+    "condition": "$session.params.networkType = \"Copper\" OR $session.params.NetworkType = \"GPON\" OR $session.params.NetworkType = \"XGSPON\" OR $session.params.NetworkType = \"BPON\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PrepaidPayVoiceNetworkType_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckOverdue",
+    "name": "fd879d47-124b-4894-8965-f9d20164264f"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TokenType",
+        "value": "SecureCCTokenZuora"
+      }, {
+        "parameter": "Metrics_Payment_PrepaidPayVoiceNetworkType_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Payment-PrepaidPayVoiceNetworkType,OtherNetworkType"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "5c67d7ee-68fc-44fb-b017-ac4b5ba6cbf8"
+  } ],
+  "description": "This field is to differentiate b/w network Type as Copper_L has separate Token"
+}

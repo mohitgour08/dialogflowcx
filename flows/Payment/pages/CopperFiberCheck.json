@@ -1,0 +1,42 @@
+{
+  "name": "94368e76-c57c-4d2f-9510-e8f4589e7e40",
+  "displayName": "CopperFiberCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "SMSNumber",
+      "value": ""
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_CopperFiberCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AutopayorNon-Autopay",
+    "name": "dbd945fa-7388-421d-b9b3-4b98054f6b9e"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_CopperFiberCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "SecuredPayments",
+    "name": "0a011e3e-cbf5-40f5-b72a-5c8ca411a4c8"
+  } ]
+}

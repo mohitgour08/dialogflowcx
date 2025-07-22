@@ -1,0 +1,54 @@
+{
+  "name": "6e7bbdb1-3c31-4939-9db4-f14d272e20d4",
+  "displayName": "ETRExists",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "SS_CheckOutage",
+      "value": "Success"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.ETR = null OR $session.params.ETR = NULL OR $session.params.ETR = \"\" OR $session.params.ETR = Null) AND $session.params.NetworkOutage \u003e 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ETRExists_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "MultipleOutage_Without_ETR",
+    "name": "562f7f9d-c24a-47ca-a41b-59f64348d53d"
+  }, {
+    "condition": "$session.params.ETR = null OR $session.params.ETR = NULL OR $session.params.ETR = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ETRExists_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OutageWithoutETR",
+    "name": "2b0ea54c-7bd0-4900-8e02-9bc308e495ea"
+  }, {
+    "condition": "($session.params.ETR != null OR $session.params.ETR != NULL OR $session.params.ETR != \"\" OR $session.params.ETR != Null) AND $session.params.NetworkOutage \u003e 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ETRExists_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "MultipleOutage_With_ETR",
+    "name": "533e6360-d3dc-42a6-a2ae-393c77e3e32a"
+  }, {
+    "condition": "$session.params.ETR != null OR $session.params.ETR != \"\" OR $session.params.ETR = NULL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_ETRExists_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OutageWithETR",
+    "name": "dcff3b4d-3124-44f4-8418-ec8e99d0bbc8"
+  } ]
+}

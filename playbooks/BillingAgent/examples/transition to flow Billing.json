@@ -1,0 +1,31 @@
+{
+  "name": "c2d9e74d-0d67-4440-a9b6-6d866ff4cf06",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "I understand that you want to understand your monthly bill in details."
+    }
+  }, {
+    "flowInvocation": {
+      "flow": "Billing",
+      "inputActionParameters": {
+        "FAQSuccess": "DirectTransferToBA",
+        "ToModule": "Billing",
+        "ToState": "BillingUnderstandLastBill",
+        "callerintent": "BillingUnderstandLastBill"
+      },
+      "outputActionParameters": {
+      
+      }
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "customer wants to understand his monthly bill in detail"
+  },
+  "playbookOutput": {
+    "executionSummary": "."
+  },
+  "displayName": "transition to flow Billing",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 151,
+  "languageCode": "en"
+}

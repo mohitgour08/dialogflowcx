@@ -1,0 +1,169 @@
+{
+  "name": "4c8657eb-bd22-447c-9fcd-e11c6f21a886",
+  "displayName": "PaymentSuccessVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003eYour payment is successfully submitted. Here is your confirmation number.\n\n\u003csay-as interpret-as=\"verbatim\"\u003e$session.params.ConfirmationCode\u003c/say-as\u003e.\n\nPayments may take up to 48 hours to reflect on your account.  \u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "To repeat your confirmation number say repeat or press star. To continue, say continue or Press 1" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "RepeatOrPress*",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eHere is your confirmation number.\n\n\u003csay-as interpret-as=\"verbatim\"\u003e$session.params.ConfirmationCode\u003c/say-as\u003e.  \u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Mertics_SecuredPayments_PaymentSuccessVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckPOorFiber",
+    "name": "68b41d39-fc1f-4265-bfdc-cf65d8db3a59"
+  }, {
+    "intent": "Continue",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Mertics_SecuredPayments_PaymentSuccessVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckPOorFiber",
+    "name": "7b1832ae-19ae-4208-87fd-1a5c54413963"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Mertics_SecuredPayments_PaymentSuccessVoice_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckPOorFiber",
+    "name": "f1e1281e-2350-4c64-8a35-fb5dc4868791"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "To repeat your confirmation number say repeat or press star. To continue, say continue or Press 1" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentSuccessVoice_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "2c64dcd5-0572-4552-9bb1-58b2df1653cb"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentSuccessVoice_NoMatch_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentSuccessful"
+      } ]
+    },
+    "name": "bc2e6edd-da34-4f5e-ac86-6557dcbc399a"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "To repeat your confirmation number say repeat or press star. To continue, say continue or Press 1" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_PaymentSuccessVoice_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "3f3335b6-43b4-49b8-9d53-992c69c1c1d2"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That’s okay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_PaymentSuccessVoice_NoInput_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PaymentSuccessful"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      } ]
+    },
+    "name": "c0700fd2-f2da-4a30-8e17-54483b599fe9"
+  } ]
+}

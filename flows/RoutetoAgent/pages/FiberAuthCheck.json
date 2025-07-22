@@ -1,0 +1,47 @@
+{
+  "name": "0f1b50de-da34-4cf9-a69b-d8c0daffe943",
+  "displayName": "FiberAuthCheck",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Authentication = \"ACCTFOUND\" OR $session.params.Authentication = \"NO\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToModule",
+        "value": "RoutetoAgent"
+      }, {
+        "parameter": "Metrics_RouteToAgent_FiberAuthCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Authentication",
+    "name": "ce71b5e7-c354-416c-8b15-eb163015e3d8"
+  }, {
+    "condition": "$session.params.Authentication = \"FAILED\" OR $session.params.Authentication = \"MULTIACCTFOUND\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_FiberAuthCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CopperOrFiber",
+    "name": "b21d636f-9418-490d-946b-fe11e4c75b28"
+  }, {
+    "condition": "$session.params.Authentication = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "queue_name",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_RouteToAgent_FiberAuthCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckAgentAvailability",
+    "name": "ffd5d9e2-4a0e-4104-a337-7e0ad3502f90"
+  } ]
+}

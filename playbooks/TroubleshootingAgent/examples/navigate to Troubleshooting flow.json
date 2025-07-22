@@ -1,0 +1,31 @@
+{
+  "name": "436d70df-ce56-4a5b-b31c-5667ad6df717",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "I understand that you are having trouble rebooting your modem."
+    }
+  }, {
+    "flowInvocation": {
+      "flow": "Troubleshooting",
+      "inputActionParameters": {
+        "FAQSuccess": "DirectTransferToBA",
+        "ToModule": "Troubleshooting",
+        "ToState": "GeneralTroubleshooting",
+        "callerintent": "GeneralTroubleshooting"
+      },
+      "outputActionParameters": {
+      
+      }
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "customer is not able to reboot modem"
+  },
+  "playbookOutput": {
+    "executionSummary": "."
+  },
+  "displayName": "navigate to Troubleshooting flow",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 142,
+  "languageCode": "en"
+}

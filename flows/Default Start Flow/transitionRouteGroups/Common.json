@@ -1,0 +1,30 @@
+{
+  "name": "e4d3ce8f-3b9d-4253-9e32-cdf2e99d4d3a",
+  "displayName": "Common",
+  "transitionRoutes": [ {
+    "intent": "Default Welcome Intent",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "Start Page",
+    "name": "e84c9899-32da-4bd4-8e26-e80512b0ea7b"
+  }, {
+    "intent": "GoodBye",
+    "triggerFulfillment": {
+    
+    },
+    "name": "df1ff54d-01db-44d7-8df3-73fcb7321a2b"
+  }, {
+    "intent": "General.How can you help",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "response_tag",
+        "value": "generalQueries"
+      }, {
+        "parameter": "suggestion_chips_tag",
+        "value": "headIntent"
+      } ]
+    },
+    "name": "9b4f0b69-2555-4b72-8d0d-6b48c3dc7a9d"
+  } ]
+}

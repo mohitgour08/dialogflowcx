@@ -1,0 +1,24 @@
+{
+  "name": "6fc18a53-2639-4249-a227-a6b98a058295",
+  "displayName": "Payment Arrangement",
+  "transitionRoutes": [ {
+    "intent": "Payment.PaymentArrangement",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentArrangement"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_PaymentArrangement",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "PaymentArrangement"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "5aa9ec89-44d2-4764-87f2-836923390033"
+  } ]
+}

@@ -1,0 +1,12 @@
+{
+  "entities": [ {
+    "value": "9",
+    "synonyms": [ "9", "nine", "Nine", "Nueve" ],
+    "languageCode": "en-us"
+  }, {
+    "value": "#",
+    "synonyms": [ "#", "hash", "hush" ],
+    "languageCode": "en-us",
+    "dtmfPattern": "#"
+  } ]
+}

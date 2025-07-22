@@ -1,0 +1,61 @@
+{
+  "name": "a94881a0-6959-4140-a555-7c3e590c7f6a",
+  "displayName": "CheckANIAvailable",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "Metrics_DefaultStartFlow_CheckANIavailable",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.phone_number != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$session.params.phone_number"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_CheckANIavailable_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_IdentificationMethod",
+        "value": "ANI"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ANIEmbargoSwitch",
+    "name": "1e6ddced-6ee0-4dda-83a8-052e33798c40"
+  }, {
+    "condition": "$session.params.phone_number = null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_CheckANIavailable_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckForOutageDynamicMsg",
+    "name": "0b202a80-ecee-4635-b08d-bb16cebbaea7"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_CheckANIavailable_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckForOutageDynamicMsg",
+    "name": "fc92138c-dd1b-4639-a474-96ed17909876"
+  } ]
+}

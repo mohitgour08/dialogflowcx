@@ -1,0 +1,47 @@
+{
+  "name": "ef3f699f-ce51-44eb-9f64-6bbf9ff01a15",
+  "displayName": "ServiceMenu",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "How can I help you today?\nYou can say things like new service, billing or payment, account information, troubleshooting or repair." ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_ServiceMenu_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CollectIntentVoice",
+    "name": "d8ac9b84-7bc8-4727-9d71-c52ae65e853c"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "DTMFFallbackMenu",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_ServiceMenu_NoInput_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "9c0c4a73-2f40-4349-9e40-8337bd160780"
+  }, {
+    "targetPage": "DTMFFallbackMenu",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_ServiceMenu_NoMatch_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "1443e450-4382-4cfb-b79c-e59cd9264da3"
+  } ]
+}

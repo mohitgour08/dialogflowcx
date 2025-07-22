@@ -1,0 +1,175 @@
+{
+  "name": "1546d0ad-4f27-4838-86a2-ebed2fe15016",
+  "displayName": "CheckDefaultPaymentMethod",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.CopperCurrentDue = \"true\" AND $session.params.channel = \"web\" AND ($session.params.BillInfo_paymentAuthId = null OR $session.params.BillInfo_paymentAuthId = \"\")",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "We accept payment through bank account transfer, or most card types, excluding American Express. Please note that a service fee of $3.50 will be applied to all one-time card payments." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultPaymentMethod_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormCheck",
+    "name": "03544488-d43c-4be0-90d5-db98c9f38871"
+  }, {
+    "condition": "$session.params.CopperCurrentDue = \"true\" AND $session.params.BillInfo_paymentAuthId != null AND $session.params.BillInfo_paymentAuthId != \"\" AND $session.params.channel = \"web\" AND ($session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"PayPal\" OR $session.params.PaymentMethod = \"PAYPAL\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.LastFourDigitsAcctNum"
+      }, {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultPaymentMethod_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormCopperDPMConfirm",
+    "name": "c883bf72-bd36-4546-89ac-88b0463c39ff"
+  }, {
+    "condition": "$session.params.BillInfo_paymentAuthId != null AND $session.params.BillInfo_paymentAuthId != \"\" AND ($session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"PayPal\" OR $session.params.PaymentMethod = \"PAYPAL\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultPaymentMethod_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "defaultPayMethod",
+        "value": "ACH"
+      } ]
+    },
+    "targetPage": "DefaultPMACH",
+    "name": "2d4ca2b9-6ac9-468f-a0c2-4e8af53e9681"
+  }, {
+    "condition": "$session.params.BillInfo_paymentAuthId = null OR $session.params.BillInfo_paymentAuthId = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultPaymentMethod_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DefaultPM_selected",
+        "value": null
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CardOrAccount",
+    "name": "f74addee-4400-4ee7-a34b-b1239e18e06b"
+  }, {
+    "condition": "$session.params.CCExpDateDiffBackup : \"CCExpDateDiff\" OR $session.params.CCExpDateDiff : \"True\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultPaymentMethod_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "PaymentMethodUnknown"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "8d05cbac-10d4-43b8-8803-fa39d2508936"
+  }, {
+    "condition": "$session.params.CopperCurrentDue = \"true\" AND $session.params.channel = \"web\" AND $session.params.BillInfo_paymentAuthId != null AND $session.params.BillInfo_paymentAuthId != \"\" AND $session.params.CCExpDateDiff \u003c= 0 AND ($session.params.PaymentMethod = \"CreditCard\" OR $session.params.PaymentMethod = \"Creditcard\" OR $session.params.PaymentMethod = \"CC\")",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "It looks like your default payment method ending in $session.params.CreditCardNumberLast4 has expired!  Let's use a different one. You will then have the option to save it as your new default." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "We accept payment through bank account transfer, or most card types, excluding American Express. Please note that a service fee of $3.50 will be applied to all one-time card payments." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultPaymentMethod_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormCheck",
+    "name": "cfbc79e1-92dc-4e45-9a64-047540d28314"
+  }, {
+    "condition": "$session.params.BillInfo_paymentAuthId != null AND $session.params.PaymentMethod = \"CreditCard\" AND $session.params.CCExpDateDiff \u003c= 0",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "It looks like your default payment method ending in $session.params.CreditCardNumberLast4 has expired!  Let's use a different one. You will then have the option to save it as your new default." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "It looks like your default payment method ending in $session.params.CreditCardNumberLast4 has expired!  Let's use a different one. You will then have the option to save it as your new default." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultPaymentMethod_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CardOrAccount",
+    "name": "06980442-a45a-454f-bea8-0a0237c31468"
+  }, {
+    "condition": "$session.params.CopperCurrentDue = \"true\" AND $session.params.channel = \"web\" AND $session.params.BillInfo_paymentAuthId != null AND $session.params.BillInfo_paymentAuthId != \"\" AND ($session.params.PaymentMethod = \"CreditCard\" OR $session.params.PaymentMethod = \"Creditcard\" OR $session.params.PaymentMethod = \"CC\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      }, {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultPaymentMethod_8",
+        "value": ""
+      } ]
+    },
+    "targetPage": "FormCopperDPMConfirm",
+    "name": "f3c6f21f-cbc7-4848-9394-eb23ddfe4515"
+  }, {
+    "condition": "$session.params.BillInfo_paymentAuthId != null AND $session.params.PaymentMethod = \"CreditCard\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultPaymentMethod_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "defaultPayMethod",
+        "value": "Card"
+      } ]
+    },
+    "targetPage": "DefaultPMCard",
+    "name": "5365f93a-098d-4456-a522-83221d3ac5c4"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckDefaultPaymentMethod_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "05e64c9b-b6ee-4bba-b86f-8f95cd51d780"
+  } ]
+}

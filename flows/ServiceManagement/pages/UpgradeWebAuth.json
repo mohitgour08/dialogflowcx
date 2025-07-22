@@ -1,0 +1,50 @@
+{
+  "name": "cd824365-81cb-4858-931e-47731008fbfb",
+  "displayName": "UpgradeWebAuth",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Authentication = \"ACCTFOUND\" OR $session.params.Authentication = \"MULTIACCTFOUND\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToModule",
+        "value": "ServiceManagement"
+      }, {
+        "parameter": "Metrics_ServiceManagement_UpgradeWebAuth_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Authentication",
+    "name": "439d2e37-cf97-40e8-bc1f-8272c12290ff"
+  }, {
+    "condition": "$session.params.Authentication = \"NO\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_UpgradeWebAuth_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpgradeNeworExists",
+    "name": "3d4903ff-5c1f-474c-ae0e-730c1a16077c"
+  }, {
+    "condition": "$session.params.Authentication = \"SUCCESS\" OR $session.params.Authentication = \"FAILED\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_ServiceManagement_UpgradeWebAuth_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer needs help with Upgrading Service"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "01cc72ce-3cdc-451f-9ab0-c135afdf069a"
+  } ]
+}

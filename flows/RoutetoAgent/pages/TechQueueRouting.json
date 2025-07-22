@@ -1,0 +1,998 @@
+{
+  "name": "ae7b396e-e2ee-4674-ab01-19b77f9a74ff",
+  "displayName": "TechQueueRouting",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.env = \"DEV\" AND $session.params.QueueName = \"TSCAssignmentTechCopper\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "218",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "fceea3b5-5910-4dfe-9af6-88e9f31b6c44"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND $session.params.QueueName = \"TSCAssignmentTechCopper\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "128",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "22094006-462b-4cf9-86d6-f35fdd22547e"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND $session.params.QueueName = \"TSCAssignmentTechCopper\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "106",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "0ed091ed-531b-40fc-ac0f-be95ed23b01a"
+  }, {
+    "condition": "$session.params.env = \"DEV\" AND $session.params.QueueName = \"TSCAssignmentTechFiber\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "219",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "76c496fc-1de6-4847-bac6-81c6180f8eb0"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND $session.params.QueueName = \"TSCAssignmentTechFiber\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "129",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "325d2050-1e55-4afb-ade0-4e3ad4791e94"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND $session.params.QueueName = \"TSCAssignmentTechFiber\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "107",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "7db44044-f5fe-4408-9370-90db8e3bbf69"
+  }, {
+    "condition": "$session.params.env = \"DEV\" AND $session.params.QueueName = \"TSCProgrammingTechCopper\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "221",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "9a1c35f7-82e7-4a4b-a188-d0470e1aa9ee"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND $session.params.QueueName = \"TSCProgrammingTechCopper\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "132",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "666a2655-d5b2-4d89-88e7-2badb6fa34f0"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND $session.params.QueueName = \"TSCProgrammingTechCopper\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "113",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "7a8328cd-e078-4057-b742-bdf3f08fa2b6"
+  }, {
+    "condition": "$session.params.env = \"DEV\" AND $session.params.QueueName = \"TSCProgrammingTechFiber\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "222",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "3fc76459-cbc1-4208-80a0-29cbefcd235c"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND $session.params.QueueName = \"TSCProgrammingTechFiber\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "133",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "27632e8a-4919-40eb-b4d1-f3986b398810"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND $session.params.QueueName = \"TSCProgrammingTechFiber\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "114",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "6e962d6e-2ec7-490b-9a46-b3102be44161"
+  }, {
+    "condition": "$session.params.env = \"DEV\" AND $session.params.QueueName = \"DispatchEast\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "562",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_13",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "cc66d834-cb67-4ef9-8710-69503bc045ec"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND $session.params.QueueName = \"DispatchEast\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "246",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_14",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "209a8bda-d5b6-4aa1-8b40-737ff5aac40a"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND $session.params.QueueName = \"DispatchEast\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "192",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_15",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "63031ae2-9740-4fb3-9e7a-7d44434c3634"
+  }, {
+    "condition": "$session.params.env = \"DEV\" AND $session.params.QueueName = \"DispatchSouth\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "563",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_16",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "8190d4c2-47d8-4ac1-bc31-3f390d5ff314"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND $session.params.QueueName = \"DispatchSouth\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "247",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_17",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "ab7f98e4-1e71-4282-8abb-e52c5799896f"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND $session.params.QueueName = \"DispatchSouth\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "193",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_18",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "57275b16-eb41-42cf-990d-a15a4ae6814e"
+  }, {
+    "condition": "$session.params.env = \"DEV\" AND $session.params.QueueName = \"DispatchNorth\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "564",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_19",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "74d332b1-d225-46ed-bb62-82b9d09e9500"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND $session.params.QueueName = \"DispatchNorth\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "248",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_20",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "525cb04d-6bf9-435d-a32c-93a86991fa3e"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND $session.params.QueueName = \"DispatchNorth\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "194",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_21",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "4435b0f1-b6df-4821-b817-e6d1af73f884"
+  }, {
+    "condition": "$session.params.env = \"DEV\" AND $session.params.QueueName = \"DispatchPool\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "205",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_22",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "113656cf-66bf-4d3b-80e8-9178702b480f"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND $session.params.QueueName = \"DispatchPool\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "152",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_23",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "7d31574a-99a1-4607-9d94-06d6fac65f15"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND $session.params.QueueName = \"DispatchPool\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "128",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_24",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "ff138367-1560-42a5-81fa-5657ae29db19"
+  }, {
+    "condition": "$session.params.env = \"DEV\" AND $session.params.QueueName = \"DispatchPatternDesk\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "756",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_25",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "4203bb0d-336f-44a4-9b2b-51540ea5f748"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND $session.params.QueueName = \"DispatchPatternDesk\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "276",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_26",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "4cc7b80c-d9b7-4c47-80ad-18c633a93162"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND $session.params.QueueName = \"DispatchPatternDesk\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_27",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "f73cf38f-2f53-4f1d-9663-be5478e78ac0"
+  }, {
+    "condition": "$session.params.env = \"DEV\" AND $session.params.QueueName = \"OCCFiberSupportDesk\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "758",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_28",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "30fbc8e1-8487-483f-a2ca-89e898c1e681"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND $session.params.QueueName = \"OCCFiberSupportDesk\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "278",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_29",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "bd019ddc-66ce-4b97-906d-78f73610c4f2"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND $session.params.QueueName = \"OCCFiberSupportDesk\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_30",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "1f30ea3c-d63f-460c-919f-108472d792e4"
+  }, {
+    "condition": "$session.params.env = \"DEV\" AND $session.params.QueueName = \"DispatchCentralOfficeDesk\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "757",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_31",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "15e1a1a0-6147-4719-8b90-e6d90d95ca2c"
+  }, {
+    "condition": "$session.params.env = \"SIT\" AND $session.params.QueueName = \"DispatchCentralOfficeDesk\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "277",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_32",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "efccbd34-7819-47f7-a6e7-45d18aa41aa9"
+  }, {
+    "condition": "$session.params.env = \"PROD\" AND $session.params.QueueName = \"DispatchCentralOfficeDesk\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_TechQueueRouting_33",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "64a32bba-e4ad-44cc-854e-a0ae643a2dda"
+  } ]
+}

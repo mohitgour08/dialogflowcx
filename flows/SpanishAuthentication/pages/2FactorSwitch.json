@@ -1,0 +1,221 @@
+{
+  "name": "9ed8ca4e-230b-474a-8a47-0b3f5f81658f",
+  "displayName": "2FactorSwitch",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "CCSPSwitch",
+    "tag": "TwoFactorAuth",
+    "setParameterActions": [ {
+      "parameter": "CCSPToggle",
+      "value": "TwoFactor"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Authentication = \"ACCTFOUND\" AND $session.params.channel = \"voice\" AND $session.params.TwoFactor = 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003e¡Gracias! He encontrado tu cuenta.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_2FactorSwitch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SpanishAuthenticateOptionsVoice",
+    "name": "17e2ed1f-e71c-49f7-b01c-4f83d66f377a"
+  }, {
+    "condition": "$session.params.Authentication = \"ACCTFOUND\" AND $session.params.channel = \"voice\" AND $session.params.TwoFactor = 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_2FactorSwitch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ZipCodeAuth",
+    "name": "5cd2a9b3-31e6-44ab-a634-63abb12e06e1"
+  }, {
+    "condition": "$session.params.TwoFactor = 1 AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_2FactorSwitch_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "askAccountInfoVoice",
+    "name": "2a8c36b4-792e-4b37-b083-4bacd9dc2626"
+  }, {
+    "condition": "$session.params.TwoFactor = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_2FactorSwitch_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "AskAccountInfo",
+    "name": "f7f07548-db29-495f-ae45-229dd3ec6a0a"
+  }, {
+    "condition": "$session.params.TwoFactor = 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_2FactorSwitch_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "checkChannel",
+    "name": "9d4295a7-3d89-48d4-9d43-f59690d4955b"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "checkChannel",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_2FactorSwitch_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "374fb6fb-6ce8-4cba-880d-e25042f9bbf7"
+  }, {
+    "targetPage": "checkChannel",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_2FactorSwitch_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "4c85afdc-f9fc-4cae-9353-8a1ff042ef7d"
+  }, {
+    "targetPage": "checkChannel",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_2FactorSwitch_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "82d1638f-ddc4-4d81-a989-e6d5e46431a0"
+  }, {
+    "targetPage": "checkChannel",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_2FactorSwitch_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "26de9b76-c994-4bf3-b823-aa72ac91372c"
+  }, {
+    "targetPage": "checkChannel",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_2FactorSwitch_Webhook_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "da4a8ec1-273a-48b9-9b1f-34c0c90b7c0d"
+  }, {
+    "targetPage": "checkChannel",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_2FactorSwitch_Webhook_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "c4033fd0-2097-4e10-86cd-e8d082de219c"
+  } ]
+}

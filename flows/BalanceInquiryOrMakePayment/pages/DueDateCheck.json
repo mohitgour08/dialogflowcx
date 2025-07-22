@@ -1,0 +1,49 @@
+{
+  "name": "0896d70e-2879-499b-a00e-0468e29dfa19",
+  "displayName": "DueDateCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillInfo_BillDueDate != NULL AND $session.params.BillInfo_BillDueDate != \"\" AND $session.params.BillInfo_BillDueDate != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "BillInfo_BillDueDate",
+        "value": "$sys.func.MID($session.params.BillInfo_BillDueDate,1,10)"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_DueDateCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DueYear",
+        "value": "$sys.func.MID($session.params.BillInfo_BillDueDate,1,4)"
+      }, {
+        "parameter": "DueMon",
+        "value": "$sys.func.MID($session.params.BillInfo_BillDueDate,6,2)"
+      }, {
+        "parameter": "DueDay",
+        "value": "$sys.func.MID($session.params.BillInfo_BillDueDate,9,2)"
+      }, {
+        "parameter": "BillInfo_BillDueDate",
+        "value": "$sys.func.CONCATENATE($session.params.DueMon,\"-\",$session.params.DueDay,\"-\",$session.params.DueYear)"
+      } ]
+    },
+    "targetPage": "DueAmountCheck",
+    "name": "088e09c0-7509-4ca5-8841-a00f3c9aead5"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "BillInfo_BillDueDate",
+        "value": "your next due date"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_DueDateCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "DueAmountCheck",
+    "name": "a63e5059-bc2d-4fe5-ab0b-f180413c59ed"
+  } ]
+}

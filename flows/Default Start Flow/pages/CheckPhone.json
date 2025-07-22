@@ -1,0 +1,148 @@
+{
+  "name": "02fd28ed-1954-42a7-bf02-e3d0e387d314",
+  "displayName": "CheckPhone",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "phone_number_backup",
+      "value": "$session.params.phone_number"
+    }, {
+      "parameter": "phone_number_with_countrycode",
+      "value": "$session.params.phone_number"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PhoneNumberLength = 16",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$sys.func.MID($session.params.phone_number,7,10)"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_CheckPhone_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "f32a1e06-3add-4729-9c2b-a62e70e165f2"
+  }, {
+    "condition": "$session.params.PhoneNumberLength = 15",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$sys.func.MID($session.params.phone_number,6,10)"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_CheckPhone_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "824b1117-df1c-4159-a4c7-ca9d4550d89b"
+  }, {
+    "condition": "$session.params.PhoneNumberLength = 14",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$sys.func.MID($session.params.phone_number,5,10)"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_CheckPhone_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "ee76f9c4-8f92-4dc9-ae9b-ab07fd2461d5"
+  }, {
+    "condition": "$session.params.PhoneNumberLength = 13",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$sys.func.MID($session.params.phone_number,4,10)"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_CheckPhone_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "e3d36efd-086c-4ef0-b462-f57e93c9498d"
+  }, {
+    "condition": "$session.params.PhoneNumberLength = 12",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$sys.func.MID($session.params.phone_number,3,10)"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_CheckPhone_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "67cf4f9e-b131-440f-b7c3-faee0540b380"
+  }, {
+    "condition": "$session.params.PhoneNumberLength = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$sys.func.MID($session.params.phone_number,2,10)"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_CheckPhone_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "da12fda1-b764-411f-b12b-0cdd4386948c"
+  }, {
+    "condition": "$session.params.PhoneNumberLength \u003c= 10",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$session.params.phone_number"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_CheckPhone_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "216e6b4b-6a59-4ebc-8257-8f28e1be2a77"
+  }, {
+    "condition": "$session.params.phone_number = null OR $session.params.phone_number = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "npa",
+        "value": ""
+      }, {
+        "parameter": "phone_number",
+        "value": ""
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_CheckPhone_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ANI_BACKUP",
+        "value": ""
+      }, {
+        "parameter": "phone_number_temp",
+        "value": ""
+      } ]
+    },
+    "targetPage": "CheckForOutageDynamicMsg",
+    "name": "316f8946-dce6-4622-a878-36384b96b752"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "phone_number_temp",
+        "value": "$session.params.phone_number"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_CheckPhone_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ANI_BACKUP",
+        "value": "$session.params.TN_BAN"
+      }, {
+        "parameter": "phone_number",
+        "value": "$session.params.TN_BAN"
+      }, {
+        "parameter": "npa",
+        "value": "$sys.func.MID($session.params.phone_number,1,3)"
+      } ]
+    },
+    "targetPage": "SpanishQuestion",
+    "name": "29049238-7faf-416e-a9eb-071933d63df5"
+  } ]
+}

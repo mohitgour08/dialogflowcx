@@ -1,0 +1,56 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "services",
+      "auto": true
+    }, {
+      "text": " working fine",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "services",
+      "auto": true
+    }, {
+      "text": " are good",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "service",
+      "auto": true
+    }, {
+      "text": " as appropriate",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Services",
+      "auto": true
+    }, {
+      "text": " are working",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My ",
+      "auto": true
+    }, {
+      "text": "Service",
+      "auto": true
+    }, {
+      "text": " is working as expected.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

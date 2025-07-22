@@ -1,0 +1,7 @@
+{
+  "entities": [ {
+    "value": "^(?:\\d\\s?){8,12}#?$",
+    "synonyms": [ "^(?:\\d\\s?){8,12}#?$" ],
+    "languageCode": "en"
+  } ]
+}

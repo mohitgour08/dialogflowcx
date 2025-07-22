@@ -1,0 +1,83 @@
+{
+  "name": "82d3ee3f-f4d0-47af-8cde-7fb2aa374995",
+  "displayName": "PayArrAPIcall",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.eligible = \"true\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrAPIcall_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "IsPAEligibility",
+        "value": "Y"
+      } ]
+    },
+    "targetFlow": "PaymentArrangement",
+    "name": "b0f7286e-eb46-417e-9a9b-8e929aac4988"
+  }, {
+    "condition": "$session.params.eligible = \"true\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrAPIcall_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "IsPAEligibility",
+        "value": "Y"
+      } ]
+    },
+    "targetFlow": "PaymentArrangement",
+    "name": "446e748a-ade0-467d-963c-37ed7e53605f"
+  }, {
+    "condition": "$session.params.eligible != \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrAPIcall_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PayArrExistingPA",
+    "name": "cab754e5-3c47-4cc0-b8b7-c8367bed17a7"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_PayArrAPIcall_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "IsPAEligibility",
+        "value": "N"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PayArrNotEligible",
+    "name": "2153bfc3-9e0a-4021-9123-d185bf84fac5"
+  } ]
+}

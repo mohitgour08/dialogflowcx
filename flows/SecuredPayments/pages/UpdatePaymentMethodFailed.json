@@ -1,0 +1,165 @@
+{
+  "name": "2608a186-36cf-4942-abb2-5ec99cb4be40",
+  "displayName": "UpdatePaymentMethodFailed",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.CopperCurrentDue = \"true\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when saving your primary payment method. You can update this any time in your My Brightspeed portal online, or in our app. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdatePaymentMethodFailed_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnrollAPCheck",
+    "name": "9ee28240-9f55-4cef-92f9-e7bef2c9a9ac"
+  }, {
+    "condition": "$session.params.SaveFiberNewDPM = \"true\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this information. You can update your payment methods any time in your $session.params.Link33." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this card. You can update your payment methods any time in your My Brightspeed portal online. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdatePaymentMethodFailed_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "SS_MethodOfPaymentUpdate",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      } ]
+    },
+    "targetPage": "PaymentSuccessful",
+    "name": "4ec3228a-63a8-4e8b-b94b-5836e8f3f3a9"
+  }, {
+    "condition": "$session.params.ToState = \"AutopaySignup\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I'm having an issue getting you enrolled. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "SS_PaymentArrangement",
+        "value": "Failure"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdatePaymentMethodFailed_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_MethodOfPaymentUpdate",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Payment Method Update failed"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SecuredPayments-UpdatePaymentMethodFailed"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "be0b5bf1-a5f9-437a-8d07-4d347e9a034d"
+  }, {
+    "condition": "$session.params.ToState = \"MethodOfPaymentUpdate\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I was unable to process this change. Let me get you to someone who can help. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "SS_MethodOfPaymentUpdate",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdatePaymentMethodFailed_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Payment Method Update failed"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SecuredPayments-UpdatePaymentMethodFailed"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "497bbb86-030e-4552-bfc0-d50d1d224743"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. Let me transfer you to an agent." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdatePaymentMethodFailed_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_MethodOfPaymentUpdate",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": ""
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "e068d37e-79ae-497b-83aa-57ef171f94d4"
+  } ]
+}

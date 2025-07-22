@@ -1,0 +1,24 @@
+{
+  "name": "1c675ae7-ac7d-4706-9bc6-f07b9df7453f",
+  "displayName": "Route_BusinessCare",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "RouteIntent",
+      "value": "BusinessCare"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+    
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "43cbbfcd-9204-476a-95b8-04b60fad14b7"
+  } ]
+}

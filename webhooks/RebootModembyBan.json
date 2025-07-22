@@ -1,0 +1,29 @@
+{
+  "name": "4eed5883-37e3-4fe6-8e62-c3c155fae813",
+  "displayName": "RebootModembyBan",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/ccsautomateservice/api/v1/rebootModemByBan",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"ucid\": \"$session.params.APICallID\",\n  \"ban\": \"$session.params.AccountNumber\"\n}",
+    "parameterMapping": [ {
+      "key": "ModemCount",
+      "value": "servicIdCount"
+    }, {
+      "key": "ModemRebootStatus",
+      "value": "responseStatus"
+    }, {
+      "key": "ModemResponseMessage",
+      "value": "responseMsg"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 30
+  }
+}

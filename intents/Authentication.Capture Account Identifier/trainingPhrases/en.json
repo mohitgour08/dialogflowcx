@@ -1,0 +1,473 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "let me give you my ",
+      "auto": true
+    }, {
+      "text": "email id",
+      "parameterId": "detail_type",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I will give my ",
+      "auto": true
+    }, {
+      "text": "phone",
+      "parameterId": "detail_type",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I will provide my ",
+      "auto": true
+    }, {
+      "text": "email",
+      "parameterId": "detail_type"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Please"
+    }, {
+      "text": " check my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " is ",
+      "auto": true
+    }, {
+      "text": "AD0033992",
+      "parameterId": "account_number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My ",
+      "auto": true
+    }, {
+      "text": "act no",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " is ",
+      "auto": true
+    }, {
+      "text": "A838832",
+      "parameterId": "account_number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My registered "
+    }, {
+      "text": "phone",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " is "
+    }, {
+      "text": "9383093030",
+      "parameterId": "phone_number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Test2@email.com",
+      "parameterId": "customer_email",
+      "auto": true
+    }, {
+      "text": " is my "
+    }, {
+      "text": "Brightspeed",
+      "parameterId": "account_type"
+    }, {
+      "text": " username, which may also be the "
+    }, {
+      "text": "email",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " I registered with."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm not ",
+      "auto": true
+    }, {
+      "text": "100"
+    }, {
+      "text": "% certain, but it might ",
+      "auto": true
+    }, {
+      "text": "be newuser@email.com",
+      "parameterId": "customer_email",
+      "auto": true
+    }, {
+      "text": ".",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "can you take my "
+    }, {
+      "text": "cell no",
+      "parameterId": "detail_type"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I wanna give my "
+    }, {
+      "text": "act no",
+      "parameterId": "detail_type"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My "
+    }, {
+      "text": "phone number",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " associated with my "
+    }, {
+      "text": "account",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " is "
+    }, {
+      "text": "+1(555) 723-747",
+      "parameterId": "phone_number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My "
+    }, {
+      "text": "brightspeed",
+      "parameterId": "account_type",
+      "auto": true
+    }, {
+      "text": " registered "
+    }, {
+      "text": "phone number",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " is "
+    }, {
+      "text": "+1(555)555-1234",
+      "parameterId": "phone_number"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "1(555)555-1234",
+      "parameterId": "phone_number"
+    }, {
+      "text": " is the number I registered with "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "It probably should be "
+    }, {
+      "text": "57362326",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I believe the number with which I am registered with "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " is "
+    }, {
+      "text": "+1(555) 555-1234",
+      "parameterId": "phone_number"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I believe the number linked with my "
+    }, {
+      "text": "Brightspeed"
+    }, {
+      "text": " "
+    }, {
+      "text": "account",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " is "
+    }, {
+      "text": "+1(555) 555-1234",
+      "parameterId": "phone_number"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "You can go with this "
+    }, {
+      "text": "2233344445",
+      "parameterId": "phone_number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "i can tell my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " is ",
+      "auto": true
+    }, {
+      "text": "567123890",
+      "parameterId": "account_number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I believe my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " is  ",
+      "auto": true
+    }, {
+      "text": "7237457",
+      "parameterId": "account_number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I would like to provide my "
+    }, {
+      "text": "account number",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " and it is "
+    }, {
+      "text": "87282255",
+      "parameterId": "account_number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Please note my "
+    }, {
+      "text": "mobile number",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " its "
+    }, {
+      "text": "8723889282",
+      "parameterId": "phone_number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Here is my email "
+    }, {
+      "text": "steves.j@gmail.com",
+      "parameterId": "customer_email",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Go with this "
+    }, {
+      "text": "phone number",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " "
+    }, {
+      "text": "2233344445",
+      "parameterId": "phone_number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "david.warner@gmail.com",
+      "parameterId": "customer_email",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "steve@gmail.com",
+      "parameterId": "customer_email",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I want to share my ",
+      "auto": true
+    }, {
+      "text": "email",
+      "parameterId": "detail_type",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "123456789",
+      "parameterId": "account_number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "9876543210",
+      "parameterId": "phone_number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "newuser@email.com",
+      "parameterId": "customer_email",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " is +",
+      "auto": true
+    }, {
+      "text": "1 378 327 327",
+      "parameterId": "phone_number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Here is my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "732238929",
+      "parameterId": "account_number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "can i use my ",
+      "auto": true
+    }, {
+      "text": "account number",
+      "parameterId": "detail_type",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I can enter my ",
+      "auto": true
+    }, {
+      "text": "phone number",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " here",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I have my ",
+      "auto": true
+    }, {
+      "text": "email id",
+      "parameterId": "detail_type",
+      "auto": true
+    }, {
+      "text": " with me",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "61aa0783-fd3f-4982-adb0-689aec9a9861",
+  "displayName": "DetermineAuthMethod",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ContactNumber != null AND $session.params.ContactNumber != \"\" AND $session.params.Email != null AND $session.params.Email != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_DetermineAuthMethod_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "HasPhoneEmail",
+        "value": true
+      } ]
+    },
+    "targetPage": "PopulateEmailID",
+    "name": "c711fd7f-2a78-4379-879e-e5f4c61d3a7d"
+  }, {
+    "condition": "$session.params.ContactNumber != null AND $session.params.ContactNumber != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_DetermineAuthMethod_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "Phone",
+    "name": "09b866d8-a2ac-49ae-864d-7785c1944afc"
+  }, {
+    "condition": "$session.params.Email != null AND $session.params.Email != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_DetermineAuthMethod_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "HasPhoneEmail",
+        "value": true
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "PopulateEmailID",
+    "name": "35fbac84-b2b8-4ece-9405-7c29a7c6646c"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_DetermineAuthMethod_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NoPhoneEmail",
+    "name": "900fe4bf-367c-46a6-b4bb-4b03862578c1"
+  } ]
+}

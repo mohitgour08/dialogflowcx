@@ -1,0 +1,38 @@
+{
+  "name": "5a9cf276-ba5a-496a-9208-d937cb7a8bbe",
+  "displayName": "FormNAPdue",
+  "form": {
+    "parameters": [ {
+      "displayName": "FormNAPdueresp",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_PostpaidBalance_FormNAPdue_FormNAPdueresp",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ]
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n  \"chatClientForm\": \"PostpaidHasBal\",\n  \"currentBalance\": \"$session.params.TotalBalance\",\n  \"dueDate\": \"$session.params.BillInfo_BillDueDate\",\n  \"paymentMethod\": \"$session.params.PaymentMethod\",\n  \"lastFourDigits\": \"$session.params.CreditCardNumberLast4 \"\n}" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_FormNAPdue_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormNAPdueCheck",
+    "name": "fdb1ec04-96e3-4ce2-8c26-0b733741df95"
+  } ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "f091fd0d-c457-41cf-9442-a79685c518dd",
+  "displayName": "Exit pop",
+  "parameters": [ {
+    "id": "person",
+    "entityType": "@sys.person"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 3
+}

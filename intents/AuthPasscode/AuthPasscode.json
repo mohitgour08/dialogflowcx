@@ -1,0 +1,11 @@
+{
+  "name": "4e9992ea-d64d-43a0-99c8-fe50778b6619",
+  "displayName": "AuthPasscode",
+  "parameters": [ {
+    "id": "GetPasscode",
+    "entityType": "@OTP_voice"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 8,
+  "dtmfPattern": "^\\d{6}$"
+}

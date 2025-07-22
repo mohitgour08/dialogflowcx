@@ -1,0 +1,43 @@
+{
+  "name": "a2044c21-961b-4741-94ab-3b9a01c2177b",
+  "displayName": "ImpactedBillCycle",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "We are currently upgrading our systems, and account management options are not available at this time. Please contact us again next week to make account changes, pay your bill, or update existing services. If you are enrolled in autopay, your payment will be processed after the upgrade. You may notice that your bill arrives later than usual, but late fees for payment will not be incurred during this period. Our agents are also unable to process payments or make changes at this time. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Customers who have upgraded to Brightspeed Fiber are not impacted. To check if Fiber is available in your area, please click the \"Fiber\" button below. If you are experiencing a connection issue with your service, such as low speeds or an outage, please choose \"Repair\". " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Please listen carefully for an important message regarding service in your area. \n" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "We are currently upgrading our systems, and account management options are not available at this time. Please contact us again next week to make account changes, pay your bill, or update existing services. If you are enrolled in autopay, your payment will be processed after the upgrade. You may notice that your bill arrives later than usual, but late fees for payment will not be incurred during this period. Our agents are also unable to process payments or make changes at this time. " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_ImpactedBillCycle_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EmbargoMenu",
+    "name": "3e0fb042-3a1a-463b-b22e-a8eefd622037"
+  } ]
+}

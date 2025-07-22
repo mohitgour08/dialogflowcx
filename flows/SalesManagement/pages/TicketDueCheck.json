@@ -1,0 +1,157 @@
+{
+  "name": "58ab1f5a-9c65-4e32-8c54-e65d7e10cc38",
+  "displayName": "TicketDueCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "CurrentDate",
+      "value": "$sys.func.FORMAT_DATE($sys.func.NOW(), \"MM-dd-yy\", \"en\")"
+    }, {
+      "parameter": "RepairDueDate",
+      "value": "$session.params.RepairAppointmentStartDate"
+    }, {
+      "parameter": "RepairAppointmentDate",
+      "value": "$sys.func.MID($session.params.RepairDueDate, 1, 8)"
+    }, {
+      "parameter": "SS_RepairTicket",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    }, {
+      "parameter": "RepairStartTime",
+      "value": "$sys.func.MID($session.params.RepairDueDate, 10, 7)"
+    }, {
+      "parameter": "RepairEndDate",
+      "value": "$session.params.RepairAppointmentEndDate"
+    }, {
+      "parameter": "RepairEndTime",
+      "value": "$sys.func.MID($session.params.RepairEndDate, 10, 7)"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.RepairDispatchStatus = \"CMP\" OR $session.params.RepairDispatchStatus = \"Completed\" OR $session.params.RepairDispatchStatus = \"cmp\" OR $session.params.RepairDispatchStatus = \"completed\" OR $session.params.RepairDispatchStatus = \"COMPLETED\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_SalesManagement_TicketDueCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Repair Dispatch Status Completed"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "9dcc8c51-5fa2-4c57-8546-22c075dce8c7"
+  }, {
+    "condition": "$session.params.TicketCount \u003e \"1\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketDueCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "TicketCount \u003e 1"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "9fef990f-ca7d-48ee-bdd8-a0bdfde502b5"
+  }, {
+    "condition": "$session.params.RepairAppointmentDate \u003e $session.params.CurrentDate",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_TicketDueCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketETACheck",
+    "name": "76247014-d56e-42fc-805e-5895346fac21"
+  }, {
+    "condition": "$session.params.RepairAppointmentDate = $session.params.CurrentDate",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_SalesManagement_TicketDueCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketETACheckDueToday",
+    "name": "6dde20a4-8eba-44a8-bd3a-9cb9496a4600"
+  }, {
+    "condition": "$session.params.RepairAppointmentDate \u003c $session.params.CurrentDate",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_SalesManagement_TicketDueCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "RepairAppointmentDate \u003c Current Date"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "0154c769-c355-4d63-b43e-7ebaa2e35fb7"
+  } ]
+}

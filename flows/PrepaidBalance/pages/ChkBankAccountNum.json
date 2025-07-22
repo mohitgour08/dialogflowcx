@@ -1,0 +1,33 @@
+{
+  "name": "c211b930-4597-4eb3-a67a-ce517e2ad8c4",
+  "displayName": "ChkBankAccountNum",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BankAccountNum != null OR $session.params.BankAccountNum != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "LastFourDigitsAcctNum",
+        "value": "$sys.func.MID($session.params.BankAccountNum, 12, 5)"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ZeroBalChk4",
+    "name": "840510bb-2bcc-4b95-8489-42810ab69894"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+    
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "a40e4042-a983-4bed-8fdf-f0187f17799c"
+  } ]
+}

@@ -1,0 +1,141 @@
+{
+  "name": "3d0c0b0c-b27e-4d9f-96e4-ae1dfa3b3344",
+  "displayName": "InvokeC360",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003eone minute, we are processing your information\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    } ],
+    "webhook": "getAccountLookUpByAni",
+    "tag": "none",
+    "returnPartialResponses": true
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CheckANIAvailable",
+    "name": "7815ddcc-13a6-4eaf-8582-0dd590ae3cd2"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "CheckANIAvailable",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_InvokeC360_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "API_Default Start Flow_InvokeC360 ",
+        "value": "Fail_Error"
+      } ]
+    },
+    "name": "f4e7bffc-2b83-43f9-a409-fab0283a9520"
+  }, {
+    "targetPage": "CheckANIAvailable",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_InvokeC360_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "API_Default Start Flow_InvokeC360 ",
+        "value": "Fail_Invalid"
+      } ]
+    },
+    "name": "310775e6-92be-4bf7-8b2f-f63d3e3615d6"
+  }, {
+    "targetPage": "CheckANIAvailable",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_InvokeC360_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "API_Default Start Flow_InvokeC360 ",
+        "value": "Fail_NotFound"
+      } ]
+    },
+    "name": "d52f8cf4-8799-4c91-a24b-9b34a2a19cbd"
+  }, {
+    "targetPage": "CheckANIAvailable",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_InvokeC360_WebhookRejeted",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "API_Default Start Flow_InvokeC360 ",
+        "value": "Fail_Rejected"
+      } ]
+    },
+    "name": "71c6bea5-e43e-4283-ab9d-8d93c521eb36"
+  }, {
+    "targetPage": "CheckANIAvailable",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_InvokeC360_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "API_Default Start Flow_InvokeC360 ",
+        "value": "Fail_Timeout"
+      } ]
+    },
+    "name": "36c97d61-766c-4324-8ade-ce7ac3c40095"
+  }, {
+    "targetPage": "CheckANIAvailable",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_InvokeC360_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN",
+        "value": ""
+      }, {
+        "parameter": "API_Default Start Flow_InvokeC360 ",
+        "value": "Fail_Unavailable"
+      } ]
+    },
+    "name": "502eaba2-6641-4988-8537-ad28bfebc4a9"
+  } ]
+}

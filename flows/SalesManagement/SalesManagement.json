@@ -1,0 +1,354 @@
+{
+  "name": "3cf1bdf7-6df1-48fc-8cd0-92c522c5efe2",
+  "displayName": "SalesManagement",
+  "description": "This flow handles topic related to adding service features, discount and promotions, port, price plan inquiry, open new service, products , service area, modify order appointment, dispute order appointment, schedule appointment for technician visit, pending order, help with an order, cancel order.",
+  "transitionRoutes": [ {
+    "condition": "$session.params.ToState = \"AddServiceFeatures\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AuthCheck",
+    "name": "a3062284-0d2a-4f78-a703-8e87df9178e0",
+    "description": "Sales Management Add Service Feature"
+  }, {
+    "condition": "$session.params.ToState = \"DiscountsandPromotions\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "Discounts\u0026Promotions",
+    "name": "07f866db-8013-4130-b7ea-fc5ed8c1c720"
+  }, {
+    "condition": "$session.params.ToState = \"Port\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AcquisitionFlow",
+    "name": "193a6f5b-b09c-45f5-8195-a489d783e7d2"
+  }, {
+    "condition": "$session.params.ToState = \"PricePlanInquiry\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AcquisitionFlow",
+    "name": "9a0e5c90-53e4-4c30-8148-c3692d2c043f"
+  }, {
+    "condition": "$session.params.ToState = \"ServiceAreaInquiry\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AcquisitionFlow",
+    "name": "6c026d1d-4e7e-4751-aa19-eb03b0f0d62a"
+  }, {
+    "condition": "$session.params.ToState = \"InquireAboutProducts\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AcquisitionFlow",
+    "name": "228aea54-7313-4423-8710-a5402362c18f"
+  }, {
+    "condition": "$session.params.ToState = \"OpenNewService\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "AcquisitionFlow",
+    "name": "a8adcf59-029e-41b3-af20-f80808d0b52d"
+  }, {
+    "condition": "$session.params.ToState = \"ModifyOrderAppointment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      } ]
+    },
+    "targetPage": "WhereIsMyTech",
+    "name": "f957d187-b01b-4886-8a3d-d64be4ca5359"
+  }, {
+    "condition": "$session.params.ToState = \"DisputeOrderAppointment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WhereIsMyTech",
+    "name": "5d76b876-66f4-452e-964c-be0528b814a5"
+  }, {
+    "condition": "$session.params.ToState = \"ConfirmAppointmentStatus\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WhereIsMyTech",
+    "name": "fb788054-81e0-401a-b1ce-e82c8ed78b0f"
+  }, {
+    "condition": "$session.params.ToState = \"ScheduleTechnicianVisit\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WhereIsMyTech",
+    "name": "e100729d-4f26-47b6-9566-f09ba846248b"
+  }, {
+    "condition": "$session.params.ToState = \"TicketFound\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_17",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "TicketDueCheck",
+    "name": "5b93a54d-08c9-4ac7-a86e-8e37a271c92e"
+  }, {
+    "condition": "$session.params.ToState = \"OrderStatus\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_13",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      } ]
+    },
+    "targetPage": "WhereIsMyTech",
+    "name": "0f80dc4f-a89e-46c3-9adf-9adf1c34fa70"
+  }, {
+    "condition": "$session.params.ToState = \"CancelOrder\" OR $session.params.ToState = \"CancelTickets\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_14",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      } ]
+    },
+    "targetPage": "PendingOrderCancel",
+    "name": "2bd7e749-eeea-4065-a742-359928a05e08"
+  }, {
+    "condition": "$session.params.ToState = \"HelpWithAnOrder\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_15",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      } ]
+    },
+    "targetPage": "WhereIsMyTech",
+    "name": "116adcd9-e8c8-4270-8803-25f246132a9d"
+  }, {
+    "condition": "$session.params.ToState = \"PendingOrder\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_18",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POOpenOrderCheck",
+    "name": "510fe465-4272-4462-b8dd-0197d40aa16a"
+  }, {
+    "condition": "$session.params.ToState = \"CancelAppointment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_17",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      } ]
+    },
+    "targetPage": "WhereIsMyTech",
+    "name": "7c7d8b15-1ffa-4268-9246-f7a891025319"
+  }, {
+    "condition": "$session.params.ToState = \"RouteToAgent\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_StartPage_19",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PendingOrCompletedOrder",
+    "name": "84e083de-fb33-4f92-86b7-42944f7bbbd1"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_SalesManagement_StartPage_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SalesManagement-StartPage_Default"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "590d1af4-a1a8-4027-86d0-34171685a3ba"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es"
+      } ]
+    },
+    "name": "ad962d49-e3a5-4683-9c20-928e95fb8ccc"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Ups, no he entendido a que te refieres.", "¿Podrías repetirlo, por favor?", "¿Disculpa?", "¿Decías?", "¿Cómo?" ]
+        },
+        "languageCode": "es"
+      } ]
+    },
+    "name": "7ee7fed8-7ee2-4bb6-bd6c-25d0c39af591"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    }
+  },
+  "advancedSettings": {
+    "enabled": true
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    },
+    "languageCode": "en"
+  } ],
+  "inputParameterDefinitions": [ {
+    "name": "ToState",
+    "description": "Intent to pass parameter from playbook to flow",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToModule",
+    "description": "parameter to pass from playbook to flow",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "pass intent to flow",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "FAQSuccess",
+    "description": "FAQ self serve status",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "FAQSuccess",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ]
+}

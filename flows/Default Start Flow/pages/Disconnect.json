@@ -1,0 +1,26 @@
+{
+  "name": "12aa5a39-9489-41c2-8548-154732cd9fc0",
+  "displayName": "Disconnect",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Thank you for contacting me today. Goodbye." ]
+      },
+      "languageCode": "en"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "End Session",
+    "name": "5b140c45-b5d5-4a95-ad96-05a7fa5ad4aa"
+  } ]
+}

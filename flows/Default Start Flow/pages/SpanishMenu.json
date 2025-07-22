@@ -1,0 +1,219 @@
+{
+  "name": "f2e43522-7502-4757-a3d8-0cd3b8607cef",
+  "displayName": "SpanishMenu",
+  "form": {
+    "parameters": [ {
+      "displayName": "spanishMenu",
+      "required": true,
+      "entityType": "@spanishmenu",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_DefaultStartFlow_SpanishMenu",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ]
+        },
+        "repromptEventHandlers": [ {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\" \u003e\nNo entendí tu respuesta \u003c/voice\u003e \u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_DefaultStartFlow_spanishMenu_NoMatchDefault",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Care"
+            } ]
+          },
+          "name": "ce343a84-b023-4a3e-a886-cc9a4d846652"
+        }, {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\" \u003e\nPara reparación o soporte técnico, presione 1.\nPara servicios automatizados como pagos, saldo o para imprimir una etiqueta para devolver su módem, presione 2 .\nPara preguntas sobre facturación u opciones de pago, presione 3.\nPara mover, cambiar o desconectar sus servicios, presione cuatro \n\u003c/voice\u003e \n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_DefaultStartFlow_spanishMenu_NoMatch_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ]
+          },
+          "name": "2343fa80-027e-4b43-899b-eaf208853199"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-default",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\" \u003e\nEstá bien \u003c/voice\u003e \u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_DefaultStartFlow_spanishMenu_NoInputDefault",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "RouteIntent",
+              "value": "Care"
+            }, {
+              "parameter": "DifficultCaller",
+              "value": "NoInput"
+            } ],
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "eeb55b17-5cdd-4465-b9a4-a0f102d8b789"
+        }, {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\" \u003e\nPara reparación o soporte técnico, presione 1.\nPara servicios automatizados como pagos, saldo o para imprimir una etiqueta para devolver su módem, presione 2 .\nPara preguntas sobre facturación u opciones de pago, presione 3.\nPara mover, cambiar o desconectar sus servicios, presione cuatro \n\u003c/voice\u003e \n\u003c/prosody\u003e\u003c/speak\u003e" ]
+              },
+              "languageCode": "en"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "Metrics_DefaultStartFlow_spanishMenu_NoInput_1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ],
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "6e2d3656-4f94-4f2f-a1f9-9818f99ed03f"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\" \u003e\nPara reparación o soporte técnico, presione 1.\nPara servicios automatizados como pagos, saldo o para imprimir una etiqueta para devolver su módem, presione 2 .\nPara preguntas sobre facturación u opciones de pago, presione 3.\nPara mover, cambiar o desconectar sus servicios, presione cuatro \n\u003c/voice\u003e \n\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Para reparación o soporte técnico, presione 1.\r\nPara servicios automatizados como pagos, saldo o para imprimir una etiqueta para devolver su módem, presione 2 .\r\nPara preguntas sobre facturación u opciones de pago, presione 3.\r\nPara mover, cambiar o desconectar sus servicios, presione cuatro " ]
+      },
+      "languageCode": "es"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.spanishMenu = \"1\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_SpanishMenu_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SpanishMenu"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Service Unavailable"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "SpanishAuthentication",
+    "name": "16fc0a93-c46a-4c43-a5a0-c90f139e329d"
+  }, {
+    "condition": "$session.params.spanishMenu = \"2\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_SpanishMenu_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SpanishMenu"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Service Unavailable"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "SpanishAuthentication",
+    "name": "df016a93-2584-4f94-b3ed-c0b1538d4da7"
+  }, {
+    "condition": "$session.params.spanishMenu = \"3\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_SpanishMenu_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SpanishMenu"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Service Unavailable"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "SpanishAuthentication",
+    "name": "28975950-0264-49dc-a390-31441c893430"
+  }, {
+    "condition": "$session.params.spanishMenu = \"4\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_SpanishMenu_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SpanishMenu"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Service Unavailable"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "SpanishAuthentication",
+    "name": "433f521c-14ed-4fff-83c6-01903cb41486"
+  } ]
+}

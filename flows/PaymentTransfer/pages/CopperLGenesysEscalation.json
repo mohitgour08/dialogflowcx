@@ -1,0 +1,55 @@
+{
+  "name": "ca1c6e01-9ea2-4962-a4b3-930a69a35dfa",
+  "displayName": "CopperLGenesysEscalation",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "action": "escalation",
+          "escalation_reason": "by_virtual_agent",
+          "language": "en",
+          "menu_id": "$session.params.MenuID_CopperL",
+          "type": "action"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_PaymentTransfer_CopperLGenesysEscalation_1",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "TransferMessage",
+      "value": "Lumen Copper Customer transferred to Genesys for Payment"
+    }, {
+      "parameter": "TransferReason",
+      "value": "Self Service not available"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "eventHandlers": [ {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "846553cf-9806-45b4-8f51-02320588956e"
+  }, {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+    
+    },
+    "name": "1d0135d6-8b76-4f21-bcd8-4ff6d10f4dd7"
+  } ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "7c5bed84-27ab-42bc-95a8-101c192c92c4",
+  "displayName": "VM_DTMF4",
+  "parameters": [ {
+    "id": "DTMF4",
+    "entityType": "@DTMF4"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 1
+}

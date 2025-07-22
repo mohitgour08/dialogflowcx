@@ -1,0 +1,13 @@
+{
+  "name": "d8d9343c-2c80-422d-b00d-b9a94f37ea18",
+  "displayName": "Troubleshooting.CheckOutages",
+  "parameters": [ {
+    "id": "callerintent_routetoagent",
+    "entityType": "@callerintent_routetoagent"
+  }, {
+    "id": "service_name",
+    "entityType": "@service_name"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 89
+}

@@ -1,0 +1,40 @@
+{
+  "name": "94e8fc9c-2267-4d30-9a5e-25158c10e27e",
+  "displayName": "UpgradeAuthCheck",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Authentication = \"ACCTFOUND\" OR $session.params.Authentication = \"NO\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToModule",
+        "value": "ServiceManagement"
+      }, {
+        "parameter": "Metrics_ServiceManagement_UpgradeAuthCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Authentication",
+    "name": "07544f0c-ccee-4037-ade5-b900ff76b377"
+  }, {
+    "condition": "$session.params.Authentication = \"SUCCESS\" OR $session.params.Authentication = \"FAILED\" OR $session.params.Authentication = \"MULTIACCTFOUND\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_ServiceManagement_UpgradeAuthCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer needs help with Upgrading Service"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "bb9e4228-cdb7-4d77-8f4d-d4749dd61bc1"
+  } ]
+}

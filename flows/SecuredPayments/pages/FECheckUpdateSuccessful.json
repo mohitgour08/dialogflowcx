@@ -1,0 +1,54 @@
+{
+  "name": "36d2afe9-0e41-46ee-bdb9-c149504708b8",
+  "displayName": "FECheckUpdateSuccessful",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I have successfully saved this payment method and you should see this reflected on your account shortly. The first payment will be drafted on $session.params.BillInfo_BillDueDate." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "BillInfo_ReturnStatus",
+      "value": null
+    }, {
+      "parameter": "SS_MethodOfPaymentUpdate",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    }, {
+      "parameter": "SS_SecuredPayments",
+      "value": "Success"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "ToState",
+        "value": "UpdateSuccessful"
+      }, {
+        "parameter": "Metrics_SecuredPayments_FECheckUpdateSuccessful_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "f3e92977-fecc-469a-a352-2642b003a835"
+  } ],
+  "description": "FIBER ELIGIBILITY CHECK"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "8b7434ec-cdff-49b6-8113-6c42c8d1b22d",
+  "displayName": "getRecurringSchedule",
+  "genericWebService": {
+    "uri": "https://api-ut.brightspeed.com/ccsbrimservice/api/v1/payment/get/recurring/schedule?ban=$session.params.AccountNumber\u0026ucid=$session.params.APICallID\u0026networkType=$session.params.networkType\u0026billingSystem=$session.params.BillingSystem",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "GET",
+    "parameterMapping": [ {
+      "key": "AutopayConfirmationCode",
+      "value": "responseBody.confirmationCode"
+    }, {
+      "key": "AutopaypaymentMethodId",
+      "value": "responseBody.paymentMethodId"
+    }, {
+      "key": "Autopaystatus",
+      "value": "responseBody.status"
+    } ],
+    "oauthConfig": {
+      "clientId": "Wxq32hAc8gxpoxhatAxdU38UhD8kVmkK3C0MAPHlzCZBhhtZ  ",
+      "clientSecret": "dtA3CT9c77cVxpI0Aw1THWKfO0ix3kqwKjrY080rCg1PeHQYmCMpmM52xd1LwY21",
+      "tokenEndpoint": "https://api-ut.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    },
+    "serviceAgentAuth": "NONE"
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

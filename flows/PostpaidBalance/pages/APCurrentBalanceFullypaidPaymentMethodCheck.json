@@ -1,0 +1,191 @@
+{
+  "name": "7cbeb464-59cf-486a-9dd7-06b3032df566",
+  "displayName": "APCurrentBalanceFullypaidPaymentMethodCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.PaymentMethod = \"PayPal\" OR $session.params.PaymentMethod = \"ACH\" OR $session.params.CCExpDateDiff \u003e 30) AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your account is current with no outstanding balance. No payments are due at this time. You can view your past or upcoming bills any time in your My Brightspeed portal online.  " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalanceFullypaidPaymentMethodCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "APCurrentBalanceBillPaid"
+      }, {
+        "parameter": "ToModule",
+        "value": "PostpaidBalance"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "03924d4d-bf12-4b17-bb20-149094d0e90f"
+  }, {
+    "condition": "($session.params.PaymentMethod = \"PayPal\" OR $session.params.PaymentMethod = \"ACH\") AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalanceFullypaidPaymentMethodCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FormPostpaidCurrentFullypaidAP",
+        "value": "hasNoBalanceACH"
+      }, {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.LastFourDigitsAcctNum"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "FormPostpaidCurrentFullyPaidAP",
+    "name": "8912b50a-fed7-4d43-b1c5-e0b98813155f"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003e 30 AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "FormPostpaidCurrentFullypaidAP",
+        "value": "hasNoBalanceCC"
+      }, {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      } ]
+    },
+    "targetPage": "FormPostpaidCurrentFullyPaidAP",
+    "name": "703943cc-c0f3-4c8b-821a-a3f14af48e15"
+  }, {
+    "condition": "($session.params.CCExpDateDiff \u003c= 30 AND $session.params.CCExpDateDiff \u003e 0) AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalanceFullypaidPaymentMethodCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FormPostpaidCurrentFullypaidAP",
+        "value": "hasNoBalanceCCE30"
+      }, {
+        "parameter": "MethodLastFourDigits",
+        "value": "$session.params.CreditCardNumberLast4"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "FormPostpaidCurrentFullyPaidAP",
+    "name": "23c41944-8bf2-4053-b71f-9d2f4285b774"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalanceFullypaidPaymentMethodCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CardExpiredVoiceChat",
+    "name": "6824c832-8aef-44aa-b908-fee5b54e974b"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 30 AND $session.params.CCExpDateDiff \u003e 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalanceFullypaidPaymentMethodCheck_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "APVoice",
+    "name": "61ab5905-a858-4422-80a8-01381b754acf"
+  }, {
+    "condition": "$session.params.CCExpDateDiff : \"True\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalanceFullypaidPaymentMethodCheck_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PostpaidBalance-APCurrentBalanceFullypaidPaymentMethodCheck,CreditCardExpiryUnknown"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "75a29cca-cc63-444d-ab45-c09d076387bc"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_CurrentBalanceFullypaidPaymentMethodCheck_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PostpaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PostpaidBalance-APCurrentBalanceFullypaidPaymentMethodCheck,PaymentMethodUnknown"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "b4d0712b-2722-4b72-a2c8-23c8f89a966d"
+  } ],
+  "description": "AUTOPAY CURRENTBALANCE FULLYPAID PAYMENT METHOD CHECK"
+}

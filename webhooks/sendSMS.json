@@ -1,0 +1,13 @@
+{
+  "name": "645a4a9e-ee68-4bb8-8ee8-7a6a4568407b",
+  "displayName": "sendSMS",
+  "genericWebService": {
+    "uri": "https://api-ut.brightspeed.com/sendsms",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"Data\": {\n    \"Name\": \"\u003ccustomerName\u003e\",\n    \"Phone_Number\": \"1$session.params.SMSNumber\",\n    \"Message_Content\": \"$session.params.SMS_Prompt $session.params.URL\"\n  }\n}"
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

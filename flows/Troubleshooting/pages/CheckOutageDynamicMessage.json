@@ -1,0 +1,185 @@
+{
+  "name": "317b1463-2934-4382-91e1-624ea1c5a11b",
+  "displayName": "CheckOutageDynamicMessage",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "Dynamic Message",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "location",
+      "value": "Outage"
+    }, {
+      "parameter": "Metrics_Troubleshooting_CheckOutageDynamicMessage",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "DynamicMsg_Logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckOutageDynamicMessage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "940f4375-8087-4145-92b7-b3261fc242a8"
+  }, {
+    "condition": "$session.params.message_text != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckOutageDynamicMessage_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PlayDynamicMessage",
+    "name": "f4a383a6-d406-4ca1-a45e-2cf243247055"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_Troubleshooting_CheckOutageDynamicMessage_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "5e5dd846-d55b-4746-b804-72da764b33d5"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckOutageDynamicMessage_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "API_Troubleshooting_CheckOutageDynamicMessage",
+        "value": "Fail_Error"
+      } ]
+    },
+    "name": "e8b95187-f54a-49c5-a879-04caecf8bc81"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckOutageDynamicMessage_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "API_Troubleshooting_CheckOutageDynamicMessage",
+        "value": "Fail_Invalid"
+      } ]
+    },
+    "name": "2ff9bb69-2500-479e-bac1-753f15f4d30b"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckOutageDynamicMessage_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "API_Troubleshooting_CheckOutageDynamicMessage",
+        "value": "Fail_NotFound"
+      } ]
+    },
+    "name": "297647b5-9e8a-4bd6-96c8-f240d794d465"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckOutageDynamicMessage_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "API_Troubleshooting_CheckOutageDynamicMessage",
+        "value": "Fail_Rejected"
+      } ]
+    },
+    "name": "80a9ec12-a061-4a43-aef0-d64fe0123e59"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckOutageDynamicMessage_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "API_Troubleshooting_CheckOutageDynamicMessage",
+        "value": "Fail_Timeout"
+      } ]
+    },
+    "name": "2ddddee4-bbba-4912-becc-6968ff45a1f6"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckOutageDynamicMessage_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "API_Troubleshooting_CheckOutageDynamicMessage",
+        "value": "Fail_Unavailable"
+      } ]
+    },
+    "name": "ad712fca-f428-4f18-b8cb-496e9af575f6"
+  } ]
+}

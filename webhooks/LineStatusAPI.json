@@ -1,0 +1,32 @@
+{
+  "name": "1e2a4d57-f2e8-44ff-bf7c-9290f0a3d845",
+  "displayName": "LineStatusAPI",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/ccsautomateservice/api/v1/lineStatus",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"tn\": \"$session.params.ContactNumber\",\n  \"networkType\": \"$session.params.networkType\",\n  \"data\": \"summary\",\n  \"ucid\": \"$session.params.APICallID\"\n}",
+    "parameterMapping": [ {
+      "key": "LineIssueDetected",
+      "value": "hasLineIssue"
+    }, {
+      "key": "LineStatus",
+      "value": "responseBody.lineStats"
+    }, {
+      "key": "LineStatusAPIResponseMessage",
+      "value": "responseMsg"
+    }, {
+      "key": "LineStatusResponse",
+      "value": "responseStatus"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 30
+  }
+}

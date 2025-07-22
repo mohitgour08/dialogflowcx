@@ -1,0 +1,103 @@
+{
+  "name": "47ae5617-518c-4c25-80e3-6067c521ebbb",
+  "displayName": "CheckModemType",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_CheckModemType",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"voice\" AND ($session.params.ProductClass = \"C4000\" OR $session.params.ProductClass = \"C4000LZ\" OR $session.params.ProductClass = \"C4000LG\" OR $session.params.ProductClass = \"C4000XG\" OR $session.params.ProductClass = \"C4000BZ\" OR $session.params.ProductClass = \"C4000BG\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckModemType_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemType",
+        "value": "$session.params.ProductClass"
+      } ]
+    },
+    "targetPage": "ManualRebootType1_HoldMusic",
+    "name": "ab5635ba-6c4f-49f5-8160-3084ede5b60c"
+  }, {
+    "condition": "$session.params.channel = \"voice\" AND ($session.params.ProductClass = \"C3000\" OR $session.params.ProductClass = \"C3000Z\" OR $session.params.ProductClass = \"C3000A\" OR $session.params.ProductClass = \"C3510XZ-B1\" OR $session.params.ProductClass = \"C3510XZ\" OR $session.params.ProductClass = \"C30000Z\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckModemType_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemType",
+        "value": "$session.params.ProductClass"
+      } ]
+    },
+    "targetPage": "ManualRebootType2_HoldMusic",
+    "name": "132a356c-340d-42c5-b886-f7b9575640c5"
+  }, {
+    "condition": "($session.params.ProductClass = \"Calix U6T\" OR $session.params.ProductClass = \"Calix U6\" OR $session.params.ProductClass = \"Calix u6t\" OR $session.params.ProductClass = \"Calix u6\") AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckModemType_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemType",
+        "value": "$session.params.ProductClass"
+      } ]
+    },
+    "targetPage": "ManualRebootType3_Voice",
+    "name": "c0f08f55-f442-4125-8dff-0f1dcf8d06d3"
+  }, {
+    "condition": "$session.params.channel = \"web\" AND ($session.params.ProductClass = \"C4000\" OR $session.params.ProductClass = \"C4000LZ\" OR $session.params.ProductClass = \"C4000LG\" OR $session.params.ProductClass = \"C4000XG\" OR $session.params.ProductClass = \"C4000BZ\" OR $session.params.ProductClass = \"C4000BG\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckModemType_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemType",
+        "value": "$session.params.ProductClass"
+      } ]
+    },
+    "targetPage": "ManualRebootType1_Chat",
+    "name": "aecdb439-c48a-4bdc-ad2c-d0ab1f806805"
+  }, {
+    "condition": "$session.params.channel = \"web\" AND ($session.params.ProductClass = \"C3000\" OR $session.params.ProductClass = \"C3000Z\" OR $session.params.ProductClass = \"C3000A\" OR $session.params.ProductClass = \"C3510XZ-B1\" OR $session.params.ProductClass = \"C3510XZ\" OR $session.params.ProductClass = \"C30000Z\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckModemType_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemType",
+        "value": "$session.params.ProductClass"
+      } ]
+    },
+    "targetPage": "ManualRebootType2_Chat",
+    "name": "fd4acd18-b298-4155-a282-8d91f1a7aae9"
+  }, {
+    "condition": "($session.params.ProductClass = \"Calix U6T\" OR $session.params.ProductClass = \"Calix U6\" OR $session.params.ProductClass = \"Calix u6t\" OR $session.params.ProductClass = \"Calix u6\") AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckModemType_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemType",
+        "value": "$session.params.ProductClass"
+      } ]
+    },
+    "targetPage": "ManualRebootType3_Chat",
+    "name": "67ad66cb-2dd1-442a-84f5-3bfa95743f2d"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_CheckModemType_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())\""
+      } ]
+    },
+    "targetPage": "ManualReboot_HoldMusic",
+    "name": "26661460-ccf3-446a-8baa-38637d7ea9ff"
+  } ],
+  "description": "API call for modem type"
+}

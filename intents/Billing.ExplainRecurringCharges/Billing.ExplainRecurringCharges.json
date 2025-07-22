@@ -1,0 +1,11 @@
+{
+  "name": "5feaee2f-09e7-492d-a254-45d64a25f002",
+  "displayName": "Billing.ExplainRecurringCharges",
+  "parameters": [ {
+    "id": "callerintent_routetoagent",
+    "entityType": "@callerintent_routetoagent"
+  } ],
+  "priority": 500000,
+  "description": "Explain Recurring Charges",
+  "numTrainingPhrases": 296
+}

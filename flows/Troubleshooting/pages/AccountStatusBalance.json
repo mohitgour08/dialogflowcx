@@ -1,0 +1,92 @@
+{
+  "name": "1e270244-5fe0-4ca7-992b-3ed281d8343d",
+  "displayName": "AccountStatusBalance",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.AccountStatus = \"Active\" OR $session.params.AccountStatus = \"Open\" OR $session.params.AccountStatus = \"OPENED\" OR $session.params.AccountStatus = \"OPEN\" OR $session.params.AccountStatus = \"Opened\" OR $session.params.AccountStatus = \"ACTIVE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AccountStatusBalance_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NoTelephone",
+    "name": "3b581af5-f577-4cd1-8b53-13d95e59e854"
+  }, {
+    "condition": "$session.params.AccountStatus = \"Suspended\" OR $session.params.AccountStatus = \"Paused\" OR $session.params.AccountStatus = \"SUSPENDED\" OR $session.params.AccountStatus = \"PAUSED\" OR $session.params.AccountStatus = \"SNP\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "BalanceInquiry"
+      }, {
+        "parameter": "Metrics_Troubleshooting_AccountStatusBalance_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "67c0a602-513c-4e8b-b53b-966744059afe"
+  }, {
+    "condition": "$session.params.AccountStatus = \"Pending Disconnect\" OR $session.params.AccountStatus = \"PendingDisconnect\" OR $session.params.AccountStatus = \"Final\" OR $session.params.AccountStatus = \"FINAL\" OR $session.params.AccountStatus = \"Pending\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AccountStatusBalance_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "BalanceInquiry"
+      }, {
+        "parameter": "SS_GeneralTroubleshooting",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "67f62c8b-7c84-41d9-9452-e4496615bbbe"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AccountStatusBalance_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NoTelephone",
+    "name": "0fd34fd4-dc35-4ad8-9130-42f4f4cd1487"
+  } ]
+}

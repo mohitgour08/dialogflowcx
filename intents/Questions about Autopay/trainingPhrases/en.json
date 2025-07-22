@@ -1,0 +1,42 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Questions"
+    }, {
+      "text": " about ",
+      "auto": true
+    }, {
+      "text": "Autopay",
+      "parameterId": "person",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I have ",
+      "auto": true
+    }, {
+      "text": "question",
+      "auto": true
+    }, {
+      "text": " about Autopay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Questions",
+      "auto": true
+    }, {
+      "text": " about ",
+      "auto": true
+    }, {
+      "text": "Autopay",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

@@ -1,0 +1,378 @@
+{
+  "name": "a52dd21f-769c-4b10-ab91-6f408396c844",
+  "displayName": "CustLookUp",
+  "form": {
+    "parameters": [ {
+      "displayName": "Brightspeed",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metric_Authentication_CustLookUp_Brightspeed",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ]
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\n  \u003caudio src=\"https://chatservices.brightspeed.com/audio/HoldMusic.wav\"\u003e\u003c/audio\u003e\n\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "webhook": "Customerinfo",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_CustLookUp_none_wh_GetAccountInfo",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowCancellation": true
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "returnPartialResponses": true,
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.IdentificationBasedOn = \"tn\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_IdentificationMethod",
+        "value": "BTN"
+      }, {
+        "parameter": "Metrics_Authentication_CustLookup_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "386ed55f-0686-4d35-abc7-3c6216acdffc"
+  }, {
+    "condition": "$session.params.IdentificationBasedOn = \"ban\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_IdentificationMethod",
+        "value": "BAN"
+      }, {
+        "parameter": "Metrics_Authentication_CustLookup_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "6275850b-b658-4bad-bed7-a07f4eba9c1a"
+  }, {
+    "condition": "$session.params.Brightspeed[0].legacyBAN != null OR $session.params.Brightspeed[0].legacyBAN != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "legacyBAN",
+        "value": "$session.params.Brightspeed[0].legacyBAN"
+      }, {
+        "parameter": "PPBTemp",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.legacyBAN),1, 3)"
+      }, {
+        "parameter": "Metrics_Authentication_CustLookup_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "bb37a2d9-aba3-4869-afc6-c06d6f5bd325"
+  }, {
+    "condition": "$session.params.PPBTemp = \"PPB\" OR $session.params.PPBTemp = \"ppb\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_IsPPBAccount",
+        "value": true
+      }, {
+        "parameter": "Metrics_Authentication_CustLookup_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "f14ffdd3-1437-4f0f-8643-06e049c2dae1"
+  }, {
+    "condition": "($session.params.Brightspeed[0].billingAccountNumber = NULL OR $session.params.Brightspeed[0].billingAccountNumber = \"\") AND $session.params.Authattempts \u003c 1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I can't find an account with that information. Let's try again." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! I don't see an account that matches that information. Let's try one more time." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": null
+      }, {
+        "parameter": "Authattempts",
+        "value": "$sys.func.ADD($session.params.Authattempts, 1)"
+      }, {
+        "parameter": "Metrics_Authentication_CustLookup_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TN_BAN_temp",
+        "value": null
+      } ]
+    },
+    "targetPage": "checkChannel",
+    "name": "3884af72-0c33-4b8e-8e81-23d542a27163"
+  }, {
+    "condition": "$session.params.Brightspeed[0].billingAccountNumber != NULL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_CustLookup_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Authentication_CustLookUp",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "targetPage": "Single/Multiple Check",
+    "name": "5241841e-f109-4a52-aabf-50a36948c3f7"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "Metrics_Authentication_CustLookup_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "AccountNotFound"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "API_Authentication_CustLookUp",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "ListenInitialIntent",
+    "name": "4e9155ec-8499-4cf0-bdda-f8fb7d748ff4"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metric_Authentication_CustLookUp_WBError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook Error"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CustomerInfo"
+      }, {
+        "parameter": "API_Authentication_CustLookUp",
+        "value": "API_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "name": "af8db635-b3b8-410c-865b-26fc7c8a92ee"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metric_Authentication_CustLookUp_WBInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook Invalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CustomerInfo"
+      }, {
+        "parameter": "API_Authentication_CustLookUp",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "name": "eba4cf7f-bd28-4d92-8783-f53dd6d8a93c"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metric_Authentication_CustLookUp_WBNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook Not Found"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CustomerInfo"
+      }, {
+        "parameter": "API_Authentication_CustLookUp",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "name": "c5a8108b-22d0-4700-b710-3cd11e26defc"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metric_Authentication_CustLookUp_WBRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook Rejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CustomerInfo"
+      }, {
+        "parameter": "API_Authentication_CustLookUp",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "name": "dba229c9-80eb-4168-a9ad-a0cfecb0f9f5"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metric_Authentication_CustLookUp_WBTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook Timeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CustomerInfo"
+      }, {
+        "parameter": "API_Authentication_CustLookUp",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "name": "a68766a6-8612-4f16-b0f3-d137ac67e5d9"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I wasn't able to find an account that matched the information provided." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metric_Authentication_CustLookUp_WBUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "Webhook Unavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "CustomerInfo"
+      }, {
+        "parameter": "API_Authentication_CustLookUp",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Customerinfo"
+      } ]
+    },
+    "name": "6d1cc7c3-9428-4a96-aa6d-dd8f48442d5c"
+  } ]
+}

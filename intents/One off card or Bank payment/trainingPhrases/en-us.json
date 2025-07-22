@@ -1,0 +1,77 @@
+{
+  "trainingPhrases": [ {
+    "id": "0528c426-2efe-4364-85f5-6519fca42e3a",
+    "parts": [ {
+      "text": "credit card",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "948057cb-a451-43ba-ba00-044507e5846c",
+    "parts": [ {
+      "text": "bank",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "dfcb5c87-2037-4a88-b870-299cf22ab403",
+    "parts": [ {
+      "text": "card",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5a7d2f2a-7a57-4cea-a68c-741bc5215ed4",
+    "parts": [ {
+      "text": "online payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4fb03ddd-3937-4d03-a8b4-aa302b3ea74f",
+    "parts": [ {
+      "text": "Bank ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c5e7353f-ab1f-4466-b531-bd7b98024de8",
+    "parts": [ {
+      "text": "One",
+      "auto": true
+    }, {
+      "text": " off card",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1157c6a3-efe4-4036-ab54-5e161ce232fc",
+    "parts": [ {
+      "text": "One",
+      "auto": true
+    }, {
+      "text": " off card ",
+      "auto": true
+    }, {
+      "text": "or Bank",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

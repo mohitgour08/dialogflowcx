@@ -1,0 +1,10 @@
+{
+  "name": "c699afcb-1c8e-47b1-a676-628a18f9becb",
+  "displayName": "Sales.AddServiceFeatures",
+  "parameters": [ {
+    "id": "unit-currency",
+    "entityType": "@sys.unit-currency"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 135
+}

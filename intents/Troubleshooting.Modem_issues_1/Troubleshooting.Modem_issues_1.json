@@ -1,0 +1,13 @@
+{
+  "name": "ddf4e7c7-36fe-46ef-87e4-666e9e4092ed",
+  "displayName": "Troubleshooting.Modem_issues_1",
+  "parameters": [ {
+    "id": "color",
+    "entityType": "@sys.color"
+  }, {
+    "id": "time-period",
+    "entityType": "@sys.time-period"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 92
+}

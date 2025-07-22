@@ -1,0 +1,72 @@
+{
+  "name": "361b1c90-087c-42ed-bc31-ae047d10c84f",
+  "displayName": "FiberOrCopper",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"4GLTE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "customer_account_type",
+        "value": "BF"
+      }, {
+        "parameter": "Metrics_RouteToAgent_FiberOrCopper_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckAgentAvailability",
+    "name": "edc08693-297e-46c2-ba0b-1ba5d0ee9789"
+  }, {
+    "condition": "$session.params.customer_lob : \"BRSPD\" OR $session.params.networkType = \"XGSPON\" OR $session.params.networkType = \"GPON\" OR $session.params.networkType = \"BPON\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "customer_account_type",
+        "value": "BF"
+      }, {
+        "parameter": "Metrics_RouteToAgent_FiberOrCopper_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckAgentAvailability",
+    "name": "9ffacc1e-c488-474a-95b7-73d30abe02b6"
+  }, {
+    "condition": "$session.params.customer_lob : \"CTL\" OR $session.params.networkType = \"Copper\" OR $session.params.networkType = \"Copper_L\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "customer_account_type",
+        "value": "CTL"
+      }, {
+        "parameter": "Metrics_RouteToAgent_FiberOrCopper_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckAgentAvailability",
+    "name": "2087f9ab-1a82-434c-9f0b-2491e78a3653"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_FiberOrCopper_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "customer_account_type",
+        "value": ""
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckAgentAvailability",
+    "name": "f120457f-ba5b-495f-a5a5-b172ef24f1e3"
+  } ]
+}

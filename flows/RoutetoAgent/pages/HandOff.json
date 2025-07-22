@@ -1,0 +1,79 @@
+{
+  "name": "95559063-ebd9-43eb-8114-bc2592015ecb",
+  "displayName": "HandOff",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "session_variable": {
+            "capture_target": "payload",
+            "capture_type": [ "comment", "agent", "event" ],
+            "payload": {
+              "Account Number": "$session.params.AccountNumber",
+              "Account Status": "$session.params.AccountStatus",
+              "Account Type": "$session.params.AccountType",
+              "Authentication status": "$session.params.Authentication",
+              "Billing Method": "$session.params.BillingMethod",
+              "Caller Intent": "$session.params.callerintent",
+              "Contact Number": "$session.params.ContactNumber",
+              "Email": "$session.params.Email",
+              "Network Type": "$session.params.networkType",
+              "Product": "$session.params.product",
+              "Queue Id": "$session.params.queueID",
+              "Route Intent": "$session.params.RouteIntent",
+              "Summary": "$session.params.summary",
+              "Wall Garden Status": "$session.params.WallGardenStatus",
+              "Zip Code": "$session.params.enteredzipcode"
+            }
+          }
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "Summary": "$session.params.summary",
+          "action": "escalation",
+          "escalation_reason": "by_virtual_agent",
+          "language": "en-us",
+          "menu_id": "$session.params.queueID",
+          "type": "action"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_RouteToAgent_HandOff",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "generators": [ {
+      "generator": "projects/testbday-1/locations/us-central1/agents/462ea01d-c9db-4e3a-bccc-df5969bb2865/generators/1d74047d-cf64-4fd4-97f6-0450ae0b3999",
+      "outputParameter": "$request.generative.text"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_HandOff_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "End Session",
+    "name": "6f41bd26-5e1a-44a5-b317-b8cb2dfd3619"
+  } ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "4822aebf-6201-4ca9-87f8-65998a7ca261",
+  "displayName": "PaymentUpdateMethod",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Thank you! Please allow me a moment to save your payment method." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Thank you! Please allow me a moment to save your payment method. " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentType = \"Card\"",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "PaymentMethodCard_Logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_PaymentUpdateMethod_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdateCard",
+    "name": "b2e1ed92-ce72-4663-91b6-5c85dbedada9"
+  }, {
+    "condition": "$session.params.PaymentType = \"ACH\"",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "PaymentMethodACH_Logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_PaymentUpdateMethod_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UpdateBank",
+    "name": "c0f4b6c3-bdde-461a-8d5b-d707f2115de3"
+  } ]
+}

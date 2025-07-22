@@ -1,0 +1,53 @@
+{
+  "name": "c61a8e68-323a-4cb3-8322-9436b9b5f676",
+  "displayName": "getOrderProductInfo",
+  "genericWebService": {
+    "uri": "https://apgx-dev.brightspeed.com/ccsc360service/api/v1/getOrderProductInfo?ucid=$session.params.APICallID\u0026ban=$session.params.AccountNumber\u0026networkType=$session.params.NetworkType\u0026billingSystem=$session.params.BillingSystem",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "GET",
+    "parameterMapping": [ {
+      "key": "MultiplePendingOrders",
+      "value": "multiplePendingOrders"
+    }, {
+      "key": "OrderResponse",
+      "value": "orders"
+    }, {
+      "key": "OrderResponseStatus",
+      "value": "responseStatus"
+    }, {
+      "key": "OrdersRecentlyCompleted",
+      "value": "ordersRecentlyCompleted"
+    }, {
+      "key": "PendingOrder",
+      "value": "pendingOrder"
+    }, {
+      "key": "Products",
+      "value": "availableProducts"
+    }, {
+      "key": "ProvisioningSpeed",
+      "value": "internetProvisioningSpeed"
+    }, {
+      "key": "ProvisioningSpeedUnit",
+      "value": "internetProvisioningSpeedUnit"
+    }, {
+      "key": "ServiceName",
+      "value": "serviceName"
+    }, {
+      "key": "ServiceType",
+      "value": "serviceType"
+    }, {
+      "key": "test",
+      "value": "products"
+    } ],
+    "oauthConfig": {
+      "clientId": "byJQMxAg9HvOlxQ9IYsGRqSvvSxDycLfy3GiYOyAd5cLMaL4",
+      "clientSecret": "i1rTFXl017jxep391Y8Yt0fJVvJM4aLh5TbDAGhn5qAhNxpWL8xKn7EleriCXyqT",
+      "tokenEndpoint": "https://apgx-dev.brightspeed.com/oauth2/token",
+      "scopes": [ "read" ]
+    },
+    "serviceAgentAuth": "NONE"
+  },
+  "timeout": {
+    "seconds": 25
+  }
+}

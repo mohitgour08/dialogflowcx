@@ -1,0 +1,809 @@
+{
+  "trainingPhrases": [ {
+    "id": "2c205ea0-36a4-4f16-b945-7c7de11679b9",
+    "parts": [ {
+      "text": "i want "
+    }, {
+      "text": "to confirm my installation"
+    }, {
+      "text": " "
+    }, {
+      "text": "date and time"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "31bf8539-33f4-4680-a41d-6f85c8657f25",
+    "parts": [ {
+      "text": "I have an "
+    }, {
+      "text": "appointment"
+    }, {
+      "text": " "
+    }, {
+      "text": "today"
+    }, {
+      "text": " "
+    }, {
+      "text": "and haven't heard"
+    }, {
+      "text": " "
+    }, {
+      "text": "from the technician. Can you update me on this"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b93713f7-ed60-48bc-b6a8-b3fc2c7ef1d3",
+    "parts": [ {
+      "text": "I'm "
+    }, {
+      "text": "waiting for"
+    }, {
+      "text": " a "
+    }, {
+      "text": "technician"
+    }, {
+      "text": " visit "
+    }, {
+      "text": "today"
+    }, {
+      "text": ". I haven't gotten any confirmation"
+    }, {
+      "text": ". Can you check the status for me?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1f0d279d-a52e-4d41-aebd-7e1cafa810c7",
+    "parts": [ {
+      "text": "Can you give me an update on my "
+    }, {
+      "text": "appointment"
+    }, {
+      "text": "? It'"
+    }, {
+      "text": "s"
+    }, {
+      "text": " supposed to be "
+    }, {
+      "text": "today"
+    }, {
+      "text": ", and I haven't heard"
+    }, {
+      "text": " from the "
+    }, {
+      "text": "technician"
+    }, {
+      "text": " yet."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1c0f50d9-f738-427e-a5e0-78d9a9144e6d",
+    "parts": [ {
+      "text": "I have an "
+    }, {
+      "text": "appointment"
+    }, {
+      "text": " "
+    }, {
+      "text": "scheduled"
+    }, {
+      "text": " for "
+    }, {
+      "text": "today"
+    }, {
+      "text": ", but I haven't "
+    }, {
+      "text": "received any update. Can you check on it"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "525ebacf-7225-4af1-8971-a63049286e83",
+    "parts": [ {
+      "text": "I have an appt today between "
+    }, {
+      "text": "1-4pm"
+    }, {
+      "text": " and have not heard from a tech o their way. can you please update me on this appt?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "69000748-54f7-403b-9ea9-2c0f81fde049",
+    "parts": [ {
+      "text": "I have an appt"
+    }, {
+      "text": " tmrw I would like to discuss."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "92b24f1e-b4d0-4e40-9008-9ec83724302c",
+    "parts": [ {
+      "text": "Hi"
+    }, {
+      "text": " Cody"
+    }, {
+      "text": ", I have an appt"
+    }, {
+      "text": " tmrw I would like to discuss."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "188e4ae7-0e87-4a74-946d-2c0a4bbf8035",
+    "parts": [ {
+      "text": "appt"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9b0ffd34-c564-4a5d-9650-a45be4bd7fa9",
+    "parts": [ {
+      "text": "appointment"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "567c3994-0a58-4d34-bc9b-00640d31a8ae",
+    "parts": [ {
+      "text": "Confirm "
+    }, {
+      "text": "Appointment"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f529d29a-b229-4d15-b58d-e2098f40ae41",
+    "parts": [ {
+      "text": "Appointment Status"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "aba0973e-939d-4f28-8f1d-6e05e3a87676",
+    "parts": [ {
+      "text": "I value "
+    }, {
+      "text": "your assistance."
+    }, {
+      "text": " Could "
+    }, {
+      "text": "you confirm the current status of my upcoming appointment"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f515ae8d-3f0e-4565-a6c9-d9310ccc34d7",
+    "parts": [ {
+      "text": "Can you confirm the status of my appointment and"
+    }, {
+      "text": " reassure "
+    }, {
+      "text": "me that everything is"
+    }, {
+      "text": " proceeding as "
+    }, {
+      "text": "scheduled?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9c2d2fbc-79af-427b-83f9-bc6f73408bbf",
+    "parts": [ {
+      "text": "As "
+    }, {
+      "text": "part of my"
+    }, {
+      "text": " pre"
+    }, {
+      "text": "-appointment"
+    }, {
+      "text": " preparations"
+    }, {
+      "text": ", I need to verify the current status. Can you provide an update"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1f510418-4922-4af3-baf9-84bb72279ad6",
+    "parts": [ {
+      "text": "I'm eager to receive "
+    }, {
+      "text": "confirmation"
+    }, {
+      "text": " on the status of my "
+    }, {
+      "text": "appointment"
+    }, {
+      "text": ". How can I proceed?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5f8ad75f-e8bd-4382-a63c-65369f786dae",
+    "parts": [ {
+      "text": "In anticipation "
+    }, {
+      "text": "of my appointment, I'm checking in to confirm"
+    }, {
+      "text": " its "
+    }, {
+      "text": "current status. Could you assist with that?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6a495b90-8344-41f5-9767-3b9b089a2c1b",
+    "parts": [ {
+      "text": "Before finalizing my"
+    }, {
+      "text": " plans, I'd appreciate it if you could "
+    }, {
+      "text": "confirm the current status of my appointment."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9ba4adde-104e-4619-91c8-0931b704a040",
+    "parts": [ {
+      "text": "Is there a specific contact person or department I should reach out to for"
+    }, {
+      "text": " confirmation "
+    }, {
+      "text": "of my appointment status?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e1faf0e7-caab-4fba-bb24-7f7ede84ee98",
+    "parts": [ {
+      "text": "I want to confirm the status "
+    }, {
+      "text": "to ensure I'm"
+    }, {
+      "text": " well-prepared "
+    }, {
+      "text": "for my appointment on [date and"
+    }, {
+      "text": " time]."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "30802711-b315-4dcf-85fa-1f694056d2bd",
+    "parts": [ {
+      "text": "Can you please provide a quick "
+    }, {
+      "text": "update on the current status of my scheduled appointment?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6ef0e22e-5796-4d66-8970-47c880a08495",
+    "parts": [ {
+      "text": "As "
+    }, {
+      "text": "the day"
+    }, {
+      "text": " approaches, I'd like to reconfirm "
+    }, {
+      "text": "the status of my upcoming appointment."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3c8942c8-9891-4ca4-9afa-705fa2740930",
+    "parts": [ {
+      "text": "I understand schedules may "
+    }, {
+      "text": "change. Can you verify the current status of my appointment"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8f7ebbce-f1bb-4f32-81c5-491baf90f964",
+    "parts": [ {
+      "text": "Can you send "
+    }, {
+      "text": "me a confirmation"
+    }, {
+      "text": " "
+    }, {
+      "text": "email or"
+    }, {
+      "text": " "
+    }, {
+      "text": "message"
+    }, {
+      "text": " "
+    }, {
+      "text": "regarding the status of my upcoming appointment"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "60a9e72d-185e-4c7a-8916-9fcafd5b1abd",
+    "parts": [ {
+      "text": "Before I make"
+    }, {
+      "text": " any travel "
+    }, {
+      "text": "arrangements"
+    }, {
+      "text": ", I need to confirm the current status of my scheduled appointment."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e52804c2-824e-4681-9af8-352a820e0aa6",
+    "parts": [ {
+      "text": "To ensure everything is in"
+    }, {
+      "text": " "
+    }, {
+      "text": "order"
+    }, {
+      "text": ", I'd appreciate it if you could "
+    }, {
+      "text": "confirm the status of my appointment."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "df4f356e-c3d0-4a92-92ed-77a80a958406",
+    "parts": [ {
+      "text": "In preparation for my "
+    }, {
+      "text": "appointment"
+    }, {
+      "text": ", I'm seeking"
+    }, {
+      "text": " "
+    }, {
+      "text": "confirmation"
+    }, {
+      "text": " on its "
+    }, {
+      "text": "current status. Can you assist?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8c571a3b-7454-4caf-b875-52331fc46e08",
+    "parts": [ {
+      "text": "Is there an automated system "
+    }, {
+      "text": "or online portal where I can"
+    }, {
+      "text": " independently "
+    }, {
+      "text": "check the status of my appointment?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "77228da3-7f05-4168-83a1-a4be230f38e2",
+    "parts": [ {
+      "text": "I want to make sure there haven'"
+    }, {
+      "text": "t been any changes"
+    }, {
+      "text": ". Can you confirm the status of my appointment"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2edc4caa-4744-4072-ab97-742331ae2410",
+    "parts": [ {
+      "text": "Could "
+    }, {
+      "text": "you please check and confirm the status of my appointment for"
+    }, {
+      "text": " [date and time]?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a419f66a-64a7-4ca6-a6d8-0682cc7c06ee",
+    "parts": [ {
+      "text": "Before finalizing my"
+    }, {
+      "text": " plans"
+    }, {
+      "text": ", I need to confirm the current status of my upcoming appointment."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "81c92c95-5a88-46f4-aee3-a7fe056f2391",
+    "parts": [ {
+      "text": "As the date approaches, I'd like to reconfirm the status of my "
+    }, {
+      "text": "scheduled"
+    }, {
+      "text": " "
+    }, {
+      "text": "appointment"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d308e9fe-4e06-492a-891d-8d82ef918c32",
+    "parts": [ {
+      "text": "I appreciate "
+    }, {
+      "text": "your assistance in confirming the status of my upcoming appointment."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5e3ea04e-a235-4626-ac08-518042fea627",
+    "parts": [ {
+      "text": "In anticipation "
+    }, {
+      "text": "of my appointment, can you verify the status and provide"
+    }, {
+      "text": " confirmation?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e7e0033c-7034-47a0-973d-fb0888f5ac4e",
+    "parts": [ {
+      "text": "I've noted the date and time, but "
+    }, {
+      "text": "I'd like to confirm the status of my appointment with you."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6c76d844-6e51-444f-91a8-5189f59f1155",
+    "parts": [ {
+      "text": "Could "
+    }, {
+      "text": "you please check and confirm that my appointment is still on schedule"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e0acb76f-2589-448c-b641-5e66dfb8a885",
+    "parts": [ {
+      "text": "To avoid any misunderstandings"
+    }, {
+      "text": ", I'm reaching out to confirm the current status of my appointment."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3c87dee9-aecd-4bbb-be67-23dceb3df9ed",
+    "parts": [ {
+      "text": "Is there a customer service line "
+    }, {
+      "text": "I can contact to confirm the status of my appointment"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "30f456bc-a500-4f9b-a837-687cd8b9be2c",
+    "parts": [ {
+      "text": "As "
+    }, {
+      "text": "part of my"
+    }, {
+      "text": " preparations"
+    }, {
+      "text": ", I need to verify the current status of my appointment. Can you assist"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2ce675ea-48c8-4891-ad11-b907ebf36338",
+    "parts": [ {
+      "text": "I want to confirm the details and ensure "
+    }, {
+      "text": "the status of my appointment is still"
+    }, {
+      "text": " "
+    }, {
+      "text": "active"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "078c1850-27b6-4c42-98f5-12f00fad5b74",
+    "parts": [ {
+      "text": "Can you provide an update on the status of my appointment for [date and"
+    }, {
+      "text": " time]?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ac42b11d-febb-47f2-91e6-4daf66248086",
+    "parts": [ {
+      "text": "Before the scheduled date"
+    }, {
+      "text": ", I'd like to confirm the status of my upcoming appointment."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "bfb45cbe-3cc3-43b9-8804-9dacca37d09c",
+    "parts": [ {
+      "text": "I want to make sure all details"
+    }, {
+      "text": " are accurate"
+    }, {
+      "text": ". Can you confirm the status of my appointment"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "13ec69e7-d95e-4559-88fe-1508a593a887",
+    "parts": [ {
+      "text": "Is there an online platform where "
+    }, {
+      "text": "I can log in and check the"
+    }, {
+      "text": " "
+    }, {
+      "text": "real"
+    }, {
+      "text": "-time status of my appointment"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "727486f7-4918-4169-8fe4-54fe8d4e1271",
+    "parts": [ {
+      "text": "In preparation "
+    }, {
+      "text": "for my appointment, I'd"
+    }, {
+      "text": " appreciate it if you could confirm its "
+    }, {
+      "text": "current"
+    }, {
+      "text": " status."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "32dd9df2-1fad-4c49-87eb-58922f269ccb",
+    "parts": [ {
+      "text": "I'd like to receive "
+    }, {
+      "text": "confirmation"
+    }, {
+      "text": " "
+    }, {
+      "text": "on the status of my appointment. How can I go about that"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5253d260-f25b-4c3b-ae7e-5e65b51fff39",
+    "parts": [ {
+      "text": "Before I make"
+    }, {
+      "text": " any "
+    }, {
+      "text": "arrangements"
+    }, {
+      "text": ", could "
+    }, {
+      "text": "you please confirm the status of my upcoming appointment"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "24cc351e-f233-4fbd-8c29-821d0b7ce196",
+    "parts": [ {
+      "text": "Is "
+    }, {
+      "text": "there a confirmation"
+    }, {
+      "text": " code or reference "
+    }, {
+      "text": "number I can use to check the status of my appointment"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f668fc87-fbe3-43e2-9146-f2736ebd6d40",
+    "parts": [ {
+      "text": "I want to double-check the status of my appointment to"
+    }, {
+      "text": " avoid any confusion."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5ee8cafb-52e1-4b58-a9ae-541ab82328c1",
+    "parts": [ {
+      "text": "Can you ensure "
+    }, {
+      "text": "that my appointment for [date and"
+    }, {
+      "text": " time] is still confirmed?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c74d4b08-43c1-4b14-ab38-b80966227095",
+    "parts": [ {
+      "text": "As the date approaches"
+    }, {
+      "text": ", I'd like to verify the current status of my scheduled appointment."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "740a4c7c-643a-46d3-99c2-db22ab7e3efd",
+    "parts": [ {
+      "text": "I'm reaching out to confirm the status of my appointment. Can you check that for me"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fd639646-6f23-40b7-b125-c174fdfc439c",
+    "parts": [ {
+      "text": "I'd "
+    }, {
+      "text": "appreciate it if you could provide an update on the current status of my scheduled appointment."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "44030ced-b5f8-4393-a73d-e0b10a87365e",
+    "parts": [ {
+      "text": "I want to make sure everything "
+    }, {
+      "text": "is in order. Can you confirm the status of my appointment"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8204b0af-7c57-4acb-af7b-7f8bd0ebdb96",
+    "parts": [ {
+      "text": "Could "
+    }, {
+      "text": "you let me know if there have been any"
+    }, {
+      "text": " changes "
+    }, {
+      "text": "to the status of my appointment?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ca8ee790-beb0-445c-a51d-6575f99af5f7",
+    "parts": [ {
+      "text": "Is there a dedicated line or portal where "
+    }, {
+      "text": "I can check the status of my appointment?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e616abe2-8d32-45cc-b9db-1bc591c7aace",
+    "parts": [ {
+      "text": "I'm seeking"
+    }, {
+      "text": " "
+    }, {
+      "text": "confirmation"
+    }, {
+      "text": " "
+    }, {
+      "text": "on the status of my appointment. Could you assist?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5659c5e6-59ec-4b40-bee3-ffe841aee006",
+    "parts": [ {
+      "text": "Can you check if my appointment is still confirmed for"
+    }, {
+      "text": " [date and time]?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5a4053b2-7e85-4d5f-adbb-91d95c70d065",
+    "parts": [ {
+      "text": "I'd like to confirm the"
+    }, {
+      "text": " details "
+    }, {
+      "text": "and status of my upcoming appointment, please."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2dda3f58-b4b6-47cd-92c5-9b15302393b3",
+    "parts": [ {
+      "text": "Is there a way to verify the status of my appointment on the"
+    }, {
+      "text": " system?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2a35d109-a40b-49cb-bee1-8e6347822ebe",
+    "parts": [ {
+      "text": "I'm checking in to confirm the current status of my scheduled appointment"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "185f8cbb-1146-4dcc-9dbd-960d27665c6b",
+    "parts": [ {
+      "text": "Can you provide confirmation"
+    }, {
+      "text": " "
+    }, {
+      "text": "on the status of my upcoming appointment"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fc215d8b-ff5f-4525-b0a6-c97b736e9256",
+    "parts": [ {
+      "text": "Confirm Appointment Status"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f87a83a7-590d-462d-8f9f-15edf42e6d80",
+    "parts": [ {
+      "text": "ConfirmAppointmentStatus"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

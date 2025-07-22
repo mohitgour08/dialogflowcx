@@ -1,0 +1,10 @@
+{
+  "name": "7c671ab8-b59b-498c-85aa-cc34a11aa959",
+  "displayName": "General.How can you help",
+  "parameters": [ {
+    "id": "person",
+    "entityType": "@sys.person"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 36
+}

@@ -1,0 +1,49 @@
+{
+  "name": "caed9a4a-3e99-4924-bb67-8137dff6209e",
+  "displayName": "PODueDateCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "OrderDueDateBackup",
+      "value": "$session.params.OrderDueDate"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.OrderDueDate != NULL AND $session.params.OrderDueDate != \"\" AND $session.params.OrderDueDate != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "OrderYear",
+        "value": "$sys.func.MID($session.params.OrderDueDate,1,4)"
+      }, {
+        "parameter": "OrderMon",
+        "value": "$sys.func.MID($session.params.OrderDueDate,6,2)"
+      }, {
+        "parameter": "OrderDay",
+        "value": "$sys.func.MID($session.params.OrderDueDate,9,2)"
+      }, {
+        "parameter": "OrderDueDate",
+        "value": "$sys.func.CONCATENATE($session.params.OrderYear,\"-\",$session.params.OrderMon,\"-\",$session.params.OrderDay)"
+      }, {
+        "parameter": "Metrics_SalesManagement_PODueDateCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PODueDiffCheck",
+    "name": "9959aa35-17c8-412f-a0ac-eab20c09214b"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_PODueDateCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "OrderDueDate",
+        "value": ""
+      } ]
+    },
+    "targetPage": "PODueDiffCheck",
+    "name": "46a8892b-89fa-4b76-a3f3-295dc18d9e50"
+  } ]
+}

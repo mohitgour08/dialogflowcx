@@ -1,0 +1,131 @@
+{
+  "name": "160f5c39-bf94-4729-b185-68ff842d2896",
+  "displayName": "FiberDPMExpiryCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.CCExpDateDiffBackup : \"CCExpDateDiff\" OR $session.params.CCExpDateDiff : \"True\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberDPMExpiryCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "2bd64c47-4d77-49e2-9ab1-4dbd48f83a41"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003e 0 AND $session.params.channel = \"web\" AND ($session.params.BillInfo_AccountStatus = \"Active\" OR $session.params.BillInfo_AccountStatus = \"Open\" OR $session.params.BillInfo_AccountStatus = \"OPENED\" OR $session.params.BillInfo_AccountStatus = \"ACTIVE\" OR $session.params.BillInfo_AccountStatus = \"OPEN\" OR $session.params.BillInfo_AccountStatus = \"Opened\" OR $session.params.BillInfo_AccountStatus = \"CURRENT\" OR $session.params.BillInfo_AccountStatus = \"Current\" OR $session.params.BillInfo_AccountStatus = \"Payment Past Due\" OR $session.params.BillInfo_AccountStatus : \"Jeopardy\" OR $session.params.BillInfo_AccountStatus : \"jeopardy\" OR $session.params.BillInfo_AccountStatus : \"Past Due\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberDPMExpiryCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FiberPrepaidDPMCForm",
+    "name": "aec2768e-ed71-4d77-bd4f-9256f7dfd270"
+  }, {
+    "condition": "($session.params.BillInfo_AccountStatus = \"Payment Past Due\" OR $session.params.BillInfo_AccountStatus : \"Jeopardy\" OR $session.params.BillInfo_AccountStatus : \"jeopardy\" OR $session.params.BillInfo_AccountStatus : \"Past Due\") AND $session.params.channel = \"web\" AND $session.params.CCExpDateDiff \u003c= 0",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "It looks like your default payment method ending in $session.params.CreditCardNumberLast4 has expired!  Let's use a different one. You will then have the option to save it as your new default." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberDPMExpiryCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormPastDueOTP",
+    "name": "dccadf46-4571-4ab2-908a-0d3fbecb6ee3"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 0 AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "It looks like your default payment method ending in $session.params.CreditCardNumberLast4 has expired!  Let's use a different one. You will then have the option to save it as your new default." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberDPMExpiryCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FiberPrepaidCardOTPForm",
+    "name": "b5ef2d93-050d-470a-91bc-1bde23fcd373"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberDPMExpiryCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FiberDPMExpired",
+    "name": "2bb1525a-ce00-4580-b924-879d3fc506c5"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003e 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberDPMExpiryCheck_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FiberDPMValid",
+    "name": "514a1831-67d0-4b00-800f-844ab414161a"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberDPMExpiryCheck_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SecuredPayments-FiberDPMExpiryCheck,InvalidExpiryDate"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "95f0045b-b879-4bbc-bbb7-89b6dce4ec62"
+  } ]
+}

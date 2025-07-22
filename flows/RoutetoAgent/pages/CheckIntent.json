@@ -1,0 +1,175 @@
+{
+  "name": "69c9b2bf-5686-4d29-b992-0eafd75dd2c0",
+  "displayName": "CheckIntent",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "So the agent may assist you efficiently, please select one of the following options that best supports your needs." ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Billing/Payment"
+          }, {
+            "action": "quick_reply",
+            "title": "Sales"
+          }, {
+            "action": "quick_reply",
+            "title": "Repair/Technical Support/Outage"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "So the agent may assist you efficiently, please listen closely to the following options and select the one that best supports your needs. If you're a new customer or want to add a service, say \"service\". For billing or payment, say \"billing\". For technical support or to report an outage, say \"tech support\". For questions about your account, say \"account\". Or, say \"something else\"." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "TransferReason",
+      "value": "Intent is Representative"
+    }, {
+      "parameter": "TransferMessage",
+      "value": "Customer chose agent at ListenInitialIntent"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Billing/Payment",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_RouteToAgent_CheckIntent_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queue_name",
+        "value": "Care"
+      } ]
+    },
+    "targetPage": "IsCustomerName",
+    "name": "da604022-6458-4ed2-b2ee-b9efc9c3f872"
+  }, {
+    "intent": "Sales",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_CheckIntent_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queue_name",
+        "value": "Sales"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NewCustomer",
+    "name": "6f05dc1a-1eed-4c28-8a77-f62471c33368"
+  }, {
+    "intent": "sales.Repair",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_CheckIntent_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queue_name",
+        "value": "Repair"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "IsCustomerName",
+    "name": "d5978191-3715-486f-ae01-5e536dea6d71"
+  }, {
+    "intent": "AccountManagement",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_RouteToAgent_CheckIntent_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queue_name",
+        "value": "Care"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "IsCustomerName",
+    "name": "e6596f10-6dc6-4694-b6fb-1e5d1cb92561"
+  }, {
+    "intent": "SomethingElse",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_CheckIntent_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "Somethingelse",
+    "name": "174d936f-3c70-4b62-8d36-e70830502975"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "Somethingelse",
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "2d74314a-19e1-4a95-a23f-951afb24d2fc"
+  }, {
+    "targetPage": "Somethingelse",
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+    
+    },
+    "name": "555a4a06-f982-4368-a687-42c6259488b0"
+  } ]
+}

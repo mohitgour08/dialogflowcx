@@ -1,0 +1,63 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "[DTMF] "
+    }, {
+      "text": "27909",
+      "parameterId": "zipcode"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "24567",
+      "parameterId": "zipcode"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "dtmf_digits_",
+      "auto": true
+    }, {
+      "text": "35343",
+      "parameterId": "zipcode",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "its ",
+      "auto": true
+    }, {
+      "text": "21345",
+      "parameterId": "zipcode",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Zipcode is ",
+      "auto": true
+    }, {
+      "text": "23454",
+      "parameterId": "zipcode",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My zipcode is ",
+      "auto": true
+    }, {
+      "text": "29097",
+      "parameterId": "zipcode",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

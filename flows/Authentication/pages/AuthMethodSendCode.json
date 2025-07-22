@@ -1,0 +1,26 @@
+{
+  "name": "a97fbb1d-45aa-48f0-904e-b0855d5bf14b",
+  "displayName": "AuthMethodSendCode",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Sure - I can do that. Please keep in mind that we need to send this code to a phone number or email that is already registered to your account." ]
+      },
+      "languageCode": "en"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "DetermineAuthMethod",
+    "name": "47a0375b-4c58-47f5-bd3c-05a45355e624"
+  } ]
+}

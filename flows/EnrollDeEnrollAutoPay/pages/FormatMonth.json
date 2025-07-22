@@ -1,0 +1,183 @@
+{
+  "name": "fe9c35eb-b403-4981-8f33-ef1224c462a0",
+  "displayName": "FormatMonth",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$flow.card_expiration_month = null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_month",
+        "value": "$sys.func.IDENTITY($flow.expiration_date.month)"
+      } ]
+    },
+    "name": "89d84a80-959d-4e39-a075-956911d9f117"
+  }, {
+    "condition": "$flow.card_expiration_month = null AND $sys.func.LEN($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \\\"\\\\s+\\\", \\\"\\\")) \u003e= 4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_month",
+        "value": "$sys.func.MID($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \"\\s+\", \"\"), 1, 2)"
+      } ]
+    },
+    "name": "a9e2330d-ab9a-47f7-91ee-78799cf96244"
+  }, {
+    "condition": "$sys.func.LEN($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \\\"\\\\s+\\\", \\\"\\\")) = 5",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_month",
+        "value": "$sys.func.MID($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \"\\s+\", \"\"), 1, 1)"
+      } ]
+    },
+    "name": "a37250c2-740a-4aaf-88f4-99df3ed72c8a"
+  }, {
+    "condition": "$flow.card_expiration_month = null AND $sys.func.LEN($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \\\"\\\\s+\\\", \\\"\\\")) = 3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_month",
+        "value": "$sys.func.MID($sys.func.SUBSTITUTE($flow.expiration_date.month_year, \"\\s+\", \"\"), 1, 1)"
+      } ]
+    },
+    "name": "ea549cd3-b821-471c-9b5a-7260e0f25b3d"
+  }, {
+    "condition": "$flow.card_expiration_month = null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_month",
+        "value": ""
+      } ]
+    },
+    "name": "31b59b87-79f3-4034-8989-58390a3bc14c"
+  }, {
+    "condition": "$sys.func.LEN($flow.card_expiration_month) = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.card_expiration_month",
+        "value": "$sys.func.CONCATENATE(\"0\", $flow.card_expiration_month)"
+      } ]
+    },
+    "name": "a6258e04-5ea9-493f-b3c9-15b27381c778"
+  }, {
+    "condition": "$flow.card_expiration_month = 01",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.expiration_month_spoken",
+        "value": "January"
+      } ]
+    },
+    "name": "d1dd12c9-8219-4491-b1f5-1c7623dd68da"
+  }, {
+    "condition": "$flow.card_expiration_month = 02",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.expiration_month_spoken",
+        "value": "February"
+      } ]
+    },
+    "name": "157f37f2-bdca-4d4f-b3c5-a3f2ececf4b2"
+  }, {
+    "condition": "$flow.card_expiration_month = 03",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.expiration_month_spoken",
+        "value": "March"
+      } ]
+    },
+    "name": "f1d522e7-f7f2-4883-ab9c-f3d3bd2db17b"
+  }, {
+    "condition": "$flow.card_expiration_month = 04",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.expiration_month_spoken",
+        "value": "April"
+      } ]
+    },
+    "name": "45159bbe-3dcc-4c58-a4d9-50c5a169564b"
+  }, {
+    "condition": "$flow.card_expiration_month = 05",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.expiration_month_spoken",
+        "value": "May"
+      } ]
+    },
+    "name": "df63be9d-367a-4ef2-ba6f-1a3d5a4fdf04"
+  }, {
+    "condition": "$flow.card_expiration_month = 06",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.expiration_month_spoken",
+        "value": "June"
+      } ]
+    },
+    "name": "fc17f4bc-668b-4169-bb4e-f6732108e768"
+  }, {
+    "condition": "$flow.card_expiration_month = 07",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.expiration_month_spoken",
+        "value": "July"
+      } ]
+    },
+    "name": "2032d441-4886-4459-bc83-57db92e19543"
+  }, {
+    "condition": "$flow.card_expiration_month = 08",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.expiration_month_spoken",
+        "value": "August"
+      } ]
+    },
+    "name": "c603ec1d-717e-4a50-883d-7d5704140115"
+  }, {
+    "condition": "$flow.card_expiration_month = 09",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.expiration_month_spoken",
+        "value": "September"
+      } ]
+    },
+    "name": "554e68b3-af61-4433-be4c-1c6d526a4b6e"
+  }, {
+    "condition": "$flow.card_expiration_month = 10",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.expiration_month_spoken",
+        "value": "October"
+      } ]
+    },
+    "name": "ae7436c5-0e66-4ef7-83fa-f3a3f2478c4f"
+  }, {
+    "condition": "$flow.card_expiration_month = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.expiration_month_spoken",
+        "value": "November"
+      } ]
+    },
+    "name": "570c8d56-7968-4ed3-bc88-b1678c9e3cc2"
+  }, {
+    "condition": "$flow.card_expiration_month = 12",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "$flow.expiration_month_spoken",
+        "value": "December"
+      } ]
+    },
+    "name": "ed1ab01d-07ba-4e5a-8fe6-a074d2753a4e"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_FormatMonth_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormatYear",
+    "name": "f11ad394-9022-429e-9c82-f4b35e942e63"
+  } ]
+}

@@ -1,0 +1,311 @@
+{
+  "name": "8a293fe5-123e-4918-a431-1e46c9dc76bd",
+  "displayName": "Billing",
+  "transitionRoutes": [ {
+    "condition": "$session.params.ToState = \"BillingDispute\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "DisputeCharge",
+    "name": "54462391-aef0-4211-b740-4fab30fac847"
+  }, {
+    "condition": "$session.params.ToState = \"FinalBill\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FinalBill",
+    "name": "589ae853-951e-4d0c-869e-1f9e216cb277"
+  }, {
+    "condition": "$session.params.ToState = \"BillRequestBillCopy\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "BillCopy",
+    "name": "2e7308fc-4876-4b93-b1b9-876a64351a52"
+  }, {
+    "condition": "$session.params.ToState = \"RenewDiscounts\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "08f1d276-9a57-48e2-b722-f8f319ad4d9c",
+    "description": " Chat Page For Billing Renew Discounts"
+  }, {
+    "condition": "$session.params.ToState = \"RenewDiscounts\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "e6b88d7e-848c-4c7b-b152-e58cf2b59ab2",
+    "description": " Voice Page For Billing Renew Discounts"
+  }, {
+    "condition": "$session.params.ToState = \"OneTimeCharges\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "OneTimeCharges",
+    "name": "56a8eadc-c5aa-434f-97c4-6a4397c26aa0",
+    "description": " Chat Page For Billing One Time Charges"
+  }, {
+    "condition": "$session.params.ToState = \"OneTimeCharges\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "0049193d-1b94-4cf5-a1ee-41d9bf36595d",
+    "description": "Voice Page For Billing One Time Charges"
+  }, {
+    "condition": "$session.params.ToState = \"LearnAboutTaxesFeesAndSurcharges\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GenericTaxResponse",
+    "name": "52d9ac6f-8b7d-4dd3-9ea6-eddeb2a9671e",
+    "description": " Chat Page For Billing Learn About Taxes Fees And Surcharges"
+  }, {
+    "condition": "$session.params.ToState = \"LearnAboutTaxesFeesAndSurcharges\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "Metrics_Billing_StartPage_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "9dde929e-f775-4eba-95a6-cad20eec7cc8",
+    "description": "Voice Page For Billing Learn About Taxes Fees And Surcharges"
+  }, {
+    "condition": "$session.params.ToState = \"BillingAccountSentToCollections\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "f03da8c3-9cbd-4669-be17-5226e6dde04c"
+  }, {
+    "condition": "$session.params.ToState = \"ExplainRecurringCharges\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ExplainRecurringCharge",
+    "name": "d24ee32e-957c-424b-8cd9-eb1f15d945a3"
+  }, {
+    "condition": "$session.params.ToState = \"BillingUnderstandLastBill\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "UnderstandLastBill",
+    "name": "89239d7c-f0fa-4001-b6f6-1c743ac4ebe8"
+  }, {
+    "condition": "$session.params.ToState = \"GiftCard\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_13",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GiftCard",
+    "name": "62782959-d11e-4ea5-87f7-7545cfc60aea"
+  }, {
+    "condition": "$session.params.ToState = \"AccountCredit\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_14",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CreditResponse",
+    "name": "cbb81685-eb6b-4703-a21f-bd1f914b89d2"
+  }, {
+    "condition": "$session.params.ToState = \"AccountCredit\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_Billing_StartPage_15",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "e5bfc180-acc9-43cf-91fa-cdfde80ed057"
+  }, {
+    "condition": "$session.params.ToState = \"BillingUnderstandLastBill\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a billing question" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_16",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "cb3d28ac-5318-4fff-9d39-0cb68175ab1f"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_StartPage_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "821652ac-fb59-40b7-a821-db7b6e477ede"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "a4e5842b-efef-48d8-a655-33b7fce0a55d"
+  }, {
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn't get that. Can you say it again?", "I missed what you said. What was that?", "Sorry, could you say that again?", "Sorry, can you say that again?", "Can you say that again?", "Sorry, I didn't get that. Can you rephrase?", "Sorry, what was that?", "One more time?", "What was that?", "Say that one more time?", "I didn't get that. Can you repeat?", "I missed that, say that again?" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "9ef7f04d-27e3-44d5-bcdd-019daa5bd6d6"
+  } ],
+  "nluSettings": {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    }
+  },
+  "advancedSettings": {
+    "enabled": true
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_STANDARD",
+    "classificationThreshold": 0.30000001,
+    "modelTrainingMode": "MODEL_TRAINING_MODE_AUTOMATIC",
+    "multiIntentSettings": {
+    
+    },
+    "languageCode": "en"
+  } ],
+  "inputParameterDefinitions": [ {
+    "name": "ToState",
+    "description": "passing intent from playbook to the billing flow",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToModule",
+    "description": "module name",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "user intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "FAQSuccess",
+    "description": "Status of faq self serve",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "FAQSuccess",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ]
+}

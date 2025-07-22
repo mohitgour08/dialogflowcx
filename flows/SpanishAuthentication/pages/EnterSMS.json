@@ -1,0 +1,21 @@
+{
+  "name": "48058ba0-8636-4bee-86f3-9e97ca5f1972",
+  "displayName": "EnterSMS",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EnterSMS_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EnterPasscodeSMSVoice",
+    "name": "8d73f6ad-a4ce-4daa-9e5f-470d4035e970"
+  } ]
+}

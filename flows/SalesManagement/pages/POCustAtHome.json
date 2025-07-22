@@ -1,0 +1,58 @@
+{
+  "name": "6ce600da-142e-49b8-873f-f04144c0dc9f",
+  "displayName": "POCustAtHome",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.isDispatchRequired = \"True\" OR $session.params.isDispatchRequired = \"TRUE\" OR $session.params.isDispatchRequired = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CustomerHasToBeHome",
+        "value": "true"
+      }, {
+        "parameter": "Metrics_SalesManagement_POCustAtHome_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POETACheck",
+    "name": "0f937be3-67ab-4a1f-b4d2-6a1f9fac44a9"
+  }, {
+    "condition": "$session.params.isDispatchRequired = \"False\" OR $session.params.isDispatchRequired = \"FALSE\" OR $session.params.isDispatchRequired = \"false\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CustomerHasToBeHome",
+        "value": "false"
+      }, {
+        "parameter": "Metrics_SalesManagement_POCustAtHome_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POEquipmentCheck",
+    "name": "d0114cfb-6f44-455e-81e6-5925014f50fe"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CustomerHasToBeHome",
+        "value": "false"
+      }, {
+        "parameter": "Metrics_SalesManagement_POCustAtHome_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POEquipmentCheck",
+    "name": "43ed9b52-60c3-4ebf-ab5d-bc2efb96b50b"
+  } ],
+  "description": "CUSTOMER HAVE TO BE HOME?"
+}

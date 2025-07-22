@@ -1,0 +1,64 @@
+{
+  "name": "f50dea3a-abc9-4efc-86dd-a22f2e9fcc99",
+  "displayName": "CheckOtherSavedPM",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "ButtonCount",
+      "value": 0
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.SavedPaymentMethods[1] = \"\" OR $session.params.SavedPaymentMethods[1] = null OR $session.params.SavedPaymentMethods[1] = NULL) AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckOtherSavedPM_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GetPMFailureVoice",
+    "name": "b3883426-c794-4353-8082-a84598882ffd"
+  }, {
+    "condition": "($session.params.SavedPaymentMethods[1] != \"\" OR $session.params.SavedPaymentMethods[1] != NULL OR $session.params.SavedPaymentMethods[1] != null) AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckOtherSavedPM_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GenerateButtonsAPI",
+    "name": "a22c844d-7acd-40fe-b82f-162c217b42b9"
+  }, {
+    "condition": "$session.params.SavedPaymentMethods[1] = \"\" OR $session.params.SavedPaymentMethods[1] = null OR $session.params.SavedPaymentMethods[1] = NULL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckOtherSavedPM_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CardOrAccount",
+    "name": "9cdf56ca-34a7-4d68-8736-8dd52e76bc26"
+  }, {
+    "condition": "$session.params.SavedPaymentMethods[1] != \"\" OR $session.params.SavedPaymentMethods[1] != NULL OR $session.params.SavedPaymentMethods[1] != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckOtherSavedPM_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SelectPaymentMethod",
+    "name": "760e471e-558f-40d8-97d9-efa07d4a1df9"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_CheckOtherSavedPM_default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CardOrAccount",
+    "name": "6c9a5082-4375-4449-84bc-c14dece7fc87"
+  } ]
+}

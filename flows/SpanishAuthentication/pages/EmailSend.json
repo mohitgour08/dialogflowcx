@@ -1,0 +1,43 @@
+{
+  "name": "45e195a5-3960-46b7-8999-654508400544",
+  "displayName": "EmailSend",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003cprosody rate=\"95%\"\u003e\n\u003cvoice language=\"es-ES\" gender=\"female\"\u003eBien, estoy enviando el código ahora.\u003c/voice\u003e\n\u003c/prosody\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003eBien, estoy enviando el código ahora.\u003c/speak\u003e" ]
+      },
+      "languageCode": "es",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Auth2FactorChannel",
+      "value": "Email"
+    }, {
+      "parameter": "PasscodeCount",
+      "value": 0
+    }, {
+      "parameter": "codeSent",
+      "value": 0
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EmailSend",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "Call2FactorEmailAPI",
+    "name": "a5e33786-8bf7-44be-9f75-363d996574ab"
+  } ]
+}

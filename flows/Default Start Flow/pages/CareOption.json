@@ -1,0 +1,147 @@
+{
+  "name": "abd66d96-90ba-4533-9305-c081e848c5c7",
+  "displayName": "CareOption",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I see you have a question about your order. Please select from one of the following menu options." ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Question about my order"
+          }, {
+            "action": "quick_reply",
+            "title": "Upgrade My Service"
+          }, {
+            "action": "quick_reply",
+            "title": "Something Else"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Sales.ProductOrderStatus",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding product's order status." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "OrderStatus"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "callerintent",
+        "value": "OrderStatus"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_CareOption_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "3eaa9356-8bec-4448-8680-d91a0e95c87d"
+  }, {
+    "intent": "Sales.AddServiceFeatures",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding adding service features." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "AddServiceFeatures"
+      }, {
+        "parameter": "callerintent",
+        "value": "AddServiceFeatures"
+      }, {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_CareOption_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "f46ea7cd-bb4b-4627-8e19-20d86a44071b"
+  }, {
+    "intent": "SomethingElse",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_CareOption_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckForOutageDynamicMsg",
+    "name": "70bde7b2-1216-46c1-a6af-7b4a7986663c"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Question about my order"
+            }, {
+              "action": "quick_reply",
+              "title": "Upgrade My Service"
+            }, {
+              "action": "quick_reply",
+              "title": "Something Else"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_CareOption_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "68e820dd-b05c-4da0-af89-110e9201c704"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_CareOption_NoMatchDefault",
+        "value": "\"$sys.func.TO_TEXT($sys.func.NOW())\"\""
+      } ]
+    },
+    "name": "7d45abe9-77b5-45fd-9674-072d3ea93cac"
+  } ]
+}

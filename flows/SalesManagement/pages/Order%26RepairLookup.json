@@ -1,0 +1,93 @@
+{
+  "name": "98b563d9-f4f5-463d-a5fa-a536e81f5d4b",
+  "displayName": "Order\u0026RepairLookup",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.TicketCount != 0 AND $session.params.TicketCount != null AND ($session.params.OrdersRecentlyCompleted = \"true\" OR $session.params.PendingOrder = \"true\" OR $session.params.OrdersRecentlyCompleted = \"True\" OR $session.params.PendingOrder = \"True\" OR $session.params.OrdersRecentlyCompleted = \"TRUE\" OR $session.params.PendingOrder = \"TRUE\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_Order\u0026RepairLookup_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "BothOrderAndRepair",
+    "name": "17fba900-93cf-449d-ad4c-48c9d540cc13"
+  }, {
+    "condition": "$session.params.TicketCount != 0 AND $session.params.TicketCount != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_Order\u0026RepairLookup_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Order\u0026RepairLookup"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "c17348fb-093e-4f38-befb-acdd281a95c9"
+  }, {
+    "condition": "$session.params.OrdersRecentlyCompleted = \"true\" OR $session.params.PendingOrder = \"true\" OR $session.params.OrdersRecentlyCompleted = \"True\" OR $session.params.PendingOrder = \"True\" OR $session.params.OrdersRecentlyCompleted = \"TRUE\" OR $session.params.PendingOrder = \"TRUE\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I've found your order! I'm going to transfer you to an agent now for more help. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I've found your order! I'm going to transfer you to an agent now for more help. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_Order\u0026RepairLookup_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PendingOrCompletedOrder",
+    "name": "49aa0a56-450b-4934-9d0e-5fb4587c9c6a"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_Order\u0026RepairLookup_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "NoTicketAndOrderFound",
+    "name": "2548c064-b8fd-4dc5-af0c-d29477a6e8ff"
+  } ]
+}

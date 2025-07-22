@@ -1,0 +1,352 @@
+{
+  "name": "fb28f5de-e216-44dd-9cbe-e883d0677eec",
+  "displayName": "GetTokenAPICardChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "GetPayTokenAPIChat",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_GetTokenAPIBankChat_none_wh_GetPayTokenAPIBank",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentAuthV2ErrorMessage != null AND $session.params.PaymentAuthV2ErrorMessage != \"\" AND $session.params.PaymentAuthResponse != \"SUCCESS\" AND $session.params.PaymentAuthResponse != \"success\" AND $session.params.PaymentAuthResponse != \"Success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GetTokenAPIcardChat_Message",
+        "value": "$session.params.PaymentAuthV2ErrorMessage"
+      }, {
+        "parameter": "Metrics_SecuredPayments_GetPayTokenAPICardChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "5fadb4af-1290-4baa-967f-33cb644bf37f"
+  }, {
+    "condition": "$session.params.PaymentAuthResponse = \"SUCCESS\" OR $session.params.PaymentAuthResponse = \"success\" OR $session.params.PaymentAuthResponse = \"Success\"",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "QuickBillPay_Logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GetPayTokenAPICardChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentToken",
+        "value": "$session.params.PaymentToken"
+      }, {
+        "parameter": "API_SecuredPayments_GetTokenAPICardChat",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPIChat"
+      } ]
+    },
+    "targetPage": "PaymentAPI",
+    "name": "ec2b8fe4-1d90-4a5d-a45f-51fc5e85ae82"
+  }, {
+    "condition": "$session.params.Paymentfailedonce = \"true\" OR $session.params.FailureCount = \"2\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to process your payment. Let me get you to someone who can help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GetPayTokenAPICardChat_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayTokenAPI"
+      }, {
+        "parameter": "API_SecuredPayments_GetTokenAPICardChat",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPIChat"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "ed1ba812-5b8d-4e98-8784-32fd73a0532e"
+  }, {
+    "condition": "$session.params.ToState = \"FiberPayment\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Paymentfailedonce",
+        "value": "true"
+      }, {
+        "parameter": "Metrics_SecuredPayments_GetPayTokenAPICardChat_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PrepaidPayment",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      } ]
+    },
+    "targetPage": "FiberPaymentFailed",
+    "name": "abc6fe78-5b91-48dc-8a9e-0bac97233411"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GetPayTokenAPICardChat_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Paymentfailedonce",
+        "value": "true"
+      } ]
+    },
+    "targetPage": "CardOrAccountSelected",
+    "name": "f676caeb-3c40-4c5e-8405-85fd8698cd89"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. Let me transfer you to an agent." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GetPayTokenAPIChat_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayTokenAPI"
+      }, {
+        "parameter": "API_SecuredPayments_GetTokenAPICardChat",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPIChat"
+      } ]
+    },
+    "name": "0c9a561c-be55-4e63-b80d-c0b22f0805c5"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. Let me transfer you to an agent." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GetPayTokenAPIChat_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayTokenAPI"
+      }, {
+        "parameter": "API_SecuredPayments_GetTokenAPICardChat",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPIChat"
+      } ]
+    },
+    "name": "aa757ba2-222e-45f4-9feb-ee7715c1661a"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. Let me transfer you to an agent." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GetPayTokenAPIChat_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": " TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayTokenAPI"
+      }, {
+        "parameter": "API_SecuredPayments_GetTokenAPICardChat",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPIChat"
+      } ]
+    },
+    "name": "00a17e5f-188b-4543-8fdb-2186ec7cb397"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. Let me transfer you to an agent." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GetPayTokenAPIChat_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayTokenAPI"
+      }, {
+        "parameter": "API_SecuredPayments_GetTokenAPICardChat",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPIChat"
+      } ]
+    },
+    "name": "1c6a4f0f-a2d2-4e18-8e76-fabbcdcf17ac"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. Let me transfer you to an agent." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GetPayTokenAPIChat_Webhooktimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "Webhooktimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayTokenAPI"
+      }, {
+        "parameter": "API_SecuredPayments_GetTokenAPICardChat",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPIChat"
+      } ]
+    },
+    "name": "b5b68761-6074-4c6a-b3dc-24967d1ba1b1"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I'm having issues processing this payment. Let me transfer you to an agent." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_GetPayTokenAPIChat_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PayTokenAPI"
+      }, {
+        "parameter": "API_SecuredPayments_GetTokenAPICardChat",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "GetPayTokenAPIChat"
+      } ]
+    },
+    "name": "b1dbf5cc-ad21-4aab-8ad9-4a9e9b7a91e2"
+  } ]
+}

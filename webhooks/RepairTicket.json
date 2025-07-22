@@ -1,0 +1,34 @@
+{
+  "name": "d4834bdf-8353-448a-a59a-6cb9d650d105",
+  "displayName": "RepairTicket",
+  "genericWebService": {
+    "uri": "https://ccsrepairservice-irefuzinuq-uc.a.run.app/api/v1/getOutageAndTicketInfo?ucid=$session.params.APICallID\u0026ban=$session.params.TN_BAN\u0026networkType=$session.params.NetworkType",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "GET",
+    "parameterMapping": [ {
+      "key": "ClosedRepairTickets",
+      "value": "result.checkfor_cases.results.cases.closed[0]"
+    }, {
+      "key": "NewRepairResponseOpentickets",
+      "value": "outageAndTicketInfoResponse.result.checkfor_cases.results.cases.open[0]"
+    }, {
+      "key": "OpenRepairTickets",
+      "value": "result.checkfor_cases.results.cases.open[0]"
+    }, {
+      "key": "OutageCheck",
+      "value": "outageAndTicketInfoResponse.checkForOutages.outagesFound"
+    }, {
+      "key": "OutageResponseStatus",
+      "value": "outageResponseStatus"
+    }, {
+      "key": "RepairResponseStatus",
+      "value": "responseStatus"
+    }, {
+      "key": "RepairTicketResponse",
+      "value": "outageAndTicketInfoResponse"
+    } ]
+  },
+  "timeout": {
+    "seconds": 30
+  }
+}

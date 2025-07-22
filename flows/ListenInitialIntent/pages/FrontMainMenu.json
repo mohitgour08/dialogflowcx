@@ -1,0 +1,286 @@
+{
+  "name": "4e8da477-95b9-4067-956a-19d89d3ef3c0",
+  "displayName": "FrontMainMenu",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "If you're a new customer exploring Brightspeed plans and offers, press 1. If you have a pending order or are waiting on installation, press 2. If you're an existing Brightspeed customer, press 3. If you're not a Brightspeed customer, but calling to report external equipment damage, press 4. To repeat this menu, press 5." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_FrontMainMenu_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "ListenInitialIntent_FrontMainMenu_1"
+      }, {
+        "parameter": "UserQuery",
+        "value": "NewCustomer"
+      }, {
+        "parameter": "callerintent",
+        "value": "OpenNewService"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      } ]
+    },
+    "targetFlow": "NewCustomer",
+    "name": "7b070bf1-9983-4e20-a5b7-7c7fcbeb5730"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_FrontMainMenu_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "OrderStatus"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "ListenInitialIntent_FrontMainMenu_2"
+      }, {
+        "parameter": "UserQuery",
+        "value": "PendingInstall"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "f7309173-fbf5-4244-8db0-350d19578182"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_FrontMainMenu_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FAQ_Playbook",
+        "value": "Entry"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "ListenInitialIntent_FrontMainMenu_3"
+      }, {
+        "parameter": "UserQuery",
+        "value": "ExistingCustomer"
+      } ]
+    },
+    "name": "da6d673f-7b38-4916-86b9-ae66cc3193ba",
+    "targetPlaybook": "FAQ Voice Playbook"
+  }, {
+    "intent": "DTMF_4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_FrontMainMenu_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "EquipmentDamage"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "ListenInitialIntent_FrontMainMenu_4"
+      }, {
+        "parameter": "UserQuery",
+        "value": "EquipmentDamage"
+      } ]
+    },
+    "targetFlow": "ExternalEquipmentDamage",
+    "name": "6a9d2bd8-c78b-4b80-9cd1-3cf915d88033"
+  }, {
+    "intent": "DTMF_5",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_FrontMainMenu_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RepeatAttempt",
+        "value": "$sys.func.ADD($session.params.RepeatAttempt,1)"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "ListenInitialIntent_FrontMainMenu_5"
+      }, {
+        "parameter": "fromPage",
+        "value": "FrontMainMenu"
+      } ]
+    },
+    "targetPage": "FrontMainMenu",
+    "name": "9ae64416-7abe-4240-acdb-74107e8706f0"
+  }, {
+    "intent": "Sales.NewCustomer",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_FrontMainMenu_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "UserQuery",
+        "value": "NewCustomer"
+      }, {
+        "parameter": "callerintent",
+        "value": "OpenNewService"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      } ]
+    },
+    "targetFlow": "NewCustomer",
+    "name": "de3e2df1-c152-414f-9e79-a90d09143ef4"
+  }, {
+    "intent": "Sales.ProductOrderStatus",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_FrontMainMenu_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "OrderStatus"
+      }, {
+        "parameter": "UserQuery",
+        "value": "PendingInstall"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "18fcbc03-bfb7-4284-99f8-5be390dbb44b"
+  }, {
+    "intent": "Authentication.ExistingCustomer",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_FrontMainMenu_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FAQ_Playbook",
+        "value": "Entry"
+      }, {
+        "parameter": "UserQuery",
+        "value": "ExistingCustomer"
+      } ]
+    },
+    "name": "88cc9383-3e18-4cfd-9e24-1be170a9caba",
+    "targetPlaybook": "FAQ Voice Playbook"
+  }, {
+    "intent": "EquipmentDamage",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_FrontMainMenu_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "EquipmentDamage"
+      }, {
+        "parameter": "UserQuery",
+        "value": "EquipmentDamage"
+      } ]
+    },
+    "targetFlow": "ExternalEquipmentDamage",
+    "name": "d24a7b80-cc20-4f7e-bd92-2a6929ec106f"
+  }, {
+    "intent": "Repeat ",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_FrontMainMenu_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RepeatAttempt",
+        "value": "$sys.func.ADD($session.params.RepeatAttempt,1)"
+      } ]
+    },
+    "targetPage": "FrontMainMenu",
+    "name": "e3229de8-1483-43c9-a856-eef14e45f89b"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "If you're a new customer exploring Brightspeed plans and offers, press 1. If you have a pending order or are waiting on installation, press 2. If you're an existing Brightspeed customer, press 3. If you're not a Brightspeed customer, but calling to report external equipment damage, press 4. To repeat this menu, press 5." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_FrontMainMenu_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "82a79a34-6fdd-46d4-aa81-a2039e824c0b"
+  }, {
+    "targetPage": "End Session",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Thank you for calling Brightspeed! Please contact us again any time for further assistance." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_FrontMainMenu_NoInput_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CallerStatus",
+        "value": "Inactive"
+      } ]
+    },
+    "name": "bdb2cc6e-f336-4bbf-94b4-0b1ba84b5b8d"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "If you're a new customer exploring Brightspeed plans and offers, press 1. If you have a pending order or are waiting on installation, press 2. If you're an existing Brightspeed customer, press 3. If you're not a Brightspeed customer, but calling to report external equipment damage, press 4. To repeat this menu, press 5." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_FrontMainMenu_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "77b11fa6-2757-4db5-acb7-559f1fa60833"
+  }, {
+    "targetPage": "End Session",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Thank you for calling Brightspeed! Please contact us again any time for further assistance." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_FrontMainMenu_NoMatch_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CallerStatus",
+        "value": "Inactive"
+      } ]
+    },
+    "name": "66334349-5b21-4dc8-b022-99e29d9de647"
+  } ]
+}

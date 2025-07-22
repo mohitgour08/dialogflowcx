@@ -1,0 +1,15 @@
+{
+  "name": "d0e4063b-2a36-4c24-9154-67f7bc865c3d",
+  "displayName": "AdditionalQuestion",
+  "transitionRoutes": [ {
+    "intent": "AdditionalQuestion",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_AdditionalQuestion",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "CustomerHasAnAdditionalQuestion",
+    "name": "ee1d37af-cdfc-45a4-86c2-3c608ce8845f"
+  } ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "ca73ff7a-fbef-478c-9188-58182ae4edc4",
+  "displayName": "UpdatePaymentMethod",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Thank you! Please allow me a moment to save your payment method." ]
+      },
+      "languageCode": "en"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentType = \"Card\" OR $session.params.Networktype = \"GPON\" OR $session.params.Networktype = \"BPON\" OR $session.params.Networktype = \"XGSPON\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdatePaymentMethod_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "UpdateCard",
+    "name": "7d3d0296-c527-48f3-ade0-0221d1b59d7d"
+  }, {
+    "condition": "$session.params.PaymentType = \"ACH\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdatePaymentMethod_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "UpdateAccount",
+    "name": "31f7deac-c8b0-4d46-a61a-be2e941db438"
+  } ]
+}

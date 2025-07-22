@@ -1,0 +1,19 @@
+{
+  "trainingPhrases": [ {
+    "id": "f81d0af6-4c04-4d39-8a91-7c7bdf0e11fb",
+    "parts": [ {
+      "text": "Try payment",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ab98ce12-5bbd-4d26-a0a9-32f2796b9f30",
+    "parts": [ {
+      "text": "Try payment again",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

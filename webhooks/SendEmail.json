@@ -1,0 +1,23 @@
+{
+  "name": "3d70cf2a-5dea-4ee4-9f64-4b46cf6ae373",
+  "displayName": "SendEmail",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/ccsutilservice/api/v1/sendEmail",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "[\n  {\n    \"from_email\": \"account-security-noreply@brightspeed.com\",\n    \"to_email\": [\n      \"$session.params.Email\"\n    ],\n    \"subject\": \"$session.params.EmailSubject\",\n    \"body\": \"$session.params.EmailHeader $session.params.EmailMessage $session.params.EmailFooter\"\n  }\n]",
+    "parameterMapping": [ {
+      "key": "EmailResponseStatus",
+      "value": "status"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth2/token",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 27
+  }
+}

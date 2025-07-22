@@ -1,0 +1,55 @@
+{
+  "name": "7b75a070-8e91-4f3a-9294-d36b42a20542",
+  "displayName": "LastBillDateCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "LastBillDate",
+      "value": "$session.params.LastBillDate"
+    }, {
+      "parameter": "BillInfo_BillDueDate",
+      "value": "$sys.func.IF($session.params.NextDueDate=\"no upcoming payment due within given target date\",\"your next due date\",$session.params.BillInfo_BillDueDate)"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.LastBillDate != NULL AND $session.params.LastBillDate != \"\" AND $session.params.LastBillDate != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "LastBillDate",
+        "value": "$session.params.LastBillDate"
+      }, {
+        "parameter": "LastBillYear",
+        "value": "$sys.func.MID($session.params.LastBillDate,1,4)"
+      }, {
+        "parameter": "LastBillMon",
+        "value": "$sys.func.MID($session.params.LastBillDate,6,2)"
+      }, {
+        "parameter": "LastBillDay",
+        "value": "$sys.func.MID($session.params.LastBillDate,9,2)"
+      }, {
+        "parameter": "LastBillDate",
+        "value": "$sys.func.CONCATENATE($session.params.LastBillMon,\"-\",$session.params.LastBillDay,\"-\",$session.params.LastBillYear)"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_LastBillDateCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PastdueAmountCheck",
+    "name": "f53e9b14-81fa-47ae-86a2-535caec25d32"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "LastBillDate",
+        "value": ""
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_LastBillDateCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PastdueAmountCheck",
+    "name": "12096927-0f20-4036-8531-bacd5b546995"
+  } ]
+}

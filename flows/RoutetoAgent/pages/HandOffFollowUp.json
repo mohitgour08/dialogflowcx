@@ -1,0 +1,198 @@
+{
+  "name": "ccfd9c2e-f327-4490-96d5-3b5da1821b12",
+  "displayName": "HandOffFollowUp",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Yes"
+          }, {
+            "action": "quick_reply",
+            "title": "No"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "response_tag",
+      "value": ""
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "response_tag",
+        "value": "ReadyToWaitForAgent"
+      }, {
+        "parameter": "Metrics_RouteToAgent_HandOffFollowUp_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "HandOff",
+    "name": "77099259-61b4-49e0-a886-e951dc4d8ee2"
+  }, {
+    "intent": "Confirmation.No",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Please try again after sometime. Thanks for contacting Brightspeed. Have a good day!" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "response_tag",
+        "value": "notReadyToWaitForAgent"
+      }, {
+        "parameter": "Metrics_RouteToAgent_HandOffFollowUp_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "End Session",
+    "name": "cc4cae18-2f6d-4e1c-b571-f9b27cd962e8"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "response_tag",
+        "value": "ReadyToWaitForAgent"
+      }, {
+        "parameter": "Metrics_RouteToAgent_HandOffFollowUp_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "HandOff",
+    "name": "93c4b252-5351-4164-baed-00071b3b4216"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "End Session",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Please try again after sometime. Thanks for contacting Brightspeed. Have a good day!" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_HandOffFollowUp_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "response_tag",
+        "value": "NoMatch"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "2d96d993-d6a1-4db8-b668-06333ec519af"
+  }, {
+    "targetPage": "End Session",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Please try again after sometime. Thanks for contacting Brightspeed. Have a good day!" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_HandOffFollowUp_NoInput_2",
+        "value": "\"\"$sys.func.TO_TEXT($sys.func.NOW())\"\""
+      }, {
+        "parameter": "response_tag",
+        "value": "NoInput"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "bcb7fbaa-f816-4334-8c8d-0a171bddf74f"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I am sorry I didn't catch that. Would you still like to wait for an agent?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Yes"
+            }, {
+              "action": "quick_reply",
+              "title": "No"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_HandOffFollowUp_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "response_tag",
+        "value": "NoMatch_1"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "0a612887-d3e2-4776-add0-17808e051c0d"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Would you still like to wait for an agent?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Yes"
+            }, {
+              "action": "quick_reply",
+              "title": "No"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_HandOffFollowUp_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "response_tag",
+        "value": "NoInput_1"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "f797644f-ea6b-496d-80a7-05ee74953731"
+  } ]
+}

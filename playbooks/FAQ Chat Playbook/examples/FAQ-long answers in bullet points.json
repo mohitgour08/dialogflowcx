@@ -1,0 +1,132 @@
+{
+  "name": "0b36e5e8-b3d7-409a-a394-995e296a0133",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "How can I help you Today?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "do you offer inside wire protection"
+    }
+  }, {
+    "toolUse": {
+      "tool": "FAQs",
+      "action": "FAQs",
+      "inputActionParameters": {
+        "requestBody": {
+          "fallback": "",
+          "filter": "",
+          "query": "do you offer inside wire protection",
+          "userMetadata": {
+          
+          }
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "answer": "Yes, With our Inside Wire Protection plan, most repairs are covered with the cost of your monthly subscription.\nFor a flat monthly fee of $13-$15, you can get a plan that covers inspection and repairs on most inside jack and wiring problems, including:\n1.Charges for a technician to visit your home and isolate the problem. \n2.Fee for a technician to professionally repair/restore your service.\n3.Cost of materials needed to fix damaged jacks and wiring\n",
+          "snippets": [ {
+            "text": "",
+            "title": "",
+            "uri": ""
+          } ]
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Yes, we offer Inside Wire Protection. With our Inside Wire Protection plan, most repairs are covered with the cost of your monthly subscription. For a flat monthly fee of $13-$15, you can get a plan that covers inspection and repairs on most inside jack and wiring problems, including:\n1. Charges for a technician to visit your home and isolate the problem.\n2. Fee for a technician to professionally repair/restore your service.\n3. Cost of materials needed to fix damaged jacks and wiring"
+    }
+  }, {
+    "userUtterance": {
+      "text": "do i get any warranty if i purchase it"
+    }
+  }, {
+    "agentUtterance": {
+      "text": "what do i need to do after disconnecting the service"
+    }
+  }, {
+    "toolUse": {
+      "tool": "FAQs",
+      "action": "FAQs",
+      "inputActionParameters": {
+        "requestBody": {
+          "fallback": "",
+          "filter": "",
+          "query": "what do i need to do after disconnecting the service",
+          "userMetadata": {
+          
+          }
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "answer": "There are 3 things to keep in mind after disconnecting your Brightspeed service:If you leased a modem or router, you need to return it within 30 days of disconnection. You can get more information on that here https://www.brightspeed.com/help/internet/modems-and-routers/how-to-pack-and-return-the-modem. If you paid a deposit when you set up your Brightspeed service, your deposit plus any interest will be applied to your final balance. We'll send you a closing bill by mail that shows any outstanding balance owed or credit due.\nIf you were enrolled in autopay - clickhere https://www.brightspeed.com/help/account/autopay/does-canceling-your-brightspeed-service-cancel-autopay-too to learn how disconnection will affect your payments. ",
+          "snippets": [ ]
+        }
+      }
+    }
+  }, {
+    "agentUtterance": {
+      "text": "There are 3 things to keep in mind after disconnecting your Brightspeed service:\n1. If you leased a modem or router, you need to return it within 30 days of disconnection. You can get more information on that {{https://www.brightspeed.com/help/internet/modems-and-routers/how-to-pack-and-return-the-modem | here}}.\n2. If you paid a deposit when you set up your Brightspeed service, your deposit plus any interest will be applied to your final balance. We'll send you a closing bill by mail that shows any outstanding balance owed or credit due.\n3. If you were enrolled in autopay - {{https://www.brightspeed.com/help/account/autopay/does-canceling-your-brightspeed-service-cancel-autopay-too | click here}} to learn how disconnection will affect your payments.\n"
+    }
+  }, {
+    "userUtterance": {
+      "text": "okay thanks"
+    }
+  }, {
+    "agentUtterance": {
+      "text": "Is there anything else I can help you with?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "no thanks"
+    }
+  }, {
+    "toolUse": {
+      "tool": "FAQ_intents_28_02_2025",
+      "action": "FAQ_intents_28_02_2025",
+      "inputActionParameters": {
+        "requestBody": {
+          "fallback": "",
+          "filter": "",
+          "query": "do you offer inside wire protection",
+          "userMetadata": {
+          
+          }
+        }
+      },
+      "outputActionParameters": {
+        "200": {
+          "answer": "Service Management",
+          "snippets": [ {
+            "child_intent": "Antivirus Protection, Calling Features, Check Data Usage, International Rate Plan Inquiry, Move Service Order, Prepaid Plan, Remove Service Features, Return Device, Voicemail Features",
+            "parent_intent": "Service Management"
+          } ]
+        }
+      }
+    }
+  }, {
+    "flowInvocation": {
+      "flow": "FAQExit",
+      "inputActionParameters": {
+        "FAQSuccess": "Success",
+        "parent_intent": "Service Management"
+      },
+      "outputActionParameters": {
+      
+      }
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "customer has question about inside wire protection"
+  },
+  "playbookOutput": {
+    "executionSummary": "."
+  },
+  "displayName": "FAQ-long answers in bullet points",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 1273,
+  "conversationState": "OUTPUT_STATE_OK",
+  "languageCode": "en"
+}

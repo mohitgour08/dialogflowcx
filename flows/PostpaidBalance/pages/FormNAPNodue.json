@@ -1,0 +1,38 @@
+{
+  "name": "c205be02-5780-450a-ab9d-bcde52751e2d",
+  "displayName": "FormNAPNodue",
+  "form": {
+    "parameters": [ {
+      "displayName": "FormNAPNodueresp",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "setParameterActions": [ {
+            "parameter": "Metrics_PostpaidBalance_FormNAPNodue_FormNAPdueresp",
+            "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+          } ]
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n  \"chatClientForm\": \"PostpaidNoBal\",\n  \"currentBalance\": \"$session.params.BillInfo_LatestDueAmount \",\n  \"paymentMethod\": \"$session.params.PaymentMethod\",\n  \"lastFourDigits\": \"$session.params.CreditCardNumberLast4 \"\n}" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_FormNAPNodue_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormNAPNodueCheck",
+    "name": "e0ac2773-8e1c-473f-90a8-7c32c1123585"
+  } ]
+}

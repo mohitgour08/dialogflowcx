@@ -1,0 +1,181 @@
+{
+  "name": "4dccc3b7-9a16-48f0-9237-fc373e2253c5",
+  "displayName": "GetNextAppointmentAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "getAvailAppointments",
+    "tag": "Appointment",
+    "setParameterActions": [ {
+      "parameter": "Metrics_SalesManagement_GetNextAppointmentAPI_wh_getAvailAppointments",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.AppointmentStatus = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetNextAppointmentAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SalesManagement_GetNextAppointmentAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getAvailAppointments"
+      } ]
+    },
+    "targetPage": "TicketNextAvailableAppointment",
+    "name": "850914f6-7597-4e41-b7c5-9a23b5196988"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetNextAppointmentAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SalesManagement_GetNextAppointmentAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getAvailAppointments"
+      } ]
+    },
+    "targetPage": "TicketChatMessageForCustomer",
+    "name": "7dd61f19-d1ee-4585-9140-f40a0dc62873"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "TicketChatMessageForCustomer",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetNextAppointmentAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "API_SalesManagement_GetNextAppointmentAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getAvailAppointments"
+      } ]
+    },
+    "name": "395e653b-204e-41f6-ba21-6b29c6c721ec"
+  }, {
+    "targetPage": "TicketChatMessageForCustomer",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetNextAppointmentAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "API_SalesManagement_GetNextAppointmentAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getAvailAppointments"
+      } ]
+    },
+    "name": "d36f185a-5eb0-4d49-846d-69099d8c4b59"
+  }, {
+    "targetPage": "TicketChatMessageForCustomer",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetNextAppointmentAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "API_SalesManagement_GetNextAppointmentAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getAvailAppointments"
+      } ]
+    },
+    "name": "2ce5c385-2fb1-4059-b03e-7a683626af79"
+  }, {
+    "targetPage": "TicketChatMessageForCustomer",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetNextAppointmentAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "API_SalesManagement_GetNextAppointmentAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getAvailAppointments"
+      } ]
+    },
+    "name": "b6d5b8b5-8037-42d9-9d00-0c374b3220df"
+  }, {
+    "targetPage": "TicketChatMessageForCustomer",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetNextAppointmentAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "API_SalesManagement_GetNextAppointmentAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getAvailAppointments"
+      } ]
+    },
+    "name": "d1f58ac5-6675-4f13-a395-537036069246"
+  }, {
+    "targetPage": "TicketChatMessageForCustomer",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_GetNextAppointmentAPI_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_RepairTicket",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "API_SalesManagement_GetNextAppointmentAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "getAvailAppointments"
+      } ]
+    },
+    "name": "fcbd45b4-9e77-435d-a349-8e4c9d094852"
+  } ]
+}

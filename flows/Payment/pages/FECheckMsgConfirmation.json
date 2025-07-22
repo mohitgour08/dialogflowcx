@@ -1,0 +1,39 @@
+{
+  "name": "ed241ba7-f94c-44c9-8920-6902b16c356c",
+  "displayName": "FECheckMsgConfirmation",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay, I've sent the message. You should receive it in just a moment. " ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_PrepaidPayment",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "MsgConfirmation"
+      }, {
+        "parameter": "ToModule",
+        "value": "PrepaidPayment"
+      }, {
+        "parameter": "Metrics_Payment_FECheckMsgConfirmation_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "a7d9e7e9-88db-408c-a014-5a8a557c2683"
+  } ]
+}

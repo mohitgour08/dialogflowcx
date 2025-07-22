@@ -1,0 +1,104 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "+1 (123) 456-7890",
+      "parameterId": "phone-number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "+15055551234",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "16416675678",
+      "parameterId": "phone-number",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "dtmf_digits_"
+    }, {
+      "text": "3534346356",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "1 (505) 555-1234",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Yeah, my mobile number is "
+    }, {
+      "text": "15055551234",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "number is "
+    }, {
+      "text": "(641)667 5678",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my phone number is "
+    }, {
+      "text": "1234567890",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "234-456-6789",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "123.456.7890",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "(457)4578568",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "457 457 8454",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "457-457-8568",
+      "parameterId": "phone-number"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

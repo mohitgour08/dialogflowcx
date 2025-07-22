@@ -1,0 +1,61 @@
+{
+  "name": "1fb188da-05e8-4dce-a50c-299ece946642",
+  "displayName": "PPBValidateChat",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$sys.func.LEN($session.params.TN_BAN_temp) = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_temp1",
+        "value": "$session.params.TN_BAN_temp"
+      }, {
+        "parameter": "PPBTemp1",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.TN_BAN_temp1),4, 8)"
+      }, {
+        "parameter": "PPBTemp",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.TN_BAN_temp),1, 3)"
+      }, {
+        "parameter": "Metrics_Authentication_PPBValidateChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "bd415eca-7881-4f3b-970c-96bf002327f6"
+  }, {
+    "condition": "$session.params.PPBTemp = \"PPB\" OR $session.params.PPBTemp = \"ppb\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$sys.func.CONCATENATE(\"1\",$sys.func.TO_TEXT($session.params.PPBTemp1))"
+      }, {
+        "parameter": "Metrics_Authentication_PPBValidateChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "8b317869-6aaf-483a-86f7-811a4fcf9b2f"
+  }, {
+    "condition": "$page.params.status = FINAL AND ($sys.func.LEN($session.params.TN_BAN) = 9 OR $sys.func.LEN($session.params.TN_BAN) = 10)",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PPBValidateChat_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "EmbargoSwitch",
+    "name": "b3b4ee0f-835f-4f67-9b37-18175c45672f"
+  }, {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$session.params.TN_BAN_temp"
+      }, {
+        "parameter": "Metrics_Authentication_PPBValidateChat_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "validateAccountInfo",
+    "name": "e9a37396-dc10-462e-9c64-bae5da5f3ac4"
+  } ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "33ba389e-4c69-47b8-bc43-f127e85d491c",
+  "displayName": "Billing",
+  "transitionRoutes": [ {
+    "intent": "Billing.High_bill",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_path",
+        "value": "English/Care/Care"
+      }, {
+        "parameter": "queue_name",
+        "value": "Care"
+      }, {
+        "parameter": "head_intent",
+        "value": "Billing"
+      } ]
+    },
+    "name": "a8142f06-ebb4-41d2-8068-5cddb510dc4e"
+  }, {
+    "intent": "Billing.UnderstandLastBill",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_path",
+        "value": "English/Care/Care"
+      }, {
+        "parameter": "queue_name",
+        "value": "Care"
+      }, {
+        "parameter": "head_intent",
+        "value": "Billing"
+      } ]
+    },
+    "name": "8082dce5-8a67-47b3-af42-7d2d29233b2a"
+  }, {
+    "intent": "BalanceInquiryOrMakePayment.Billing",
+    "triggerFulfillment": {
+    
+    },
+    "name": "18a5d7b8-1861-418c-ba35-df0cb11d81ef"
+  }, {
+    "intent": "Billing.Balance_inquiry",
+    "triggerFulfillment": {
+    
+    },
+    "name": "dc02cb39-658a-4a3e-8e9f-f84b87e193c6"
+  } ]
+}

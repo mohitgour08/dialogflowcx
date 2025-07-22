@@ -1,0 +1,25 @@
+{
+  "name": "b1921e22-21a3-4705-99cc-9f329a2c9303",
+  "displayName": "EnterSMS",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "EnterPasscodeSMS",
+    "name": "ef5b3f6f-d36e-47c2-a017-3c6224630f1a"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "EnterPasscodeSMSVoice",
+    "name": "dcbcf6d6-d8d3-4201-9cfe-1b2d5da9169e"
+  } ]
+}

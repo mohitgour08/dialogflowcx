@@ -1,0 +1,28 @@
+{
+  "name": "aa2faf2b-3037-4201-bc08-e705fe00a624",
+  "displayName": "BillCycleImpactChk",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillCycleImpacted = \"Yes\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillCycleImpackChk_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "BillCycleMsg",
+    "name": "0216e843-f96f-47ec-ac5e-d32b53fda133"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillCycleImpackChk_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "BillInfoCheck",
+    "name": "13276d82-98ca-4a00-99cc-237e6a89b0ca"
+  } ]
+}

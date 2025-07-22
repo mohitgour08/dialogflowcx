@@ -1,0 +1,21 @@
+{
+  "name": "a5a0266b-28aa-49e8-8c16-1727a4c0f2b3",
+  "displayName": "PopulateEmailID",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_PopulateEmailID",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PopulateEmailIDVoice",
+    "name": "23123b72-5ecc-4b47-a2c1-28270dd3585b"
+  } ]
+}

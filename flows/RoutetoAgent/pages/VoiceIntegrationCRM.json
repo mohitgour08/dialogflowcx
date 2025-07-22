@@ -1,0 +1,129 @@
+{
+  "name": "6b00112f-3e19-477e-8047-c5ad036ae5ed",
+  "displayName": "VoiceIntegrationCRM",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "VoiceIntegrationCRM",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_VoiceIntegrationCRM_none_wh_VoiceIntegrationCRM",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_VoiceIntegrationCRM_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_VoiceIntegrationCRM",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "VoiceIntegrationCRM"
+      } ]
+    },
+    "targetPage": "VoiceEscalation",
+    "name": "958638eb-203a-48a5-a8df-4aac18559aca"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "VoiceEscalation",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_VoiceIntegrationCRM_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_VoiceIntegrationCRM",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "VoiceIntegrationCRM"
+      } ]
+    },
+    "name": "4ce0c4f8-9f37-4854-839c-169335b36602"
+  }, {
+    "targetPage": "VoiceEscalation",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_VoiceIntegrationCRM_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_VoiceIntegrationCRM",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "VoiceIntegrationCRM"
+      } ]
+    },
+    "name": "4e5a4cc4-0123-4476-8dfb-98b9c27f76e8"
+  }, {
+    "targetPage": "VoiceEscalation",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_VoiceIntegrationCRM_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_VoiceIntegrationCRM",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "VoiceIntegrationCRM"
+      } ]
+    },
+    "name": "26c71c56-a4f1-4d55-b13e-90966f334a7d"
+  }, {
+    "targetPage": "VoiceEscalation",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_VoiceIntegrationCRM_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_VoiceIntegrationCRM",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "VoiceIntegrationCRM"
+      } ]
+    },
+    "name": "af783639-a18b-44de-9688-6527e4db4957"
+  }, {
+    "targetPage": "VoiceEscalation",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_VoiceIntegrationCRM_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_VoiceIntegrationCRM",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "VoiceIntegrationCRM"
+      } ]
+    },
+    "name": "3d4d4ac5-f105-4bca-b2dd-f8c33924a8fa"
+  }, {
+    "targetPage": "VoiceEscalation",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouteToAgent_VoiceIntegrationCRM_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_RoutetoAgent_VoiceIntegrationCRM",
+        "value": "Fail_Unavailaable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "VoiceIntegrationCRM"
+      } ]
+    },
+    "name": "a0828ca4-102b-4839-bfce-8a60c224331e"
+  } ]
+}

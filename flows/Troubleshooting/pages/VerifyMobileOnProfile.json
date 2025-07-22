@@ -1,0 +1,35 @@
+{
+  "name": "5174b55a-d4d0-48f0-af74-ba1f0a539ea3",
+  "displayName": "VerifyMobileOnProfile",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "SMSNumbercounter",
+      "value": 0
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.contactNumber = null OR $session.params.contactNumber = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_VerifyMobileOnProfile_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "VerifyMobileNumber",
+    "name": "8f0e6e2d-3a2c-4dfc-ad85-f322a1fb5e70"
+  }, {
+    "condition": "$session.params.contactNumber != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_VerifyMobileOnProfile_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PhoneNumbInProfile",
+    "name": "bbdd9f70-735c-408f-888a-264d61683514"
+  } ],
+  "description": "Customer has Mobile Number on File"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "79596287-8bc6-46c6-8aac-55835e5d05a8",
+  "displayName": "BankInfoChatOrVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_BankInfoChatOrVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "BankInformation",
+    "name": "110acae0-8f3f-4006-af09-976369d3dd59"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_BankInfoChatOrVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "BankInfoVoice",
+    "name": "b75b385c-efad-413d-a0ed-801a22289500"
+  } ]
+}

@@ -1,0 +1,254 @@
+{
+  "name": "26c3c1b2-ba9c-488c-929a-e6f8e890e04e",
+  "displayName": "SelectCardOrBankAcc",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "Metrics_SecuredPayments_SelectCardOrBankAcc",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.SelectedPaymentType = \"Bank\" AND $session.params.OtherSavedPM = \"Postpaid\" AND $session.params.CopperCurrentDue = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectCardOrBankAcc_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "ACH"
+      }, {
+        "parameter": "encFields",
+        "value": "#field_routingNumber#field_bankAccountNumber"
+      }, {
+        "parameter": "AccountNoRetry",
+        "value": "false"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "Checking"
+      } ]
+    },
+    "targetPage": "CheckZeroBalWeb",
+    "name": "1cd95106-8d06-454c-94b3-25b3d92a5430"
+  }, {
+    "condition": "$session.params.SelectedPaymentType = \"Card\" AND $session.params.OtherSavedPM = \"Postpaid\" AND $session.params.CopperCurrentDue = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectCardOrBankAcc_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "Card"
+      }, {
+        "parameter": "encFields",
+        "value": "#field_creditCardNumber#field_cardSecurityCode#field_creditCardExpirationMonth#field_creditCardExpirationYear"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "CreditCard"
+      }, {
+        "parameter": "CardNoRetry",
+        "value": "false"
+      } ]
+    },
+    "targetPage": "CheckZeroBalWeb",
+    "name": "02cf043f-b745-4ba2-89fd-51c3977abb2c"
+  }, {
+    "condition": "$session.params.SelectedPaymentType = \"Bank\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectCardOrBankAcc_BankAccount",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "encFields",
+        "value": "#field_routingNumber#field_bankAccountNumber"
+      }, {
+        "parameter": "PaymentType",
+        "value": "ACH"
+      }, {
+        "parameter": "AccountNoRetry",
+        "value": "false"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "Checking"
+      } ]
+    },
+    "targetPage": "PaymentConfirmationBankAccount",
+    "name": "b3da28b1-99ae-47e2-9921-09cbd67e172b"
+  }, {
+    "condition": "$session.params.SelectedPaymentType = \"Card\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectCardOrBankAcc_Card",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "encFields",
+        "value": "#field_creditCardNumber#field_cardSecurityCode#field_creditCardExpirationMonth#field_creditCardExpirationYear"
+      }, {
+        "parameter": "PaymentType",
+        "value": "Card"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "CreditCard"
+      }, {
+        "parameter": "CardNoRetry",
+        "value": "false"
+      } ]
+    },
+    "targetPage": "PaymentConfirmation",
+    "name": "c4e56d1f-f037-4dca-b41d-096fdad97752"
+  }, {
+    "condition": "$session.params.PayOptionType_1 = \"Card\" AND $session.params.SelectedPM = \"1\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectCardOrBankAcc_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "Card"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "CreditCard"
+      }, {
+        "parameter": "CardNoRetry",
+        "value": "false"
+      } ]
+    },
+    "targetPage": "PaymentConfirmation",
+    "name": "a77fe223-e4f0-4c2c-95dd-871cd27b593b"
+  }, {
+    "condition": "$session.params.PayOptionType_1 = \"ACH\" AND $session.params.SelectedPM = \"1\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectCardOrBankAcc_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "ACH"
+      }, {
+        "parameter": "AccountNoRetry",
+        "value": "false"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "Checking"
+      } ]
+    },
+    "targetPage": "PaymentConfirmationBankAccount",
+    "name": "9663f06c-d4c4-44c0-86da-0d0e031516be"
+  }, {
+    "condition": "$session.params.PayOptionType_2 = \"ACH\" AND $session.params.SelectedPM = \"2\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectCardOrBankAcc_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "ACH"
+      }, {
+        "parameter": "AccountNoRetry",
+        "value": "false"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "Checking"
+      } ]
+    },
+    "targetPage": "PaymentConfirmationBankAccount",
+    "name": "e8781df8-49f9-47b4-b339-d36c8e5476bf"
+  }, {
+    "condition": "$session.params.PayOptionType_3 = \"ACH\" AND $session.params.SelectedPM = \"3\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectCardOrBankAcc_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "ACH"
+      }, {
+        "parameter": "AccountNoRetry",
+        "value": "false"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "Checking"
+      } ]
+    },
+    "targetPage": "PaymentConfirmationBankAccount",
+    "name": "b28771b2-bfe8-4a52-9dc7-895fd7c590a6"
+  }, {
+    "condition": "$session.params.PayOptionType_4 = \"ACH\" AND $session.params.SelectedPM = \"4\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectCardOrBankAcc_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "ACH"
+      }, {
+        "parameter": "AccountNoRetry",
+        "value": "false"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "Checking"
+      } ]
+    },
+    "targetPage": "PaymentConfirmationBankAccount",
+    "name": "d5755ed9-132e-4d13-b658-ad564154dc94"
+  }, {
+    "condition": "$session.params.PayOptionType_2 = \"Card\" AND $session.params.SelectedPM = \"2\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectCardOrBankAcc_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "Card"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "CreditCard"
+      }, {
+        "parameter": "CardNoRetry",
+        "value": "false"
+      } ]
+    },
+    "targetPage": "PaymentConfirmation",
+    "name": "d564ffb0-26ca-4a48-a8c3-ca0fd177d1b0"
+  }, {
+    "condition": "$session.params.PayOptionType_3 = \"Card\" AND $session.params.SelectedPM = \"3\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectCardOrBankAcc_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "Card"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "CreditCard"
+      }, {
+        "parameter": "CardNoRetry",
+        "value": "false"
+      } ]
+    },
+    "targetPage": "PaymentConfirmation",
+    "name": "aeda4b95-e438-48e2-92a9-b85d2242a84e"
+  }, {
+    "condition": "$session.params.PayOptionType_4 = \"Card\" AND $session.params.SelectedPM = \"4\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_SelectCardOrBankAcc_12",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType",
+        "value": "Card"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "CreditCard"
+      }, {
+        "parameter": "CardNoRetry",
+        "value": "false"
+      } ]
+    },
+    "targetPage": "PaymentConfirmation",
+    "name": "7e0ce748-6ad3-4ced-a3c8-13ed7b0584b2"
+  } ]
+}

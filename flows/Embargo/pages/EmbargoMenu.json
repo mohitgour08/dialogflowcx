@@ -1,0 +1,725 @@
+{
+  "name": "9de91928-d163-44b0-a568-fa8ea22ca1d0",
+  "displayName": "EmbargoMenu",
+  "form": {
+    "parameters": [ {
+      "displayName": "EmbargoOption",
+      "required": true,
+      "entityType": "@EmbargoDTMF",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        },
+        "repromptEventHandlers": [ {
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "To see if you are eligible for Brightspeed Fiber, press 1. If you are experiencing a connection issue with your service, such as low speeds or an outage, press 2. To repeat, press 3. If you are done, press 4." ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "I’m sorry, I didn’t hear your answer. " ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            }, {
+              "text": {
+                "text": [ "To talk to an agent, press 1. To see if you are eligible for Brightspeed Fiber, press 2. If you are experiencing a connection issue with your service, such as low speeds or an outage, press 3. To repeat, press 4. If you are done, press 5. " ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            }, {
+              "text": {
+                "text": [ "Lo siento, no escuché su respuesta." ]
+              },
+              "languageCode": "es",
+              "channel": "voice"
+            }, {
+              "text": {
+                "text": [ "Para hablar con un agente, presione 1. Para verificar si es elegible para Brightspeed Fiber, presione 2. Si está experimentando un problema de conexión con su servicio, como baja velocidad o una interrupción, presione 3. Para repetir, presione 4. Si ha terminado, presione 5." ]
+              },
+              "languageCode": "es",
+              "channel": "voice"
+            } ],
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "6f2776e0-dcfd-43da-a0de-ace43a294e64"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-input-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "That's okay" ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "Está bien." ]
+              },
+              "languageCode": "es"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "RouteIntent",
+              "value": "EMBRGCARE"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            },
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "875ba01a-ab88-4f56-a6fc-6bad338ff6f8"
+        }, {
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+              },
+              "languageCode": "en"
+            }, {
+              "payload": {
+                "ujet": {
+                  "buttons": [ {
+                    "action": "quick_reply",
+                    "title": "Fiber"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "Repair"
+                  }, {
+                    "action": "quick_reply",
+                    "title": "I'm Finished"
+                  } ],
+                  "title": "",
+                  "type": "inline_button"
+                }
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "I’m sorry, your answer doesn’t match one of our options." ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            }, {
+              "text": {
+                "text": [ "To talk to an agent, press 1. To see if you are eligible for Brightspeed Fiber, press 2. If you are experiencing a connection issue with your service, such as low speeds or an outage, press 3. To repeat, press 4. If you are done, press 5. " ]
+              },
+              "languageCode": "en",
+              "channel": "voice"
+            }, {
+              "text": {
+                "text": [ "Lo siento, su respuesta no coincide con una de nuestras opciones." ]
+              },
+              "languageCode": "es",
+              "channel": "voice"
+            }, {
+              "text": {
+                "text": [ "Para hablar con un agente, presione 1. Para verificar si es elegible para Brightspeed Fiber, presione 2. Si está experimentando un problema de conexión con su servicio, como baja velocidad o una interrupción, presione 3. Para repetir, presione 4. Si ha terminado, presione 5." ]
+              },
+              "languageCode": "es",
+              "channel": "voice"
+            } ],
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "2dc5097e-0701-443b-ac95-43fd155e5fa2"
+        }, {
+          "targetFlow": "RoutetoAgent",
+          "event": "sys.no-match-2",
+          "triggerFulfillment": {
+            "messages": [ {
+              "text": {
+                "text": [ "I didn’t understand your answer." ]
+              },
+              "languageCode": "en"
+            }, {
+              "text": {
+                "text": [ "No entendí su respuesta." ]
+              },
+              "languageCode": "es"
+            } ],
+            "setParameterActions": [ {
+              "parameter": "RouteIntent",
+              "value": "EMBRGCARE"
+            } ],
+            "advancedSettings": {
+              "playbackInterruptionSettings": {
+              
+              },
+              "dtmfSettings": {
+                "useSystemEntityRule": false
+              }
+            },
+            "nextActionOverride": {
+            
+            }
+          },
+          "name": "4bcefa35-40f7-4ed8-96fa-d0da4ee970c5"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Fiber"
+          }, {
+            "action": "quick_reply",
+            "title": "Repair"
+          }, {
+            "action": "quick_reply",
+            "title": "I'm Finished"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Customers who have upgraded to Brightspeed Fiber are not impacted. To check if Fiber is available in your area, say \"fiber\" now. If you are experiencing a connection issue with your service, such as low speeds or an outage, we are always here to help. Please say \"repair\" now to speak with our repair team." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "You can say \"repeat\" to play this message again or, just tell me you are finished." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "Actualmente estamos actualizando nuestro servicio en su área y las opciones de administración de cuentas no están disponibles en este momento. \n\n\nConéctese en línea o llame la próxima semana para realizar cambios en la cuenta, pagar su factura o actualizar los servicios existentes. No se incurrirán en cargos por pagos atrasados ​​durante esta actualización y los pagos de pago automático se procesarán normalmente." ]
+      },
+      "languageCode": "es",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "Nuestros agentes tampoco pueden procesar pagos ni realizar cambios en la cuenta en este momento, pero puede seleccionar \"agente\" a continuación si desea chatear con un agente de todos modos. \n\n\nLos clientes de Brightspeed Fiber no se verán afectados por estos cambios. Para ver si es elegible para Brightspeed Fiber, seleccione la opción \"Fibra\" a continuación. \n\n\nSi tiene un problema de conexión con su servicio, como velocidades bajas o una interrupción, siempre estamos aquí para ayudarlo. Elija \"reparar\" ahora para charlar con nuestro equipo de reparación." ]
+      },
+      "languageCode": "es",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_Embargo",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenu_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EMBRGCARE"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "EmbargoMenu"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "85dddd6d-0867-40e3-ade3-eb2fd9432d31"
+  }, {
+    "intent": "Fiber",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenu_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EMBRGCARE"
+      }, {
+        "parameter": "Transfer Reason",
+        "value": "Self Service Failure"
+      }, {
+        "parameter": "Transfer Message",
+        "value": "User provided Wrong Information."
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "dbb4ed9c-01bc-4c4e-9b18-0868d603aa93"
+  }, {
+    "intent": "sales.Repair",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenu_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EMBRGRPR"
+      }, {
+        "parameter": "Transfer Reason",
+        "value": "Self Service Failure"
+      }, {
+        "parameter": "Transfer Message",
+        "value": "User provided Wrong Information."
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "a9022b52-cb21-4710-8ac4-a4e3fbf89a13"
+  }, {
+    "intent": "GoodToGo",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Thanks for chatting with us! We look forward to better serving you after the upgrade." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Thanks for calling Brightspeed! We look forward to better serving you after the upgrade." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "¡Gracias por llamar a Brightspeed! Esperamos poder atenderle mejor después de la actualización." ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenu_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "4f0f174e-c2a5-4a57-84d7-40d8fe14164f"
+  }, {
+    "intent": "Repeat ",
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenu_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmbargoCounter",
+        "value": "$sys.func.ADD($session.params.EmbargoCounter,1)"
+      }, {
+        "parameter": "EmbargoOption",
+        "value": null
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "RepeatCounter",
+    "name": "a5ce875b-4f9e-4f98-bb86-c76c93f6c6cc"
+  }, {
+    "condition": "$session.params.EmbargoOption = \"1\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenu_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EMBRGCARE"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Embargo_EmbargoMenu_1"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "431fefe3-e679-4832-8147-be7e3dc45479"
+  }, {
+    "condition": "$session.params.EmbargoOption = \"2\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenu_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EMBRGCARE"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Embargo_EmbargoMenu_2"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "d080e4ff-59b2-4446-a717-f970047e7e4e"
+  }, {
+    "condition": "$session.params.EmbargoOption = \"3\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenu_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EMBRGRPR"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Embargo_EmbargoMenu_3"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "14a4420f-1efb-4050-8267-cdfedfb63e19"
+  }, {
+    "condition": "$session.params.EmbargoOption = \"4\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenu_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Embargo_EmbargoMenu_4"
+      }, {
+        "parameter": "EmbargoCounter",
+        "value": "$sys.func.ADD($session.params.EmbargoCounter,1)"
+      }, {
+        "parameter": "EmbargoOption",
+        "value": null
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "RepeatCounter",
+    "name": "74ed2081-ed19-41e9-9fbb-769018433858"
+  }, {
+    "condition": "$session.params.EmbargoOption = \"5\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Thanks for calling Brightspeed! We look forward to better serving you after the upgrade." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "¡Gracias por llamar a Brightspeed! Esperamos brindarle un mejor servicio después de la actualización." ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenu_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Embargo_EmbargoMenu_5"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "End Session",
+    "name": "5dea0959-6f97-4772-a1e6-a68595a02a25"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "To see if you are eligible for Brightspeed Fiber, press 1. If you are experiencing a connection issue with your service, such as low speeds or an outage, press 2. To repeat, press 3. If you are done, press 4." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "To see if you are eligible for Brightspeed Fiber, press 1. If you are experiencing a connection issue with your service, such as low speeds or an outage, press 2. To repeat, press 3. If you are done, press 4." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Lo siento, no escuché su respuesta." ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Para hablar con un agente, presione 1. Para verificar si es elegible para Brightspeed Fiber, presione 2. Si está experimentando un problema de conexión con su servicio, como baja velocidad o una interrupción, presione 3. Para repetir, presione 4. Si ha terminado, presione 5." ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenu_NoInput",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "573edc4c-cbe0-45b9-a210-d5d9a8fe3c7b"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's okay" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Está bien." ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenu_NoInputDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EMBRGCARE"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "Embargo_EmbargoMenu"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "EmbargoMenu"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "2a715330-d12c-4f2c-ab7e-941135999e6f"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that? " ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Fiber"
+            }, {
+              "action": "quick_reply",
+              "title": "Repair"
+            }, {
+              "action": "quick_reply",
+              "title": "I'm Finished"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "To see if you are eligible for Brightspeed Fiber, press 1. If you are experiencing a connection issue with your service, such as low speeds or an outage, press 2. To repeat, press 3. If you are done, press 4." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Lo siento, su respuesta no coincide con una de nuestras opciones." ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Para hablar con un agente, presione 1. Para verificar si es elegible para Brightspeed Fiber, presione 2. Si está experimentando un problema de conexión con su servicio, como baja velocidad o una interrupción, presione 3. Para repetir, presione 4. Si ha terminado, presione 5." ]
+        },
+        "languageCode": "es",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenu_NoMatch",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "19be6f1d-0177-4436-993f-bc8858ae4fdb"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "No entendí su respuesta." ]
+        },
+        "languageCode": "es"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Embargo_EmbargoMenu_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EMBRGCARE"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "Embargo_EmbargoMenu"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "EmbargoMenu"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "ccd5714f-296c-4b83-a5f0-d35bcd6c4be0"
+  } ]
+}

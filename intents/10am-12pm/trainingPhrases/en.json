@@ -1,0 +1,42 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "10",
+      "auto": true
+    }, {
+      "text": "am",
+      "auto": true
+    }, {
+      "text": "-12",
+      "auto": true
+    }, {
+      "text": "pm eastern",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "10-12",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "10",
+      "auto": true
+    }, {
+      "text": "am",
+      "auto": true
+    }, {
+      "text": "-12",
+      "auto": true
+    }, {
+      "text": "pm",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

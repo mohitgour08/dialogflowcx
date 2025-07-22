@@ -1,0 +1,167 @@
+{
+  "name": "db1e577d-4378-4192-9444-d43b0fea30db",
+  "displayName": "EcomStep2",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I'm happy to help! You can choose from our most frequently asked questions below, or just select \"other\". " ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Do I need a wifi extender?"
+          }, {
+            "action": "quick_reply",
+            "title": "How many wifi extenders should I  get?"
+          }, {
+            "action": "quick_reply",
+            "title": "What is Brightspeed Total Home?"
+          }, {
+            "action": "quick_reply",
+            "title": "Other"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "WifiCount",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomStep2_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "UserResponse",
+        "value": "WifiCount"
+      } ]
+    },
+    "targetPage": "WifiExtenderCount",
+    "name": "ac5dfb74-4d0c-43fb-b6c8-15bf1f7b0bb9"
+  }, {
+    "intent": "Need Wifi",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomStep2_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "UserResponse",
+        "value": "Need of Wifi"
+      } ]
+    },
+    "targetPage": "NeedWifiExtender",
+    "name": "29bd06e3-2496-4263-83d6-dfea6b25ae3b"
+  }, {
+    "intent": "Total Home",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomStep2_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "UserResponse",
+        "value": "Brightspeed Total Home"
+      } ]
+    },
+    "targetPage": "BrightspeedTotalHome",
+    "name": "da28e362-7d5c-45ed-98ba-24ef655b59c7"
+  }, {
+    "intent": "AnotherWay",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomStep2_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "UserResponse",
+        "value": "Other"
+      } ]
+    },
+    "targetPage": "Agent",
+    "name": "aa6d7335-59f2-432a-aa2a-41605c4a6039"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomStep2_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EXIT_POP"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "97572a31-79da-49a0-aec2-4e1ab967f727"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "What is the monthly cost of these plans?"
+            }, {
+              "action": "quick_reply",
+              "title": "What additional fees should I be aware of?"
+            }, {
+              "action": "quick_reply",
+              "title": "Are there any extra costs for exceeding data limits?"
+            }, {
+              "action": "quick_reply",
+              "title": "Are there any one-time setup or activation fees?"
+            }, {
+              "action": "quick_reply",
+              "title": "Other"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomStep2_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "3bbc1d4e-3c45-447d-8e41-e18fc2c2b989"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_EcomStep2_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "EXIT_POP"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "48777845-9b1e-461b-94ab-2395039df5bd"
+  } ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "2e5386f6-6991-4c2f-8ba4-1b18774941ee",
+  "displayName": "FECheckPrepaidPay",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "You can update your payment method by logging into your $session.params.link31." ]
+      },
+      "languageCode": "en"
+    } ],
+    "webhook": "staticLink_Primary",
+    "tag": "devtest2",
+    "setParameterActions": [ {
+      "parameter": "SS_PrepaidPayment",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    }, {
+      "parameter": "callerintent",
+      "value": "PrepaidPayment"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_FECheckPrepaidPay_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "PrepaidPayment"
+      }, {
+        "parameter": "ToState",
+        "value": "PrepaidPay"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "f9108560-c92b-49e4-90f5-36b5071451f6"
+  } ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "ba446bcd-d679-4ef2-9d3f-87a4c8efa7be",
+  "displayName": "Process_inv_pr",
+  "description": "This tool provides customer's invoice details",
+  "openApiSpec": {
+    "authentication": {
+      "oauthConfig": {
+        "oauthGrantType": "CLIENT_CREDENTIAL",
+        "clientId": "X7gY8r8GrvFWIHZRSuDpP6rS89ILZ9RgEVqig3evq7YknGl1",
+        "clientSecret": "yLGAeVhq8PaeN5Gdw9KqHRd6aXG8gFATI57uLCqxEkGmHcnSGgjAlu6t4LgApJ6X",
+        "tokenEndpoint": "https://api-pr.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials"
+      }
+    }
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

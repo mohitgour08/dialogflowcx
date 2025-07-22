@@ -1,0 +1,10 @@
+{
+  "name": "752a47a2-c6a7-4da6-bb81-c94a568b4bd2",
+  "displayName": "Negative confirm",
+  "parameters": [ {
+    "id": "authentication",
+    "entityType": "@Authentication"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 3
+}

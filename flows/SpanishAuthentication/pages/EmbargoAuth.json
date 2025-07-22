@@ -1,0 +1,210 @@
+{
+  "name": "43ce5ce3-1b1d-4c37-ba8f-fece0569a83a",
+  "displayName": "EmbargoAuth",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "Embargo",
+    "tag": "TNBAN_Embargo",
+    "setParameterActions": [ {
+      "parameter": "Metrics_SpanishAuthentication_EmbargoAuth_TNBAN_Embargo_wh_Embargo",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Embargo_Status = \"EXIST\" OR $session.params.Embargo_Status = \"Exist\" OR $session.params.Embargo_Status = \"EXISTS\" OR $session.params.Embargo_Status = \"Exists\" OR $session.params.Embargo_Status = \"exists\" OR $session.params.Embargo_Status = \"exist\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EmbargoAuth_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "NO"
+      }, {
+        "parameter": "AccountNumber",
+        "value": "$session.params.TN_BAN"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "EmbargoCounter",
+        "value": 0
+      }, {
+        "parameter": "API_SpanishAuthentication_EmbargoAuth",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "targetFlow": "Embargo",
+    "name": "5c637f32-2041-4f25-bfb5-d16c0af8c482"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EmbargoAuth_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "NoData"
+      }, {
+        "parameter": "API_SpanishAuthentication_EmbargoAuth",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "targetPage": "CustLookUp",
+    "name": "5c7abfe8-74f6-4a2e-a041-96bc4a757503"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "CustLookUp",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EmbargoAuth_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "API_SpanishAuthentication_EmbargoAuth",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "name": "1bce9a1d-dee9-43a9-9a71-945baa52cb2b"
+  }, {
+    "targetPage": "CustLookUp",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EmbargoAuth_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "API_SpanishAuthentication_EmbargoAuth",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "name": "5aeccda4-57c1-480a-ba35-fc62c519fa75"
+  }, {
+    "targetPage": "CustLookUp",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EmbargoAuth_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "API_SpanishAuthentication_EmbargoAuth",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "name": "febcb017-d436-40cb-b16c-4e744d1b511e"
+  }, {
+    "targetPage": "CustLookUp",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EmbargoAuth_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "API_SpanishAuthentication_EmbargoAuth",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "name": "11a3253f-290d-4df6-88e2-718bd5b71684"
+  }, {
+    "targetPage": "CustLookUp",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EmbargoAuth_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "API_SpanishAuthentication_EmbargoAuth",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "name": "3cd5bb8a-081c-4cda-aaa8-4bbe2530d3ed"
+  }, {
+    "targetPage": "CustLookUp",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpanishAuthentication_EmbargoAuth_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_Embargo",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "API_SpanishAuthentication_EmbargoAuth",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Embargo"
+      } ]
+    },
+    "name": "25ef6c86-66b1-4e93-b645-646880935369"
+  } ]
+}

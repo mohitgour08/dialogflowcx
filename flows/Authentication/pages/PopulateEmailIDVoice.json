@@ -1,0 +1,71 @@
+{
+  "name": "e147f9f1-80af-45c3-be93-dfad75ef3c9d",
+  "displayName": "PopulateEmailIDVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "EmailNameFirst5",
+      "value": "$sys.func.MID($session.params.EmailName, 1, 5)"
+    }, {
+      "parameter": "EmailName",
+      "value": "$sys.func.TO_TEXT($sys.func.GET($sys.func.SPLIT($session.params.Email, \"@\"),0))"
+    }, {
+      "parameter": "ContactNumberLast4",
+      "value": "$sys.func.MID($session.params.ContactNumber, 7, 4)"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.HasPhoneEmail = true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "EmailNameFirst5",
+        "value": "$sys.func.MID($session.params.EmailName, 1, 5)"
+      }, {
+        "parameter": "FormattedLetters",
+        "value": "$sys.func.TO_TEXT($sys.func.CONCATENATE($session.params.Letter1,\" \",$session.params.Letter2,\" \",$session.params.Letter3,\" \",$session.params.Letter4,\" \",$session.params.Letter5))"
+      }, {
+        "parameter": "ContactNumberLast4",
+        "value": "$sys.func.MID($session.params.ContactNumber, 7, 4)"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "PhoneEmailOnProfileVoice",
+    "name": "9d5d819a-2e52-48b4-85e8-a43ae74b7e04"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "EmailNameFirst5",
+        "value": "$sys.func.MID($session.params.EmailName, 1, 5)"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "EmailOnProfile",
+    "name": "68a45e6a-77e0-4fb4-8e4f-d1d428758587"
+  } ]
+}

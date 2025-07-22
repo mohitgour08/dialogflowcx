@@ -1,0 +1,42 @@
+{
+  "name": "cb3dc604-8a4e-44f6-b257-b2e701e0cbfd",
+  "displayName": "AutoPayNonAutoPayVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Autopay = \"Y\" OR $session.params.Autopay = \"Enrolled\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "AutoPayVoice",
+    "name": "373b1514-d553-4567-9054-c4d5945601e1"
+  }, {
+    "condition": "$session.params.Autopay = \"N\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Please stay on the line to make a payment through our SpeedPay service." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetPage": "SpeedPayTransfer",
+    "name": "f6cb0dad-1c48-4e7d-ac9c-93af30a0d214"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Please stay on the line to make a payment through our SpeedPay service." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetPage": "SpeedPayTransfer",
+    "name": "992122b3-5984-40aa-8a07-2a63d85be767"
+  } ]
+}

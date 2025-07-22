@@ -1,0 +1,53 @@
+{
+  "name": "69ff6668-fc08-4e7e-998c-60735b782103",
+  "displayName": "TicketNoAppointmentsFoundNew",
+  "form": {
+    "parameters": [ {
+      "displayName": "enteredPoRtNumber",
+      "required": true,
+      "entityType": "@enteredPoRtNumber",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Please enter the order or ticket number you need assistance with. You do not need to enter any letters" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003eUsing the keypad on your phone, please enter the order or ticket number you need assistance with. You do not need to enter any letters.\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_WhereIsMyTech",
+      "value": "Failure"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": "UserDisconnected"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "enteredPoRtNumber",
+      "value": null
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+    
+    },
+    "name": "fb034171-24b4-45c7-b064-edb85e3a0ccd"
+  } ]
+}

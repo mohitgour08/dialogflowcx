@@ -1,0 +1,25 @@
+{
+  "name": "e04eac25-a4fb-4b6c-aa40-2de3746411a0",
+  "displayName": "getAccountLookUpByAni",
+  "genericWebService": {
+    "uri": "https://api-ut.brightspeed.com/ccsc360service/api/v1/getAccountLookUpByAni?ucid=$session.params.APICallID\u0026tn=$session.params.TN_BAN",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "GET",
+    "parameterMapping": [ {
+      "key": "Brightspeed",
+      "value": "customer"
+    }, {
+      "key": "IdentificationBasedOn",
+      "value": "basedon"
+    } ],
+    "oauthConfig": {
+      "clientId": "Wxq32hAc8gxpoxhatAxdU38UhD8kVmkK3C0MAPHlzCZBhhtZ",
+      "clientSecret": "dtA3CT9c77cVxpI0Aw1THWKfO0ix3kqwKjrY080rCg1PeHQYmCMpmM52xd1LwY21",
+      "tokenEndpoint": "https://api-ut.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    }
+  },
+  "timeout": {
+    "seconds": 30
+  }
+}

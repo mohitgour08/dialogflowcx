@@ -1,0 +1,89 @@
+{
+  "name": "d822baca-34e3-4bf9-a29b-83cddc5dfaec",
+  "displayName": "ProductSpeedCalculation",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "($session.params.networkType = \"BPON\" OR $session.params.networkType = \"XGSPON\") AND $session.params.ProvisioningSpeed \u003c= \"500\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SpeedExpected",
+        "value": "$sys.func.MULTIPLY($session.params.ProvisioningSpeed, 0.95)"
+      }, {
+        "parameter": "Metrics_SpeedTest_ProductSpeedCalculation_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "SpeedTestAndProvisioningCheck",
+    "name": "289ac6b2-fe4b-4b62-8531-ada12881e970"
+  }, {
+    "condition": "($session.params.networkType = \"BPON\" OR $session.params.networkType = \"XGSPON\") AND ($session.params.ProvisioningSpeed \u003e= \"1000\" OR $session.params.ProvisioningSpeed \u003c= \"2000\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SpeedExpected",
+        "value": "$sys.func.MULTIPLY($session.params.ProvisioningSpeed, 0.80)"
+      }, {
+        "parameter": "Metrics_SpeedTest_ProductSpeedCalculation_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "SpeedTestAndProvisioningCheck",
+    "name": "6bd92d19-b2b0-4c91-9505-ea3fb40d0a7e"
+  }, {
+    "condition": "($session.params.networkType = \"Copper\" OR $session.params.networkType = \"GPON\") AND $session.params.ProvisioningSpeed \u003c= \"1000\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SpeedExpected",
+        "value": "$sys.func.MULTIPLY($session.params.ProvisioningSpeed, 0.80)"
+      }, {
+        "parameter": "Metrics_SpeedTest_ProductSpeedCalculation_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "SpeedTestAndProvisioningCheck",
+    "name": "b302ecaf-10dc-4776-8c85-a6c25e9273d8"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_ProductSpeedCalculation_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "UnableToConnectService",
+    "name": "520f96e6-14d8-498e-959f-27bf3454c5dd"
+  } ]
+}

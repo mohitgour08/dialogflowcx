@@ -1,0 +1,23 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "Are there any additional monthly fees or hidden charges?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Are there any additional hidden fees or monthly charges ?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "What additional fees should I be aware of?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

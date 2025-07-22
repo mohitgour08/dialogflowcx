@@ -1,0 +1,88 @@
+{
+  "name": "5ddca0bf-8ecc-452b-9ef0-608219e70f11",
+  "displayName": "CheckPastDue",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "CreditAmount",
+      "value": "$sys.func.MID($session.params.MigCopperPastDueAmount, 1, 1)"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.MigCopperPastDueAmount = \"0\" OR $session.params.MigCopperPastDueAmount = \"0\\.0\" OR $session.params.MigCopperPastDueAmount = \"0\\.00\" OR $session.params.MigCopperPastDueAmount \u003c \"0\" OR $session.params.MigCopperPastDueAmount = \"\" OR $session.params.MigCopperPastDueAmount = \"0\\.00\" OR $session.params.CreditAmount = \"-\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_CheckPastDue_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckOverdue",
+    "name": "8f2d3d75-6a08-412b-8518-d6d82f97ecc5"
+  }, {
+    "condition": "$session.params.MigCopperPastDueAmount != \"0\\.0\" OR $session.params.MigCopperPastDueAmount != \"0\\.00\" OR $session.params.MigCopperPastDueAmount != \"0\" OR $session.params.MigCopperPastDueAmount \u003e \"0\" OR $session.params.MigCopperPastDueAmount != 0.00 OR $session.params.CreditAmount != \"-\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I see your account has a past due balance of $$session.params.BillInfo_PastDueAmount and a total balance of $$session.params.TotalBalance." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I see your account has a past due balance of $$session.params.BillInfo_PastDueAmount and a total balance of $$session.params.TotalBalance ." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_CheckPastDue_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ReadPlans",
+    "name": "802e03ac-2772-4a31-a50f-f20678caf547"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PaymentArrangementEnrollment_CheckPastDue_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckOverdue",
+    "name": "a18d885f-26b8-4b10-813f-889b3176819b"
+  } ]
+}

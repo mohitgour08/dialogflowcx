@@ -1,0 +1,102 @@
+{
+  "name": "44d4f968-d517-4fa2-a72d-5573b6fc086d",
+  "displayName": "Check4GLTE",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType != \"4GLTE\" AND $session.params.ToModule = \"BalanceInquiryOrMakePayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Check4GLTE_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckFiberEligibility",
+    "name": "5c2546ee-c5cd-4bed-933c-3488a4f78527"
+  }, {
+    "condition": "$session.params.networkType != \"4GLTE\" AND ($session.params.ComingFromState = \"RouteToAgent\" OR $session.params.comingfromstate = \"RouteToAgent\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Check4GLTE_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "self service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "agent transfer flow"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "9ce9121c-dbc7-48b7-8f0f-d5da46f40e3d"
+  }, {
+    "condition": "$session.params.networkType != \"4GLTE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Check4GLTE_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckFiberEligibility",
+    "name": "78558e9e-2b4f-46c5-8a80-6510c15475d7"
+  }, {
+    "condition": "$session.params.networkType = \"4GLTE\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm going to send you to an agent now for more help." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_Check4GLTE_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "self service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Network 4GLTE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "6ef5babf-a1f0-4dda-a9ea-4e4282917afe"
+  } ]
+}

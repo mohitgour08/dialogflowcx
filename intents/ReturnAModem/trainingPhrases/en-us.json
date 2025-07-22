@@ -1,0 +1,49 @@
+{
+  "trainingPhrases": [ {
+    "id": "1ac47073-d8b5-436f-8fdf-d8b22948c87f",
+    "parts": [ {
+      "text": "How to ",
+      "auto": true
+    }, {
+      "text": "Return my Modem",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d32e0bd0-e6d8-4974-ada9-629cb1a67627",
+    "parts": [ {
+      "text": "I want to ",
+      "auto": true
+    }, {
+      "text": "Return my Modem",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0a4ea9b3-5b36-4c6e-9e84-6554bb7369d7",
+    "parts": [ {
+      "text": "Return my Modem",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6c6b7e47-c3e7-4635-929c-9a84789d0f9a",
+    "parts": [ {
+      "text": "Return Modem",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4c4ec670-e964-4db8-999f-a0f66ef83c4d",
+    "parts": [ {
+      "text": "Return a Modem",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

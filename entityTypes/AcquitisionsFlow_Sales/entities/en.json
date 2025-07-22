@@ -1,0 +1,19 @@
+{
+  "entities": [ {
+    "value": "Change or modify My services",
+    "synonyms": [ "change my services", "Change or Modify my service", "Change or Modify My Services", "change or modify services", "change service ", "I want to change my services", "I want to modify my services ", "modify my services ", "modify service" ],
+    "languageCode": "en"
+  }, {
+    "value": "Move my Service",
+    "synonyms": [ "Can you please move my service", "Move my Service", "move service" ],
+    "languageCode": "en"
+  }, {
+    "value": "Question about pending order",
+    "synonyms": [ "I want to know about pending order", "Question about pending order", "Question About Pending Order" ],
+    "languageCode": "en"
+  }, {
+    "value": "Speak with Agent",
+    "synonyms": [ "Agent", "representative", "Speak with Agent" ],
+    "languageCode": "en"
+  } ]
+}

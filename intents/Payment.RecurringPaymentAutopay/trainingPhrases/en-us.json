@@ -1,0 +1,796 @@
+{
+  "trainingPhrases": [ {
+    "id": "91bcd980-4a48-410e-965d-89ae32493951",
+    "parts": [ {
+      "text": "Pay"
+    }, {
+      "text": " automatically"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0aee300a-ddd4-43f1-b7a9-30b09d9da7b8",
+    "parts": [ {
+      "text": "Setup "
+    }, {
+      "text": "auto bill pay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fc2c05f7-ff30-48c3-982d-7b7e0e2273ee",
+    "parts": [ {
+      "text": "Autopay on my "
+    }, {
+      "text": "QF"
+    }, {
+      "text": " account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1fcd6fa3-2bc7-4c01-90b7-6111d24f78ac",
+    "parts": [ {
+      "text": "Autopay on my "
+    }, {
+      "text": "Century Link"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9a6d322b-7a4a-489b-bb52-46e83f0e8ce4",
+    "parts": [ {
+      "text": "Autopay on my "
+    }, {
+      "text": "brightspeed"
+    }, {
+      "text": " account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c3f742ba-8e53-4511-94f6-3bc74518e8c1",
+    "parts": [ {
+      "text": "I'm trying to check on the amount of autopay set up on my  mothers "
+    }, {
+      "text": "CLink"
+    }, {
+      "text": " account."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "054deb79-ed6a-4a6f-b1b7-1439d5ebd1d9",
+    "parts": [ {
+      "text": "i want to set up "
+    }, {
+      "text": "auto pay through my"
+    }, {
+      "text": " "
+    }, {
+      "text": "bank"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4e1aff86-e304-4fa2-b856-c4b8cbb74919",
+    "parts": [ {
+      "text": "I want to have my "
+    }, {
+      "text": "account"
+    }, {
+      "text": " automatically "
+    }, {
+      "text": "pay my bill"
+    }, {
+      "text": " for me"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d5a7a0cf-c15b-4ab1-912c-deafab71f12f",
+    "parts": [ {
+      "text": "I want to know will my payment be"
+    }, {
+      "text": " draft automatically are "
+    }, {
+      "text": "will I need to make a payment"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0127d7e4-8bb9-49bc-87d9-d57fe0daab88",
+    "parts": [ {
+      "text": "I set up to have auto pay "
+    }, {
+      "text": "and received an email saying I'd"
+    }, {
+      "text": " hear back in "
+    }, {
+      "text": "10"
+    }, {
+      "text": " "
+    }, {
+      "text": "days"
+    }, {
+      "text": " "
+    }, {
+      "text": "if it did or did not go through, I"
+    }, {
+      "text": " never "
+    }, {
+      "text": "received an email"
+    }, {
+      "text": " "
+    }, {
+      "text": "either way"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3afdfd11-20d1-4c70-a148-c7d2613afd9c",
+    "parts": [ {
+      "text": "I can't tell if my automatic "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " "
+    }, {
+      "text": "is set up to go through for this"
+    }, {
+      "text": " "
+    }, {
+      "text": "billing cycle"
+    }, {
+      "text": " or if I need to make "
+    }, {
+      "text": "the one time payment"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "df658580-c546-4e83-8308-4cde74101d54",
+    "parts": [ {
+      "text": "how do i know what date my"
+    }, {
+      "text": " auto "
+    }, {
+      "text": "pay"
+    }, {
+      "text": " "
+    }, {
+      "text": "comes out of my"
+    }, {
+      "text": " "
+    }, {
+      "text": "account"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9a479196-4fbb-4a25-b8b7-2f4896458b96",
+    "parts": [ {
+      "text": "auto pay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3f211a97-1294-4841-88ca-c53c229a63f4",
+    "parts": [ {
+      "text": "Does "
+    }, {
+      "text": "brightspeed"
+    }, {
+      "text": " charge a convenience fee for paying bill by credit card through automated system?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b0304708-8170-4d83-b063-15da16ec8f84",
+    "parts": [ {
+      "text": "Can I have automatic "
+    }, {
+      "text": "payments"
+    }, {
+      "text": " "
+    }, {
+      "text": "taken from my"
+    }, {
+      "text": " debit card?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "35209cfe-ae61-43f2-81e9-5b4acac3cc62",
+    "parts": [ {
+      "text": "Can I have automatic "
+    }, {
+      "text": "payments"
+    }, {
+      "text": " taken "
+    }, {
+      "text": "from my credit card?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0ae7efc9-54ff-4994-8868-716322a95efd",
+    "parts": [ {
+      "text": "Setup Auto Debit"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "acd4b7e3-8b56-49cd-ab4d-8cc2c6692355",
+    "parts": [ {
+      "text": "Questions"
+    }, {
+      "text": " "
+    }, {
+      "text": "about Auto debit"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "4cb2e09c-d384-48ee-9272-a8d6f7e66ff2",
+    "parts": [ {
+      "text": "procedure for setting up "
+    }, {
+      "text": "auto-debit for my"
+    }, {
+      "text": " "
+    }, {
+      "text": "bills"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5fee7744-ef0a-4127-bc8a-7951d8eab3be",
+    "parts": [ {
+      "text": "automate "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "31262e04-d837-47f5-b661-e75e21a032f8",
+    "parts": [ {
+      "text": "automatic "
+    }, {
+      "text": "payment"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b5e88a8d-2bb0-486c-bd0e-2f35acc0e87f",
+    "parts": [ {
+      "text": "initiate an"
+    }, {
+      "text": " automatic "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "596cc322-5445-4f3a-8964-d613ecb90a70",
+    "parts": [ {
+      "text": "Is there "
+    }, {
+      "text": "a way"
+    }, {
+      "text": " to establish a standing "
+    }, {
+      "text": "order"
+    }, {
+      "text": " for "
+    }, {
+      "text": "my bills"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2b4398b2-c670-4faa-9aa0-fcf61a90d0ee",
+    "parts": [ {
+      "text": "automatic "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " plan"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7bbefae1-ff74-40d3-8523-1ee607635faa",
+    "parts": [ {
+      "text": "establish a standing "
+    }, {
+      "text": "order"
+    }, {
+      "text": " for "
+    }, {
+      "text": "my bills"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ae123e74-0f7f-44ae-b8fa-ef6517d4b05f",
+    "parts": [ {
+      "text": "schedule"
+    }, {
+      "text": " "
+    }, {
+      "text": "regular payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a13772ac-7db9-4116-9c4e-9943e7d15a68",
+    "parts": [ {
+      "text": "automatic "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "391701b4-7a75-459f-83e8-0f6a159f812c",
+    "parts": [ {
+      "text": "Automated "
+    }, {
+      "text": "payments"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "24f37f0a-f872-4e53-9998-4512c2d87664",
+    "parts": [ {
+      "text": "Auto pay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c0617708-a031-4b10-aafd-ae8f638aab88",
+    "parts": [ {
+      "text": "Autopay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e9135037-2bc8-444b-8003-16a2ac9bbc97",
+    "parts": [ {
+      "text": "Convenient way of paying"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "037b8eab-a22a-450e-8f7c-63dbf2179334",
+    "parts": [ {
+      "text": "Brightspeed"
+    }, {
+      "text": " Auto Pay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7c0baba9-4ce5-4e8a-a222-fe9ab94b989a",
+    "parts": [ {
+      "text": "I'm on autopay, but "
+    }, {
+      "text": "I need to change my payment information."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a792caaf-80ed-4b52-af79-2405230ae342",
+    "parts": [ {
+      "text": "My "
+    }, {
+      "text": "bank"
+    }, {
+      "text": " account "
+    }, {
+      "text": "information has changed, and I need to update my"
+    }, {
+      "text": " autopay "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " information"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e1ee1630-94c0-4887-8d67-8946517e94af",
+    "parts": [ {
+      "text": "I need to suspend my"
+    }, {
+      "text": " autopay service for "
+    }, {
+      "text": "a month"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "67e4a6bb-1bb1-40a1-891c-66e5d4269054",
+    "parts": [ {
+      "text": "I need to reinstate my"
+    }, {
+      "text": " autopay service."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0d1be894-6556-4b24-8ac2-245643ef8d07",
+    "parts": [ {
+      "text": "My "
+    }, {
+      "text": "bank"
+    }, {
+      "text": " account "
+    }, {
+      "text": "information has changed, and I need to update my"
+    }, {
+      "text": " autopay "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " information."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "48eafa02-fd0a-46e5-82c4-2e23d120ef69",
+    "parts": [ {
+      "text": "I have a new credit card, and I need to"
+    }, {
+      "text": " update my autopay "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " information."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "742ccd5c-159b-41fe-8637-ba3f8047337a",
+    "parts": [ {
+      "text": "When will my next"
+    }, {
+      "text": " autopay "
+    }, {
+      "text": "payment be processed?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a2aa2fcc-b99b-4852-90ee-ef1e29731131",
+    "parts": [ {
+      "text": "How do I enable or disable autopay?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0428891e-fb73-4cec-a297-4f5330657cbd",
+    "parts": [ {
+      "text": "Can I change my autopay "
+    }, {
+      "text": "payment method?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "91f4efda-a379-44ef-b68a-7fde024dba82",
+    "parts": [ {
+      "text": "What are the benefits of"
+    }, {
+      "text": " using autopay?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d021fa98-062f-40e6-a925-dd2862f0e3b0",
+    "parts": [ {
+      "text": "Are there any "
+    }, {
+      "text": "fees"
+    }, {
+      "text": " associated with autopay?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9f6411c8-d201-4cae-86fd-bf0202b2ae01",
+    "parts": [ {
+      "text": "How do I cancel my autopay service?"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "04dff4bb-63a2-4453-8a9c-67952bda27eb",
+    "parts": [ {
+      "text": "Can you tell me more about autopay?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "991e3daa-95e2-4cc7-a395-4bf2bc44b4cc",
+    "parts": [ {
+      "text": "I'd like to learn more about autopay."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c9541517-ab05-4dac-b583-4e26c7190f8b",
+    "parts": [ {
+      "text": "What are the different AutoPay "
+    }, {
+      "text": "payment methods"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7292a2ff-2b3a-46a3-b9c0-b2182dc069ba",
+    "parts": [ {
+      "text": "When will "
+    }, {
+      "text": "my first"
+    }, {
+      "text": " AutoPay "
+    }, {
+      "text": "payment be processed?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "87123d11-8152-420e-a1e3-84e6b22429cb",
+    "parts": [ {
+      "text": "Do I need to do anything"
+    }, {
+      "text": " "
+    }, {
+      "text": "special to sign up for"
+    }, {
+      "text": " AutoPay?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "52e6106d-af80-402a-983e-c8cb1ec9561a",
+    "parts": [ {
+      "text": "How can I "
+    }, {
+      "text": "sign up"
+    }, {
+      "text": " for AutoPay "
+    }, {
+      "text": "online"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c44a358c-3183-48b9-b382-6dc77677935a",
+    "parts": [ {
+      "text": "What are the benefits of"
+    }, {
+      "text": " "
+    }, {
+      "text": "AutoPay"
+    }, {
+      "text": "?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2fd0d897-9657-4bc0-b59c-02a06a8669be",
+    "parts": [ {
+      "text": "I want to switch to AutoPay "
+    }, {
+      "text": "payments"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "95809805-e02c-46be-a0d0-fa8572514c06",
+    "parts": [ {
+      "text": "Tell me more about AutoPay and how I can "
+    }, {
+      "text": "sign up"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0d0fb326-9a58-4303-b4b3-6d00ec356666",
+    "parts": [ {
+      "text": "I'm interested in signing up for"
+    }, {
+      "text": " AutoPay."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2c5971bb-4546-49a2-9438-748a4cf71946",
+    "parts": [ {
+      "text": "Please "
+    }, {
+      "text": "activate"
+    }, {
+      "text": " my AutoPay service."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2f5132d0-a987-4505-978c-eeea8c2094c8",
+    "parts": [ {
+      "text": "I'd like to "
+    }, {
+      "text": "sign up"
+    }, {
+      "text": " for AutoPay, please."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "47083399-2760-473d-a017-702a24ce607c",
+    "parts": [ {
+      "text": "Can you please sign me up for AutoPay?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1075753f-1421-4619-8231-b1c7bc918150",
+    "parts": [ {
+      "text": "I'm having trouble signing up for"
+    }, {
+      "text": " "
+    }, {
+      "text": "AutoPay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8d23812e-c1bd-420a-b01e-2e836d3dbc86",
+    "parts": [ {
+      "text": "I"
+    }, {
+      "text": "'m "
+    }, {
+      "text": "not"
+    }, {
+      "text": " sure how to "
+    }, {
+      "text": "activate"
+    }, {
+      "text": " AutoPay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e197d887-4ed2-4ddb-9406-a2f448fd8052",
+    "parts": [ {
+      "text": "I need help"
+    }, {
+      "text": " "
+    }, {
+      "text": "signing up"
+    }, {
+      "text": " for AutoPay."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ac58570f-bcdf-4a08-a99b-a46d53d01b96",
+    "parts": [ {
+      "text": "I want to sign up for AutoPay service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "55a3114f-f24b-4fa1-9691-d2cdb8e4c27d",
+    "parts": [ {
+      "text": "I have "
+    }, {
+      "text": "questions"
+    }, {
+      "text": " regarding autopay"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "35706468-6388-4f45-9fd4-186ab0b202a5",
+    "parts": [ {
+      "text": "Can you explain "
+    }, {
+      "text": "the terms and conditions"
+    }, {
+      "text": " related to the autopay service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2a079394-59b6-4a0f-9fe2-7961a2d0fed6",
+    "parts": [ {
+      "text": "I am on autopay "
+    }, {
+      "text": "service . I want to update my"
+    }, {
+      "text": " "
+    }, {
+      "text": "payment"
+    }, {
+      "text": " information."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6e08e516-0961-461a-a666-80f2c5f9b2d3",
+    "parts": [ {
+      "text": "I have questions regarding autopay service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "aa178130-8d0c-480e-a13d-da984542f9b5",
+    "parts": [ {
+      "text": "I have "
+    }, {
+      "text": "questions"
+    }, {
+      "text": " "
+    }, {
+      "text": "regarding brightspeed"
+    }, {
+      "text": " "
+    }, {
+      "text": "autopay"
+    }, {
+      "text": " service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1df1d524-4e1e-4064-9f0d-c17ad9ee8560",
+    "parts": [ {
+      "text": "autopay service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e1af4666-26d6-4b76-8c81-c71ac77ac5ad",
+    "parts": [ {
+      "text": "I want to know about autopay service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "258e0cc1-d334-4814-ac4b-d648af60d4eb",
+    "parts": [ {
+      "text": "recurring "
+    }, {
+      "text": "payment"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

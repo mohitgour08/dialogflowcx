@@ -1,0 +1,278 @@
+{
+  "name": "d693b405-17ce-4e4a-8dbb-d3e802730f9e",
+  "displayName": "ChatIsComingFromCart",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.contactEngine != \"$session\\.params\\.CE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ContactEngineTransfer",
+    "name": "116ecf26-b5e9-48d9-95b3-496ccc8cc8af"
+  }, {
+    "condition": "$session.params.ChatReason = TopLeftCorner OR $session.params.ChatReason = BrowserBar OR $session.params.ChatReason = Inactivity OR $session.params.ChatReason = RageClicking OR $session.params.ChatReason = SwipeRight",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "EcomChatPopUp",
+    "name": "e2e26ce8-d005-42c5-a49f-dd00d711ccda"
+  }, {
+    "condition": "$session.params.url != null AND $session.params.url != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "URL1",
+        "value": "$session.params.url"
+      }, {
+        "parameter": "SMB1",
+        "value": "$sys.func.GET($sys.func.SPLIT($session.params.URL1, \"enterprise-form/\"),0)"
+      }, {
+        "parameter": "changedURL1",
+        "value": "$sys.func.CONCATENATE($session.params.SMB1,\"enterprise-form/\")"
+      }, {
+        "parameter": "SMB2",
+        "value": "$sys.func.GET($sys.func.SPLIT($session.params.URL1, \"small-business-form/\"),0)"
+      }, {
+        "parameter": "changedURL2",
+        "value": "$sys.func.CONCATENATE($session.params.SMB2,\"small-business-form/\")"
+      }, {
+        "parameter": "SMB3",
+        "value": "$sys.func.GET($sys.func.SPLIT($session.params.URL1, \"order\"),0)"
+      }, {
+        "parameter": "changedURL3",
+        "value": "$sys.func.CONCATENATE($session.params.SMB3,\"order\")"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "966b538c-208b-477c-bc58-06f82128e825"
+  }, {
+    "condition": "$session.params.changedURL1 = $session.params.SMB_URL1 AND $session.params.changedURL1 != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "BusinessSales"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer came from Small Business URL 1"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "cbee50c1-c002-4d06-a3bd-8f67f7e72570"
+  }, {
+    "condition": "$session.params.changedURL2 = $session.params.SMB_URL2 AND $session.params.changedURL2 != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "BusinessSales"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer came from Small Business URL 2"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "02c86b6f-ceb0-450a-ac16-ec9df49d4a58"
+  }, {
+    "condition": "$session.params.changedURL3 = $session.params.SMB_URL3 AND $session.params.changedURL3 != null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "BusinessSales"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer came from Small Business URL 3"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "72e49223-06e6-4ddd-aff4-0101b418944b"
+  }, {
+    "condition": "$session.params.chatOrigin = \"Hub\" OR $session.params.chatOrigin = \"hub\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "Route_BusinessCare",
+    "name": "5fc8714a-3bd5-4ff5-9b1c-d6f133457e13"
+  }, {
+    "condition": "$session.params.hint = null",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckForOutageDynamicMsg",
+    "name": "dd01b9e6-0d6f-4ac4-a321-587e65e0b6de"
+  }, {
+    "condition": "$session.params.hints = \"Chat is coming from Cart\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "cdbd2f54-af07-42c5-b580-b807946c6c06"
+  }, {
+    "condition": "$session.params.hints = \"Forgot Password\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ForgotPasswordOption",
+    "name": "0a6e1a2c-bc0c-4aef-989b-a8a375573848"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckForOutageDynamicMsg",
+    "name": "a32d8f4d-c752-49aa-8a01-266e0ccf4a49"
+  }, {
+    "condition": "$session.params.hints = \"LearnAboutTaxesFeesAndSurcharges\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "72621678-2657-47f1-b127-f2f0306db715"
+  }, {
+    "condition": "$session.params.hints = \"OneTimeCharges\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_9",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "50cdc3da-ec38-429b-a788-e248bdc97ae3"
+  }, {
+    "condition": "$session.params.hints = \"FinalBill\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_10",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "b78b85e1-5263-4f4c-a0a6-910b30ed4067"
+  }, {
+    "condition": "$session.params.hints = \"First Bill\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_ChatIsComingFromCart_11",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "8284dc61-9348-4cc3-a0e1-ec682130784c"
+  }, {
+    "condition": "$session.params.hints = \"Bill Copy\"",
+    "triggerFulfillment": {
+    
+    },
+    "name": "f613765d-79d2-4c49-8105-b3f0ce4c1ca4"
+  }, {
+    "condition": "$session.params.hints = \"Late Fees\"",
+    "triggerFulfillment": {
+    
+    },
+    "name": "090747ee-32f0-49ed-88c8-fe6d606def44"
+  }, {
+    "condition": "$session.params.hints = \"GetAccountNumber\"",
+    "triggerFulfillment": {
+    
+    },
+    "name": "04cb5e09-0aa9-46ca-a969-037a835262e3"
+  }, {
+    "condition": "$session.params.hints = \"OnlineAccountSetup\"",
+    "triggerFulfillment": {
+    
+    },
+    "name": "9f98cfc9-cd54-424c-a812-15a3b2abd0b2"
+  }, {
+    "condition": "$session.params.hints = \"Forgot Username\"",
+    "triggerFulfillment": {
+    
+    },
+    "name": "36cc150c-3582-4331-8f9e-e94823077b0b"
+  }, {
+    "condition": "$session.params.hints = \"CallingFeatures\"",
+    "triggerFulfillment": {
+    
+    },
+    "name": "599c2f7b-8ff3-41fa-8bfa-d9032ef56be4"
+  } ]
+}

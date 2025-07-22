@@ -1,0 +1,50 @@
+{
+  "name": "b8a7ad39-1a2c-443d-bab8-6fe677d09eb0",
+  "displayName": "ReturnDeviceVoiceOrChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_ReturnDeviceVoiceOrChat_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ReturnDeviceChat",
+    "name": "36e39895-e576-4540-be37-a2a51e7f35e5"
+  }, {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_ReturnDeviceVoiceOrChat_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ReturnDeviceVoice",
+    "name": "de7e0821-2b24-4a24-92b0-00cf5ed3c25e"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ServiceManagement_ReturnDeviceVoiceOrChat_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_ReturnDevice",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "d1e26b67-67e7-4907-ba6b-e2dc0c612f47"
+  } ]
+}

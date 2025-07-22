@@ -1,0 +1,58 @@
+{
+  "name": "bd40d34d-8e93-4d91-9200-c9322a318623",
+  "displayName": "PODeliveryStatus",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ModemDeliveryStatus = \"Delivered\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_PODeliveryStatus_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POModemDelivered",
+    "name": "2423a4ab-ee47-4681-84b7-1a87abac0537"
+  }, {
+    "condition": "$session.params.ModemDeliveryStatus = \"OnTheWay\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_PODeliveryStatus_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POModemOnTheWay",
+    "name": "23976428-e43a-4133-ab1a-5bdadff7d6d2"
+  }, {
+    "condition": "$session.params.ModemDeliveryStatus = \"Delivered\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_PODeliveryStatus_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POModemDeliveredVoice",
+    "name": "4139d77d-6c8d-478d-a5c4-1473124fb4c0"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_PODeliveryStatus_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POModemInProgress",
+    "name": "a1f41889-abde-4522-97b1-6814bac15dfa"
+  } ]
+}

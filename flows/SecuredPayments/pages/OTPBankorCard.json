@@ -1,0 +1,77 @@
+{
+  "name": "1c97f7c9-049d-4570-ad93-f217ba9bbef8",
+  "displayName": "OTPBankorCard",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.OTPPaymentType = \"B\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_OTPBankorCard_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType_Backup",
+        "value": "$session.params.PaymentType"
+      }, {
+        "parameter": "PaymentType",
+        "value": "ACH"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "Checking"
+      }, {
+        "parameter": "AccountNoRetry",
+        "value": "false"
+      }, {
+        "parameter": "encFields",
+        "value": "#field_routingNumber#field_bankAccountNumber"
+      } ]
+    },
+    "targetPage": "GetTokenAPIBankChat",
+    "name": "fa1a3af6-1eae-4404-8203-43febdb8b4d5"
+  }, {
+    "condition": "$session.params.OTPPaymentType = \"C\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_OTPBankorCard_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PaymentType_Backup",
+        "value": "$session.params.PaymentType"
+      }, {
+        "parameter": "PaymentType",
+        "value": "Card"
+      }, {
+        "parameter": "PaymentMethodKind",
+        "value": "CreditCard"
+      }, {
+        "parameter": "CardNoRetry",
+        "value": "false"
+      }, {
+        "parameter": "encFields",
+        "value": "#field_creditCardNumber#field_cardSecurityCode#field_creditCardExpirationMonth#field_creditCardExpirationYear"
+      } ]
+    },
+    "targetPage": "GetTokenAPICardChat",
+    "name": "eb9e0e94-033f-4f37-911c-687077bd0edf"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_OTPBankorCard_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SecuredPayments-OTPBankorCard,PaymentTypeUnknown"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "511a20f2-1063-41e2-a14b-075773262e90"
+  } ]
+}

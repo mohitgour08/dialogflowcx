@@ -1,0 +1,45 @@
+{
+  "name": "b2952508-4269-4648-9130-8bc76222e7a2",
+  "displayName": "NoUserInput",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "It seems we may have gotten disconnected. Please call back any time for further assistance. Have a great day and thank you for calling Brightspeed! " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e It seems we may have gotten disconnected. Please call back any time for further assistance. Have a great day and thank you for calling Brightspeed! \u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_NoUserInput_1",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "SS_GeneralTroubleshooting",
+      "value": "Failure"
+    }, {
+      "parameter": "SS_ModemReboot",
+      "value": "Failure"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": "RetryLimitExceeded"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_NoUserInput_1",
+        "value": "\"\"\"$sys.func.TO_TEXT($sys.func.NOW())\""
+      } ]
+    },
+    "targetPage": "End Session",
+    "name": "7736526f-a42f-4c6d-bdb6-70872ae49fad"
+  } ]
+}

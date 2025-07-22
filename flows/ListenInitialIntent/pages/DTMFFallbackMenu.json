@@ -1,0 +1,265 @@
+{
+  "name": "f1b07c1b-3e47-4467-86d0-c6cc59c15cc6",
+  "displayName": "DTMFFallbackMenu",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "For billing and payment, press 1. For troubleshooting or outages, press 2. If you're calling about an existing repair appointment, press 3. To manage your account or services, press 4. For anything else, press 5. You can press 6 to repeat this message, or press 7 to go back to the main menu." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "DTMFFallbackMenu",
+      "value": "Yes"
+    }, {
+      "parameter": "DTMF_Option",
+      "value": "NA"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_DTMFFallbackMenu_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "ListenInitialIntent_DTMFFallbackMenu_1"
+      } ]
+    },
+    "targetPage": "BillingOrPaymentMenu",
+    "name": "c63142ab-0a41-4592-8553-5ca817626f60"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_DTMFFallbackMenu_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "GeneralTroubleshooting"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "ListenInitialIntent_DTMFFallbackMenu_2"
+      } ]
+    },
+    "targetFlow": "Troubleshooting",
+    "name": "0762e793-6712-4bfb-92d4-c0453c1b6c77"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_DTMFFallbackMenu_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "ConfirmAppointmentStatus"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "ListenInitialIntent_DTMFFallbackMenu_3"
+      } ]
+    },
+    "targetFlow": "Troubleshooting",
+    "name": "7bbb8ae1-a7f2-49ae-a066-9e4e40e17205"
+  }, {
+    "intent": "DTMF_4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_DTMFFallbackMenu_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "ListenInitialIntent_DTMFFallbackMenu_4"
+      } ]
+    },
+    "targetPage": "AccountOrServiceManagementMenu",
+    "name": "c4d7501f-08ab-4769-afae-5b495ed161e8"
+  }, {
+    "intent": "DTMF_5",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_DTMFFallbackMenu_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "ListenInitialIntent_DTMFFallbackMenu_5"
+      }, {
+        "parameter": "TranferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Customer choose to speak with representative"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "c72dbd3b-3905-4e4c-b7a6-ec556ff8cfb8"
+  }, {
+    "intent": "DTMF_6",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RepeatAttempt",
+        "value": "$sys.func.ADD($session.params.RepeatAttempt,1)"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_DTMFFallbackMenu_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "ListenInitialIntent_DTMFFallbackMenu_6"
+      } ]
+    },
+    "targetPage": "RepeatCounterCheck",
+    "name": "44514914-52bb-4c7e-a327-1806d140e084"
+  }, {
+    "intent": "DTMF_7",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_DTMFFallbackMenu_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "ListenInitialIntent_DTMFFallbackMenu_7"
+      } ]
+    },
+    "targetPage": "FrontMainMenu",
+    "name": "fc93d158-749a-4b52-b67c-160f9e362a3a"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "callerintent",
+        "value": "representative"
+      }, {
+        "parameter": "ToModule",
+        "value": "RoutetoAgent"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_DTMFFallbackMenu_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "DTMFFallbackMenu"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "3ab0f911-729f-4f19-bb26-8229e1b0448b"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "For billing and payment, press 1. For troubleshooting or outages, press 2. If you're calling about an existing repair appointment, press 3. To manage your account or services, press 4. For anything else, press 5. You can press 6 to repeat this message, or press 7 to go back to the main menu." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_DTMFFallbackMenu_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "812b62bb-6cb7-47de-b3cc-6c987b84c10a"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "For billing and payment, press 1. For troubleshooting or outages, press 2. If you're calling about an existing repair appointment, press 3. To manage your account or services, press 4. For anything else, press 5. You can press 6 to repeat this message, or press 7 to go back to the main menu." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_DTMFFallbackMenu_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "b97533b5-fd79-453a-abfc-1fe711262aaf"
+  }, {
+    "targetPage": "End Session",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Thank you for calling Brightspeed! Please contact us again any time for further assistance." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "CallerStatus",
+        "value": "Abandoned"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_DTMFFallbackMenu_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Input",
+        "value": "Fail"
+      } ]
+    },
+    "name": "bf3fd1be-2a5c-4944-a80a-ad0c773a815b"
+  }, {
+    "targetPage": "End Session",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Thank you for calling Brightspeed! Please contact us again any time for further assistance." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_DTMFFallbackMenu_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "CallerStatus",
+        "value": "Abandoned"
+      }, {
+        "parameter": "DTMF_Input",
+        "value": "Fail"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "431c66d5-8866-467e-91b9-6a7febd85953"
+  } ]
+}

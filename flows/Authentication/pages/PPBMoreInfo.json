@@ -1,0 +1,146 @@
+{
+  "name": "d5640f42-e179-4ae9-b6a3-a037a1409e87",
+  "displayName": "PPBMoreInfo",
+  "form": {
+    "parameters": [ {
+      "displayName": "TN_BAN_temp",
+      "required": true,
+      "entityType": "@TN_BAN_PPB_voice",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "advancedSettings": {
+            "playbackInterruptionSettings": {
+              "allowPlaybackInterruption": true
+            }
+          }
+        },
+        "repromptEventHandlers": [ {
+          "targetPage": "validateAccountInfo",
+          "event": "sys.no-match-1",
+          "triggerFulfillment": {
+            "setParameterActions": [ {
+              "parameter": "Metrics_Authentication_PPBMoreInfo_NoMatch1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            }, {
+              "parameter": "TN_BAN",
+              "value": null
+            } ]
+          },
+          "name": "e46816f6-d3da-411d-8e8e-e79023101365"
+        }, {
+          "targetPage": "validateAccountInfo",
+          "event": "sys.no-input-1",
+          "triggerFulfillment": {
+            "setParameterActions": [ {
+              "parameter": "TN_BAN",
+              "value": null
+            }, {
+              "parameter": "TN_BAN_temp",
+              "value": null
+            }, {
+              "parameter": "Metrics_Authentication_askAccountInfoVoice_NoInput1",
+              "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+            } ]
+          },
+          "name": "5d845e5e-6165-4c69-965e-4d54b705f030"
+        } ]
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "If you know the phone number associated with this account, enter it now. If you'd like to authenticate using your account number, please replace the letters with a singular number 1. For example, P P B 4 5 would be 145. Please enter the account number in this format now." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "comingFromPPB",
+      "value": true
+    }, {
+      "parameter": "Metrics_Authentication_PPBMoreInfo",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Temp_TNBANPPB",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_temp",
+        "value": "$session.params.Temp_1"
+      }, {
+        "parameter": "Metrics_Authentication_PPBMoreInfo_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "f566e1ba-2dd8-4085-b713-da5d1d2d224e"
+  }, {
+    "condition": "$page.params.status = FINAL AND $sys.func.LEN($session.params.TN_BAN_temp) = 11",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN_temp1",
+        "value": "$session.params.TN_BAN_temp"
+      }, {
+        "parameter": "Metrics_Authentication_PPBMoreInfo_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "PPBTemp1",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.TN_BAN_temp1),4, 8)"
+      }, {
+        "parameter": "PPBTemp",
+        "value": "$sys.func.MID($sys.func.TO_TEXT($session.params.TN_BAN_temp),1, 3)"
+      } ]
+    },
+    "name": "80ae815d-56c4-4ffc-8f4c-1c2d46db10ac"
+  }, {
+    "condition": "$session.params.PPBTemp = \"PPB\" OR $session.params.PPBTemp = \"ppb\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$sys.func.CONCATENATE(\"1\",$sys.func.TO_TEXT($session.params.PPBTemp1))"
+      }, {
+        "parameter": "Metrics_Authentication_PPBMoreInfo_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "6f02b2c4-4d9a-4c2f-9453-59befe5e6c1b"
+  }, {
+    "condition": "$page.params.status = FINAL AND ($sys.func.LEN($session.params.TN_BAN) = 9 OR $sys.func.LEN($session.params.TN_BAN) = 10)",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PPBMoreInfo_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        }
+      }
+    },
+    "targetPage": "EmbargoSwitch",
+    "name": "a2a5afc2-af9d-49be-b089-cc7c2bf5a0a8"
+  }, {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "TN_BAN",
+        "value": "$session.params.TN_BAN_temp"
+      }, {
+        "parameter": "Metrics_Authentication_PPBMoreInfo_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+          "allowPlaybackInterruption": true
+        }
+      }
+    },
+    "targetPage": "validateAccountInfo",
+    "name": "c0fb1ed4-9048-4b7a-95e4-989edbc61883"
+  } ]
+}

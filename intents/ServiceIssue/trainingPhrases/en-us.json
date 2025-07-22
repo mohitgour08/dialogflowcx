@@ -1,0 +1,28 @@
+{
+  "trainingPhrases": [ {
+    "id": "ecc76efc-7f02-4137-a282-8b1acdf230ca",
+    "parts": [ {
+      "text": "Services are not working"
+    }, {
+      "text": " as expected"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "2a11eb3d-d90c-4d20-848d-af249ec764ff",
+    "parts": [ {
+      "text": "Service is "
+    }, {
+      "text": "not working"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7d47b456-06fd-42ee-aa5f-1613e58f4a5e",
+    "parts": [ {
+      "text": "Services are not working"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

@@ -1,0 +1,79 @@
+{
+  "name": "65d50abf-bc95-449f-b445-20f6f667bfd9",
+  "displayName": "AcquisitionFlow",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"voice\" AND ($session.params.Authentication = \"SUCCESS\" OR $session.params.Authentication = \"ACCTFOUND\" OR $session.params.Authentication = \"MULTIACCTFOUND\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_AcquisitionFlow_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SalesQuestionVoice",
+    "name": "8a3ba9e3-d3be-48dc-91ef-52ef8b0d4f50"
+  }, {
+    "condition": "$session.params.channel = \"voice\" AND ($session.params.Authentication = \"NO\" OR $session.params.Authentication = \"FAILED\")",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_AcquisitionFlow_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NewOrExistingAccountVoice",
+    "name": "bd3e0fcc-41d9-4146-a860-a47f0a97494c"
+  }, {
+    "condition": "$session.params.Authentication = \"SUCCESS\" OR $session.params.Authentication = \"ACCTFOUND\" OR $session.params.Authentication = \"MULTIACCTFOUND\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_AcquisitionFlow_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "SalesQuestion",
+    "name": "c0f6c24e-c5cc-4e30-a8e0-7e25ea6956e3"
+  }, {
+    "condition": "$session.params.Authentication = \"NO\" OR $session.params.Authentication = \"FAILED\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_AcquisitionFlow_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NewOrExistingCustomer",
+    "name": "244f8da6-fd25-4ff4-9408-32d3a90949f4"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_AcquisitionFlow_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "TransferReason",
+        "value": "\"\"No Condition Match - Default Route\"\""
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SalesManagement-AcquisitionFlow,AuthenticationStatusUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "2de88d8d-cc80-4b2f-94cb-fa17c5e342a5"
+  } ],
+  "description": "Authentication Check"
+}

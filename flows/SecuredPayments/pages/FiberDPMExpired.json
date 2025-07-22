@@ -1,0 +1,52 @@
+{
+  "name": "48512362-d86f-4cbf-88a5-83206883092a",
+  "displayName": "FiberDPMExpired",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "It looks like your default payment method ending in $session.params.CreditCardNumberLast4 has expired!  Let's use a different one. You will then have the option to save it as your new default." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e It looks like your default payment method ending in \u003csay-as interpret-as=\"verbatim\"\u003e $session.params.CreditCardNumberLast4 \u003c/say-as\u003e has expired!  Let's use a different one. You will then have the option to save it as your new default. \u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "DefaultPM_selected",
+      "value": null
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FiberDPMExpired_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberPay",
+    "name": "eaac26b4-1b57-4726-ae38-cd4838e67c54"
+  } ]
+}

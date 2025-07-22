@@ -1,0 +1,36 @@
+{
+  "name": "e388b57d-c8d9-4bd5-9f87-876bffc6f1d0",
+  "displayName": "CheckChannel",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CheckChannel_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "FAQ_Playbook",
+        "value": "Entry"
+      } ]
+    },
+    "name": "aa4e2dfb-a7a3-4864-849b-dbed32bb9aaa",
+    "targetPlaybook": "FAQ Chat Playbook"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_ListenInitialIntent_CheckChannel_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FrontMainMenu",
+    "name": "5c43c5d0-ed5b-4126-8f1a-83221c301106"
+  } ]
+}

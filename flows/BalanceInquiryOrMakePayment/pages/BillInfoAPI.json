@@ -1,0 +1,335 @@
+{
+  "name": "f8fa659c-78cd-4525-a76c-6f99baaed19b",
+  "displayName": "BillInfoAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\n  \u003caudio src=\"https://chatservices.brightspeed.com/audio/HoldMusic.wav\"\u003e\u003c/audio\u003e\n\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "webhook": "CCSZuoraService",
+    "tag": "CCSZuoraBillInformation",
+    "setParameterActions": [ {
+      "parameter": "Metrics_BillInfoAPI_CCSZuoraBillInformation_wh_CCSZuoraService",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowCancellation": true
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "returnPartialResponses": true,
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ZuoraResponseStatus = \"SUCCESS\" OR $session.params.ZuoraResponseStatus = \"Success\" OR $session.params.ZuoraResponseStatus = \"success\"",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "BillInfo",
+      "setParameterActions": [ {
+        "parameter": "BillInfo_LatestDueAmount",
+        "value": "$session.params.BillInfo_LatestDueAmount"
+      }, {
+        "parameter": "BillResponses",
+        "value": "$sys.func.COUNT($session.params.CCSZuoraResponse)"
+      }, {
+        "parameter": "BillInfo_ReturnStatus",
+        "value": "$sys.func.IF($session.params.BillResponses\u003e0,\"SUCCESS\",\"FAILURE\")"
+      }, {
+        "parameter": "AvailCreditBalance",
+        "value": "$sys.func.IF($session.params.BillInfo_LatestDueAmount\u003c0 AND $session.params.BillInfo_LatestDueAmount!=\"\",\"Y\",\"N\")"
+      }, {
+        "parameter": "Credit",
+        "value": "$sys.func.IF(\"$session.params.AvailCreditBalance:Y\",$sys.func.SUBSTITUTE($session.params.BillInfo_LatestDueAmount,\"-\",\"\"),\"0\")"
+      }, {
+        "parameter": "CurrentBalance",
+        "value": "$sys.func.MINUS($sys.func.TO_NUMBER($session.params.BillInfo_LatestDueAmount),$sys.func.TO_NUMBER($session.params.BillInfo_PastDueAmount))"
+      }, {
+        "parameter": "ExistingPA",
+        "value": "$sys.func.IF($session.params.PaymentArrangementEligibilityErrorCode:\"11002\" OR $session.params.PaymentArrangementEligibilityErrorCode:\"11008\",\"Y\",\"N\")"
+      }, {
+        "parameter": "ExpMon",
+        "value": "$session.params.ExpMon"
+      }, {
+        "parameter": "ExpYear",
+        "value": "$session.params.ExpYear"
+      }, {
+        "parameter": "BillInfo_BillDueDateBackUp",
+        "value": "$session.params.BillInfo_BillDueDate"
+      }, {
+        "parameter": "SS_BillinfoAPI",
+        "value": "Success"
+      }, {
+        "parameter": "BillInfo_LatestDueAmountBackup",
+        "value": "$session.params.BillInfo_LatestDueAmount"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillInfoAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "BillInfo_paymentAuthId",
+        "value": "$session.params.BillInfo_paymentAuthId"
+      }, {
+        "parameter": "MigratedCopperExistingPA",
+        "value": "$session.params.MigratedCopperExistingPA"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_BillInfoAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "CCSZuoraService"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "BillInfoStatus",
+    "name": "80cd6c2e-a410-4beb-9cef-8c3d88d65daf"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillInfoAPI_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "BillInfo_ReturnStatus",
+        "value": "NODATA"
+      }, {
+        "parameter": "SS_BillinfoAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BillInfoAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_BillInfoAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "CCSZuoraService"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "be71ee28-6c26-4c9f-ad0c-9a4c2e0438c3"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillInfoAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "BillInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_BillinfoAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BillInfoAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_BillInfoAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "CCSZuoraService"
+      } ]
+    },
+    "name": "e522028b-6029-4ed9-9a90-d80cade76d3e"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillInfoAPI_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "BillInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_BillinfoAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BillInfoAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_BillInfoAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "CCSZuoraService"
+      } ]
+    },
+    "name": "8d26c805-55f7-428b-bf40-691c1d0d3cbf"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillInfoAPI_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "BillInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_BillinfoAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BillInfoAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_BillInfoAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "CCSZuoraService"
+      } ]
+    },
+    "name": "1494f8ab-c856-4754-a65d-f4bea518cd74"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillInfoAPI_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "BillInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_BillinfoAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BillInfoAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_BillInfoAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "CCSZuoraService"
+      } ]
+    },
+    "name": "d55ab23d-6324-486a-8623-31017629057f"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillInfoAPI_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "BillInfo_ReturnStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SS_BillinfoAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BillInfoAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_BillInfoAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "CCSZuoraService"
+      } ]
+    },
+    "name": "0c114164-be80-4389-a044-a07b94f1c8a4"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_BalanceInquiryOrMakePayment_BillInfoAPI_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "SS_BillinfoAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BillInfoAPI"
+      }, {
+        "parameter": "API_BalanceInquiryOrMakePayment_BillInfoAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "CCSZuoraService"
+      } ]
+    },
+    "name": "266916a2-5010-4978-a0d9-c797b56f9836"
+  } ],
+  "description": "GET BILL INFO API "
+}

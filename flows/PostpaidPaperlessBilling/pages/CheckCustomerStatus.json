@@ -1,0 +1,69 @@
+{
+  "name": "03d24bb8-9991-413f-ab7b-10a0ec54334b",
+  "displayName": "CheckCustomerStatus",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaperlessIndicator = \"ZY\" AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_CheckCustomerStatus_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ExistingCustomer",
+        "value": "True"
+      }, {
+        "parameter": "SS_PostpaidPaperlessBilling",
+        "value": null
+      }, {
+        "parameter": "SS_PaperlessEnroll_updateEmail",
+        "value": "Failure"
+      } ]
+    },
+    "targetPage": "ExistingUser",
+    "name": "87125c83-6e04-4efb-b593-2a7721ce154f"
+  }, {
+    "condition": "$session.params.PaperlessIndicator = \"ZY\" AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_CheckCustomerStatus_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ExistingCustomer",
+        "value": "True"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "ExistingUserVoice",
+    "name": "a48b47b1-7eaf-4be9-a164-b15ccae3c3b5"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidPaperlessBilling_CheckCustomerStatus_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ExistingCustomer",
+        "value": "False"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "EnrollMenu",
+    "name": "2e76795b-3559-45ea-9a79-2fc79ba61d23"
+  } ]
+}

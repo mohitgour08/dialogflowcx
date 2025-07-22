@@ -1,0 +1,329 @@
+{
+  "trainingPhrases": [ {
+    "id": "a6fb61fe-46ec-4d1e-860a-26bc291b545f",
+    "parts": [ {
+      "text": "the service isn't available now.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b295010b-473a-4ded-bc8b-7019473b025f",
+    "parts": [ {
+      "text": "Service is out in my ",
+      "auto": true
+    }, {
+      "text": "home"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "072ebf51-2a82-44a8-9888-5d3cd542c5c4",
+    "parts": [ {
+      "text": "Our internet has been out for a while now. Just wondering if you had an eta",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "726391e7-55df-4e2a-875a-a1332dd1b0d0",
+    "parts": [ {
+      "text": "Internet outage in my ",
+      "auto": true
+    }, {
+      "text": "area"
+    }, {
+      "text": " all day",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "75e6ff00-8492-4271-96d3-de0535386745",
+    "parts": [ {
+      "text": "Are you able to provide an estimate on when internet will be restored to my location?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ceb64d5f-b5ba-450c-b642-efa1972476a4",
+    "parts": [ {
+      "text": "I am a former "
+    }, {
+      "text": "CenturyLink"
+    }, {
+      "text": " user. Is there an outage in the area"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "c7b3c70a-f51d-4caa-b5be-fe102f24091a",
+    "parts": [ {
+      "text": "My service is out for the second time "
+    }, {
+      "text": "this year",
+      "parameterId": "time-period"
+    } ],
+    "repeatCount": 2,
+    "languageCode": "en-us"
+  }, {
+    "id": "0834c785-8378-4663-a9c1-49dafddecb86",
+    "parts": [ {
+      "text": "Please check if their are any outage in my area"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3f40eb46-e84d-43ab-8eab-4c5a32612363",
+    "parts": [ {
+      "text": "I am getting Interruption in service on a daily basis",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "becdfe35-357a-45ab-8af7-034162062e3c",
+    "parts": [ {
+      "text": "I am facing so many disruption in my service"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "953a979c-86e9-4c92-b209-25419e570743",
+    "parts": [ {
+      "text": "I am daily getting "
+    }, {
+      "text": "atleast 2 hours",
+      "parameterId": "time-period"
+    }, {
+      "text": " of outage"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "52ea4d09-2085-4f48-95e3-d395c500b935",
+    "parts": [ {
+      "text": "I am facing constant service blackout",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a3fd24e1-2810-41f1-8350-be1005f35890",
+    "parts": [ {
+      "text": "my service has gone out.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0c08c5fc-3698-4c1f-a041-af94a530d312",
+    "parts": [ {
+      "text": "Our service keeps going out at "
+    }, {
+      "text": "250 Church Street, Wytheville, VA"
+    }, {
+      "text": ". "
+    }, {
+      "text": "24382",
+      "parameterId": "zip-code"
+    }, {
+      "text": "."
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5752fa6b-a42f-4a2f-9ac7-17adda286157",
+    "parts": [ {
+      "text": "My service has been interrupted",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6016e89f-50dc-4631-8435-58d11d100266",
+    "parts": [ {
+      "text": "I've lost service.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9286633a-c36b-48b5-96bc-6888359d85f6",
+    "parts": [ {
+      "text": "Why is my service out",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "63c14d80-979f-4741-8328-936da03af31d",
+    "parts": [ {
+      "text": "Hello my internet has been out "
+    }, {
+      "text": "since 10 am",
+      "parameterId": "time-period"
+    }, {
+      "text": " any idea why"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b061e076-e9d3-4958-bd7a-c8494dc13425",
+    "parts": [ {
+      "text": "I tried to see if there was any outages in my neighbourhood.\r\n"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "89116ed9-b0bd-4e96-8caf-9215a055cc53",
+    "parts": [ {
+      "text": "When will service be back on",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9e0fdc74-6bc7-4757-9b00-e5dd214f91aa",
+    "parts": [ {
+      "text": "I have no service at ",
+      "auto": true
+    }, {
+      "text": "this time",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7c1a915e-753b-4718-b12d-ff1aee764db3",
+    "parts": [ {
+      "text": "My fiber line was cut",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e5d8ac74-3681-432f-bfaf-eea8a8592f57",
+    "parts": [ {
+      "text": "Is your service down "
+    }, {
+      "text": "today",
+      "parameterId": "time-period"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "34a46fa2-8284-41ab-bf90-ac9ff4cd4b55",
+    "parts": [ {
+      "text": "how long can I expect this outage to last",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0fc529c7-6e07-4fd3-b44a-82f9b7080fd8",
+    "parts": [ {
+      "text": "internet blackout in my neighborhood",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8bc50da7-ee5b-442c-9bde-d9c1e43b1321",
+    "parts": [ {
+      "text": "Internet service outage",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ca0da2a1-81d4-4bab-86cd-b8660c01de80",
+    "parts": [ {
+      "text": "Is the network down? Please check outage",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f72f66a9-bf50-4ca3-9114-9a63f17ec47e",
+    "parts": [ {
+      "text": "Is there an outage in the city area",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f5915b94-f34a-40c6-8ee3-f2ec5aa20a34",
+    "parts": [ {
+      "text": "When is the estimate on outage being fixed?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b63c7b4b-4722-4a51-90bd-afc4ec272e73",
+    "parts": [ {
+      "text": "what is going on is there an outage?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "63a41140-756c-4695-9163-0daaf8f6f504",
+    "parts": [ {
+      "text": "We have outages consistently",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "59b9305a-c6d0-4b13-a5ad-c79a78f9aba5",
+    "parts": [ {
+      "text": "is there an outage in my locality?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "faa62f1f-ff36-401e-b672-1be1eb730727",
+    "parts": [ {
+      "text": "entire city is out of service. Do you know how long this will go on for?"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7f6f5d0a-993f-4144-aa49-b8a40460f798",
+    "parts": [ {
+      "text": "Service outage",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8e8903f1-b5b5-4881-b61c-515247abef34",
+    "parts": [ {
+      "text": "Service has been out in our area for "
+    }, {
+      "text": "a couple hours.",
+      "parameterId": "time-period"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b428b6ec-1bac-4bcf-ae29-f3ea66953642",
+    "parts": [ {
+      "text": "Outage in my area",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9ebb9b5e-6d6f-4356-af94-3f977fa3235f",
+    "parts": [ {
+      "text": "outage information",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "a70dd1ff-e6eb-4cf6-b644-89d95dbc2384",
+  "displayName": "AddUpdatePaymentMethodWrapperAPICardChat",
+  "genericWebService": {
+    "uri": "https://api-ut.brightspeed.com/ccsbrimservice/api/v2/payment/add-update-method",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"ucid\": \"$session.params.APICallID\",\n  \"networkType\": \"$session.params.networkType\",\n  \"ban\": \"$session.params.AccountNumber\",\n  \"street\": \"$session.params.BillingAddress_street\",\n  \"city\": \"$session.params.BillingAddress_city\",\n  \"state\": \"$session.params.BillingAddress_state\",\n  \"zip\": \"$session.params.BillingAddress_zip\",\n  \"cardHolderName\": \"$session.params.CustFullName\",\n  \"paymentType\": \"$session.params.PaymentType\",\n  \"paymentMethodKind\": \"$session.params.PaymentMethodKind\",\n  \"encFields\": \"$session.params.encFields\",\n  \"encValues\": \"$session.params.encValues\",\n  \"billingSystem\": \"$session.params.BillingSystem\"\n}",
+    "parameterMapping": [ {
+      "key": "UpdatePayment",
+      "value": "responseStatus"
+    }, {
+      "key": "UpdatePaymentErrorMessage",
+      "value": "responseBody.message"
+    }, {
+      "key": "paymentAuthId",
+      "value": "responseBody.paymentAuthId"
+    } ],
+    "oauthConfig": {
+      "clientId": "Wxq32hAc8gxpoxhatAxdU38UhD8kVmkK3C0MAPHlzCZBhhtZ",
+      "clientSecret": "dtA3CT9c77cVxpI0Aw1THWKfO0ix3kqwKjrY080rCg1PeHQYmCMpmM52xd1LwY21",
+      "tokenEndpoint": "https://api-ut.brightspeed.com/oauth/client_credential/accesstoken?grant_type=client_credentials",
+      "scopes": [ "read" ]
+    },
+    "serviceAgentAuth": "NONE"
+  },
+  "timeout": {
+    "seconds": 15
+  }
+}

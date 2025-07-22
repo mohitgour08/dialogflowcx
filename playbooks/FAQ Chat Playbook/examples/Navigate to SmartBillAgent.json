@@ -1,0 +1,41 @@
+{
+  "name": "ab0feba2-6d7d-4e45-95cd-ca3013c49208",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "How can I help you today?"
+    }
+  }, {
+    "userUtterance": {
+      "text": "why my bill is high"
+    }
+  }, {
+    "playbookInvocation": {
+      "playbook": "SmartBillAgent",
+      "playbookInput": {
+        "precedingConversationSummary": "Customer wants to know why their bill is high",
+        "actionParameters": {
+          "CurrentInvoice": {
+          
+          },
+          "PreviousInvoice": {
+          
+          }
+        }
+      },
+      "playbookOutput": {
+        "actionParameters": {
+        
+        }
+      }
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "why my bill is high"
+  },
+  "playbookOutput": {
+    "executionSummary": "-"
+  },
+  "displayName": "Navigate to SmartBillAgent",
+  "retrievalStrategy": "DEFAULT",
+  "languageCode": "en"
+}

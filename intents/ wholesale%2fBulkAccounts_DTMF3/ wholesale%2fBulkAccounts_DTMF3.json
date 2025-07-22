@@ -1,0 +1,11 @@
+{
+  "name": "1e1a4549-ea02-4d3a-b91a-29559faeb450",
+  "displayName": " wholesale/BulkAccounts_DTMF3",
+  "parameters": [ {
+    "id": "DTMF3",
+    "entityType": "@DTMF3"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 7,
+  "dtmfPattern": "^3$"
+}

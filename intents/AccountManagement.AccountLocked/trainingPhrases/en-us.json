@@ -1,0 +1,780 @@
+{
+  "trainingPhrases": [ {
+    "id": "f0fece1c-2b9c-487e-9a94-9346f5728eb6",
+    "parts": [ {
+      "text": "Account is locked",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "30d41dc2-d4e3-4b76-ae1e-57f5bc22d41f",
+    "parts": [ {
+      "text": "Account locked",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "81c1188c-cd7b-4c78-9184-dc836ab074a2",
+    "parts": [ {
+      "text": "Unlock Account",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e6ec1d41-620a-4fbd-87c1-f4bd9192e66b",
+    "parts": [ {
+      "text": "Can you take me to a page where i can ",
+      "auto": true
+    }, {
+      "text": "unlock my account",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "042380da-b339-4f46-866e-57dfa2cd56c7",
+    "parts": [ {
+      "text": "Can you explain the security measures in place when an ",
+      "auto": true
+    }, {
+      "text": "account is locked",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "9de9f25f-bb54-4613-93c7-0fcb0c5567b0",
+    "parts": [ {
+      "text": "I accidentally ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": " my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": ". Can you guide me through the ",
+      "auto": true
+    }, {
+      "text": "unlocking",
+      "auto": true
+    }, {
+      "text": " process?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "301f6df5-82f6-42cc-b205-e1b24ecfdab2",
+    "parts": [ {
+      "text": "I suspect ",
+      "auto": true
+    }, {
+      "text": "my account was locked",
+      "auto": true
+    }, {
+      "text": " due to a security breach. What steps should I take?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "338fd708-1094-49ed-8bbd-5f5017b7d93d",
+    "parts": [ {
+      "text": "Is there ",
+      "auto": true
+    }, {
+      "text": "a way",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "unlock my account",
+      "auto": true
+    }, {
+      "text": " without losing any data or settings?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "2b926179-9bd4-4a61-afc1-95e0e9187314",
+    "parts": [ {
+      "text": "My account is locked",
+      "auto": true
+    }, {
+      "text": ", and I need immediate access. What are my options?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7d9fdc6d-1fe4-4c59-a8e3-9362310da44d",
+    "parts": [ {
+      "text": "How can I contact customer support to ",
+      "auto": true
+    }, {
+      "text": "unlock my account",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ac35dffa-e526-4080-bd8e-96bfde309785",
+    "parts": [ {
+      "text": "I've followed the instructions, but my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " is still ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": ". What should ",
+      "auto": true
+    }, {
+      "text": "I do",
+      "auto": true
+    }, {
+      "text": " now?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8a6edea5-894c-4906-9289-70752ff39fc1",
+    "parts": [ {
+      "text": "Can you ",
+      "auto": true
+    }, {
+      "text": "unlock my account",
+      "auto": true
+    }, {
+      "text": " manually?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "504d2123-74f7-47f2-9e25-2c6da8d678a9",
+    "parts": [ {
+      "text": "How can I prevent my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " from getting ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": " in the future?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "0abcfb91-b65a-4eed-bec9-b7357e2f6f60",
+    "parts": [ {
+      "text": "Is there a specific time frame for how long an ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " remains ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e151fcde-a265-4d58-89b7-bd8e8beb0c90",
+    "parts": [ {
+      "text": "What are the common reasons for an ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " to be ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ad8e738a-ec4d-4e59-81aa-362296e6f936",
+    "parts": [ {
+      "text": "I'm ",
+      "auto": true
+    }, {
+      "text": "unable to login",
+      "auto": true
+    }, {
+      "text": " because ",
+      "auto": true
+    }, {
+      "text": "my account is locked",
+      "auto": true
+    }, {
+      "text": ". How can I resolve this?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "fa04f253-6d77-490a-8bff-8c8d5d264478",
+    "parts": [ {
+      "text": "My ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " got ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": " due to inactivity. How can I ",
+      "auto": true
+    }, {
+      "text": "unlock",
+      "auto": true
+    }, {
+      "text": " it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "29047c0a-fd59-438d-92e4-b2e24901cc72",
+    "parts": [ {
+      "text": "Can you guide me through the ",
+      "auto": true
+    }, {
+      "text": "account unlocking",
+      "auto": true
+    }, {
+      "text": " process?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d71952d3-90df-4b0c-b718-a45cb127e701",
+    "parts": [ {
+      "text": "I received an ",
+      "auto": true
+    }, {
+      "text": "email",
+      "auto": true
+    }, {
+      "text": " notification stating that ",
+      "auto": true
+    }, {
+      "text": "my account is locked",
+      "auto": true
+    }, {
+      "text": ". What should ",
+      "auto": true
+    }, {
+      "text": "I do",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "next",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "32ee722a-d1b5-48c9-9ac2-f354b9e8533e",
+    "parts": [ {
+      "text": "Help",
+      "auto": true
+    }, {
+      "text": " me regain access to my ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": ", please.",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ebcbe177-f8e7-4606-a922-172c46ae655e",
+    "parts": [ {
+      "text": "What information ",
+      "auto": true
+    }, {
+      "text": "do",
+      "auto": true
+    }, {
+      "text": " I need to provide to ",
+      "auto": true
+    }, {
+      "text": "unlock my account",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "6d520fc8-73ef-4e63-acab-a5600706e110",
+    "parts": [ {
+      "text": "Is there a self-service option available to ",
+      "auto": true
+    }, {
+      "text": "unlock",
+      "auto": true
+    }, {
+      "text": " a ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "00372d5c-0186-41c9-9347-7041b36cc82e",
+    "parts": [ {
+      "text": "I entered the wrong ",
+      "auto": true
+    }, {
+      "text": "password",
+      "auto": true
+    }, {
+      "text": " multiple times, and now ",
+      "auto": true
+    }, {
+      "text": "my account is locked",
+      "auto": true
+    }, {
+      "text": ". How can I ",
+      "auto": true
+    }, {
+      "text": "unlock",
+      "auto": true
+    }, {
+      "text": " it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "3a843e84-a0b5-4f84-b174-7ad49bb157ef",
+    "parts": [ {
+      "text": "My ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " is showing as ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": ". What should be my ",
+      "auto": true
+    }, {
+      "text": "next",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "move",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "d3a2b809-fcb4-4554-88b0-a3ceecfb8fb0",
+    "parts": [ {
+      "text": "How can I ",
+      "auto": true
+    }, {
+      "text": "unlock my account",
+      "auto": true
+    }, {
+      "text": " without contacting customer support?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "97057630-ff81-47da-92ec-cd0924535b6d",
+    "parts": [ {
+      "text": "I've been ",
+      "auto": true
+    }, {
+      "text": "locked out of my account",
+      "auto": true
+    }, {
+      "text": ". What's the best course of action?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "8821963c-4209-472d-bdfa-f8f5e79c357a",
+    "parts": [ {
+      "text": "I ",
+      "auto": true
+    }, {
+      "text": "forgot my password",
+      "auto": true
+    }, {
+      "text": ", and now ",
+      "auto": true
+    }, {
+      "text": "my account is locked",
+      "auto": true
+    }, {
+      "text": ". What's the procedure to ",
+      "auto": true
+    }, {
+      "text": "unlock",
+      "auto": true
+    }, {
+      "text": " it?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "7a6f69ac-dbb7-4180-b046-2421385aca0c",
+    "parts": [ {
+      "text": "Can you provide guidance on ",
+      "auto": true
+    }, {
+      "text": "unlocking",
+      "auto": true
+    }, {
+      "text": " a ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "b030b914-7ca8-406b-8652-5f44702e3d97",
+    "parts": [ {
+      "text": "How long does it usually take to ",
+      "auto": true
+    }, {
+      "text": "unlock",
+      "auto": true
+    }, {
+      "text": " a ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "f2794a67-9571-4470-a476-8969fcd2f673",
+    "parts": [ {
+      "text": "My ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " got ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": " after too many ",
+      "auto": true
+    }, {
+      "text": "failed",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "login",
+      "auto": true
+    }, {
+      "text": " attempts. What should ",
+      "auto": true
+    }, {
+      "text": "I do",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "1c9048c0-5241-4fc9-9d11-ccd2600e8e19",
+    "parts": [ {
+      "text": "I need to ",
+      "auto": true
+    }, {
+      "text": "unlock my account",
+      "auto": true
+    }, {
+      "text": ". What are the necessary steps?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "ecdab80d-4dba-44ff-826b-bcac359440cf",
+    "parts": [ {
+      "text": "Is there ",
+      "auto": true
+    }, {
+      "text": "a way",
+      "auto": true
+    }, {
+      "text": " to ",
+      "auto": true
+    }, {
+      "text": "unlock my account",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "online",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "262a12ac-6ec1-4d09-b3ea-c3f392a4126d",
+    "parts": [ {
+      "text": "Help",
+      "auto": true
+    }, {
+      "text": "! ",
+      "auto": true
+    }, {
+      "text": "My account has been locked",
+      "auto": true
+    }, {
+      "text": ". How can I regain access?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "5b4717fe-6c49-4813-a4b6-094b6b41fea3",
+    "parts": [ {
+      "text": "I'm unable to access my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " because it's ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": ". What's the solution?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "38f1b318-be0c-4f9a-9396-c0b1c74a89a5",
+    "parts": [ {
+      "text": "What steps should I take if my ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": " gets ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "a2353e84-6faa-45b8-854c-cb4c953b4b78",
+    "parts": [ {
+      "text": "Can you ",
+      "auto": true
+    }, {
+      "text": "assist",
+      "auto": true
+    }, {
+      "text": " me with ",
+      "auto": true
+    }, {
+      "text": "unlocking my account",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "e5f8c346-5869-4e9d-bb27-f27d9c2aad2f",
+    "parts": [ {
+      "text": "I received a message saying ",
+      "auto": true
+    }, {
+      "text": "my account is locked",
+      "auto": true
+    }, {
+      "text": ". What should ",
+      "auto": true
+    }, {
+      "text": "I do",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "99cf1311-0e2d-4619-8b8c-a92a35ac65cf",
+    "parts": [ {
+      "text": "How ",
+      "auto": true
+    }, {
+      "text": "do",
+      "auto": true
+    }, {
+      "text": " I ",
+      "auto": true
+    }, {
+      "text": "unlock",
+      "auto": true
+    }, {
+      "text": " my ",
+      "auto": true
+    }, {
+      "text": "locked",
+      "auto": true
+    }, {
+      "text": " ",
+      "auto": true
+    }, {
+      "text": "account",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  }, {
+    "id": "841f88ee-00a4-4296-a60d-bc2df8945d85",
+    "parts": [ {
+      "text": "My account is locked. Can you help me unlock it",
+      "auto": true
+    }, {
+      "text": "?",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en-us"
+  } ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "65a25aab-1e3a-4cdb-ba8c-24861280956e",
+  "displayName": "TextSend",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay. I'm sending the code now." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Okay, I'm sending the code now." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Auth2FactorChannel",
+      "value": "SMS"
+    }, {
+      "parameter": "PasscodeCount",
+      "value": 0
+    }, {
+      "parameter": "codeSent",
+      "value": 0
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_TextSend_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "Call2FactorSMSAPI",
+    "name": "bd77688d-7180-48a7-bcb4-fbe2760d61df"
+  } ]
+}

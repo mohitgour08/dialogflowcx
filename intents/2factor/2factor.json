@@ -1,0 +1,16 @@
+{
+  "name": "726ef2cf-796b-4665-a61e-63f364b4c030",
+  "displayName": "2factor",
+  "parameters": [ {
+    "id": "prebuilt_components_credit_card_expiration_month",
+    "entityType": "@prebuilt_components_credit_card_expiration_month"
+  }, {
+    "id": "prebuilt_components_credit_card_expiration_date",
+    "entityType": "@prebuilt_components_credit_card_expiration_date"
+  }, {
+    "id": "street_number_custom",
+    "entityType": "@street_number_custom"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 4
+}

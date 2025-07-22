@@ -1,0 +1,46 @@
+{
+  "name": "8ed27c2c-da3e-4d96-b56d-980b3c02af1b",
+  "displayName": "AmountWrong",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I'm sorry, in this system I can only accept whole dollar amounts under $500. Please say or enter your payment amount again rounded to the nearest dollar. You can also say \"cancel\" to stop this transaction.  " ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "CustomAmt",
+      "value": null
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_AmountWrong_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "EnterAmount",
+    "name": "63e443cf-1b88-4036-82f1-d715d86f4f2e"
+  } ]
+}

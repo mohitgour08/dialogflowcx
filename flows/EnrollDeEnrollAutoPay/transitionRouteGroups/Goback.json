@@ -1,0 +1,15 @@
+{
+  "name": "d4fb078b-99be-455c-afa5-667bdc1f0488",
+  "displayName": "Goback",
+  "transitionRoutes": [ {
+    "intent": "Goback",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_EnrollDeEnrollAutoPay_Goback",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PostpaidAutopay",
+    "name": "5d956a26-13f6-4848-83ac-92c4e28e9fa8"
+  } ]
+}

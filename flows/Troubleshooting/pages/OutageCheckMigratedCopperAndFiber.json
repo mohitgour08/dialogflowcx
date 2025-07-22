@@ -1,0 +1,49 @@
+{
+  "name": "a2b85c9a-649c-4fde-ab54-bb9e07c5f52e",
+  "displayName": "OutageCheckMigratedCopperAndFiber",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "Logging_API",
+    "tag": "OutageAPI_MigratedCopper_Fiber_logging",
+    "setParameterActions": [ {
+      "parameter": "SS_CheckOutage",
+      "value": "Success"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.NetworkOutage = 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_OutageCheckMigratedCopperAndFiber_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WallGardenSuspendAbuse",
+    "name": "b0ed0b85-9a7c-46ac-95c7-15289ed4ed00"
+  }, {
+    "condition": "$session.params.NetworkOutage \u003e 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_OutageCheckMigratedCopperAndFiber_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ETRExists",
+    "name": "37a014f1-9e5f-48b3-899f-572eaac5044d"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_OutageCheckMigratedCopperAndFiber_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "WallGardenSuspendAbuse",
+    "name": "133caf23-4117-4a34-bb15-d8917a1f7283"
+  } ]
+}

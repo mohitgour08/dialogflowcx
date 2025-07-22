@@ -1,0 +1,12 @@
+{
+  "name": "fed5368a-8633-4172-a4df-7507b8eaf513",
+  "displayName": "TroubleShooting",
+  "transitionRoutes": [ {
+    "intent": "Troubleshooting",
+    "triggerFulfillment": {
+    
+    },
+    "targetFlow": "Troubleshooting",
+    "name": "b1f62a0e-236f-4b05-823e-90de0d92fda5"
+  } ]
+}

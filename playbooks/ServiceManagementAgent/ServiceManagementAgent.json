@@ -1,0 +1,146 @@
+{
+  "name": "49769563-945f-4b0c-b482-4ae6d608f8a1",
+  "displayName": "ServiceManagementAgent",
+  "goal": "Your goal is to \n- Capture the user intent related to service management such as move service order, return device, remove service features, call features, antivirus protection.\n- Map parameters according to the instructions. \n-Transfer the customer to the corresponding flow as described in the instructions\n- Do not ask follow up question or account number, match the intent to one of the flow described in the instructions",
+  "inputParameterDefinitions": [ {
+    "name": "ToState",
+    "description": "Tostate value that needs be mapped based user intent ",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "customer intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToModule",
+    "description": "module value",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "outputParameterDefinitions": [ {
+    "name": "ToState",
+    "description": "to state value",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToState",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "callerintent",
+    "description": "customer intent",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "callerintent",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "ToModule",
+    "description": "To module value",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "ToModule",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "comingfromstate",
+    "description": "\"playbook\"",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "comingfromstate",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  }, {
+    "name": "FAQSuccess",
+    "description": "FAQ current status",
+    "typeSchema": {
+      "inlineSchema": {
+        "type": "STRING"
+      }
+    },
+    "parameterType": {
+      "name": "FAQSuccess",
+      "openapiJsonSchema": {
+        "type": "string"
+      }
+    }
+  } ],
+  "tokenCount": 1071,
+  "referencedFlows": [ "ServiceManagement", "AccountManagement", "RoutetoAgent", "ListenInitialIntent" ],
+  "instruction": {
+    "steps": [ {
+      "text": "Do not greet the user."
+    }, {
+      "text": "Do not ask follow up question or account number, just match the intent to one of the following options."
+    }, {
+      "text": "If customer has question about antivirus protection,anti virus, wants to keep internet safe, computer safe,software protection,malware, virus infected then map ToState=\"AntivirusProtection\", callerintent= \"AntivirusProtection\",ToModule=\"ServiceManagement\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:ServiceManagement}."
+    }, {
+      "text": "If the customer wants to upgrade service, upgrade fiber, upgrade internet, upgrade phone service, upgrade plan, upgrade speed and get faster speed or upgrade brightspeed then route ${FLOW:ServiceManagement} then map FAQSuccess=DirectTransferToBA ,ToModule=ServiceManagement and ToState=UpgradeService,callerintent=UpgradeService."
+    }, {
+      "text": "If customer has question about calling features, call forwarding,enable do not disturb service,dial lock, DND service, call curfew, call handling,international call cost etc then use ToState = \"CallingFeatures\", callerintent = \"CallingFeatures\",ToModule=\"ServiceManagement\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:ServiceManagement}."
+    }, {
+      "text": "If customer wants to move service,shift service,move service order,avoid interruption during transition , relocate service, request move , change service address, service installation at new location then use ToState = \"MoveServiceOrder\", callerintent = \"MoveServiceOrder\",ToModule=\"ServiceManagement\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:ServiceManagement}."
+    }, {
+      "text": "If customer has question about returning device,return equipment,return router,reinstall device,replace device, check return eligibility, return policy, return options then use ToState =\"ReturnDevice\", callerintent = \"ReturnDevice\",ToModule=\"ServiceManagement\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:ServiceManagement}."
+    }, {
+      "text": "If customer has questions about Account Cancellation, Cancel Account, would like to close my Brightspeed account,terminate my account now,trying to get my services disconnected,want to end my subscription, I am a former century link customer and I would like to cancel my internet service,cancel the services I'm currently utilising,would like to unsubscribe from services,trying to cancel my mothers home phone,cancel my wifi service for all accounts,trying to stop service,I'm trying to stop service,Would like to terminate service,would like to call off my service then map ToState=\"CancelAccount\", callerintent=\"CancelAccount\", ToModule=\"AccountManagement\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:AccountManagement}"
+    }, {
+      "text": "If customer wants to customize plan, remove service features,take a service off my CenturyLink internet plan,customize, turn off service functionality, remove BrightSpeed Fiber plan, account into hybernation then use ToState =\"RemoveServiceFeatures\", callerintent = \"RemoveServiceFeatures\", ToModule = \"ServiceManagement\", FAQSuccess=\"DirectTransferToBA\" and transition to ${FLOW:ServiceManagement}."
+    }, {
+      "text": "If the customer asks to speak with an agent/representative/supervisor/human, route to `${FLOW:RoutetoAgent}` and pass `callerintent=\"SpeakwithAgent\"` and FAQSuccess=\"HandoverToAgent\"."
+    }, {
+      "text": "If none of the above provides an answer, route to `${FLOW:ListenInitialIntent}` and pass the parameters comingfromstate=\"playbook\" and FAQSuccess =\"HandoverToBA\"."
+    } ]
+  }
+}

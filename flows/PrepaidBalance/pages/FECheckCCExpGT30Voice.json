@@ -1,0 +1,39 @@
+{
+  "name": "fd5de6e1-f36e-43f5-b0ca-0b2ddc0f65d5",
+  "displayName": "FECheckCCExpGT30Voice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e \nThank you for keeping your account up to date!  Your next payment $session.params.MonthlyRecurringCharge1 will process on $session.params.BillInfo_BillDueDate using the $session.params.CreditCardType ending in \u003csay-as interpret-as=\"verbatim\"\u003e $session.params.CreditCardNumberLast4 \u003c/say-as\u003e.\n\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_PrepaidBalance",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_FECheckCCExpGT30Voice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "PrepaidBalance"
+      }, {
+        "parameter": "ToState",
+        "value": "CCExpGT30Voice"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "47cac4e1-98be-465c-aca3-ccd242755433"
+  } ]
+}

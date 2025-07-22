@@ -1,0 +1,19 @@
+{
+  "entities": [ {
+    "value": "Yes",
+    "synonyms": [ "Yea", "Yeah", "Yes" ],
+    "languageCode": "en"
+  }, {
+    "value": "No",
+    "synonyms": [ "Nah", "No", "Nope" ],
+    "languageCode": "en"
+  }, {
+    "value": "I don't know",
+    "synonyms": [ "I don't know" ],
+    "languageCode": "en"
+  }, {
+    "value": "Back",
+    "synonyms": [ "\u003c back", "\u003c Back", "\u003c-back", "\u003c-Back", "\u003cback", "\u003cBack", "back", "Back" ],
+    "languageCode": "en"
+  } ]
+}

@@ -1,0 +1,78 @@
+{
+  "name": "abc7f072-7382-42f3-b437-4b1f53f2166e",
+  "displayName": "EligibleFiberServiceUpgrade",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay! All done. You're currently receiving a speed of (checked speed), which falls into the range of your current plan. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "If you need faster internet, the easiest choice is upgrading to Brightspeed Fiber. There are no extra one-time fees, and depending on the plan you choose, you could enjoy faster speeds without any increase to your monthly cost. You can say \"agent\" to connect with an agent about this now. Or, just tell me you're finished." ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Connect to agent"
+          }, {
+            "action": "quick_reply",
+            "title": "I'm finished"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e Okay! All done. You're currently receiving a speed of (checked speed), which falls into the range of your current plan. \u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003e If you need faster internet, the easiest choice is upgrading to Brightspeed Fiber. There are no extra one-time fees, and depending on the plan you choose, you could enjoy faster speeds without any increase to your monthly cost. You can say \"agent\" to connect with an agent about this now. Or, just tell me you're finished.\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_SpeedTest_EligibleFiberServiceUpgrade_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "db49796a-7fcb-43ca-8eed-fabf71d5c7a6"
+  } ],
+  "agentTransitionRouteGroups": [ " GoodToGo" ]
+}

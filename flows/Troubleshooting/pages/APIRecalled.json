@@ -1,0 +1,47 @@
+{
+  "name": "f6306224-4488-4574-bbc5-629b5c4819bd",
+  "displayName": "APIRecalled",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.OutageReturnStatus = \"success\" AND $session.params.NetworkOutage \u003e 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_APIRecalled_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_CheckOutage",
+        "value": "Success"
+      } ]
+    },
+    "targetPage": "OutagePlayedAlready",
+    "name": "87b580a0-d2c8-4c34-8d44-53e02b2807ed"
+  }, {
+    "condition": "$session.params.OutageReturnStatus = \"success\" AND $session.params.NetworkOutage = 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_APIRecalled_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_CheckOutage",
+        "value": "Success"
+      } ]
+    },
+    "targetPage": "WallGardenSuspendAbuse",
+    "name": "4b59c8d7-4ddb-433d-9dd2-7394585d5449"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_APIRecalled_default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CopperOrFiber",
+    "name": "68a90b57-c1f6-48cf-96a6-9b341faa18ff"
+  } ]
+}

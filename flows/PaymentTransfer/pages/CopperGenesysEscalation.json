@@ -1,0 +1,42 @@
+{
+  "name": "853e425c-c3d5-4a54-97d3-ef05151e9bc5",
+  "displayName": "CopperGenesysEscalation",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "action": "escalation",
+          "escalation_reason": "by_virtual_agent",
+          "language": "en",
+          "menu_id": "$session.params.MenuID_Copper",
+          "type": "action"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_PaymentTransfer_CopperGenesysEscalation_1",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "TransferMessage",
+      "value": "Migrated Copper Customer transferred to Genesys for Payment"
+    }, {
+      "parameter": "TransferReason",
+      "value": "Self Service not available"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  }
+}

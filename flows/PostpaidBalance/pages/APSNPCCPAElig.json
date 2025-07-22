@@ -1,0 +1,73 @@
+{
+  "name": "6bcf1be1-afe7-446b-86ae-38c52d2f940b",
+  "displayName": "APSNPCCPAElig",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Your account is currently suspended with a total balance of $$session.params.TotalBalance. You'll need to pay at least the past due amount of $$session.params.BillInfo_PastDueAmount to restore service. " ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "Your account is currently suspended with a total balance of $$session.params.TotalBalance. You'll need to pay at least the past due amount of $$session.params.BillInfo_PastDueAmount to restore service. " ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.callerintent = \"BalanceInquiryPayment\" OR $session.params.callerintent = \"PostpaidPayment\" OR $session.params.callerintent = \"PrepaidPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_AP_SNPCC_PAElig_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToModule",
+        "value": "Payment"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "Payment",
+    "name": "abdff146-7c8e-4612-93b2-254ec093e480"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_AP_SNPCC_PAElig_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "APSNPAEligOptions",
+    "name": "4ad07d17-fd94-4a3a-8bef-ba8b4752a22d"
+  } ],
+  "description": "CC NEXT? (AUTOPAY_ SUSPENDED_PA ELIG)"
+}

@@ -1,0 +1,62 @@
+{
+  "name": "ad8c54af-1ef3-469a-9f28-dbfccd63da41",
+  "displayName": "PaymentMethodCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentMethod = \"CreditCard\" OR $session.params.PaymentMethod = \"CC\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentMethod",
+        "value": "CARD"
+      }, {
+        "parameter": "PaymentType",
+        "value": "$session.params.PaymentMethod"
+      }, {
+        "parameter": "PaymentToken",
+        "value": ""
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PaymentMethodCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PayByPaymentArrangement",
+    "name": "9586f451-abfe-4a8e-8011-08392ffd9e2d"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "PaymentType",
+        "value": "$session.params.PaymentMethod"
+      }, {
+        "parameter": "PaymentToken",
+        "value": ""
+      }, {
+        "parameter": "Metrics_PaymentArrangementEnrollment_PaymentMethodCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "PayByPaymentArrangement",
+    "name": "c896a0e2-9e91-4442-85ee-df8aaebbf6a5"
+  } ]
+}

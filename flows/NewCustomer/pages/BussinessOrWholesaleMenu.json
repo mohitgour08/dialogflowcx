@@ -1,0 +1,229 @@
+{
+  "name": "2d3139c7-387f-4373-8be2-61ef607b0a3d",
+  "displayName": "BussinessOrWholesaleMenu",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "For Small Business, press 1. For enterprise, press 2. For wholesale or bulk accounts, press 3. Or, press 4 to go back." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "SmallBusiness_DTMF1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "$session.params.MenuID_SmallBusiness",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_NewCustomer_BussinessOrWholesaleMenu_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "NewCustomer_BussinessOrWholesaleMenu_1"
+      }, {
+        "parameter": "SaleQuery",
+        "value": "SmallBusiness"
+      } ]
+    },
+    "name": "934d52d6-8700-4c9a-b067-6a063662afcb"
+  }, {
+    "intent": "Enterprise_DTMF2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "$session.params.MenuID_EnterpriseSales",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_NewCustomer_BussinessOrWholesaleMenu_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "NewCustomer_BussinessOrWholesaleMenu_2"
+      }, {
+        "parameter": "SaleQuery",
+        "value": "Enterprise"
+      } ]
+    },
+    "name": "4a3ff73d-4370-42a8-920a-e25befa8cc4d"
+  }, {
+    "intent": " wholesale/BulkAccounts_DTMF3",
+    "triggerFulfillment": {
+      "messages": [ {
+        "payload": {
+          "ujet": {
+            "action": "escalation",
+            "escalation_reason": "by_virtual_agent",
+            "language": "en",
+            "menu_id": "$session.params.MenuID_Wholesales",
+            "type": "action"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_NewCustomer_BussinessOrWholesaleMenu_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "NewCustomer_BussinessOrWholesaleMenu_3"
+      }, {
+        "parameter": "SaleQuery",
+        "value": "Wholesale/BulkAccount"
+      } ]
+    },
+    "name": "d807f21a-b519-42e0-83ac-2620bcdddd51"
+  }, {
+    "intent": "GoBack_DTMF4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_NewCustomer_BussinessOrWholesaleMenu_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "NewCustomer_BussinessOrWholesaleMenu_4"
+      } ]
+    },
+    "targetPage": "NewCustomerMenu",
+    "name": "77475467-5902-4d07-8a3a-b58360423fa5"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer. Can you please say that again" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "For Small Business, press 1. For enterprise, press 2. For wholesale or bulk accounts, press 3. Or, press 4 to go back." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_NewCoustmer_BussinessOrWholesaleMenu_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "3b3f4ae1-db5c-4f01-8a9f-02cded279fd3"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That's Okay" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_NewCoustmer_BussinessOrWholesaleMenu_NoInput_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BussinessOrWholesaleMenu"
+      }, {
+        "parameter": "SkipAuth",
+        "value": "True"
+      }, {
+        "parameter": "DefaultRoute",
+        "value": "True"
+      } ]
+    },
+    "name": "82a1e71e-5763-4c1a-9e37-49149e11ab6c"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "For Small Business, press 1. For enterprise, press 2. For wholesale or bulk accounts, press 3. Or, press 4 to go back." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_NewCoustmer_BussinessOrWholesaleMenu_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "True"
+      } ]
+    },
+    "name": "f90f5bf6-8b9a-4a82-9e0a-328a8879bb20"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Metrics_NewCustomer_BussinessOrWholesaleMenu_NoMatch_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "BussinessOrWholesaleMenu"
+      }, {
+        "parameter": "SkipAuth",
+        "value": "True"
+      }, {
+        "parameter": "DefaultRoute",
+        "value": "True"
+      } ]
+    },
+    "name": "bc259cdc-e55e-4238-be8d-e959921cdedd"
+  } ]
+}

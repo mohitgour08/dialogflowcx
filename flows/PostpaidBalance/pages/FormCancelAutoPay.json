@@ -1,0 +1,39 @@
+{
+  "name": "d812fe3e-8274-4683-a9af-6c51b2bcdfa3",
+  "displayName": "FormCancelAutoPay",
+  "form": {
+    "parameters": [ {
+      "displayName": "formResponseCA",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n  \"chatClientForm\": \"UnenrollAutopayModal\"\n}" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "formResponseCA",
+      "value": null
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_FormCancelAutoPay_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormCancelAutoPayChk",
+    "name": "45998464-6535-4c84-b6d8-a85708ce0570"
+  } ]
+}

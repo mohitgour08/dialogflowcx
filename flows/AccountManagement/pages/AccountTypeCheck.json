@@ -1,0 +1,97 @@
+{
+  "name": "7bee1146-d2cb-40b6-a159-452f11192199",
+  "displayName": "AccountTypeCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.AccountType = \"Consumer\" OR $session.params.AccountType = \"residential\" OR $session.params.AccountType = \"Residential\" OR $session.params.AccountType = \"I\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AccountTypeCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "AccountStatusConsumerCheck"
+      }, {
+        "parameter": "ToModule",
+        "value": "AccountManagement"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "eaa06d02-b960-456c-829a-c3d4c31190e4"
+  }, {
+    "condition": "$session.params.AccountType = \"Small Business\" OR $session.params.AccountType = \"small business\" OR $session.params.AccountType = \"Business\" OR $session.params.AccountType = \"business\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Please call 833-692-7773 for further assistance. Thanks for contacting Brightspeed. Goodbye!" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AccountTypeCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "End Session",
+    "name": "a4604933-068e-40eb-9486-7957eedc0dbf"
+  }, {
+    "condition": "$session.params.AccountType = \"Multi Dwelling Unit\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountTypeCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "MDU Accounts"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "b51a3f4a-6974-4524-a430-9c1fe873f213"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountTypeCheck_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "AccountManagement-AccountTypeCheck,AccountTypeUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "ef965d63-b392-47ac-9512-a2b3810fc498"
+  } ]
+}

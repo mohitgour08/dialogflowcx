@@ -1,0 +1,205 @@
+{
+  "name": "f5ad44e8-9512-447b-979e-38de6eae4a62",
+  "displayName": "AccountAppleSendText",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "SendSMSMessage",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "contactNumber",
+      "value": "$session.params.SMSNumber"
+    }, {
+      "parameter": "smsMessage",
+      "value": "Click here to download the Brightspeed App in the Apple App Store."
+    }, {
+      "parameter": "smsMessage1",
+      "value": "https://apps.apple.com/us/app/brightspeed-internet/id6444654583"
+    }, {
+      "parameter": "Passcode",
+      "value": ""
+    }, {
+      "parameter": "Metrics_AccountManagement_AccountAppleSendText_wh_SendSMSMessage",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.SMSResponseStatus = \"Success\" OR $session.params.SMSResponseStatus = \"success\" OR $session.params.SMSResponseStatus = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AccountAppleSendText_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_BrspdApp",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "API_AccountManagement_AccountAppleSendText",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "targetPage": "AccountAppleTextConfirm",
+    "name": "27e8af60-6c27-4d13-b51c-e6ee357af408"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_AccountAppleSendText_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "APIError"
+      }, {
+        "parameter": "API_AccountManagement_AccountAppleSendText",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "targetPage": "AccountAppleTextFail",
+    "name": "1557633a-4db6-4416-9fc1-a1249f0156ee"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "AccountAppleTextFail",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountAppleSendText_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_AccountManagement_AccountAppleSendText",
+        "value": "API_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "f3ffa5ac-2fb7-4499-9fc5-3fe570380e79"
+  }, {
+    "targetPage": "AccountAppleTextFail",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountAppleSendText_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_AccountManagement_AccountAppleSendText",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "aefb1f99-e63d-4481-a09a-cb2b47ca99c4"
+  }, {
+    "targetPage": "AccountAppleTextFail",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountAppleSendText_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_AccountManagement_AccountAppleSendText",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "5f3811c6-c2f5-4ba2-bbfe-310b59ddad82"
+  }, {
+    "targetPage": "AccountAppleTextFail",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountAppleSendText_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_AccountManagement_AccountAppleSendText",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "cd9659e0-a702-4027-8d52-b8353963f505"
+  }, {
+    "targetPage": "AccountAppleTextFail",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountAppleSendText_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_AccountManagement_AccountAppleSendText",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "90bd0ed3-53d3-4cdc-983c-edc038005816"
+  }, {
+    "targetPage": "AccountAppleTextFail",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "SS_BrspdApp",
+        "value": "Failure"
+      }, {
+        "parameter": "Metrics_AccountManagement_AccountAppleSendText_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_AccountManagement_AccountAppleSendText",
+        "value": "Fail_Unavaliable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "44b9c81d-54b7-4697-85d1-411684655282"
+  } ]
+}

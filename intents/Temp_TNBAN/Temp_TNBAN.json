@@ -1,0 +1,10 @@
+{
+  "name": "d0f898f7-45ff-439e-9abb-13093d874c31",
+  "displayName": "Temp_TNBAN",
+  "parameters": [ {
+    "id": "Temp_1",
+    "entityType": "@sys.number"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 13
+}

@@ -1,0 +1,129 @@
+{
+  "name": "20829df4-d982-4593-9f49-7b8027425a66",
+  "displayName": "ModuleCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "FEAfterSelfServe",
+      "value": ""
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.ToModule = \"Troubleshooting\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_ModuleCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ReturnToTroubleshooting",
+        "value": "FiberEligibilityToTroubleshooting"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "Troubleshooting",
+    "name": "5ead82c4-8c78-43f1-9f19-a290a3572fc0"
+  }, {
+    "condition": "$session.params.ToModule = \"AccountManagement\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_ModuleCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ReturnToAccountManagement",
+        "value": "FiberEligibilityToAccountManagement"
+      } ]
+    },
+    "targetFlow": "AccountManagement",
+    "name": "c3ecf8e3-8dce-4a76-8c2e-77db039fc870"
+  }, {
+    "condition": "$session.params.ToModule = \"PrepaidBalance\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_ModuleCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ReturnToPrepaidBalance",
+        "value": "FiberEligibilityToPrepaidBalance"
+      } ]
+    },
+    "targetFlow": "PrepaidBalance",
+    "name": "80416f1f-3072-4e94-98fc-e4337b7e13b3"
+  }, {
+    "condition": "$session.params.ToModule = \"PostpaidBalance\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_ModuleCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ReturnToPostpaidBalance",
+        "value": "FiberEligibilityToPostpaidBalance"
+      } ]
+    },
+    "targetFlow": "PostpaidBalance",
+    "name": "36a75e96-80d1-449d-b1ea-9173cf0512f7"
+  }, {
+    "condition": "$session.params.ToModule = \"SecuredPayments\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_ModuleCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ReturnToSecuredPayments",
+        "value": "FiberEligibilityToSecuredPayments"
+      } ]
+    },
+    "targetFlow": "SecuredPayments",
+    "name": "366a76b8-4e61-440f-969e-ee45e1fbb485"
+  }, {
+    "condition": "$session.params.ToModule = \"PrepaidPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_ModuleCheck_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "ec41eb07-d9db-450d-959d-1c931652f437"
+  }, {
+    "condition": "$session.params.ToModule = \"PostpaidPayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_ModuleCheck_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "aaeda045-1928-4e3f-8ced-beaa483c8ff1"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_FiberEligibilty_ModuleCheck_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "FiberEligibility-ModuleCheck,ToModuleUnknown"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "3608ed37-d279-476b-bf57-ecdb4616c7c2"
+  } ]
+}

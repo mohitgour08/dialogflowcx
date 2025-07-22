@@ -1,0 +1,25 @@
+{
+  "name": "0199dde3-79b6-4b2e-b984-f2fd09c4c418",
+  "displayName": "ENTER",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.channel = \"web\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "EnterPasscode",
+    "name": "7e2bb618-6133-45f9-95f7-fab38a27526b"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "EnterPasscodeVoice",
+    "name": "c0a4dd22-2fc1-46d6-ac57-a791bc6dc80c"
+  } ]
+}

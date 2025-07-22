@@ -1,0 +1,231 @@
+{
+  "name": "5b604cb6-c64d-4fe5-825d-d08fd4d66ba0",
+  "displayName": "SingleAccountFound",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "$session.params.Authentication",
+      "value": "ACCTFOUND"
+    }, {
+      "parameter": "AccountNumber",
+      "value": "$session.params.Brightspeed[0].billingAccountNumber"
+    }, {
+      "parameter": "AccountType",
+      "value": "$session.params.Brightspeed[0].accountType"
+    }, {
+      "parameter": "AccountStatus",
+      "value": "$session.params.Brightspeed[0].currentStatus"
+    }, {
+      "parameter": "NetworkType",
+      "value": "$session.params.Brightspeed[0].networkType"
+    }, {
+      "parameter": "CurrentStatus",
+      "value": "$session.params.Brightspeed[0].currentStatus"
+    }, {
+      "parameter": "Email",
+      "value": "$session.params.Brightspeed[0].email"
+    }, {
+      "parameter": "CustomerSince",
+      "value": "$session.params.Brightspeed[0].customerSince"
+    }, {
+      "parameter": "Address",
+      "value": "$session.params.Brightspeed[0].addresses"
+    }, {
+      "parameter": "BillingAddress_zip",
+      "value": "$session.params.Brightspeed[0].addresses[0].billingAddress_zip"
+    }, {
+      "parameter": "BillingMethod",
+      "value": "$session.params.Brightspeed[0].billingType"
+    }, {
+      "parameter": "Company",
+      "value": "$session.params.Brightspeed[0].company"
+    }, {
+      "parameter": "ContactNumber",
+      "value": "$session.params.Brightspeed[0].contactNumber"
+    }, {
+      "parameter": "MarketUnit",
+      "value": "$session.params.Brightspeed[0].marketUnit"
+    }, {
+      "parameter": "BillingSource",
+      "value": "$session.params.Brightspeed[0].billingSource_C"
+    }, {
+      "parameter": "CustCode",
+      "value": "$session.params.Brightspeed[0].customerCode"
+    }, {
+      "parameter": "WallGardenStatus",
+      "value": "$session.params.Brightspeed[0].wallGardenStatus"
+    }, {
+      "parameter": "ServiceAddress_zip",
+      "value": "$session.params.Brightspeed[0].addresses[0].serviceAddress_zip"
+    }, {
+      "parameter": "ServiceAddress_city",
+      "value": "$session.params.Brightspeed[0].addresses[0].serviceAddress_city"
+    }, {
+      "parameter": "ServiceAddress_state",
+      "value": "$session.params.Brightspeed[0].addresses[0].serviceAddress_state"
+    }, {
+      "parameter": "ServiceAddress_street",
+      "value": "$session.params.Brightspeed[0].addresses[0].serviceAddress_street"
+    }, {
+      "parameter": "BillingAddress_city",
+      "value": "$session.params.Brightspeed[0].addresses[0].billingAddress_city"
+    }, {
+      "parameter": "BillingAddress_state",
+      "value": "$session.params.Brightspeed[0].addresses[0].billingAddress_state"
+    }, {
+      "parameter": "BillingAddress_street",
+      "value": "$session.params.Brightspeed[0].addresses[0].billingAddress_addressName"
+    }, {
+      "parameter": "Name",
+      "value": "$session.params.Brightspeed[0].Name"
+    }, {
+      "parameter": "FirstName",
+      "value": "$session.params.Brightspeed[0].firstName"
+    }, {
+      "parameter": "LastName",
+      "value": "$session.params.Brightspeed[0].lastName"
+    }, {
+      "parameter": "CustFullName",
+      "value": "$session.params.FirstName $session.params.LastName"
+    }, {
+      "parameter": "CTLName",
+      "value": "$session.params.Brightspeed[0].billingName"
+    }, {
+      "parameter": "fiberEligibility",
+      "value": "$session.params.Brightspeed[0].fiberEligibility"
+    }, {
+      "parameter": "BillingSystem",
+      "value": "$session.params.Brightspeed[0].billingSystem"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.BillingSystem : \"$\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "BillingSystemBackupAuth",
+        "value": "$session.params.BillingSystem"
+      }, {
+        "parameter": "BillingSystem",
+        "value": ""
+      }, {
+        "parameter": "Metrics_Authentication_SingleAccountFound_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "c90dd488-a759-4293-999e-19ea02267d16"
+  }, {
+    "condition": "($session.params.AccountType = \"Small business\" OR $session.params.AccountType = \"Business\" OR $session.params.AccountType = \"business\" OR $session.params.AccountType = \"small business\" OR $session.params.AccountType = \"Small Business\" OR $session.params.AccountType = \"SMALL BUSINESS\") AND $session.params.channel = \"web\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Small Business accounts are handled by a specialized group that only provides phone support. Please call our Small Business Support team at 1-833-692-7773 Mon-Fri 8am to 8pm or Sat-Sun 8am to 5pm est. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Thank you for contacting Brightspeed, we look forward to hearing from you again!" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_SingleAccountFound_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "End Session",
+    "name": "ff0d9e31-1ff2-4f82-a820-fefbace90efc"
+  }, {
+    "condition": "$session.params.AuthMethod = \"2Factor\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_SingleAccountFound_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "ACCTFOUND"
+      }, {
+        "parameter": "Metrics_2Factor",
+        "value": "ACCTFOUND"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "DetermineAuthMethod",
+    "name": "88ce922a-607d-405a-9f02-5ab242ec96b0"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "CustomerInfo",
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_SingleAccountFound_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "DetermineAuthOptions",
+    "name": "a0292089-333f-44d3-80f6-d0c50e9aabda"
+  }, {
+    "condition": "$session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_SingleAccountFound_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "DetermineAuthOptions",
+    "name": "deafe151-6bfe-41b6-b69f-3ea2e72d3cb4"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_SingleAccountFound_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "DetermineAuthOptions",
+    "name": "d9041d48-1b21-4b1a-91fa-3b20dd3fa0ca"
+  } ]
+}

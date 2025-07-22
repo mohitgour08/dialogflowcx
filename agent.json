@@ -1,0 +1,117 @@
+{
+  "displayName": "test",
+  "defaultLanguageCode": "en",
+  "supportedLanguageCodes": [ "es", "en-us", "es-419", "es-us" ],
+  "timeZone": "America/Los_Angeles",
+  "enableLogging": true,
+  "projectNumber": 878868065760,
+  "speechToTextSettings": {
+    "enableSpeechAdaptation": true
+  },
+  "startFlow": "Default Start Flow",
+  "enableStackdriverLogging": true,
+  "enableSpellCorrection": true,
+  "advancedSettings": {
+    "enabled": true,
+    "audioExportGcsDestination": {
+    
+    },
+    "speechSettings": {
+      "endpointerSensitivity": 90,
+      "noSpeechTimeout": {
+        "seconds": 15
+      },
+      "useTimeoutBasedEndpointing": true,
+      "models": [ {
+        "key": "en",
+        "value": "telephony"
+      }, {
+        "key": "en-us",
+        "value": ""
+      }, {
+        "key": "es",
+        "value": "telephony"
+      }, {
+        "key": "es-us",
+        "value": "telephony"
+      } ],
+      "enableSmartEndpointing": true
+    },
+    "playbackInterruptionSettings": {
+      "allowPlaybackInterruption": true
+    },
+    "dtmfSettings": {
+      "enabled": true,
+      "finishDigit": "#",
+      "interdigitTimeoutDuration": {
+        "seconds": 8
+      },
+      "endpointingTimeoutDuration": {
+        "seconds": 8
+      }
+    },
+    "loggingSettings": {
+      "enableStackdriverLogging": true,
+      "enableInteractionLogging": true
+    },
+    "speechAdaptationSettings": {
+    
+    }
+  },
+  "speakerIdSettings": {
+  
+  },
+  "textToSpeechSettings": {
+    "synthesizeSpeechConfigs": [ {
+      "key": "en",
+      "value": {
+        "voice": {
+          "name": "en-US-Wavenet-I",
+          "ssmlGender": "SSML_VOICE_GENDER_MALE"
+        }
+      }
+    }, {
+      "key": "es",
+      "value": {
+        "voice": {
+          "name": "es-US-Wavenet-A",
+          "ssmlGender": "SSML_VOICE_GENDER_FEMALE"
+        }
+      }
+    }, {
+      "key": "es-419",
+      "value": {
+        "voice": {
+        
+        }
+      }
+    }, {
+      "key": "es-es",
+      "value": {
+        "voice": {
+        
+        }
+      }
+    }, {
+      "key": "es-us",
+      "value": {
+        "voice": {
+          "name": "es-US-Wavenet-A",
+          "ssmlGender": "SSML_VOICE_GENDER_FEMALE"
+        }
+      }
+    } ]
+  },
+  "genAppBuilderSettings": {
+    "engine": "projects/878868065760/locations/us/collections/default_collection/engines/462ea01d-c9db-4e3a-bccc-df5969bb2865"
+  },
+  "duplexSettings": {
+  
+  },
+  "answerFeedbackSettings": {
+    "enableAnswerFeedback": true
+  },
+  "webClientSettings": {
+    "boxBorderRadius": "0"
+  }
+}

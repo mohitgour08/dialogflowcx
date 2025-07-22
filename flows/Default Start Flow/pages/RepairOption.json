@@ -1,0 +1,147 @@
+{
+  "name": "54e0828d-542d-422b-a169-4e096d3354d2",
+  "displayName": "RepairOption",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "It seems like you're having an issue with your Brightspeed service or questions regarding your appointment. Please select from one of the menu options." ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "My service is not working"
+          }, {
+            "action": "quick_reply",
+            "title": "Need assistance with my appointment"
+          }, {
+            "action": "quick_reply",
+            "title": "Something Else"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Troubleshooting.GeneralTroubleshooting",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding troubleshooting." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "callerIntent",
+        "value": "GeneralTroubleshooting"
+      }, {
+        "parameter": "ToModule",
+        "value": "Troubleshooting"
+      }, {
+        "parameter": "ToState",
+        "value": "GeneralTroubleshooting"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_RepairOption_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Troubleshooting",
+    "name": "ecd059e8-553c-4edd-80f3-db512123f12b"
+  }, {
+    "intent": "Sales.ModifyOrderAppointment",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding modifying order's appointment." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToModule",
+        "value": "SalesManagement"
+      }, {
+        "parameter": "ToState",
+        "value": "ModifyOrderAppointment"
+      }, {
+        "parameter": "callerintent",
+        "value": "ModifyOrderAppointment"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_RepairOption_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "SalesManagement",
+    "name": "dac7daff-27ef-40da-9a10-ecd41baf223e"
+  }, {
+    "intent": "SomethingElse",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_RepairOption_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CheckForOutageDynamicMsg",
+    "name": "c9e2c34c-e35e-47a1-acf0-f1ef57b2c57d"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "My service is not working"
+            }, {
+              "action": "quick_reply",
+              "title": "Need assistance with my appointment"
+            }, {
+              "action": "quick_reply",
+              "title": "Something Else"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_RepairOption_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "cb960fb0-f48e-425a-9d2b-45edf56ab72d"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "Metrics_DefaultStartFlow_RepairOption_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "f7fd367b-fc97-4e35-8572-fa1d43e41281"
+  } ]
+}

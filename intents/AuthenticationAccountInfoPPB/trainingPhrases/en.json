@@ -1,0 +1,55 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "dtmf_digit_"
+    }, {
+      "text": "PPB02347439",
+      "parameterId": "ENTER_PPB"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my BAN is "
+    }, {
+      "text": "PPB04689332",
+      "parameterId": "ENTER_PPB"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "ppb02955731c",
+      "parameterId": "ENTER_PPB",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "PPB04803870",
+      "parameterId": "ENTER_PPB",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my account number is "
+    }, {
+      "text": "ppb01713535",
+      "parameterId": "ENTER_PPB"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my account number is "
+    }, {
+      "text": "PPB01713535",
+      "parameterId": "ENTER_PPB"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

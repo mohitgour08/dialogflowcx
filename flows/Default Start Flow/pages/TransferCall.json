@@ -1,0 +1,37 @@
+{
+  "name": "e0fb63fd-d8ef-47e2-b949-71705ef4e77e",
+  "displayName": "TransferCall",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "payload": {
+        "ujet": {
+          "action": "escalation",
+          "escalation_reason": "by_virtual_agent",
+          "language": "es-MX",
+          "menu_id": 739,
+          "type": "action"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "End Session",
+    "name": "95dadd74-aa1c-4df4-a147-0eb9f8e53652"
+  } ]
+}

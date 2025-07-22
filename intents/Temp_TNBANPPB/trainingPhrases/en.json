@@ -1,0 +1,115 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "my billing account number is "
+    }, {
+      "text": "PPB01713535",
+      "parameterId": "Temp_1"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm providing my account number "
+    }, {
+      "text": "101713535",
+      "parameterId": "Temp_1"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "I'm entering my account number "
+    }, {
+      "text": "101713535",
+      "parameterId": "Temp_1"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my billing account number is "
+    }, {
+      "text": "101713535",
+      "parameterId": "Temp_1"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "101713535",
+      "parameterId": "Temp_1"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my BAN number is "
+    }, {
+      "text": "101713535",
+      "parameterId": "Temp_1"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my account number is "
+    }, {
+      "text": "101713535",
+      "parameterId": "Temp_1"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "ppb04689332",
+      "parameterId": "Temp_1",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "PPB04689332",
+      "parameterId": "Temp_1"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "My BAN number is "
+    }, {
+      "text": "PPB04765105",
+      "parameterId": "Temp_1"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my BAN is "
+    }, {
+      "text": "PPB04765105",
+      "parameterId": "Temp_1"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my account number is "
+    }, {
+      "text": "ppb01713535",
+      "parameterId": "Temp_1"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "my account number is "
+    }, {
+      "text": "PPB01713535",
+      "parameterId": "Temp_1"
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

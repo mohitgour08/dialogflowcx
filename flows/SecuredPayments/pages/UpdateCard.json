@@ -1,0 +1,399 @@
+{
+  "name": "15411714-d6ef-4eb9-8e97-c28f1728b965",
+  "displayName": "UpdateCard",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "UpdatePaymentMethodCard",
+    "tag": "UpdateCard",
+    "setParameterActions": [ {
+      "parameter": "Metrics_UpdateCard_none_wh_UpdatePaymentMethodCard",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "UpdatePayment",
+      "value": ""
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.UpdatePaymentErrorMessage != null AND $session.params.UpdatePaymentErrorMessage != \"\" AND $session.params.UpdatePayment != \"Success\" AND $session.params.UpdatePayment != \"success\" AND $session.params.UpdatePayment != \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_updatecard_Message",
+        "value": "$session.params.UpdatePaymentErrorMessage"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdateCard_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "1c87a19a-8eaf-4dd7-9ac0-4d46749f0e84"
+  }, {
+    "condition": "($session.params.UpdatePayment = \"Success\" OR $session.params.UpdatePayment = \"success\" OR $session.params.UpdatePayment = \"SUCCESS\") AND $session.params.SaveNewPaymentMethod = \"true\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Okay! I've saved that information." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Okay! I've saved that information." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdateCard_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "NewDefaultPaymentMethodSaved",
+        "value": "Success"
+      }, {
+        "parameter": "SS_MethodOfPaymentUpdate",
+        "value": "Success"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": ""
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCard",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "e61cb10b-7759-4e09-8052-d575a79b4e67"
+  }, {
+    "condition": "$session.params.ToState = \"AutopaySignup\" AND ($session.params.UpdatePayment = \"Success\" OR $session.params.UpdatePayment = \"success\" OR $session.params.UpdatePayment = \"SUCCESS\")",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Your payment method was saved successfully. Remember, this will only apply for your payment arrangement, and not for regular monthly charges." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdateCard_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCard",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ]
+    },
+    "targetFlow": "PaymentArrangement",
+    "name": "12370f48-39be-41e1-85f3-361027fb68d4"
+  }, {
+    "condition": "$session.params.UpdatePayment = \"Success\" OR $session.params.UpdatePayment = \"success\" OR $session.params.UpdatePayment = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdateCard_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCard",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "FECheckUpdateSuccessful",
+    "name": "66a5bba7-f128-45ad-8b9b-3c877f83b5ec"
+  }, {
+    "condition": "$session.params.FirstUpdateFailure = \"true\" AND $session.params.SaveNewPaymentMethod = \"true\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this information. You can update your payment methods any time in your My Brightspeed portal online. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry! I ran into an issue when trying to save this information. You can update your payment methods any time in your My Brightspeed portal online. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdateCard_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PaymentSucessful"
+      }, {
+        "parameter": "ToModule",
+        "value": "SecuredPayments"
+      }, {
+        "parameter": "NewDefaultPaymentMethodSaved",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_MethodOfPaymentUpdate",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      } ]
+    },
+    "targetFlow": "FiberEligibility",
+    "name": "b6332dab-b08a-4397-88f5-dc678a029b66"
+  }, {
+    "condition": "$session.params.FirstUpdateFailure = \"true\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_UpdateCard_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "updatepayment",
+        "value": "$session.params.UpdatePayment"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "FiberCheckFirstUpdateFail",
+    "name": "e0d3bbe8-f54a-4d4f-9a4e-c9251fd3d58b"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to finish processing this change." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ " Let me get you to someone who can help. " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "I'm sorry, I was still unable to process this change. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Let me get you to someone who can help. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdateCard_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodAPI"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCard",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "67d809d4-453d-4b73-84e0-c476eab8b545"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "UpdatePaymentMethodFailed",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdateCard_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodAPI"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCard",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "203c6da7-458c-400d-af6e-a5493a3282d9"
+  }, {
+    "targetPage": "UpdatePaymentMethodFailed",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdateCard_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodAPI"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCard",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "3d203f53-ed89-4b65-8ab8-3c5e9e232811"
+  }, {
+    "targetPage": "UpdatePaymentMethodFailed",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdateCard_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodAPI"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCard",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "af0c37b7-da2a-408c-8e96-cbb009d89324"
+  }, {
+    "targetPage": "UpdatePaymentMethodFailed",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdateCard_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodAPI"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCard",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "c40b2538-8d33-41ed-834c-755de2748566"
+  }, {
+    "targetPage": "UpdatePaymentMethodFailed",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdateCard_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeout"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodAPI"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCard",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "b0a00c9c-8764-4c4e-a87f-29fc52a3410f"
+  }, {
+    "targetPage": "UpdatePaymentMethodFailed",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "Metrics_SecuredPayments_UpdateCard_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UpdatePaymentMethodAPI"
+      }, {
+        "parameter": "API_SecuredPayments_UpdateCard",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "UpdatePaymentMethodCard"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "9703fbb4-2e0a-4e0e-904a-29b0806e6794"
+  } ]
+}

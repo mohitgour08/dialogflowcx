@@ -1,0 +1,53 @@
+{
+  "name": "306b895c-a68a-4be5-bd8f-6aac2ee9f6b0",
+  "displayName": "CollectIntentVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "eventHandlers": [ {
+    "targetPage": "DTMFFallbackMenu",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I am sorry, I didn't catch that." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RepeatAttempt",
+        "value": 0
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntentVoice_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "89c03f69-2af1-47aa-b1cf-db82254d7556"
+  }, {
+    "targetPage": "DTMFFallbackMenu",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I'm sorry, I didn't catch that." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "RepeatAttempt",
+        "value": 0
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntentVoice_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "2fcbe1a9-2cb3-4a83-846c-0d0dd311f8f4"
+  } ],
+  "transitionRouteGroups": [ "AccountManagement", "BalanceInquiryOrMakePayment", "Billing", "Payment", "SalesManagement", "ServiceManagment", "Troubleshooting", "Common" ]
+}

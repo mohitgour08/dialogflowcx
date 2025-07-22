@@ -1,0 +1,236 @@
+{
+  "name": "0514ec43-371c-4d35-a974-be690908b5a2",
+  "displayName": "CheckIntentA",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "Okay, if you're calling about your bill or to make a payment, say \"billing\" now. If you're calling for repair or technical support, say \"repair\". Or, if you're calling to manage your service or account, say \"account\". You can also say \"other\" if you don't know." ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "Billing/Payment",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_CheckIntentA_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      } ]
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "b4ef3aba-9ed6-4a17-b80d-5311c53603d1"
+  }, {
+    "intent": "Repair",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_CheckIntentA_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "queue_name",
+        "value": "Repair"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      } ]
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "95920678-ccbb-4069-90da-b485204b107f"
+  }, {
+    "intent": "Service/AccountManagement",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_CheckIntentA_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      } ]
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "b41168ca-a62e-415e-823a-230c07aba5cb"
+  }, {
+    "intent": "Other",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_CheckIntent_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      } ]
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "932f6937-c734-421e-91a4-ecf1f7e83600"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_CheckIntentA_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "RoutetoAgent_CheckIntentA_1"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      } ]
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "fa90d075-e8b1-4ee8-b6a5-aa64f1d970c8"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_CheckIntentA_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "RoutetoAgent_CheckIntentA_2"
+      }, {
+        "parameter": "queue_name",
+        "value": "Repair"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      } ]
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "37093b46-7f8f-4168-873d-2bdf416d977c"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_CheckIntentA_7",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "RoutetoAgent_CheckIntentA_3"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      } ]
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "a51b13af-330b-47f4-9edc-5a219ad8f428"
+  }, {
+    "intent": "DTMF_4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_CheckIntentA_8",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "RoutetoAgent_CheckIntentA_4"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      } ]
+    },
+    "targetPage": "AuthenticationCheck",
+    "name": "1670c54c-800a-45aa-8c78-b949dbd04867"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "Press 1 for billing and payment. Press 2 for repair or technical support. Press 3 for account or service management. Press 4 for other." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_CheckIntentA_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "f63f7e6b-c22c-414c-a2af-787fa259b9b7"
+  }, {
+    "targetPage": "CheckAgentAvailability",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That’s okay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RouetoAgent_PhoneInternet_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Products",
+        "value": "No indication of product"
+      } ]
+    },
+    "name": "51f40bf5-e848-4072-b74f-0941eb124bbc"
+  }, {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      }, {
+        "text": {
+          "text": [ "Press 1 for billing and payment. Press 2 for repair or technical support. Press 3 for account or service management. Press 4 for other." ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_CheckIntentA_NoMatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ]
+    },
+    "name": "42058047-ebb3-43e0-ae92-753b242fc710"
+  }, {
+    "targetPage": "CheckAgentAvailability",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en",
+        "channel": "voice"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_RoutetoAgent_PhoneInternet_NoMatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Sales"
+      }, {
+        "parameter": "Products",
+        "value": "No indication of product"
+      } ]
+    },
+    "name": "49383157-b6c9-4f02-9ef4-befef463f742"
+  } ]
+}

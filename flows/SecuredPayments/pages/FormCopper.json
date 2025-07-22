@@ -1,0 +1,45 @@
+{
+  "name": "fcd1a0ca-5dba-4ad0-99b0-48cd8cf3386e",
+  "displayName": "FormCopper",
+  "form": {
+    "parameters": [ {
+      "displayName": "formresponsecopper",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\r\n  \"chatClientForm\": \"$session.params.CopperForm\",\r\n  \"billingSystem\": \"$session.params.BillingSystem\"\r\n}" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "formresponsecopper",
+      "value": null
+    }, {
+      "parameter": "formResponse",
+      "value": null
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = FINAL",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_FormCopper_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "formResponse",
+        "value": "$session.params.formresponsecopper"
+      } ]
+    },
+    "targetPage": "FormCopperOTP",
+    "name": "c19c7919-3b0c-4ecb-b807-8e881a6a88ce"
+  } ]
+}

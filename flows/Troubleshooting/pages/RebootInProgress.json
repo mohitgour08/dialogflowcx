@@ -1,0 +1,36 @@
+{
+  "name": "d1e79a30-f3fa-4ac2-b359-0bb9b0dc2e0c",
+  "displayName": "RebootInProgress",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I'm performing the reboot now, this may take a few moments." ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003eI'm performing the reboot now, this may take a few moments, so please stay on the line.  \u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_RebootInProgress_1",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_RebootInProgress_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ModemRebootAPI",
+    "name": "ea28047b-c574-4c59-8088-47adb2acf0cd"
+  } ]
+}

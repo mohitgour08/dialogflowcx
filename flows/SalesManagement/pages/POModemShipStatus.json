@@ -1,0 +1,107 @@
+{
+  "name": "982b9589-ae40-4944-90e7-3440700c4eb4",
+  "displayName": "POModemShipStatus",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.JobStatus = \"EnRoute\" OR $session.params.JobStatus = \"ENROUTE\" OR $session.params.JobStatus = \"En-Route\" OR $session.params.JobStatus = \"enroute\" OR $session.params.DispatchStatus = \"EnRoute\" OR $session.params.DispatchStatus = \"ENROUTE\" OR $session.params.DispatchStatus = \"En-Route\" OR $session.params.DispatchStatus = \"enroute\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_POModemShipStatus_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PODeliveryStatus",
+    "name": "9672988e-c989-4b58-8684-b77e2243a4d6"
+  }, {
+    "condition": "$session.params.JobStatus = \"On-Site\" OR $session.params.JobStatus = \"OnSite\" OR $session.params.JobStatus = \"on-site\" OR $session.params.JobStatus = \"ON-SITE\" OR $session.params.JobStatus = \"ONSITE\" OR $session.params.JobStatus = \"onsite\" OR $session.params.DispatchStatus = \"On-Site\" OR $session.params.DispatchStatus = \"OnSite\" OR $session.params.DispatchStatus = \"on-site\" OR $session.params.DispatchStatus = \"ON-SITE\" OR $session.params.DispatchStatus = \"ONSITE\" OR $session.params.DispatchStatus = \"onsite\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_POModemShipStatus_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "POTechOnSite",
+    "name": "1a8ab758-2865-4a2e-8ec6-ef8db5554f23"
+  }, {
+    "condition": "$session.params.OrderStatus = \"IN PROGRESS\" OR $session.params.OrderStatus = \"Fallout\" OR $session.params.OrderStatus = \"In Progress\" OR $session.params.OrderStatus = \"Jeopardy\" OR $session.params.OrderStatus = \"Wait for Tech install\" OR $session.params.OrderStatus = \"in progress\" OR $session.params.OrderStatus = \"INPROGRESS\" OR $session.params.OrderStatus = \"InProgress\" OR $session.params.OrderStatus = \"inprogress\" OR $session.params.OrderStatus = \"FALLOUT\" OR $session.params.OrderStatus = \"fallout\" OR $session.params.OrderStatus = \"JEOPARDY\" OR $session.params.OrderStatus = \"WAIT FOR TECH INSTALL\" OR $session.params.OrderStatus = \"Wait for Tech Install\" OR $session.params.OrderStatus = \"wait for tech install\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SalesManagement_POModemShipStatus_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "PODeliveryStatus",
+    "name": "78ad3239-cf53-4049-9e96-4f2a18ad6d2f"
+  }, {
+    "condition": "$session.params.OrderStatus = \"On Hold\" OR $session.params.OrderStatus = \"ON HOLD\" OR $session.params.OrderStatus = \"on hold\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_SalesManagement_POModemShipStatus_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PendingOrder",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Self Service not available"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "Order Status On Hold"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "8c436b68-f789-4104-bf2f-b6e93a26189c"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Care"
+      }, {
+        "parameter": "Metrics_SalesManagement_POModemShipStatus_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PendingOrder",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason ",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "SalesManagement-POModemShipStatus,OrderStatusUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "0f400613-1d51-4213-ae44-99f2eb7a348d"
+  } ]
+}

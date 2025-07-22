@@ -1,0 +1,34 @@
+{
+  "name": "3185423b-3a1a-44ac-9109-4c6551adf5bf",
+  "displayName": "IsEmailAvailableOnProfile",
+  "form": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Email != null AND $session.params.Email != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_IsEmailAvailableOnProfile_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmailOnProfile",
+        "value": "True"
+      } ]
+    },
+    "targetPage": "EmailOnProfile",
+    "name": "4ec6a1a9-90ed-4b41-a136-f1c36d99a8ea"
+  }, {
+    "condition": "$session.params.Email = null OR $session.params.Email = \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_AccountManagement_IsEmailAvailableOnProfile_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "EmailOnProfile",
+        "value": "False"
+      } ]
+    },
+    "targetPage": "EmailNotInProfile",
+    "name": "5d3fd755-00ec-4a2f-9354-6316313b5cdf"
+  } ]
+}

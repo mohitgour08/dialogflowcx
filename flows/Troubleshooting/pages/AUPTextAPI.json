@@ -1,0 +1,201 @@
+{
+  "name": "698dad05-234b-41f8-9641-b24d3a0a6d0b",
+  "displayName": "AUPTextAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "SendSMSMessage",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_AUPTextAPI_none_wh_SendSMSMessage",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "smsMessage",
+      "value": "To resolve this issue, you'll need to contact our Trust \u0026 Safety Department."
+    }, {
+      "parameter": "smsMessage1",
+      "value": "Please call 7043142390 Monday through Friday between the hours of 8am to 5pm eastern and we will be happy to help"
+    }, {
+      "parameter": "Passcode",
+      "value": ""
+    }, {
+      "parameter": "contactNumber",
+      "value": "$session.params.SMSNumber"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.SMSResponseStatus = \"success\" OR $session.params.SMSResponseStatus = \"Success\" OR $session.params.SMSResponseStatus = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AUPTextAPI_Succes",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_AUPTextAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "targetPage": "MessageSentConfirmation",
+    "name": "7859a745-163c-4abe-be33-b9c4ccef4809"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AUPTextAPI_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_AUPTextAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "targetPage": "AUPTextFail",
+    "name": "620c889b-8c6c-4e45-b5ba-85a7a7d1aa52"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "AUPTextFail",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AUPTextAPI_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "AUPTextAPIResponseStatus",
+        "value": "FAILURE"
+      }, {
+        "parameter": "AUPTextAPIFailure",
+        "value": "WebhookError"
+      }, {
+        "parameter": "API_Troubleshooting_AUPTextAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "2faab6f2-1b2e-459c-8e43-6ea6bb910e35"
+  }, {
+    "targetPage": "AUPTextFail",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AUPTextAPI_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SendSMSMessageAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SendSMSMessageAPIFailure",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "API_Troubleshooting_AUPTextAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "728c9c6a-081d-4680-9b86-16ab47750a7d"
+  }, {
+    "targetPage": "AUPTextFail",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AUPTextAPI_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SendSMSMessageAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SendSMSMessageAPIFailure",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "API_Troubleshooting_AUPTextAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "f4da2531-8115-4acb-8d5e-dbe13fc52c8f"
+  }, {
+    "targetPage": "AUPTextFail",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AUPTextAPI_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SendSMSMessageAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SendSMSMessageAPIFailure",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "API_Troubleshooting_AUPTextAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "c54d399a-3ffe-4275-9af7-4bad192ff15a"
+  }, {
+    "targetPage": "AUPTextFail",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AUPTextAPI_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SendSMSMessageAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SendSMSMessageAPIFailure",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "API_Troubleshooting_AUPTextAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "9e651612-b4a7-4d35-99ad-7562f6d913d4"
+  }, {
+    "targetPage": "AUPTextFail",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_AUPTextAPI_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SendSMSMessageAPIResponse",
+        "value": "FAILURE"
+      }, {
+        "parameter": "SendSMSMessageAPIFailure",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "API_Troubleshooting_AUPTextAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "SendSMSMessage"
+      } ]
+    },
+    "name": "c5aa9f2d-6c6f-4b56-a3c6-ee31e996f947"
+  } ]
+}

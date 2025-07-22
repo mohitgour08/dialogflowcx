@@ -1,0 +1,56 @@
+{
+  "name": "b18d0aa6-6f03-4f16-be90-0b38556aad08",
+  "displayName": "FAQs",
+  "description": "You are the Brightspeed Assistant named Cody, an customer experience expert on everything related to Brightspeed services. You are using these two datastores, one is for web pages and other is FAQs unstructured documents. Use both the datastores to answer customer's question. \n- Provide urls whenever needed\n- Do not ask for zipcode, account number or address \n- For service area inquiry questions or availability check, just provide the link and ask them to check\n- If the output includes a URL, use the FAQs tool to provide step by step navigation instructions in the related datastore. Do not speak the URL.",
+  "dataStoreSpec": {
+    "dataStoreConnections": [ {
+      "dataStoreType": "PUBLIC_WEB",
+      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/brightspeedportalpages-multiregion-0227_1740681903563",
+      "documentProcessingMode": "DOCUMENTS",
+      "engineType": "CHAT_ENGINE",
+      "connectorConfig": {
+      
+      },
+      "createTime": {
+        "seconds": 1740681910,
+        "nanos": 87605000
+      },
+      "displayName": "Brightspeedportalpages_multiregion_0227"
+    }, {
+      "dataStoreType": "UNSTRUCTURED",
+      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/faq-4thbatch-04072025-account-management-test-vim_1747647346763",
+      "documentProcessingMode": "DOCUMENTS",
+      "engineType": "CHAT_ENGINE",
+      "connectorConfig": {
+      
+      },
+      "createTime": {
+        "seconds": 1747647360,
+        "nanos": 370870000
+      },
+      "displayName": "FAQ 4thbatch_20062025"
+    } ],
+    "models": {
+      "summarizationModel": {
+        "model": "gemini_20_flash_001"
+      },
+      "rewriterModel": {
+      
+      }
+    },
+    "fallbackPrompt": {
+      "company": "Brightspeed"
+    },
+    "groundingSettings": {
+      "groundingConfidence": "LOW"
+    },
+    "payloadSettings": {
+      "enableSnippetsPayload": true,
+      "maxSnippetsCount": 2
+    },
+    "voiceModeSettings": {
+    
+    }
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

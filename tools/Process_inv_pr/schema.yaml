@@ -1,0 +1,44 @@
+openapi: 3.0.0
+info:
+  title: Customer bill info API
+  version: 1.0.0
+servers:
+  - url: https://api-pr.brightspeed.com/processinvoice
+paths:
+  /processinvoice?:
+    get:
+      summary: get all customer invoice history
+      operationId: get-customer invoice
+      parameters:
+        - name: accno
+          in: query
+          description: Filter customer account number
+          required: true
+          schema:
+            type: number
+        - name: networkType
+          in: query
+          description: Filter customer network type
+          required: true
+          schema:
+            type: string
+                     
+      responses:
+        '200':
+          description: customer details
+          content:
+            application/json:
+                schema:
+                  type: object
+                example:  
+                  textresponse:
+                     $ref: '#/components/schemas/TextResponse'
+
+components:
+    schemas:
+      TextResponse:
+        type: object
+        properties:
+            text:
+              type: string 
+            

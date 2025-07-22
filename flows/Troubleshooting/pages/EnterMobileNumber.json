@@ -1,0 +1,271 @@
+{
+  "name": "34a8c5a7-16af-4473-92f9-2f1eb553c91a",
+  "displayName": "EnterMobileNumber",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003eI see that you have entered your number as $sys.func.MID($session.params.SMSNumber,1,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,2,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,3,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,4,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,5,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,6,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,7,1)  \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,8,1)  \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,9,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.SMSNumber,10,1) \u003cbreak time=\"300ms\"/\u003e, if this is correct say yes. To enter again, say \"try again\"\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Confirmation.Yes",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_EnterMobileNumber_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Troubleshooting_EnterMobileNumber_1"
+      } ]
+    },
+    "targetPage": "PasswordResetAPI",
+    "name": "8c7075e9-84df-436f-bde0-a55a3c0b9062"
+  }, {
+    "intent": "Try Again",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SMSNumbercounter",
+        "value": "$sys.func.ADD($session.params.SMSNumbercounter,1)"
+      }, {
+        "parameter": "Metrics_Troubleshooting_EnterMobileNumber_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SMSNumber",
+        "value": ""
+      }, {
+        "parameter": "ENTER_TN",
+        "value": null
+      } ]
+    },
+    "targetPage": "TryAgainCounter",
+    "name": "2b9971c8-a11d-4eb3-ab81-26b5c91ec321"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_EnterMobileNumber_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_WifiModemPasswordUsername",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "EnterMobileNumber"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "16f01b2b-730f-4e57-874e-3558481d8bb5"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "SMSNumbercounter",
+        "value": "$sys.func.ADD($session.params.SMSNumbercounter,1)"
+      }, {
+        "parameter": "Metrics_Troubleshooting_EnterMobileNumber_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SMSNumber",
+        "value": ""
+      }, {
+        "parameter": "ENTER_TN",
+        "value": null
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Troubleshooting_EnterMobileNumber_2"
+      } ]
+    },
+    "targetPage": "TryAgainCounter",
+    "name": "422050cd-424e-46ea-8de3-206d28b1bdc4"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eIf this is correct, Press 1. To enter again, Press 2.\u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_EnterMobileNumber_Nomatch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "89332cb4-bd70-49ef-8085-d469df1daebd"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_EnterMobileNumber_Nomatch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_WifiModemPasswordUsername",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "Troubleshooting_EnterMobileNumber"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "EnterMobileNumber"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "18fee3ab-d2c3-4ffd-9685-792013408b36"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, I didn’t hear your answer." ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "If this is correct, Press 1. To enter again, Press 2." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_EnterMobileNumber_NoInput_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "2c2aeed3-11ce-48cf-ba32-37f9aa875583"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-input-2",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "That’s okay." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_EnterMobileNumber_NoInput_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Repair"
+      }, {
+        "parameter": "SS_WifiModemPasswordUsername",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "DTMF_Fail",
+        "value": "Troubleshooting_EnterMobileNumber"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "EnterMobileNumber"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "6edf51af-da2f-43ed-96b4-77ec8fc43536"
+  } ]
+}

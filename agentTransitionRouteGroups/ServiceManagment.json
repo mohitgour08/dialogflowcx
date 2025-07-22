@@ -1,0 +1,130 @@
+{
+  "name": "cf583a9f-b434-46e3-9820-520d44741cc2",
+  "displayName": "ServiceManagment",
+  "transitionRoutes": [ {
+    "intent": "ServiceManagement.AntiVirusProtection",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding Antivirus protection." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "AntivirusProtection"
+      }, {
+        "parameter": "ToModule",
+        "value": "ServiceManagement"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_AntivirusProtection",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "AntivirusProtection"
+      } ]
+    },
+    "targetFlow": "ServiceManagement",
+    "name": "c6c36057-60ec-48e2-b7e1-434e020c119b"
+  }, {
+    "intent": "ServiceManagement.CallingFeatures",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding calling features." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "CallingFeatures"
+      }, {
+        "parameter": "ToModule",
+        "value": "ServiceManagement"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_CallingFeatures",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "CallingFeatures"
+      } ]
+    },
+    "targetFlow": "ServiceManagement",
+    "name": "b1c72f90-bca4-4263-8e80-e97d302e74da"
+  }, {
+    "intent": "ServiceManagement.MoveServiceOrder",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding moving your service order." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "MoveServiceOrder"
+      }, {
+        "parameter": "ToModule",
+        "value": "ServiceManagement"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_MoveServiceOrder",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "Move Service Order"
+      } ]
+    },
+    "targetFlow": "ServiceManagement",
+    "name": "6f5a51cf-e06c-40a4-973a-a1da65fb5dde"
+  }, {
+    "intent": "ServiceManagement.ReturnDevice",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding returning a device." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "ReturnDevice"
+      }, {
+        "parameter": "ToModule",
+        "value": "ServiceManagement"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_ReturnDevice",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "ReturnDevice"
+      } ]
+    },
+    "targetFlow": "ServiceManagement",
+    "name": "4e4a4fa8-d727-43b3-99f2-b2726ab7a269"
+  }, {
+    "intent": "ServiceManagement.RemoveServiceFeatures",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I understand that you have a question regarding removing service features." ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "RemoveServiceFeatures"
+      }, {
+        "parameter": "ToModule",
+        "value": "ServiceManagement"
+      }, {
+        "parameter": "Metrics_ListenInitialIntent_CollectIntent_RemoveServiceFeatures",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "RemoveServiceFeature"
+      } ]
+    },
+    "targetFlow": "ServiceManagement",
+    "name": "e1f80d5f-c723-4791-a0a1-7d7c933b07d1"
+  } ]
+}

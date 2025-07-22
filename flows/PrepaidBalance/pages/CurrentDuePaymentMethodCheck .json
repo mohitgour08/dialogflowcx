@@ -1,0 +1,129 @@
+{
+  "name": "04e6838f-34f4-495e-87f9-f030e894a15a",
+  "displayName": "CurrentDuePaymentMethodCheck ",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "CreditCardType",
+      "value": "$sys.func.IF(\"$session.params.CreditCardType = Discover\", Discover Card, $sys.func.IF(\"$session.params.CreditCardType = Visa\", Visa Card, $session.params.CreditCardType))"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.PaymentMethod = \"ACH\" OR $session.params.PaymentMethod = \"Paypal\" OR $session.params.PaymentMethod = \"PayPal\" OR $session.params.PaymentMethod = \"PAYPAL\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_CurrentDuePaymentMethodCheck_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "ACHCurrentDueVoiceOrChat",
+    "name": "58fd4ca3-a003-41bc-a3c2-999e96f4d57c"
+  }, {
+    "condition": "$session.params.CCExpDateDiffBackup : \"CCExpDateDiff\" OR $session.params.CCExpDateDiff : \"True\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "Metrics_PrepaidBalance_CurrentDuePaymentMethodCheck_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "PaymentMethodUnknown"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PrepaidBalance-CurrentDuePaymentMethodCheck,CCExpUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "2e9fee7f-2c13-444b-885d-63c0435e00a2"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003e 30",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_CurrentDuePaymentMethodCheck_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CCExpGT30VoiceOrChat",
+    "name": "d6ab144e-ec15-4225-b16c-17844331a307"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 30 AND $session.params.CCExpDateDiff \u003e 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_CurrentDuePaymentMethodCheck_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CCExpLT30VoiceOrChat",
+    "name": "c30e3b87-88fb-4d2e-9eef-57a5bd5d356e"
+  }, {
+    "condition": "$session.params.CCExpDateDiff \u003c= 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_CurrentDuePaymentMethodCheck_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "CCExpVoiceOrChat",
+    "name": "b47365f3-2e7a-4a92-bc82-182a64412382"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_PrepaidBalance_CurrentDuePaymentMethodCheck_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_PrepaidBalance",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "PaymentMethodUnknown"
+      }, {
+        "parameter": "TransferReason",
+        "value": "No Condition Match - Default Route"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PrepaidBalance-CurrentDuePaymentMethodCheck,PaymentMethodUnknown"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "06e285a3-de31-420b-b70e-9d0295f5c03b"
+  } ],
+  "description": "PAYPAL OR CREDIT CARD ? FOR CURRENT DUE"
+}

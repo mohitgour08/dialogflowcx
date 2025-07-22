@@ -1,0 +1,259 @@
+{
+  "name": "bd7c09da-dd01-4336-9d6f-869f3f17f63b",
+  "displayName": "UnderstandLastBill",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "It looks like you have some questions about your last bill. Can you select one of the following options to further narrow it down?" ]
+      },
+      "languageCode": "en"
+    }, {
+      "payload": {
+        "ujet": {
+          "buttons": [ {
+            "action": "quick_reply",
+            "title": "Make a Payment"
+          }, {
+            "action": "quick_reply",
+            "title": "Payment Arrangement"
+          }, {
+            "action": "quick_reply",
+            "title": "Explain my Bill"
+          }, {
+            "action": "quick_reply",
+            "title": "Restore my services"
+          }, {
+            "action": "quick_reply",
+            "title": "Payment History"
+          }, {
+            "action": "quick_reply",
+            "title": "I have an additional question"
+          } ],
+          "title": "",
+          "type": "inline_button"
+        }
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "SS_UnderstandLastBill",
+      "value": "Success"
+    }, {
+      "parameter": "FailureReason",
+      "value": ""
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "BalanceInquiryOrMakePayment.Payment",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "BalanceInquiry"
+      }, {
+        "parameter": "Metrics_Billing_UnderstandLastBill_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "8bc3831a-ffdf-4302-9b5a-eec9b1c05cdc"
+  }, {
+    "intent": "Payment.PaymentArrangement",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentArrangement"
+      }, {
+        "parameter": "Metrics_Billing_UnderstandLastBill_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "a10207f8-b39d-4c47-9e63-fd46b34c790b"
+  }, {
+    "intent": "Billing.UnderstandLastBill",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "BalanceInquiry"
+      }, {
+        "parameter": "Metrics_Billing_UnderstandLastBill_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "8ff01e60-6b2a-48f6-acdf-a6e5ba6a0e73"
+  }, {
+    "intent": "Payment.RestoreService",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_UnderstandLastBill_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ToState",
+        "value": "PaymentRestoreService"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "44acedc2-6f18-4565-a304-7d97e55734a4"
+  }, {
+    "intent": "Representative",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_UnderstandLastBill_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "SS_UnderstandLastBill",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "HumanEscalation"
+      }, {
+        "parameter": "agentPromptRemoval",
+        "value": "Yes"
+      }, {
+        "parameter": "agentPromptRemoval_pagename",
+        "value": "UnderstandLastBill"
+      }, {
+        "parameter": "TransferReason",
+        "value": "Intent is Representative"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UnderstandLastBill"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "87bced29-0571-4777-9a61-111276d193e5"
+  }, {
+    "intent": "Payment.PaymentHistory",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PaymentHistory"
+      }, {
+        "parameter": "Metrics_Billing_UnderstandLastBill_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "1298a476-8994-492d-a68f-7feea695dc58"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I’m sorry, your answer doesn’t match one of our options. Can you please repeat that?" ]
+        },
+        "languageCode": "en"
+      }, {
+        "payload": {
+          "ujet": {
+            "buttons": [ {
+              "action": "quick_reply",
+              "title": "Make a Payment"
+            }, {
+              "action": "quick_reply",
+              "title": "Payment Arrangement"
+            }, {
+              "action": "quick_reply",
+              "title": "Explain my Bill"
+            }, {
+              "action": "quick_reply",
+              "title": "Restore my services"
+            }, {
+              "action": "quick_reply",
+              "title": "Payment History"
+            }, {
+              "action": "quick_reply",
+              "title": "I have an additional question"
+            } ],
+            "title": "",
+            "type": "inline_button"
+          }
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_UnderstandLastBill_NoMatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "fc903a92-710c-4283-b68d-97f181b812ec"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "I didn’t understand your answer. " ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Billing_UnderstandLastBill_NoMatch",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_UnderstandLastBill",
+        "value": "Failure"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Bill"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "RetryLimitExceeded"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "UnderstandLastBill"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "name": "74e97ff3-acf1-4e0d-9f4d-ec898fa435b5"
+  } ],
+  "transitionRouteGroups": [ "AdditionalQuestion" ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "db56c454-ba63-4106-ac46-c7a91bc053bf",
+  "displayName": "NetworkTypeCheck",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.networkType = \"Copper\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CopperGenesysEscalation",
+    "name": "cc2062de-3918-4fdd-8ea2-7332bc4d7b91"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CopperLGenesysEscalation",
+    "name": "b4f65d56-a9fc-42fa-b79f-155f2903d202"
+  } ]
+}

@@ -1,0 +1,56 @@
+{
+  "name": "619965c0-688a-43c9-aa8c-993e9e3308fb",
+  "displayName": "Sales",
+  "transitionRoutes": [ {
+    "intent": "Sales.AddServiceFeatures",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_path",
+        "value": "English/Sales/"
+      }, {
+        "parameter": "queue_name",
+        "value": "Sales"
+      }, {
+        "parameter": "head_intent",
+        "value": "Sales"
+      } ]
+    },
+    "name": "07ac3a5f-8dc2-44a5-b793-40c3a6e21834"
+  }, {
+    "intent": "Sales.DiscountsandPromotions",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_path",
+        "value": "English/Sales/"
+      }, {
+        "parameter": "queue_name",
+        "value": "Sales"
+      }, {
+        "parameter": "head_intent",
+        "value": "Sales"
+      } ]
+    },
+    "name": "359d45be-7dc3-4e28-8d1d-d03c49d12d8d"
+  }, {
+    "intent": "Sales.OpenNewService",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "queue_path",
+        "value": "English/Sales/Sales"
+      }, {
+        "parameter": "queue_name",
+        "value": "Sales"
+      }, {
+        "parameter": "head_intent",
+        "value": "Sales"
+      } ]
+    },
+    "name": "94d8ae5b-c77f-4c51-961f-4a5c9a277618"
+  }, {
+    "intent": "Sales",
+    "triggerFulfillment": {
+    
+    },
+    "name": "8167125f-d773-4251-b3fb-49c259c66f23"
+  } ]
+}

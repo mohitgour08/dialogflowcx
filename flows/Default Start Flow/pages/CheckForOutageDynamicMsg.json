@@ -1,0 +1,162 @@
+{
+  "name": "550e2a73-386f-4f96-82b4-7799bc086299",
+  "displayName": "CheckForOutageDynamicMsg",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "Dynamic Message",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "location",
+      "value": "Outage"
+    }, {
+      "parameter": "Metrics_DefaultStartFlow_checkForOutageDynamicMsg",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "True",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "DynamicMsg_Logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForOutageDynamicMsg_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "name": "109d06f4-f069-4d06-91db-4d931304843b"
+  }, {
+    "condition": "$session.params.message_text != \"\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForOutageDynamicMsg_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_CheckForOutageDynamicMsg",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "targetPage": "WelcomeMessage",
+    "name": "d97095d7-654a-4d5f-b73f-5f06ef924490"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForOutageDynamicMsg_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_CheckForOutageDynamicMsg",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "targetPage": "checkForGlobalDynamicMsg",
+    "name": "abb8c5ba-188c-432d-98fc-2ad8ce205266"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "checkForGlobalDynamicMsg",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForOutageDynamicMsg_webhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_CheckForOutageDynamicMsg",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "name": "d7d7b621-5548-4b12-a9eb-5c8afee83aa5"
+  }, {
+    "targetPage": "checkForGlobalDynamicMsg",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForOutageDynamicMsg_webhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_CheckForOutageDynamicMsg",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "name": "096dc705-9f02-413a-87e5-7ba9ed902ff8"
+  }, {
+    "targetPage": "checkForGlobalDynamicMsg",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForOutageDynamicMsg_webhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_CheckForOutageDynamicMsg",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "name": "30922287-abc1-4d73-ba34-f91ca86b6568"
+  }, {
+    "targetPage": "checkForGlobalDynamicMsg",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForOutageDynamicMsg_webhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_CheckForOutageDynamicMsg",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "name": "0e2d981d-be30-462f-b6b1-1b94e99549c6"
+  }, {
+    "targetPage": "checkForGlobalDynamicMsg",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForOutageDynamicMsg_webhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_CheckForOutageDynamicMsg",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "name": "a2618fd3-c382-4e71-9c70-94f496692a88"
+  }, {
+    "targetPage": "checkForGlobalDynamicMsg",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_DefaultStartFlow_checkForOutageDynamicMsg_webhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Default Start Flow_CheckForOutageDynamicMsg",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "Dynamic Message"
+      } ]
+    },
+    "name": "131f05f4-34a9-46a8-9592-a77e14d3a604"
+  } ]
+}

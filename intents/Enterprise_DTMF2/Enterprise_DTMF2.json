@@ -1,0 +1,11 @@
+{
+  "name": "a0fb9050-965d-4357-9028-4ceb847cf927",
+  "displayName": "Enterprise_DTMF2",
+  "parameters": [ {
+    "id": "dtmf2",
+    "entityType": "@DTMF2"
+  } ],
+  "priority": 500000,
+  "numTrainingPhrases": 7,
+  "dtmfPattern": "^2$"
+}

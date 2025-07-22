@@ -1,0 +1,130 @@
+{
+  "name": "2ffa81d8-c8e7-409f-9492-a1cea881d2ad",
+  "displayName": "FormPostpaidCredit",
+  "form": {
+    "parameters": [ {
+      "displayName": "FormResponsePostpaidCredit",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "{\n\"chatClientForm\": \"$session.params.FormPostpaidCredit\",\n\"paymentMethod\": \"$session.params.PaymentMethod\",\n\"lastFourDigits\": \"$session.params.MethodLastFourDigits\",\n\"currentBalance\": \"$session.params.CreditBalance\",\n\"dueDate\": \"$session.params.BillInfo_BillDueDate\"\n}\n " ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "FormResponsePostpaidCredit",
+      "value": null
+    }, {
+      "parameter": "SS_PostpaidBalance",
+      "value": "Success"
+    }, {
+      "parameter": "SS_FailureReason",
+      "value": ""
+    }, {
+      "parameter": "Metrics_PostpaidBalance_FormPostpaidCredit_Form",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.FormResponsePostpaidCredit = \"onePayment\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "callerintent",
+        "value": "PostpaidPayment"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_FormPostpaidCredit_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "a4d24335-099c-47bd-b996-50f9886c34a1"
+  }, {
+    "condition": "$session.params.FormResponsePostpaidCredit = \"Update\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "callerintent",
+        "value": "MethodOfPaymentUpdate"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_FormPostpaidCredit_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "0e2422a8-54f3-49bd-861d-07908c99e0dc"
+  }, {
+    "condition": "$session.params.FormResponsePostpaidCredit = \"EnrollInAutopay\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "ToState",
+        "value": "RecurringPaymentAutopay"
+      }, {
+        "parameter": "Metrics_PostpaidBalance_FormPostpaidCredit_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "callerintent",
+        "value": "RecurringPaymentAutopay"
+      } ]
+    },
+    "targetFlow": "Payment",
+    "name": "0ee0699f-7d25-41b3-a935-23191bf6b160"
+  }, {
+    "condition": "$session.params.FormResponsePostpaidCredit = \"formBack\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_FormPostpaidCredit_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormAnythingElse",
+    "name": "12f8268d-6c41-4208-8de3-ce525daf2772"
+  }, {
+    "condition": "$session.params.FormResponsePostpaidCredit = \"CancelForm\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "{\"chatClientForm\": \"BackToChat\"}" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_PostpaidBalance_FormPostpaidCredit_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "FormAnythingElse",
+    "name": "eb10aebc-d1e4-4188-8e85-5a55b67379f1"
+  } ]
+}

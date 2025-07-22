@@ -1,0 +1,297 @@
+{
+  "name": "9cddd0e0-ae30-4132-8a7b-5587d3d9443d",
+  "displayName": "PhoneEmailOnProfileVoice",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003eThanks! I see that a phone number ending in $sys.func.MID($session.params.ContactNumberLast4,1,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.ContactNumberLast4,2,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.ContactNumberLast4,3,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.ContactNumberLast4,4,1) \u003cbreak time=\"300ms\"/\u003e is already registered to your account, as well as this email address begining with $sys.func.MID($session.params.EmailNameFirst5,1,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,2,1)\u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,3,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,4,1) \u003cbreak time=\"300ms\"/\u003e$sys.func.MID($session.params.EmailNameFirst5,5,1) \u003cbreak  time=\"300ms\"/\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    }, {
+      "text": {
+        "text": [ "\u003cspeak\u003eWould you like me to send the code to Email or phone number or choose another way to authenticate.\u003c/speak\u003e" ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    }, {
+      "parameter": "NoInput1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowPlaybackInterruption": true
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "intent": "Email",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileVoice_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Auth2FactorChannel",
+        "value": "Email"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "EmailSend",
+    "name": "288baede-af99-4212-a8df-692158887ed8"
+  }, {
+    "intent": "PhoneNumber",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileVoice_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Auth2FactorChannel",
+        "value": "SMS"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "TextSend",
+    "name": "a04a49b1-4c52-4b2a-9f48-ccc3f8ecdeee"
+  }, {
+    "intent": "AuthenticateAnotherWay",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileVoice_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "AuthenticateOptionsVoice",
+    "name": "2748f04e-a5c2-429a-82d9-768ac43e9939"
+  }, {
+    "intent": "DTMF_1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileVoice_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Authentication_PhoneEmailOnProfileVoice_1"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "EmailSend",
+    "name": "4e768ba3-34a7-437c-a2d1-3dfc79cf5fb3"
+  }, {
+    "intent": "DTMF_2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileVoice_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Authentication_PhoneEmailOnProfileVoice_2"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "TextSend",
+    "name": "3320ff73-6d92-45eb-b20e-afd4bc56900b"
+  }, {
+    "intent": "DTMF_3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileVoice_6",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "DTMF_Option",
+        "value": "Authentication_PhoneEmailOnProfileVoice_3"
+      }, {
+        "parameter": "AuthMethod",
+        "value": "Zipcode"
+      }, {
+        "parameter": "Metrics_AuthMethod",
+        "value": "Zipcode"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "AuthenticateOptionsVoice",
+    "name": "0a35b7d4-36a0-424d-bae9-ad810295e6d0"
+  } ],
+  "eventHandlers": [ {
+    "event": "sys.no-match-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eI’m sorry, your answer doesn’t match one of our options. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eIf you would like me to send the code to your Email press 1. For sending the code on your phone number press 2. For another way to authenticate press 3. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileVoice_Nomatch1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoMatch1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "942ead1a-922d-4ba8-96a7-e98be9e612a2"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "sys.no-match-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eI didn’t understand your answer. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "NoMatch"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileVoice_NoMatchDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoMatchRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PhoneEmailOnProfileVoice"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "c361bfcf-acba-41d6-95d0-a23c2b151f3c"
+  }, {
+    "event": "sys.no-input-1",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eI’m sorry, I didn’t hear your answer. \u003c/speak\u003e " ]
+        },
+        "languageCode": "en"
+      }, {
+        "text": {
+          "text": [ "\u003cspeak\u003eIf you would like me to send the code to your Email press 1. For sending the code on your phone number press 2. For another way to authenticate press 3. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileVoice_NoInput1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "NoInput1Triggered",
+        "value": "TRUE"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "1af19bf4-49d7-4438-aab9-8182441ddd15"
+  }, {
+    "targetFlow": "ListenInitialIntent",
+    "event": "sys.no-input-default",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "\u003cspeak\u003eThat’s okay. \u003c/speak\u003e" ]
+        },
+        "languageCode": "en"
+      } ],
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_PhoneEmailOnProfileVoice_NoInputDefault",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "Authentication",
+        "value": "FAILED"
+      }, {
+        "parameter": "AuthFailReason",
+        "value": "NoInput"
+      }, {
+        "parameter": "comingfromstate",
+        "value": "Authentication"
+      }, {
+        "parameter": "DifficultCaller",
+        "value": "NoInput"
+      }, {
+        "parameter": "TransferReason",
+        "value": "NoInputRetryExceeded"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "PhoneEmailOnProfileVoice"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      },
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "7bc401a5-1897-44fe-ba3b-8b3a1cb7b8d2"
+  } ]
+}

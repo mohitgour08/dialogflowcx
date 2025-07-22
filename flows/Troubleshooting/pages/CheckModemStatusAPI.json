@@ -1,0 +1,209 @@
+{
+  "name": "bf559c27-1947-4d6f-9b4f-17ebcc75d6e2",
+  "displayName": "CheckModemStatusAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "\u003cspeak\u003e\u003caudio src=\"https://chatservices.brightspeed.com/audio/HoldMusic.wav\" clipEnd=\"59s\"/\u003e\u003c/speak\u003e" ]
+      },
+      "languageCode": "en",
+      "channel": "voice"
+    } ],
+    "webhook": "ModemStatusbyBan",
+    "tag": "none",
+    "setParameterActions": [ {
+      "parameter": "Metrics_Troubleshooting_CheckModemStatusAPI_none_wh_CheckModemStatusAPI",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+        "allowCancellation": true
+      }
+    },
+    "returnPartialResponses": true,
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.GetModemResponseStatus = \"SUCCESS\" OR $session.params.GetModemResponseStatus = \"Success\" OR $session.params.GetModemResponseStatus = \"success\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckModemStatusAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Troubleshooting_CheckModemStatusAPI",
+        "value": "Success"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "CheckModemType",
+    "name": "b19cf74f-7c56-403c-9ac4-70d9911302f8"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckModemStatusAPI_default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "CheckModemStatusAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "ModemStatusAPI",
+        "value": "$session.params.GetModemResponseStatus"
+      }, {
+        "parameter": "API_Troubleshooting_CheckModemStatusAPI",
+        "value": "Failure"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "ManualReboot_HoldMusic",
+    "name": "813b0035-8242-4857-910b-9bd03fa0fdf9"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "ManualReboot_HoldMusic",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckModemStatusAPI_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemStatusAPI",
+        "value": "WebhookError"
+      }, {
+        "parameter": "API_Troubleshooting_CheckModemStatusAPI",
+        "value": "Fail_Error"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "d8fb601b-7b32-4d05-a405-2fb2d59cdf63"
+  }, {
+    "targetPage": "ManualReboot_HoldMusic",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckModemStatusAPI_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemStatusAPI",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "API_Troubleshooting_CheckModemStatusAPI",
+        "value": "Fail_Invalid"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "0e37dba0-aafa-4e8a-ad10-538402e9dab5"
+  }, {
+    "targetPage": "ManualReboot_HoldMusic",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckModemStatusAPI_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemStatusAPI",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "API_Troubleshooting_CheckModemStatusAPI",
+        "value": "Fail_NotFound"
+      }, {
+        "parameter": "Webhoolk_Name",
+        "value": "ModemStatusbyBan"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "42965b3f-bc9c-441d-ad75-607ccb3e23f5"
+  }, {
+    "targetPage": "ManualReboot_HoldMusic",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckModemStatusAPI_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemStatusAPI",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "API_Troubleshooting_CheckModemStatusAPI",
+        "value": "Fail_Rejected"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "bde17255-40e2-4d7c-8aaa-9167ec63fcae"
+  }, {
+    "targetPage": "ManualReboot_HoldMusic",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckModemStatusAPI_WebhookTimeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemStatusAPI",
+        "value": "WebhookTimeout"
+      }, {
+        "parameter": "API_Troubleshooting_CheckModemStatusAPI",
+        "value": "Fail_Timeout"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "e7b36c35-3200-4ef1-acda-003abbdaa3c1"
+  }, {
+    "targetPage": "ManualReboot_HoldMusic",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Troubleshooting_CheckModemStatusAPI_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ModemStatusAPI",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "API_Troubleshooting_CheckModemStatusAPI",
+        "value": "Fail_Unavailable"
+      }, {
+        "parameter": "Webhook_Name",
+        "value": "ModemStatusbyBan"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "b8d19b19-46e6-4dea-899a-8e678e4875c7"
+  } ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "52cd6eb3-7675-430f-b9c9-9fb0bf2e4047",
+  "actions": [ {
+    "agentUtterance": {
+      "text": "I understand that you want to check on autopay"
+    }
+  }, {
+    "flowInvocation": {
+      "flow": "Payment",
+      "inputActionParameters": {
+        "FAQSuccess": "DirectTransferToBA",
+        "ToModule": "Payment",
+        "ToState": "RecurringPaymentAutopay",
+        "callerintent": "RecurringPaymentAutopay"
+      },
+      "outputActionParameters": {
+      
+      }
+    }
+  } ],
+  "playbookInput": {
+    "precedingConversationSummary": "User want to know about auto payment"
+  },
+  "playbookOutput": {
+    "executionSummary": "."
+  },
+  "displayName": "transition to Payment flow",
+  "retrievalStrategy": "DEFAULT",
+  "tokenCount": 146,
+  "languageCode": "en"
+}

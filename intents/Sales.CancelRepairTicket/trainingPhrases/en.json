@@ -1,0 +1,133 @@
+{
+  "trainingPhrases": [ {
+    "parts": [ {
+      "text": "cancel",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "drop",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "cancel ticket",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Stop ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket process",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Abort ticket submission",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Terminate ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Revoke ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Cease ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Withdraw ",
+      "auto": true
+    }, {
+      "text": "repair",
+      "auto": true
+    }, {
+      "text": " ticket",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Abort ticket",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Cancel ",
+      "auto": true
+    }, {
+      "text": "Repair Ticket",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  }, {
+    "parts": [ {
+      "text": "Cancel my ",
+      "auto": true
+    }, {
+      "text": "Repair Ticket",
+      "auto": true
+    } ],
+    "repeatCount": 1,
+    "languageCode": "en"
+  } ]
+}

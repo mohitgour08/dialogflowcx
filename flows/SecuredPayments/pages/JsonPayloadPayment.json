@@ -1,0 +1,214 @@
+{
+  "name": "02272d7d-26ef-4f20-b4f4-9ef910d8f9c9",
+  "displayName": "JsonPayloadPayment",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "JsonPayload",
+    "tag": "none"
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.encValues != null AND ($session.params.BillingSystem = \"Zuora\" OR $session.params.BillingSystem = \"zuora\")",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "QuickBillPay_Logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_JsonPayloadPayment_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "FiberPaymentMethodUpdate",
+    "name": "096e0db0-9a76-424c-abeb-d23882e40d79"
+  }, {
+    "condition": "$session.params.encValues != null AND $session.params.BillingSystem = \"BRIM\"",
+    "triggerFulfillment": {
+      "webhook": "Logging_API",
+      "tag": "QuickBillPay_Logging",
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_JsonPayloadPayment_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "GetTokenAPICardChat",
+    "name": "aef8bbf4-44cc-453d-b0cb-91fda6fc13c7"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_JsonPayloadPayment_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "JsonPayment"
+      } ]
+    },
+    "targetFlow": "RoutetoAgent",
+    "name": "d6e62bd1-83c5-40f8-8c3b-719eb960444c"
+  } ],
+  "eventHandlers": [ {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_JsonPayloadPayment_WebhookError",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookError"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIError"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "JsonPayment"
+      } ]
+    },
+    "name": "450f0ea2-ad3e-42b5-96d8-9420c8a9f8f9"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_JsonPayloadPayment_WebhookInvalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookInvalid"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIInvalid"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "JsonPayment"
+      } ]
+    },
+    "name": "513884c4-2733-4492-9564-465bbd5e2326"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_JsonPayloadPayment_WebhookNotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookNotFound"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APINotFound"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "JsonPayment"
+      } ]
+    },
+    "name": "a8199575-a2e9-4773-919e-46d20e8fc634"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_JsonPayloadPayment_WebhookRejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookRejected"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIRejected"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "JsonPayment"
+      } ]
+    },
+    "name": "ff2af254-8794-4938-969e-68846e31b690"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_JsonPayloadPayment_WebhookTimeOut",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "Webhooktimeout"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APITimeOut"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "JsonPayment"
+      } ]
+    },
+    "name": "d83d1ba4-f97c-4a20-8b9d-2965f2891a33"
+  }, {
+    "targetFlow": "RoutetoAgent",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SecuredPayments_JsonPayloadPayment_WebhookUnavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "SS_SecuredPayments",
+        "value": "Failure"
+      }, {
+        "parameter": "SS_FailureReason",
+        "value": "WebhookUnavailable"
+      }, {
+        "parameter": "TransferReason",
+        "value": "APIUnavailable"
+      }, {
+        "parameter": "TransferMessage",
+        "value": "JsonPayment"
+      }, {
+        "parameter": "RouteIntent",
+        "value": "Payment"
+      } ]
+    },
+    "name": "cc4b6b87-adb0-4b00-b929-6c3414f44111"
+  } ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "da5eff47-6a52-40e4-9d35-7e3ce7ee4aec",
+  "displayName": "invoice sample tool",
+  "description": "there are two invoices from current month and previous month",
+  "dataStoreSpec": {
+    "dataStoreConnections": [ {
+      "dataStoreType": "UNSTRUCTURED",
+      "dataStore": "projects/878868065760/locations/us/collections/default_collection/dataStores/invoices-samples_1747233525103",
+      "documentProcessingMode": "DOCUMENTS",
+      "engineType": "CHAT_ENGINE",
+      "connectorConfig": {
+      
+      },
+      "createTime": {
+        "seconds": 1747233533,
+        "nanos": 782841000
+      },
+      "displayName": "invoices_samples"
+    } ],
+    "models": {
+      "summarizationModel": {
+        "model": "gemini_20_flash_001"
+      },
+      "rewriterModel": {
+      
+      }
+    },
+    "fallbackPrompt": {
+    
+    },
+    "groundingSettings": {
+    
+    },
+    "payloadSettings": {
+      "enableSnippetsPayload": true,
+      "maxSnippetsCount": 2
+    },
+    "voiceModeSettings": {
+    
+    }
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

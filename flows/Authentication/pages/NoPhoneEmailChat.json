@@ -1,0 +1,50 @@
+{
+  "name": "9197ada5-24b9-4aab-9945-e4948461a370",
+  "displayName": "NoPhoneEmailChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "It appears there is no phone number or email currently associated with your account. Let's try another way." ]
+      },
+      "languageCode": "en"
+    } ],
+    "setParameterActions": [ {
+      "parameter": "Metrics_Authentication_NoPhoneEmailChat_Default",
+      "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+    }, {
+      "parameter": "AuthMethod",
+      "value": "Zipcode"
+    }, {
+      "parameter": "Metrics_AuthMethod",
+      "value": "Zipcode"
+    }, {
+      "parameter": "Metrics_2Factor",
+      "value": "NO"
+    }, {
+      "parameter": "NoMatch1Triggered",
+      "value": "FALSE"
+    } ],
+    "advancedSettings": {
+      "playbackInterruptionSettings": {
+      
+      },
+      "dtmfSettings": {
+        "useSystemEntityRule": false
+      }
+    },
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "ZipCodeAuth",
+    "name": "43817ef2-2ba2-40db-bfb7-0f6da39a38c4"
+  } ]
+}

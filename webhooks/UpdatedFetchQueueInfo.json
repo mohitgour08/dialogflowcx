@@ -1,0 +1,42 @@
+{
+  "name": "94ad989d-1eee-483b-935f-5e6903f0ccd0",
+  "displayName": "UpdatedFetchQueueInfo",
+  "genericWebService": {
+    "uri": "https://api-dv.brightspeed.com/ccaiqueuestatus",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"sessionInfo\": {\n    \"parameters\": {\n      \"queue_name\": \"$session.params.queue_name\",\n      \"CallID\": \"$session.params.APICallID\",\n      \"customer_account_type\": \"$session.params.customer_account_type\"\n    }\n  }\n}",
+    "parameterMapping": [ {
+      "key": "estimatedWaitTime",
+      "value": "estimatedWaitTime"
+    }, {
+      "key": "isAboveThreshold",
+      "value": "isAboveThreshold"
+    }, {
+      "key": "isAfterHours",
+      "value": "isAfterHours"
+    }, {
+      "key": "isImmediateHandoff",
+      "value": "isImmediateHandoff"
+    }, {
+      "key": "isLongWait",
+      "value": "isLongWait"
+    }, {
+      "key": "message",
+      "value": "message"
+    }, {
+      "key": "queueID",
+      "value": "queueId"
+    } ],
+    "oauthConfig": {
+      "clientId": "eTP4gFPWxkYOvAAddOO7jj2NnO63UajQshOjv4B53SUVRMFA",
+      "clientSecret": "XSIy6ntYDxaDnAZqq1fGLhlm5qsYEv5Q50yiF9Y7ZHePwAzXGsBVMD3grD93IWtA",
+      "tokenEndpoint": "https://api-dv.brightspeed.com/oauth2/token",
+      "scopes": [ "read" ]
+    },
+    "serviceAgentAuth": "NONE"
+  },
+  "timeout": {
+    "seconds": 10
+  }
+}

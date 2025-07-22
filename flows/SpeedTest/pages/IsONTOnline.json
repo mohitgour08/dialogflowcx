@@ -1,0 +1,50 @@
+{
+  "name": "e41fa114-7e45-4fb2-bbfd-19b714751a78",
+  "displayName": "IsONTOnline",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.IsONTOnline = \"false\" OR $session.params.IsONTOnline = \"False\" OR $session.params.IsONTOnline = \"FALSE\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_IsONTOnline_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "CheckModemStatusAPI",
+    "name": "cfaaab3b-4d2c-4ebe-b09e-0fc545672647"
+  }, {
+    "condition": "true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_SpeedTest_IsONTOnline_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "ONTErrorMessage",
+        "value": "$session.params.ONTErrorMessage"
+      } ],
+      "advancedSettings": {
+        "playbackInterruptionSettings": {
+        
+        },
+        "dtmfSettings": {
+          "useSystemEntityRule": false
+        }
+      }
+    },
+    "targetPage": "UnableToConnectService",
+    "name": "7024edb3-4a43-484f-86f0-cf46ba0b69b3"
+  } ]
+}

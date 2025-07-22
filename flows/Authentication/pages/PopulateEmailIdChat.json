@@ -1,0 +1,156 @@
+{
+  "name": "198dde86-208c-40ec-948f-f69378061673",
+  "displayName": "PopulateEmailIdChat",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "setParameterActions": [ {
+      "parameter": "EmailName",
+      "value": "$sys.func.TO_TEXT($sys.func.GET($sys.func.SPLIT($session.params.Email, \"@\"),0))"
+    }, {
+      "parameter": "EmailDomain",
+      "value": "$sys.func.TO_TEXT($sys.func.GET($sys.func.SPLIT($session.params.Email, \"@\"),1))"
+    }, {
+      "parameter": "EmailNameRemainCount",
+      "value": "$sys.func.MINUS($sys.func.TO_NUMBER($sys.func.LEN($session.params.EmailName)),5)"
+    }, {
+      "parameter": "EmailNameRemaining",
+      "value": "$sys.func.MID($session.params.EmailName, 6, $session.params.EmailNameRemainCount)"
+    }, {
+      "parameter": "EmailNameFirst5",
+      "value": "$sys.func.MID($session.params.EmailName, 1, 5)"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.EmailNameRemainCount = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MaskedEmailName",
+        "value": "$sys.func.SUBSTITUTE($session.params.EmailName, $session.params.EmailNameRemaining, \"*\")"
+      } ]
+    },
+    "name": "24b93b78-694e-437d-9f62-13e9a681d654"
+  }, {
+    "condition": "$session.params.EmailNameRemainCount = 2",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MaskedEmailName",
+        "value": "$sys.func.SUBSTITUTE($session.params.EmailName, $session.params.EmailNameRemaining, \"**\")"
+      } ]
+    },
+    "name": "70308bf2-dd61-4f8b-962f-9006c6092b26"
+  }, {
+    "condition": "$session.params.EmailNameRemainCount = 3",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MaskedEmailName",
+        "value": "$sys.func.SUBSTITUTE($session.params.EmailName, $session.params.EmailNameRemaining, \"***\")"
+      } ]
+    },
+    "name": "acde2fb0-49b8-44c7-adfc-977a99cbe8a9"
+  }, {
+    "condition": "$session.params.EmailNameRemainCount = 4",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MaskedEmailName",
+        "value": "$sys.func.SUBSTITUTE($session.params.EmailName, $session.params.EmailNameRemaining, \"****\")"
+      } ]
+    },
+    "name": "d21eaf22-f9c4-4afb-8417-f941ade26c98"
+  }, {
+    "condition": "$session.params.EmailNameRemainCount = 5",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MaskedEmailName",
+        "value": "$sys.func.SUBSTITUTE($session.params.EmailName, $session.params.EmailNameRemaining, \"*****\")"
+      } ]
+    },
+    "name": "a16f378a-21ce-4f4c-85cb-947defe676e9"
+  }, {
+    "condition": "$session.params.EmailNameRemainCount = 6",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MaskedEmailName",
+        "value": "$sys.func.SUBSTITUTE($session.params.EmailName, $session.params.EmailNameRemaining, \"******\")"
+      } ]
+    },
+    "name": "7b02f6a6-bba7-40d0-8bd3-ed51ca0b3635"
+  }, {
+    "condition": "$session.params.EmailNameRemainCount = 7",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MaskedEmailName",
+        "value": "$sys.func.SUBSTITUTE($session.params.EmailName, $session.params.EmailNameRemaining, \"*******\")"
+      } ]
+    },
+    "name": "e1c66f72-587e-439d-8316-019b0ace6295"
+  }, {
+    "condition": "$session.params.EmailNameRemainCount = 8",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MaskedEmailName",
+        "value": "$sys.func.SUBSTITUTE($session.params.EmailName, $session.params.EmailNameRemaining, \"********\")"
+      } ]
+    },
+    "name": "8caad16a-8855-43c0-8395-31c29a91504f"
+  }, {
+    "condition": "$session.params.EmailNameRemainCount = 9",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MaskedEmailName",
+        "value": "$sys.func.SUBSTITUTE($session.params.EmailName, $session.params.EmailNameRemaining, \"*********\")"
+      } ]
+    },
+    "name": "02db320e-231b-4c90-8d1f-8bdc04ae3cec"
+  }, {
+    "condition": "$session.params.EmailNameRemainCount = 10",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MaskedEmailName",
+        "value": "$sys.func.SUBSTITUTE($session.params.EmailName, $session.params.EmailNameRemaining, \"**********\")"
+      } ]
+    },
+    "name": "2183c4c9-908a-41b2-8657-e3bf177573c6"
+  }, {
+    "condition": "$session.params.EmailNameRemainCount \u003e 10",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MaskedEmailName",
+        "value": "$sys.func.SUBSTITUTE($session.params.EmailName, $session.params.EmailNameRemaining, \"***********\")"
+      } ]
+    },
+    "name": "a53b2c95-2bfd-458a-8a0c-c868adb8a7c8"
+  }, {
+    "condition": "$session.params.HasPhoneEmail = true",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MaskedEmail",
+        "value": "$sys.func.TO_TEXT($sys.func.CONCATENATE($session.params.MaskedEmailName,\"@\",$session.params.EmailDomain))"
+      } ]
+    },
+    "targetPage": "PhoneEmailOnProfileChat",
+    "name": "89d0fd6a-4fd9-448f-a0b3-f2d82f781b15"
+  }, {
+    "condition": "TRUE",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "MaskedEmail",
+        "value": "$sys.func.TO_TEXT($sys.func.CONCATENATE($session.params.MaskedEmailName,\"@\",$session.params.EmailDomain))"
+      } ]
+    },
+    "targetPage": "EmailOnProfile",
+    "name": "df6fa5ec-698e-4251-8bf1-8265495f5a13"
+  } ],
+  "advancedSettings": {
+    "speechAdaptationSettings": {
+    
+    }
+  },
+  "speakerIdSettings": {
+  
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "name": "d2dbb100-bd6b-4434-bb82-4a3d04654eb2",
+  "displayName": "2FactorSwitch",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "webhook": "CCSPSwitch",
+    "tag": "TwoFactorAuth",
+    "setParameterActions": [ {
+      "parameter": "CCSPToggle",
+      "value": "TwoFactor"
+    } ],
+    "nextActionOverride": {
+    
+    }
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Authentication = \"ACCTFOUND\" AND $session.params.channel = \"voice\" AND $session.params.TwoFactor = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_2FactorSwitch_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "Last4DigitPhoneNum",
+    "name": "1954b069-a3c9-4c88-8e96-9a7ec4c66d5c"
+  }, {
+    "condition": "$session.params.Authentication = \"ACCTFOUND\" AND $session.params.channel = \"voice\" AND $session.params.TwoFactor = 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_2FactorSwitch_2",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "ZipCodeAuth",
+    "name": "5f77fc43-db71-4610-b342-7451d78077ea"
+  }, {
+    "condition": "$session.params.TwoFactor = 1 AND $session.params.channel = \"voice\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_2FactorSwitch_3",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "askAccountInfoVoice",
+    "name": "19803bea-a237-4ff8-9d6c-fba72f2c7214"
+  }, {
+    "condition": "$session.params.TwoFactor = 1",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_2FactorSwitch_4",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "AskAccountInfo",
+    "name": "1f439c78-087c-427a-990b-6108a05f9551"
+  }, {
+    "condition": "$session.params.TwoFactor = 0",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_2FactorSwitch_5",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "targetPage": "checkChannel",
+    "name": "fbd59816-b57c-4e1c-98ae-9016daa898fa"
+  } ],
+  "eventHandlers": [ {
+    "targetPage": "checkChannel",
+    "event": "webhook.error",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_2FactorSwitch_Webhook_Error",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Authentication_2FactorSwitch",
+        "value": "Fail_Error"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "f339f550-df1a-4b72-87a7-fe4c1851553f"
+  }, {
+    "targetPage": "checkChannel",
+    "event": "webhook.error.bad-request",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_2FactorSwitch_Webhook_Invalid",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Authentication_2FactorSwitch",
+        "value": "Fail_Invalid"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "3c56ca73-9e1d-4086-b92a-621eb81a160f"
+  }, {
+    "targetPage": "checkChannel",
+    "event": "webhook.error.not-found",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_2FactorSwitch_Webhook_NotFound",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Authentication_2FactorSwitch",
+        "value": "Fail_NotFound"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "ca60c4bf-c6dd-41c4-a8ab-e9bc5dbda07b"
+  }, {
+    "targetPage": "checkChannel",
+    "event": "webhook.error.unavailable",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_2FactorSwitch_Webhook_Unavailable",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Authentication_2FactorSwitch",
+        "value": "Fail_Unavaliable"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "be34fd56-e11b-4870-bc16-5aaa46895f13"
+  }, {
+    "targetPage": "checkChannel",
+    "event": "webhook.error.timeout",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_2FactorSwitch_Webhook_Webhook_Timeout",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Authentication_2FactorSwitch",
+        "value": "Fail_Timeout"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "dbe4204a-86fb-45bd-b451-7d998245e88b"
+  }, {
+    "targetPage": "checkChannel",
+    "event": "webhook.error.rejected",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Authentication_2FactorSwitch_Webhook_Webhook_Rejected",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      }, {
+        "parameter": "API_Authentication_2FactorSwitch",
+        "value": "Fail_Rejected"
+      } ],
+      "nextActionOverride": {
+      
+      }
+    },
+    "name": "d84d6a33-d9b7-43b7-ba39-14dd625d513b"
+  } ]
+}

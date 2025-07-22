@@ -1,0 +1,31 @@
+{
+  "name": "dbf8e6d5-fa77-4c6a-b957-d38462522a49",
+  "displayName": "NonAutopayPURLAPI",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+  
+  },
+  "transitionRoutes": [ {
+    "condition": "$session.params.Send_PURLResponseStatus = \"Success\" OR $session.params.Send_PURLResponseStatus = \"success\" OR $session.params.Send_PURLResponseStatus = \"SUCCESS\"",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_NonAutopayPURLAPI_1",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NonAutopayPostpaidAccountStatus",
+    "name": "82ce4be0-9fe2-4f71-8891-3ac19cc59ee7"
+  }, {
+    "condition": "True",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Metrics_Payment_NonAutopayPURLAPI_Default",
+        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
+      } ]
+    },
+    "targetPage": "NonAutopayPURLFailure",
+    "name": "d7c068b5-fd80-4f28-af4e-5f2c1d5240d6"
+  } ]
+}

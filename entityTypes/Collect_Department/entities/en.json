@@ -1,0 +1,15 @@
+{
+  "entities": [ {
+    "value": "TSC",
+    "synonyms": [ "tsc", "Tsc", "TSC" ],
+    "languageCode": "en"
+  }, {
+    "value": "DRC",
+    "synonyms": [ "drc", "Drc", "DRC" ],
+    "languageCode": "en"
+  }, {
+    "value": "Back",
+    "synonyms": [ "\u003c back", "\u003c Back", "\u003c-Back", "\u003cback", "\u003cBack", "back", "Back", "\u003c-back" ],
+    "languageCode": "en"
+  } ]
+}

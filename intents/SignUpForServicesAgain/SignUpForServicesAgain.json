@@ -1,0 +1,11 @@
+{
+  "name": "267890dd-739b-4894-acf2-f425bdf56829",
+  "displayName": "SignUpForServicesAgain",
+  "parameters": [ {
+    "id": "street_number_custom",
+    "entityType": "@street_number_custom"
+  } ],
+  "priority": 500000,
+  "description": "Sign up for services again",
+  "numTrainingPhrases": 254
+}

@@ -1,0 +1,12 @@
+{
+  "name": "acbf5dcd-4998-4218-acf5-787a1c284530",
+  "displayName": "BalanceCheck",
+  "transitionRoutes": [ {
+    "intent": "Billing.Balance_inquiry",
+    "triggerFulfillment": {
+    
+    },
+    "targetFlow": "BalanceInquiryOrMakePayment",
+    "name": "2c234de2-5e43-43ac-b764-32775ff176a4"
+  } ]
+}
