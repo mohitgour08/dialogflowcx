@@ -2,50 +2,6 @@
   "name": "a9d69613-b07a-428f-9925-b50837788df0",
   "displayName": "Troubleshooting",
   "transitionRoutes": [ {
-    "intent": "28d4a919-c2d2-42e7-a50c-765359b78804",
-    "triggerFulfillment": {
-      "messages": [ {
-        "text": {
-          "text": [ "I understand that you have a question regarding rescheduling your appointment." ]
-        },
-        "languageCode": "en"
-      } ],
-      "setParameterActions": [ {
-        "parameter": "RouteIntent",
-        "value": "Repair"
-      }, {
-        "parameter": "Metrics_ListenInitialIntent_CollectIntent_RescheduleAppointment",
-        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
-      } ]
-    },
-    "targetFlow": "RoutetoAgent",
-    "name": "339f84ec-f61c-43c9-aef6-815792583f40"
-  }, {
-    "intent": "Troubleshooting.CheckOutages",
-    "triggerFulfillment": {
-      "messages": [ {
-        "text": {
-          "text": [ "I understand that you have a question regarding Outages." ]
-        },
-        "languageCode": "en"
-      } ],
-      "setParameterActions": [ {
-        "parameter": "RouteIntent",
-        "value": "Repair"
-      }, {
-        "parameter": "Metrics_ListenInitialIntent_CollectIntent_CheckOutages",
-        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
-      }, {
-        "parameter": "ToState",
-        "value": "CheckOutages"
-      }, {
-        "parameter": "ToModule",
-        "value": "Troubleshooting"
-      } ]
-    },
-    "targetFlow": "Troubleshooting",
-    "name": "541fb840-091f-4a37-8a6b-a9ef171ccc01"
-  }, {
     "intent": "Troubleshooting.GeneralTroubleshooting",
     "triggerFulfillment": {
       "messages": [ {
@@ -124,25 +80,6 @@
     },
     "targetFlow": "RoutetoAgent",
     "name": "b2895e19-bc1b-4470-90c5-6d64465d38b8"
-  }, {
-    "intent": "43d638f2-e4f2-4917-8122-d7f7a0a3631f",
-    "triggerFulfillment": {
-      "messages": [ {
-        "text": {
-          "text": [ "I understand that you have a question regarding technician's unavailability." ]
-        },
-        "languageCode": "en"
-      } ],
-      "setParameterActions": [ {
-        "parameter": "RouteIntent",
-        "value": "Repair"
-      }, {
-        "parameter": "Metrics_ListenInitialIntent_CollectIntent_TechnicianUnavailable",
-        "value": "$sys.func.TO_TEXT($sys.func.NOW())"
-      } ]
-    },
-    "targetFlow": "RoutetoAgent",
-    "name": "05542cf2-6e90-434c-874c-c14f3f9a182b"
   }, {
     "intent": "Troubleshooting.GetWifiModemCredentials",
     "triggerFulfillment": {
